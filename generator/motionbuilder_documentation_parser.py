@@ -1,7 +1,5 @@
 # Script for parsing the MB documentation and creating a json table with all of the avaliable pages
 
-from typing import Dict
-
 import json
 import os
 import re
@@ -11,11 +9,12 @@ from urllib import request
 # https://download.autodesk.com/us/motionbuilder/sdk-documentation/
 # https://download.autodesk.com/us/motionbuilder/sdk-documentation/contents-data.html
 
-URL = "https://download.autodesk.com/us/motionbuilder/sdk-documentation/"
-TABLE_OF_CONTENT_URL = "%sscripts/toc-treedata.js" % URL
+DOCS_URL = "https://download.autodesk.com/us/motionbuilder/sdk-documentation/"
+TABLE_OF_CONTENT_URL = "%sscripts/toc-treedata.js" % DOCS_URL
 
 DOCUMENTATION_DIR = os.path.join(
     os.path.dirname(__file__), "..", "documentation")
+
 
 class FDictTags:
     Title = "ttl"
@@ -23,7 +22,12 @@ class FDictTags:
     Id = "id"
     Children = "children"
     Ic = "ic"
-    
+
+    def Values(self):
+        Values = [getattr(self, x) for x in dir(self) if not x.startswith("_")]
+        return [x for x in Values if isinstance(x, str)]
+
+
 class EPageType:
     Unspecified = -1
     Guide = 0
@@ -41,21 +45,51 @@ def GetUrlContent(Url: str):
     return Response.read().decode('utf-8')
 
 
-def SaveData(Content, Filename):
-    Filepath = os.path.join(DOCUMENTATION_DIR, "%s.json" % Filename)
-    with open(Filepath, "w+") as File:
-        json.dump(Content, File)
-
 # ------------------------------------------
 #             Documentation Page
 # ------------------------------------------
 
 class MoBuDocumentationPage():
-    def __init__(self):
-        pass
-    
+    def __init__(self, PageInfo):
+        self._PageInfo = PageInfo
+        self.Title = PageInfo.get(FDictTags.Title)
+        self.Id = PageInfo.get(FDictTags.Id)
+        self.RelativeURL = PageInfo.get(FDictTags.Url)
+
+    def __repr__(self):
+        return '<object %s, "%s">' % (type(self).__name__, self.Title)
+
+    def GetURL(self, bIncludeSideBar = False):
+        if bIncludeSideBar:
+            return DOCS_URL + "?url=%s,topicNumber=%s" % (self.RelativeURL, self.Id)
+        return DOCS_URL + self.RelativeURL
+
     def LoadPage(self):
-        pass
+        RawHTML = GetUrlContent(self.GetURL())
+
+
+class MoBuDocumentationCategory(MoBuDocumentationPage):
+    def __init__(self, PageInfo):
+        super().__init__(PageInfo)
+        self.Pages = []
+        self.SubCategories = []
+        self.LoadChildren(PageInfo)
+
+    def LoadChildren(self, PageInfo):
+        for ChildPage in PageInfo.get(FDictTags.Children, []):
+            if FDictTags.Children in ChildPage:
+                self.SubCategories.append(MoBuDocumentationCategory(ChildPage))
+            else:
+                self.Pages.append(MoBuDocumentationPage(ChildPage))
+
+    def FindPage(self, PageName):
+        for Page in self.Pages:
+            if Page.Title == PageName:
+                return Page
+        for SubCategory in self.SubCategories:
+            Page = SubCategory.FindPage(PageName)
+            if Page:
+                return Page
 
 
 # ------------------------------------------
@@ -64,23 +98,28 @@ class MoBuDocumentationPage():
 
 class DocsTableOfContents():
     def __init__(self):
-        self._Content = [{}, {}, {}, {}]
+        self._Categories = []
         self.LoadData()
-        
+
     def LoadData(self):
         RawContent = GetUrlContent(TABLE_OF_CONTENT_URL)
-        self._Content = RawTableOfContentsToDicts(RawContent)
-        
-    def FindPage(self, PageName, PageType = EPageType.Unspecified):
-        ContentToSearch = []
-        if PageType == EPageType.Unspecified:
-            ContentToSearch = self._Content
-        else:
-            ContentToSearch = [self._Content[PageType]]
-        for ContentDict in ContentToSearch:
-            pass
+        for CategoryInfo in ParseTableOfContentString(RawContent):
+            self._Categories.append(MoBuDocumentationCategory(CategoryInfo))
 
-def RawTableOfContentsToDicts(TableOfContentString) -> list:
+    def FindPage(self, PageName, PageType = EPageType.Unspecified):
+        if PageType != EPageType.Unspecified:
+            return self._Categories[PageType].FindPage(PageName)
+
+        for ContentDict in self._Categories:
+            Page = ContentDict.FindPage(PageName)
+            if Page:
+                return Page
+
+
+def ParseTableOfContentString(TableOfContentString) -> list:
+    """
+    Parse the raw table of content .js file downloaded from the autodesk documentation webpage
+    """
     JsonString = ""
 
     for Line in TableOfContentString.split(";"):
@@ -93,15 +132,10 @@ def RawTableOfContentsToDicts(TableOfContentString) -> list:
 
     JsonString = JsonString.split("=")[1]
 
-    for Key in ["id", "ttl", "ln", "ic", "children"]:
+    for Key in FDictTags().Values():
         JsonString = JsonString.replace('%s:' % Key, '"%s":' % Key)
 
     return json.loads(JsonString)
 
 
-DocsTableOfContents()
-
-
-a = [{'a': 1}, {'b': 2}]
-
-print(zip(a))
+# test = DocsTableOfContents().FindPage("FBApplication", EPageType.Python).LoadPage()
