@@ -1,2 +1,2 @@
-# pyfbsdk-stub-generator
-Script for generating a stubfile for Autodesk MotionBuilder's pyfbsdk module
+# MotionBuilder pyfbsdk stub-file generator
+Script for generating more complete stub files for Autodesk MotionBuilder's python pyfbsdk module.
