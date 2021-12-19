@@ -18,18 +18,25 @@ import sys
 import os
 import re
 
+# Append current directory to path to be able to import modules
+sys.path.append(os.path.dirname(__file__))
+
+import motionbuilder_documentation_parser as docParser
+
 # Modules to generate a doc for
 import pyfbsdk_additions
 import pythonidelib
 import pyfbsdk
 
-MODULES = [pyfbsdk, pythonidelib]
+MODULES = [
+    (pyfbsdk, "pyfbsdk_gen_doc"),
+    (pythonidelib, "")
+    ]
 
 OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "generated-stub-files")
 
 TAB_CHAR = "    "
 
-# Custom additions to insert at the top of the stub file
 
 class FObjectType:
     Function = 'function'
@@ -367,8 +374,8 @@ def SortClasses(Classes):
     while (i < len(Classes)):
         Requirements = Classes[i].GetRequirements()
         if Requirements:
-            RequiredIndecies = [ClassNames.index(x) for x in Requirements if x in ClassNames]
-            RequiredMaxIndex = max(RequiredIndecies) if RequiredIndecies else -1
+            RequiredIndices = [ClassNames.index(x) for x in Requirements if x in ClassNames]
+            RequiredMaxIndex = max(RequiredIndices) if RequiredIndices else -1
             if RequiredMaxIndex > i:
                 Classes.insert(RequiredMaxIndex + 1, Classes.pop(i))
                 ClassNames.insert(RequiredMaxIndex + 1, ClassNames.pop(i))
@@ -380,18 +387,27 @@ def SortClasses(Classes):
 
 
 
-def GenerateStub(Filepath: str, Module, GeneratedDocModuleName = ""):
+def GenerateStub(Module, Filepath: str, SourcePyFile = ""):
+    """
+    Generate a stubfile
+    
+    * Module: Reference to a module to generate a stubfile
+    * Filepath: The output abs filepath
+    * SourcePyFile: If there exists a source .py file with doc comments (like pyfbsdk_gen_doc.py)
+    """
+    # Find all Functions, Classes etc. inside of the module
     Functions = [x[1] for x in inspect.getmembers(Module) if GetObjectType(x[1]) == FObjectType.Function and not IsPrivate(x[1])]
     Classes = [x[1] for x in inspect.getmembers(Module) if GetObjectType(x[1]) == FObjectType.Class]
     Enums = [x[1] for x in inspect.getmembers(Module) if GetObjectType(x[1]) == FObjectType.Enum]
     Misc = [x for x in inspect.getmembers(Module) if GetObjectType(x[1]) not in [FObjectType.Function, FObjectType.Class, FObjectType.Enum]]
     
-    DocMembers = []
-    if GeneratedDocModuleName:
-        ImportedModule = importlib.import_module(GeneratedDocModuleName)
+    # Get att members from the pre-generated doc/stub file 
+    DocMembers = {}
+    if SourcePyFile:
+        ImportedModule = importlib.import_module(SourcePyFile)
         DocMembers = dict(inspect.getmembers(ImportedModule))
     
-    # Collect all of the data
+    # Construct stub class instances based on all functions & classes found in the module
     StubFunctions = [GenerateStubFunction(x, DocMembers) for x in Functions]
     StubClasses = [GenerateStubClass(x, DocMembers) for x in Classes]
     StubEnums = [GenerateStubClass(x, DocMembers) for x in Enums]
@@ -402,11 +418,12 @@ def GenerateStub(Filepath: str, Module, GeneratedDocModuleName = ""):
     StubFileContent = ""
     
     # Extra custom additions
-    AdditionsFilepath = os.path.join(os.path.dirname(__file__), "additions-%s.py" % Module.__name__)
+    AdditionsFilepath = os.path.join(os.path.dirname(__file__), "additions_%s.py" % Module.__name__)
     if os.path.isfile(AdditionsFilepath):
         with open(AdditionsFilepath, 'r') as File:
             StubFileContent += "%s\n" % File.read()        
     
+    # Add Enums, Classes & Functions to the string
     StubFileContent += "%s\n" % "\n".join([x.GetAsString() for x in StubEnums + StubClasses + StubFunctions])
     
     # Write content into the file
@@ -415,16 +432,16 @@ def GenerateStub(Filepath: str, Module, GeneratedDocModuleName = ""):
 
 
 
-def GenerateStubFiles(OutputDirectory = ""):
+def GenerateMotionBuilderStubFiles(OutputDirectory = ""):
     if not OutputDirectory:
         OutputDirectory = os.path.join(OUTPUT_DIR, "motionbuilder-%s" % GetMotionBuilderVersion())
         if not os.path.isdir(OutputDirectory):
             os.makedirs(OutputDirectory)
     
     for Module in MODULES:
-        OutputFilepath = os.path.join(OutputDirectory, "%s.py" % Module.__name__)
-        GenerateStub(OutputFilepath, Module, "pyfbsdk_gen_doc")
+        OutputFilepath = os.path.join(OutputDirectory, "%s.py" % Module[0].__name__)
+        GenerateStub(Module[0], OutputFilepath, Module[1])
 
 
 # if "builtin" in __name__:
-GenerateStubFiles()
+GenerateMotionBuilderStubFiles()
