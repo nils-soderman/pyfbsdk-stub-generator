@@ -5,6 +5,7 @@ import os
 import re
 
 from urllib import request
+from html.parser import HTMLParser
 
 # https://download.autodesk.com/us/motionbuilder/sdk-documentation/
 # https://download.autodesk.com/us/motionbuilder/sdk-documentation/contents-data.html
@@ -44,17 +45,114 @@ def GetUrlContent(Url: str):
     Response = request.urlopen(Url)
     return Response.read().decode('utf-8')
 
+# ------------------------------------------
+#               DocPage Parser
+# ------------------------------------------
+class FMoBuDocsParserItem():
+    Item = "memitem"
+    Name = "memname"
+    Doc = "memdoc"
+    ParameterNames = "paramname"
+    ParameterTypes = "paramtype"
 
+class MoBuDocsHTMLParser(HTMLParser):
+    def __init__(self, *, convert_charrefs: bool = ...):
+        super().__init__(convert_charrefs=convert_charrefs)
+        
+        self.Items = []
+        self.CurrentItem = None
+        self.CurrentDataTag = None
+        self.bCollectingDocData = False
+        
+    def handle_starttag(self, tag, attrs):
+        Attributes = dict(attrs)
+        if tag == "div":
+            ClassName = Attributes.get("class")
+            if ClassName == FMoBuDocsParserItem.Item:
+                if self.CurrentItem:
+                    self.Items.append(self.CurrentItem)
+                self.CurrentItem = {}
+            if ClassName == FMoBuDocsParserItem.Doc:
+                self.CurrentDataTag = FMoBuDocsParserItem.Doc
+        elif tag == "td" and not self.CurrentDataTag:
+            self.CurrentDataTag = Attributes.get("class")
+
+    def handle_endtag(self, tag):
+        if self.CurrentDataTag == FMoBuDocsParserItem.Doc:
+            if tag == "div":
+                self.CurrentDataTag = None
+        elif tag == "td":
+            self.CurrentDataTag = None
+
+    def handle_data(self, Data):
+        #Data = Data.strip()
+        if self.CurrentDataTag and self.CurrentItem != None and Data.strip():
+            CurrentText = self.CurrentItem.get(self.CurrentDataTag, "")
+            if CurrentText:
+                CurrentText += " "
+            if self.CurrentDataTag != FMoBuDocsParserItem.Doc:
+                Data = Data.strip()
+            self.CurrentItem[self.CurrentDataTag] = CurrentText + Data
+            
+    def GetMembers(self):
+        return [MoBuDocMember(x) for x in self.Items]
+
+class MoBuDocParameter():
+    def __init__(self, Name, Type, Default = None):
+        self.Name = Name
+        self.Type = Type
+        self.Default = Default
+
+class MoBuDocMember():
+    def __init__(self, Data) -> None:
+        self.Name = ""
+        self.Type = None
+        self.bDeprecated = False
+        self.Params = []
+        self.DocString = ""
+        
+        self.LoadData(Data)
+        
+    def LoadData(self, Data):
+        # Name & Type
+        self.Name = Data.get(FMoBuDocsParserItem.Name, "")
+        self.bDeprecated = self.Name.startswith("K_DEPRECATED")
+        if self.bDeprecated:
+            self.Name = self.Name.replace("K_DEPRECATED", "").strip()
+        if " " in self.Name:
+            self.Type, self.Name = self.Name.split(" ")
+        
+        # Parameters
+        ParameterTypes = Data.get(FMoBuDocsParserItem.ParameterTypes)
+        ParameterNames = Data.get(FMoBuDocsParserItem.ParameterNames)
+        if ParameterTypes and ParameterNames:
+            ParameterTypes = ParameterTypes.split(" ")
+            ParameterNames = ParameterNames.split(",")
+            if len(ParameterNames) != len(ParameterTypes):
+                raise Exception("Lenght of ParamTypes & ParamNames does not match!")
+            for Type, Name in zip(ParameterTypes, ParameterNames):
+                DefaultValue = None
+                if "=" in Name:
+                    Name, DefaultValue = (x.strip() for x in Name.split("="))
+                self.Params.append(MoBuDocParameter(Name, Type, DefaultValue))
+        
+        # Doc String
+        self.DocString = Data.get(FMoBuDocsParserItem.Doc)
+        
+        
 # ------------------------------------------
 #             Documentation Page
 # ------------------------------------------
 
 class MoBuDocumentationPage():
-    def __init__(self, PageInfo):
+    def __init__(self, PageInfo, bLoadPage = False):
         self._PageInfo = PageInfo
         self.Title = PageInfo.get(FDictTags.Title)
         self.Id = PageInfo.get(FDictTags.Id)
         self.RelativeURL = PageInfo.get(FDictTags.Url)
+        self.Members = []
+        if bLoadPage:
+            self.LoadPage()
 
     def __repr__(self):
         return '<object %s, "%s">' % (type(self).__name__, self.Title)
@@ -66,6 +164,9 @@ class MoBuDocumentationPage():
 
     def LoadPage(self):
         RawHTML = GetUrlContent(self.GetURL())
+        Parser = MoBuDocsHTMLParser()
+        Parser.feed(RawHTML)
+        self.Members = Parser.GetMembers()
 
 
 class MoBuDocumentationCategory(MoBuDocumentationPage):
@@ -82,13 +183,15 @@ class MoBuDocumentationCategory(MoBuDocumentationPage):
             else:
                 self.Pages.append(MoBuDocumentationPage(ChildPage))
 
-    def FindPage(self, PageName):
+    def FindPage(self, PageName, bLoadPage = False):
         for Page in self.Pages:
             if Page.Title == PageName:
                 return Page
         for SubCategory in self.SubCategories:
-            Page = SubCategory.FindPage(PageName)
+            Page = SubCategory.FindPage(PageName, bLoadPage)
             if Page:
+                if bLoadPage:
+                    Page.LoadPage()
                 return Page
 
 
@@ -106,12 +209,12 @@ class DocsTableOfContents():
         for CategoryInfo in ParseTableOfContentString(RawContent):
             self._Categories.append(MoBuDocumentationCategory(CategoryInfo))
 
-    def FindPage(self, PageName, PageType = EPageType.Unspecified):
+    def FindPage(self, PageName, PageType = EPageType.Unspecified, bLoadPage = True):
         if PageType != EPageType.Unspecified:
-            return self._Categories[PageType].FindPage(PageName)
+            return self._Categories[PageType].FindPage(PageName, bLoadPage)
 
         for ContentDict in self._Categories:
-            Page = ContentDict.FindPage(PageName)
+            Page = ContentDict.FindPage(PageName, bLoadPage)
             if Page:
                 return Page
 
@@ -138,4 +241,4 @@ def ParseTableOfContentString(TableOfContentString) -> list:
     return json.loads(JsonString)
 
 
-# test = DocsTableOfContents().FindPage("FBApplication", EPageType.Python).LoadPage()
+test = DocsTableOfContents().FindPage("FBApplication", EPageType.Python)
