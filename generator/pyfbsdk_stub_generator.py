@@ -18,10 +18,14 @@ import sys
 import os
 import re
 
+from importlib import reload
+
 # Append current directory to path to be able to import modules
 sys.path.append(os.path.dirname(__file__))
 
 import motionbuilder_documentation_parser as docParser
+reload(docParser)
+
 
 # Modules to generate a doc for
 import pyfbsdk_additions
@@ -36,6 +40,8 @@ MODULES = [
 OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "generated-stub-files")
 
 TAB_CHAR = "    "
+
+OnlineDocs = docParser.DocsTableOfContents(bCache = False)
 
 
 class FObjectType:
@@ -328,12 +334,15 @@ def GenerateStubFunction(Function, DocMembers, Indentation = 0, bIsClassFunction
 
 
 def GenerateStubClass(Class, DocMembers):
+    print("Class: %s" %(Class))
     ClassName:str = Class.__name__
     DocClasses = [x for x in DocMembers if type(x).__name__ in ["class", "type"]]
     DocMemberNames = [x.__name__ for x in DocClasses]
     
     StubClassInstance = StubClass(ClassName)
     StubClassInstance.Parents = GetClassParentNames(Class)
+    
+    DocWebPage = OnlineDocs.FindPage(ClassName, docParser.EPageType.Python)
     
     # TODO: DocMembers/DocGenRef etc. could be a class
     DocGenRef = DocMembers.get(ClassName)
@@ -344,6 +353,7 @@ def GenerateStubClass(Class, DocMembers):
         
     for Name, Reference in GetClassMembers(Class):
         MemberType = GetObjectType(Reference)
+        DocWebMember = DocWebPage.FindMember(Name) if DocWebPage else None
         if MemberType == FObjectType.Function:
             try:
                 StubClassInstance.StubFunctions.append(
@@ -354,7 +364,7 @@ def GenerateStubClass(Class, DocMembers):
         else:
             Property = StubProperty(Name)
             if MemberType == FObjectType.Property:
-                Property.Type = "property"
+                Property.Type = DocWebMember.Type if DocWebMember else "property"
             else:
                 Property.Type = ClassName
             StubClassInstance.StubProperties.append(Property)
@@ -409,7 +419,7 @@ def GenerateStub(Module, Filepath: str, SourcePyFile = ""):
     
     # Construct stub class instances based on all functions & classes found in the module
     StubFunctions = [GenerateStubFunction(x, DocMembers) for x in Functions]
-    StubClasses = [GenerateStubClass(x, DocMembers) for x in Classes]
+    StubClasses = [GenerateStubClass(x, DocMembers) for x in Classes]#[20:25]]
     StubEnums = [GenerateStubClass(x, DocMembers) for x in Enums]
     
     Classes = SortClasses(StubClasses)

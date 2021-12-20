@@ -1,5 +1,7 @@
 # Script for parsing the MB documentation and creating a json table with all of the avaliable pages
 
+import tempfile
+import shutil
 import json
 import os
 import re
@@ -45,6 +47,27 @@ def GetUrlContent(Url: str):
     Response = request.urlopen(Url)
     return Response.read().decode('utf-8')
 
+def GetCacheFolder():
+    return os.path.join(tempfile.gettempdir(), "mobu-docs-cache")
+
+def GetCacheFilepath(RelativeUrl):
+    return os.path.join(GetCacheFolder(), *RelativeUrl.split("/"))
+
+def ClearCache():
+    shutil.rmtree(GetCacheFolder())
+    
+def ReadFile(Filepath):
+    with open(Filepath, "r") as File:
+        return File.read()
+
+def SaveFile(Filepath, Content):
+    # Make sure folder exists before writing the file
+    if not os.path.isdir(os.path.dirname(Filepath)):
+        os.makedirs(os.path.dirname(Filepath))
+        
+    with open(Filepath, "w+") as File:
+        File.write(Content)
+
 # ------------------------------------------
 #               DocPage Parser
 # ------------------------------------------
@@ -54,6 +77,9 @@ class FMoBuDocsParserItem():
     Doc = "memdoc"
     ParameterNames = "paramname"
     ParameterTypes = "paramtype"
+    
+class FMoBoDocsParameterNames():
+    NoDefaultValue = "NoDefaultValue"
 
 class MoBuDocsHTMLParser(HTMLParser):
     def __init__(self, *, convert_charrefs: bool = ...):
@@ -83,6 +109,8 @@ class MoBuDocsHTMLParser(HTMLParser):
                 self.CurrentDataTag = None
         elif tag == "td":
             self.CurrentDataTag = None
+        elif tag == "body" and self.CurrentItem:
+            self.Items.append(self.CurrentItem)
 
     def handle_data(self, Data):
         #Data = Data.strip()
@@ -98,13 +126,16 @@ class MoBuDocsHTMLParser(HTMLParser):
         return [MoBuDocMember(x) for x in self.Items]
 
 class MoBuDocParameter():
-    def __init__(self, Name, Type, Default = None):
+    def __init__(self, Name, Type, Default = FMoBoDocsParameterNames.NoDefaultValue):
         self.Name = Name
         self.Type = Type
         self.Default = Default
+        
+        def __repr__(self):
+            return '<object %s, %s:%s = %s>' % (type(self).__name__, self.Title, self.Type, self.Default)
 
 class MoBuDocMember():
-    def __init__(self, Data) -> None:
+    def __init__(self, Data):
         self.Name = ""
         self.Type = None
         self.bDeprecated = False
@@ -131,7 +162,7 @@ class MoBuDocMember():
             if len(ParameterNames) != len(ParameterTypes):
                 raise Exception("Lenght of ParamTypes & ParamNames does not match!")
             for Type, Name in zip(ParameterTypes, ParameterNames):
-                DefaultValue = None
+                DefaultValue = FMoBoDocsParameterNames.NoDefaultValue
                 if "=" in Name:
                     Name, DefaultValue = (x.strip() for x in Name.split("="))
                 self.Params.append(MoBuDocParameter(Name, Type, DefaultValue))
@@ -162,11 +193,23 @@ class MoBuDocumentationPage():
             return DOCS_URL + "?url=%s,topicNumber=%s" % (self.RelativeURL, self.Id)
         return DOCS_URL + self.RelativeURL
 
-    def LoadPage(self):
-        RawHTML = GetUrlContent(self.GetURL())
+    def LoadPage(self, bCache = False):
+        CacheFilepath = GetCacheFilepath(self.RelativeURL)
+        RawHTML = ""
+        if bCache and os.path.isfile(CacheFilepath):
+            RawHTML = ReadFile(CacheFilepath)
+        else:
+            RawHTML = GetUrlContent(self.GetURL())
+            if bCache:
+                SaveFile(CacheFilepath, RawHTML)
         Parser = MoBuDocsHTMLParser()
         Parser.feed(RawHTML)
         self.Members = Parser.GetMembers()
+        
+    def FindMember(self, Name):
+        for Member in self.Members:
+            if Member.Name == Name:
+                return Member
 
 
 class MoBuDocumentationCategory(MoBuDocumentationPage):
@@ -183,7 +226,7 @@ class MoBuDocumentationCategory(MoBuDocumentationPage):
             else:
                 self.Pages.append(MoBuDocumentationPage(ChildPage))
 
-    def FindPage(self, PageName, bLoadPage = False):
+    def FindPage(self, PageName, bLoadPage = False, bCache = False):
         for Page in self.Pages:
             if Page.Title == PageName:
                 return Page
@@ -191,7 +234,7 @@ class MoBuDocumentationCategory(MoBuDocumentationPage):
             Page = SubCategory.FindPage(PageName, bLoadPage)
             if Page:
                 if bLoadPage:
-                    Page.LoadPage()
+                    Page.LoadPage(bCache)
                 return Page
 
 
@@ -200,21 +243,22 @@ class MoBuDocumentationCategory(MoBuDocumentationPage):
 # ------------------------------------------
 
 class DocsTableOfContents():
-    def __init__(self):
+    def __init__(self, bCache = False):
         self._Categories = []
         self.LoadData()
+        self.bCache = bCache
 
     def LoadData(self):
         RawContent = GetUrlContent(TABLE_OF_CONTENT_URL)
         for CategoryInfo in ParseTableOfContentString(RawContent):
             self._Categories.append(MoBuDocumentationCategory(CategoryInfo))
 
-    def FindPage(self, PageName, PageType = EPageType.Unspecified, bLoadPage = True):
+    def FindPage(self, PageName, PageType = EPageType.Unspecified, bLoadPage = True) -> MoBuDocumentationPage:
         if PageType != EPageType.Unspecified:
-            return self._Categories[PageType].FindPage(PageName, bLoadPage)
+            return self._Categories[PageType].FindPage(PageName, bLoadPage, self.bCache)
 
         for ContentDict in self._Categories:
-            Page = ContentDict.FindPage(PageName, bLoadPage)
+            Page = ContentDict.FindPage(PageName, bLoadPage, self.bCache)
             if Page:
                 return Page
 
@@ -239,6 +283,3 @@ def ParseTableOfContentString(TableOfContentString) -> list:
         JsonString = JsonString.replace('%s:' % Key, '"%s":' % Key)
 
     return json.loads(JsonString)
-
-
-test = DocsTableOfContents().FindPage("FBApplication", EPageType.Python)
