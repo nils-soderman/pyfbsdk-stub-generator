@@ -9,11 +9,11 @@ except:
     raise Exception("Code running outside of MotionBuilder. Please run this inside of the MotionBuilder version you want to generate a stub file for.")
 
 
-
 import importlib
 import inspect
 import typing
 import pydoc
+import time
 import sys
 import os
 import re
@@ -41,8 +41,20 @@ OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "generated-stub-files
 
 TAB_CHAR = "    "
 
-OnlineDocs = docParser.DocsTableOfContents(bCache = False)
+# ---------------------------
+#     Enums And Structs
+# ---------------------------
 
+VariableTypeRenames = {
+    "double": "float",
+    "String": "str",
+    "Int": "int",
+    "Float": "float",
+    "Bool": "bool",
+    "char": "str",
+    "FBVector4object": "FBVector4d",
+    "FBTVector": "FBVector3d",
+}
 
 class FObjectType:
     Function = 'function'
@@ -107,7 +119,24 @@ def PatchArgumentName(Param:str):
         
     return Param
 
-
+def PatchVarialbeType(VariableType: str, AllClassNames, Default = None):
+    NewVariableType = VariableType
+    if VariableType.startswith("FBPropertyAnimatable"):
+        NewVariableType = VariableType.replace("PropertyAnimatable", "", 1)
+    elif VariableType.startswith("FBProperty"):
+        NewVariableType = VariableType.replace("Property", "", 1)
+    
+    for Key, Value in VariableTypeRenames.items():
+        if Key.lower() == NewVariableType.lower() or ("FB%s"% Key).lower() == NewVariableType.lower():
+            return Value
+        
+    if NewVariableType in AllClassNames:
+        return NewVariableType
+    
+    if VariableType in AllClassNames:
+        return VariableType
+    
+    return Default
 
 # --------------------------------------------------------
 #                       Classes
@@ -224,22 +253,26 @@ class StubClass(StubMainClass):
 class StubProperty(StubMainClass):
     def __init__(self, Name="", Indentation = 0):
         super().__init__(Name=Name, Indentation = Indentation)
-        self.Type = None
+        self._Type = None
         
     def GetType(self):
-        if self.Type:
-            return self.Type
+        if self._Type:
+            return self._Type
         return "property"
+    
+    def SetType(self, Type):
+        self._Type = Type
         
     def GetRequirements(self):
-        if self.Type and self.Type.startswith("FB"):
-            return [self.Type]
+        if self._Type and self._Type.startswith("FB"):
+            return [self._Type]
         return []
         
     def GetAsString(self):
         PropertyAsString = self.Indent("%s:%s" % (self.Name, self.GetType()), bCurrent = True)
         if self.GetDocString():
-            PropertyAsString += self.Indent("\n%s" % self.GetDocString(), bCurrent = True)
+            PropertyAsString += "\n"
+            PropertyAsString += self.Indent(self.GetDocString(), bCurrent = True)
 
         return PropertyAsString
 
@@ -332,9 +365,7 @@ def GenerateStubFunction(Function, DocMembers, Indentation = 0, bIsClassFunction
         
     return StubFunctionInstance
 
-
-def GenerateStubClass(Class, DocMembers):
-    print("Class: %s" %(Class))
+def GenerateStubClass(Class, DocMembers, AllClassNames, MoBuDocumentation:docParser.MotionBuilderDocumentation = None, bVerbose = False):
     ClassName:str = Class.__name__
     DocClasses = [x for x in DocMembers if type(x).__name__ in ["class", "type"]]
     DocMemberNames = [x.__name__ for x in DocClasses]
@@ -342,7 +373,10 @@ def GenerateStubClass(Class, DocMembers):
     StubClassInstance = StubClass(ClassName)
     StubClassInstance.Parents = GetClassParentNames(Class)
     
-    DocWebPage = OnlineDocs.FindPage(ClassName, docParser.EPageType.Python)
+    
+    Page = MoBuDocumentation.GetSDKClassByName(ClassName) if MoBuDocumentation else None
+    if not Page and bVerbose:
+        print("Could not find SDK docs for: %s" %(ClassName))
     
     # TODO: DocMembers/DocGenRef etc. could be a class
     DocGenRef = DocMembers.get(ClassName)
@@ -353,20 +387,29 @@ def GenerateStubClass(Class, DocMembers):
         
     for Name, Reference in GetClassMembers(Class):
         MemberType = GetObjectType(Reference)
-        DocWebMember = DocWebPage.FindMember(Name) if DocWebPage else None
+        DocWebMember = Page.GetMember(Name) if Page else None
         if MemberType == FObjectType.Function:
             try:
                 StubClassInstance.StubFunctions.append(
                     GenerateStubFunction(Reference, DocGenMembers, bIsClassFunction = True)
                 )
             except:
-                print("Failed for %s" % Name)
+                if bVerbose: print("Failed for %s" % Name)
         else:
             Property = StubProperty(Name)
             if MemberType == FObjectType.Property:
-                Property.Type = DocWebMember.Type if DocWebMember else "property"
+                Type = DocWebMember.Type if DocWebMember else None
+                if not Type:
+                    try:
+                        Type = eval("type(%s().%s).__name__" % (ClassName, Name))
+                        if Type == "NoneType":
+                            Type = None                            
+                    except:
+                        pass
+                if Type:
+                    Property.SetType(PatchVarialbeType(Type, AllClassNames))
             else:
-                Property.Type = ClassName
+                Property.SetType(ClassName)
             StubClassInstance.StubProperties.append(Property)
             PropertyDocGenRef = DocGenMembers.get(Name)
             if PropertyDocGenRef:
@@ -405,22 +448,27 @@ def GenerateStub(Module, Filepath: str, SourcePyFile = ""):
     * Filepath: The output abs filepath
     * SourcePyFile: If there exists a source .py file with doc comments (like pyfbsdk_gen_doc.py)
     """
+    StartTime = time.time()
+    
     # Find all Functions, Classes etc. inside of the module
     Functions = [x[1] for x in inspect.getmembers(Module) if GetObjectType(x[1]) == FObjectType.Function and not IsPrivate(x[1])]
     Classes = [x[1] for x in inspect.getmembers(Module) if GetObjectType(x[1]) == FObjectType.Class]
     Enums = [x[1] for x in inspect.getmembers(Module) if GetObjectType(x[1]) == FObjectType.Enum]
     Misc = [x for x in inspect.getmembers(Module) if GetObjectType(x[1]) not in [FObjectType.Function, FObjectType.Class, FObjectType.Enum]]
     
-    # Get att members from the pre-generated doc/stub file 
+    # Get all members from the pre-generated doc/stub file 
+    MoBuDocumentation = docParser.MotionBuilderDocumentation(GetMotionBuilderVersion(), bCache = True)
     DocMembers = {}
     if SourcePyFile:
         ImportedModule = importlib.import_module(SourcePyFile)
         DocMembers = dict(inspect.getmembers(ImportedModule))
     
+    AllClassNames = [x.__name__ for x in Classes + Enums]
+    
     # Construct stub class instances based on all functions & classes found in the module
     StubFunctions = [GenerateStubFunction(x, DocMembers) for x in Functions]
-    StubClasses = [GenerateStubClass(x, DocMembers) for x in Classes]#[20:25]]
-    StubEnums = [GenerateStubClass(x, DocMembers) for x in Enums]
+    StubClasses = [GenerateStubClass(x, DocMembers, AllClassNames, MoBuDocumentation, bVerbose = True) for x in Classes]
+    StubEnums = [GenerateStubClass(x, DocMembers, AllClassNames) for x in Enums]
     
     Classes = SortClasses(StubClasses)
     
@@ -440,6 +488,8 @@ def GenerateStub(Module, Filepath: str, SourcePyFile = ""):
     with open(Filepath, "w+") as File:
         File.write(StubFileContent)
 
+    ElapsedTime = time.time() - StartTime
+    print("Generating stub for module %s took %ss" %(Module.__name__, ElapsedTime))
 
 
 def GenerateMotionBuilderStubFiles(OutputDirectory = ""):

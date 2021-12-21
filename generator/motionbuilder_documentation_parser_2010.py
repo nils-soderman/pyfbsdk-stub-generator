@@ -1,3 +1,5 @@
+# Script for parsing the 2010 MB documentation
+
 import tempfile
 import shutil
 import json
@@ -10,24 +12,8 @@ from html.parser import HTMLParser
 # https://download.autodesk.com/us/motionbuilder/sdk-documentation/
 # https://download.autodesk.com/us/motionbuilder/sdk-documentation/contents-data.html
 
-# https://help.autodesk.com/view/MOBPRO/2020/ENU/
-# https://help.autodesk.com/view/MOBPRO/2020/ENU/?guid=__py_ref_index_html
-# https://help.autodesk.com/view/MOBPRO/2022/ENU/?guid=MotionBuilder_SDK_py_ref_index_html
-
-MOBU_DOCS_VIEW_URL = "https://help.autodesk.com/view/MOBPRO/"
-MOBU_DOCS_COULDHELP_URL = "https://help.autodesk.com/cloudhelp/"
-
-DOC_GUIDE_CONTENTS_PATH = "ENU/data/toctree.json"
-
-PYFBSDK_PATH = "ENU/MotionBuilder-SDK/py_ref/group__pyfbsdk.js"
-PYFBSDK_ADDITIONS_PATH = "ENU/MotionBuilder-SDK/py_ref/group__pyfbsdk__additions.js"
-PYTHON_EXAMPLES_PATH = "ENU/MotionBuilder-SDK/py_ref/examples.js"
-
-SDK_CPP_PATH = "ENU/MotionBuilder-SDK/cpp_ref/"
-SDK_CLASSES_PATH = SDK_CPP_PATH + "annotated_dup.js"
-SDK_FILES_PATH = SDK_CPP_PATH + "files_dup.js"
-# DOCS_URL = "https://download.autodesk.com/us/motionbuilder/sdk-documentation/"
-# TABLE_OF_CONTENT_URL = "%sscripts/toc-treedata.js" % DOCS_URL
+DOCS_URL = "https://download.autodesk.com/us/motionbuilder/sdk-documentation/"
+TABLE_OF_CONTENT_URL = "%sscripts/toc-treedata.js" % DOCS_URL
 
 DOCUMENTATION_DIR = os.path.join(
     os.path.dirname(__file__), "..", "documentation")
@@ -57,47 +43,34 @@ class EPageType:
 #           Helper Functions
 # ------------------------------------------
 
-def GetFullURL(Version, Path, bIsSDK = False):
-    BaseURL = MOBU_DOCS_COULDHELP_URL if bIsSDK else MOBU_DOCS_VIEW_URL
-    return "%s%s/%s" % (BaseURL, Version, Path)
-
-
 def GetUrlContent(Url: str):
-    print("WEB CALL TO %s" % Url)
     Response = request.urlopen(Url)
     return Response.read().decode('utf-8')
-
 
 def GetCacheFolder():
     return os.path.join(tempfile.gettempdir(), "mobu-docs-cache")
 
-
 def GetCacheFilepath(RelativeUrl):
     return os.path.join(GetCacheFolder(), *RelativeUrl.split("/"))
 
-
 def ClearCache():
     shutil.rmtree(GetCacheFolder())
-
-
+    
 def ReadFile(Filepath):
     with open(Filepath, "r") as File:
         return File.read()
-
 
 def SaveFile(Filepath, Content):
     # Make sure folder exists before writing the file
     if not os.path.isdir(os.path.dirname(Filepath)):
         os.makedirs(os.path.dirname(Filepath))
-
+        
     with open(Filepath, "w+") as File:
         File.write(Content)
 
 # ------------------------------------------
 #               DocPage Parser
 # ------------------------------------------
-
-
 class FMoBuDocsParserItem():
     Item = "memitem"
     Name = "memname"
@@ -105,24 +78,18 @@ class FMoBuDocsParserItem():
     ParameterNames = "paramname"
     ParameterTypes = "paramtype"
     
-    def GetValues():
-        Values = [getattr(FMoBuDocsParserItem, x) for x in dir(FMoBuDocsParserItem) if not x.startswith("_")]
-        return [x for x in Values if isinstance(x, str)]
-
-
 class FMoBoDocsParameterNames():
     NoDefaultValue = "NoDefaultValue"
-
 
 class MoBuDocsHTMLParser(HTMLParser):
     def __init__(self, *, convert_charrefs: bool = ...):
         super().__init__(convert_charrefs=convert_charrefs)
-
+        
         self.Items = []
         self.CurrentItem = None
         self.CurrentDataTag = None
         self.bCollectingDocData = False
-
+        
     def handle_starttag(self, tag, attrs):
         Attributes = dict(attrs)
         if tag == "div":
@@ -134,9 +101,7 @@ class MoBuDocsHTMLParser(HTMLParser):
             if ClassName == FMoBuDocsParserItem.Doc:
                 self.CurrentDataTag = FMoBuDocsParserItem.Doc
         elif tag == "td" and not self.CurrentDataTag:
-            ClassName = Attributes.get("class")
-            if ClassName in FMoBuDocsParserItem.GetValues():
-                self.CurrentDataTag = ClassName
+            self.CurrentDataTag = Attributes.get("class")
 
     def handle_endtag(self, tag):
         if self.CurrentDataTag == FMoBuDocsParserItem.Doc:
@@ -156,79 +121,67 @@ class MoBuDocsHTMLParser(HTMLParser):
             if self.CurrentDataTag != FMoBuDocsParserItem.Doc:
                 Data = Data.strip()
             self.CurrentItem[self.CurrentDataTag] = CurrentText + Data
-
+            
     def GetMembers(self):
         return [MoBuDocMember(x) for x in self.Items]
-        
-
 
 class MoBuDocParameter():
     def __init__(self, Name, Type, Default = FMoBoDocsParameterNames.NoDefaultValue):
         self.Name = Name
         self.Type = Type
         self.Default = Default
-
-    def __repr__(self):
-        return '<object %s, %s:%s = %s>' % (type(self).__name__, self.Name, self.Type, self.Default)
-
+        
+        def __repr__(self):
+            return '<object %s, %s:%s = %s>' % (type(self).__name__, self.Title, self.Type, self.Default)
 
 class MoBuDocMember():
     def __init__(self, Data):
         self.Name = ""
         self.Type = None
+        self.bDeprecated = False
         self.Params = []
         self.DocString = ""
-
+        
         self.LoadData(Data)
-
+        
     def LoadData(self, Data):
         # Name & Type
-        self.Name = CPlusVariableNamesToPython(Data.get(FMoBuDocsParserItem.Name, ""))
+        self.Name = Data.get(FMoBuDocsParserItem.Name, "")
+        self.bDeprecated = self.Name.startswith("K_DEPRECATED")
+        if self.bDeprecated:
+            self.Name = self.Name.replace("K_DEPRECATED", "").strip()
         if " " in self.Name:
-            try:
-                self.Type, self.Name = self.Name.split(" ")
-            except Exception as e:
-                print("Name that could not be split: %s" % self.Name)
-                return
-
+            self.Type, self.Name = self.Name.split(" ")
+        
         # Parameters
         ParameterTypes = Data.get(FMoBuDocsParserItem.ParameterTypes)
         ParameterNames = Data.get(FMoBuDocsParserItem.ParameterNames)
         if ParameterTypes and ParameterNames:
-            ParameterTypes = CPlusVariableNamesToPython(ParameterTypes).split(" ")
+            ParameterTypes = ParameterTypes.split(" ")
             ParameterNames = ParameterNames.split(",")
             if len(ParameterNames) != len(ParameterTypes):
-                raise Exception("Lenght of ParamTypes & ParamNames does not match! (in: %s)\n%s\n%s" % (self.Name, str(ParameterNames), str(ParameterTypes)))
+                raise Exception("Lenght of ParamTypes & ParamNames does not match!")
             for Type, Name in zip(ParameterTypes, ParameterNames):
                 DefaultValue = FMoBoDocsParameterNames.NoDefaultValue
                 if "=" in Name:
                     Name, DefaultValue = (x.strip() for x in Name.split("="))
                 self.Params.append(MoBuDocParameter(Name, Type, DefaultValue))
-
+        
         # Doc String
         self.DocString = Data.get(FMoBuDocsParserItem.Doc)
-
-
-def CPlusVariableNamesToPython(Text):
-    for Char in ["(void *)", "*", "&", "const", "K_DEPRECATED", "virtual", "static", "unsigned"]:
-        Text = Text.replace(Char, "")
         
-    if "<" in Text and ">" in Text:
-        # Handle Arrays
-        Text = re.sub(r"[A-z]*\s*<\s*[A-z]*\s*>", "object", Text)
-    return re.sub(' +', ' ', Text).strip()
-
+        
 # ------------------------------------------
 #             Documentation Page
 # ------------------------------------------
 
-class MoBuDocumentationPageOLD():
+class MoBuDocumentationPage():
     def __init__(self, PageInfo, bLoadPage = False):
         self._PageInfo = PageInfo
         self.Title = PageInfo.get(FDictTags.Title)
         self.Id = PageInfo.get(FDictTags.Id)
         self.RelativeURL = PageInfo.get(FDictTags.Url)
-        self.Members = {}
+        self.Members = []
         if bLoadPage:
             self.LoadPage()
 
@@ -251,14 +204,15 @@ class MoBuDocumentationPageOLD():
                 SaveFile(CacheFilepath, RawHTML)
         Parser = MoBuDocsHTMLParser()
         Parser.feed(RawHTML)
+        self.Members = Parser.GetMembers()
         
-        self.Members = {x.Name:x for x in Parser.GetMembers()}
+    def FindMember(self, Name):
+        for Member in self.Members:
+            if Member.Name == Name:
+                return Member
 
-    def GetMember(self, Name):
-        return self.Members.get(Name, None)
 
-
-class MoBuDocumentationCategory(MoBuDocumentationPageOLD):
+class MoBuDocumentationCategory(MoBuDocumentationPage):
     def __init__(self, PageInfo):
         super().__init__(PageInfo)
         self.Pages = []
@@ -270,7 +224,7 @@ class MoBuDocumentationCategory(MoBuDocumentationPageOLD):
             if FDictTags.Children in ChildPage:
                 self.SubCategories.append(MoBuDocumentationCategory(ChildPage))
             else:
-                self.Pages.append(MoBuDocumentationPageOLD(ChildPage))
+                self.Pages.append(MoBuDocumentationPage(ChildPage))
 
     def FindPage(self, PageName, bLoadPage = False, bCache = False):
         for Page in self.Pages:
@@ -284,98 +238,48 @@ class MoBuDocumentationCategory(MoBuDocumentationPageOLD):
                 return Page
 
 
-class MoBuDocumentationPage():
-    def __init__(self, Version, Title, RelativeURL, Id = None, bLoadPage = False):
-        self.Version = Version
-        self.Title = Title
-        self.RelativeURL = RelativeURL
-        self.Id = Id
-        self.bIsLoaded = False
-        self.Members = {}
-        if bLoadPage:
-            self.LoadPage()
-
-    def __repr__(self):
-        return '<object %s, "%s">' % (type(self).__name__, self.Title)
-
-    def GetURL(self):
-        return GetFullURL(self.Version, self.RelativeURL, bIsSDK = True)
-
-    def LoadPage(self, bCache = False):
-        if self.bIsLoaded:
-            return
-        CacheFilepath = GetCacheFilepath(self.RelativeURL)
-        RawHTML = ""
-        if bCache and os.path.isfile(CacheFilepath):
-            RawHTML = ReadFile(CacheFilepath)
-        else:
-            RawHTML = GetUrlContent(self.GetURL())
-            if bCache:
-                SaveFile(CacheFilepath, RawHTML)
-        Parser = MoBuDocsHTMLParser()
-        Parser.feed(RawHTML)
-        
-        self.Members = {x.Name:x for x in Parser.GetMembers()}
-
-    def GetMember(self, Name):
-        return self.Members.get(Name, None)
-
-
 # ------------------------------------------
 #             Table of Contents
 # ------------------------------------------
 
-class MotionBuilderDocumentation():
-    def __init__(self, Version, bCache = False):
-        self.Version = Version
+class DocsTableOfContents():
+    def __init__(self, bCache = False):
+        self._Categories = []
+        self.LoadData()
         self.bCache = bCache
-        self._TableOfContents = []
-        self._SDKClasses = {}
 
-    def GetSDKClasses(self):
-        if self._SDKClasses:
-            return self._SDKClasses
-        ClassesContent = GetDocsContent(self.Version, SDK_CLASSES_PATH)
-        self._SDKClasses = {x[0]: MoBuDocumentationPage(self.Version, x[0], SDK_CPP_PATH + x[1]) for x in ClassesContent}
-        return self._SDKClasses
-    
-    def GetSDKClassByName(self, ClassName, bLoadPage = True):
-        Page = self.GetSDKClasses().get(ClassName)
-        if Page and bLoadPage:
-            Page.LoadPage(self.bCache)
-        return Page
+    def LoadData(self):
+        RawContent = GetUrlContent(TABLE_OF_CONTENT_URL)
+        for CategoryInfo in ParseTableOfContentString(RawContent):
+            self._Categories.append(MoBuDocumentationCategory(CategoryInfo))
 
-    def LoadTableOfContents(self):
-        self._TableOfContents = [MoBuDocumentationCategory(x) for x in GetDocsTableOfContent(self.Version)]
-        return self._TableOfContents
-
-    def FindPage(self, PageName, PageType = EPageType.Unspecified, bLoadPage = True) -> MoBuDocumentationPageOLD:
+    def FindPage(self, PageName, PageType = EPageType.Unspecified, bLoadPage = True) -> MoBuDocumentationPage:
         if PageType != EPageType.Unspecified:
-            return self._TableOfContents[PageType].FindPage(PageName, bLoadPage, self.bCache)
+            return self._Categories[PageType].FindPage(PageName, bLoadPage, self.bCache)
 
-        for ContentDict in self._TableOfContents:
+        for ContentDict in self._Categories:
             Page = ContentDict.FindPage(PageName, bLoadPage, self.bCache)
             if Page:
                 return Page
 
 
-def GetDocsContent(Version, Path):
-    Content = GetUrlContent(GetFullURL(Version, Path, bIsSDK = True))
-
-    # Make content python readable
-    Content = Content.replace(", null ]", ",None]")  # Replace null with None
-    Content = Content.split("=", 1)[1].strip()  # Remove e.g. 'var annotated_dup = '
-
-    if Content.endswith(";"):
-        Content = Content[:-1]
-
-    return eval(Content)
-
-
-def GetDocsTableOfContent(Version) -> list:
+def ParseTableOfContentString(TableOfContentString) -> list:
     """
-    Parse the raw table of content .json file downloaded from the autodesk documentation webpage
+    Parse the raw table of content .js file downloaded from the autodesk documentation webpage
     """
-    RawContent = GetUrlContent(GetFullURL(Version, DOC_GUIDE_CONTENTS_PATH))
-    TableOfContent = json.loads(RawContent)
-    return TableOfContent["books"]
+    JsonString = ""
+
+    for Line in TableOfContentString.split(";"):
+        if "%s:" % FDictTags.Title in Line:
+            JsonString = Line
+            break
+
+    if not JsonString:
+        return {}
+
+    JsonString = JsonString.split("=")[1]
+
+    for Key in FDictTags().Values():
+        JsonString = JsonString.replace('%s:' % Key, '"%s":' % Key)
+
+    return json.loads(JsonString)

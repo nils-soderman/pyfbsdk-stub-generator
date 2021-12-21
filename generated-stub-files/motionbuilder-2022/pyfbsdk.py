@@ -7,239 +7,239 @@ class ETimeFormats:...
 class FBAccessMode(_Enum):
     """pyfbsdk
     Data access modes."""
-    kFBAccessModeDisk:FBAccessMode    
+    kFBAccessModeDisk:FBAccessMode
     """Access data directly to disk using a cache system."""
-    kFBAccessModeMemory:FBAccessMode    
+    kFBAccessModeMemory:FBAccessMode
     """Access data from memory, which means that it will copyed entirely into it."""
 class FBAlphaSource(_Enum):
     """Shader transparency computation.
     There are different way to compute transparency, and this lists the supported options."""
-    kFBAlphaSource2DTransparency:FBAlphaSource    
+    kFBAlphaSource2DTransparency:FBAlphaSource
     """2D Transparency."""
-    kFBAlphaSourceAccurateAlpha:FBAlphaSource    
+    kFBAlphaSourceAccurateAlpha:FBAlphaSource
     """Accurate Transparency."""
-    kFBAlphaSourceAdditiveAlpha:FBAlphaSource    
+    kFBAlphaSourceAdditiveAlpha:FBAlphaSource
     """Additive Transparency."""
-    kFBAlphaSourceMatteAlpha:FBAlphaSource    
+    kFBAlphaSourceMatteAlpha:FBAlphaSource
     """Matte."""
-    kFBAlphaSourceNoAlpha:FBAlphaSource    
+    kFBAlphaSourceNoAlpha:FBAlphaSource
     """No transparency."""
-    kFBAlphaSourceTransluscentAlpha:FBAlphaSource    
+    kFBAlphaSourceTransluscentAlpha:FBAlphaSource
     """Translucent."""
-    kFBAlphaSourceTransluscentZSortAlpha:FBAlphaSource    
+    kFBAlphaSourceTransluscentZSortAlpha:FBAlphaSource
     """Translucent(Models Z Sort)."""
 class FBAnimationLayerMergeOptions(_Enum):
     """Merge option for animation layers."""
-    kFBAnimLayerMerge_AllLayers_AllProperties:FBAnimationLayerMergeOptions    
+    kFBAnimLayerMerge_AllLayers_AllProperties:FBAnimationLayerMergeOptions
     """Merge the animation of all properties of the selected models from all the layers to the BaseAnimation layer."""
-    kFBAnimLayerMerge_AllLayers_CompleteScene:FBAnimationLayerMergeOptions    
+    kFBAnimLayerMerge_AllLayers_CompleteScene:FBAnimationLayerMergeOptions
     """Merge the animation of all properties from all the layers to the BaseAnimation layer."""
-    kFBAnimLayerMerge_AllLayers_SelectedProperties:FBAnimationLayerMergeOptions    
+    kFBAnimLayerMerge_AllLayers_SelectedProperties:FBAnimationLayerMergeOptions
     """Merge the animation of the selected properties of the selected models from all the layers to the BaseAnimation layer."""
-    kFBAnimLayerMerge_SelectedLayers_AllProperties:FBAnimationLayerMergeOptions    
+    kFBAnimLayerMerge_SelectedLayers_AllProperties:FBAnimationLayerMergeOptions
     """Merge the animation of all properties of the selected models from the selected layers to the selected layer with the lowest index."""
-    kFBAnimLayerMerge_SelectedLayers_CompleteScene:FBAnimationLayerMergeOptions    
+    kFBAnimLayerMerge_SelectedLayers_CompleteScene:FBAnimationLayerMergeOptions
     """Merge the animation of all properties from the selected layers to the selected layer with the lowest index."""
-    kFBAnimLayerMerge_SelectedLayers_SelectedProperties:FBAnimationLayerMergeOptions    
+    kFBAnimLayerMerge_SelectedLayers_SelectedProperties:FBAnimationLayerMergeOptions
     """Merge the animation of the selected properties of the selected models from the selected layers to the selected layer with the lowest index."""
 class FBAnimationNodeConnectorType(_Enum):
     """Different types for the animation node connectors."""
-    kFBAnimationNodeConnectorTypeConnectedIn:FBAnimationNodeConnectorType    
+    kFBAnimationNodeConnectorTypeConnectedIn:FBAnimationNodeConnectorType
     """The animation node input connector is connected to an animation node output connector (valid for input connector only)."""
-    kFBAnimationNodeConnectorTypeConnectedOut:FBAnimationNodeConnectorType    
+    kFBAnimationNodeConnectorTypeConnectedOut:FBAnimationNodeConnectorType
     """The animation node output connector is connected to at least one animation node input connector (valid for output connector only)."""
-    kFBAnimationNodeConnectorTypeConstantIn:FBAnimationNodeConnectorType    
+    kFBAnimationNodeConnectorTypeConstantIn:FBAnimationNodeConnectorType
     """The animation node input connector has a constant value set to it (valid for input connector only)."""
-    kFBAnimationNodeConnectorTypeNone:FBAnimationNodeConnectorType    
+    kFBAnimationNodeConnectorTypeNone:FBAnimationNodeConnectorType
     """The animation node connector is not connected and doesn't have a constant value set to it."""
 class FBArrangeMode(_Enum):
     """Modes for arranging objects in schematic view."""
-    kHorizontalMode:FBArrangeMode    
+    kHorizontalMode:FBArrangeMode
     """Arrange all objects horizontally."""
-    kVerticalMode:FBArrangeMode    
+    kVerticalMode:FBArrangeMode
     """Arrange all objects vertically."""
 class FBAssetMngFileOptions(_Enum):
     """Behavior of the application when working with managed files."""
-    kFileAddOnNewSave:FBAssetMngFileOptions    
+    kFileAddOnNewSave:FBAssetMngFileOptions
     """Add new file automatically on save."""
-    kFileAddOnNewSave_Ask:FBAssetMngFileOptions    
+    kFileAddOnNewSave_Ask:FBAssetMngFileOptions
     """Ask for adding new file on save."""
-    kFileCheckInOnClose:FBAssetMngFileOptions    
+    kFileCheckInOnClose:FBAssetMngFileOptions
     """Check in file automatically when closing it."""
-    kFileCheckInOnClose_Ask:FBAssetMngFileOptions    
+    kFileCheckInOnClose_Ask:FBAssetMngFileOptions
     """Ask for check in file when closing it."""
-    kFileCheckOutOnLoad:FBAssetMngFileOptions    
+    kFileCheckOutOnLoad:FBAssetMngFileOptions
     """Check out file automatically on load."""
-    kFileCheckOutOnLoad_Ask:FBAssetMngFileOptions    
+    kFileCheckOutOnLoad_Ask:FBAssetMngFileOptions
     """Ask for checkout on load."""
     kFileOptionsAll:FBAssetMngFileOptions
-    kFileUploadOnSave:FBAssetMngFileOptions    
+    kFileUploadOnSave:FBAssetMngFileOptions
     """Upload file automatically on save."""
-    kFileUploadOnSave_Ask:FBAssetMngFileOptions    
+    kFileUploadOnSave_Ask:FBAssetMngFileOptions
     """Ask for upload on save."""
 class FBAssetMngMenuOptions(_Enum):
     """Show or hide version control menu items.
     Let you specify which functionalities will be available from the menus."""
-    kMenuAddToDatabase:FBAssetMngMenuOptions    
+    kMenuAddToDatabase:FBAssetMngMenuOptions
     """File -> Add to database."""
-    kMenuAll:FBAssetMngMenuOptions    
+    kMenuAll:FBAssetMngMenuOptions
     """Support everything."""
-    kMenuCheckIn:FBAssetMngMenuOptions    
+    kMenuCheckIn:FBAssetMngMenuOptions
     """Version Control -> Check In."""
-    kMenuCheckOut:FBAssetMngMenuOptions    
+    kMenuCheckOut:FBAssetMngMenuOptions
     """Version Control -> Check Out."""
-    kMenuEnable:FBAssetMngMenuOptions    
+    kMenuEnable:FBAssetMngMenuOptions
     """Version Control -> Disable Version Control Integration."""
-    kMenuFileAll:FBAssetMngMenuOptions    
+    kMenuFileAll:FBAssetMngMenuOptions
     """Support all elements from the File menu."""
-    kMenuGetLatest:FBAssetMngMenuOptions    
+    kMenuGetLatest:FBAssetMngMenuOptions
     """Version Control -> Get Latest."""
-    kMenuOpenFromDatabase:FBAssetMngMenuOptions    
+    kMenuOpenFromDatabase:FBAssetMngMenuOptions
     """File -> Open from database."""
-    kMenuShowExplorer:FBAssetMngMenuOptions    
+    kMenuShowExplorer:FBAssetMngMenuOptions
     """Version Control -> Show Explorer."""
-    kMenuShowHistory:FBAssetMngMenuOptions    
+    kMenuShowHistory:FBAssetMngMenuOptions
     """Version Control -> Show History."""
-    kMenuShowProperties:FBAssetMngMenuOptions    
+    kMenuShowProperties:FBAssetMngMenuOptions
     """Version Control -> Show Properties."""
-    kMenuShowReferenceMng:FBAssetMngMenuOptions    
+    kMenuShowReferenceMng:FBAssetMngMenuOptions
     """Version Control -> Show Reference Manager."""
-    kMenuShowSettings:FBAssetMngMenuOptions    
+    kMenuShowSettings:FBAssetMngMenuOptions
     """Version Control -> Show Settings."""
-    kMenuSourceControlAll:FBAssetMngMenuOptions    
+    kMenuSourceControlAll:FBAssetMngMenuOptions
     """Support all elements from the Version Control menu."""
-    kMenuSourceControlMin:FBAssetMngMenuOptions    
+    kMenuSourceControlMin:FBAssetMngMenuOptions
     """Support only the basics functionalities."""
-    kMenuUndoCheckOut:FBAssetMngMenuOptions    
+    kMenuUndoCheckOut:FBAssetMngMenuOptions
     """Version Control -> Undo Check Out."""
-    kMenuUploadToDatabase:FBAssetMngMenuOptions    
+    kMenuUploadToDatabase:FBAssetMngMenuOptions
     """File -> Upload to database."""
 class FBAttachType(_Enum):
     """Types of attachments between UI regions.
     See samples: Attach.py, BoxLayout.py, RadioButton.py."""
-    kFBAttachBottom:FBAttachType    
+    kFBAttachBottom:FBAttachType
     """Attach to bottom [max(y1,y2)]"""
-    kFBAttachCenter:FBAttachType    
+    kFBAttachCenter:FBAttachType
     """Attach to center [center(x1,y1,x2,y2)]"""
-    kFBAttachHeight:FBAttachType    
+    kFBAttachHeight:FBAttachType
     """Attach to height [abs(y2-y1)]"""
-    kFBAttachLeft:FBAttachType    
+    kFBAttachLeft:FBAttachType
     """Attach to left [min(x1,x2)]"""
-    kFBAttachNone:FBAttachType    
+    kFBAttachNone:FBAttachType
     """No attachment."""
-    kFBAttachRight:FBAttachType    
+    kFBAttachRight:FBAttachType
     """Attach to right [max(x1,x2)]"""
-    kFBAttachTop:FBAttachType    
+    kFBAttachTop:FBAttachType
     """Attach to top [min(y1,y2)]"""
-    kFBAttachWidth:FBAttachType    
+    kFBAttachWidth:FBAttachType
     """Attach to width [abs(x2-x1)]"""
 class FBAttenuationType(_Enum):
     """Light attenuation types."""
-    kFBAttenuationCubic:FBAttenuationType    
+    kFBAttenuationCubic:FBAttenuationType
     """Cubic attenuation."""
-    kFBAttenuationLinear:FBAttenuationType    
+    kFBAttenuationLinear:FBAttenuationType
     """Linear attenuation."""
-    kFBAttenuationNone:FBAttenuationType    
+    kFBAttenuationNone:FBAttenuationType
     """No attenuation."""
-    kFBAttenuationQuadratic:FBAttenuationType    
+    kFBAttenuationQuadratic:FBAttenuationType
     """Quadratic attenuation."""
 class FBAudioBitDepthMode(_Enum):
     """Enum FBAudioBitDepthMode."""
-    kFBAudioBitDepthMode_16:FBAudioBitDepthMode    
+    kFBAudioBitDepthMode_16:FBAudioBitDepthMode
     """16 bits, Wave file render support."""
-    kFBAudioBitDepthMode_24:FBAudioBitDepthMode    
+    kFBAudioBitDepthMode_24:FBAudioBitDepthMode
     """24 bits, Wave file render support."""
-    kFBAudioBitDepthMode_8:FBAudioBitDepthMode    
+    kFBAudioBitDepthMode_8:FBAudioBitDepthMode
     """8 bits, Wave file render support."""
-    kFBAudioBitDepthMode_FP:FBAudioBitDepthMode    
+    kFBAudioBitDepthMode_FP:FBAudioBitDepthMode
     """FP type audio, Wave file render not support."""
 class FBAudioChannelMode(_Enum):
     """Enum FBAudioChannelMode."""
-    kFBAudioChannelModeMono:FBAudioChannelMode    
+    kFBAudioChannelModeMono:FBAudioChannelMode
     """1 channel, Wave file render support."""
-    kFBAudioChannelModeStereo:FBAudioChannelMode    
+    kFBAudioChannelModeStereo:FBAudioChannelMode
     """2 channels, Wave file render support."""
-    kFBAudioChannelMode_4:FBAudioChannelMode    
+    kFBAudioChannelMode_4:FBAudioChannelMode
     """4 channels, Wave file render not support."""
-    kFBAudioChannelMode_8:FBAudioChannelMode    
+    kFBAudioChannelMode_8:FBAudioChannelMode
     """8 channels, Wave file render not support."""
 class FBAudioOutputLocation(_Enum):
     """Type of locations where the audio is rendered when rendering a scene using a video format."""
-    FBAudioOutputLocationCount:FBAudioOutputLocation    
+    FBAudioOutputLocationCount:FBAudioOutputLocation
     """Count."""
-    FBAudioOutputLocationEmbedded:FBAudioOutputLocation    
+    FBAudioOutputLocationEmbedded:FBAudioOutputLocation
     """The audio is embedded within the video output file."""
-    FBAudioOutputLocationEmbeddedAndStandalone:FBAudioOutputLocation    
+    FBAudioOutputLocationEmbeddedAndStandalone:FBAudioOutputLocation
     """The audio is embedded within the video output file and is also rendered in a standalone output file."""
-    FBAudioOutputLocationStandalone:FBAudioOutputLocation    
+    FBAudioOutputLocationStandalone:FBAudioOutputLocation
     """The audio is rendered in a standalone output file."""
 class FBAudioRateMode(_Enum):
     """Enum FBAudioRateMode."""
-    kFBAudioRateMode_100000:FBAudioRateMode    
+    kFBAudioRateMode_100000:FBAudioRateMode
     """100000 hz, Wave file render not support."""
-    kFBAudioRateMode_12000:FBAudioRateMode    
+    kFBAudioRateMode_12000:FBAudioRateMode
     """12000 hz, Wave file render support."""
-    kFBAudioRateMode_12500:FBAudioRateMode    
+    kFBAudioRateMode_12500:FBAudioRateMode
     """12500 hz, Wave file render not support."""
-    kFBAudioRateMode_16000:FBAudioRateMode    
+    kFBAudioRateMode_16000:FBAudioRateMode
     """16000 hz, Wave file render support."""
-    kFBAudioRateMode_22050:FBAudioRateMode    
+    kFBAudioRateMode_22050:FBAudioRateMode
     """22050 hz, Wave file render support."""
-    kFBAudioRateMode_24000:FBAudioRateMode    
+    kFBAudioRateMode_24000:FBAudioRateMode
     """24000 hz, Wave file render support."""
-    kFBAudioRateMode_25000:FBAudioRateMode    
+    kFBAudioRateMode_25000:FBAudioRateMode
     """25000 hz, Wave file render not support."""
-    kFBAudioRateMode_32000:FBAudioRateMode    
+    kFBAudioRateMode_32000:FBAudioRateMode
     """32000 hz, Wave file render support."""
-    kFBAudioRateMode_44100:FBAudioRateMode    
+    kFBAudioRateMode_44100:FBAudioRateMode
     """44100 hz, Wave file render support."""
-    kFBAudioRateMode_48000:FBAudioRateMode    
+    kFBAudioRateMode_48000:FBAudioRateMode
     """48000 hz, Wave file render support."""
-    kFBAudioRateMode_50000:FBAudioRateMode    
+    kFBAudioRateMode_50000:FBAudioRateMode
     """50000 hz, Wave file render not support."""
-    kFBAudioRateMode_64000:FBAudioRateMode    
+    kFBAudioRateMode_64000:FBAudioRateMode
     """64000 hz, Wave file render support."""
-    kFBAudioRateMode_8000:FBAudioRateMode    
+    kFBAudioRateMode_8000:FBAudioRateMode
     """8000 hz, Wave file render support."""
-    kFBAudioRateMode_88200:FBAudioRateMode    
+    kFBAudioRateMode_88200:FBAudioRateMode
     """88200 hz, Wave file render support."""
-    kFBAudioRateMode_96000:FBAudioRateMode    
+    kFBAudioRateMode_96000:FBAudioRateMode
     """96000 hz, Wave file render support."""
-    kFBRAudioateMode_11025:FBAudioRateMode    
+    kFBRAudioateMode_11025:FBAudioRateMode
     """11025 hz, Wave file render support."""
 class FBBatchFileFormat(_Enum):
     """Different file formats for the batch."""
-    kFBBatchFileFormatAMC:FBBatchFileFormat    
+    kFBBatchFileFormatAMC:FBBatchFileFormat
     """File format for Acclaim AMC."""
-    kFBBatchFileFormatBVH:FBBatchFileFormat    
+    kFBBatchFileFormatBVH:FBBatchFileFormat
     """File format for Biovision BVH."""
-    kFBBatchFileFormatC3D:FBBatchFileFormat    
+    kFBBatchFileFormatC3D:FBBatchFileFormat
     """File format for Vicon C3D."""
-    kFBBatchFileFormatFBX:FBBatchFileFormat    
+    kFBBatchFileFormatFBX:FBBatchFileFormat
     """File format for FBX (animation only)."""
-    kFBBatchFileFormatHTR:FBBatchFileFormat    
+    kFBBatchFileFormatHTR:FBBatchFileFormat
     """File format for Motion Analysis HTR."""
-    kFBBatchFileFormatTRC:FBBatchFileFormat    
+    kFBBatchFileFormatTRC:FBBatchFileFormat
     """File format for Motion Analysis TRC."""
 class FBBatchOnContainsBatchTakes(_Enum):
     """Different actions to perform when a scene already contains batch takes while in a batch process."""
-    kFBBatchOnContainsBatchTakesSaveAllTakes:FBBatchOnContainsBatchTakes    
+    kFBBatchOnContainsBatchTakesSaveAllTakes:FBBatchOnContainsBatchTakes
     """Save all the takes."""
-    kFBBatchOnContainsBatchTakesSaveBatchTakesOnly:FBBatchOnContainsBatchTakes    
+    kFBBatchOnContainsBatchTakesSaveBatchTakesOnly:FBBatchOnContainsBatchTakes
     """Save only the batch takes."""
 class FBBatchOnTakeExist(_Enum):
     """Different actions to perform when a take already exist while in a batch process."""
-    kFBBatchOnTakeExistOverwrite:FBBatchOnTakeExist    
+    kFBBatchOnTakeExistOverwrite:FBBatchOnTakeExist
     """Overwrite the take."""
-    kFBBatchOnTakeExistSkip:FBBatchOnTakeExist    
+    kFBBatchOnTakeExistSkip:FBBatchOnTakeExist
     """Skip the take."""
 class FBBatchProcessType(_Enum):
     """Different process type for the batch."""
-    kFBBatchProcessTypeConvert:FBBatchProcessType    
+    kFBBatchProcessTypeConvert:FBBatchProcessType
     """Does the load and save."""
-    kFBBatchProcessTypeLoad:FBBatchProcessType    
+    kFBBatchProcessTypeLoad:FBBatchProcessType
     """Load the files and plot the character with every take."""
-    kFBBatchProcessTypeSave:FBBatchProcessType    
+    kFBBatchProcessTypeSave:FBBatchProcessType
     """Save the takes in different files."""
 class FBBatchStatus(_Enum):
     """Different return values of the Batch process."""
@@ -261,51 +261,51 @@ class FBBatchStatus(_Enum):
 class FBBodyNodeId(_Enum):
     """All body nodes.
     See sample: ExportAnimationLibrary.py."""
-    kFBChestNodeId:FBBodyNodeId    
+    kFBChestNodeId:FBBodyNodeId
     """Spine 1."""
-    kFBHeadNodeId:FBBodyNodeId    
+    kFBHeadNodeId:FBBodyNodeId
     """Required."""
-    kFBHipsNodeId:FBBodyNodeId    
+    kFBHipsNodeId:FBBodyNodeId
     """Required."""
     kFBHipsTranslationNodeId:FBBodyNodeId
     kFBInvalidNodeId:FBBodyNodeId
     kFBLastNodeId:FBBodyNodeId
     kFBLastNodeId_Old:FBBodyNodeId
-    kFBLeftAnkleNodeId:FBBodyNodeId    
+    kFBLeftAnkleNodeId:FBBodyNodeId
     """Required."""
     kFBLeftCollarNodeId:FBBodyNodeId
-    kFBLeftElbowNodeId:FBBodyNodeId    
+    kFBLeftElbowNodeId:FBBodyNodeId
     """Required."""
-    kFBLeftElbowRollNode1Id:FBBodyNodeId    
+    kFBLeftElbowRollNode1Id:FBBodyNodeId
     """New leaf roll bone."""
-    kFBLeftElbowRollNode2Id:FBBodyNodeId    
+    kFBLeftElbowRollNode2Id:FBBodyNodeId
     """New leaf roll bone."""
-    kFBLeftElbowRollNode3Id:FBBodyNodeId    
+    kFBLeftElbowRollNode3Id:FBBodyNodeId
     """New leaf roll bone."""
-    kFBLeftElbowRollNode4Id:FBBodyNodeId    
+    kFBLeftElbowRollNode4Id:FBBodyNodeId
     """New leaf roll bone."""
-    kFBLeftElbowRollNode5Id:FBBodyNodeId    
+    kFBLeftElbowRollNode5Id:FBBodyNodeId
     """New leaf roll bone."""
     kFBLeftElbowRollNodeId:FBBodyNodeId
-    kFBLeftExtraFingerANodeId:FBBodyNodeId    
+    kFBLeftExtraFingerANodeId:FBBodyNodeId
     """New extra finger bone."""
-    kFBLeftExtraFingerBNodeId:FBBodyNodeId    
+    kFBLeftExtraFingerBNodeId:FBBodyNodeId
     """New extra finger bone."""
-    kFBLeftExtraFingerCNodeId:FBBodyNodeId    
+    kFBLeftExtraFingerCNodeId:FBBodyNodeId
     """New extra finger bone."""
-    kFBLeftExtraFingerDNodeId:FBBodyNodeId    
+    kFBLeftExtraFingerDNodeId:FBBodyNodeId
     """New extra finger bone."""
-    kFBLeftExtraFingerInNodeId:FBBodyNodeId    
+    kFBLeftExtraFingerInNodeId:FBBodyNodeId
     """New extra finger bone."""
-    kFBLeftExtraFootFingerANodeId:FBBodyNodeId    
+    kFBLeftExtraFootFingerANodeId:FBBodyNodeId
     """New extra finger bone."""
-    kFBLeftExtraFootFingerBNodeId:FBBodyNodeId    
+    kFBLeftExtraFootFingerBNodeId:FBBodyNodeId
     """New extra finger bone."""
-    kFBLeftExtraFootFingerCNodeId:FBBodyNodeId    
+    kFBLeftExtraFootFingerCNodeId:FBBodyNodeId
     """New extra finger bone."""
-    kFBLeftExtraFootFingerDNodeId:FBBodyNodeId    
+    kFBLeftExtraFootFingerDNodeId:FBBodyNodeId
     """New extra finger bone."""
-    kFBLeftExtraFootFingerInNodeId:FBBodyNodeId    
+    kFBLeftExtraFootFingerInNodeId:FBBodyNodeId
     """New extra finger bone."""
     kFBLeftFootIndexANodeId:FBBodyNodeId
     kFBLeftFootIndexBNodeId:FBBodyNodeId
@@ -334,17 +334,17 @@ class FBBodyNodeId(_Enum):
     kFBLeftFootThumbDNodeId:FBBodyNodeId
     kFBLeftFootThumbInNodeId:FBBodyNodeId
     kFBLeftHandNodeId:FBBodyNodeId
-    kFBLeftHipNodeId:FBBodyNodeId    
+    kFBLeftHipNodeId:FBBodyNodeId
     """Required."""
-    kFBLeftHipRollNode1Id:FBBodyNodeId    
+    kFBLeftHipRollNode1Id:FBBodyNodeId
     """New leaf roll bone."""
-    kFBLeftHipRollNode2Id:FBBodyNodeId    
+    kFBLeftHipRollNode2Id:FBBodyNodeId
     """New leaf roll bone."""
-    kFBLeftHipRollNode3Id:FBBodyNodeId    
+    kFBLeftHipRollNode3Id:FBBodyNodeId
     """New leaf roll bone."""
-    kFBLeftHipRollNode4Id:FBBodyNodeId    
+    kFBLeftHipRollNode4Id:FBBodyNodeId
     """New leaf roll bone."""
-    kFBLeftHipRollNode5Id:FBBodyNodeId    
+    kFBLeftHipRollNode5Id:FBBodyNodeId
     """New leaf roll bone."""
     kFBLeftHipRollNodeId:FBBodyNodeId
     kFBLeftIndexANodeId:FBBodyNodeId
@@ -352,17 +352,17 @@ class FBBodyNodeId(_Enum):
     kFBLeftIndexCNodeId:FBBodyNodeId
     kFBLeftIndexDNodeId:FBBodyNodeId
     kFBLeftIndexInNodeId:FBBodyNodeId
-    kFBLeftKneeNodeId:FBBodyNodeId    
+    kFBLeftKneeNodeId:FBBodyNodeId
     """Required."""
-    kFBLeftKneeRollNode1Id:FBBodyNodeId    
+    kFBLeftKneeRollNode1Id:FBBodyNodeId
     """New leaf roll bone."""
-    kFBLeftKneeRollNode2Id:FBBodyNodeId    
+    kFBLeftKneeRollNode2Id:FBBodyNodeId
     """New leaf roll bone."""
-    kFBLeftKneeRollNode3Id:FBBodyNodeId    
+    kFBLeftKneeRollNode3Id:FBBodyNodeId
     """New leaf roll bone."""
-    kFBLeftKneeRollNode4Id:FBBodyNodeId    
+    kFBLeftKneeRollNode4Id:FBBodyNodeId
     """New leaf roll bone."""
-    kFBLeftKneeRollNode5Id:FBBodyNodeId    
+    kFBLeftKneeRollNode5Id:FBBodyNodeId
     """New leaf roll bone."""
     kFBLeftKneeRollNodeId:FBBodyNodeId
     kFBLeftMiddleANodeId:FBBodyNodeId
@@ -380,17 +380,17 @@ class FBBodyNodeId(_Enum):
     kFBLeftRingCNodeId:FBBodyNodeId
     kFBLeftRingDNodeId:FBBodyNodeId
     kFBLeftRingInNodeId:FBBodyNodeId
-    kFBLeftShoulderNodeId:FBBodyNodeId    
+    kFBLeftShoulderNodeId:FBBodyNodeId
     """Required."""
-    kFBLeftShoulderRollNode1Id:FBBodyNodeId    
+    kFBLeftShoulderRollNode1Id:FBBodyNodeId
     """New leaf roll bone."""
-    kFBLeftShoulderRollNode2Id:FBBodyNodeId    
+    kFBLeftShoulderRollNode2Id:FBBodyNodeId
     """New leaf roll bone."""
-    kFBLeftShoulderRollNode3Id:FBBodyNodeId    
+    kFBLeftShoulderRollNode3Id:FBBodyNodeId
     """New leaf roll bone."""
-    kFBLeftShoulderRollNode4Id:FBBodyNodeId    
+    kFBLeftShoulderRollNode4Id:FBBodyNodeId
     """New leaf roll bone."""
-    kFBLeftShoulderRollNode5Id:FBBodyNodeId    
+    kFBLeftShoulderRollNode5Id:FBBodyNodeId
     """New leaf roll bone."""
     kFBLeftShoulderRollNodeId:FBBodyNodeId
     kFBLeftThumbANodeId:FBBodyNodeId
@@ -398,7 +398,7 @@ class FBBodyNodeId(_Enum):
     kFBLeftThumbCNodeId:FBBodyNodeId
     kFBLeftThumbDNodeId:FBBodyNodeId
     kFBLeftThumbInNodeId:FBBodyNodeId
-    kFBLeftWristNodeId:FBBodyNodeId    
+    kFBLeftWristNodeId:FBBodyNodeId
     """Required."""
     kFBNeck1NodeId:FBBodyNodeId
     kFBNeck2NodeId:FBBodyNodeId
@@ -411,41 +411,41 @@ class FBBodyNodeId(_Enum):
     kFBNeck9NodeId:FBBodyNodeId
     kFBNeckNodeId:FBBodyNodeId
     kFBReferenceNodeId:FBBodyNodeId
-    kFBRightAnkleNodeId:FBBodyNodeId    
+    kFBRightAnkleNodeId:FBBodyNodeId
     """Required."""
     kFBRightCollarNodeId:FBBodyNodeId
-    kFBRightElbowNodeId:FBBodyNodeId    
+    kFBRightElbowNodeId:FBBodyNodeId
     """Required."""
-    kFBRightElbowRollNode1Id:FBBodyNodeId    
+    kFBRightElbowRollNode1Id:FBBodyNodeId
     """New leaf roll bone."""
-    kFBRightElbowRollNode2Id:FBBodyNodeId    
+    kFBRightElbowRollNode2Id:FBBodyNodeId
     """New leaf roll bone."""
-    kFBRightElbowRollNode3Id:FBBodyNodeId    
+    kFBRightElbowRollNode3Id:FBBodyNodeId
     """New leaf roll bone."""
-    kFBRightElbowRollNode4Id:FBBodyNodeId    
+    kFBRightElbowRollNode4Id:FBBodyNodeId
     """New leaf roll bone."""
-    kFBRightElbowRollNode5Id:FBBodyNodeId    
+    kFBRightElbowRollNode5Id:FBBodyNodeId
     """New leaf roll bone."""
     kFBRightElbowRollNodeId:FBBodyNodeId
-    kFBRightExtraFingerANodeId:FBBodyNodeId    
+    kFBRightExtraFingerANodeId:FBBodyNodeId
     """New extra finger bone."""
-    kFBRightExtraFingerBNodeId:FBBodyNodeId    
+    kFBRightExtraFingerBNodeId:FBBodyNodeId
     """New extra finger bone."""
-    kFBRightExtraFingerCNodeId:FBBodyNodeId    
+    kFBRightExtraFingerCNodeId:FBBodyNodeId
     """New extra finger bone."""
-    kFBRightExtraFingerDNodeId:FBBodyNodeId    
+    kFBRightExtraFingerDNodeId:FBBodyNodeId
     """New extra finger bone."""
-    kFBRightExtraFingerInNodeId:FBBodyNodeId    
+    kFBRightExtraFingerInNodeId:FBBodyNodeId
     """New extra finger bone."""
-    kFBRightExtraFootFingerANodeId:FBBodyNodeId    
+    kFBRightExtraFootFingerANodeId:FBBodyNodeId
     """New extra finger bone."""
-    kFBRightExtraFootFingerBNodeId:FBBodyNodeId    
+    kFBRightExtraFootFingerBNodeId:FBBodyNodeId
     """New extra finger bone."""
-    kFBRightExtraFootFingerCNodeId:FBBodyNodeId    
+    kFBRightExtraFootFingerCNodeId:FBBodyNodeId
     """New extra finger bone."""
-    kFBRightExtraFootFingerDNodeId:FBBodyNodeId    
+    kFBRightExtraFootFingerDNodeId:FBBodyNodeId
     """New extra finger bone."""
-    kFBRightExtraFootFingerInNodeId:FBBodyNodeId    
+    kFBRightExtraFootFingerInNodeId:FBBodyNodeId
     """New extra finger bone."""
     kFBRightFootIndexANodeId:FBBodyNodeId
     kFBRightFootIndexBNodeId:FBBodyNodeId
@@ -474,17 +474,17 @@ class FBBodyNodeId(_Enum):
     kFBRightFootThumbDNodeId:FBBodyNodeId
     kFBRightFootThumbInNodeId:FBBodyNodeId
     kFBRightHandNodeId:FBBodyNodeId
-    kFBRightHipNodeId:FBBodyNodeId    
+    kFBRightHipNodeId:FBBodyNodeId
     """Required."""
-    kFBRightHipRollNode1Id:FBBodyNodeId    
+    kFBRightHipRollNode1Id:FBBodyNodeId
     """New leaf roll bone."""
-    kFBRightHipRollNode2Id:FBBodyNodeId    
+    kFBRightHipRollNode2Id:FBBodyNodeId
     """New leaf roll bone."""
-    kFBRightHipRollNode3Id:FBBodyNodeId    
+    kFBRightHipRollNode3Id:FBBodyNodeId
     """New leaf roll bone."""
-    kFBRightHipRollNode4Id:FBBodyNodeId    
+    kFBRightHipRollNode4Id:FBBodyNodeId
     """New leaf roll bone."""
-    kFBRightHipRollNode5Id:FBBodyNodeId    
+    kFBRightHipRollNode5Id:FBBodyNodeId
     """New leaf roll bone."""
     kFBRightHipRollNodeId:FBBodyNodeId
     kFBRightIndexANodeId:FBBodyNodeId
@@ -492,17 +492,17 @@ class FBBodyNodeId(_Enum):
     kFBRightIndexCNodeId:FBBodyNodeId
     kFBRightIndexDNodeId:FBBodyNodeId
     kFBRightIndexInNodeId:FBBodyNodeId
-    kFBRightKneeNodeId:FBBodyNodeId    
+    kFBRightKneeNodeId:FBBodyNodeId
     """Required."""
-    kFBRightKneeRollNode1Id:FBBodyNodeId    
+    kFBRightKneeRollNode1Id:FBBodyNodeId
     """New leaf roll bone."""
-    kFBRightKneeRollNode2Id:FBBodyNodeId    
+    kFBRightKneeRollNode2Id:FBBodyNodeId
     """New leaf roll bone."""
-    kFBRightKneeRollNode3Id:FBBodyNodeId    
+    kFBRightKneeRollNode3Id:FBBodyNodeId
     """New leaf roll bone."""
-    kFBRightKneeRollNode4Id:FBBodyNodeId    
+    kFBRightKneeRollNode4Id:FBBodyNodeId
     """New leaf roll bone."""
-    kFBRightKneeRollNode5Id:FBBodyNodeId    
+    kFBRightKneeRollNode5Id:FBBodyNodeId
     """New leaf roll bone."""
     kFBRightKneeRollNodeId:FBBodyNodeId
     kFBRightMiddleANodeId:FBBodyNodeId
@@ -520,17 +520,17 @@ class FBBodyNodeId(_Enum):
     kFBRightRingCNodeId:FBBodyNodeId
     kFBRightRingDNodeId:FBBodyNodeId
     kFBRightRingInNodeId:FBBodyNodeId
-    kFBRightShoulderNodeId:FBBodyNodeId    
+    kFBRightShoulderNodeId:FBBodyNodeId
     """Required."""
-    kFBRightShoulderRollNode1Id:FBBodyNodeId    
+    kFBRightShoulderRollNode1Id:FBBodyNodeId
     """New leaf roll bone."""
-    kFBRightShoulderRollNode2Id:FBBodyNodeId    
+    kFBRightShoulderRollNode2Id:FBBodyNodeId
     """New leaf roll bone."""
-    kFBRightShoulderRollNode3Id:FBBodyNodeId    
+    kFBRightShoulderRollNode3Id:FBBodyNodeId
     """New leaf roll bone."""
-    kFBRightShoulderRollNode4Id:FBBodyNodeId    
+    kFBRightShoulderRollNode4Id:FBBodyNodeId
     """New leaf roll bone."""
-    kFBRightShoulderRollNode5Id:FBBodyNodeId    
+    kFBRightShoulderRollNode5Id:FBBodyNodeId
     """New leaf roll bone."""
     kFBRightShoulderRollNodeId:FBBodyNodeId
     kFBRightThumbANodeId:FBBodyNodeId
@@ -538,7 +538,7 @@ class FBBodyNodeId(_Enum):
     kFBRightThumbCNodeId:FBBodyNodeId
     kFBRightThumbDNodeId:FBBodyNodeId
     kFBRightThumbInNodeId:FBBodyNodeId
-    kFBRightWristNodeId:FBBodyNodeId    
+    kFBRightWristNodeId:FBBodyNodeId
     """Required."""
     kFBSpine2NodeId:FBBodyNodeId
     kFBSpine3NodeId:FBBodyNodeId
@@ -548,60 +548,60 @@ class FBBodyNodeId(_Enum):
     kFBSpine7NodeId:FBBodyNodeId
     kFBSpine8NodeId:FBBodyNodeId
     kFBSpine9NodeId:FBBodyNodeId
-    kFBWaistNodeId:FBBodyNodeId    
+    kFBWaistNodeId:FBBodyNodeId
     """Required, Spine 0."""
 class FBBodyPartId(_Enum):
     """Body part for character."""
-    kFBCtrlSetPartChest:FBBodyPartId    
+    kFBCtrlSetPartChest:FBBodyPartId
     """Chest Body Part."""
-    kFBCtrlSetPartHead:FBBodyPartId    
+    kFBCtrlSetPartHead:FBBodyPartId
     """Head Body Part."""
-    kFBCtrlSetPartHips:FBBodyPartId    
+    kFBCtrlSetPartHips:FBBodyPartId
     """Hips Body Part."""
-    kFBCtrlSetPartLeftArm:FBBodyPartId    
+    kFBCtrlSetPartLeftArm:FBBodyPartId
     """Left Arm Body Part."""
-    kFBCtrlSetPartLeftFoot:FBBodyPartId    
+    kFBCtrlSetPartLeftFoot:FBBodyPartId
     """Left Foot Body Part."""
-    kFBCtrlSetPartLeftHand:FBBodyPartId    
+    kFBCtrlSetPartLeftHand:FBBodyPartId
     """Left Hand Body Part."""
-    kFBCtrlSetPartLeftLeg:FBBodyPartId    
+    kFBCtrlSetPartLeftLeg:FBBodyPartId
     """Left Leg Body Part."""
-    kFBCtrlSetPartNone:FBBodyPartId    
+    kFBCtrlSetPartNone:FBBodyPartId
     """No part selected."""
-    kFBCtrlSetPartRightArm:FBBodyPartId    
+    kFBCtrlSetPartRightArm:FBBodyPartId
     """Right Arm Body Part."""
-    kFBCtrlSetPartRightFoot:FBBodyPartId    
+    kFBCtrlSetPartRightFoot:FBBodyPartId
     """Right Foot Body Part."""
-    kFBCtrlSetPartRightHand:FBBodyPartId    
+    kFBCtrlSetPartRightHand:FBBodyPartId
     """Right Hand Body Part."""
-    kFBCtrlSetPartRightLeg:FBBodyPartId    
+    kFBCtrlSetPartRightLeg:FBBodyPartId
     """Right Leg Body Part."""
-    kFBLastCtrlSetPartIndex:FBBodyPartId    
+    kFBLastCtrlSetPartIndex:FBBodyPartId
     """Part count."""
 class FBBorderStyle(_Enum):
     """Different border types available.
     See samples: Border.py, TabPanel.py."""
-    kFBEmbossBorder:FBBorderStyle    
+    kFBEmbossBorder:FBBorderStyle
     """Embossed border."""
-    kFBEmbossEdgeSmoothBorder:FBBorderStyle    
+    kFBEmbossEdgeSmoothBorder:FBBorderStyle
     """Edged smooth border."""
-    kFBEmbossSmoothBorder:FBBorderStyle    
+    kFBEmbossSmoothBorder:FBBorderStyle
     """Smooth border."""
-    kFBEmbossSmoothEdgeBorder:FBBorderStyle    
+    kFBEmbossSmoothEdgeBorder:FBBorderStyle
     """Smoothed edges border."""
-    kFBHighlightBorder:FBBorderStyle    
+    kFBHighlightBorder:FBBorderStyle
     """Highlight border."""
-    kFBNoBorder:FBBorderStyle    
+    kFBNoBorder:FBBorderStyle
     """No border."""
-    kFBPickingBorder:FBBorderStyle    
+    kFBPickingBorder:FBBorderStyle
     """Picking border."""
-    kFBStandardBorder:FBBorderStyle    
+    kFBStandardBorder:FBBorderStyle
     """Standard border."""
-    kFBStandardEdgeSmoothBorder:FBBorderStyle    
+    kFBStandardEdgeSmoothBorder:FBBorderStyle
     """Standard edged smooth border."""
-    kFBStandardSmoothBorder:FBBorderStyle    
+    kFBStandardSmoothBorder:FBBorderStyle
     """Standard smooth border."""
-    kFBStandardSmoothEdgeBorder:FBBorderStyle    
+    kFBStandardSmoothEdgeBorder:FBBorderStyle
     """Standard smoothed edges border."""
 class FBButtonLook(_Enum):
     """Button look.
@@ -614,138 +614,138 @@ class FBButtonLook(_Enum):
 class FBButtonState(_Enum):
     """Possible button states.
     Currently, only two button states are possible."""
-    kFBButtonState0:FBButtonState    
+    kFBButtonState0:FBButtonState
     """State is 0, usually meaning not active."""
-    kFBButtonState1:FBButtonState    
+    kFBButtonState1:FBButtonState
     """State is 1, usually meaning active."""
 class FBButtonStyle(_Enum):
     """Style of buttons.
     Not all button styles are completely functional. See samples: Button.py, RadioButton.py."""
-    kFB2States:FBButtonStyle    
+    kFB2States:FBButtonStyle
     """2 state button (2 colors)."""
-    kFBBitmap2States:FBButtonStyle    
+    kFBBitmap2States:FBButtonStyle
     """2 state button with 2 bitmaps."""
-    kFBBitmapButton:FBButtonStyle    
+    kFBBitmapButton:FBButtonStyle
     """Button with bitmap on it."""
-    kFBCheckbox:FBButtonStyle    
+    kFBCheckbox:FBButtonStyle
     """Check box."""
-    kFBPushButton:FBButtonStyle    
+    kFBPushButton:FBButtonStyle
     """Normal button."""
-    kFBRadioButton:FBButtonStyle    
+    kFBRadioButton:FBButtonStyle
     """Radio button."""
 class FBCameraAntiAliasingMethod(_Enum):
     """Antialiasing methods."""
-    kFBAntiAliasingSoftware:FBCameraAntiAliasingMethod    
+    kFBAntiAliasingSoftware:FBCameraAntiAliasingMethod
     """Antaliasing in software."""
-    kFBAntialiasingMultiSamplingOnyx:FBCameraAntiAliasingMethod    
+    kFBAntialiasingMultiSamplingOnyx:FBCameraAntiAliasingMethod
     """Multisampling (only on Onyx)."""
 class FBCameraApertureMode(_Enum):
     """Aperture modes."""
-    kFBApertureFocalLength:FBCameraApertureMode    
+    kFBApertureFocalLength:FBCameraApertureMode
     """Focal Length aperture varies."""
-    kFBApertureHorizontal:FBCameraApertureMode    
+    kFBApertureHorizontal:FBCameraApertureMode
     """Horizontal aperture varies."""
-    kFBApertureVertHoriz:FBCameraApertureMode    
+    kFBApertureVertHoriz:FBCameraApertureMode
     """Vertical and horizontal aperture varies."""
-    kFBApertureVertical:FBCameraApertureMode    
+    kFBApertureVertical:FBCameraApertureMode
     """Vertical aperture varies."""
 class FBCameraDistanceMode(_Enum):
     """Camera plane distance modes."""
-    kFBDistModeAbsoluteFromCamera:FBCameraDistanceMode    
+    kFBDistModeAbsoluteFromCamera:FBCameraDistanceMode
     """Camera plane distance absolute from camera."""
-    kFBDistModeRelativeToInterest:FBCameraDistanceMode    
+    kFBDistModeRelativeToInterest:FBCameraDistanceMode
     """Camera plane distance relative to interest."""
 class FBCameraFilmBackType(_Enum):
     """Filmback types."""
-    kFBFilmBack16mmTheatrical:FBCameraFilmBackType    
+    kFBFilmBack16mmTheatrical:FBCameraFilmBackType
     """16mm Theatrical."""
-    kFBFilmBack35mm185Projection:FBCameraFilmBackType    
+    kFBFilmBack35mm185Projection:FBCameraFilmBackType
     """35mm 185 Projection."""
-    kFBFilmBack35mmAcademy:FBCameraFilmBackType    
+    kFBFilmBack35mmAcademy:FBCameraFilmBackType
     """35mm Academy."""
-    kFBFilmBack35mmAnamorphic:FBCameraFilmBackType    
+    kFBFilmBack35mmAnamorphic:FBCameraFilmBackType
     """35mm Anamorphic."""
-    kFBFilmBack35mmFullAperture:FBCameraFilmBackType    
+    kFBFilmBack35mmFullAperture:FBCameraFilmBackType
     """35mm Full Aperture."""
-    kFBFilmBack35mmTVProjection:FBCameraFilmBackType    
+    kFBFilmBack35mmTVProjection:FBCameraFilmBackType
     """35mm TV Projection."""
-    kFBFilmBack70mmProjection:FBCameraFilmBackType    
+    kFBFilmBack70mmProjection:FBCameraFilmBackType
     """70mm Projection."""
-    kFBFilmBackCustom:FBCameraFilmBackType    
+    kFBFilmBackCustom:FBCameraFilmBackType
     """Custom Filmback."""
-    kFBFilmBackDynavision:FBCameraFilmBackType    
+    kFBFilmBackDynavision:FBCameraFilmBackType
     """Dynavision."""
-    kFBFilmBackIMAX:FBCameraFilmBackType    
+    kFBFilmBackIMAX:FBCameraFilmBackType
     """IMAX."""
-    kFBFilmBackSuper16mm:FBCameraFilmBackType    
+    kFBFilmBackSuper16mm:FBCameraFilmBackType
     """Super16mm."""
-    kFBFilmBackVistaVision:FBCameraFilmBackType    
+    kFBFilmBackVistaVision:FBCameraFilmBackType
     """Vista Vision."""
 class FBCameraFocusDistanceSource(_Enum):
     """Focus distance sources."""
-    kFBFocusDistanceCameraInterest:FBCameraFocusDistanceSource    
+    kFBFocusDistanceCameraInterest:FBCameraFocusDistanceSource
     """Interest as source."""
-    kFBFocusDistanceModel:FBCameraFocusDistanceSource    
+    kFBFocusDistanceModel:FBCameraFocusDistanceSource
     """Another model's position as source."""
-    kFBFocusDistanceSpecificDistance:FBCameraFocusDistanceSource    
+    kFBFocusDistanceSpecificDistance:FBCameraFocusDistanceSource
     """Specific distance as source."""
 class FBCameraFrameSizeMode(_Enum):
     """Frame size modes."""
-    kFBFrameSizeFixedHeightResolution:FBCameraFrameSizeMode    
+    kFBFrameSizeFixedHeightResolution:FBCameraFrameSizeMode
     """Fixed height resolution."""
-    kFBFrameSizeFixedRatio:FBCameraFrameSizeMode    
+    kFBFrameSizeFixedRatio:FBCameraFrameSizeMode
     """Fixed ratio."""
-    kFBFrameSizeFixedResolution:FBCameraFrameSizeMode    
+    kFBFrameSizeFixedResolution:FBCameraFrameSizeMode
     """Fixed resolution."""
-    kFBFrameSizeFixedWidthResolution:FBCameraFrameSizeMode    
+    kFBFrameSizeFixedWidthResolution:FBCameraFrameSizeMode
     """Fixed width resolution."""
-    kFBFrameSizeWindow:FBCameraFrameSizeMode    
+    kFBFrameSizeWindow:FBCameraFrameSizeMode
     """Frame size of window."""
 class FBCameraMatrixType(_Enum):
     """Camera matrix types in OpenGL convention."""
-    kFBModelView:FBCameraMatrixType    
+    kFBModelView:FBCameraMatrixType
     """Camera's combined Model-View matrix."""
-    kFBModelViewProj:FBCameraMatrixType    
+    kFBModelViewProj:FBCameraMatrixType
     """Camera's combined Model-View-Projection matrix."""
-    kFBProjInverse:FBCameraMatrixType    
+    kFBProjInverse:FBCameraMatrixType
     """Camera's Projection Inverse matrix."""
-    kFBProjection:FBCameraMatrixType    
+    kFBProjection:FBCameraMatrixType
     """Camera's Projection matrix."""
 class FBCameraResolutionMode(_Enum):
     """Resolution modes."""
-    kFBResolution128x128:FBCameraResolutionMode    
+    kFBResolution128x128:FBCameraResolutionMode
     """128x128."""
-    kFBResolution320x200:FBCameraResolutionMode    
+    kFBResolution320x200:FBCameraResolutionMode
     """320x200."""
-    kFBResolution320x240:FBCameraResolutionMode    
+    kFBResolution320x240:FBCameraResolutionMode
     """320x240."""
-    kFBResolution640x480:FBCameraResolutionMode    
+    kFBResolution640x480:FBCameraResolutionMode
     """640x480."""
-    kFBResolutionCustom:FBCameraResolutionMode    
+    kFBResolutionCustom:FBCameraResolutionMode
     """Custom resolution mode or From Camera as a render setting."""
-    kFBResolutionD1NTSC:FBCameraResolutionMode    
+    kFBResolutionD1NTSC:FBCameraResolutionMode
     """D1 NTSC."""
-    kFBResolutionD1PAL:FBCameraResolutionMode    
+    kFBResolutionD1PAL:FBCameraResolutionMode
     """D1 PAL."""
-    kFBResolutionFullScreen:FBCameraResolutionMode    
+    kFBResolutionFullScreen:FBCameraResolutionMode
     """FullScreen."""
-    kFBResolutionHD:FBCameraResolutionMode    
+    kFBResolutionHD:FBCameraResolutionMode
     """HD 1920x1080."""
-    kFBResolutionNTSC:FBCameraResolutionMode    
+    kFBResolutionNTSC:FBCameraResolutionMode
     """NTSC."""
-    kFBResolutionPAL:FBCameraResolutionMode    
+    kFBResolutionPAL:FBCameraResolutionMode
     """PAL."""
 class FBCameraSafeAreaMode(_Enum):
     """Safe area modes."""
-    kFBSafeAreaRound:FBCameraSafeAreaMode    
+    kFBSafeAreaRound:FBCameraSafeAreaMode
     """Round safe area."""
-    kFBSafeAreaSquare:FBCameraSafeAreaMode    
+    kFBSafeAreaSquare:FBCameraSafeAreaMode
     """Square safe area."""
 class FBCameraSamplingType(_Enum):
     """Antialiasing sampling types."""
-    kFBSamplingStochastic:FBCameraSamplingType    
+    kFBSamplingStochastic:FBCameraSamplingType
     """Stochastic sampling."""
-    kFBSamplingUniform:FBCameraSamplingType    
+    kFBSamplingUniform:FBCameraSamplingType
     """Uniform sampling."""
 class FBCameraStereoType(_Enum):
     kFBCameraStereoConverged:FBCameraStereoType
@@ -754,41 +754,41 @@ class FBCameraStereoType(_Enum):
     kFBCameraStereoParallel:FBCameraStereoType
 class FBCameraType(_Enum):
     """Focus distance types."""
-    kFBCameraTypeOrthogonal:FBCameraType    
+    kFBCameraTypeOrthogonal:FBCameraType
     """Specific distance as source."""
-    kFBCameraTypePerspective:FBCameraType    
+    kFBCameraTypePerspective:FBCameraType
     """Interest as source."""
 class FBCameraViewPlaneMode(_Enum):
     """Camera plane viewing modes."""
-    kFBViewPlaneAlways:FBCameraViewPlaneMode    
+    kFBViewPlaneAlways:FBCameraViewPlaneMode
     """Always draw camera plane."""
-    kFBViewPlaneDisabled:FBCameraViewPlaneMode    
+    kFBViewPlaneDisabled:FBCameraViewPlaneMode
     """Camera plane disabled."""
-    kFBViewPlaneWhenMedia:FBCameraViewPlaneMode    
+    kFBViewPlaneWhenMedia:FBCameraViewPlaneMode
     """Camera plane when media."""
 class FBCellStyle(_Enum):
     """Different styles of spreadsheet cell styles."""
-    kFBCellStyle2StatesButton:FBCellStyle    
+    kFBCellStyle2StatesButton:FBCellStyle
     """2 state button."""
-    kFBCellStyle3StatesButton:FBCellStyle    
+    kFBCellStyle3StatesButton:FBCellStyle
     """3 state button."""
-    kFBCellStyleButton:FBCellStyle    
+    kFBCellStyleButton:FBCellStyle
     """Button."""
-    kFBCellStyleDefault:FBCellStyle    
+    kFBCellStyleDefault:FBCellStyle
     """Default cell style."""
-    kFBCellStyleDouble:FBCellStyle    
+    kFBCellStyleDouble:FBCellStyle
     """Double."""
-    kFBCellStyleInteger:FBCellStyle    
+    kFBCellStyleInteger:FBCellStyle
     """Integer."""
-    kFBCellStyleMenu:FBCellStyle    
+    kFBCellStyleMenu:FBCellStyle
     """Menu."""
-    kFBCellStyleString:FBCellStyle    
+    kFBCellStyleString:FBCellStyle
     """String."""
-    kFBCellStyleTime:FBCellStyle    
+    kFBCellStyleTime:FBCellStyle
     """Time."""
-    kFBCellStyleView:FBCellStyle    
+    kFBCellStyleView:FBCellStyle
     """View (user definable, you need to specify the view using FBSpread::SetCellView())."""
-    kFBCellStyleVoid:FBCellStyle    
+    kFBCellStyleVoid:FBCellStyle
     """Void (no value)."""
 class FBCharacterContactBehaviour(_Enum):
     """Character Contact Behaviour."""
@@ -829,15 +829,15 @@ class FBCharacterKeyingMode(_Enum):
     kFBCharacterKeyingSelection:FBCharacterKeyingMode
 class FBCharacterLoadAnimationMethod(_Enum):
     """This enumeration is used to choose how to load an animation file on a character."""
-    kFBCharacterLoadConnect:FBCharacterLoadAnimationMethod    
+    kFBCharacterLoadConnect:FBCharacterLoadAnimationMethod
     """Only connect the loaded character as an input."""
-    kFBCharacterLoadCopy:FBCharacterLoadAnimationMethod    
+    kFBCharacterLoadCopy:FBCharacterLoadAnimationMethod
     """Copy keys from loaded character to target character."""
-    kFBCharacterLoadPlot:FBCharacterLoadAnimationMethod    
+    kFBCharacterLoadPlot:FBCharacterLoadAnimationMethod
     """Plot animation from loaded character to target character."""
-    kFBCharacterLoadPlotIfSampled:FBCharacterLoadAnimationMethod    
+    kFBCharacterLoadPlotIfSampled:FBCharacterLoadAnimationMethod
     """If loaded animation seems sampled, plot animation from loaded character to target character; else retarget."""
-    kFBCharacterLoadRetarget:FBCharacterLoadAnimationMethod    
+    kFBCharacterLoadRetarget:FBCharacterLoadAnimationMethod
     """Retarget (copy and correct) keys from loaded character to target character."""
 class FBCharacterPlotWhere(_Enum):
     """Where to plot a character."""
@@ -873,182 +873,182 @@ class FBCharacterRollSolver(_Enum):
     kFBParamRollSolver75:FBCharacterRollSolver
 class FBClipEnd(_Enum):
     """Clip end actions."""
-    kFBClipEndEnd:FBClipEnd    
+    kFBClipEndEnd:FBClipEnd
     """On clip end stop clip."""
-    kFBClipEndLoop:FBClipEnd    
+    kFBClipEndLoop:FBClipEnd
     """On clip end loop clip."""
 class FBClusterMode(_Enum):
     """Different clustering modes."""
-    kFBClusterAdditive:FBClusterMode    
+    kFBClusterAdditive:FBClusterMode
     """Add the values together."""
-    kFBClusterNormalize:FBClusterMode    
+    kFBClusterNormalize:FBClusterMode
     """Normalize (values between 0.0 and 1.0 )"""
-    kFBClusterTotal100:FBClusterMode    
+    kFBClusterTotal100:FBClusterMode
     """The balanced values will add up to 100 percent."""
 class FBCommPortType(_Enum):
     """Communication port type."""
-    kFBInternal:FBCommPortType    
+    kFBInternal:FBCommPortType
     """Internal."""
-    kFBPhysical:FBCommPortType    
+    kFBPhysical:FBCommPortType
     """Physical."""
-    kFBVirtual:FBCommPortType    
+    kFBVirtual:FBCommPortType
     """Virtual."""
 class FBCommType(_Enum):
     """Communications type.
     Different base types of communications. There is always the 'other' type in order to use another type of communication."""
-    kFBCommTypeNetworkTCP:FBCommType    
+    kFBCommTypeNetworkTCP:FBCommType
     """Network (TCP) device."""
-    kFBCommTypeNetworkUDP:FBCommType    
+    kFBCommTypeNetworkUDP:FBCommType
     """Network (UDP) device."""
-    kFBCommTypeNone:FBCommType    
+    kFBCommTypeNone:FBCommType
     """A non-communicating device."""
-    kFBCommTypeOther:FBCommType    
+    kFBCommTypeOther:FBCommType
     """Any other type of communications."""
-    kFBCommTypeSerial:FBCommType    
+    kFBCommTypeSerial:FBCommType
     """Serial communications."""
-    kFBCommTypeSharedMemory:FBCommType    
+    kFBCommTypeSharedMemory:FBCommType
     """Accessing shared memory."""
-    kFBCommTypeSimulator:FBCommType    
+    kFBCommTypeSimulator:FBCommType
     """Software simulator."""
 class FBCommandState(_Enum):
     """FBCommandState."""
-    kFBCommandStateMute:FBCommandState    
+    kFBCommandStateMute:FBCommandState
     """Mute."""
-    kFBCommandStateMuteBecauseSolo:FBCommandState    
+    kFBCommandStateMuteBecauseSolo:FBCommandState
     """Mute because of solo."""
-    kFBCommandStateSolo:FBCommandState    
+    kFBCommandStateSolo:FBCommandState
     """Solo."""
-    kFBCommandStateStandard:FBCommandState    
+    kFBCommandStateStandard:FBCommandState
     """Standard."""
 class FBConnectionAction(_Enum):
     """Possible actions when a notify plug event occurs."""
-    kFBBeginChange:FBConnectionAction    
+    kFBBeginChange:FBConnectionAction
     """Begin change on destination."""
-    kFBBeginReplaceDst:FBConnectionAction    
+    kFBBeginReplaceDst:FBConnectionAction
     """Begin replace destination during merge."""
-    kFBBeginReplaceSrc:FBConnectionAction    
+    kFBBeginReplaceSrc:FBConnectionAction
     """Begin replace source during merge."""
-    kFBCandidate:FBConnectionAction    
+    kFBCandidate:FBConnectionAction
     """Data candidate event, before the data is set."""
-    kFBCandidateGlobal:FBConnectionAction    
+    kFBCandidateGlobal:FBConnectionAction
     """Data candidate event, global candidate."""
-    kFBCandidated:FBConnectionAction    
+    kFBCandidated:FBConnectionAction
     """Data candidate event, after the data is set."""
     kFBConnect:FBConnectionAction
-    kFBConnectDst:FBConnectionAction    
+    kFBConnectDst:FBConnectionAction
     """Connect destination to source."""
-    kFBConnectSrc:FBConnectionAction    
+    kFBConnectSrc:FBConnectionAction
     """Connect source to destination."""
     kFBConnected:FBConnectionAction
-    kFBConnectedDst:FBConnectionAction    
+    kFBConnectedDst:FBConnectionAction
     """Connected destination to source."""
-    kFBConnectedOwner:FBConnectionAction    
+    kFBConnectedOwner:FBConnectionAction
     """Connected owner to destination."""
-    kFBConnectedSrc:FBConnectionAction    
+    kFBConnectedSrc:FBConnectionAction
     """Connected source to destination."""
-    kFBDescription:FBConnectionAction    
+    kFBDescription:FBConnectionAction
     """Component description event."""
-    kFBDestroy:FBConnectionAction    
+    kFBDestroy:FBConnectionAction
     """Component destroy."""
-    kFBDetached:FBConnectionAction    
+    kFBDetached:FBConnectionAction
     """Component detached from scene."""
     kFBDisconnect:FBConnectionAction
-    kFBDisconnectDst:FBConnectionAction    
+    kFBDisconnectDst:FBConnectionAction
     """Disconnect destination from source."""
-    kFBDisconnectOwner:FBConnectionAction    
+    kFBDisconnectOwner:FBConnectionAction
     """Disconnect owner from destination."""
-    kFBDisconnectSrc:FBConnectionAction    
+    kFBDisconnectSrc:FBConnectionAction
     """Disconnect source from destination."""
     kFBDisconnected:FBConnectionAction
-    kFBDisconnectedDst:FBConnectionAction    
+    kFBDisconnectedDst:FBConnectionAction
     """Disconnected destination from source."""
-    kFBDisconnectedSrc:FBConnectionAction    
+    kFBDisconnectedSrc:FBConnectionAction
     """Disconnected source from destination."""
-    kFBEndChange:FBConnectionAction    
+    kFBEndChange:FBConnectionAction
     """End change on destination."""
-    kFBEndReplaceDst:FBConnectionAction    
+    kFBEndReplaceDst:FBConnectionAction
     """End replace destination during merge."""
-    kFBEndReplaceSrc:FBConnectionAction    
+    kFBEndReplaceSrc:FBConnectionAction
     """End replace source during merge."""
-    kFBKeyingCandidate:FBConnectionAction    
+    kFBKeyingCandidate:FBConnectionAction
     """Component keying candidate event."""
-    kFBKeyingCurveChange:FBConnectionAction    
+    kFBKeyingCurveChange:FBConnectionAction
     """Component curve has changed."""
-    kFBKeyingCurveEndChange:FBConnectionAction    
+    kFBKeyingCurveEndChange:FBConnectionAction
     """Component curve changes in Dopesheet completed."""
-    kFBKeyingDeleteKey:FBConnectionAction    
+    kFBKeyingDeleteKey:FBConnectionAction
     """Component keying delete event."""
-    kFBKeyingKey:FBConnectionAction    
+    kFBKeyingKey:FBConnectionAction
     """Component keying add event."""
-    kFBPrefixRename:FBConnectionAction    
+    kFBPrefixRename:FBConnectionAction
     """Component prefix is going to be renamed."""
-    kFBPrefixRenamed:FBConnectionAction    
+    kFBPrefixRenamed:FBConnectionAction
     """Component prefix has been renamed."""
-    kFBRename:FBConnectionAction    
+    kFBRename:FBConnectionAction
     """Component is going to be renamed."""
-    kFBRenamed:FBConnectionAction    
+    kFBRenamed:FBConnectionAction
     """Component has been renamed."""
-    kFBReorderSrc:FBConnectionAction    
+    kFBReorderSrc:FBConnectionAction
     """Reorder of source."""
-    kFBReorderedSrc:FBConnectionAction    
+    kFBReorderedSrc:FBConnectionAction
     """Source has been reordered."""
-    kFBRequestConnectDst:FBConnectionAction    
+    kFBRequestConnectDst:FBConnectionAction
     """Request connection of destination to source."""
-    kFBRequestConnectSrc:FBConnectionAction    
+    kFBRequestConnectSrc:FBConnectionAction
     """Request connection of source to destination."""
-    kFBRequestDisconnectDst:FBConnectionAction    
+    kFBRequestDisconnectDst:FBConnectionAction
     """Request disconnection of destination to source."""
-    kFBRequestDisconnectSrc:FBConnectionAction    
+    kFBRequestDisconnectSrc:FBConnectionAction
     """Request disconnection of source to destination."""
-    kFBRequestPrefixRename:FBConnectionAction    
+    kFBRequestPrefixRename:FBConnectionAction
     """Compoent request Prefix Rename."""
-    kFBRequestRename:FBConnectionAction    
+    kFBRequestRename:FBConnectionAction
     """Component request rename."""
-    kFBReselect:FBConnectionAction    
+    kFBReselect:FBConnectionAction
     """Component re-selection."""
-    kFBSelect:FBConnectionAction    
+    kFBSelect:FBConnectionAction
     """Component selection."""
-    kFBUnselect:FBConnectionAction    
+    kFBUnselect:FBConnectionAction
     """Component de-selection."""
 class FBConnectionType(_Enum):
     """Connection types available between plugs."""
-    kFBConnectionTypeNone:FBConnectionType    
+    kFBConnectionTypeNone:FBConnectionType
     """Default connection type."""
-    kFBConnectionTypeSystem:FBConnectionType    
+    kFBConnectionTypeSystem:FBConnectionType
     """System connection type."""
 class FBConsoleChannelType(_Enum):
     """Console channel types."""
-    kFBConsoleButton:FBConsoleChannelType    
+    kFBConsoleButton:FBConsoleChannelType
     """Button."""
-    kFBConsoleDisplay:FBConsoleChannelType    
+    kFBConsoleDisplay:FBConsoleChannelType
     """Display."""
-    kFBConsoleEncoder:FBConsoleChannelType    
+    kFBConsoleEncoder:FBConsoleChannelType
     """Generic encoder."""
-    kFBConsoleJoystick:FBConsoleChannelType    
+    kFBConsoleJoystick:FBConsoleChannelType
     """Joystick."""
-    kFBConsoleKey:FBConsoleChannelType    
+    kFBConsoleKey:FBConsoleChannelType
     """Key."""
-    kFBConsoleNull:FBConsoleChannelType    
+    kFBConsoleNull:FBConsoleChannelType
     """Generic type."""
-    kFBConsoleSlider:FBConsoleChannelType    
+    kFBConsoleSlider:FBConsoleChannelType
     """Slider."""
-    kFBConsoleTransport:FBConsoleChannelType    
+    kFBConsoleTransport:FBConsoleChannelType
     """Transport."""
 class FBConstantKeyReducerThresholdType(_Enum):
     """Different threshold types for the Constant Key Reducer filter."""
-    kFBDefaultThreshold:FBConstantKeyReducerThresholdType    
+    kFBDefaultThreshold:FBConstantKeyReducerThresholdType
     """All other curves threshold."""
-    kFBRotationThreshold:FBConstantKeyReducerThresholdType    
+    kFBRotationThreshold:FBConstantKeyReducerThresholdType
     """Rotation threshold."""
-    kFBScalingThreshold:FBConstantKeyReducerThresholdType    
+    kFBScalingThreshold:FBConstantKeyReducerThresholdType
     """Scaling threshold."""
-    kFBTranslationThreshold:FBConstantKeyReducerThresholdType    
+    kFBTranslationThreshold:FBConstantKeyReducerThresholdType
     """Translation threshold."""
 class FBConstructionHistoryState(_Enum):
     """Construction history manager state."""
-    kFBConstructionHistory_Listening:FBConstructionHistoryState    
+    kFBConstructionHistory_Listening:FBConstructionHistoryState
     """Construction history is currently listening and recording operations."""
-    kFBConstructionHistory_Replaying:FBConstructionHistoryState    
+    kFBConstructionHistory_Replaying:FBConstructionHistoryState
     """Construction history is currently replaying an operation."""
 class FBControlSetType(_Enum):
     """Character ControlSet type."""
@@ -1057,31 +1057,31 @@ class FBControlSetType(_Enum):
     kFBControlSetTypeNone:FBControlSetType
 class FBControllerMode(_Enum):
     """Controller modes for optical model."""
-    kFBControllerLabelling:FBControllerMode    
+    kFBControllerLabelling:FBControllerMode
     """Labelling controller."""
-    kFBControllerNone:FBControllerMode    
+    kFBControllerNone:FBControllerMode
     """No controller mode."""
-    kFBControllerRigidBody:FBControllerMode    
+    kFBControllerRigidBody:FBControllerMode
     """Rigid body controller."""
-    kFBControllerSegment:FBControllerMode    
+    kFBControllerSegment:FBControllerMode
     """Segment controller."""
 class FBDataAsStringFlag(_Enum):
     """FBDataAsStringFlag."""
-    kFBDataAsStringPersistence:FBDataAsStringFlag    
+    kFBDataAsStringPersistence:FBDataAsStringFlag
     """Convert data to string type for storage."""
-    kFBDataAsStringUI:FBDataAsStringFlag    
+    kFBDataAsStringUI:FBDataAsStringFlag
     """Convert data to string type for UI display."""
 class FBDeckTransportMode(_Enum):
     """FBDeckTransportMode."""
-    kFBDeckTransportMain:FBDeckTransportMode    
+    kFBDeckTransportMain:FBDeckTransportMode
     """Transport main."""
-    kFBDeckTransportMaster:FBDeckTransportMode    
+    kFBDeckTransportMaster:FBDeckTransportMode
     """K_DEPRECATED_2021, use kFBDeckTransportMain."""
-    kFBDeckTransportNone:FBDeckTransportMode    
+    kFBDeckTransportNone:FBDeckTransportMode
     """No transport interaction."""
-    kFBDeckTransportSlave:FBDeckTransportMode    
+    kFBDeckTransportSlave:FBDeckTransportMode
     """K_DEPRECATED_2021, use kFBDeckTransportSync."""
-    kFBDeckTransportSync:FBDeckTransportMode    
+    kFBDeckTransportSync:FBDeckTransportMode
     """Sync to transport controls."""
 class FBDeformerType(_Enum):
     """Determine the deformer type.
@@ -1091,131 +1091,131 @@ class FBDeformerType(_Enum):
     kFBDeformerUnkown:FBDeformerType
 class FBDeviceKeyboardKey(_Enum):
     """Keyboard keys (for input)."""
-    kFBDKey0:FBDeviceKeyboardKey    
+    kFBDKey0:FBDeviceKeyboardKey
     """'0'."""
-    kFBDKey1:FBDeviceKeyboardKey    
+    kFBDKey1:FBDeviceKeyboardKey
     """'1'."""
-    kFBDKey2:FBDeviceKeyboardKey    
+    kFBDKey2:FBDeviceKeyboardKey
     """'2'."""
-    kFBDKey3:FBDeviceKeyboardKey    
+    kFBDKey3:FBDeviceKeyboardKey
     """'3'."""
-    kFBDKey4:FBDeviceKeyboardKey    
+    kFBDKey4:FBDeviceKeyboardKey
     """'4'."""
-    kFBDKey5:FBDeviceKeyboardKey    
+    kFBDKey5:FBDeviceKeyboardKey
     """'5'."""
-    kFBDKey6:FBDeviceKeyboardKey    
+    kFBDKey6:FBDeviceKeyboardKey
     """'6'."""
-    kFBDKey7:FBDeviceKeyboardKey    
+    kFBDKey7:FBDeviceKeyboardKey
     """'7'."""
-    kFBDKey8:FBDeviceKeyboardKey    
+    kFBDKey8:FBDeviceKeyboardKey
     """'8'."""
-    kFBDKey9:FBDeviceKeyboardKey    
+    kFBDKey9:FBDeviceKeyboardKey
     """'9'."""
-    kFBDKeyArrowDown:FBDeviceKeyboardKey    
+    kFBDKeyArrowDown:FBDeviceKeyboardKey
     """Down."""
-    kFBDKeyArrowLeft:FBDeviceKeyboardKey    
+    kFBDKeyArrowLeft:FBDeviceKeyboardKey
     """Left."""
-    kFBDKeyArrowRight:FBDeviceKeyboardKey    
+    kFBDKeyArrowRight:FBDeviceKeyboardKey
     """Right."""
-    kFBDKeyArrowUp:FBDeviceKeyboardKey    
+    kFBDKeyArrowUp:FBDeviceKeyboardKey
     """Up."""
-    kFBDKeyEnd:FBDeviceKeyboardKey    
+    kFBDKeyEnd:FBDeviceKeyboardKey
     """End."""
-    kFBDKeyEscape:FBDeviceKeyboardKey    
+    kFBDKeyEscape:FBDeviceKeyboardKey
     """Escape."""
-    kFBDKeyF1:FBDeviceKeyboardKey    
+    kFBDKeyF1:FBDeviceKeyboardKey
     """'F1'."""
-    kFBDKeyF10:FBDeviceKeyboardKey    
+    kFBDKeyF10:FBDeviceKeyboardKey
     """'F10'."""
-    kFBDKeyF11:FBDeviceKeyboardKey    
+    kFBDKeyF11:FBDeviceKeyboardKey
     """'F11'."""
-    kFBDKeyF12:FBDeviceKeyboardKey    
+    kFBDKeyF12:FBDeviceKeyboardKey
     """'F12'."""
-    kFBDKeyF2:FBDeviceKeyboardKey    
+    kFBDKeyF2:FBDeviceKeyboardKey
     """'F2'."""
-    kFBDKeyF3:FBDeviceKeyboardKey    
+    kFBDKeyF3:FBDeviceKeyboardKey
     """'F3'."""
-    kFBDKeyF4:FBDeviceKeyboardKey    
+    kFBDKeyF4:FBDeviceKeyboardKey
     """'F4'."""
-    kFBDKeyF5:FBDeviceKeyboardKey    
+    kFBDKeyF5:FBDeviceKeyboardKey
     """'F5'"""
-    kFBDKeyF6:FBDeviceKeyboardKey    
+    kFBDKeyF6:FBDeviceKeyboardKey
     """'F6'."""
-    kFBDKeyF7:FBDeviceKeyboardKey    
+    kFBDKeyF7:FBDeviceKeyboardKey
     """'F7'."""
-    kFBDKeyF8:FBDeviceKeyboardKey    
+    kFBDKeyF8:FBDeviceKeyboardKey
     """'F8'."""
-    kFBDKeyF9:FBDeviceKeyboardKey    
+    kFBDKeyF9:FBDeviceKeyboardKey
     """'F9'."""
-    kFBDKeyHome:FBDeviceKeyboardKey    
+    kFBDKeyHome:FBDeviceKeyboardKey
     """Home."""
-    kFBDKeyPageDown:FBDeviceKeyboardKey    
+    kFBDKeyPageDown:FBDeviceKeyboardKey
     """Page Down."""
-    kFBDKeyPageUp:FBDeviceKeyboardKey    
+    kFBDKeyPageUp:FBDeviceKeyboardKey
     """Page Up."""
-    kFBDKeyReturn:FBDeviceKeyboardKey    
+    kFBDKeyReturn:FBDeviceKeyboardKey
     """Return."""
-    kFBDKeySpace:FBDeviceKeyboardKey    
+    kFBDKeySpace:FBDeviceKeyboardKey
     """Space bar."""
 class FBDeviceSamplingMode(_Enum):
     """Recording types.
     The different values for this will control the way the keys are added when the device is being recorded. There are four different types of recording keys for devices:Hardware Timestamping. This case is when the hardware provides timestamps with each packet.Hardware Frequency. The hardware is guaranteed to provide packets at a given frequency.Auto Frequency Packets are coming in at a fixed, unknown frequency. The recorded data will be resampled to be equidistant.Software Timestamping. The application will provide a timestamp for each packet depending on when it receives the data."""
-    kFBAutoFrequency:FBDeviceSamplingMode    
+    kFBAutoFrequency:FBDeviceSamplingMode
     """Device is running at unknown, fixed frequency."""
-    kFBHardwareFrequency:FBDeviceSamplingMode    
+    kFBHardwareFrequency:FBDeviceSamplingMode
     """Device is running at known, fixed frequency."""
-    kFBHardwareTimestamp:FBDeviceSamplingMode    
+    kFBHardwareTimestamp:FBDeviceSamplingMode
     """Device supplies timestamp."""
-    kFBSoftwareTimestamp:FBDeviceSamplingMode    
+    kFBSoftwareTimestamp:FBDeviceSamplingMode
     """The software will timestamp packets as they arrive."""
 class FBDisplayMode(_Enum):
     """Model display options."""
-    kFBDisplayModeCount:FBDisplayMode    
+    kFBDisplayModeCount:FBDisplayMode
     """End of enum, this value indicates the number of display modes available."""
-    kFBDisplayModeDefault:FBDisplayMode    
+    kFBDisplayModeDefault:FBDisplayMode
     """Use default display mode."""
-    kFBDisplayModeFlatShade:FBDisplayMode    
+    kFBDisplayModeFlatShade:FBDisplayMode
     """Flat shading."""
-    kFBDisplayModeHardShade:FBDisplayMode    
+    kFBDisplayModeHardShade:FBDisplayMode
     """Hard shading."""
-    kFBDisplayModeTexture:FBDisplayMode    
+    kFBDisplayModeTexture:FBDisplayMode
     """Textures are displayed."""
-    kFBDisplayModeWireFrame:FBDisplayMode    
+    kFBDisplayModeWireFrame:FBDisplayMode
     """Wire-frame rendering."""
 class FBDisplayWhat(_Enum):
     """Model display mask This mask determines what types of models are displayed by the renderer."""
-    kFBDisplay3dIcon:FBDisplayWhat    
+    kFBDisplay3dIcon:FBDisplayWhat
     """3D icons are displayed (3D icons are 3D elements that do not exist in the scene)."""
-    kFBDisplayAll:FBDisplayWhat    
+    kFBDisplayAll:FBDisplayWhat
     """Everything is displayed."""
-    kFBDisplayCamera:FBDisplayWhat    
+    kFBDisplayCamera:FBDisplayWhat
     """Cameras are displayed."""
-    kFBDisplayCenter:FBDisplayWhat    
+    kFBDisplayCenter:FBDisplayWhat
     """Centers are displayed."""
-    kFBDisplayLight:FBDisplayWhat    
+    kFBDisplayLight:FBDisplayWhat
     """Lights are displayed."""
-    kFBDisplayMarker:FBDisplayWhat    
+    kFBDisplayMarker:FBDisplayWhat
     """Markers are displayed."""
-    kFBDisplayNone:FBDisplayWhat    
+    kFBDisplayNone:FBDisplayWhat
     """Nothing is displayed."""
-    kFBDisplayNull:FBDisplayWhat    
+    kFBDisplayNull:FBDisplayWhat
     """Null models are displayed."""
-    kFBDisplaySkeleton:FBDisplayWhat    
+    kFBDisplaySkeleton:FBDisplayWhat
     """Skeletons and bones are displayed."""
 class FBDragAndDropState(_Enum):
     """State of Drag and Drop.
     See samples: PropertyDrop.py, Spread.py."""
-    kFBDragAndDropBegin:FBDragAndDropState    
+    kFBDragAndDropBegin:FBDragAndDropState
     """Begin a drag and drop sequence."""
-    kFBDragAndDropDrag:FBDragAndDropState    
+    kFBDragAndDropDrag:FBDragAndDropState
     """Dragging."""
-    kFBDragAndDropDrop:FBDragAndDropState    
+    kFBDragAndDropDrop:FBDragAndDropState
     """Dropping."""
-    kFBDragAndDropEnd:FBDragAndDropState    
+    kFBDragAndDropEnd:FBDragAndDropState
     """End of drag and drop."""
-    kFBDragOnEmpty:FBDragAndDropState    
+    kFBDragOnEmpty:FBDragAndDropState
     """Empty the drag and drop stack."""
-    kFBDragOnEmptyDrop:FBDragAndDropState    
+    kFBDragOnEmptyDrop:FBDragAndDropState
     """Dropping empty stack."""
 class FBEffectorId(_Enum):
     """All effector nodes."""
@@ -1285,13 +1285,13 @@ class FBEffectorSetID(_Enum):
     FBLastEffectorSetIndex:FBEffectorSetID
 class FBElementAction(_Enum):
     """Enumeration that describe the different actions available on a scene element depending on the current context."""
-    kFBElementActionAppend:FBElementAction    
+    kFBElementActionAppend:FBElementAction
     """Append the elements to the current scene elements (when loading or merging)."""
-    kFBElementActionDiscard:FBElementAction    
+    kFBElementActionDiscard:FBElementAction
     """Do not consider the element (when loading, merging and saving)."""
-    kFBElementActionMerge:FBElementAction    
+    kFBElementActionMerge:FBElementAction
     """Merge the elements from the file in the current scene (when merging)."""
-    kFBElementActionSave:FBElementAction    
+    kFBElementActionSave:FBElementAction
     """Save the element (when saving)."""
 class FBEventAnimationNodeType(_Enum):
     """Event based on animation node.
@@ -1336,21 +1336,21 @@ class FBEventName(_Enum):
     kFBEventUnbindSDK:FBEventName
 class FBExistingClipAction(_Enum):
     """Action to perform, when preparing an Audio In object to record, when the action clip associated to the recording path is already in the scene."""
-    kFBExistingClipAbortOperation:FBExistingClipAction    
+    kFBExistingClipAbortOperation:FBExistingClipAction
     """Cancel preparing the audio in to record."""
-    kFBExistingClipAskUser:FBExistingClipAction    
+    kFBExistingClipAskUser:FBExistingClipAction
     """Ask the user for desired operation via a dialog."""
-    kFBExistingClipRemove:FBExistingClipAction    
+    kFBExistingClipRemove:FBExistingClipAction
     """Remove the action clip from the scene."""
 class FBExistingFileAction(_Enum):
     """Action to perform, when preparing an Audio In object to record, when the action clip associated to the recording path already exists on disk and is not empty."""
-    kFBExistingFileAbortOperation:FBExistingFileAction    
+    kFBExistingFileAbortOperation:FBExistingFileAction
     """Cancel preparing the audio in to record."""
-    kFBExistingFileAppend:FBExistingFileAction    
+    kFBExistingFileAppend:FBExistingFileAction
     """Append the new recording to existing recording. Warning: Be sure that the current file format match your recording option!"""
-    kFBExistingFileAskUser:FBExistingFileAction    
+    kFBExistingFileAskUser:FBExistingFileAction
     """Ask the user for desired operation via a dialog."""
-    kFBExistingFileOverwrite:FBExistingFileAction    
+    kFBExistingFileOverwrite:FBExistingFileAction
     """Overwrite the existing file on disk."""
 class FBExtrapolationMode(_Enum):
     """Modes for pre / post extrapolation."""
@@ -1361,90 +1361,90 @@ class FBExtrapolationMode(_Enum):
     kFCurveExtrapolationRepetition:FBExtrapolationMode
 class FBFCurveEventType(_Enum):
     """This enum indicates what modification was made to a tracked FCurve."""
-    kFBFCurveEventTypeDerivativedChanged:FBFCurveEventType    
+    kFBFCurveEventTypeDerivativedChanged:FBFCurveEventType
     """A key left/right/both derivative was changed, please note that this event can affect the key specified in the event index and the following key."""
-    kFBFCurveEventTypeKeyAdded:FBFCurveEventType    
+    kFBFCurveEventTypeKeyAdded:FBFCurveEventType
     """A new key was added."""
-    kFBFCurveEventTypeKeyBiasChanged:FBFCurveEventType    
+    kFBFCurveEventTypeKeyBiasChanged:FBFCurveEventType
     """A key bias was changed (only valid on TCB key)"""
-    kFBFCurveEventTypeKeyContinuityChanged:FBFCurveEventType    
+    kFBFCurveEventTypeKeyContinuityChanged:FBFCurveEventType
     """A key continuity was changed (only valid on TCB key)"""
-    kFBFCurveEventTypeKeyInterpolationChanged:FBFCurveEventType    
+    kFBFCurveEventTypeKeyInterpolationChanged:FBFCurveEventType
     """A key interpolation mode was changed."""
-    kFBFCurveEventTypeKeyMassOperation:FBFCurveEventType    
+    kFBFCurveEventTypeKeyMassOperation:FBFCurveEventType
     """An operation affecting multiple keys was made."""
-    kFBFCurveEventTypeKeyPostExtrapolationChanged:FBFCurveEventType    
+    kFBFCurveEventTypeKeyPostExtrapolationChanged:FBFCurveEventType
     """A curve post-extrapolation value was changed."""
-    kFBFCurveEventTypeKeyPreExtrapolationChanged:FBFCurveEventType    
+    kFBFCurveEventTypeKeyPreExtrapolationChanged:FBFCurveEventType
     """A curve pre-extrapolation value was changed."""
-    kFBFCurveEventTypeKeyRemoved:FBFCurveEventType    
+    kFBFCurveEventTypeKeyRemoved:FBFCurveEventType
     """A key was removed."""
-    kFBFCurveEventTypeKeyTangentBreakChanged:FBFCurveEventType    
+    kFBFCurveEventTypeKeyTangentBreakChanged:FBFCurveEventType
     """A key break mode was changed."""
-    kFBFCurveEventTypeKeyTangentChanged:FBFCurveEventType    
+    kFBFCurveEventTypeKeyTangentChanged:FBFCurveEventType
     """A key tangent was changed."""
-    kFBFCurveEventTypeKeyTangentClampModeChanged:FBFCurveEventType    
+    kFBFCurveEventTypeKeyTangentClampModeChanged:FBFCurveEventType
     """A key clamping mode was changed."""
-    kFBFCurveEventTypeKeyTangentConstantChanged:FBFCurveEventType    
+    kFBFCurveEventTypeKeyTangentConstantChanged:FBFCurveEventType
     """A key constant mode was changed."""
-    kFBFCurveEventTypeKeyTensionChanged:FBFCurveEventType    
+    kFBFCurveEventTypeKeyTensionChanged:FBFCurveEventType
     """A key tension was changed (only valid on TCB key)"""
-    kFBFCurveEventTypeKeyTimeChanged:FBFCurveEventType    
+    kFBFCurveEventTypeKeyTimeChanged:FBFCurveEventType
     """A key time was changed."""
-    kFBFCurveEventTypeKeyValueChanged:FBFCurveEventType    
+    kFBFCurveEventTypeKeyValueChanged:FBFCurveEventType
     """A key value was changed."""
-    kFBFCurveEventTypeKeyVelocityChanged:FBFCurveEventType    
+    kFBFCurveEventTypeKeyVelocityChanged:FBFCurveEventType
     """A key velocity was changed."""
-    kFBFCurveEventTypeKeyWeightChanged:FBFCurveEventType    
+    kFBFCurveEventTypeKeyWeightChanged:FBFCurveEventType
     """A key left/right weight was changed, please note that this event can affect the key specified in the event index and the following key."""
-    kFBFCurveEventTypeUnknownOperation:FBFCurveEventType    
+    kFBFCurveEventTypeUnknownOperation:FBFCurveEventType
     """Invalid event."""
 class FBFileFormatAndVersion(_Enum):
-    kFBDefaultFormatAndVersion:FBFileFormatAndVersion    
+    kFBDefaultFormatAndVersion:FBFileFormatAndVersion
     """Default Format and Version."""
-    kFBFBX2010:FBFileFormatAndVersion    
+    kFBFBX2010:FBFileFormatAndVersion
     """It's FBX Version 6. Note: it's not equivalent to MotionBuilder 2010 Native FBX format."""
-    kFBFBX2011:FBFileFormatAndVersion    
+    kFBFBX2011:FBFileFormatAndVersion
     """FBX Version 2011."""
-    kFBFBX2012:FBFileFormatAndVersion    
+    kFBFBX2012:FBFileFormatAndVersion
     """FBX Version 2012."""
-    kFBFBX2013:FBFileFormatAndVersion    
+    kFBFBX2013:FBFileFormatAndVersion
     """FBX Version 2013."""
-    kFBFBX2014_2015:FBFileFormatAndVersion    
+    kFBFBX2014_2015:FBFileFormatAndVersion
     """FBX Version 2014/2015."""
-    kFBFBX2016:FBFileFormatAndVersion    
+    kFBFBX2016:FBFileFormatAndVersion
     """FBX Version 2016."""
-    kFBFBX2018:FBFileFormatAndVersion    
+    kFBFBX2018:FBFileFormatAndVersion
     """FBX Version 2018."""
-    kFBFBX2019:FBFileFormatAndVersion    
+    kFBFBX2019:FBFileFormatAndVersion
     """FBX Version 2019."""
-    kFBFBX2020:FBFileFormatAndVersion    
+    kFBFBX2020:FBFileFormatAndVersion
     """FBX Version 2020."""
 class FBFileMonitoringType(_Enum):
     """File Monitoring Type."""
-    kFBFileMonitoring_ANIMATIONCLIP:FBFileMonitoringType    
+    kFBFileMonitoring_ANIMATIONCLIP:FBFileMonitoringType
     """Animation clip change monitoring."""
-    kFBFileMonitoring_FILEREFERENCE:FBFileMonitoringType    
+    kFBFileMonitoring_FILEREFERENCE:FBFileMonitoringType
     """File Reference change monitoring."""
-    kFBFileMonitoring_InvalidIndex:FBFileMonitoringType    
+    kFBFileMonitoring_InvalidIndex:FBFileMonitoringType
     """Invalid value."""
-    kFBFileMonitoring_MAINSCENE:FBFileMonitoringType    
+    kFBFileMonitoring_MAINSCENE:FBFileMonitoringType
     """Main Scene change monitoring."""
-    kFBFileMonitoring_PYTHONEDITORSCRIPT:FBFileMonitoringType    
+    kFBFileMonitoring_PYTHONEDITORSCRIPT:FBFileMonitoringType
     """Python Editor Script change monitoring."""
 class FBFilePopupStyle(_Enum):
     """Different types of file popup windows.
     See samples: FBFilePopup.py, FBFolderPopup.py."""
-    kFBFilePopupOpen:FBFilePopupStyle    
+    kFBFilePopupOpen:FBFilePopupStyle
     """Open file popup (Shows 'Open Directory')."""
-    kFBFilePopupSave:FBFilePopupStyle    
+    kFBFilePopupSave:FBFilePopupStyle
     """Save file popup (Shows 'Save Directory')."""
 class FBFilterType(_Enum):
     """Filter types.
     A filter can be of one or both types in order to process data on single or multiple curves of data. Ex: a gimble killer filter needs to be of type vector because the three curves are inter-dependant."""
-    kFBFilterNumber:FBFilterType    
+    kFBFilterNumber:FBFilterType
     """Filter single FCurves."""
-    kFBFilterVector:FBFilterType    
+    kFBFilterVector:FBFilterType
     """Filter a vector (3 FCurves)."""
 class FBFloorContactID(_Enum):
     """Floor contact for the given index."""
@@ -1455,39 +1455,39 @@ class FBFloorContactID(_Enum):
     FBRightHandMemberIndex:FBFloorContactID
 class FBFogMode(_Enum):
     """Fog falloff modes."""
-    kFBFogModeExponential:FBFogMode    
+    kFBFogModeExponential:FBFogMode
     """Exponential falloff."""
-    kFBFogModeLinear:FBFogMode    
+    kFBFogModeLinear:FBFogMode
     """Linear falloff."""
-    kFBFogModeSquareExponential:FBFogMode    
+    kFBFogModeSquareExponential:FBFogMode
     """Squared exponential falloff."""
 class FBGapMode(_Enum):
     """Gap interpolation modes."""
-    kFBGapBezier:FBGapMode    
+    kFBGapBezier:FBGapMode
     """Bezier interpolation."""
-    kFBGapConstant:FBGapMode    
+    kFBGapConstant:FBGapMode
     """Constant interpolation."""
-    kFBGapCurve:FBGapMode    
+    kFBGapCurve:FBGapMode
     """Cubic/curve interpolation."""
-    kFBGapLinear:FBGapMode    
+    kFBGapLinear:FBGapMode
     """Linear interpolation."""
-    kFBGapRigidBody:FBGapMode    
+    kFBGapRigidBody:FBGapMode
     """Use rigid body information."""
-    kFBGapSample:FBGapMode    
+    kFBGapSample:FBGapMode
     """Sampled data."""
 class FBGenerationMode(_Enum):
     """Generation modes for optical model."""
-    kFBGenerationFast:FBGenerationMode    
+    kFBGenerationFast:FBGenerationMode
     """Fast re-generation."""
-    kFBGenerationNone:FBGenerationMode    
+    kFBGenerationNone:FBGenerationMode
     """No re-generation."""
 class FBGeometryArrayElementType(_Enum):
     """Type of data when requesting an array."""
     kFBGeometryArrayElementType_Float:FBGeometryArrayElementType
     kFBGeometryArrayElementType_Float2:FBGeometryArrayElementType
-    kFBGeometryArrayElementType_Float3:FBGeometryArrayElementType    
+    kFBGeometryArrayElementType_Float3:FBGeometryArrayElementType
     """Each element is an array of 3 float."""
-    kFBGeometryArrayElementType_Float4:FBGeometryArrayElementType    
+    kFBGeometryArrayElementType_Float4:FBGeometryArrayElementType
     """Each element is an array of 4 float."""
     kFBGeometryArrayElementType_FloatMatrix4x4:FBGeometryArrayElementType
     kFBGeometryArrayElementType_Integer:FBGeometryArrayElementType
@@ -1496,15 +1496,15 @@ class FBGeometryArrayElementType(_Enum):
 class FBGeometryArrayID(_Enum):
     """ID to use when requesting a specific array of data for a model.
     See sample: VertexArrayManipulation.py."""
-    kFBGeometryArrayID_Binormal:FBGeometryArrayID    
+    kFBGeometryArrayID_Binormal:FBGeometryArrayID
     """ID to the Binormal array."""
-    kFBGeometryArrayID_Color:FBGeometryArrayID    
+    kFBGeometryArrayID_Color:FBGeometryArrayID
     """ID to the Vertex Color Array."""
-    kFBGeometryArrayID_Normal:FBGeometryArrayID    
+    kFBGeometryArrayID_Normal:FBGeometryArrayID
     """ID to the Normal by Point array."""
-    kFBGeometryArrayID_Point:FBGeometryArrayID    
+    kFBGeometryArrayID_Point:FBGeometryArrayID
     """ID to the Point array."""
-    kFBGeometryArrayID_Tangent:FBGeometryArrayID    
+    kFBGeometryArrayID_Tangent:FBGeometryArrayID
     """ID to the Tangent array."""
 class FBGeometryMappingMode(_Enum):
     """Determine how the element is mapped on a surface.
@@ -1535,41 +1535,41 @@ class FBGeometryReferenceMode(_Enum):
 class FBGlobalEvalCallbackTiming(_Enum):
     """Global Evaluation callback timing.
     Let the user to register callback function at different stage of background evaluation."""
-    kFBGlobalEvalCallbackAfterDAG:FBGlobalEvalCallbackTiming    
+    kFBGlobalEvalCallbackAfterDAG:FBGlobalEvalCallbackTiming
     """Invoked after all DAG (Transformation & Deformation) evaluation tasks finished in evaluation pipeline / thread."""
-    kFBGlobalEvalCallbackAfterDeform:FBGlobalEvalCallbackTiming    
+    kFBGlobalEvalCallbackAfterDeform:FBGlobalEvalCallbackTiming
     """Invoked after all deformation tasks finished in evaluation pipeline / thread."""
-    kFBGlobalEvalCallbackAfterPlottingFrame:FBGlobalEvalCallbackTiming    
+    kFBGlobalEvalCallbackAfterPlottingFrame:FBGlobalEvalCallbackTiming
     """Invoked after plotting a frame."""
-    kFBGlobalEvalCallbackAfterRender:FBGlobalEvalCallbackTiming    
+    kFBGlobalEvalCallbackAfterRender:FBGlobalEvalCallbackTiming
     """Invoked in rendering pipeline, after any rendering tasks finish (just before swapping GL back/front buffer)."""
-    kFBGlobalEvalCallbackBeforeDAG:FBGlobalEvalCallbackTiming    
+    kFBGlobalEvalCallbackBeforeDAG:FBGlobalEvalCallbackTiming
     """Invoked before any DAG (Transformation & Deformation) evaluation tasks started in evaluation pipeline / thread."""
-    kFBGlobalEvalCallbackBeforePlottingFrame:FBGlobalEvalCallbackTiming    
+    kFBGlobalEvalCallbackBeforePlottingFrame:FBGlobalEvalCallbackTiming
     """Invoked before plotting a frame."""
-    kFBGlobalEvalCallbackBeforeRender:FBGlobalEvalCallbackTiming    
+    kFBGlobalEvalCallbackBeforeRender:FBGlobalEvalCallbackTiming
     """Invoked in rendering pipeline, before any rendering tasks start (immediately after clearing GL back buffer)."""
-    kFBGlobalEvalCallbackSyn:FBGlobalEvalCallbackTiming    
+    kFBGlobalEvalCallbackSyn:FBGlobalEvalCallbackTiming
     """Invoked when both evaluation & rendering pipelines / threads are stopped. Useful for some complicated scene change tasks to avoid race condition."""
 class FBHUDElementHAlignment(_Enum):
-    kFBHUDCenter:FBHUDElementHAlignment    
+    kFBHUDCenter:FBHUDElementHAlignment
     """Center."""
-    kFBHUDLeft:FBHUDElementHAlignment    
+    kFBHUDLeft:FBHUDElementHAlignment
     """Left alignment."""
-    kFBHUDRight:FBHUDElementHAlignment    
+    kFBHUDRight:FBHUDElementHAlignment
     """Right alignment."""
 class FBHUDElementVAlignment(_Enum):
-    kFBHUDBottom:FBHUDElementVAlignment    
+    kFBHUDBottom:FBHUDElementVAlignment
     """Bottom alignment."""
-    kFBHUDTop:FBHUDElementVAlignment    
+    kFBHUDTop:FBHUDElementVAlignment
     """Top alignment."""
-    kFBHUDVCenter:FBHUDElementVAlignment    
+    kFBHUDVCenter:FBHUDElementVAlignment
     """Center."""
 class FBIconPosition(_Enum):
     """Different icon positions possible."""
-    kFBIconLeft:FBIconPosition    
+    kFBIconLeft:FBIconPosition
     """Icon on left of text."""
-    kFBIconTop:FBIconPosition    
+    kFBIconTop:FBIconPosition
     """Icon on top of text."""
 class FBImageFormat(_Enum):
     """Image formats."""
@@ -1598,116 +1598,116 @@ class FBImageType(_Enum):
     kFBImageTypeFrame:FBImageType
 class FBInputKey(_Enum):
     """Keyboard inputs."""
-    kFBKeyBackSpace:FBInputKey    
+    kFBKeyBackSpace:FBInputKey
     """Backspace."""
-    kFBKeyDel:FBInputKey    
+    kFBKeyDel:FBInputKey
     """Delete."""
-    kFBKeyDown:FBInputKey    
+    kFBKeyDown:FBInputKey
     """Down."""
-    kFBKeyEnd:FBInputKey    
+    kFBKeyEnd:FBInputKey
     """End."""
-    kFBKeyEscape:FBInputKey    
+    kFBKeyEscape:FBInputKey
     """Escape."""
-    kFBKeyF1:FBInputKey    
+    kFBKeyF1:FBInputKey
     """F1."""
-    kFBKeyF10:FBInputKey    
+    kFBKeyF10:FBInputKey
     """F10."""
-    kFBKeyF11:FBInputKey    
+    kFBKeyF11:FBInputKey
     """F11."""
-    kFBKeyF12:FBInputKey    
+    kFBKeyF12:FBInputKey
     """F12."""
-    kFBKeyF2:FBInputKey    
+    kFBKeyF2:FBInputKey
     """F2."""
-    kFBKeyF3:FBInputKey    
+    kFBKeyF3:FBInputKey
     """F3."""
-    kFBKeyF4:FBInputKey    
+    kFBKeyF4:FBInputKey
     """F4."""
-    kFBKeyF5:FBInputKey    
+    kFBKeyF5:FBInputKey
     """F5."""
-    kFBKeyF6:FBInputKey    
+    kFBKeyF6:FBInputKey
     """F6."""
-    kFBKeyF7:FBInputKey    
+    kFBKeyF7:FBInputKey
     """F7."""
-    kFBKeyF8:FBInputKey    
+    kFBKeyF8:FBInputKey
     """F8."""
-    kFBKeyF9:FBInputKey    
+    kFBKeyF9:FBInputKey
     """F9."""
-    kFBKeyHome:FBInputKey    
+    kFBKeyHome:FBInputKey
     """Home."""
-    kFBKeyIns:FBInputKey    
+    kFBKeyIns:FBInputKey
     """Insert."""
-    kFBKeyLeft:FBInputKey    
+    kFBKeyLeft:FBInputKey
     """Left."""
-    kFBKeyPageDown:FBInputKey    
+    kFBKeyPageDown:FBInputKey
     """Page Down."""
-    kFBKeyPageUp:FBInputKey    
+    kFBKeyPageUp:FBInputKey
     """Page Up."""
-    kFBKeyReturn:FBInputKey    
+    kFBKeyReturn:FBInputKey
     """Return."""
-    kFBKeyRight:FBInputKey    
+    kFBKeyRight:FBInputKey
     """Right."""
-    kFBKeyTab:FBInputKey    
+    kFBKeyTab:FBInputKey
     """Tab."""
-    kFBKeyUp:FBInputKey    
+    kFBKeyUp:FBInputKey
     """Up."""
 class FBInputModifier(_Enum):
     """Input Modifiers (Ctrl, Alt, Shift)."""
-    kFBKeyAlt:FBInputModifier    
+    kFBKeyAlt:FBInputModifier
     """Alt was pressed."""
-    kFBKeyCtrl:FBInputModifier    
+    kFBKeyCtrl:FBInputModifier
     """Control was pressed."""
-    kFBKeyNone:FBInputModifier    
+    kFBKeyNone:FBInputModifier
     """No modifier."""
-    kFBKeyShift:FBInputModifier    
+    kFBKeyShift:FBInputModifier
     """Shift was pressed."""
 class FBInputType(_Enum):
     """Types of input events.
     See sample: KeyboardMapper.py."""
-    kFBButtonDoubleClick:FBInputType    
+    kFBButtonDoubleClick:FBInputType
     """A mouse button was double clicked."""
-    kFBButtonPress:FBInputType    
+    kFBButtonPress:FBInputType
     """A mouse button was pressed."""
-    kFBButtonRelease:FBInputType    
+    kFBButtonRelease:FBInputType
     """A mouse button was released."""
-    kFBDragging:FBInputType    
+    kFBDragging:FBInputType
     """The mouse is dragging items."""
-    kFBDropping:FBInputType    
+    kFBDropping:FBInputType
     """The mouse is dropping items."""
-    kFBKeyPress:FBInputType    
+    kFBKeyPress:FBInputType
     """A keyboard key was pressed."""
-    kFBKeyPressRaw:FBInputType    
+    kFBKeyPressRaw:FBInputType
     """A keyboard key was pressed."""
-    kFBKeyRelease:FBInputType    
+    kFBKeyRelease:FBInputType
     """A keyboard key was released."""
-    kFBKeyReleaseRaw:FBInputType    
+    kFBKeyReleaseRaw:FBInputType
     """A keyboard key was released."""
-    kFBMotionNotify:FBInputType    
+    kFBMotionNotify:FBInputType
     """The mouse has been moved."""
-    kFBMouseEnter:FBInputType    
+    kFBMouseEnter:FBInputType
     """The mouse pointer is entering the window."""
-    kFBMouseLeave:FBInputType    
+    kFBMouseLeave:FBInputType
     """The mouse pointer is leaving the window."""
-    kFBMouseWheelNotify:FBInputType    
+    kFBMouseWheelNotify:FBInputType
     """The mouse wheel has moved."""
-    kFBUnknownInput:FBInputType    
+    kFBUnknownInput:FBInputType
     """The internal event could not be translated."""
 class FBInsertSegmentMode(_Enum):
     """Insert segment modes."""
-    kFBInsertSegmentFromStart:FBInsertSegmentMode    
+    kFBInsertSegmentFromStart:FBInsertSegmentMode
     """Insert from start."""
-    kFBInsertSegmentToEnd:FBInsertSegmentMode    
+    kFBInsertSegmentToEnd:FBInsertSegmentMode
     """Insert to end."""
-    kFBInsertSegmentWhole:FBInsertSegmentMode    
+    kFBInsertSegmentWhole:FBInsertSegmentMode
     """Insert whole."""
 class FBInterpolation(_Enum):
     """Types of interpolation for an FCurve."""
-    kFBInterpolationConstant:FBInterpolation    
+    kFBInterpolationConstant:FBInterpolation
     """Constant interpolation."""
-    kFBInterpolationCubic:FBInterpolation    
+    kFBInterpolationCubic:FBInterpolation
     """Cubic interpolation."""
-    kFBInterpolationCustom:FBInterpolation    
+    kFBInterpolationCustom:FBInterpolation
     """Custom interpolation."""
-    kFBInterpolationLinear:FBInterpolation    
+    kFBInterpolationLinear:FBInterpolation
     """Linear interpolation."""
 class FBInterpolatorCurveType(_Enum):
     """Types of interpolator for an FCurve."""
@@ -1722,112 +1722,112 @@ class FBInterpolatorCurveType(_Enum):
     kFBInterpolatorCurveSmoothOut:FBInterpolatorCurveType
 class FBKeyingGroupType(_Enum):
     """Keying group types."""
-    kFBKeyingGroupGlobal:FBKeyingGroupType    
+    kFBKeyingGroupGlobal:FBKeyingGroupType
     """All selected objects with the same properties as those defined in the keying group will be keyed."""
-    kFBKeyingGroupLocal:FBKeyingGroupType    
+    kFBKeyingGroupLocal:FBKeyingGroupType
     """Only properties of objects specified in the keying group will be keyed."""
-    kFBKeyingGroupObjectType:FBKeyingGroupType    
+    kFBKeyingGroupObjectType:FBKeyingGroupType
     """All selected objects of the specified type in the keying group with the same properties as those defined in the keying group will be keyed."""
 class FBLayerMode(_Enum):
     """Layer mode."""
-    kFBLayerModeAdditive:FBLayerMode    
+    kFBLayerModeAdditive:FBLayerMode
     """Layer value will be added to the other layers to computed the final value."""
-    kFBLayerModeInvalidIndex:FBLayerMode    
+    kFBLayerModeInvalidIndex:FBLayerMode
     """Invalid value."""
-    kFBLayerModeOverride:FBLayerMode    
+    kFBLayerModeOverride:FBLayerMode
     """Layer value will override the value of the other precedent layers."""
-    kFBLayerModeOverridePassthrough:FBLayerMode    
+    kFBLayerModeOverridePassthrough:FBLayerMode
     """If the layer has a weight of 75%, the precedent layers will have a combined effect of 25% on the final value. Setting the weight to 100% is similar to setting the layer in override."""
 class FBLayerRotationMode(_Enum):
     """Rotation mode for layer."""
-    kFBLayerRotationModeEulerRotation:FBLayerRotationMode    
+    kFBLayerRotationModeEulerRotation:FBLayerRotationMode
     """The rotation will be computed component by component."""
-    kFBLayerRotationModeInvalidIndex:FBLayerRotationMode    
+    kFBLayerRotationModeInvalidIndex:FBLayerRotationMode
     """Invalid value."""
-    kFBLayerRotationModeQuaternionRotation:FBLayerRotationMode    
+    kFBLayerRotationModeQuaternionRotation:FBLayerRotationMode
     """The rotation will be computed using quaternion."""
 class FBLightType(_Enum):
     """Light types."""
-    kFBLightTypeArea:FBLightType    
+    kFBLightTypeArea:FBLightType
     """Area light."""
-    kFBLightTypeInfinite:FBLightType    
+    kFBLightTypeInfinite:FBLightType
     """Infinite light (plane)."""
-    kFBLightTypePoint:FBLightType    
+    kFBLightTypePoint:FBLightType
     """Point light."""
-    kFBLightTypeSpot:FBLightType    
+    kFBLightTypeSpot:FBLightType
     """Spot light."""
 class FBListStyle(_Enum):
     """List style or direction.
     See samples: List.py, ToolCommunicationReceiver.py."""
-    kFBDropDownList:FBListStyle    
+    kFBDropDownList:FBListStyle
     """Drop down list."""
-    kFBVerticalList:FBListStyle    
+    kFBVerticalList:FBListStyle
     """Vertical list."""
 class FBManipulatorPickType(_Enum):
     """Types of manipulator picking."""
-    FBPickObjects:FBManipulatorPickType    
+    FBPickObjects:FBManipulatorPickType
     """Pick objects."""
-    FBPickPoints:FBManipulatorPickType    
+    FBPickPoints:FBManipulatorPickType
     """Pick points."""
-    FBPickSurfaces:FBManipulatorPickType    
+    FBPickSurfaces:FBManipulatorPickType
     """Pick surfaces."""
 class FBManipulatorTransformType(_Enum):
     """Manipulator transform stles."""
-    kFBManipulatorTransformNone:FBManipulatorTransformType    
+    kFBManipulatorTransformNone:FBManipulatorTransformType
     """No manipulator."""
-    kFBManipulatorTransformRotation:FBManipulatorTransformType    
+    kFBManipulatorTransformRotation:FBManipulatorTransformType
     """Rotation manipulator."""
-    kFBManipulatorTransformScaling:FBManipulatorTransformType    
+    kFBManipulatorTransformScaling:FBManipulatorTransformType
     """Scaling manipulator."""
-    kFBManipulatorTransformTranslation:FBManipulatorTransformType    
+    kFBManipulatorTransformTranslation:FBManipulatorTransformType
     """Translation manipulator."""
 class FBMarkerLook(_Enum):
     """Look of the marker."""
-    kFBMarkerLookAimRollGoal:FBMarkerLook    
+    kFBMarkerLookAimRollGoal:FBMarkerLook
     """Aim & Roll goal."""
-    kFBMarkerLookBone:FBMarkerLook    
+    kFBMarkerLookBone:FBMarkerLook
     """Bone."""
-    kFBMarkerLookBox:FBMarkerLook    
+    kFBMarkerLookBox:FBMarkerLook
     """Box."""
-    kFBMarkerLookCapsule:FBMarkerLook    
+    kFBMarkerLookCapsule:FBMarkerLook
     """Capsule."""
-    kFBMarkerLookCircle:FBMarkerLook    
+    kFBMarkerLookCircle:FBMarkerLook
     """Circle."""
-    kFBMarkerLookCube:FBMarkerLook    
+    kFBMarkerLookCube:FBMarkerLook
     """Cube."""
-    kFBMarkerLookHardCross:FBMarkerLook    
+    kFBMarkerLookHardCross:FBMarkerLook
     """Thick cross."""
-    kFBMarkerLookLightCross:FBMarkerLook    
+    kFBMarkerLookLightCross:FBMarkerLook
     """Wireframe cross."""
-    kFBMarkerLookNone:FBMarkerLook    
+    kFBMarkerLookNone:FBMarkerLook
     """None."""
-    kFBMarkerLookRigidGoal:FBMarkerLook    
+    kFBMarkerLookRigidGoal:FBMarkerLook
     """Rigid goal."""
-    kFBMarkerLookRotationGoal:FBMarkerLook    
+    kFBMarkerLookRotationGoal:FBMarkerLook
     """Rotation goal."""
-    kFBMarkerLookSphere:FBMarkerLook    
+    kFBMarkerLookSphere:FBMarkerLook
     """Sphere."""
-    kFBMarkerLookSquare:FBMarkerLook    
+    kFBMarkerLookSquare:FBMarkerLook
     """Square."""
-    kFBMarkerLookStick:FBMarkerLook    
+    kFBMarkerLookStick:FBMarkerLook
     """Box with a sphere on one end."""
 class FBMarkerResolutionLevel(_Enum):
     """Resolution of marker mesh sphere and capsule (Quality)."""
-    kFBMarkerHighResolution:FBMarkerResolutionLevel    
+    kFBMarkerHighResolution:FBMarkerResolutionLevel
     """Highest resolution."""
-    kFBMarkerLowResolution:FBMarkerResolutionLevel    
+    kFBMarkerLowResolution:FBMarkerResolutionLevel
     """Lowest resolution."""
-    kFBMarkerMediumResolution:FBMarkerResolutionLevel    
+    kFBMarkerMediumResolution:FBMarkerResolutionLevel
     """Medium resolution."""
 class FBMarkerType(_Enum):
     """Type of the marker."""
-    kFBMarkerTypeFKEffector:FBMarkerType    
+    kFBMarkerTypeFKEffector:FBMarkerType
     """FK effector."""
-    kFBMarkerTypeIKEffector:FBMarkerType    
+    kFBMarkerTypeIKEffector:FBMarkerType
     """IK effector."""
-    kFBMarkerTypeOptical:FBMarkerType    
+    kFBMarkerTypeOptical:FBMarkerType
     """Optical."""
-    kFBMarkerTypeStandard:FBMarkerType    
+    kFBMarkerTypeStandard:FBMarkerType
     """Standard."""
 class FBMaterialTextureType(_Enum):
     """Various Material texture channels' type.
@@ -1849,22 +1849,22 @@ class FBMaterialTextureType(_Enum):
     kFBMaterialTextureTransparentFactor:FBMaterialTextureType
 class FBMenuItemType(_Enum):
     """Types of menu items available."""
-    kFBMenuItemMotionExport:FBMenuItemType    
+    kFBMenuItemMotionExport:FBMenuItemType
     """Motion Files->Export."""
-    kFBMenuItemMotionImport:FBMenuItemType    
+    kFBMenuItemMotionImport:FBMenuItemType
     """Motion Files->Import."""
-    kFBMenuItemSceneExport:FBMenuItemType    
+    kFBMenuItemSceneExport:FBMenuItemType
     """Scenes->Export."""
-    kFBMenuItemSceneImport:FBMenuItemType    
+    kFBMenuItemSceneImport:FBMenuItemType
     """Scenes->Import."""
 class FBMergeLayerMode(_Enum):
     """Merge layer mode for animation layers.
     This will specify the mode of the resulting merged layer, if applicable (To BaseAnimation layer mode cannot be modified)."""
-    kFBMergeLayerModeAdditive:FBMergeLayerMode    
+    kFBMergeLayerModeAdditive:FBMergeLayerMode
     """The resulting layer will be in additive mode, if possible."""
-    kFBMergeLayerModeAutomatic:FBMergeLayerMode    
+    kFBMergeLayerModeAutomatic:FBMergeLayerMode
     """The resulting layer will be in override mode if one of the source layer is in override, otherwise, it will be in additive mode."""
-    kFBMergeLayerModeOverride:FBMergeLayerMode    
+    kFBMergeLayerModeOverride:FBMergeLayerMode
     """The resulting layer will be in override mode, if possible."""
 class FBMirrorPlaneType(_Enum):
     """Mirror Plane Type."""
@@ -1878,209 +1878,209 @@ class FBMirrorPlaneType(_Enum):
     kFBMirrorPlaneTypeZY:FBMirrorPlaneType
 class FBModelCullingMode(_Enum):
     """Model Culling Mode."""
-    kFBCullingOff:FBModelCullingMode    
+    kFBCullingOff:FBModelCullingMode
     """Culling Off."""
-    kFBCullingOnCCW:FBModelCullingMode    
+    kFBCullingOnCCW:FBModelCullingMode
     """Culling with Counter Clock Wise."""
-    kFBCullingOnCW:FBModelCullingMode    
+    kFBCullingOnCW:FBModelCullingMode
     """Culling with Clock Wise."""
 class FBModelEvaluationTaskType(_Enum):
-    kFBModelEvaluationBBox:FBModelEvaluationTaskType    
+    kFBModelEvaluationBBox:FBModelEvaluationTaskType
     """Model's bouding box computation task (approximately for deformable model)"""
-    kFBModelEvaluationDeform:FBModelEvaluationTaskType    
+    kFBModelEvaluationDeform:FBModelEvaluationTaskType
     """Model's deformation task (for deformable model)"""
-    kFBModelEvaluationTransform:FBModelEvaluationTaskType    
+    kFBModelEvaluationTransform:FBModelEvaluationTaskType
     """Model's transformation evaluation task (Global )"""
 class FBModelHiercharyTraverserType(_Enum):
     """Types of hierarchy traverser search type."""
-    kModelTraverserBreadthFirst:FBModelHiercharyTraverserType    
+    kModelTraverserBreadthFirst:FBModelHiercharyTraverserType
     """Breadth-first search."""
-    kModelTraverserDepthFirst:FBModelHiercharyTraverserType    
+    kModelTraverserDepthFirst:FBModelHiercharyTraverserType
     """Depth-first search."""
 class FBModelRotationOrder(_Enum):
     """Ways to apply Rotation."""
-    kFBEulerXYZ:FBModelRotationOrder    
+    kFBEulerXYZ:FBModelRotationOrder
     """XYZ Euler Order."""
-    kFBEulerXZY:FBModelRotationOrder    
+    kFBEulerXZY:FBModelRotationOrder
     """XZY Euler Order."""
-    kFBEulerYXZ:FBModelRotationOrder    
+    kFBEulerYXZ:FBModelRotationOrder
     """YXZ Euler Order."""
-    kFBEulerYZX:FBModelRotationOrder    
+    kFBEulerYZX:FBModelRotationOrder
     """YZX Euler Order."""
-    kFBEulerZXY:FBModelRotationOrder    
+    kFBEulerZXY:FBModelRotationOrder
     """ZXY Euler Order."""
-    kFBEulerZYX:FBModelRotationOrder    
+    kFBEulerZYX:FBModelRotationOrder
     """ZYX Euler Order."""
-    kFBSphericXYZ:FBModelRotationOrder    
+    kFBSphericXYZ:FBModelRotationOrder
     """Spheric XYZ Order."""
 class FBModelSelection(_Enum):
     """Different model selection available."""
-    kFBAllModels:FBModelSelection    
+    kFBAllModels:FBModelSelection
     """Will imports motion into the hierarchies of all models in your scene. This is the only merge option when nothing is selected."""
-    kFBCreateModels:FBModelSelection    
+    kFBCreateModels:FBModelSelection
     """Will create the models in the motion file, used when there is no model to match in the scene."""
-    kFBInHierarchy:FBModelSelection    
+    kFBInHierarchy:FBModelSelection
     """Will find the root node and will try to merge the data on the hierarchy, only useful if one model is selected."""
-    kFBNone:FBModelSelection    
+    kFBNone:FBModelSelection
     """No selection mode specified."""
-    kFBPrefixGroupContainingModel:FBModelSelection    
+    kFBPrefixGroupContainingModel:FBModelSelection
     """Will finds the top node with the same prefix and imports the motion as if you selected kFBInHierarchy. If the selected node has the prefix, this merge option is the same as selecting kFBSelectedModelAndChildren. If no nodes are found with the prefix, this merge option operates the same as kFBSelectedModels. Only available when one model is selected."""
-    kFBSelectedModelAndChildren:FBModelSelection    
+    kFBSelectedModelAndChildren:FBModelSelection
     """Will try to match the models from the file to those selected in the scene, as well as the children of the selected models."""
-    kFBSelectedModels:FBModelSelection    
+    kFBSelectedModels:FBModelSelection
     """Will Merges data with only the selected nodes or models."""
 class FBModelShadingMode(_Enum):
     """Modes for model shading.
     See samples: FBModelCube.py, GeometryInstancing.py, VertexArrayManipulation.py, VertexColor.py."""
-    kFBModelShadingAll:FBModelShadingMode    
+    kFBModelShadingAll:FBModelShadingMode
     """Lighted, shaded, textured shading."""
-    kFBModelShadingDefault:FBModelShadingMode    
+    kFBModelShadingDefault:FBModelShadingMode
     """Default shading."""
-    kFBModelShadingFlat:FBModelShadingMode    
+    kFBModelShadingFlat:FBModelShadingMode
     """Flat shading."""
-    kFBModelShadingHard:FBModelShadingMode    
+    kFBModelShadingHard:FBModelShadingMode
     """Hard shading."""
-    kFBModelShadingLight:FBModelShadingMode    
+    kFBModelShadingLight:FBModelShadingMode
     """Lighted shading."""
-    kFBModelShadingTexture:FBModelShadingMode    
+    kFBModelShadingTexture:FBModelShadingMode
     """Textured shading."""
-    kFBModelShadingWire:FBModelShadingMode    
+    kFBModelShadingWire:FBModelShadingMode
     """Wireframe shading."""
 class FBModelTemplateStyle(_Enum):
     """Model template styles When creating model templates, this parameter will affect the actual model created (associated with the model template)."""
-    kFBModelTemplateCamera:FBModelTemplateStyle    
+    kFBModelTemplateCamera:FBModelTemplateStyle
     """Camera."""
-    kFBModelTemplateCameraInterest:FBModelTemplateStyle    
+    kFBModelTemplateCameraInterest:FBModelTemplateStyle
     """Camera interest."""
-    kFBModelTemplateGeometry:FBModelTemplateStyle    
+    kFBModelTemplateGeometry:FBModelTemplateStyle
     """Generic geometry."""
-    kFBModelTemplateLight:FBModelTemplateStyle    
+    kFBModelTemplateLight:FBModelTemplateStyle
     """Light."""
-    kFBModelTemplateMarker:FBModelTemplateStyle    
+    kFBModelTemplateMarker:FBModelTemplateStyle
     """Marker."""
-    kFBModelTemplateNone:FBModelTemplateStyle    
+    kFBModelTemplateNone:FBModelTemplateStyle
     """No style."""
-    kFBModelTemplateNull:FBModelTemplateStyle    
+    kFBModelTemplateNull:FBModelTemplateStyle
     """Null."""
-    kFBModelTemplateOptical:FBModelTemplateStyle    
+    kFBModelTemplateOptical:FBModelTemplateStyle
     """Optical model (not supported yet)."""
-    kFBModelTemplateRoot:FBModelTemplateStyle    
+    kFBModelTemplateRoot:FBModelTemplateStyle
     """Root (3 axes)."""
-    kFBModelTemplateSensor:FBModelTemplateStyle    
+    kFBModelTemplateSensor:FBModelTemplateStyle
     """Yellow magnetic sensor."""
-    kFBModelTemplateSkeleton:FBModelTemplateStyle    
+    kFBModelTemplateSkeleton:FBModelTemplateStyle
     """Skeleton limb."""
 class FBModelTransformationType(_Enum):
     """Types of transformation vector/matrices possible.
     See samples: FBModelCube.py, GeometryInstancing.py, VertexArrayManipulation.py."""
-    kModelInverse_Rotation:FBModelTransformationType    
+    kModelInverse_Rotation:FBModelTransformationType
     """Inverse rotation."""
-    kModelInverse_Scaling:FBModelTransformationType    
+    kModelInverse_Scaling:FBModelTransformationType
     """Inverse scaling."""
-    kModelInverse_Transformation:FBModelTransformationType    
+    kModelInverse_Transformation:FBModelTransformationType
     """Inverse transformation."""
-    kModelInverse_Transformation_Geometry:FBModelTransformationType    
+    kModelInverse_Transformation_Geometry:FBModelTransformationType
     """Inverse of transformation plus geometry offset."""
-    kModelInverse_Translation:FBModelTransformationType    
+    kModelInverse_Translation:FBModelTransformationType
     """Inverse translation."""
-    kModelRotation:FBModelTransformationType    
+    kModelRotation:FBModelTransformationType
     """Rotation."""
-    kModelScaling:FBModelTransformationType    
+    kModelScaling:FBModelTransformationType
     """Scaling."""
-    kModelTransformation:FBModelTransformationType    
+    kModelTransformation:FBModelTransformationType
     """Transformation."""
-    kModelTransformation_Geometry:FBModelTransformationType    
+    kModelTransformation_Geometry:FBModelTransformationType
     """Transformation plus geometry offset"""
-    kModelTranslation:FBModelTransformationType    
+    kModelTranslation:FBModelTransformationType
     """Translation."""
 class FBNamespaceAction(_Enum):
     """Namespace flags.
     See samples: FBGetSelectedModels.py, FBGroup.py."""
-    kFBConcatNamespace:FBNamespaceAction    
+    kFBConcatNamespace:FBNamespaceAction
     """Use to add a namespace name to object."""
-    kFBRemoveAllNamespace:FBNamespaceAction    
+    kFBRemoveAllNamespace:FBNamespaceAction
     """Remove all the namespace name."""
-    kFBReplaceNamespace:FBNamespaceAction    
+    kFBReplaceNamespace:FBNamespaceAction
     """Use to replace a define namespace."""
 class FBNewKeyInterpolationType(_Enum):
     """Key Interpolation Type to use when creating new keys."""
-    kFBNewKeyInterpolation_Auto:FBNewKeyInterpolationType    
+    kFBNewKeyInterpolation_Auto:FBNewKeyInterpolationType
     """Auto interpolation type."""
-    kFBNewKeyInterpolation_Custom0:FBNewKeyInterpolationType    
+    kFBNewKeyInterpolation_Custom0:FBNewKeyInterpolationType
     """Custom 0 interpolation type."""
-    kFBNewKeyInterpolation_Custom1:FBNewKeyInterpolationType    
+    kFBNewKeyInterpolation_Custom1:FBNewKeyInterpolationType
     """Custom 1 interpolation type."""
-    kFBNewKeyInterpolation_Custom2:FBNewKeyInterpolationType    
+    kFBNewKeyInterpolation_Custom2:FBNewKeyInterpolationType
     """Custom 2 interpolation type."""
-    kFBNewKeyInterpolation_Fixed:FBNewKeyInterpolationType    
+    kFBNewKeyInterpolation_Fixed:FBNewKeyInterpolationType
     """Fixed interpolation type."""
-    kFBNewKeyInterpolation_Linear:FBNewKeyInterpolationType    
+    kFBNewKeyInterpolation_Linear:FBNewKeyInterpolationType
     """Linear interpolation type."""
-    kFBNewKeyInterpolation_None:FBNewKeyInterpolationType    
+    kFBNewKeyInterpolation_None:FBNewKeyInterpolationType
     """Invalid interpolation type, could be returned by the system if it is in an uninitialized state. Don't use this mode."""
-    kFBNewKeyInterpolation_Smooth:FBNewKeyInterpolationType    
+    kFBNewKeyInterpolation_Smooth:FBNewKeyInterpolationType
     """Smooth interpolation type."""
-    kFBNewKeyInterpolation_SmoothClamp:FBNewKeyInterpolationType    
+    kFBNewKeyInterpolation_SmoothClamp:FBNewKeyInterpolationType
     """Smooth Clamp interpolation type."""
-    kFBNewKeyInterpolation_Spline:FBNewKeyInterpolationType    
+    kFBNewKeyInterpolation_Spline:FBNewKeyInterpolationType
     """Spline interpolation type."""
-    kFBNewKeyInterpolation_SplineClamp:FBNewKeyInterpolationType    
+    kFBNewKeyInterpolation_SplineClamp:FBNewKeyInterpolationType
     """Spline Clamp interpolation type."""
-    kFBNewKeyInterpolation_Step:FBNewKeyInterpolationType    
+    kFBNewKeyInterpolation_Step:FBNewKeyInterpolationType
     """Step interpolation type."""
-    kFBNewKeyInterpolation_TCB:FBNewKeyInterpolationType    
+    kFBNewKeyInterpolation_TCB:FBNewKeyInterpolationType
     """TCB interpolation type."""
 class FBNurbType(_Enum):
     """Surface types."""
-    kFBNurbTypeClosed:FBNurbType    
+    kFBNurbTypeClosed:FBNurbType
     """Closed Type Nurb."""
-    kFBNurbTypeOpen:FBNurbType    
+    kFBNurbTypeOpen:FBNurbType
     """Open Type Nurb."""
-    kFBNurbTypePeriodic:FBNurbType    
+    kFBNurbTypePeriodic:FBNurbType
     """Periodic Type Nurb."""
 class FBObjectFlag(_Enum):
     """Available flags for any component."""
-    kFBFlagAllocated:FBObjectFlag    
+    kFBFlagAllocated:FBObjectFlag
     """Object is allocated, so it must call 'delete this' on destroy."""
-    kFBFlagBrowsable:FBObjectFlag    
+    kFBFlagBrowsable:FBObjectFlag
     """Visible in the Scene Navigator/Schematic View/Property View/Model View. If disabled, the object representation in the navigator will not be visible. In the Schematic View, system object are not shown and other objects will still be visible, but a red X will be drawn on them. It is not possible to select the object in the Schematic View. After disabling that flag of a selected object, it will still be selected to allow a script based on selection to work. It will then be possible for a user to deselect the object, but it will not be possible to select it."""
-    kFBFlagClonable:FBObjectFlag    
+    kFBFlagClonable:FBObjectFlag
     """Can be cloned. If disabled, the 'Duplicate' option will be removed in the contextual menu."""
-    kFBFlagDeletable:FBObjectFlag    
+    kFBFlagDeletable:FBObjectFlag
     """Can be deleted."""
-    kFBFlagDetachable:FBObjectFlag    
+    kFBFlagDetachable:FBObjectFlag
     """Object can be 'detached'. Used by the apply manager contextual menu."""
-    kFBFlagKeyable:FBObjectFlag    
+    kFBFlagKeyable:FBObjectFlag
     """Object can Key his property. (System Camera can't)"""
-    kFBFlagMergeable:FBObjectFlag    
+    kFBFlagMergeable:FBObjectFlag
     """Can be merged."""
-    kFBFlagNamespaceEditable:FBObjectFlag    
+    kFBFlagNamespaceEditable:FBObjectFlag
     """Allow editing on the namespace objects. If disabled, the 'Add/Remove Namespace...' option is removed from the contextual menu."""
-    kFBFlagNewable:FBObjectFlag    
+    kFBFlagNewable:FBObjectFlag
     """Deleted on File->New."""
-    kFBFlagParentable:FBObjectFlag    
+    kFBFlagParentable:FBObjectFlag
     """Object (model) can be 'parented'. Used by the apply manager contextual menu."""
-    kFBFlagRenamable:FBObjectFlag    
+    kFBFlagRenamable:FBObjectFlag
     """Can be renamed."""
-    kFBFlagSavable:FBObjectFlag    
+    kFBFlagSavable:FBObjectFlag
     """Can be saved."""
-    kFBFlagSelectable:FBObjectFlag    
+    kFBFlagSelectable:FBObjectFlag
     """Can be selected. If disabled, representation of the object, like in the navigator, can still be selected and can still affect the original object."""
-    kFBFlagStorable6:FBObjectFlag    
+    kFBFlagStorable6:FBObjectFlag
     """System/Obsolete."""
-    kFBFlagStorableData6:FBObjectFlag    
+    kFBFlagStorableData6:FBObjectFlag
     """System/Obsolete."""
-    kFBFlagStory:FBObjectFlag    
+    kFBFlagStory:FBObjectFlag
     """Object created/used by the Story tool. Useful flag for filtering Story objects."""
-    kFBFlagSystem:FBObjectFlag    
+    kFBFlagSystem:FBObjectFlag
     """Created from System (not from user)"""
-    kFBFlagUndoable:FBObjectFlag    
+    kFBFlagUndoable:FBObjectFlag
     """Object can undo its actions and states, in a global Undo Stack."""
-    kFBFlagUndoableSeparately:FBObjectFlag    
+    kFBFlagUndoableSeparately:FBObjectFlag
     """Object which has kFlagUndoableSeparately flag turned on will have a separate Undo Stack."""
-    kFBFlagUniqueName:FBObjectFlag    
+    kFBFlagUniqueName:FBObjectFlag
     """< Used in FBX SDK native IO, force bindary format for the bindary data."""
-    kFBFlagVisible:FBObjectFlag    
+    kFBFlagVisible:FBObjectFlag
     """Can be visible. If disabled, the object will still be available in the navigator, it is only hidden in the viewer."""
 class FBObjectPoseMirrorOptionsFlag(_Enum):
     """ObjectPoseMirrorOptions flags."""
@@ -2099,91 +2099,91 @@ class FBObjectPoseOptionsFlag(_Enum):
     kFBObjectPoseOptionsTranslationZ:FBObjectPoseOptionsFlag
 class FBObjectStatus(_Enum):
     """Available lifetime status for any component."""
-    kFBStatusClearing:FBObjectStatus    
+    kFBStatusClearing:FBObjectStatus
     """Object is in clearing operations (File new)."""
-    kFBStatusCreating:FBObjectStatus    
+    kFBStatusCreating:FBObjectStatus
     """Object is in creation operations."""
-    kFBStatusDestroying:FBObjectStatus    
+    kFBStatusDestroying:FBObjectStatus
     """Object is in destruction operations."""
-    kFBStatusMerging:FBObjectStatus    
+    kFBStatusMerging:FBObjectStatus
     """Object is in Merging operations."""
-    kFBStatusRetrieving:FBObjectStatus    
+    kFBStatusRetrieving:FBObjectStatus
     """Object is in retrieving operations."""
-    kFBStatusStoring:FBObjectStatus    
+    kFBStatusStoring:FBObjectStatus
     """Object is in storing operations."""
 class FBOneClickApplication(_Enum):
     """Possible application for One-Click interop with MotionBuilder."""
-    kFBOneClick3dsMax:FBOneClickApplication    
+    kFBOneClick3dsMax:FBOneClickApplication
     """3ds Max."""
-    kFBOneClickMaya:FBOneClickApplication    
+    kFBOneClickMaya:FBOneClickApplication
     """Maya."""
-    kFBOneClickNone:FBOneClickApplication    
+    kFBOneClickNone:FBOneClickApplication
     """No application."""
-    kFBOneClickSoftimage:FBOneClickApplication    
+    kFBOneClickSoftimage:FBOneClickApplication
     """Softimage."""
 class FBOrientation(_Enum):
     """General directions for UI components. DEPRICATED use ParallelEvaluation on FBEvaluateManager insteadAvailable DAG parallel schedule algorithm
     See samples: Container.py, Slider.py."""
-    kFBHorizontal:FBOrientation    
+    kFBHorizontal:FBOrientation
     """Horizontal."""
-    kFBVertical:FBOrientation    
+    kFBVertical:FBOrientation
     """Vertical"""
 class FBParallelScheduleType(_Enum):
-    kFBParallelScheduleAdvanced:FBParallelScheduleType    
+    kFBParallelScheduleAdvanced:FBParallelScheduleType
     """Advanced parallel schedule, task dependency analyzation will be able to across ative constraint, and plus motion hierarchy."""
-    kFBParallelScheduleSerial:FBParallelScheduleType    
+    kFBParallelScheduleSerial:FBParallelScheduleType
     """No parallel schedule, use sequential evaluation order instead."""
-    kFBParallelScheduleSimple:FBParallelScheduleType    
+    kFBParallelScheduleSimple:FBParallelScheduleType
     """Simple parallel schedule, mainly analyze the task dependency based on Motion Hierarchy (scene graph), but don't across active constraint."""
 class FBParity(_Enum):
     """Parity modes."""
-    kFBParityEven:FBParity    
+    kFBParityEven:FBParity
     """Even parity."""
-    kFBParityNone:FBParity    
+    kFBParityNone:FBParity
     """No parity."""
-    kFBParityOdd:FBParity    
+    kFBParityOdd:FBParity
     """Odd parity."""
 class FBPickingMode(_Enum):
     """3D picking mode."""
-    kFBPickingModeCount:FBPickingMode    
+    kFBPickingModeCount:FBPickingMode
     """End of enum, this valued indicates the number of picking modes available."""
-    kFBPickingModeModelsOnly:FBPickingMode    
+    kFBPickingModeModelsOnly:FBPickingMode
     """Models-only mode (no nulls or skeletons are displayed)."""
-    kFBPickingModeStandard:FBPickingMode    
+    kFBPickingModeStandard:FBPickingMode
     """Standard picking mode."""
-    kFBPickingModeXRay:FBPickingMode    
+    kFBPickingModeXRay:FBPickingMode
     """X-Ray picking mode (obstructed models are displayed in overlay)."""
 class FBPlayMode(_Enum):
     """Play modes."""
-    kFBPlayModeLoop:FBPlayMode    
+    kFBPlayModeLoop:FBPlayMode
     """Loop clip."""
-    kFBPlayModeNoPlay:FBPlayMode    
+    kFBPlayModeNoPlay:FBPlayMode
     """No play (most common)."""
-    kFBPlayModePlay:FBPlayMode    
+    kFBPlayModePlay:FBPlayMode
     """Play clip."""
-    kFBPlayModePlayToEnd:FBPlayMode    
+    kFBPlayModePlayToEnd:FBPlayMode
     """Play clip to end."""
-    kFBPlayModePreviewToEnd:FBPlayMode    
+    kFBPlayModePreviewToEnd:FBPlayMode
     """Preview clip until end."""
 class FBPlayerControlChangeType(_Enum):
     """Types of player control change events."""
-    kFBPlayerControlGoto:FBPlayerControlChangeType    
+    kFBPlayerControlGoto:FBPlayerControlChangeType
     """Goto."""
-    kFBPlayerControlNone:FBPlayerControlChangeType    
+    kFBPlayerControlNone:FBPlayerControlChangeType
     """None."""
-    kFBPlayerControlPlay:FBPlayerControlChangeType    
+    kFBPlayerControlPlay:FBPlayerControlChangeType
     """Play."""
-    kFBPlayerControlPlayReverse:FBPlayerControlChangeType    
+    kFBPlayerControlPlayReverse:FBPlayerControlChangeType
     """Play reverse."""
-    kFBPlayerControlRecordModeOff:FBPlayerControlChangeType    
+    kFBPlayerControlRecordModeOff:FBPlayerControlChangeType
     """Record mode off."""
-    kFBPlayerControlRecordModeOn:FBPlayerControlChangeType    
+    kFBPlayerControlRecordModeOn:FBPlayerControlChangeType
     """Record mode on."""
-    kFBPlayerControlStepBackward:FBPlayerControlChangeType    
+    kFBPlayerControlStepBackward:FBPlayerControlChangeType
     """Step backward."""
-    kFBPlayerControlStepForward:FBPlayerControlChangeType    
+    kFBPlayerControlStepForward:FBPlayerControlChangeType
     """Step forward."""
-    kFBPlayerControlStop:FBPlayerControlChangeType    
+    kFBPlayerControlStop:FBPlayerControlChangeType
     """Stop."""
 class FBPlotAllowed(_Enum):
     """FBPlotAllowed"""
@@ -2206,58 +2206,58 @@ class FBPlugModificationFlag(_Enum):
     kFBAllModifiedMask:FBPlugModificationFlag
     kFBAllStateModified:FBPlugModificationFlag
     kFBContentAllModifiedMask:FBPlugModificationFlag
-    kFBContentConnectionModified:FBPlugModificationFlag    
+    kFBContentConnectionModified:FBPlugModificationFlag
     """Owner object/namespace has connection modified property/objects."""
-    kFBContentCustomPropertyModified:FBPlugModificationFlag    
+    kFBContentCustomPropertyModified:FBPlugModificationFlag
     """Owner object/Namespace has dirty property/objects."""
-    kFBContentDataModified:FBPlugModificationFlag    
+    kFBContentDataModified:FBPlugModificationFlag
     """Owner object/Namespace has data dirty property/objects."""
-    kFBContentKeyingModified:FBPlugModificationFlag    
+    kFBContentKeyingModified:FBPlugModificationFlag
     """Owner object/Namespace has data dirty property/objects."""
-    kFBContentStateModified:FBPlugModificationFlag    
+    kFBContentStateModified:FBPlugModificationFlag
     """Owner object/Namespace has state dirty property/objects."""
-    kFBPlugAllContent:FBPlugModificationFlag    
+    kFBPlugAllContent:FBPlugModificationFlag
     """None Modified."""
     kFBSelfAllModifiedMask:FBPlugModificationFlag
-    kFBSelfConnectionDstObjectModified:FBPlugModificationFlag    
+    kFBSelfConnectionDstObjectModified:FBPlugModificationFlag
     """The dst object of this plug has been modified."""
-    kFBSelfConnectionDstPropertyModified:FBPlugModificationFlag    
+    kFBSelfConnectionDstPropertyModified:FBPlugModificationFlag
     """The dst property of this plug has been modified."""
     kFBSelfConnectionModifiedMask:FBPlugModificationFlag
-    kFBSelfConnectionSrcObjectModified:FBPlugModificationFlag    
+    kFBSelfConnectionSrcObjectModified:FBPlugModificationFlag
     """The src object of this plug has been modified."""
-    kFBSelfConnectionSrcPropertyModified:FBPlugModificationFlag    
+    kFBSelfConnectionSrcPropertyModified:FBPlugModificationFlag
     """The src property of this plug has been modified."""
-    kFBSelfCustomPropertyModified:FBPlugModificationFlag    
+    kFBSelfCustomPropertyModified:FBPlugModificationFlag
     """Object custom property change."""
-    kFBSelfDataModified:FBPlugModificationFlag    
+    kFBSelfDataModified:FBPlugModificationFlag
     """Object/Property itself has been dirty, in case of property get dirty, its owner object will be set dirty as well."""
-    kFBSelfKeyingModified:FBPlugModificationFlag    
+    kFBSelfKeyingModified:FBPlugModificationFlag
     """Object/Property itself has been dirty, in case of property get dirty, its owner object will be set dirty as well."""
-    kFBSelfStateModified:FBPlugModificationFlag    
+    kFBSelfStateModified:FBPlugModificationFlag
     """Object/Property naming change."""
 class FBPlugStatusFlag(_Enum):
-    kFBOwnedByUndo:FBPlugStatusFlag    
+    kFBOwnedByUndo:FBPlugStatusFlag
     """Plug is owned by undo framework."""
-    kFBPlugStatusFlagNone:FBPlugStatusFlag    
+    kFBPlugStatusFlagNone:FBPlugStatusFlag
     """Plug has no status set."""
     kFBStatusMask:FBPlugStatusFlag
 class FBPopupInputType(_Enum):
     """User input types for a popup.
     See samples: RePrefixAllMarkers.py, SelectModelsWithNameContainingSubstring.py, FBMessageBoxGetUserValue.py."""
-    kFBPopupBool:FBPopupInputType    
+    kFBPopupBool:FBPopupInputType
     """Boolean input."""
-    kFBPopupChar:FBPopupInputType    
+    kFBPopupChar:FBPopupInputType
     """Character input."""
-    kFBPopupDouble:FBPopupInputType    
+    kFBPopupDouble:FBPopupInputType
     """Double input."""
-    kFBPopupFloat:FBPopupInputType    
+    kFBPopupFloat:FBPopupInputType
     """Float input."""
-    kFBPopupInt:FBPopupInputType    
+    kFBPopupInt:FBPopupInputType
     """Integer input."""
-    kFBPopupPassword:FBPopupInputType    
+    kFBPopupPassword:FBPopupInputType
     """Password input (String with '*'s)."""
-    kFBPopupString:FBPopupInputType    
+    kFBPopupString:FBPopupInputType
     """String input."""
 class FBPoseTransformType(_Enum):
     """Transform mode of pose."""
@@ -2268,170 +2268,170 @@ class FBPoseTransformType(_Enum):
     kFBPoseTransformTypeCount:FBPoseTransformType
 class FBPoseType(_Enum):
     """Types of pose."""
-    kFBBindPose:FBPoseType    
+    kFBBindPose:FBPoseType
     """Bind pose."""
-    kFBRestPose:FBPoseType    
+    kFBRestPose:FBPoseType
     """Rest pose."""
 class FBProfilingMode(_Enum):
     """Available Profiling modes."""
-    kFBProfilingModeAllHi:FBProfilingMode    
+    kFBProfilingModeAllHi:FBProfilingMode
     """Collect profiling for all known tasks . For large scenes there should be an influence on performance."""
-    kFBProfilingModeAllLow:FBProfilingMode    
+    kFBProfilingModeAllLow:FBProfilingMode
     """Collect profiling for all known tasks that doesn't increase remarkably with scene size. For large scenes this will not influence performance."""
-    kFBProfilingModeDevices:FBProfilingMode    
+    kFBProfilingModeDevices:FBProfilingMode
     """Collect profiling for device Input/Output and Device Evaluation."""
-    kFBProfilingModeDisabled:FBProfilingMode    
+    kFBProfilingModeDisabled:FBProfilingMode
     """All profiling disabled, this include Viewer profiling. For the other modes, when EvaluationDepth is 0, only base information is profiled, such as FPS and evaluation rate."""
-    kFBProfilingModeEvaluation:FBProfilingMode    
+    kFBProfilingModeEvaluation:FBProfilingMode
     """Collect profiling for all known evaluation tasks (default mode)."""
-    kFBProfilingModeRendering:FBProfilingMode    
+    kFBProfilingModeRendering:FBProfilingMode
     """Collect profiling for all known rendering tasks."""
-    kFBProfilingModeSDK:FBProfilingMode    
+    kFBProfilingModeSDK:FBProfilingMode
     """Collect profiling for SDK."""
 class FBPropertyComponents(_Enum):
     """Property Components Bit Field (XYZ, RGB, RGBA, UV, XYZW, etc.)."""
-    kFBPropertyComponent0:FBPropertyComponents    
+    kFBPropertyComponent0:FBPropertyComponents
     """First component (e.g.: X, Red, etc.)."""
-    kFBPropertyComponent1:FBPropertyComponents    
+    kFBPropertyComponent1:FBPropertyComponents
     """Second component (e.g.: Y, Green, etc.)."""
-    kFBPropertyComponent2:FBPropertyComponents    
+    kFBPropertyComponent2:FBPropertyComponents
     """Third component (e.g.: Z, Blue, etc.)."""
-    kFBPropertyComponent3:FBPropertyComponents    
+    kFBPropertyComponent3:FBPropertyComponents
     """Fourth component (e.g.: W, Alpha, etc.)."""
-    kFBPropertyComponentAll:FBPropertyComponents    
+    kFBPropertyComponentAll:FBPropertyComponents
     """All components."""
 class FBPropertyFlag(_Enum):
     """Available flags for FBProperty objects.PropertyList: Actor.
     Property flags are not saved into FBX files. See sample: PropertyDrop.py. These classes are under development and may change dramatically between versions."""
-    kFBDrivenSetByMain:FBPropertyFlag    
+    kFBDrivenSetByMain:FBPropertyFlag
     """Driven property can be modified, valid only when the main property is modified."""
-    kFBDynamicHidden:FBPropertyFlag    
+    kFBDynamicHidden:FBPropertyFlag
     """This flag is used to show/hide the property in the propertiview. When turn on/ff DynamicHidden flag, this property will show/hide. The nodes hidden by this flag still exist in UI."""
-    kFBLoadedUserProperty:FBPropertyFlag    
+    kFBLoadedUserProperty:FBPropertyFlag
     """This property is loaded from file."""
     kFBPropertyFlagAnimated:FBPropertyFlag
     kFBPropertyFlagDisableProperty:FBPropertyFlag
-    kFBPropertyFlagDrivenProperty:FBPropertyFlag    
+    kFBPropertyFlagDrivenProperty:FBPropertyFlag
     """This is property is connected and driven by other same type of main property, and it always ask value from its main property."""
     kFBPropertyFlagForceStaticProperty:FBPropertyFlag
-    kFBPropertyFlagHideProperty:FBPropertyFlag    
+    kFBPropertyFlagHideProperty:FBPropertyFlag
     """This flag is used to show/hide the property in the propertiview. However, when turn on/off HidePropertry flag, this property won't show/hide unless you reload the UI. The nodes hidden by this flag are removed from UI."""
-    kFBPropertyFlagNotSavable:FBPropertyFlag    
+    kFBPropertyFlagNotSavable:FBPropertyFlag
     """Should not be saved to or loaded from an FBX file."""
     kFBPropertyFlagNotSet:FBPropertyFlag
     kFBPropertyFlagNotUserDeletable:FBPropertyFlag
     kFBPropertyFlagReadOnly:FBPropertyFlag
-    kFBSlaveSetByMaster:FBPropertyFlag    
+    kFBSlaveSetByMaster:FBPropertyFlag
     """K_DEPRECATED_2021, use kFBDrivenSetByMain."""
-    kFBValueAllocated:FBPropertyFlag    
+    kFBValueAllocated:FBPropertyFlag
     """The value has been allocated and must be delete in destructor."""
 class FBPropertyStateEventType(_Enum):
     """This enum indicates what modification was made to the animation of a tracked property.Property class: const char * (String)."""
-    kFBPropertyStateEventTypeAttached:FBPropertyStateEventType    
+    kFBPropertyStateEventTypeAttached:FBPropertyStateEventType
     """Property connector was added (can happen when undoing a delete operation, which set back the property active in the scene)"""
-    kFBPropertyStateEventTypeDestroyed:FBPropertyStateEventType    
+    kFBPropertyStateEventTypeDestroyed:FBPropertyStateEventType
     """Property connector was destroyed (property animation was deleted)"""
-    kFBPropertyStateEventTypeDetached:FBPropertyStateEventType    
+    kFBPropertyStateEventTypeDetached:FBPropertyStateEventType
     """Property connector was detached (property animation was delete from the scene, but it still keep in case an undo operation is done)"""
-    kFBPropertyStateEventTypeMassOperation:FBPropertyStateEventType    
+    kFBPropertyStateEventTypeMassOperation:FBPropertyStateEventType
     """Property was heavily modified (switching to story tool, story clip deleted...)"""
-    kFBPropertyStateEventTypeUnknownOperation:FBPropertyStateEventType    
+    kFBPropertyStateEventTypeUnknownOperation:FBPropertyStateEventType
     """Invalid event."""
 class FBPropertyType(_Enum):
     """Property types.
     See sample: CustomProperty.py."""
-    kFBPT_Action:FBPropertyType    
+    kFBPT_Action:FBPropertyType
     """action."""
-    kFBPT_ColorRGB:FBPropertyType    
+    kFBPT_ColorRGB:FBPropertyType
     """colorrgb."""
-    kFBPT_ColorRGBA:FBPropertyType    
+    kFBPT_ColorRGBA:FBPropertyType
     """colorrgba."""
-    kFBPT_Reference:FBPropertyType    
+    kFBPT_Reference:FBPropertyType
     """reference."""
-    kFBPT_Time:FBPropertyType    
+    kFBPT_Time:FBPropertyType
     """time."""
-    kFBPT_TimeCode:FBPropertyType    
+    kFBPT_TimeCode:FBPropertyType
     """timecode."""
-    kFBPT_TimeSpan:FBPropertyType    
+    kFBPT_TimeSpan:FBPropertyType
     """timespan."""
-    kFBPT_Vector2D:FBPropertyType    
+    kFBPT_Vector2D:FBPropertyType
     """vector2d."""
-    kFBPT_Vector3D:FBPropertyType    
+    kFBPT_Vector3D:FBPropertyType
     """vector3d."""
-    kFBPT_Vector4D:FBPropertyType    
+    kFBPT_Vector4D:FBPropertyType
     """vector4d."""
-    kFBPT_bool:FBPropertyType    
+    kFBPT_bool:FBPropertyType
     """bool."""
-    kFBPT_charptr:FBPropertyType    
+    kFBPT_charptr:FBPropertyType
     """charptr."""
-    kFBPT_double:FBPropertyType    
+    kFBPT_double:FBPropertyType
     """double."""
-    kFBPT_enum:FBPropertyType    
+    kFBPT_enum:FBPropertyType
     """enum."""
-    kFBPT_event:FBPropertyType    
+    kFBPT_event:FBPropertyType
     """event."""
-    kFBPT_float:FBPropertyType    
+    kFBPT_float:FBPropertyType
     """float."""
-    kFBPT_int:FBPropertyType    
+    kFBPT_int:FBPropertyType
     """int."""
-    kFBPT_kReference:FBPropertyType    
+    kFBPT_kReference:FBPropertyType
     """kReference."""
-    kFBPT_object:FBPropertyType    
+    kFBPT_object:FBPropertyType
     """object."""
-    kFBPT_stringlist:FBPropertyType    
+    kFBPT_stringlist:FBPropertyType
     """stringlist."""
-    kFBPT_unknown:FBPropertyType    
+    kFBPT_unknown:FBPropertyType
     """unknow."""
 class FBPropertyViewType(_Enum):
     """Property view set type."""
-    kFBViewByObject:FBPropertyViewType    
+    kFBViewByObject:FBPropertyViewType
     """Object property view."""
-    kFBViewByObjectType:FBPropertyViewType    
+    kFBViewByObjectType:FBPropertyViewType
     """Class type property view."""
-    kFBViewGlobal:FBPropertyViewType    
+    kFBViewGlobal:FBPropertyViewType
     """Global property view."""
 class FBRSType(_Enum):
     """RS type for serial port."""
-    kFBRS232:FBRSType    
+    kFBRS232:FBRSType
     """RS-232 serial protocol."""
-    kFBRS422:FBRSType    
+    kFBRS422:FBRSType
     """RS-422 serial protocol."""
 class FBRecalcMarkerSetOffset(_Enum):
     """Recalculate MarkerSet offset for?"""
-    kFBRecalcMarkerSetOffsetROnly:FBRecalcMarkerSetOffset    
+    kFBRecalcMarkerSetOffsetROnly:FBRecalcMarkerSetOffset
     """Recalculate MarkerSet offset for R Only."""
-    kFBRecalcMarkerSetOffsetTR:FBRecalcMarkerSetOffset    
+    kFBRecalcMarkerSetOffsetTR:FBRecalcMarkerSetOffset
     """Recalculate MarkerSet offset for TR."""
 class FBRenderingPass(_Enum):
     """Rendering Pass.
     Use with FBShader::RenderingPass properties to make the shader be called at any pass. Passes will be called in the order of the enum."""
-    kFBPassAddColor:FBRenderingPass    
+    kFBPassAddColor:FBRenderingPass
     """Models are blended additively."""
-    kFBPassFlat:FBRenderingPass    
+    kFBPassFlat:FBRenderingPass
     """Lighting off."""
-    kFBPassInvalid:FBRenderingPass    
+    kFBPassInvalid:FBRenderingPass
     """No pass selected."""
-    kFBPassLighted:FBRenderingPass    
+    kFBPassLighted:FBRenderingPass
     """Lighting on."""
-    kFBPassMatte:FBRenderingPass    
+    kFBPassMatte:FBRenderingPass
     """Alpha > 0.5 will show up."""
-    kFBPassPostRender:FBRenderingPass    
+    kFBPassPostRender:FBRenderingPass
     """After everything."""
-    kFBPassPreRender:FBRenderingPass    
+    kFBPassPreRender:FBRenderingPass
     """Before anything."""
-    kFBPassTranslucent:FBRenderingPass    
+    kFBPassTranslucent:FBRenderingPass
     """Models are blended."""
-    kFBPassTranslucentZSort:FBRenderingPass    
+    kFBPassTranslucentZSort:FBRenderingPass
     """Models are sorted and blended."""
-    kFBPassZTranslucent:FBRenderingPass    
+    kFBPassZTranslucent:FBRenderingPass
     """Writes to depth buffer."""
-    kFBPassZTranslucentAlphaTest:FBRenderingPass    
+    kFBPassZTranslucentAlphaTest:FBRenderingPass
     """Writes to depth buffer where Alpha > 0.5."""
 class FBRigidBodyMode(_Enum):
     """Rigid body modes."""
-    kFBRigidBodyBest:FBRigidBodyMode    
+    kFBRigidBodyBest:FBRigidBodyMode
     """Best rigid body mode."""
-    kFBRigidBodyFast:FBRigidBodyMode    
+    kFBRigidBodyFast:FBRigidBodyMode
     """Fast rigid body mode."""
 class FBRootHMode(_Enum):
     kFBRootHAbsoluteDifference:FBRootHMode
@@ -2452,149 +2452,149 @@ class FBRotationFilter(_Enum):
     kFBRotationFilterUnroll:FBRotationFilter
 class FBRotationOrder(_Enum):
     """Specify the Euler rotation order."""
-    kFBXYZ:FBRotationOrder    
+    kFBXYZ:FBRotationOrder
     """XYZ"""
-    kFBXZY:FBRotationOrder    
+    kFBXZY:FBRotationOrder
     """XZY."""
-    kFBYXZ:FBRotationOrder    
+    kFBYXZ:FBRotationOrder
     """YXZ."""
-    kFBYZX:FBRotationOrder    
+    kFBYZX:FBRotationOrder
     """YZX"""
-    kFBZXY:FBRotationOrder    
+    kFBZXY:FBRotationOrder
     """ZXY"""
-    kFBZYX:FBRotationOrder    
+    kFBZYX:FBRotationOrder
     """ZYX."""
 class FBSceneChangeType(_Enum):
     """Types of model selection events.
     See sample: PropertyDrop.py."""
-    kFBSceneChangeActivate:FBSceneChangeType    
+    kFBSceneChangeActivate:FBSceneChangeType
     """Activate."""
-    kFBSceneChangeAddChild:FBSceneChangeType    
+    kFBSceneChangeAddChild:FBSceneChangeType
     """Child added."""
-    kFBSceneChangeAttach:FBSceneChangeType    
+    kFBSceneChangeAttach:FBSceneChangeType
     """Object attached."""
-    kFBSceneChangeChangeName:FBSceneChangeType    
+    kFBSceneChangeChangeName:FBSceneChangeType
     """Object change name."""
-    kFBSceneChangeChangedName:FBSceneChangeType    
+    kFBSceneChangeChangedName:FBSceneChangeType
     """Object changed name."""
-    kFBSceneChangeChangedParent:FBSceneChangeType    
+    kFBSceneChangeChangedParent:FBSceneChangeType
     """Object changed parent."""
-    kFBSceneChangeClearBegin:FBSceneChangeType    
+    kFBSceneChangeClearBegin:FBSceneChangeType
     """Begin clearing file (file new)"""
-    kFBSceneChangeClearEnd:FBSceneChangeType    
+    kFBSceneChangeClearEnd:FBSceneChangeType
     """End clearing file (file new)"""
-    kFBSceneChangeDeactivate:FBSceneChangeType    
+    kFBSceneChangeDeactivate:FBSceneChangeType
     """Deactivate."""
-    kFBSceneChangeDestroy:FBSceneChangeType    
+    kFBSceneChangeDestroy:FBSceneChangeType
     """Object destroyed."""
-    kFBSceneChangeDetach:FBSceneChangeType    
+    kFBSceneChangeDetach:FBSceneChangeType
     """Object detached."""
-    kFBSceneChangeFocus:FBSceneChangeType    
+    kFBSceneChangeFocus:FBSceneChangeType
     """Object have focus."""
-    kFBSceneChangeHardSelect:FBSceneChangeType    
+    kFBSceneChangeHardSelect:FBSceneChangeType
     """Hard selection."""
-    kFBSceneChangeLoadBegin:FBSceneChangeType    
+    kFBSceneChangeLoadBegin:FBSceneChangeType
     """Begin loading file."""
-    kFBSceneChangeLoadEnd:FBSceneChangeType    
+    kFBSceneChangeLoadEnd:FBSceneChangeType
     """End loading file."""
-    kFBSceneChangeMergeTransactionBegin:FBSceneChangeType    
+    kFBSceneChangeMergeTransactionBegin:FBSceneChangeType
     """Begin merge transaction."""
-    kFBSceneChangeMergeTransactionEnd:FBSceneChangeType    
+    kFBSceneChangeMergeTransactionEnd:FBSceneChangeType
     """End merge transaction."""
-    kFBSceneChangeNone:FBSceneChangeType    
+    kFBSceneChangeNone:FBSceneChangeType
     """Unknown event."""
-    kFBSceneChangePreParent:FBSceneChangeType    
+    kFBSceneChangePreParent:FBSceneChangeType
     """Before object parenting."""
-    kFBSceneChangePreUnparent:FBSceneChangeType    
+    kFBSceneChangePreUnparent:FBSceneChangeType
     """Before object unparenting."""
-    kFBSceneChangeReSelect:FBSceneChangeType    
+    kFBSceneChangeReSelect:FBSceneChangeType
     """Re-selection."""
-    kFBSceneChangeRemoveChild:FBSceneChangeType    
+    kFBSceneChangeRemoveChild:FBSceneChangeType
     """Child removed."""
-    kFBSceneChangeRename:FBSceneChangeType    
+    kFBSceneChangeRename:FBSceneChangeType
     """Before object rename."""
-    kFBSceneChangeRenamePrefix:FBSceneChangeType    
+    kFBSceneChangeRenamePrefix:FBSceneChangeType
     """Before object rename prefix."""
-    kFBSceneChangeRenameUnique:FBSceneChangeType    
+    kFBSceneChangeRenameUnique:FBSceneChangeType
     """Before object rename unique."""
-    kFBSceneChangeRenameUniquePrefix:FBSceneChangeType    
+    kFBSceneChangeRenameUniquePrefix:FBSceneChangeType
     """Before object rename unique prefix."""
-    kFBSceneChangeRenamed:FBSceneChangeType    
+    kFBSceneChangeRenamed:FBSceneChangeType
     """After object rename."""
-    kFBSceneChangeRenamedPrefix:FBSceneChangeType    
+    kFBSceneChangeRenamedPrefix:FBSceneChangeType
     """After object rename prefix."""
-    kFBSceneChangeRenamedUnique:FBSceneChangeType    
+    kFBSceneChangeRenamedUnique:FBSceneChangeType
     """After object rename unique."""
-    kFBSceneChangeRenamedUniquePrefix:FBSceneChangeType    
+    kFBSceneChangeRenamedUniquePrefix:FBSceneChangeType
     """After object rename unique prefix."""
-    kFBSceneChangeReorder:FBSceneChangeType    
+    kFBSceneChangeReorder:FBSceneChangeType
     """Object reorder."""
-    kFBSceneChangeReordered:FBSceneChangeType    
+    kFBSceneChangeReordered:FBSceneChangeType
     """Object reordered."""
-    kFBSceneChangeSelect:FBSceneChangeType    
+    kFBSceneChangeSelect:FBSceneChangeType
     """Object selection."""
-    kFBSceneChangeSoftSelect:FBSceneChangeType    
+    kFBSceneChangeSoftSelect:FBSceneChangeType
     """Soft selection."""
-    kFBSceneChangeSoftUnselect:FBSceneChangeType    
+    kFBSceneChangeSoftUnselect:FBSceneChangeType
     """Soft deselection."""
-    kFBSceneChangeTransactionBegin:FBSceneChangeType    
+    kFBSceneChangeTransactionBegin:FBSceneChangeType
     """Begin transaction."""
-    kFBSceneChangeTransactionEnd:FBSceneChangeType    
+    kFBSceneChangeTransactionEnd:FBSceneChangeType
     """End transaction."""
-    kFBSceneChangeUnselect:FBSceneChangeType    
+    kFBSceneChangeUnselect:FBSceneChangeType
     """Object deselection."""
 class FBSegmentMode(_Enum):
     """Segment modes."""
-    kFBSegmentAll:FBSegmentMode    
+    kFBSegmentAll:FBSegmentMode
     """Use all."""
-    kFBSegmentMarker:FBSegmentMode    
+    kFBSegmentMarker:FBSegmentMode
     """Use marker."""
-    kFBSegmentRigidBody:FBSegmentMode    
+    kFBSegmentRigidBody:FBSegmentMode
     """Use rigid body."""
 class FBShadowFrameType(_Enum):
     """Shadow calculation methods."""
-    kFBShadowFrameTypeShadowCaster:FBShadowFrameType    
+    kFBShadowFrameTypeShadowCaster:FBShadowFrameType
     """Bases the shadow calculation on the shadow of the caster."""
-    kFBShadowFrameTypeShadowCubeMap:FBShadowFrameType    
+    kFBShadowFrameTypeShadowCubeMap:FBShadowFrameType
     """Undocumented or unsupported."""
-    kFBShadowFrameTypeShadowReceiver:FBShadowFrameType    
+    kFBShadowFrameTypeShadowReceiver:FBShadowFrameType
     """Bases the shadow calculation on the shadow of the receiver."""
 class FBShadowType(_Enum):
     """Shadow types.
     The different types of shadow mapping."""
-    kFBShadowTypeLightMapProjectiveTexture:FBShadowType    
+    kFBShadowTypeLightMapProjectiveTexture:FBShadowType
     """Uses a texture projection as a shadow."""
-    kFBShadowTypeShadowOpaquePlanar:FBShadowType    
+    kFBShadowTypeShadowOpaquePlanar:FBShadowType
     """Similar to the Planar Shadow, except that it treats all objects as opaque."""
-    kFBShadowTypeShadowProjectiveTexture:FBShadowType    
+    kFBShadowTypeShadowProjectiveTexture:FBShadowType
     """Uses a texture projection to create a shadow."""
-    kFBShadowTypeShadowTranslucentPlanar:FBShadowType    
+    kFBShadowTypeShadowTranslucentPlanar:FBShadowType
     """Use this shadow type to create darkened shadow areas only on planar surfaces."""
-    kFBShadowTypeZLightMapProjectiveTexture:FBShadowType    
+    kFBShadowTypeZLightMapProjectiveTexture:FBShadowType
     """Similar to the Projective Light Map except that it uses a boolean algorithm to create a self-shadow."""
-    kFBShadowTypeZShadowProjectiveTexture:FBShadowType    
+    kFBShadowTypeZShadowProjectiveTexture:FBShadowType
     """Similar to the Projective Shadow, except that it uses a boolean algorithm to create a self-shadow."""
 class FBSkeletonLook(_Enum):
     """Look of the skeleton."""
-    kFBSkeletonLookBone:FBSkeletonLook    
+    kFBSkeletonLookBone:FBSkeletonLook
     """Bone."""
-    kFBSkeletonLookBox:FBSkeletonLook    
+    kFBSkeletonLookBox:FBSkeletonLook
     """Box."""
-    kFBSkeletonLookCapsule:FBSkeletonLook    
+    kFBSkeletonLookCapsule:FBSkeletonLook
     """Capsule."""
-    kFBSkeletonLookCircle:FBSkeletonLook    
+    kFBSkeletonLookCircle:FBSkeletonLook
     """Circle."""
-    kFBSkeletonLookCube:FBSkeletonLook    
+    kFBSkeletonLookCube:FBSkeletonLook
     """Cube."""
-    kFBSkeletonLookHardCross:FBSkeletonLook    
+    kFBSkeletonLookHardCross:FBSkeletonLook
     """Thick cross."""
-    kFBSkeletonLookLightCross:FBSkeletonLook    
+    kFBSkeletonLookLightCross:FBSkeletonLook
     """Wireframe cross."""
-    kFBSkeletonLookSphere:FBSkeletonLook    
+    kFBSkeletonLookSphere:FBSkeletonLook
     """Sphere."""
-    kFBSkeletonLookSquare:FBSkeletonLook    
+    kFBSkeletonLookSquare:FBSkeletonLook
     """Square."""
-    kFBSkeletonLookStick:FBSkeletonLook    
+    kFBSkeletonLookStick:FBSkeletonLook
     """Box with a sphere on one end."""
 class FBSkeletonNodeId(_Enum):
     """All Skeleton nodes"""
@@ -2654,194 +2654,194 @@ class FBSkeletonNodeId(_Enum):
     kFBSkeletonWaistIndex:FBSkeletonNodeId
 class FBSkeletonResolutionLevel(_Enum):
     """Resolution of skeleton sphere, capsule and stick (Quality)."""
-    kFBSkeletonHighResolution:FBSkeletonResolutionLevel    
+    kFBSkeletonHighResolution:FBSkeletonResolutionLevel
     """Highest resolution."""
-    kFBSkeletonLowResolution:FBSkeletonResolutionLevel    
+    kFBSkeletonLowResolution:FBSkeletonResolutionLevel
     """Lowest resolution."""
-    kFBSkeletonMediumResolution:FBSkeletonResolutionLevel    
+    kFBSkeletonMediumResolution:FBSkeletonResolutionLevel
     """Medium resolution."""
 class FBSplitStyle(_Enum):
     """Type of split style (sub-division) for layout."""
-    kFBHSplit:FBSplitStyle    
+    kFBHSplit:FBSplitStyle
     """Horizontal split."""
-    kFBHVSplit:FBSplitStyle    
+    kFBHVSplit:FBSplitStyle
     """Horizontal and Vertical split."""
-    kFBNoSplit:FBSplitStyle    
+    kFBNoSplit:FBSplitStyle
     """No split."""
-    kFBVSplit:FBSplitStyle    
+    kFBVSplit:FBSplitStyle
     """Vertical split."""
 class FBStereoDisplayMode(_Enum):
-    kFBStereoDisplayActive:FBStereoDisplayMode    
+    kFBStereoDisplayActive:FBStereoDisplayMode
     """Display in active mode. User must enable OpenGL quad stereo buffer, and choose approriate stereo mode in video card hardware's config app."""
-    kFBStereoDisplayAnaglyph:FBStereoDisplayMode    
+    kFBStereoDisplayAnaglyph:FBStereoDisplayMode
     """Display in Analygh stereo mode."""
-    kFBStereoDisplayAnaglyphLuminance:FBStereoDisplayMode    
+    kFBStereoDisplayAnaglyphLuminance:FBStereoDisplayMode
     """Display in Luminance Analygh stereo mode."""
-    kFBStereoDisplayCenterEye:FBStereoDisplayMode    
+    kFBStereoDisplayCenterEye:FBStereoDisplayMode
     """Display in Center Eye Camera, No Stereo effect."""
-    kFBStereoDisplayCheckerboard:FBStereoDisplayMode    
+    kFBStereoDisplayCheckerboard:FBStereoDisplayMode
     """Display in Checkboard Interlace stereo mode."""
-    kFBStereoDisplayFreeviewCrossed:FBStereoDisplayMode    
+    kFBStereoDisplayFreeviewCrossed:FBStereoDisplayMode
     """Display in crossed free view stereo mode."""
-    kFBStereoDisplayFreeviewParallel:FBStereoDisplayMode    
+    kFBStereoDisplayFreeviewParallel:FBStereoDisplayMode
     """Display in parallel free view stereo mode."""
-    kFBStereoDisplayHorizontalInterlace:FBStereoDisplayMode    
+    kFBStereoDisplayHorizontalInterlace:FBStereoDisplayMode
     """Display in Horizontal Interlace stereo mode."""
-    kFBStereoDisplayLeftEye:FBStereoDisplayMode    
+    kFBStereoDisplayLeftEye:FBStereoDisplayMode
     """Display in Left Eye Caerma, No Stereo effect."""
-    kFBStereoDisplayModeCount:FBStereoDisplayMode    
+    kFBStereoDisplayModeCount:FBStereoDisplayMode
     """update this count value when add new mode"""
-    kFBStereoDisplayRightEye:FBStereoDisplayMode    
+    kFBStereoDisplayRightEye:FBStereoDisplayMode
     """Display in Right Eye Caerma, No Stereo effect."""
 class FBStoryClipAlignmentType(_Enum):
     """Alignment Types when aligning clips."""
-    kFBStoryClipAlignmentBeginningNext:FBStoryClipAlignmentType    
+    kFBStoryClipAlignmentBeginningNext:FBStoryClipAlignmentType
     """Align selected clips to the beginning of the next clip."""
-    kFBStoryClipAlignmentBeginningNextAllAligned:FBStoryClipAlignmentType    
+    kFBStoryClipAlignmentBeginningNextAllAligned:FBStoryClipAlignmentType
     """Align selected clips to the beginning of the next clip, all clips will be align to the selected clip position."""
-    kFBStoryClipAlignmentBeginningNextWithOffset:FBStoryClipAlignmentType    
+    kFBStoryClipAlignmentBeginningNextWithOffset:FBStoryClipAlignmentType
     """Align selected clips to the beginning of the next clip, while keeping the relative offset."""
-    kFBStoryClipAlignmentCurrentTimeline:FBStoryClipAlignmentType    
+    kFBStoryClipAlignmentCurrentTimeline:FBStoryClipAlignmentType
     """Align all selected clips with the current time."""
-    kFBStoryClipAlignmentCurrentTimelineWithOffset:FBStoryClipAlignmentType    
+    kFBStoryClipAlignmentCurrentTimelineWithOffset:FBStoryClipAlignmentType
     """Align all selected clips with the current time, while keeping the relative offset."""
-    kFBStoryClipAlignmentEndPrevious:FBStoryClipAlignmentType    
+    kFBStoryClipAlignmentEndPrevious:FBStoryClipAlignmentType
     """Align selected clips to the end of the previous clip."""
-    kFBStoryClipAlignmentEndPreviousAllAligned:FBStoryClipAlignmentType    
+    kFBStoryClipAlignmentEndPreviousAllAligned:FBStoryClipAlignmentType
     """Align selected clips to the end of the previous clip, all clips will be align to the selected clip position."""
-    kFBStoryClipAlignmentEndPreviousWithOffset:FBStoryClipAlignmentType    
+    kFBStoryClipAlignmentEndPreviousWithOffset:FBStoryClipAlignmentType
     """Align selected clips to the end of the previous clip, while keeping the relative offset."""
 class FBStoryClipChangeType(_Enum):
     """Types of clip change events, matching KEventClip.eType Expose only kFBStoryClipMoveClip and kFBStoryClipRemoved for now."""
-    kFBStoryClipMoveBlend:FBStoryClipChangeType    
+    kFBStoryClipMoveBlend:FBStoryClipChangeType
     """Clip move blend."""
-    kFBStoryClipMoveClip:FBStoryClipChangeType    
+    kFBStoryClipMoveClip:FBStoryClipChangeType
     """Clip moved."""
-    kFBStoryClipMoveData:FBStoryClipChangeType    
+    kFBStoryClipMoveData:FBStoryClipChangeType
     """Clip data moved."""
-    kFBStoryClipNotSet:FBStoryClipChangeType    
+    kFBStoryClipNotSet:FBStoryClipChangeType
     """Clip none."""
-    kFBStoryClipRemoved:FBStoryClipChangeType    
+    kFBStoryClipRemoved:FBStoryClipChangeType
     """Clip removed."""
-    kFBStoryClipUpdateUI:FBStoryClipChangeType    
+    kFBStoryClipUpdateUI:FBStoryClipChangeType
     """Clip UI update."""
 class FBStoryClipCompMode(_Enum):
     """Compensation Modes for story character clips."""
-    kFBStoryClipAuto:FBStoryClipCompMode    
+    kFBStoryClipAuto:FBStoryClipCompMode
     """Automatic compensation."""
-    kFBStoryClipOff:FBStoryClipCompMode    
+    kFBStoryClipOff:FBStoryClipCompMode
     """No compensation."""
-    kFBStoryClipUser:FBStoryClipCompMode    
+    kFBStoryClipUser:FBStoryClipCompMode
     """User defined compensation."""
 class FBStoryClipGhostTimeMode(_Enum):
     """Time mode to display ghost."""
-    kFBStoryClipGhostCurrent:FBStoryClipGhostTimeMode    
+    kFBStoryClipGhostCurrent:FBStoryClipGhostTimeMode
     """Show the ghost at current time of the clip."""
-    kFBStoryClipGhostCustom:FBStoryClipGhostTimeMode    
+    kFBStoryClipGhostCustom:FBStoryClipGhostTimeMode
     """Show the ghost at custom time of the clip. See GhostManipulatorCustomTime property."""
-    kFBStoryClipGhostStart:FBStoryClipGhostTimeMode    
+    kFBStoryClipGhostStart:FBStoryClipGhostTimeMode
     """Show the ghost at start time of the clip."""
-    kFBStoryClipGhostStop:FBStoryClipGhostTimeMode    
+    kFBStoryClipGhostStop:FBStoryClipGhostTimeMode
     """Show the ghost at stop time of the clip."""
 class FBStoryClipMatchingRotationType(_Enum):
     """Matching Rotation Types, when matching clips to each other."""
-    kFBStoryClipMatchingRotationDefault:FBStoryClipMatchingRotationType    
+    kFBStoryClipMatchingRotationDefault:FBStoryClipMatchingRotationType
     """Uses the matching translation type stored in the Application configuration file: [Story] > MatchRotation. This value, in the configuration file, is update each time a matching is done, with the selected value."""
-    kFBStoryClipMatchingRotationGravityXZ:FBStoryClipMatchingRotationType    
+    kFBStoryClipMatchingRotationGravityXZ:FBStoryClipMatchingRotationType
     """Rotates a selected clip's match object around the global Y axis."""
-    kFBStoryClipMatchingRotationNone:FBStoryClipMatchingRotationType    
+    kFBStoryClipMatchingRotationNone:FBStoryClipMatchingRotationType
     """The clip's match object is not rotated to match another clip's animation."""
-    kFBStoryClipMatchingRotationXYZ:FBStoryClipMatchingRotationType    
+    kFBStoryClipMatchingRotationXYZ:FBStoryClipMatchingRotationType
     """Rotates a selected clip's match object to the same orientation as the previous clip's match object."""
 class FBStoryClipMatchingTimeType(_Enum):
     """Matching Time Types, when matching clips to each other."""
-    kFBStoryClipMatchingTimeBetweenPreviousAndSelectedClip:FBStoryClipMatchingTimeType    
+    kFBStoryClipMatchingTimeBetweenPreviousAndSelectedClip:FBStoryClipMatchingTimeType
     """Matches the selected clip and the previous clip at the middle of the blend."""
-    kFBStoryClipMatchingTimeBetweenSelectedAndNextClip:FBStoryClipMatchingTimeType    
+    kFBStoryClipMatchingTimeBetweenSelectedAndNextClip:FBStoryClipMatchingTimeType
     """Matches the selected clip and the next clip at the middle of the blend."""
-    kFBStoryClipMatchingTimeCurrentTime:FBStoryClipMatchingTimeType    
+    kFBStoryClipMatchingTimeCurrentTime:FBStoryClipMatchingTimeType
     """Matches the start of the selected clip to the previous/next clip at the current time."""
-    kFBStoryClipMatchingTimeDefault:FBStoryClipMatchingTimeType    
+    kFBStoryClipMatchingTimeDefault:FBStoryClipMatchingTimeType
     """Uses the matching time type stored in the Application configuration file: [Story] > MatchWhen. This value, in the configuration file, is update each time a matching is done, with the selected value."""
-    kFBStoryClipMatchingTimeEndOfPreviousClip:FBStoryClipMatchingTimeType    
+    kFBStoryClipMatchingTimeEndOfPreviousClip:FBStoryClipMatchingTimeType
     """Matches the end of the blend with the selected clip to the end of the previous clip."""
-    kFBStoryClipMatchingTimeEndOfSelectedClip:FBStoryClipMatchingTimeType    
+    kFBStoryClipMatchingTimeEndOfSelectedClip:FBStoryClipMatchingTimeType
     """Matches the end of the selected clip to the end of the blend with the previous clip."""
-    kFBStoryClipMatchingTimeStartOfNextClip:FBStoryClipMatchingTimeType    
+    kFBStoryClipMatchingTimeStartOfNextClip:FBStoryClipMatchingTimeType
     """Matches the start of the blend with the selected clip to the start of the next clip."""
-    kFBStoryClipMatchingTimeStartOfSelectedClip:FBStoryClipMatchingTimeType    
+    kFBStoryClipMatchingTimeStartOfSelectedClip:FBStoryClipMatchingTimeType
     """Matches the start of the selected clip to the start of the blend with the previous clip."""
 class FBStoryClipMatchingTranslationType(_Enum):
     """Matching Translation, Types when matching clips to each other."""
-    kFBStoryClipMatchingTranslationDefault:FBStoryClipMatchingTranslationType    
+    kFBStoryClipMatchingTranslationDefault:FBStoryClipMatchingTranslationType
     """Uses the matching translation type stored in the Application configuration file: [Story] > MatchTranslation. This value, in the configuration file, is update each time a matching is done, with the selected value."""
-    kFBStoryClipMatchingTranslationGravityXZ:FBStoryClipMatchingTranslationType    
+    kFBStoryClipMatchingTranslationGravityXZ:FBStoryClipMatchingTranslationType
     """Translates a selected clip's match object along the global X and Z axes."""
-    kFBStoryClipMatchingTranslationNone:FBStoryClipMatchingTranslationType    
+    kFBStoryClipMatchingTranslationNone:FBStoryClipMatchingTranslationType
     """The clip's match object is not translated to match another clip's animation."""
-    kFBStoryClipMatchingTranslationXYZ:FBStoryClipMatchingTranslationType    
+    kFBStoryClipMatchingTranslationXYZ:FBStoryClipMatchingTranslationType
     """Translates a selected clip's match object to the same location as the previous clip's match object."""
 class FBStoryClipMirrorPlane(_Enum):
     """Several mirror planes to mirror animation."""
-    kFBStoryClipMirrorPlaneXY:FBStoryClipMirrorPlane    
+    kFBStoryClipMirrorPlaneXY:FBStoryClipMirrorPlane
     """X-Y plane."""
-    kFBStoryClipMirrorPlaneXZ:FBStoryClipMirrorPlane    
+    kFBStoryClipMirrorPlaneXZ:FBStoryClipMirrorPlane
     """X-Z plane."""
-    kFBStoryClipMirrorPlaneZY:FBStoryClipMirrorPlane    
+    kFBStoryClipMirrorPlaneZY:FBStoryClipMirrorPlane
     """Z-Y plane."""
 class FBStoryClipNodeFunction(_Enum):
     """Node function."""
-    kFBStoryClipNodeAverage:FBStoryClipNodeFunction    
+    kFBStoryClipNodeAverage:FBStoryClipNodeFunction
     """Average."""
-    kFBStoryClipNodeFloorProjection:FBStoryClipNodeFunction    
+    kFBStoryClipNodeFloorProjection:FBStoryClipNodeFunction
     """Project on XZ plane."""
-    kFBStoryClipNodeNone:FBStoryClipNodeFunction    
+    kFBStoryClipNodeNone:FBStoryClipNodeFunction
     """None."""
 class FBStoryClipShowGhostMode(_Enum):
     """Show Ghost Modes for story animation clips."""
-    kFBStoryClipAlways:FBStoryClipShowGhostMode    
+    kFBStoryClipAlways:FBStoryClipShowGhostMode
     """Always show the ghost."""
-    kFBStoryClipTimeCursor:FBStoryClipShowGhostMode    
+    kFBStoryClipTimeCursor:FBStoryClipShowGhostMode
     """Show the ghost only on time cursor."""
-    kFBStoryClipTimeCustom:FBStoryClipShowGhostMode    
+    kFBStoryClipTimeCustom:FBStoryClipShowGhostMode
     """Show the ghost for custom time frame."""
 class FBStoryClipSolveMode(_Enum):
     """Solve Modes for story character clips."""
-    kFBStoryClipAnimFkIk:FBStoryClipSolveMode    
+    kFBStoryClipAnimFkIk:FBStoryClipSolveMode
     """Solve forward and inverse kinematic animation."""
-    kFBStoryClipAnimSkeleton:FBStoryClipSolveMode    
+    kFBStoryClipAnimSkeleton:FBStoryClipSolveMode
     """Solve skeleton animation."""
-    kFBStoryClipAnimSkeletonIk:FBStoryClipSolveMode    
+    kFBStoryClipAnimSkeletonIk:FBStoryClipSolveMode
     """Solve skeleton inverse kinematic animation."""
-    kFBStoryClipRetargetSkeleton:FBStoryClipSolveMode    
+    kFBStoryClipRetargetSkeleton:FBStoryClipSolveMode
     """Solve retarget skeleton."""
 class FBStoryClipTimeWarpInterpolatorType(_Enum):
     """Types of TimeWrap Interpolator for Story Clips."""
-    kFBStoryClipTimeWarpInterpolatorCustom:FBStoryClipTimeWarpInterpolatorType    
+    kFBStoryClipTimeWarpInterpolatorCustom:FBStoryClipTimeWarpInterpolatorType
     """'Custom' TimeWarp Interpolation"""
-    kFBStoryClipTimeWarpInterpolatorGoingFaster:FBStoryClipTimeWarpInterpolatorType    
+    kFBStoryClipTimeWarpInterpolatorGoingFaster:FBStoryClipTimeWarpInterpolatorType
     """'Going Faster' TimeWarp Interpolation"""
-    kFBStoryClipTimeWarpInterpolatorGoingFasterReversed:FBStoryClipTimeWarpInterpolatorType    
+    kFBStoryClipTimeWarpInterpolatorGoingFasterReversed:FBStoryClipTimeWarpInterpolatorType
     """'Reversed, Going Faster' TimeWarp Interpolation"""
-    kFBStoryClipTimeWarpInterpolatorLinear:FBStoryClipTimeWarpInterpolatorType    
+    kFBStoryClipTimeWarpInterpolatorLinear:FBStoryClipTimeWarpInterpolatorType
     """'Normal' TimeWarp Interpolation"""
-    kFBStoryClipTimeWarpInterpolatorLinearReversed:FBStoryClipTimeWarpInterpolatorType    
+    kFBStoryClipTimeWarpInterpolatorLinearReversed:FBStoryClipTimeWarpInterpolatorType
     """'Reversed' TimeWarp Interpolation"""
-    kFBStoryClipTimeWarpInterpolatorSlowingDown:FBStoryClipTimeWarpInterpolatorType    
+    kFBStoryClipTimeWarpInterpolatorSlowingDown:FBStoryClipTimeWarpInterpolatorType
     """'Slowing Down' TimeWarp Interpolation"""
-    kFBStoryClipTimeWarpInterpolatorSlowingDownReversed:FBStoryClipTimeWarpInterpolatorType    
+    kFBStoryClipTimeWarpInterpolatorSlowingDownReversed:FBStoryClipTimeWarpInterpolatorType
     """'Reversed, Slowing Down' TimeWarp Interpolation"""
-    kFBStoryClipTimeWarpInterpolatorSmoothedEnds:FBStoryClipTimeWarpInterpolatorType    
+    kFBStoryClipTimeWarpInterpolatorSmoothedEnds:FBStoryClipTimeWarpInterpolatorType
     """'Smoothed Ends' TimeWarp Interpolation"""
-    kFBStoryClipTimeWarpInterpolatorSmoothedEndsReversed:FBStoryClipTimeWarpInterpolatorType    
+    kFBStoryClipTimeWarpInterpolatorSmoothedEndsReversed:FBStoryClipTimeWarpInterpolatorType
     """'Reversed, Smoothed Ends' TimeWarp Interpolation"""
 class FBStoryGroupClipAlignmentType(_Enum):
     """Alignment Types when aligning groups."""
-    kFBStoryGroupClipAlignmentBeginningNextWithOffset:FBStoryGroupClipAlignmentType    
+    kFBStoryGroupClipAlignmentBeginningNextWithOffset:FBStoryGroupClipAlignmentType
     """Align the clips contained in the group clip to the beginning of the next clip, while keeping the relative offset."""
-    kFBStoryGroupClipAlignmentCurrentTimeline:FBStoryGroupClipAlignmentType    
+    kFBStoryGroupClipAlignmentCurrentTimeline:FBStoryGroupClipAlignmentType
     """Align the clips contained in the group clip with the current time."""
-    kFBStoryGroupClipAlignmentEndPreviousWithOffset:FBStoryGroupClipAlignmentType    
+    kFBStoryGroupClipAlignmentEndPreviousWithOffset:FBStoryGroupClipAlignmentType
     """Align the clips contained in the group clip to the end of the previous clip, while keeping the relative offset."""
 class FBStoryTrackBodyPart(_Enum):
     """Body Parts for story track character."""
@@ -2865,58 +2865,58 @@ class FBStoryTrackBodyPart(_Enum):
     kFBStoryTrackBodyPartUpperBody:FBStoryTrackBodyPart
 class FBStoryTrackGhostShowMode(_Enum):
     """Ghost Show Modes for story animation tracks."""
-    kFBStoryTrackShowAllClips:FBStoryTrackGhostShowMode    
+    kFBStoryTrackShowAllClips:FBStoryTrackGhostShowMode
     """Show the ghosts for all the clips on the track."""
-    kFBStoryTrackShowCurrentTimeAdjacentClips:FBStoryTrackGhostShowMode    
+    kFBStoryTrackShowCurrentTimeAdjacentClips:FBStoryTrackGhostShowMode
     """Show the ghosts only for the previous clip, current clip, and next clip relative to current time."""
 class FBStoryTrackRefMode(_Enum):
     """References Modes for story animation tracks."""
-    kFBStoryTrackAdditive:FBStoryTrackRefMode    
+    kFBStoryTrackAdditive:FBStoryTrackRefMode
     """Additive track."""
-    kFBStoryTrackOverride:FBStoryTrackRefMode    
+    kFBStoryTrackOverride:FBStoryTrackRefMode
     """Override track."""
 class FBStoryTrackType(_Enum):
     """Types for new story tracks.
     See samples: CreateShotClip.py, AudioTrackSetupTool.py."""
-    kFBStoryTrackAnimation:FBStoryTrackType    
+    kFBStoryTrackAnimation:FBStoryTrackType
     """Animation track."""
-    kFBStoryTrackAudio:FBStoryTrackType    
+    kFBStoryTrackAudio:FBStoryTrackType
     """Audio track."""
-    kFBStoryTrackCamera:FBStoryTrackType    
+    kFBStoryTrackCamera:FBStoryTrackType
     """Camera animation track."""
-    kFBStoryTrackCharacter:FBStoryTrackType    
+    kFBStoryTrackCharacter:FBStoryTrackType
     """Character animation track."""
-    kFBStoryTrackCommand:FBStoryTrackType    
+    kFBStoryTrackCommand:FBStoryTrackType
     """Command track."""
-    kFBStoryTrackConstraint:FBStoryTrackType    
+    kFBStoryTrackConstraint:FBStoryTrackType
     """Constraint track."""
-    kFBStoryTrackShot:FBStoryTrackType    
+    kFBStoryTrackShot:FBStoryTrackType
     """Shot track."""
-    kFBStoryTrackVideo:FBStoryTrackType    
+    kFBStoryTrackVideo:FBStoryTrackType
     """Video track."""
 class FBSurfaceMode(_Enum):
     """Surface modes."""
-    kFBSurfaceModeHigh:FBSurfaceMode    
+    kFBSurfaceModeHigh:FBSurfaceMode
     """High quality."""
-    kFBSurfaceModeHighNoNormals:FBSurfaceMode    
+    kFBSurfaceModeHighNoNormals:FBSurfaceMode
     """High quality, no normals."""
-    kFBSurfaceModeLow:FBSurfaceMode    
+    kFBSurfaceModeLow:FBSurfaceMode
     """Low quality."""
-    kFBSurfaceModeLowNoNormals:FBSurfaceMode    
+    kFBSurfaceModeLowNoNormals:FBSurfaceMode
     """Low quality, no normals."""
-    kFBSurfaceModeRaw:FBSurfaceMode    
+    kFBSurfaceModeRaw:FBSurfaceMode
     """Raw data."""
 class FBSurfaceType(_Enum):
     """Surface types."""
-    kFBSurfaceTypeBezier:FBSurfaceType    
+    kFBSurfaceTypeBezier:FBSurfaceType
     """Bezier surface."""
-    kFBSurfaceTypeBezierQuadric:FBSurfaceType    
+    kFBSurfaceTypeBezierQuadric:FBSurfaceType
     """Bezier Quadric surface."""
-    kFBSurfaceTypeBspline:FBSurfaceType    
+    kFBSurfaceTypeBspline:FBSurfaceType
     """BSpline surface."""
-    kFBSurfaceTypeCardinal:FBSurfaceType    
+    kFBSurfaceTypeCardinal:FBSurfaceType
     """Cardinal surface."""
-    kFBSurfaceTypeLinear:FBSurfaceType    
+    kFBSurfaceTypeLinear:FBSurfaceType
     """Linear surface."""
 class FBSyncActivationAndVisibilityMode(_Enum):
     """Sync mode for Constraints' Activeness and Models' visibility belonging to the Character Extension."""
@@ -2925,11 +2925,11 @@ class FBSyncActivationAndVisibilityMode(_Enum):
     kFBSyncMode_WithOthersThanControlRig:FBSyncActivationAndVisibilityMode
 class FBTCPIPSocketType(_Enum):
     """Types of TCP/IP Sockets."""
-    kFBTCPIP_DGRAM:FBTCPIPSocketType    
+    kFBTCPIP_DGRAM:FBTCPIPSocketType
     """Datagrams (UDP)."""
-    kFBTCPIP_RAW:FBTCPIPSocketType    
+    kFBTCPIP_RAW:FBTCPIPSocketType
     """Raw data (TCP)."""
-    kFBTCPIP_Stream:FBTCPIPSocketType    
+    kFBTCPIP_Stream:FBTCPIPSocketType
     """Streaming data (TCP)."""
 class FBTakeChangeType(_Enum):
     """Types of take change events."""
@@ -2943,180 +2943,180 @@ class FBTakeChangeType(_Enum):
     kFBTakeChangeUpdated:FBTakeChangeType
 class FBTakeSpanOnLoad(_Enum):
     """This enumeration indicate the how to set the take start and end points on after a load."""
-    kFBFrameAnimation:FBTakeSpanOnLoad    
+    kFBFrameAnimation:FBTakeSpanOnLoad
     """Have the take's span match the first and last key in the take."""
-    kFBImportFromFile:FBTakeSpanOnLoad    
+    kFBImportFromFile:FBTakeSpanOnLoad
     """Set the current take's span according what is set in the loaded file."""
-    kFBLeaveAsIs:FBTakeSpanOnLoad    
+    kFBLeaveAsIs:FBTakeSpanOnLoad
     """Use the current take's start and end point as defined before the load."""
 class FBTangentClampMode(_Enum):
     """Different clamping modes for the tangents."""
-    kFBTangentClampModeClamped:FBTangentClampMode    
+    kFBTangentClampModeClamped:FBTangentClampMode
     """The tangent will be flattened when the key is placed at the same value as an adjacent key."""
-    kFBTangentClampModeNone:FBTangentClampMode    
+    kFBTangentClampModeNone:FBTangentClampMode
     """The tangent will act normally."""
 class FBTangentConstantMode(_Enum):
     """Different constant modes for the tangents."""
-    kFBTangentConstantModeNext:FBTangentConstantMode    
+    kFBTangentConstantModeNext:FBTangentConstantMode
     """The tangent will contain the value of the next keyframe."""
-    kFBTangentConstantModeNormal:FBTangentConstantMode    
+    kFBTangentConstantModeNormal:FBTangentConstantMode
     """The tangent will contain the value of the current keyframe until the next keyframe."""
 class FBTangentCustomIndex(_Enum):
     """Custom tangent index for the tangents."""
-    kFBTangentCustomIndex0:FBTangentCustomIndex    
+    kFBTangentCustomIndex0:FBTangentCustomIndex
     """First custom tangent type registered in the system."""
-    kFBTangentCustomIndex1:FBTangentCustomIndex    
+    kFBTangentCustomIndex1:FBTangentCustomIndex
     """Second custom tangent type registered in the system."""
-    kFBTangentCustomIndex2:FBTangentCustomIndex    
+    kFBTangentCustomIndex2:FBTangentCustomIndex
     """Third custom tangent type registered in the system."""
 class FBTangentMode(_Enum):
     """Methods of tangent calculation.
     This is only relevant when interpolation is CUBIC."""
-    kFBTangentModeAuto:FBTangentMode    
+    kFBTangentModeAuto:FBTangentMode
     """This is the equivalent to a cardinal spline with no parametrization. In the UI, it is identified as Smooth."""
-    kFBTangentModeBreak:FBTangentMode    
+    kFBTangentModeBreak:FBTangentMode
     """Like USER but left slope may differ from right."""
-    kFBTangentModeClampProgressive:FBTangentMode    
+    kFBTangentModeClampProgressive:FBTangentMode
     """Time independent, will flatten the tangent handles when the key value goes over or under the previous and next key values. In the UI, it is identified as Auto."""
-    kFBTangentModeTCB:FBTangentMode    
+    kFBTangentModeTCB:FBTangentMode
     """TCB spline (3 parameters: TENSION, CONTINUITY, BIAS)"""
-    kFBTangentModeTimeIndependent:FBTangentMode    
+    kFBTangentModeTimeIndependent:FBTangentMode
     """Time independent, is calculated based upon the slope between the previous and next key values. In the UI, it is identified as Spline."""
-    kFBTangentModeUser:FBTangentMode    
+    kFBTangentModeUser:FBTangentMode
     """Used to represent all splines with no lost data (HERMITE, BEZIER, CATMUL, etc.)"""
 class FBTangentWeightMode(_Enum):
     """Active tangent weight, no/one/both side are active on a key.
     Please note, the left value is for the next key, as the current key contains the tangent weight information for the next key. To disable the weight on the left side of a key at index 'i', you need to disable 'kFBTangentWeightModeNextLeft' the 'i-1' key."""
-    kFBTangentWeightModeBoth:FBTangentWeightMode    
+    kFBTangentWeightModeBoth:FBTangentWeightMode
     """Right tangent and next key left tangent weight are active."""
-    kFBTangentWeightModeNextLeft:FBTangentWeightMode    
+    kFBTangentWeightModeNextLeft:FBTangentWeightMode
     """Next key left tangent weight active."""
-    kFBTangentWeightModeNone:FBTangentWeightMode    
+    kFBTangentWeightModeNone:FBTangentWeightMode
     """Tangent weight disabled."""
-    kFBTangentWeightModeRight:FBTangentWeightMode    
+    kFBTangentWeightModeRight:FBTangentWeightMode
     """Right tangent weight active."""
 class FBTextJustify(_Enum):
     """Text justification styles.
     See samples: Button.py, Label.py."""
-    kFBTextJustifyCenter:FBTextJustify    
+    kFBTextJustifyCenter:FBTextJustify
     """Center alignment."""
-    kFBTextJustifyLeft:FBTextJustify    
+    kFBTextJustifyLeft:FBTextJustify
     """Left justify."""
-    kFBTextJustifyRight:FBTextJustify    
+    kFBTextJustifyRight:FBTextJustify
     """Right justify."""
 class FBTextStyle(_Enum):
     """Text appearance styles.
     See sample: Label.py."""
-    kFBTextStyleBold:FBTextStyle    
+    kFBTextStyleBold:FBTextStyle
     """Bold."""
-    kFBTextStyleItalic:FBTextStyle    
+    kFBTextStyleItalic:FBTextStyle
     """Italic."""
-    kFBTextStyleNone:FBTextStyle    
+    kFBTextStyleNone:FBTextStyle
     """Normal."""
-    kFBTextStyleUnderlined:FBTextStyle    
+    kFBTextStyleUnderlined:FBTextStyle
     """Underlined."""
 class FBTextureBlendMode(_Enum):
     """Texture blend modes.
     How the texture is blended with another. See samples: LayeredTexture.py, TextureAnimation.py."""
-    kFBTextureBlendAdditive:FBTextureBlendMode    
+    kFBTextureBlendAdditive:FBTextureBlendMode
     """Layer addition."""
-    kFBTextureBlendModulate:FBTextureBlendMode    
+    kFBTextureBlendModulate:FBTextureBlendMode
     """Layer multiplication."""
-    kFBTextureBlendModulate2:FBTextureBlendMode    
+    kFBTextureBlendModulate2:FBTextureBlendMode
     """Layer multiplication + brightness."""
-    kFBTextureBlendTranslucent:FBTextureBlendMode    
+    kFBTextureBlendTranslucent:FBTextureBlendMode
     """Layer transparency."""
 class FBTextureMapping(_Enum):
     """Texture mapping modes.
     How the texture is mapped."""
-    kFBTextureMappingCylindrical:FBTextureMapping    
+    kFBTextureMappingCylindrical:FBTextureMapping
     """Cylindrical mapping."""
-    kFBTextureMappingEnvironment:FBTextureMapping    
+    kFBTextureMappingEnvironment:FBTextureMapping
     """Environment mapping."""
-    kFBTextureMappingProjection:FBTextureMapping    
+    kFBTextureMappingProjection:FBTextureMapping
     """Projection mapping."""
-    kFBTextureMappingSpherical:FBTextureMapping    
+    kFBTextureMappingSpherical:FBTextureMapping
     """Spherical mapping."""
-    kFBTextureMappingUV:FBTextureMapping    
+    kFBTextureMappingUV:FBTextureMapping
     """UV mapping."""
-    kFBTextureMappingXY:FBTextureMapping    
+    kFBTextureMappingXY:FBTextureMapping
     """XY mapping."""
-    kFBTextureMappingXZ:FBTextureMapping    
+    kFBTextureMappingXZ:FBTextureMapping
     """XZ mapping."""
-    kFBTextureMappingYZ:FBTextureMapping    
+    kFBTextureMappingYZ:FBTextureMapping
     """YZ mapping."""
-    kFBTextureNoMapping:FBTextureMapping    
+    kFBTextureNoMapping:FBTextureMapping
     """No mapping."""
 class FBTextureUseType(_Enum):
     """Texture Use Type.
     How the texture is used."""
-    kFBTextureUseAll:FBTextureUseType    
+    kFBTextureUseAll:FBTextureUseType
     """All textures."""
-    kFBTextureUseBumpNormalMap:FBTextureUseType    
+    kFBTextureUseBumpNormalMap:FBTextureUseType
     """Bump Normal Map, work with model."""
-    kFBTextureUseColor:FBTextureUseType    
+    kFBTextureUseColor:FBTextureUseType
     """standard color type, work with material."""
-    kFBTextureUseLightMap:FBTextureUseType    
+    kFBTextureUseLightMap:FBTextureUseType
     """Light Map, work with model."""
-    kFBTextureUseShadowMap:FBTextureUseType    
+    kFBTextureUseShadowMap:FBTextureUseType
     """Shadow Map, work with model."""
-    kFBTextureUseSphereReflexionMap:FBTextureUseType    
+    kFBTextureUseSphereReflexionMap:FBTextureUseType
     """Sphere Reflexion Map, work with model."""
-    kFBTextureUseSphericalReflexionMap:FBTextureUseType    
+    kFBTextureUseSphericalReflexionMap:FBTextureUseType
     """Spherical Reflexion Map, work with model."""
 class FBTimeMarkAction(_Enum):
     """Time (Global & Take) Mark assigned action."""
-    kFBTimeMarkAction_Loop:FBTimeMarkAction    
+    kFBTimeMarkAction_Loop:FBTimeMarkAction
     """When reaching the mark, the playback loops to previous global mark (or start frame if any)."""
-    kFBTimeMarkAction_None:FBTimeMarkAction    
+    kFBTimeMarkAction_None:FBTimeMarkAction
     """No action. The mark is just visual hint."""
-    kFBTimeMarkAction_Stop:FBTimeMarkAction    
+    kFBTimeMarkAction_Stop:FBTimeMarkAction
     """When reaching the mark, the playback stops."""
 class FBTimeMode(_Enum):
     """Different time modes available."""
-    kFBTimeMode1000Frames:FBTimeMode    
+    kFBTimeMode1000Frames:FBTimeMode
     """1000 : 1 millisecond"""
-    kFBTimeMode100Frames:FBTimeMode    
+    kFBTimeMode100Frames:FBTimeMode
     """100"""
-    kFBTimeMode11988Frames:FBTimeMode    
+    kFBTimeMode11988Frames:FBTimeMode
     """~119.88"""
-    kFBTimeMode120Frames:FBTimeMode    
+    kFBTimeMode120Frames:FBTimeMode
     """120"""
-    kFBTimeMode23976Frames:FBTimeMode    
+    kFBTimeMode23976Frames:FBTimeMode
     """~23.976"""
-    kFBTimeMode24Frames:FBTimeMode    
+    kFBTimeMode24Frames:FBTimeMode
     """24"""
-    kFBTimeMode25Frames:FBTimeMode    
+    kFBTimeMode25Frames:FBTimeMode
     """25"""
-    kFBTimeMode2997Frames:FBTimeMode    
+    kFBTimeMode2997Frames:FBTimeMode
     """~29.97 full"""
-    kFBTimeMode2997Frames_Drop:FBTimeMode    
+    kFBTimeMode2997Frames_Drop:FBTimeMode
     """~29.97 drop"""
-    kFBTimeMode30Frames:FBTimeMode    
+    kFBTimeMode30Frames:FBTimeMode
     """30"""
-    kFBTimeMode48Frames:FBTimeMode    
+    kFBTimeMode48Frames:FBTimeMode
     """48"""
-    kFBTimeMode50Frames:FBTimeMode    
+    kFBTimeMode50Frames:FBTimeMode
     """50"""
-    kFBTimeMode5994Frames:FBTimeMode    
+    kFBTimeMode5994Frames:FBTimeMode
     """~59.94"""
-    kFBTimeMode60Frames:FBTimeMode    
+    kFBTimeMode60Frames:FBTimeMode
     """60"""
-    kFBTimeMode72Frames:FBTimeMode    
+    kFBTimeMode72Frames:FBTimeMode
     """72"""
-    kFBTimeMode96Frames:FBTimeMode    
+    kFBTimeMode96Frames:FBTimeMode
     """96"""
-    kFBTimeModeCustom:FBTimeMode    
+    kFBTimeModeCustom:FBTimeMode
     """Custom framerate."""
-    kFBTimeModeDefault:FBTimeMode    
+    kFBTimeModeDefault:FBTimeMode
     """Default Time Mode."""
 class FBTimeReferential(_Enum):
     """FBCommandState."""
-    kFBTimeReferentialAction:FBTimeReferential    
+    kFBTimeReferentialAction:FBTimeReferential
     """Action."""
-    kFBTimeReferentialEdit:FBTimeReferential    
+    kFBTimeReferentialEdit:FBTimeReferential
     """Edit."""
-    kFBTimeReferentialShot:FBTimeReferential    
+    kFBTimeReferentialShot:FBTimeReferential
     """Shot."""
 class FBToolPossibleDockPosition(_Enum):
     kFBToolPossibleDockPosBottom:FBToolPossibleDockPosition
@@ -3126,120 +3126,120 @@ class FBToolPossibleDockPosition(_Enum):
     kFBToolPossibleDockPosTop:FBToolPossibleDockPosition
 class FBTransportLoopMode(_Enum):
     """Available loop modes for the transport control."""
-    kFBTransportLoopCurrentTake:FBTransportLoopMode    
+    kFBTransportLoopCurrentTake:FBTransportLoopMode
     """Playback looping the current take."""
-    kFBTransportLoopThroughAllTakes:FBTransportLoopMode    
+    kFBTransportLoopThroughAllTakes:FBTransportLoopMode
     """Playback from the current take through all takes in order then stops."""
-    kFBTransportNoLoop:FBTransportLoopMode    
+    kFBTransportNoLoop:FBTransportLoopMode
     """Playback not looping."""
 class FBTransportMode(_Enum):
     """Transport modes."""
     kFBTransportGoto:FBTransportMode
-    kFBTransportGotoPrepare:FBTransportMode    
+    kFBTransportGotoPrepare:FBTransportMode
     """!< Goto."""
     kFBTransportGotoReady:FBTransportMode
     kFBTransportJog:FBTransportMode
-    kFBTransportJogPrepare:FBTransportMode    
+    kFBTransportJogPrepare:FBTransportMode
     """!< Jog."""
     kFBTransportJogReady:FBTransportMode
     kFBTransportPlay:FBTransportMode
-    kFBTransportPlayPrepare:FBTransportMode    
+    kFBTransportPlayPrepare:FBTransportMode
     """!< Play mode"""
     kFBTransportPlayReady:FBTransportMode
     kFBTransportPlayReverse:FBTransportMode
-    kFBTransportPlayReversePrepare:FBTransportMode    
+    kFBTransportPlayReversePrepare:FBTransportMode
     """!< Play reverse."""
     kFBTransportPlayReverseReady:FBTransportMode
     kFBTransportShuttle:FBTransportMode
-    kFBTransportShuttlePrepare:FBTransportMode    
+    kFBTransportShuttlePrepare:FBTransportMode
     """!< Shuttle mode"""
     kFBTransportShuttleReady:FBTransportMode
     kFBTransportStepBackward:FBTransportMode
-    kFBTransportStepBackwardPrepare:FBTransportMode    
+    kFBTransportStepBackwardPrepare:FBTransportMode
     """!< Step backward."""
     kFBTransportStepBackwardReady:FBTransportMode
     kFBTransportStepForward:FBTransportMode
-    kFBTransportStepForwardPrepare:FBTransportMode    
+    kFBTransportStepForwardPrepare:FBTransportMode
     """!< Step forward"""
     kFBTransportStepForwardReady:FBTransportMode
     kFBTransportStop:FBTransportMode
-    kFBTransportStopPost:FBTransportMode    
+    kFBTransportStopPost:FBTransportMode
     """!< Stop mode"""
     kFBTransportStopReady:FBTransportMode
 class FBTransportPlaySpeed(_Enum):
     """Available transport control play speed."""
-    kFBSpeed_10x:FBTransportPlaySpeed    
+    kFBSpeed_10x:FBTransportPlaySpeed
     """10x"""
-    kFBSpeed_1_10x:FBTransportPlaySpeed    
+    kFBSpeed_1_10x:FBTransportPlaySpeed
     """0.10x"""
-    kFBSpeed_1_2x:FBTransportPlaySpeed    
+    kFBSpeed_1_2x:FBTransportPlaySpeed
     """0.50x"""
-    kFBSpeed_1_3x:FBTransportPlaySpeed    
+    kFBSpeed_1_3x:FBTransportPlaySpeed
     """0.33x"""
-    kFBSpeed_1_4x:FBTransportPlaySpeed    
+    kFBSpeed_1_4x:FBTransportPlaySpeed
     """0.25x"""
-    kFBSpeed_1_5x:FBTransportPlaySpeed    
+    kFBSpeed_1_5x:FBTransportPlaySpeed
     """0.20x"""
-    kFBSpeed_1x:FBTransportPlaySpeed    
+    kFBSpeed_1x:FBTransportPlaySpeed
     """1x"""
-    kFBSpeed_2x:FBTransportPlaySpeed    
+    kFBSpeed_2x:FBTransportPlaySpeed
     """2x"""
-    kFBSpeed_3x:FBTransportPlaySpeed    
+    kFBSpeed_3x:FBTransportPlaySpeed
     """3x"""
-    kFBSpeed_4x:FBTransportPlaySpeed    
+    kFBSpeed_4x:FBTransportPlaySpeed
     """4x"""
-    kFBSpeed_5x:FBTransportPlaySpeed    
+    kFBSpeed_5x:FBTransportPlaySpeed
     """5x"""
-    kFBSpeed_ALL_FR:FBTransportPlaySpeed    
+    kFBSpeed_ALL_FR:FBTransportPlaySpeed
     """All frames."""
-    kFBSpeed_Custom:FBTransportPlaySpeed    
+    kFBSpeed_Custom:FBTransportPlaySpeed
     """Custom speed."""
 class FBTransportSnapMode(_Enum):
     """Available snap methods for the transport control."""
-    kFBTransportSnapModeNoSnap:FBTransportSnapMode    
+    kFBTransportSnapModeNoSnap:FBTransportSnapMode
     """No snapping is applied."""
-    kFBTransportSnapModePlayOnFrames:FBTransportSnapMode    
+    kFBTransportSnapModePlayOnFrames:FBTransportSnapMode
     """When playing, plays to exact frames."""
-    kFBTransportSnapModeSnapAndPlayOnFrames:FBTransportSnapMode    
+    kFBTransportSnapModeSnapAndPlayOnFrames:FBTransportSnapMode
     """Combines both Snap and Play on frames modes."""
-    kFBTransportSnapModeSnapOnFrames:FBTransportSnapMode    
+    kFBTransportSnapModeSnapOnFrames:FBTransportSnapMode
     """Snaps to an exact frame when modifying the current time."""
 class FBTransportTimeFormat(_Enum):
     """Available transport control time display."""
-    kFBTimeFormatFrame:FBTransportTimeFormat    
+    kFBTimeFormatFrame:FBTransportTimeFormat
     """Frame time display mode."""
-    kFBTimeFormatTimecode:FBTransportTimeFormat    
+    kFBTimeFormatTimecode:FBTransportTimeFormat
     """Timecode time display mode."""
 class FBTriggerStyle(_Enum):
     """Audio clips' trigger styles."""
-    kFBTriggerStyleContinue:FBTriggerStyle    
+    kFBTriggerStyleContinue:FBTriggerStyle
     """Previously triggered clips that are still playing won't be stopped and mixing will occur."""
-    kFBTriggerStyleCut:FBTriggerStyle    
+    kFBTriggerStyleCut:FBTriggerStyle
     """Previously triggered clips that are still playing will be stopped."""
-    kFBTriggerStyleToggle:FBTriggerStyle    
+    kFBTriggerStyleToggle:FBTriggerStyle
     """If a previously triggered clip is playing, it will only be stopped, otherwise a new starts playing. No mixing and no loop."""
 class FBUpAxis(_Enum):
     """This enumeration indicates which up axis is used in the motion file (so far, only effective when loading c3d files)."""
-    kFBUpAxisY:FBUpAxis    
+    kFBUpAxisY:FBUpAxis
     """Use the Y-axis as the up axis."""
-    kFBUpAxisZ:FBUpAxis    
+    kFBUpAxisZ:FBUpAxis
     """Use the Z-axis as the up axis."""
 class FBUseChnMode(_Enum):
     """Use Channel modes."""
-    kFBUseChannelBoth:FBUseChnMode    
+    kFBUseChannelBoth:FBUseChnMode
     """Default mode, where each channel play in its respective speaker."""
-    kFBUseChannelLeftOnly:FBUseChnMode    
+    kFBUseChannelLeftOnly:FBUseChnMode
     """Left channel will be played in both speakers."""
-    kFBUseChannelRightOnly:FBUseChnMode    
+    kFBUseChannelRightOnly:FBUseChnMode
     """Right channel will be played in both speakers."""
 class FBVideoCodecMode(_Enum):
     """Enum FBVideoRenderDepth.
     See sample: render.py."""
-    FBVideoCodecAsk:FBVideoCodecMode    
+    FBVideoCodecAsk:FBVideoCodecMode
     """Pop codec selection dialog each render."""
-    FBVideoCodecStored:FBVideoCodecMode    
+    FBVideoCodecStored:FBVideoCodecMode
     """Pop dialog and stored its value"""
-    FBVideoCodecUncompressed:FBVideoCodecMode    
+    FBVideoCodecUncompressed:FBVideoCodecMode
     """Assume uncompressed codec."""
 class FBVideoFormat(_Enum):
     """Video color modes."""
@@ -3255,64 +3255,64 @@ class FBVideoFormat(_Enum):
     kFBVideoFormat_RGB_24:FBVideoFormat
 class FBVideoInterlaceMode(_Enum):
     """Video interlace modes."""
-    kFBVideoInterlaceFullFrameEven:FBVideoInterlaceMode    
+    kFBVideoInterlaceFullFrameEven:FBVideoInterlaceMode
     """Full frame (even field)."""
-    kFBVideoInterlaceFullFrameOdd:FBVideoInterlaceMode    
+    kFBVideoInterlaceFullFrameOdd:FBVideoInterlaceMode
     """Full frame (odd field)."""
-    kFBVideoInterlaceHalfFrameEven:FBVideoInterlaceMode    
+    kFBVideoInterlaceHalfFrameEven:FBVideoInterlaceMode
     """Half frame (even field)."""
-    kFBVideoInterlaceHalfFrameOdd:FBVideoInterlaceMode    
+    kFBVideoInterlaceHalfFrameOdd:FBVideoInterlaceMode
     """Half frame (odd field)."""
-    kFBVideoInterlaceNone:FBVideoInterlaceMode    
+    kFBVideoInterlaceNone:FBVideoInterlaceMode
     """No interacling."""
 class FBVideoLiveType(_Enum):
     """Video Live type."""
-    kFBVideoLiveBasic:FBVideoLiveType    
+    kFBVideoLiveBasic:FBVideoLiveType
     """Basic video input, like webcam and dv camera."""
-    kFBVideoLiveDefault:FBVideoLiveType    
+    kFBVideoLiveDefault:FBVideoLiveType
     """Generic video input, type not specified."""
 class FBVideoProxyMode(_Enum):
     """Video proxy modes."""
-    kFBVideoProxyAlways:FBVideoProxyMode    
+    kFBVideoProxyAlways:FBVideoProxyMode
     """Always video proxy."""
-    kFBVideoProxyNone:FBVideoProxyMode    
+    kFBVideoProxyNone:FBVideoProxyMode
     """No video proxy."""
-    kFBVideoProxyOnPlay:FBVideoProxyMode    
+    kFBVideoProxyOnPlay:FBVideoProxyMode
     """Video proxy on play."""
 class FBVideoRenderDepth(_Enum):
     """Enum FBVideoRenderDepth.
     See samples: render.py, render.py."""
-    FBVideoRender24Bits:FBVideoRenderDepth    
+    FBVideoRender24Bits:FBVideoRenderDepth
     """24 bits"""
-    FBVideoRender32Bits:FBVideoRenderDepth    
+    FBVideoRender32Bits:FBVideoRenderDepth
     """32 bits"""
-    FBVideoRenderDepthCount:FBVideoRenderDepth    
+    FBVideoRenderDepthCount:FBVideoRenderDepth
     """Depth Count."""
 class FBVideoRenderFieldMode(_Enum):
     """Enum FBVideoRenderFieldMode."""
-    FBFieldModeCount:FBVideoRenderFieldMode    
+    FBFieldModeCount:FBVideoRenderFieldMode
     """Count."""
-    FBFieldModeField0:FBVideoRenderFieldMode    
+    FBFieldModeField0:FBVideoRenderFieldMode
     """Field 0."""
-    FBFieldModeField1:FBVideoRenderFieldMode    
+    FBFieldModeField1:FBVideoRenderFieldMode
     """Field 1."""
-    FBFieldModeHalfField0:FBVideoRenderFieldMode    
+    FBFieldModeHalfField0:FBVideoRenderFieldMode
     """Half Field 0."""
-    FBFieldModeHalfField1:FBVideoRenderFieldMode    
+    FBFieldModeHalfField1:FBVideoRenderFieldMode
     """Half Field 1."""
-    FBFieldModeNoField:FBVideoRenderFieldMode    
+    FBFieldModeNoField:FBVideoRenderFieldMode
     """No Field."""
 class FBVideoRenderViewingMode(_Enum):
     """Enum FBVideoRenderViewingMode."""
-    FBViewingModeCount:FBVideoRenderViewingMode    
+    FBViewingModeCount:FBVideoRenderViewingMode
     """Count."""
-    FBViewingModeCurrent:FBVideoRenderViewingMode    
+    FBViewingModeCurrent:FBVideoRenderViewingMode
     """Current."""
-    FBViewingModeModelsOnly:FBVideoRenderViewingMode    
+    FBViewingModeModelsOnly:FBVideoRenderViewingMode
     """Model Only."""
-    FBViewingModeStandard:FBVideoRenderViewingMode    
+    FBViewingModeStandard:FBVideoRenderViewingMode
     """Standard."""
-    FBViewingModeXRay:FBVideoRenderViewingMode    
+    FBViewingModeXRay:FBVideoRenderViewingMode
     """X-Ray."""
 class FBVideoResolution(_Enum):
     """Video Resolution (1D)"""
@@ -3333,33 +3333,33 @@ class FBVideoResolution(_Enum):
     kFBVideo_RES_FULL:FBVideoResolution
 class FBVideoStorageMode(_Enum):
     """Video storage modes."""
-    kFBVideoStorageDisk:FBVideoStorageMode    
+    kFBVideoStorageDisk:FBVideoStorageMode
     """Storage on disk."""
-    kFBVideoStorageDiskAsync:FBVideoStorageMode    
+    kFBVideoStorageDiskAsync:FBVideoStorageMode
     """Storage on disk async access."""
-    kFBVideoStorageMemory:FBVideoStorageMode    
+    kFBVideoStorageMemory:FBVideoStorageMode
     """Storage in memory."""
 class FBViewerMode(_Enum):
     """Different viewer modes for the 3D viewer."""
-    kFBViewerModeFourWindow:FBViewerMode    
+    kFBViewerModeFourWindow:FBViewerMode
     """View four panes."""
-    kFBViewerModeOneWindow:FBViewerMode    
+    kFBViewerModeOneWindow:FBViewerMode
     """View one pane."""
-    kFBViewerModeSchematic:FBViewerMode    
+    kFBViewerModeSchematic:FBViewerMode
     """Schematic view."""
-    kFBViewerModeThreeWindow:FBViewerMode    
+    kFBViewerModeThreeWindow:FBViewerMode
     """View three panes."""
-    kFBViewerModeTwoWindow:FBViewerMode    
+    kFBViewerModeTwoWindow:FBViewerMode
     """View two panes."""
 class FBVisibilityState(_Enum):
     """Visibility state."""
-    kFBVisibilityAll:FBVisibilityState    
+    kFBVisibilityAll:FBVisibilityState
     """All objects requested are visible."""
-    kFBVisibilityAny:FBVisibilityState    
+    kFBVisibilityAny:FBVisibilityState
     """Any object requested is visible."""
-    kFBVisibilityInvalid:FBVisibilityState    
+    kFBVisibilityInvalid:FBVisibilityState
     """Invalid visibility request."""
-    kFBVisibilitySome:FBVisibilityState    
+    kFBVisibilitySome:FBVisibilityState
     """Some objects (at least one, but not all) requested are visible."""
 class kDeviceIOs(_Enum):
     kIOPlayModeRead:kDeviceIOs
@@ -3376,91 +3376,91 @@ class kDeviceOperations(_Enum):
 class FBAddRegionParam():
     """This class provide a placeholder to put values necessary to create a Region with FBLayout.AddRegion.
     Each region components: X, Y, Width and Height needs its own FBAddRegionParam. ex: x = FBAddRegionParam(0,FBAttachType.kFBAttachLeft,'') y = FBAddRegionParam(0,FBAttachType.kFBAttachTop,'') w = FBAddRegionParam(0,FBAttachType.kFBAttachRight,'') h = FBAddRegionParam(25,FBAttachType.kFBAttachNone,'') mainLyt.AddRegion('main','main', x, y, w, h)"""
-    mMult:property    
+    mMult:property
     """Read Property: Multiplier of relative value."""
-    mPos:property    
+    mPos:property
     """Read Property: Offset in pixel according depending on the use of FBAddRegionParam (X, Y, W or H)."""
-    mRelative:property    
+    mRelative:property
     """Read Property: Name of Region to attach relative to."""
-    mType:property    
+    mType:property
     """Read Property: Type of Attachment."""
 class FBAudioRenderOptions():
     """Audio Render Options structure.
     Contain options to control how the audio rendering will occur. See sample: AudioRendering.py."""
-    BitDepthMode:property    
+    BitDepthMode:FBAudioBitDepthMode
     """Property: Bit depth for one sample of audio. 8, 16 and 24 bits available for audio render, 16 bits default."""
-    ChannelMode:property    
+    ChannelMode:FBAudioChannelMode
     """Property: Audio render channel number, 1 for Mono(left channel right channel render mixed to one channel), 2 for Stereo(left channel right channel render separately)."""
-    OutputFileName:property    
+    OutputFileName:str
     """Property: Audio Render destination file."""
-    RateMode:property    
+    RateMode:FBAudioRateMode
     """Property: Rate mode for number of samples per second. 44100 hz default,8000, 11025,12000,16000,22050,24000,32000,44100,48000,64000,88200,96000 available for audio render."""
-    TimeSpan:property    
+    TimeSpan:FBTimeSpan
     """Property: Start and stop selection time to render."""
 class FBBatchOptions():
     """Option parameters for the batch process."""
-    Character:property    
+    Character:property
     """Read Write Property: The character to receive the animation."""
-    FrameAnimation:property    
+    FrameAnimation:bool
     """Read Write Property: Set timeline start and end time to corespond with the start and end of animation."""
-    InputDirectory:property    
+    InputDirectory:property
     """Read Write Property: The directory containning the input files."""
-    InputFileFormat:property    
+    InputFileFormat:FBBatchFileFormat
     """Read Write Property: File format of the input files."""
-    KeepCharacterConstraint:property    
+    KeepCharacterConstraint:bool
     """Read Write Property: To keep the character constaint when saving."""
-    KeepDummyBones:property    
+    KeepDummyBones:bool
     """Read Write Property: To keep dummy bones."""
-    OnContainsBatchTakesAction:property    
+    OnContainsBatchTakesAction:FBBatchOnContainsBatchTakes
     """Read Write Property: Action to perform when a scene already contains batch takes while in a batch process."""
-    OnTakeExistAction:property    
+    OnTakeExistAction:FBBatchOnTakeExist
     """Read Write Property: Action to perform when a take already exist while in a batch process."""
-    OutputDirectory:property    
+    OutputDirectory:property
     """Read Write Property: The directory containning the output files."""
-    OutputFileFormat:property    
+    OutputFileFormat:FBBatchFileFormat
     """Read Write Property: File format of the output files."""
-    OverwriteScaling:property    
+    OverwriteScaling:bool
     """Read Write Property: Set the scaling to a default setting of 1.0."""
-    PlotToCharacter:property    
+    PlotToCharacter:bool
     """Read Write Property: To plot the animation on the character."""
-    PlotToControlSet:property    
+    PlotToControlSet:bool
     """Read Write Property: To plot the animation on the control set."""
-    ProcessType:property    
+    ProcessType:FBBatchProcessType
     """Read Write Property: What process should be done? Load, Save or Both."""
-    SkeletonFile:property    
+    SkeletonFile:property
     """Read Write Property: The Skeleton file (for Acclaim AMC files)."""
-    StartAnimationAtZero:property    
+    StartAnimationAtZero:bool
     """Read Write Property: Set the time of all loaded files to 0."""
-    UseBatchSuffix:property    
+    UseBatchSuffix:bool
     """Read Write Property: Add a batch suffix to the name of the files."""
-    UseSingleTake:property    
+    UseSingleTake:bool
     """Read Write Property: Use only one take to convert all files."""
-    WriteRate:property    
+    WriteRate:bool
     """Read Write Property: Write frame rate in Acclaim AMC files."""
-    WriteTranslation:property    
+    WriteTranslation:bool
     """Read Write Property: Write translation animation data included with Acclaim AMC files."""
 class FBCallback():
     """This class is used for the internal callback framework and is not meant to be used by clients."""
-    Callback:property    
+    Callback:property
     """Read Property: Python callback that will called when the FBCallback is executed."""
-    EventType:property    
+    EventType:property
     """Read Property: Event type to which this callback is connected."""
-    Wrapper:property    
+    Wrapper:property
     """Read Property: Pyfbsdk Wrapper that is the owner of the callback."""
 class FBCharacterPoseOptions():
     """Stores options for operations on poses.
     This class exposes the object used to store the options for operations on object poses. Before using a FBCharacterPoseOptions, you need to specify the various members of the object. Here are the default values of a FBCharacterPoseOptions object: mCharacterPoseKeyingMode = kFBCharacterPoseKeyingModeFullBody mModelToMatch = NULL mMirrorPlaneType = kFBMirrorPlaneTypeAuto mMirrorPlaneEquation = 1.0, 0.0, 0.0, 0.0 mMirrorPlaneTiltAngle = 90.0 mMirrorPlanePanAngle = 0.0 Flag = kFBCharacterPoseNoFlag You need to change at least the Flag value by using SetFlag() to set how the pose will be pasted; see the FBCharacterPoseFlag enum for the various options."""
-    mCharacterPoseKeyingMode:property    
+    mCharacterPoseKeyingMode:FBCharacterPoseKeyingMode
     """CharacterPoseKeyingMode (FullBody or BodyPart)."""
-    mMirrorPlaneEquation:property    
+    mMirrorPlaneEquation:FBVector4d
     """Mirror plane equation (used when mMirrorPlaneType = kFBMirrorPlaneTypeEquation)."""
-    mMirrorPlanePanAngle:property    
+    mMirrorPlanePanAngle:float
     """Mirror plane pan angle in degrees (used when mMirrorPlaneType = kFBMirrorPlaneTypeUser)."""
-    mMirrorPlaneTiltAngle:property    
+    mMirrorPlaneTiltAngle:float
     """Mirror plane tilt angle in degrees (used when mMirrorPlaneType = kFBMirrorPlaneTypeUser)."""
-    mMirrorPlaneType:property    
+    mMirrorPlaneType:FBMirrorPlaneType
     """Mirror plane type."""
-    mModelToMatch:property    
+    mModelToMatch:FBModel
     """Model to match."""
     def ClearFlag(self):
         """Clear all flags."""
@@ -3693,61 +3693,61 @@ class FBEvaluateInfo():
         ...
 class FBEvent():
     """Base Event class."""
-    Type:property    
+    Type:int
     """Read Only Property: Type of event."""
 class FBEventActivate(FBEvent):
     """Activation event."""
-    Data:property    
+    Data:property
     """Read Write Property: Generic data of event."""
 class FBEventClipChange(FBEvent):
     ...
 class FBEventConnectionDataNotify(FBEvent):
     """Connection notify event class."""
-    Action:property    
+    Action:FBConnectionAction
     """Read Only Property: Connection's action performed."""
-    Plug:property    
+    Plug:FBPlug
     """Read Only Property: The plug involved in the action."""
 class FBEventConnectionKeyingNotify(FBEvent):
-    Action:property
+    Action:FBConnectionAction
     Plug:property
     Property:property
-    StartTime:property
-    StopTime:property
+    StartTime:FBTime
+    StopTime:FBTime
 class FBEventConnectionNotify(FBEvent):
     """Connection notify event class."""
-    Action:property    
+    Action:FBConnectionAction
     """Read Only Property: Connection's action performed."""
-    ConnectionType:property    
+    ConnectionType:FBConnectionType
     """Read Only Property: Connection's type."""
-    DstPlug:property    
+    DstPlug:FBPlug
     """Read Only Property: The destination plug involved in the action."""
-    NewPlug:property    
+    NewPlug:FBPlug
     """Read Only Property: New plug created by the action. (Mostly used by merge/replace)"""
-    SrcIndex:property    
+    SrcIndex:int
     """Read Only Property: Index of the source in the destination component."""
-    SrcPlug:property    
+    SrcPlug:FBPlug
     """Read Only Property: The source plug involved in the action."""
 class FBEventConnectionStateNotify(FBEvent):
     """Connection notify event class."""
-    Action:property    
+    Action:FBConnectionAction
     """Read Only Property: Connection's action performed."""
-    Plug:property    
+    Plug:FBPlug
     """Read Only Property: The plug involved in the action."""
 class FBEventDblClick(FBEvent):
     """Input event class."""
-    Selection:property    
+    Selection:int
     """Read Only Property: Id of selection."""
 class FBEventDragAndDrop(FBEvent):
     """Drag and drop interface.Event: Global Evaluation pipeline critical timing callback event."""
-    Components:property    
+    Components:property
     """Read Property: List of components drop. (it acces the same data as FBEventDragAndDrop.Get)"""
-    Data:property    
+    Data:property
     """Property: User specified reference. (for example, FBSpread:row)"""
-    PosX:property    
+    PosX:int
     """Property: X position of mouse."""
-    PosY:property    
+    PosY:int
     """Property: Y position of mouse."""
-    State:property    
+    State:FBDragAndDropState
     """Property: Drag and drop sub-event."""
     def Accept(self):
         """Accept a drag and drop sequence.
@@ -3781,84 +3781,84 @@ class FBEventExpose(FBEvent):
 class FBEventFileChange(FBEvent):
     """File change event class.
     This event occurs every time a monitored file changed:"""
-    Path:property    
+    Path:str
     """Read Only Property: The path of changed file."""
 class FBEventInput(FBEvent):
     """Input event class."""
-    InputType:property    
+    InputType:FBInputType
     """Read Only Property: Input type."""
-    Key:property    
+    Key:int
     """Read Only Property: Input key."""
-    KeyState:property    
+    KeyState:int
     """Read Only Property: State of key."""
-    MouseButton:property    
+    MouseButton:int
     """Read Only Property: Mouse Button."""
-    X:property    
+    X:int
     """Read Only Property: Mouse X Position."""
-    Y:property    
+    Y:int
     """Read Only Property: Mouse Y Position."""
 class FBEventMenu(FBEvent):
     """Menu event."""
-    Id:property    
+    Id:int
     """Read Write Property: Id number for menu item."""
-    Name:property    
+    Name:str
     """Read Write Property: Name of menu item."""
 class FBEventOverrideFileOpen(FBEvent):
     """Event that is called before a file open/merge."""
-    FilePath:property    
+    FilePath:str
     """Read Only Property: Path to the file that will be opened/merged."""
-    WillOverride:property    
+    WillOverride:bool
     """Read Write Property: Set to true for handling the file load, false by default. If the return value is false, MotionBuilder will proceed with the normal file open/merge process."""
 class FBEventPlayerControlChange(FBEvent):
     ...
 class FBEventResize(FBEvent):
     """Event sent to a control that resizes."""
-    Height:property    
+    Height:int
     """Property: New Height of the window."""
-    Width:property    
+    Width:int
     """Property: New Width of the window."""
 class FBEventSceneChange(FBEvent):
     """Select model event class.
     This event occurs every time a model is:(un)selectedaddeddestroyedrenamed, etc.."""
-    ChildComponent:property    
+    ChildComponent:FBComponent
     """Read Only Property: Child component of the event."""
-    Component:property    
+    Component:FBComponent
     """Read Only Property: Modified component"""
 class FBEventShow(FBEvent):
     """Show event class."""
-    Shown:property    
+    Shown:bool
     """Read Only Property: Was layer just shown?"""
 class FBEventSpread(FBEvent):
     """Spreadsheet event."""
-    Action:property    
+    Action:int
     """Read Only Property: Action associated to the spread event."""
-    Column:property    
+    Column:int
     """Read Only Property: Column of event."""
-    Row:property    
+    Row:int
     """Read Only Property: Row of event."""
 class FBEventTakeChange(FBEvent):
     """Take change event class.
     This event occurs every time a take is:addeddestroyedrenamedselected, etc."""
-    Take:property    
+    Take:FBTake
     """Read Only Property: The take modified."""
 class FBEventTransaction(FBEvent):
     """Transaction event."""
-    IsBeginTransaction:property    
+    IsBeginTransaction:bool
     """Read Only Property: Tells if the transaction is at begin."""
 class FBEventTree(FBEvent):
     """FBTree node event."""
-    TreeNode:property    
+    TreeNode:FBTreeNode
     """Read Write Property: Tree node."""
-    Why:property    
+    Why:property
     """Read Write Property: Reason of the event."""
 class FBEventTreeSelect(FBEvent):
     """FBTree selection event.Event: Video Frame offline Rendering Event."""
-    TreeNode:property    
+    TreeNode:FBTreeNode
     """Read Write Property: Selected tree node."""
 class FBEventVideoFrameRendering(FBEvent):
     EState:FBEventVideoFrameRendering
-    FrameCount:property
-    FrameNumber:property
+    FrameCount:int
+    FrameNumber:int
     State:property
     eBeginRendering:FBEventVideoFrameRendering
     eEndRendering:FBEventVideoFrameRendering
@@ -3866,17 +3866,17 @@ class FBEventVideoFrameRendering(FBEvent):
 class FBFCurveEvent(FBEvent):
     """This class is used when a modification is made on a FCurve.
     It contains the necessary information to identify the owner of the curve and what modification was made."""
-    Curve:property    
+    Curve:FBFCurve
     """Read Only Property: Curve that will receive the new key."""
-    CurveIndex:property    
+    CurveIndex:int
     """Read Only Property: Index of curve."""
-    CurveName:property    
+    CurveName:str
     """Read Only Property: Name of curve."""
-    EventType:property    
+    EventType:FBFCurveEventType
     """Read Only Property: Type of fcurve event."""
-    KeyIndexStart:property    
+    KeyIndexStart:int
     """Read Only Property: Index of the first key which is involved in the event."""
-    KeyIndexStop:property    
+    KeyIndexStop:int
     """Read Only Property: Index of the last key which is involved in the event."""
     ParentAnimationNode:property
     ParentComponent:property
@@ -3884,61 +3884,61 @@ class FBFCurveEvent(FBEvent):
 class FBFCurveKey():
     """KeyFrame for an FCurve.
     See sample: StartKeysAtCurrentTime.py."""
-    Bias:property    
+    Bias:float
     """Read Write Property: Bias (TCB)."""
-    Continuity:property    
+    Continuity:float
     """Read Write Property: Continuity (TCB)."""
-    ExtrapolationMode:property    
+    ExtrapolationMode:FBExtrapolationMode
     """Read Write Property: Extrapolation mode"""
-    Interpolation:property    
+    Interpolation:FBInterpolation
     """Read Write Property: Type of interpolation."""
-    LeftBezierTangent:property    
+    LeftBezierTangent:float
     """Read Write Property: Left bezier tangent"""
-    LeftDerivative:property    
+    LeftDerivative:float
     """Read Write Property: Left derivative, in units/seconds."""
-    LeftTangentWeight:property    
+    LeftTangentWeight:float
     """Read Write Property: Left tangent weight"""
-    MarkedForManipulation:property    
+    MarkedForManipulation:bool
     """Read Write Property: Is the key marked for manipulation."""
-    RightBezierTangent:property    
+    RightBezierTangent:float
     """Read Write Property: Right bezier tangent"""
-    RightDerivative:property    
+    RightDerivative:float
     """Read Write Property: Right derivative, in units/seconds."""
-    RightTangentWeight:property    
+    RightTangentWeight:float
     """Read Write Property: Right tangent weight"""
-    Selected:property    
+    Selected:bool
     """Read Write Property: Is the key selected."""
-    TangentBreak:property    
+    TangentBreak:bool
     """Read Write Property: Tangent's break status"""
-    TangentClampMode:property    
+    TangentClampMode:FBTangentClampMode
     """Read Write Property: Tangent's clamp method."""
-    TangentConstantMode:property    
+    TangentConstantMode:FBTangentConstantMode
     """Read Write Property: Tangent's constant mode"""
-    TangentCustomIndex:property    
+    TangentCustomIndex:FBTangentCustomIndex
     """Read Write Property: Tangent's custom index"""
-    TangentMode:property    
+    TangentMode:FBTangentMode
     """Read Write Property: Tangent calculation method."""
-    TangentWeightMode:property    
+    TangentWeightMode:FBTangentWeightMode
     """Read Write Property: Tangent's weight mode. Setting the value for LeftTangentWeight/RightTangentWeight will also activate the weight for that part. Please see the note provided with FBTangentWeightMode for the left weight of a key."""
-    Tension:property    
+    Tension:float
     """Read Write Property: Tension (TCB)."""
-    Time:property    
+    Time:FBTime
     """Read Write Property: Time of key."""
-    Value:property    
+    Value:float
     """Read Write Property: Value of Key"""
 class FBFilePopup():
     """File Popup (for open/save).
     See samples: AudioTrackSetupTool.py, FBFilePopup.py."""
-    Caption:property
-    FileName:property    
+    Caption:str
+    FileName:str
     """Read Write Property: File selected."""
-    Filter:property    
+    Filter:str
     """Read Write Property: Filter to use for popup window file selection."""
-    FullFilename:property    
+    FullFilename:str
     """Read Only Property: Full filename (path and file)."""
-    Path:property    
+    Path:str
     """Read Write Property: Path of file selected."""
-    Style:property    
+    Style:FBFilePopupStyle
     """Read Write Property: Style of file popup."""
     def Execute(self)->bool:
         """Execute file popup.
@@ -3980,7 +3980,7 @@ class FBFilterManager():
     # ...
     # And when we are done, destroy it.
     lFilter.FBDelete()"""
-    FilterTypeNames:property    
+    FilterTypeNames:FBStringList
     """List of available filters."""
     def CreateFilter(self,FilterTypeName:str)->object:
         """Create a filter instance according to the filter type requested.
@@ -3991,8 +3991,8 @@ class FBFilterManager():
 class FBFolderPopup():
     """Folder Popup (for selecting a directory).
     See samples: RenderLayers.py, BatchExportCharacterAnimationTool.py, RenameFirstTakeOnMultipleFiles.py, FBFolderPopup.py."""
-    Caption:property
-    Path:property    
+    Caption:str
+    Path:str
     """Read Write Property: Path of folder selected."""
     def Execute(self)->bool:
         """Execute folder popup.
@@ -4105,7 +4105,7 @@ class FBMultiLangManager():
     FBTrace( '  %s
     ', lManager.Languages[lIdx++] );
     }"""
-    Languages:property    
+    Languages:FBStringList
     """List of available languages."""
     def GetCurrentLanguage(self)->str:
         """Obtain the current language.
@@ -4134,7 +4134,7 @@ class FBNormal():
 class FBObjectPoseMirrorOptions():
     """FBObjectPoseMirrorOptions class.
     This class exposes the object used to store the options for the mirror of an object pose."""
-    mMirrorPlaneEquation:property    
+    mMirrorPlaneEquation:FBVector4d
     """Equation of the mirror plane."""
     def ClearFlag(self):
         """Clear all flags."""
@@ -4154,13 +4154,13 @@ class FBObjectPoseMirrorOptions():
 class FBObjectPoseOptions():
     """FBObjectPoseOptions class.
     This class exposes the object used to store the options for operations on object poses."""
-    mPoseTransformType:property    
+    mPoseTransformType:FBPoseTransformType
     """Transform type (Local, Global or LocalRef)."""
-    mReferenceGRM:property    
+    mReferenceGRM:FBMatrix
     """Global rotation matrix of reference object."""
-    mReferenceGSM:property    
+    mReferenceGSM:FBMatrix
     """Global scaling matrix of reference object."""
-    mReferenceGT:property    
+    mReferenceGT:FBVector3d
     """Global translation vector of reference object."""
     def ClearFlag(self):
         """Clear all flags."""
@@ -4192,29 +4192,29 @@ class FBPickInfosList():
 class FBPlotOptions():
     """Option parameters for plotting.
     See samples: PlotNonSelectedCharStoryTracks.py, PlotSelectedCharStoryTracks.py."""
-    ConstantKeyReducerKeepOneKey:property    
+    ConstantKeyReducerKeepOneKey:bool
     """Read Write Property: Should the constant key reducer keep at least one key?"""
-    EvaluateDeformation:property    
+    EvaluateDeformation:bool
     """Read Write Property: Should we evaluate deformation while plotting? This is useful when there is a dependency with the deformation. Disabled by default."""
-    PlotAllTakes:property    
+    PlotAllTakes:bool
     """Read Write Property: Should we plot all takes?"""
-    PlotAuxEffectors:property    
+    PlotAuxEffectors:bool
     """Read Write Property: Should we plot aux effectors?"""
-    PlotLockedProperties:property    
+    PlotLockedProperties:bool
     """Read Write Property: Should we plot locked properties?"""
-    PlotOnFrame:property    
+    PlotOnFrame:bool
     """Read Write Property: Should we plot on frame?"""
-    PlotPeriod:property    
+    PlotPeriod:FBTime
     """Read Write Property: The plot period (1/fps)."""
-    PlotTangentMode:property    
+    PlotTangentMode:FBPlotTangentMode
     """Read Write Property: The tangent mode for plotted curve."""
-    PlotTranslationOnRootOnly:property    
+    PlotTranslationOnRootOnly:bool
     """Read Write Property: Should we plot the translation on root only?"""
-    PreciseTimeDiscontinuities:property    
+    PreciseTimeDiscontinuities:bool
     """Read Write Property: Should we use precise time discontinuities?"""
-    RotationFilterToApply:property    
+    RotationFilterToApply:FBRotationFilter
     """Read Write Property: The rotation filter to apply."""
-    UseConstantKeyReducer:property    
+    UseConstantKeyReducer:bool
     """Read Write Property: Should we use a constant key reducer with the filter?"""
 class FBPlugList():
     def GetCount(self)->int:...
@@ -4341,7 +4341,7 @@ class FBPropertyManager():
         ...
 class FBPropertyStateEvent(FBEvent):
     """This class is used when the state of a property tracked by the FBFCurveEventManager is changed."""
-    EventType:property    
+    EventType:FBPropertyStateEventType
     """Read Only Property: Event type, please see the FBPropertyStateEventType for the possible types."""
     ParentComponent:property
     Property:property
@@ -4396,14 +4396,14 @@ class FBPropertyViewList():
 class FBPythonWrapper():
     """Base class of FBPlug in Python.
     This class act as a bridge between the ORSDK C++ world and the Python world. Since each Python objects wrap a ORSDK object we need a way to notify Python if the ORSDK object is destroyed.OnUnbind is used in this way: it notifies the user when the wrapped ORSDK objects is destroyed."""
-    OnUnbind:property    
+    OnUnbind:property
     """Event: Will notifier the user when the corresponding ORSDK objects is unbound from the PythonObject."""
 class FBPlug(FBPythonWrapper):
     """Connections Basic Open Reality SDK Element.
     Most elements that are available in the SDK inherit from this base class since FBComponent and FBProperty inherit from FBPlug. Basically, all objects can be connected together because they are all 'plugs'. To simplify the graph, you can think of a 'source' connection as a child, and a 'destination' connection as a parent. Also, it is correct to assume that a source affect/work on its destination. For example, a shader applied on an object would be seen as the source while the object is the destination. So FBPlug is a set of functions that enables you to control those connections with flexibility and ease. See samples: FBConstraintManager.py, FBFolder.py."""
-    ClassGroupName:FBPlug    
+    ClassGroupName:FBPlug
     """ClassGroupName of the object."""
-    TypeInfo:FBPlug    
+    TypeInfo:FBPlug
     """TypeInfo."""
     def BeginChange(self)->bool:...
     def ClassName(self)->str:...
@@ -4471,9 +4471,9 @@ class FBRenderOptions():
 class FBProperty(FBPlug):
     """Generic application property.
     Property: Action Action property to trigger function.FBProperty objects cannot be instantiated by the user. Reference to a property can be obtained either via an instance of a FBComponent object, or by calling the method 'Find()' of a FBPropertyManager. The class FBComponent has a FBPropertyManager data member named 'PropertyList'.When accessing a FBProperty object via its containing object, you can get or set (assuming it is not read-only) its value directly:    lObject.Visibility = TrueWhen accessing a property reference directly, its value is obtained via it's 'Data' member.    lProp = lObject.PropertyList.Find( 'Visibility' )   if lProp: lProp.Data = TrueThe methods 'PropertyCreate()' and 'PropertyRemove' of the class FBComponent can be used to modify an object's set of properties."""
-    Data:property    
+    Data:property
     """Read Write Property: The property data value. Type of this depends on the subclass of FBProperty (ex: in a FBPropertyInt, Data is of type int)."""
-    Name:property    
+    Name:property
     """Read Property: The property's name."""
     def AllowsLocking(self)->bool:
         """AllowsLocking.
@@ -4639,19 +4639,19 @@ class FBProperty(FBPlug):
 class FBComponent(FBPlug):
     """MotionBuilder SDK base class.
     FBComponent defines common object characteristics, including creation and destruction methods. It is used to encapsulate internal application objects so they can be exposed to the SDK. It is also used as the base class to encapsulate objects with FBProperty data members and provides a scheme for property management. You cannot instantiate FBProperty objects. To reference a property, use an instance of an FBComponent object. The methods FBComponent::PropertyCreate and FBComponent::PropertyRemove can be used to modify an object's properties. Basic operators are overloaded in FBComponent. The constructor and destructor are created and defined with macros in the header files. Objects inheriting from FBComponent must define FBComponent::FBCreate(), and FBComponent::FBDestroy(). All memory management issues for the component should also be addressed here. Destroy an object with FBDelete(). The code sample FBComponent.py shows how to get a handle on a scene object via its name. See sample: ReplaceNamespace.py."""
-    Components:property    
+    Components:FBPropertyListComponent
     """List: List of components."""
     FullName:property
-    LongName:property    
+    LongName:str
     """Read Write Property: Name and namespace for object."""
-    Name:property    
+    Name:str
     """Read Write Property: Unique name of object. See sample: RemoveSuffixFromNameOfSceneElements.py."""
     OwnerNamespace:property
-    Parents:property    
+    Parents:FBPropertyListComponent
     """List: Parents."""
-    PropertyList:property    
+    PropertyList:FBPropertyManager
     """Read Only Property: Manages all of the properties for the component."""
-    Selected:property    
+    Selected:bool
     """Read Write Property: Selected property."""
     def DisableObjectFlags(self,Flags:FBObjectFlag):
         """Disable a specific Object Flags.
@@ -4770,11 +4770,11 @@ class FBPropertyVector4d(FBProperty):
 class FBReferenceTime(FBComponent):
     """Reference time class.
     Interface for the reference time used by MotionBuilder The reference time are identified using unique ID. A unique ID is given when a reference time is added to the system with Add(). Instead of using a linear array to store the reference time, a map is used to link an ID to a reference time. The available IDs can be queried using GetUniqueIDList()."""
-    Count:property    
+    Count:int
     """Read Only Property: Number of reference times. Deprecated, use GetUniqueIDList() instead."""
-    CurrentTimeReferenceID:property    
+    CurrentTimeReferenceID:int
     """Read Write Property: Current reference time ID"""
-    ItemIndex:property    
+    ItemIndex:int
     """Read Write Property: Current reference time index. Deprecated, use CurrentTimeReferenceID instead."""
     def Add(self,Name:str)->int:
         """Add a reference time to list.
@@ -5358,60 +5358,60 @@ class FBPropertyAnimatableAction(FBPropertyAnimatable):
 class FBRenderer(FBComponent):
     """Open Reality renderer interface.
     See samples: render.py, CameraSwitcher.py."""
-    AdvancedLightingMode:property    
+    AdvancedLightingMode:bool
     """Read write Property: Turn on/off advanced lighting setting UI widgets."""
-    AdvancedMaterialMode:property    
+    AdvancedMaterialMode:bool
     """Read write Property: Turn on/off advanced material setting UI widgets."""
-    AutoEvaluate:property    
+    AutoEvaluate:bool
     """Read Write Property: Indicate if a call to RenderBegin will also cause a re-evaluation of the scene."""
-    Background:property    
+    Background:bool
     """Read Write Property: The renderer."""
-    CurrentCamera:property
-    CurrentPaneCallbackIndex:property    
+    CurrentCamera:FBCamera
+    CurrentPaneCallbackIndex:int
     """Read Write Property: Current Pane's Renderer Callback Index."""
-    CurrentPaneCallbackPrefIndex:property    
+    CurrentPaneCallbackPrefIndex:int
     """Read Write Property: Current Pane's Renderer Callback Preference Index."""
-    DisplayNormals:property    
+    DisplayNormals:bool
     """Read Write Property: Display model normals in main viewer."""
-    DisplaySetUpdateId:property    
+    DisplaySetUpdateId:int
     """Read Only Property: Current DisplaySet Update Id. Add/Delete models, Show/Hide models will affect DisplaySet."""
-    DisplayableGeometryCount:property    
+    DisplayableGeometryCount:int
     """Read Only Property: Displayable geometry count."""
-    DisplayableLightCount:property    
+    DisplayableLightCount:int
     """Read Only Property: Displayable light count."""
-    FrustumCulling:property    
+    FrustumCulling:bool
     """Read Write Property: Turn on/off the early frustum culling optimization."""
-    HideManipulatorsOnManip:property    
+    HideManipulatorsOnManip:bool
     """Read Write Property: Hide manipulators UI elements while manipulating."""
-    HideManipulatorsOnPlayback:property    
+    HideManipulatorsOnPlayback:bool
     """Read Write Property: Hide manipulators UI elements during playback."""
-    IDBufferDisplay:property    
+    IDBufferDisplay:bool
     """Read write Property: Render Model's unique Color ID into color Buffer (used for picking)"""
-    IDBufferPicking:property    
+    IDBufferPicking:bool
     """Read write Property: Use ID (Color) Buffer for picking, instead of OpenGl selection buffer picking."""
-    IDBufferPickingAlpha:property    
+    IDBufferPickingAlpha:float
     """Read write Property: Those Semi-transparent (Alpha Blend) geometry(region) contribute less than this threshold, will be considered as invisible during ID picking."""
-    PickingEnabled:property    
+    PickingEnabled:bool
     """Read Write Property: Is picking in the viewer enabled?"""
-    RegisteredCallbackCount:property    
+    RegisteredCallbackCount:int
     """Read Only Property: Registered Renderer Callback Count."""
-    RendererCallbacks:property    
+    RendererCallbacks:FBPropertyListRendererCallback
     """List: Renderer Callbacks attached."""
-    RendererUpdateId:property    
+    RendererUpdateId:int
     """Read Only Property: Current Render Update Id. DisplaySet update, material change, texture changes and shader change and other operations will trigger Renderer update."""
-    Scene:property    
+    Scene:FBScene
     """Read Write Property: Scene that the renderer will use/draw"""
-    SelectionForceSnapPointsDisplay:property    
+    SelectionForceSnapPointsDisplay:bool
     """Read write Property: Force show all feature points (pivots and etc) on selected models if true, ignore individual model's settings."""
-    SelectionOverride:property    
+    SelectionOverride:bool
     """Read write Property: Add transparent color override layer on selected models if true."""
-    SelectionOverrideColor:property    
+    SelectionOverrideColor:FBColor
     """Read write Property: Selection override layer color."""
-    SelectionOverrideTransparency:property    
+    SelectionOverrideTransparency:float
     """Read write Property: Selection override layer transparency."""
-    ShowStats:property    
+    ShowStats:bool
     """Read Write Property: Show the stats about FPS, Evaluation rate ... like when using Shift-F in main viewer."""
-    UseCameraSwitcher:property
+    UseCameraSwitcher:bool
     def ArrangeAllInSchematic(self,Mode:FBArrangeMode):
         """Request to arrange all objects in schematic view .
         
@@ -5725,10 +5725,10 @@ class FBProgress(FBComponent):
     
     
     To see how to create a custom property in Python, see CustomProperty.py. See samples: CustomProperty.py, SetAllToDoneInAllTakes.py."""
-    Caption:property
-    Percent:property    
+    Caption:str
+    Percent:int
     """Read Write Property: Percent completed for the operation. Must be used called in between ProgressBegin()/ProgressDone()"""
-    Text:property    
+    Text:str
     """Read Write Property: Text to display on progress bar. Must be used in between ProgressBegin()/ProgressDone()"""
     def ProgressBegin(self):
         """Start progress, must be called before set Text & Percent property."""
@@ -5743,15 +5743,15 @@ class FBProgress(FBComponent):
 class FBProfiler(FBComponent):
     """FBProfiler.
     Central place to query profiling results and change profiling options. See sample: CreateProfilingEventsLog.py."""
-    ActiveSampling:property    
+    ActiveSampling:bool
     """Read/Write Property: Activate the sampling for time events. Call before quering for FBProfileTimeEvent."""
-    BufferSize:property    
+    BufferSize:int
     """Read/Write Property: Buffer size for average and timing computation (maximum value 200)."""
-    EvaluationDepth:property    
+    EvaluationDepth:int
     """Read/Write Property: Specify the depth of evaluation profiling for data collection (maximum value is 10)."""
-    FrameReference:property    
+    FrameReference:bool
     """Read/Write Property: Draw task cycles in relation to main thread cycle time - frame cycle (percentage display)."""
-    ProfilingMode:property    
+    ProfilingMode:FBProfilingMode
     """Read/Write Property: Profiling collection modes, including disabling all profiling."""
     def GetEndEventSample(self,Index:object)->FBProfileTimeEvent:
         """Get end time event for event at given index.
@@ -5821,7 +5821,7 @@ class FBProfiler(FBComponent):
         ...
 class FBPose(FBComponent):
     """Pose class."""
-    Type:property    
+    Type:FBPoseType
     """Read Only Property: Type of the pose (bind pose or rest pose)"""
     def AddNode(self,Object:FBModel,Matrix:FBMatrix,IsLocalMatrix:object)->int:
         """Add a new pose node.
@@ -5891,29 +5891,29 @@ class FBPose(FBComponent):
 class FBPointCacheManager(FBComponent):
     """Point Cache Manager Interface to the point cache manager.
     See sample: CharacterPointCache.py."""
-    AllowCacheResampling:property    
+    AllowCacheResampling:bool
     """Read Write Property: Allow the resample models's existing point cache deformation when true."""
-    AlwaysAskForPath:property    
+    AlwaysAskForPath:bool
     """Read Write Property: Always ask for the point cache file save path when true."""
-    ApplyCacheOnNewModel:property    
+    ApplyCacheOnNewModel:bool
     """Read Write Property: Duplicated the cached models, and assoicated the point cache to the new models."""
-    ApplyGlobalTransform:property    
+    ApplyGlobalTransform:bool
     """Read Write Property: Include no-deformable models and the global transform to Vertex Cache when true."""
-    CacheAABBox:property    
+    CacheAABBox:bool
     """Read Write Property: Cache AABBox (Axis Aligned Bounding Box) when true."""
-    CacheNormal:property    
+    CacheNormal:bool
     """Read Write Property: Cache normal when true."""
-    CreateFilePerFrameCache:property    
+    CreateFilePerFrameCache:bool
     """Read Write Property: Create the point cache file for each frame when true."""
-    CreateMultiChannelCache:property    
+    CreateMultiChannelCache:bool
     """Read Write Property: Create a single multiple channel point cache file for all models when true."""
-    DefaultPath:property    
+    DefaultPath:str
     """Read Write Property: Default point cache file save path."""
-    Models:property    
+    Models:FBPropertyListObject
     """Read Write Property: Models to be recorded"""
-    NewModelRoot:property    
+    NewModelRoot:FBModel
     """Read Write Property: Valid only when ApplyCacheOnNewModel is on. Create New Models under NewModelRoot. otherwise, a NULL model will be created."""
-    SaveEveryFrame:property    
+    SaveEveryFrame:int
     """Read Write Property: Recording Frequency."""
 class FBCharacterPose(FBPose):
     """Used to work with character poses.
@@ -6257,9 +6257,9 @@ class FBObjectPose(FBPose):
 class FBCluster(FBComponent):
     """Weighting interface for meshes.
     This class is experimental. See sample: FBClusterTransactions.py."""
-    ClusterAccuracy:property    
+    ClusterAccuracy:float
     """Read Write Property: Cluster accuracy."""
-    ClusterMode:property    
+    ClusterMode:FBClusterMode
     """Read Write Property: Cluster mode."""
     def ClusterBegin(self,Index:object)->int:
         """Begin cluster definition.
@@ -6479,13 +6479,13 @@ class FBCameraSwitcherAudioManager(FBComponent):
 class FBBox(FBComponent):
     """A box is a fundamental building block in the application architecture.
     All animatable elements are derived in some way from the main box class, either by deriving directly or owning a box."""
-    Animatable:property    
+    Animatable:bool
     """Read Write Property: Is the box animatable."""
-    Live:property    
+    Live:bool
     """Read Write Property: Is live?"""
-    RecordMode:property    
+    RecordMode:bool
     """Read Write Property: Is recording?"""
-    UniqueName:property    
+    UniqueName:str
     """internal Unique name."""
     def AnimationNodeDestroy(self,AnimationNode:FBAnimationNode)->bool:
         """Destroy an animation node.
@@ -6534,21 +6534,21 @@ class FBAudioOut(FBComponent):
 class FBBoxPlaceHolder(FBBox):
     """Wrapper around a specific instance of a FBBox object.
     This class is mainly used with a constraint relation to have multiple boxes that are a representation of the same underlying box. The underlying box will usually be a device. Instantiation of FBBoxPlaceHolder should be left to the the system."""
-    Box:property    
+    Box:FBBox
     """Read Only Property: Underlying box object."""
 class FBConstraint(FBBox):
     """Base class for constraints."""
-    Active:property    
+    Active:bool
     """Read Write Property: Active state."""
-    Deformer:property    
+    Deformer:bool
     """Read Write Property: Is a deformer constraint?"""
-    Description:property    
+    Description:str
     """Read Write Property: Long description of constraint."""
-    HasLayout:property    
+    HasLayout:bool
     """Read Write Property: Does the constraint have a layout?"""
-    Lock:property    
+    Lock:bool
     """Read Write Property: Lock state."""
-    Weight:property    
+    Weight:float
     """Read Write Property: Weight of constraint."""
     def AnimationNodeInCreate(self,UserId:object,Property:FBModel)->object:
         """Animation Node Creations (IN).
@@ -6675,17 +6675,17 @@ class FBConstraint(FBBox):
 class FBModelPlaceHolder(FBBoxPlaceHolder):
     """Wrapper around a specific instance of a FBModel object.
     This class is mainly used with a constraint relation to have multiple boxes that are a representation of the same underlying model. Instantiation of FBModelPlaceHolder should be left to the the system."""
-    Model:property    
+    Model:FBModel
     """Read Only Property: Underlying model object."""
-    UseGlobalTransforms:property    
+    UseGlobalTransforms:bool
     """Read Write Property: Indicate if the translations are expressed in local or global mode."""
 class FBCharacterSolver(FBConstraint):
     """Constraint class."""
-    ExtraBones:property    
+    ExtraBones:property
     """Read Property: List of Extra Bones in character"""
-    ExtraFK:property    
+    ExtraFK:property
     """Read Property: List of Extra FK in character"""
-    Source:property    
+    Source:FBComponent
     """Read Write Property: Source character when doing a character retarget."""
     def GetParentRotationOffset(self,R:FBModel)->FBVector3d:
         """Get the Parent Rotation Offset of the Given Extra Bone Index.
@@ -6708,9 +6708,9 @@ class FBCharacterSolver(FBConstraint):
 class FBCharacterFace(FBConstraint):
     """Animates a character face using an actor as input.
     These classes are under development and may change dramatically between versions."""
-    ActiveInput:property    
+    ActiveInput:bool
     """Read Write Property: Is the character input active?"""
-    InputActorFace:property    
+    InputActorFace:FBActorFace
     """Read Write Property: The index of the actor used for the input."""
     def ClusterGroupAdd(self,List:FBModelList,Name:str)->int:
         """Add a cluster group to the character face.
@@ -6960,125 +6960,125 @@ class FBCharacter(FBConstraint):
     
     
     See samples: CharacterMarkerSet.py, EnableGameModeOnSelectedCharacters_Z.py, MirrorPoseOverTime.py, PlotNonSelectedCharStoryTracks.py, PlotSelectedCharStoryTracks.py."""
-    ActiveInput:property    
+    ActiveInput:bool
     """Read Write Property: Is the character input active?"""
-    CharacterExtensions:property    
+    CharacterExtensions:FBPropertyListCharacterExtension
     """List: Character Extensions in the character."""
-    ContactBehaviour:property    
+    ContactBehaviour:FBCharacterContactBehaviour
     """Read Write Property: Contact Behavior selection."""
-    FKFingerMultiplier:property    
+    FKFingerMultiplier:float
     """Read Write Property: Used to augment the amount of FK propagation for unmarkered intermediate finger phalanges."""
-    FKFingerTipMultiplier:property    
+    FKFingerTipMultiplier:float
     """Read Write Property: Used to augment the amount of FK propagation for unmarkered finger tip phalanges."""
-    FKThumbTipMultiplier:property    
+    FKThumbTipMultiplier:float
     """Read Write Property: Used to augment the amount of FK propagation for unmarkered thumb tip phalanges."""
-    HipsTranslationMode:property    
+    HipsTranslationMode:FBCharacterHipsTranslationMode
     """Read Write Property: Hips Translation Mode."""
-    HumanFingerLimits:property    
+    HumanFingerLimits:bool
     """Read Write Property: Enables/Disables human finger limits during actor solve."""
-    InputActor:property    
+    InputActor:FBActor
     """Read Write Property: The index of the actor used for the input."""
-    InputCharacter:property    
+    InputCharacter:FBCharacter
     """Read Write Property: The index of the character used for the input."""
-    InputType:property    
+    InputType:FBCharacterInputType
     """Read Write Property: The input type for the character (ex: Actor)."""
-    InverseLeftElbow:property    
+    InverseLeftElbow:bool
     """Read Write Property: Is left elbow inverted."""
-    InverseLeftKnee:property    
+    InverseLeftKnee:bool
     """Read Write Property: Is left knee inverted."""
-    InverseRightElbow:property    
+    InverseRightElbow:bool
     """Read Write Property: Is right elbow inverted."""
-    InverseRightKnee:property    
+    InverseRightKnee:bool
     """Read Write Property: Is right knee inverted."""
-    KeyingMode:property    
+    KeyingMode:FBCharacterKeyingMode
     """Read Write Property: The current keying mode."""
-    LeftElbowKillPitch:property    
+    LeftElbowKillPitch:bool
     """Read Write Property: is Pitch used for Left elbow."""
-    LeftHandIndexIndex:property    
+    LeftHandIndexIndex:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandIndexMiddle:property    
+    LeftHandIndexMiddle:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandIndexPinky:property    
+    LeftHandIndexPinky:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandIndexRing:property    
+    LeftHandIndexRing:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandMiddleIndex:property    
+    LeftHandMiddleIndex:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandMiddleMiddle:property    
+    LeftHandMiddleMiddle:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandMiddlePinky:property    
+    LeftHandMiddlePinky:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandMiddleRing:property    
+    LeftHandMiddleRing:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandPinkyIndex:property    
+    LeftHandPinkyIndex:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandPinkyMiddle:property    
+    LeftHandPinkyMiddle:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandPinkyPinky:property    
+    LeftHandPinkyPinky:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandPinkyRing:property    
+    LeftHandPinkyRing:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandRingIndex:property    
+    LeftHandRingIndex:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandRingMiddle:property    
+    LeftHandRingMiddle:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandRingPinky:property    
+    LeftHandRingPinky:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandRingRing:property    
+    LeftHandRingRing:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftKneeKillPitch:property    
+    LeftKneeKillPitch:bool
     """Read Write Property: is Pitch used for Left knee."""
-    LockX:property    
+    LockX:bool
     """Read Write Property: Lock character skeleton in place on X axis."""
-    LockY:property    
+    LockY:bool
     """Read Write Property: Lock character skeleton in place on Y axis."""
-    LockZ:property    
+    LockZ:bool
     """Read Write Property: Lock character skeleton in place on Z axis."""
-    MirrorMode:property    
+    MirrorMode:bool
     """Read Write Property: is in mirror mode."""
-    RightElbowKillPitch:property    
+    RightElbowKillPitch:bool
     """Read Write Property: is Pitch used for Right elbow."""
-    RightHandIndexIndex:property    
+    RightHandIndexIndex:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandIndexMiddle:property    
+    RightHandIndexMiddle:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandIndexPinky:property    
+    RightHandIndexPinky:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandIndexRing:property    
+    RightHandIndexRing:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandMiddleIndex:property    
+    RightHandMiddleIndex:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandMiddleMiddle:property    
+    RightHandMiddleMiddle:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandMiddlePinky:property    
+    RightHandMiddlePinky:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandMiddleRing:property    
+    RightHandMiddleRing:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandPinkyIndex:property    
+    RightHandPinkyIndex:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandPinkyMiddle:property    
+    RightHandPinkyMiddle:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandPinkyPinky:property    
+    RightHandPinkyPinky:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandPinkyRing:property    
+    RightHandPinkyRing:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandRingIndex:property    
+    RightHandRingIndex:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandRingMiddle:property    
+    RightHandRingMiddle:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandRingPinky:property    
+    RightHandRingPinky:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandRingRing:property    
+    RightHandRingRing:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightKneeKillPitch:property    
+    RightKneeKillPitch:bool
     """Read Write Property: is Pitch used for Right knee."""
-    RollSolver:property    
+    RollSolver:FBCharacterRollSolver
     """Read Write Property: Roll Solver selection."""
-    ShoulderCorrection:property    
+    ShoulderCorrection:float
     """Read Write Property: shoulder correction values."""
-    SyncMode:property    
+    SyncMode:bool
     """Read Write Property: is character in sync mode."""
-    WriteReference:property    
+    WriteReference:bool
     """Read Write Property: are we writing back on reference."""
     def AddCharacterExtension(self,Ext:FBCharacterExtension):
         """AddCharacterExtension.
@@ -7371,353 +7371,353 @@ class FBActor(FBConstraint):
     FBTrace( 'No actor currently selected
     ' );
     }"""
-    BodyColor:property    
+    BodyColor:FBColor
     """Read Write Property: The color of the body of the actor."""
-    ChestOffsetR:property    
+    ChestOffsetR:FBVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    ChestOffsetT:property    
+    ChestOffsetT:FBVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    ChestPosition:property    
+    ChestPosition:FBVector3d
     """Read Write Property: Body part pivot of the actor."""
-    FKFingerMultiplier:property    
+    FKFingerMultiplier:float
     """Read Write Property: Used to augment the amount of FK propagation for unmarkered intermediate finger phalanges."""
-    FKFingerTipMultiplier:property    
+    FKFingerTipMultiplier:float
     """Read Write Property: Used to augment the amount of FK propagation for unmarkered finger tip phalanges."""
-    FKThumbTipMultiplier:property    
+    FKThumbTipMultiplier:float
     """Read Write Property: Used to augment the amount of FK propagation for unmarkered thumb tip phalanges."""
-    HeadOffsetR:property    
+    HeadOffsetR:FBVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    HeadOffsetT:property    
+    HeadOffsetT:FBVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    HeadPosition:property    
+    HeadPosition:FBVector3d
     """Read Write Property: Body part pivot of the actor."""
-    HipsOffsetR:property    
+    HipsOffsetR:FBVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    HipsOffsetT:property    
+    HipsOffsetT:FBVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    HipsPosition:property    
+    HipsPosition:FBVector3d
     """Read Write Property: Body part pivot of the actor."""
-    HumanFingerLimits:property    
+    HumanFingerLimits:bool
     """Read Write Property: Enables/Disables human finger limits during actor solve."""
-    IKManip:property    
+    IKManip:bool
     """Read Write Property: Access to the IK Manip mode. This property is shared for all actors."""
-    LeftAnkleOffsetR:property    
+    LeftAnkleOffsetR:FBVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    LeftAnkleOffsetT:property    
+    LeftAnkleOffsetT:FBVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    LeftAnklePosition:property    
+    LeftAnklePosition:FBVector3d
     """Read Write Property: Body part pivot of the actor."""
-    LeftCollarOffsetR:property    
+    LeftCollarOffsetR:FBVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    LeftCollarOffsetT:property    
+    LeftCollarOffsetT:FBVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    LeftCollarPosition:property    
+    LeftCollarPosition:FBVector3d
     """Read Write Property: Body part pivot of the actor."""
-    LeftElbowOffsetR:property    
+    LeftElbowOffsetR:FBVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    LeftElbowOffsetT:property    
+    LeftElbowOffsetT:FBVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    LeftElbowPosition:property    
+    LeftElbowPosition:FBVector3d
     """Read Write Property: Body part pivot of the actor."""
-    LeftFootOffsetR:property    
+    LeftFootOffsetR:FBVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    LeftFootOffsetT:property    
+    LeftFootOffsetT:FBVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    LeftFootPosition:property    
+    LeftFootPosition:FBVector3d
     """Read Write Property: Body part pivot of the actor."""
-    LeftHandIndexIndex:property    
+    LeftHandIndexIndex:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandIndexMiddle:property    
+    LeftHandIndexMiddle:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandIndexPinky:property    
+    LeftHandIndexPinky:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandIndexRing:property    
+    LeftHandIndexRing:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandMiddleIndex:property    
+    LeftHandMiddleIndex:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandMiddleMiddle:property    
+    LeftHandMiddleMiddle:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandMiddlePinky:property    
+    LeftHandMiddlePinky:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandMiddleRing:property    
+    LeftHandMiddleRing:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandPinkyIndex:property    
+    LeftHandPinkyIndex:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandPinkyMiddle:property    
+    LeftHandPinkyMiddle:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandPinkyPinky:property    
+    LeftHandPinkyPinky:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandPinkyRing:property    
+    LeftHandPinkyRing:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandRingIndex:property    
+    LeftHandRingIndex:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandRingMiddle:property    
+    LeftHandRingMiddle:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandRingPinky:property    
+    LeftHandRingPinky:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandRingRing:property    
+    LeftHandRingRing:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHipOffsetR:property    
+    LeftHipOffsetR:FBVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    LeftHipOffsetT:property    
+    LeftHipOffsetT:FBVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    LeftHipPosition:property    
+    LeftHipPosition:FBVector3d
     """Read Write Property: Body part pivot of the actor."""
-    LeftIndexAOffsetR:property    
+    LeftIndexAOffsetR:FBVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    LeftIndexAOffsetT:property    
+    LeftIndexAOffsetT:FBVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    LeftIndexBOffsetR:property    
+    LeftIndexBOffsetR:FBVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    LeftIndexBOffsetT:property    
+    LeftIndexBOffsetT:FBVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    LeftIndexCOffsetR:property    
+    LeftIndexCOffsetR:FBVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    LeftIndexCOffsetT:property    
+    LeftIndexCOffsetT:FBVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    LeftKneeOffsetR:property    
+    LeftKneeOffsetR:FBVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    LeftKneeOffsetT:property    
+    LeftKneeOffsetT:FBVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    LeftKneePosition:property    
+    LeftKneePosition:FBVector3d
     """Read Write Property: Body part pivot of the actor."""
-    LeftMiddleAOffsetR:property    
+    LeftMiddleAOffsetR:FBVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    LeftMiddleAOffsetT:property    
+    LeftMiddleAOffsetT:FBVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    LeftMiddleBOffsetR:property    
+    LeftMiddleBOffsetR:FBVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    LeftMiddleBOffsetT:property    
+    LeftMiddleBOffsetT:FBVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    LeftMiddleCOffsetR:property    
+    LeftMiddleCOffsetR:FBVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    LeftMiddleCOffsetT:property    
+    LeftMiddleCOffsetT:FBVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    LeftPinkyAOffsetR:property    
+    LeftPinkyAOffsetR:FBVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    LeftPinkyAOffsetT:property    
+    LeftPinkyAOffsetT:FBVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    LeftPinkyBOffsetR:property    
+    LeftPinkyBOffsetR:FBVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    LeftPinkyBOffsetT:property    
+    LeftPinkyBOffsetT:FBVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    LeftPinkyCOffsetR:property    
+    LeftPinkyCOffsetR:FBVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    LeftPinkyCOffsetT:property    
+    LeftPinkyCOffsetT:FBVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    LeftRingAOffsetR:property    
+    LeftRingAOffsetR:FBVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    LeftRingAOffsetT:property    
+    LeftRingAOffsetT:FBVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    LeftRingBOffsetR:property    
+    LeftRingBOffsetR:FBVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    LeftRingBOffsetT:property    
+    LeftRingBOffsetT:FBVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    LeftRingCOffsetR:property    
+    LeftRingCOffsetR:FBVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    LeftRingCOffsetT:property    
+    LeftRingCOffsetT:FBVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    LeftShoulderOffsetR:property    
+    LeftShoulderOffsetR:FBVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    LeftShoulderOffsetT:property    
+    LeftShoulderOffsetT:FBVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    LeftShoulderPosition:property    
+    LeftShoulderPosition:FBVector3d
     """Read Write Property: Body part pivot of the actor."""
-    LeftThumbAOffsetR:property    
+    LeftThumbAOffsetR:FBVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    LeftThumbAOffsetT:property    
+    LeftThumbAOffsetT:FBVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    LeftThumbBOffsetR:property    
+    LeftThumbBOffsetR:FBVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    LeftThumbBOffsetT:property    
+    LeftThumbBOffsetT:FBVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    LeftThumbCOffsetR:property    
+    LeftThumbCOffsetR:FBVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    LeftThumbCOffsetT:property    
+    LeftThumbCOffsetT:FBVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    LeftWristOffsetR:property    
+    LeftWristOffsetR:FBVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    LeftWristOffsetT:property    
+    LeftWristOffsetT:FBVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    LeftWristPosition:property    
+    LeftWristPosition:FBVector3d
     """Read Write Property: Body part pivot of the actor."""
-    ManipulateOffsets:property    
+    ManipulateOffsets:bool
     """Read Write Property: Flag to compute offsets while manipulating. If it is set to false, the manipulator is re-snapping as before. If it is set to true, offsets properties (T and R) are computed and candidated instead."""
-    MarkerSet:property    
+    MarkerSet:FBMarkerSet
     """Read Write Property: Associated marker set."""
-    MarkerSetSize:property    
+    MarkerSetSize:float
     """Read Write Property: The size of the markers of the actor."""
-    NeckOffsetR:property    
+    NeckOffsetR:FBVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    NeckOffsetT:property    
+    NeckOffsetT:FBVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    NeckPosition:property    
+    NeckPosition:FBVector3d
     """Read Write Property: Body part pivot of the actor."""
-    OutputMarkerSet:property    
+    OutputMarkerSet:FBMarkerSet
     """Read Write Property: Associated output marker set."""
-    PivotColor:property    
+    PivotColor:FBColor
     """Read Write Property: The color of the pivot points of the actor."""
-    PivotPointsVisibility:property    
+    PivotPointsVisibility:bool
     """Read Write Property: Show or Hide the Pivot Points."""
-    PivotSize:property    
+    PivotSize:float
     """Read Write Property: The size of the pivot points of the actor."""
-    RightAnkleOffsetR:property    
+    RightAnkleOffsetR:FBVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    RightAnkleOffsetT:property    
+    RightAnkleOffsetT:FBVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    RightAnklePosition:property    
+    RightAnklePosition:FBVector3d
     """Read Write Property: Body part pivot of the actor."""
-    RightCollarOffsetR:property    
+    RightCollarOffsetR:FBVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    RightCollarOffsetT:property    
+    RightCollarOffsetT:FBVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    RightCollarPosition:property    
+    RightCollarPosition:FBVector3d
     """Read Write Property: Body part pivot of the actor."""
-    RightElbowOffsetR:property    
+    RightElbowOffsetR:FBVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    RightElbowOffsetT:property    
+    RightElbowOffsetT:FBVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    RightElbowPosition:property    
+    RightElbowPosition:FBVector3d
     """Read Write Property: Body part pivot of the actor."""
-    RightFootOffsetR:property    
+    RightFootOffsetR:FBVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    RightFootOffsetT:property    
+    RightFootOffsetT:FBVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    RightFootPosition:property    
+    RightFootPosition:FBVector3d
     """Read Write Property: Body part pivot of the actor."""
-    RightHandIndexIndex:property    
+    RightHandIndexIndex:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandIndexMiddle:property    
+    RightHandIndexMiddle:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandIndexPinky:property    
+    RightHandIndexPinky:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandIndexRing:property    
+    RightHandIndexRing:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandMiddleIndex:property    
+    RightHandMiddleIndex:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandMiddleMiddle:property    
+    RightHandMiddleMiddle:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandMiddlePinky:property    
+    RightHandMiddlePinky:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandMiddleRing:property    
+    RightHandMiddleRing:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandPinkyIndex:property    
+    RightHandPinkyIndex:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandPinkyMiddle:property    
+    RightHandPinkyMiddle:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandPinkyPinky:property    
+    RightHandPinkyPinky:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandPinkyRing:property    
+    RightHandPinkyRing:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandRingIndex:property    
+    RightHandRingIndex:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandRingMiddle:property    
+    RightHandRingMiddle:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandRingPinky:property    
+    RightHandRingPinky:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandRingRing:property    
+    RightHandRingRing:float
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHipOffsetR:property    
+    RightHipOffsetR:FBVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    RightHipOffsetT:property    
+    RightHipOffsetT:FBVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    RightHipPosition:property    
+    RightHipPosition:FBVector3d
     """Read Write Property: Body part pivot of the actor."""
-    RightIndexAOffsetR:property    
+    RightIndexAOffsetR:FBVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    RightIndexAOffsetT:property    
+    RightIndexAOffsetT:FBVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    RightIndexBOffsetR:property    
+    RightIndexBOffsetR:FBVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    RightIndexBOffsetT:property    
+    RightIndexBOffsetT:FBVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    RightIndexCOffsetR:property    
+    RightIndexCOffsetR:FBVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    RightIndexCOffsetT:property    
+    RightIndexCOffsetT:FBVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    RightKneeOffsetR:property    
+    RightKneeOffsetR:FBVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    RightKneeOffsetT:property    
+    RightKneeOffsetT:FBVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    RightKneePosition:property    
+    RightKneePosition:FBVector3d
     """Read Write Property: Body part pivot of the actor."""
-    RightMiddleAOffsetR:property    
+    RightMiddleAOffsetR:FBVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    RightMiddleAOffsetT:property    
+    RightMiddleAOffsetT:FBVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    RightMiddleBOffsetR:property    
+    RightMiddleBOffsetR:FBVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    RightMiddleBOffsetT:property    
+    RightMiddleBOffsetT:FBVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    RightMiddleCOffsetR:property    
+    RightMiddleCOffsetR:FBVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    RightMiddleCOffsetT:property    
+    RightMiddleCOffsetT:FBVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    RightPinkyAOffsetR:property    
+    RightPinkyAOffsetR:FBVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    RightPinkyAOffsetT:property    
+    RightPinkyAOffsetT:FBVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    RightPinkyBOffsetR:property    
+    RightPinkyBOffsetR:FBVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    RightPinkyBOffsetT:property    
+    RightPinkyBOffsetT:FBVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    RightPinkyCOffsetR:property    
+    RightPinkyCOffsetR:FBVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    RightPinkyCOffsetT:property    
+    RightPinkyCOffsetT:FBVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    RightRingAOffsetR:property    
+    RightRingAOffsetR:FBVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    RightRingAOffsetT:property    
+    RightRingAOffsetT:FBVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    RightRingBOffsetR:property    
+    RightRingBOffsetR:FBVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    RightRingBOffsetT:property    
+    RightRingBOffsetT:FBVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    RightRingCOffsetR:property    
+    RightRingCOffsetR:FBVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    RightRingCOffsetT:property    
+    RightRingCOffsetT:FBVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    RightShoulderOffsetR:property    
+    RightShoulderOffsetR:FBVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    RightShoulderOffsetT:property    
+    RightShoulderOffsetT:FBVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    RightShoulderPosition:property    
+    RightShoulderPosition:FBVector3d
     """Read Write Property: Body part pivot of the actor."""
-    RightThumbAOffsetR:property    
+    RightThumbAOffsetR:FBVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    RightThumbAOffsetT:property    
+    RightThumbAOffsetT:FBVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    RightThumbBOffsetR:property    
+    RightThumbBOffsetR:FBVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    RightThumbBOffsetT:property    
+    RightThumbBOffsetT:FBVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    RightThumbCOffsetR:property    
+    RightThumbCOffsetR:FBVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    RightThumbCOffsetT:property    
+    RightThumbCOffsetT:FBVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    RightWristOffsetR:property    
+    RightWristOffsetR:FBVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    RightWristOffsetT:property    
+    RightWristOffsetT:FBVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    RightWristPosition:property    
+    RightWristPosition:FBVector3d
     """Read Write Property: Body part pivot of the actor."""
-    SkeletonColor:property    
+    SkeletonColor:FBColor
     """Read Write Property: The color of the skeleton of the actor."""
-    SkeletonVisibility:property    
+    SkeletonVisibility:bool
     """Read Write Property: Show or Hide the Skeleton."""
-    SymmetryEditRotation:property    
+    SymmetryEditRotation:bool
     """Read Write Property: Symmetry Edit (Rotation) mode state. Only effective when IKManip property is set to false. This property is shared for all actors."""
-    SymmetryEditScaling:property    
+    SymmetryEditScaling:bool
     """Read Write Property: Symmetry Edit (Scaling) mode state. Only effective when IKManip property is set to false. This property is shared for all actors."""
-    SymmetryEditTranslation:property    
+    SymmetryEditTranslation:bool
     """Read Write Property: Symmetry Edit (Translation) mode state. Only effective when IKManip property is set to false. This property is shared for all actors."""
-    Visibility:property    
+    Visibility:bool
     """Read Write Property: Show or Hide the Actor Body."""
-    WaistOffsetR:property    
+    WaistOffsetR:FBVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    WaistOffsetT:property    
+    WaistOffsetT:FBVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    WaistPosition:property    
+    WaistPosition:FBVector3d
     """Read Write Property: Body part pivot of the actor."""
     def GetCurrentSkeletonState(self)->FBSkeletonState:
         """Return the Current Skeleton State.
@@ -7787,7 +7787,7 @@ class FBActor(FBConstraint):
 class FBConstraintRelation(FBConstraint):
     """ConstraintRelation class.
     This class exposes the relation constraint and allows addition of new boxes and removal of existing ones. See sample: TraversingRelationConstraint.py."""
-    Boxes:property    
+    Boxes:FBPropertyListBox
     """List: Boxes used in this constraint."""
     def ConstrainObject(self,ConstrainedObject:FBBox)->object:
         """Create a receiver box.
@@ -7828,15 +7828,15 @@ class FBConstraintRelation(FBConstraint):
         ...
 class FBCycleAnalysisNode(FBBox):
     """Cycle Analysis class."""
-    RealTime:property    
+    RealTime:bool
     """Read Only Property: Real time."""
-    RootHMode:property    
+    RootHMode:FBRootHMode
     """Read Only Property: RootH Mode."""
-    RootRMode:property    
+    RootRMode:FBRootRMode
     """Read Only Property: RootR Mode."""
-    RootSpeedMode:property    
+    RootSpeedMode:FBRootSpeedMode
     """Read Only Property: Root Speed Mode."""
-    RootXZMode:property    
+    RootXZMode:FBRootXZMode
     """Read Only Property: RootXZ Mode."""
     def GetPoseFCurve(self)->object:...
     def GetRootHFCurve(self)->object:...
@@ -7849,27 +7849,27 @@ class FBConstraintSolver(FBConstraint):
 class FBDevice(FBBox):
     """Base Device class.
     Cannot be instantiated from Python. See samples: StartDevice.py, StopDevice.py."""
-    CommType:property    
+    CommType:int
     """Read Write Property: Type of communications."""
-    HardwareVersionInfo:property    
+    HardwareVersionInfo:str
     """Read Write Property: Device information: hardware version."""
-    Information:property    
+    Information:str
     """Read Write Property: Device information: information."""
-    ModelBindingRoot:property    
+    ModelBindingRoot:FBModel
     """Component: Root of model currently binded model hierarchy."""
-    ModelTemplate:property    
+    ModelTemplate:FBModelTemplate
     """Component: Root of model template structure."""
-    Online:property    
+    Online:bool
     """Read Write Property: Is online?"""
-    RecordingStartTime:property    
+    RecordingStartTime:FBTime
     """Read Only Property: The time at which the recording started."""
-    RecordingStopTime:property    
+    RecordingStopTime:FBTime
     """Read Only Property: The time at which the recording stopped."""
-    SamplingMode:property    
+    SamplingMode:FBDeviceSamplingMode
     """Read Write Property: Mode to use to record device."""
-    SamplingPeriod:property    
+    SamplingPeriod:FBTime
     """Read Write Property: Set this to how many times a device is to be evaluated in one second. There is no theoretical maximum value but practically you should consider scene complexity, system resources, network speed, etc. If set to 0: the device is evaluated on the sync signal. When the sync occurs; the device is scheduled to be evaluated. If you do not set, the sampling period is based on the internal variable from the [Sync] section of the .Application.txt file (NTSC, PAL, CINEMA)."""
-    Status:property    
+    Status:str
     """Read Write Property: Device information: status."""
     def AckOneBadSampleReceived(self):
         """Acknowlege that one bad sample was received (for statistical purposes)."""
@@ -7902,41 +7902,41 @@ class FBDevice(FBBox):
         ...
 class FBGlobalLight(FBBox):
     """Global light class."""
-    AmbientColor:property    
+    AmbientColor:FBColor
     """Read Write Property: Ambient light color."""
-    FogBegin:property    
+    FogBegin:float
     """Read Write Property: Begin fog distance."""
-    FogColor:property    
+    FogColor:FBColor
     """Read Write Property: Fog color."""
-    FogDensity:property    
+    FogDensity:float
     """Read Write Property: Fog density."""
-    FogEnable:property    
+    FogEnable:bool
     """Read Write Property: Enable fog?"""
-    FogEnd:property    
+    FogEnd:float
     """Read Write Property: End fog distance."""
-    FogMode:property    
+    FogMode:FBFogMode
     """Read Write Property: Fog falloff mode."""
 class FBDeviceOptical(FBDevice):
     """Optical device class."""
-    AutoAntialiasing:property    
+    AutoAntialiasing:bool
     """Property: Is it auto-antialiasing?"""
-    DampingTime:property    
+    DampingTime:float
     """Property: Damping time for device."""
-    ForceOpticalSamplingRate:property    
+    ForceOpticalSamplingRate:bool
     """Property: Force the use of the optical sampling rate?"""
-    MarkerTimeStamp:property    
+    MarkerTimeStamp:FBTime
     """Property: TimeStamp for marker."""
-    Markers:property    
+    Markers:FBPropertyListDeviceOpticalMarker
     """List: Markers."""
-    ModelOptical:property    
+    ModelOptical:FBModel
     """Property: Optical model for manipulation."""
-    OpticalSamplingRate:property    
+    OpticalSamplingRate:float
     """Property: Resampling rate for optical device."""
-    SkipFrame:property    
+    SkipFrame:bool
     """Property: Skip Record Frame"""
-    SupportOcclusion:property    
+    SupportOcclusion:bool
     """Property: Does the device support occulsion?"""
-    UseMarkerTimeStamp:property    
+    UseMarkerTimeStamp:bool
     """Property: Use the individual marker timestamps?"""
     def DeviceOperation(self,Operation:kDeviceOperations)->bool:
         """Operate device.
@@ -7961,13 +7961,13 @@ class FBDeviceOptical(FBDevice):
 class FBGroup(FBBox):
     """Objects Grouping class.
     This class is an interface to manipulate object's grouping in the scene. See samples: FBGetSelectedModels.py, FBGroup.py."""
-    Items:property    
+    Items:FBPropertyListComponent
     """List: Items in the group."""
-    Pickable:property    
+    Pickable:bool
     """Read Write Property: Controls if objects in the group are pickable."""
-    Show:property    
+    Show:bool
     """Read Write Property: Controls if objects in the group are displayed."""
-    Transformable:property    
+    Transformable:bool
     """Read Write Property: Controls if objects in the group are transformable."""
     def Clone(self)->object:
         """Clone the group.
@@ -7990,13 +7990,13 @@ class FBHUD(FBBox):
     """Heads Up display.
     Display scene related information to the screen. This information will also be present in the rendered frames when creating AVIs or QuickTime files. See samples: BloopSlate.py, HUDElements.py, HUDTextElement.py, RecordLight.py, Timeline.py, HUD.py."""
     EStockElement:FBHUD
-    Elements:property    
+    Elements:FBPropertyListHUDElement
     """List: Elements present in the HUD."""
-    HUDs:property    
+    HUDs:FBPropertyListHUD
     """List: HUDS attached to this HUD."""
-    OnDisplay:property    
+    OnDisplay:FBEvent
     """Event: Callback just before HUD is displayed to update custom values"""
-    Visibility:property    
+    Visibility:bool
     """Read Write Property: Indicate if the information will be displayed or not."""
     eBloopSlate:FBHUD
     eFlashElement:FBHUD
@@ -8022,43 +8022,43 @@ class FBHUD(FBBox):
 class FBHUDElement(FBBox):
     """Heads Up display.
     Display scene related information on a camera output. Rendered on video out, output renderings."""
-    Height:property    
+    Height:float
     """Read Write Property: Specifies the height of HUD element on the screen. It's in pixel when ScaleByPercent is false and percentage when ScaleByPercent is true."""
-    HorizontalDock:property    
+    HorizontalDock:FBHUDElementHAlignment
     """Read Write Property: Specifies if the HUD element will be horizontally docked to the Left, Right, or Center."""
-    Justification:property    
+    Justification:FBHUDElementHAlignment
     """Read Write Property: Specifies if the justification of the HUD element is Left, Right, or Center."""
-    PositionByPercent:property    
+    PositionByPercent:bool
     """Read Write Property: When set to true, X and Y position values are in percentage, relative to the corresponding camera view dimension. Otherwise, they are absolute pixel values."""
-    ScaleByPercent:property    
+    ScaleByPercent:bool
     """Read Write Property: When set to true, Scale is in percentage, relative to the corresponding camera view dimension. Otherwise, it is an absolute value."""
-    ScaleUniformly:property    
+    ScaleUniformly:bool
     """Read Write Property: Specifies whether the width and height of HUD element will be scaled uniformly according to the initial aspect ratio."""
-    Show:property    
+    Show:bool
     """Read Write Property: Specifies if the HUD element will be displayed or not."""
-    VerticalDock:property    
+    VerticalDock:FBHUDElementVAlignment
     """Read Write Property: Specifies if the HUD element will be vertically docked to the Bottom, Top, or Center."""
-    Visibility:property
-    Width:property    
+    Visibility:bool
+    Width:float
     """Read Write Property: Specifies the width of HUD element on the screen. It's in pixel when ScaleByPercent is false and percentage when ScaleByPercent is true."""
-    X:property    
+    X:float
     """Read Write Property: Specifies the horizontal position of the HUD element, relative to dock position and justification."""
-    Y:property    
+    Y:float
     """Read Write Property: Specifies the vertical position of the HUD element, relative to dock position and justification."""
 class FBHandle(FBBox):
     """FBHandle class exposes the Handle object of the application.
     This is a terminal class and should not be used as a base for a new class."""
-    Follow:property    
+    Follow:FBPropertyListObject
     """List: Object to be followed by the handle. Should have a cardinality of 1."""
-    Image:property    
+    Image:FBPropertyListObject
     """List: Image to be used in the handle display. Only the image at position 0 is used."""
-    Manipulate:property    
+    Manipulate:FBPropertyListObject
     """List: Objects manipulated by the handle."""
-    ManipulateRotation:property    
+    ManipulateRotation:FBPropertyListObject
     """List: Objects manipulated by the handle. Only their rotation is affected."""
-    ManipulateScaling:property    
+    ManipulateScaling:FBPropertyListObject
     """List: Objects manipulated by the handle. Only their scaling is affected."""
-    ManipulateTranslation:property    
+    ManipulateTranslation:FBPropertyListObject
     """List: Objects manipulated by the handle. Only their translation is affected."""
     def Select(self):
         """Meta selection.
@@ -8067,59 +8067,59 @@ class FBHandle(FBBox):
 class FBHUDFlashElement(FBHUDElement):
     """Heads Up display.
     Flash HUD element. Display a flash (swf) file rendered on the HUD. See sample: HUDElements.py."""
-    FilePath:property    
+    FilePath:str
     """Read Write Property: Path to load the swf file from"""
 class FBHUDRectElement(FBHUDElement):
     """Heads Up display.
     Rectangle HUD element. See sample: HUDElements.py."""
-    Color:property    
+    Color:FBColorAndAlpha
     """Read Write Property: Color of the rectangluar region."""
 class FBHUDBloopSlateElement(FBHUDFlashElement):
     """Heads Up display.
     Bloop Slate HUD element. Display a bloop slate (swf) file rendered on the HUD."""
-    BackgroundColor:property    
+    BackgroundColor:FBColorAndAlpha
     """Read Write Property: Bloop slate background color, by default it is 100% transparent."""
-    Enable:property    
+    Enable:bool
     """Read Write Property: Bloop slate will appear if set to true."""
-    ForegroundColor:property    
+    ForegroundColor:FBColorAndAlpha
     """Read Write Property: Bloop slate foreground color."""
-    ShowAfterDelayOnRecordPlay:property    
+    ShowAfterDelayOnRecordPlay:FBTime
     """Read Write Property: Delay before the bloop slate is displayed after recording has started."""
-    ShowDuration:property    
+    ShowDuration:FBTime
     """Read Write Property: Time that the bloop slate will be displayed."""
 class FBHUDTimelineElement(FBHUDFlashElement):
     """Heads Up display.
     HUD Timeline element. Displays a timeline that shows Head, Cut, Tail regions, and current time cursor. The drawing is defined in the flash file(timeline.swf). See sample: Timeline.py."""
-    CutActiveColor:property    
+    CutActiveColor:FBColorAndAlpha
     """Read Write Property: Specifies color of the Cut region when it is active."""
-    CutIdleColor:property    
+    CutIdleColor:FBColorAndAlpha
     """Read Write Property: Specifies color of the Cut region when it is idle."""
-    HeadActiveColor:property    
+    HeadActiveColor:FBColorAndAlpha
     """Read Write Property: Specifies color of the Head region when it is active."""
-    HeadDuration:property    
+    HeadDuration:FBTime
     """Read Write Property: Specifies duration of the Head region."""
-    HeadIdleColor:property    
+    HeadIdleColor:FBColorAndAlpha
     """Read Write Property: Specifies color of the Head region when it is idle."""
-    TailActiveColor:property    
+    TailActiveColor:FBColorAndAlpha
     """Read Write Property: Specifies color of the Tail region when it is active."""
-    TailDuration:property    
+    TailDuration:FBTime
     """Read Write Property: Specifies duration of the Tail region."""
-    TailIdleColor:property    
+    TailIdleColor:FBColorAndAlpha
     """Read Write Property: Specifies color of the Tail region when it is idle."""
 class FBHUDTextElement(FBHUDElement):
     """Heads Up display.
     Text element. Render text with a background rectangle to the HUD. See samples: HUDElements.py, HUDTextElement.py, HUD.py."""
-    AdjustWidthToFitText:property    
+    AdjustWidthToFitText:bool
     """Read Write Property: If On it it will adjust the width of a text element so that a text character's aspect ratio does not change as the content grows or shrinks."""
-    BackgroundColor:property    
+    BackgroundColor:FBColorAndAlpha
     """Read Write Property: Background text color."""
-    Color:property    
+    Color:FBColorAndAlpha
     """Read Write Property: Text color."""
-    Content:property    
+    Content:str
     """Read Write Property: C like format to display like in printf."""
-    Font:property    
+    Font:str
     """Read Write Property: Specifies the font."""
-    ForceTimeCodeDisplay:property    
+    ForceTimeCodeDisplay:bool
     """Read Write Property: Specifies if the display of time-related reference property will be in timecode format."""
     def GetFontList(self)->FBStringList:
         """Returns a list of supported fonts."""
@@ -8127,46 +8127,46 @@ class FBHUDTextElement(FBHUDElement):
 class FBHUDTextureElement(FBHUDElement):
     """Heads Up display.
     Texture HUD element. Display a texture on a rectangle on the HUD. See sample: HUDElements.py."""
-    Texture:property    
+    Texture:FBPropertyListTexture
     """Read Write Property: Texture to display."""
 class FBMaterial(FBBox):
     """Material class.
     See samples: MaterialAndTexture.py, TextureAnimation.py, VideoInput.py, VideoMemory.py."""
-    Ambient:property    
+    Ambient:FBColor
     """Read Write Property: Ambient color."""
-    AmbientFactor:property    
+    AmbientFactor:float
     """Read Write Property: Ambient Factor value."""
-    Bump:property    
+    Bump:FBColor
     """Read Write Property: Bump."""
-    BumpFactor:property    
+    BumpFactor:float
     """Read Write Property: Bump Factor value."""
-    Diffuse:property    
+    Diffuse:FBColor
     """Read Write Property: Diffuse color."""
-    DiffuseFactor:property    
+    DiffuseFactor:float
     """Read Write Property: Diffuse Factor value."""
-    DisplacementColor:property    
+    DisplacementColor:FBColor
     """Read Write Property: Displacement color."""
-    DisplacementFactor:property    
+    DisplacementFactor:float
     """Read Write Property: Displacement Factor value."""
-    Emissive:property    
+    Emissive:FBColor
     """Read Write Property: Emissive color."""
-    EmissiveFactor:property    
+    EmissiveFactor:float
     """Read Write Property: Emissive Factor value."""
-    NormalMap:property    
+    NormalMap:FBColor
     """Read Write Property: Normal Map."""
-    Reflection:property    
+    Reflection:FBColor
     """Read Write Property: Reflection color."""
-    ReflectionFactor:property    
+    ReflectionFactor:float
     """Read Write Property: Reflection Factor value."""
-    Shininess:property    
+    Shininess:float
     """Read Write Property: Shininess value."""
-    Specular:property    
+    Specular:FBColor
     """Read Write Property: Specular color."""
-    SpecularFactor:property    
+    SpecularFactor:float
     """Read Write Property: Specular Factor value."""
-    TransparencyFactor:property    
+    TransparencyFactor:float
     """Read Write Property: Transparency Factor value."""
-    TransparentColor:property    
+    TransparentColor:FBColor
     """Read Write Property: Transparent color."""
     def Clone(self)->object:
         """Clone the material.
@@ -8200,116 +8200,116 @@ class FBModel(FBBox):
     
     
     There is a few ways to get a handle on existing models in a scene: FBFindObjectsByName return a list of objects matching a pattern (can contain *). For usage, see: FindObjectsWithWildcard.py If you know the name of the model, use FBFindModelByLabelName, as demonstrated in FBComponent.py. FBGetSelectedModels can get a handle to an object which is derived from FBModel. It searches the scene for a model, based on the model's unique name and returns a list of all the selected things in the scene. See sample: ResetLocalTranslationRotation.py."""
-    AnimationNode:property    
+    AnimationNode:FBAnimationNode
     """Read Only Property: Animation node of the model."""
-    BlendShapeDeformable:property    
+    BlendShapeDeformable:bool
     """Read Write Property: Model blend-shape deformable. Not Savable"""
-    CastsShadows:property    
+    CastsShadows:bool
     """Read Write Property: If true, the geometry will produce shadows."""
-    Children:property    
+    Children:FBPropertyListModel
     """List: Children for model."""
-    ConstrainDeformable:property    
+    ConstrainDeformable:bool
     """Read Write Property: Model constraint deformable. Not Savable"""
     CullingMode:property
-    Deformers:property    
+    Deformers:FBPropertyListDeformer
     """List: Deformers (Skeleton Deformer or Point Cache Deformer)."""
-    GeometricRotation:property    
+    GeometricRotation:FBVector3d
     """Read Write Property: Geometric rotation."""
-    GeometricScaling:property    
+    GeometricScaling:FBVector3d
     """Read Write Property: Geometric scaling."""
-    GeometricTranslation:property    
+    GeometricTranslation:FBVector3d
     """Read Write Property: Geometric translation."""
-    Geometry:property    
+    Geometry:FBGeometry
     """Read Write Property: Geometry for the model."""
-    GeometryUpdateId:property    
+    GeometryUpdateId:int
     """Read Only Property: model geometry (vertex data) related update id."""
-    Icon3D:property    
+    Icon3D:bool
     """Read Write Property: Is model a 3D icon?"""
-    IsConstrained:property    
+    IsConstrained:bool
     """Read Only Property: Is model constrained?"""
-    IsDeformable:property    
+    IsDeformable:bool
     """Read Only Property: Is model deformable?"""
-    IsVisible:property    
+    IsVisible:bool
     """If the model is visible.
     Note. this query will consider self Visibility property, plus parent node/set Visibility. The visibility of a model is affected by 4 parameters:
     
     EvaluateInfo : evaluate info,
     return : true if visible for the given evaluate info."""
-    LookAt:property    
+    LookAt:FBModel
     """Read Write Property: Look at model (interest point)."""
-    Materials:property    
+    Materials:FBPropertyListMaterial
     """List: Materials for model."""
-    ModelVertexData:property    
+    ModelVertexData:FBModelVertexData
     """Read Only Property: ModelVertexData for the model."""
-    Parent:property    
+    Parent:FBModel
     """Read Write Property: Parent model."""
-    Pickable:property    
+    Pickable:bool
     """Read Write Property: Indicate if a model can be picked in the viewer. This has a default value of 'true'."""
-    PointCacheDeformable:property    
+    PointCacheDeformable:bool
     """Read Write Property: Model point cache deformable. Not Savable"""
-    PointCacheRecord:property    
+    PointCacheRecord:bool
     """Read Write Property: Record Point Cache for model? Not Savable"""
-    PostRotation:property    
+    PostRotation:FBVector3d
     """Read Write Property: Post Rotation (considered if RotationActive is true)"""
-    PreRotation:property    
+    PreRotation:FBVector3d
     """Read Write Property: Pre Rotation (considered if RotationActive is true)"""
-    PrimaryVisibility:property    
+    PrimaryVisibility:bool
     """Read Write Property: Control the geometry render state. Geometry can still cast shadows even if this is turned off."""
-    QuaternionInterpolate:property    
+    QuaternionInterpolate:bool
     """Read Write Property: Use quaternion interpolation."""
-    ReceiveShadows:property    
+    ReceiveShadows:bool
     """Read Write Property: If true, the geometry will receive shadows."""
-    Rotation:property    
+    Rotation:FBVector3d
     """Read Write Property: Lcl rotation."""
-    RotationActive:property    
+    RotationActive:bool
     """Read Write Property: Is model using Rotation Limits?"""
-    RotationMax:property    
+    RotationMax:FBVector3d
     """Read Write Property: Max Rotation Limit (considered if RotationActive is true)"""
-    RotationMaxX:property    
+    RotationMaxX:bool
     """Read Write Property: Is model using Maximum Rotation Limits On X?"""
-    RotationMaxY:property    
+    RotationMaxY:bool
     """Read Write Property: Is model using Maximum Rotation Limits On Y?"""
-    RotationMaxZ:property    
+    RotationMaxZ:bool
     """Read Write Property: Is model using Maximum Rotation Limits On Z?"""
-    RotationMin:property    
+    RotationMin:FBVector3d
     """Read Write Property: Min Rotation Limit (considered if RotationActive is true)"""
-    RotationMinX:property    
+    RotationMinX:bool
     """Read Write Property: Is model using Minimum Rotation Limits On X?"""
-    RotationMinY:property    
+    RotationMinY:bool
     """Read Write Property: Is model using Minimum Rotation Limits On Y?"""
-    RotationMinZ:property    
+    RotationMinZ:bool
     """Read Write Property: Is model using Minimum Rotation Limits On Z?"""
-    RotationOrder:property    
+    RotationOrder:FBModelRotationOrder
     """Read Write Property: Rotation order."""
-    RotationSpaceForLimitOnly:property    
+    RotationSpaceForLimitOnly:bool
     """Read Write Property: Apply Post Rotation Matrix only for Limits?"""
-    Scaling:property    
+    Scaling:FBVector3d
     """Read Write Property: Lcl scaling."""
-    Scene:property    
+    Scene:FBScene
     """Read Only Property: Scene containing the model."""
-    Shaders:property    
+    Shaders:FBPropertyListShader
     """List: Shaders for model."""
-    ShadingMode:property    
+    ShadingMode:FBModelShadingMode
     """Read Write Property: Shading mode for the model."""
-    Show:property    
+    Show:bool
     """Read Write Property: Indicate if the viewer should show the object, according to its visibility value. This has a default value of 'false'."""
-    SkeletonDeformable:property    
+    SkeletonDeformable:bool
     """Read Write Property: Model skeleton deformable. Not Savable"""
-    SoftSelected:property    
+    SoftSelected:bool
     """Read Write Property: Is model Soft selected?"""
-    Textures:property    
+    Textures:FBPropertyListTexture
     """List: Textures with Special UseType (Other than 'Color' which should connect to materials)."""
-    Transformable:property    
+    Transformable:bool
     """Read Write Property: Indicate if a model can be transformable in the viewer. This has a default value of 'true'."""
-    Translation:property    
+    Translation:FBVector3d
     """Read Write Property: Lcl translation."""
-    UniqueColorId:property    
+    UniqueColorId:FBColor
     """Read Only Property: Unique Color Id for color based viewer picking. Color channel values are in the range [0, 1] with 1.0/255 precision."""
-    UpVector:property    
+    UpVector:FBModel
     """Read Write Property: UpVector model."""
-    Visibility:property    
+    Visibility:bool
     """Read Write Property: Visibility of model. This can be overridden by the 'Show' property."""
-    VisibilityInheritance:property    
+    VisibilityInheritance:bool
     """Read Write Property: //!< When this value is set to True the Visibility of this model is also applied to all its descendants"""
     def Clone(self)->object:
         """Clone the model.
@@ -8502,7 +8502,7 @@ class FBModel(FBBox):
         ...
 class FBNote(FBBox):
     """Note class."""
-    StaticComment:property    
+    StaticComment:str
     """Read Write Property: Comment associated to this note."""
     def Attach(self,Comp:FBComponent)->bool:
         """Attach the note to a component.
@@ -8524,55 +8524,55 @@ class FBModelCube(FBModel):
     ...
 class FBLight(FBModel):
     """Light class."""
-    AreaLightShape:property    
+    AreaLightShape:property
     """Read Write Property: Area light shape."""
-    AttenuationType:property    
+    AttenuationType:FBAttenuationType
     """Read Write Property: Type of attenuation for the light."""
-    BottomBarnDoor:property    
+    BottomBarnDoor:float
     """Read Write Property: Angle of bottom barn door."""
-    CastLightOnObject:property    
+    CastLightOnObject:bool
     """Read Write Property: Cast light on object?"""
-    CastShadows:property    
+    CastShadows:bool
     """Read Write Property: Cast shadows on object?"""
-    ConeAngle:property    
+    ConeAngle:float
     """DEPRECATED  Equivalent to OuterAngle."""
-    DiffuseColor:property    
+    DiffuseColor:FBColor
     """Read Write Property: Color: Diffuse color."""
-    DrawFrontFacingVolumetric:property    
+    DrawFrontFacingVolumetric:bool
     """Read Write Property: Draw front facing volumetric light?"""
-    DrawGroundProjection:property    
+    DrawGroundProjection:bool
     """Read Write Property: Draw ground projection of gobo?"""
-    DrawVolumetricLight:property    
+    DrawVolumetricLight:bool
     """Read Write Property: Draw volumetric light with gobo?"""
     EAreaLightShapes:FBLight
-    EnableBarnDoor:property    
+    EnableBarnDoor:bool
     """Read Write Property: Whether or not enable barn door."""
-    FogIntensity:property    
+    FogIntensity:float
     """Read Write Property: Intensity of the fog (spot light)."""
-    GoboMedia:property    
+    GoboMedia:FBVideo
     """Read Write Property: Media to use as a Gobo with the light."""
-    InnerAngle:property    
+    InnerAngle:float
     """Read Write Property: Inner Cone angle for light."""
-    Intensity:property    
+    Intensity:float
     """Read Write Property: Light intensity."""
-    LeftBarnDoor:property    
+    LeftBarnDoor:float
     """Read Write Property: Angle of left barn door."""
-    LightType:property    
+    LightType:FBLightType
     """Read Write Property: Type of light."""
-    OuterAngle:property    
+    OuterAngle:float
     """Read Write Property: Outer Cone angle for light."""
-    RightBarnDoor:property    
+    RightBarnDoor:float
     """Read Write Property: Angle of right barn door."""
-    TopBarnDoor:property    
+    TopBarnDoor:float
     """Read Write Property: Angle of top barn door."""
     eRectangle:FBLight
     eSphere:FBLight
 class FBCameraSwitcher(FBModel):
     """Camera switcher.
     This class is a wrapper around the system's camera switcher object. There can only be one switcher in a given scene. Any attempts at creating a new instance will return the existing one. See sample: CameraSwitcher.py."""
-    CurrentCamera:property    
+    CurrentCamera:FBCamera
     """Read Write Property: Camera currently being used by the switcher. Set to NULL to turn on evaluate switch, otherwise manual switch."""
-    CurrentCameraIndex:property    
+    CurrentCameraIndex:int
     """Read Write Property: Camera index currently being used by the switcher. Set to -1 to turn on evaluate switch."""
     def PlotToCamera(self,Camera:FBCamera)->bool:
         """Plot the Camera Switcher animation onto a destination camera.
@@ -8587,195 +8587,195 @@ class FBCamera(FBModel):
     When you look at a scene in the MotionBuilder Viewer, you are using a camera view.There are two types of cameras: Producer cameras. By default one of the producer cameras is used. These are always present. They can be configured but not destroyed. Custom cameras, created by the user.The SystemCamera property indicates whether a given camera is a producer or a custom camera.When you create a camera you should make it visible with the show property (inherited from FBModel).Use FBCameraSwitcher to get and set the current camera. For usage, see the Python sample CameraSwitcher.py.To see how to create a camera with a marker as an interest, see the Python sample code in FBCamera.py. For usage in C++, see the manipcamera sample. See samples: NewCamera.py, RenderLayers.py, CameraSwitcher.py, SetAllCamerasBackgroundColor.py, SetAllCamerasBackgroundColorFromCurrentCamera.py, SetAllCamerasBackgroundColorFromFirstSelectedCamera.py, FBCamera.py."""
     AnimatableFarPlane:property
     AnimatableNearPlane:property
-    AntiAliasingIntensity:property    
+    AntiAliasingIntensity:float
     """Read Write Property: Anti-aliasing intensity."""
-    AntiAliasingMethod:property    
+    AntiAliasingMethod:FBCameraAntiAliasingMethod
     """Read Write Property: Anti-aliasing method."""
-    ApertureMode:property    
+    ApertureMode:FBCameraApertureMode
     """Read Write Property: Aperture mode."""
-    BackGroundColor:property    
+    BackGroundColor:FBColor
     """Read Write Property: Background color for camera."""
-    BackGroundImageCenter:property    
+    BackGroundImageCenter:bool
     """Read Write Property: Center the background image"""
-    BackGroundImageCrop:property    
+    BackGroundImageCrop:bool
     """Read Write Property: Crop the background image"""
-    BackGroundImageFit:property    
+    BackGroundImageFit:bool
     """Read Write Property: Fit the background image"""
-    BackGroundImageKeepRatio:property    
+    BackGroundImageKeepRatio:bool
     """Read Write Property: Keep the background image's ratio"""
-    BackGroundImageOffsetX:property    
+    BackGroundImageOffsetX:float
     """Read Write Property: Ignored if BackGroundImageFit is true. X offset, in term of percentage of the fit background image width, applied on the background image."""
-    BackGroundImageOffsetY:property    
+    BackGroundImageOffsetY:float
     """Read Write Property: Ignored if BackGroundImageFit is true. Y offset, in term of percentage of the fit background image height, applied on the background image."""
-    BackGroundImageScaleX:property    
+    BackGroundImageScaleX:float
     """Read Write Property: Ignored if BackGroundImageFit is true. X scale, in term of percentage of the fit background image width, applied on the background image."""
-    BackGroundImageScaleY:property    
+    BackGroundImageScaleY:float
     """Read Write Property: Ignored if BackGroundImageFit and/or BackGroundImageKeepRatio is true. Y scale, in term of percentage of the fit background image height, applied on the background image. The X scale property is considered instead of this Y scale property if BackGroundImageKeepRatio is set to true."""
-    BackGroundMedia:property
-    BackGroundPlaneDistance:property    
+    BackGroundMedia:FBVideo
+    BackGroundPlaneDistance:float
     """Read Write Property: Set the distance for the background plane."""
-    BackGroundPlaneDistanceMode:property    
+    BackGroundPlaneDistanceMode:FBCameraDistanceMode
     """Read Write Property: Select mode for the background plane's distance."""
-    BackGroundTexture:property    
+    BackGroundTexture:FBTexture
     """Read Write Property: Background Texture"""
-    CameraViewportHeight:property    
+    CameraViewportHeight:int
     """Read Only Property: Camera Viewport height"""
-    CameraViewportWidth:property    
+    CameraViewportWidth:int
     """Read Only Property: Camera Viewport width"""
-    CameraViewportX:property    
+    CameraViewportX:int
     """Read Only Property: Camera Viewport start position's X value"""
-    CameraViewportY:property    
+    CameraViewportY:int
     """Read Only Property: Camera Viewport start position's Y value"""
-    Display2DMagnifierFrame:property    
+    Display2DMagnifierFrame:bool
     """Read Write Property: Enable/Disable the drawing of the 2D Magnifier frame box."""
-    DisplayTurnTableIcon:property    
+    DisplayTurnTableIcon:bool
     """Read Write Property: Enable/Disable the drawing of the Turn Table icon."""
-    FarPlaneDistance:property    
+    FarPlaneDistance:float
     """Read Write Property: Far plane distance."""
-    FieldOfView:property    
+    FieldOfView:float
     """Read Write Property: Field of View (used when in horizontal or vertical aperture modes)."""
-    FieldOfViewX:property    
+    FieldOfViewX:float
     """Read Write Property: Field of View X angle (used in horizontal and vertical aperture mode)."""
-    FieldOfViewY:property    
+    FieldOfViewY:float
     """Read Write Property: Field of View Y angle (used in horizontal and vertical aperture mode)."""
-    FilmAspectRatio:property    
+    FilmAspectRatio:float
     """Read Write Property: Film aspect ratio."""
-    FilmBackType:property    
+    FilmBackType:FBCameraFilmBackType
     """Read Write Property: Film back standard type."""
-    FilmSizeHeight:property    
+    FilmSizeHeight:float
     """Read Write Property: Height of the film."""
-    FilmSizeWidth:property    
+    FilmSizeWidth:float
     """Read Write Property: Width of the film."""
-    FocalLength:property    
+    FocalLength:float
     """Read Write Property: Focal Length."""
-    FocusAngle:property    
+    FocusAngle:float
     """Read Write Property: Focus Angle (rendering dof)."""
-    FocusDistanceSource:property    
+    FocusDistanceSource:FBCameraFocusDistanceSource
     """Read Write Property: Select source for focusing."""
-    FocusModel:property    
+    FocusModel:FBModel
     """Read Write Property: Another model that determines the focus distance."""
-    FocusSpecificDistance:property    
+    FocusSpecificDistance:float
     """Read Write Property: Specfic distance for focusing."""
-    ForeGroundAlpha:property    
+    ForeGroundAlpha:float
     """Read Write Property: Opacity of foreground."""
-    ForeGroundImageCenter:property    
+    ForeGroundImageCenter:bool
     """Read Write Property: Center the foreground image"""
-    ForeGroundImageCrop:property    
+    ForeGroundImageCrop:bool
     """Read Write Property: Crop the foreground image"""
-    ForeGroundImageFit:property    
+    ForeGroundImageFit:bool
     """Read Write Property: Fit the foreground image"""
-    ForeGroundImageKeepRatio:property    
+    ForeGroundImageKeepRatio:bool
     """Read Write Property: Keep the foreground image's ratio?"""
-    ForeGroundImageOffsetX:property    
+    ForeGroundImageOffsetX:float
     """Read Write Property: Ignored if ForeGroundImageFit is true. X offset, in term of percentage of the fit foreground image width, applied on the foreground image."""
-    ForeGroundImageOffsetY:property    
+    ForeGroundImageOffsetY:float
     """Read Write Property: Ignored if ForeGroundImageFit is true. Y offset, in term of percentage of the fit foreground image height, applied on the foreground image."""
-    ForeGroundImageScaleX:property    
+    ForeGroundImageScaleX:float
     """Read Write Property: Ignored if ForeGroundImageFit is true. X scale, in term of percentage of the fit foreground image width, applied on the foreground image."""
-    ForeGroundImageScaleY:property    
+    ForeGroundImageScaleY:float
     """Read Write Property: Ignored if ForeGroundImageFit and/or ForeGroundImageKeepRatio is true. Y scale, in term of percentage of the fit foreground image height, applied on the foreground image. The X scale property is considered instead of this Y scale property if ForeGroundImageKeepRatio is set to true."""
-    ForeGroundMaterialThreshold:property    
+    ForeGroundMaterialThreshold:float
     """Read Write Property: Material threshold for a transparent foreground."""
-    ForeGroundMedia:property
-    ForeGroundPlaneDistance:property    
+    ForeGroundMedia:FBVideo
+    ForeGroundPlaneDistance:float
     """Read Write Property: Set the distance for the foreground plane."""
-    ForeGroundPlaneDistanceMode:property    
+    ForeGroundPlaneDistanceMode:FBCameraDistanceMode
     """Read Write Property: Select mode for the foreground plane's distance."""
-    ForeGroundTexture:property    
+    ForeGroundTexture:FBTexture
     """Read Write Property: ForeGround Texture"""
-    ForeGroundTransparent:property    
+    ForeGroundTransparent:bool
     """Read Write Property: Is the foreground transparent?"""
-    FrameColor:property    
+    FrameColor:FBColor
     """Read Write Property: Frame color for camera."""
-    FrameSizeMode:property    
+    FrameSizeMode:FBCameraFrameSizeMode
     """Read Write Property: Frame size standard mode."""
-    HUDs:property    
+    HUDs:FBPropertyListHUD
     """List : HUDs present in this camera"""
-    InteractiveMode:property    
+    InteractiveMode:bool
     """Read Write Property: Interactive mode?"""
-    Interest:property    
+    Interest:FBModel
     """Read Write Property: Direct camera's interest."""
-    MagnifierPosX:property    
+    MagnifierPosX:float
     """Read Write Property: 2D Magnifier X Position."""
-    MagnifierPosY:property    
+    MagnifierPosY:float
     """Read Write Property: 2D Magnifier Y Position."""
-    MagnifierZoom:property    
+    MagnifierZoom:float
     """Read Write Property: 2D Magnifier Zoom value."""
-    MotionBlurIntensity:property    
+    MotionBlurIntensity:float
     """Read Write Property: Motion Blur Intensity."""
-    MouseLockCamera:property    
+    MouseLockCamera:bool
     """Read Write Property: Mouse lock for camera?"""
-    NearPlaneDistance:property    
+    NearPlaneDistance:float
     """Read Write Property: Near plane distance."""
-    NumberOfSamples:property    
+    NumberOfSamples:int
     """Read Write Property: Number of samples to oversample with."""
-    OpticalCenterX:property    
+    OpticalCenterX:float
     """Read Write Property: Optical Center X (mm)."""
-    OpticalCenterY:property    
+    OpticalCenterY:float
     """Read Write Property: Optical Center Y (mm)."""
-    OrthoFactor:FBCamera    
+    OrthoFactor:FBCamera
     """Constant scale factor to be used with OrthoZoom for orthographic cameras."""
-    OrthoZoom:property    
+    OrthoZoom:float
     """Read Write Property: Zoom factor of an orthographic camera."""
-    PixelAspectRatio:property    
+    PixelAspectRatio:float
     """Read Write Property: Pixel aspect ratio."""
-    ResolutionHeight:property    
+    ResolutionHeight:float
     """Read Write Property: Resolution height."""
-    ResolutionMode:property    
+    ResolutionMode:FBCameraResolutionMode
     """Read Write Property: Resolution standard mode."""
-    ResolutionWidth:property    
+    ResolutionWidth:float
     """Read Write Property: Resolution width."""
-    Roll:property    
+    Roll:float
     """Read Write Property: Camera's roll on it's Z axis."""
-    SafeAreaMode:property    
+    SafeAreaMode:FBCameraSafeAreaMode
     """Read Write Property: Select mode for safe area."""
-    SamplingType:property    
+    SamplingType:FBCameraSamplingType
     """Read Write Property: Type of over sampling."""
-    SqueezeRatio:property    
+    SqueezeRatio:float
     """Read Write Property: Squeeze ratio."""
-    SystemCamera:property    
+    SystemCamera:bool
     """Read Only Property: Indicate if this a producer (default or system) camera or a custom (user-created) camera."""
-    TurnTable:property    
+    TurnTable:float
     """Read Write Property: Camera's rotation around its interest."""
-    Type:property    
+    Type:FBCameraType
     """Read Write Property: Type of camera"""
-    Use2DMagnifier:property    
+    Use2DMagnifier:bool
     """Read Write Property: Enable/Disable the 2D Magnifier."""
-    UseAccumulationBuffer:property    
+    UseAccumulationBuffer:bool
     """Read Write Property: Use accumulation buffer?"""
-    UseAntiAliasing:property    
+    UseAntiAliasing:bool
     """Read Write Property: Use anti-aliasing?"""
-    UseDepthOfField:property    
+    UseDepthOfField:bool
     """Read Write Property: Use depth of field calculations?"""
-    UseFrameColor:property    
+    UseFrameColor:bool
     """Read Write Property: Use frame color?"""
-    UseMotionBlur:property    
+    UseMotionBlur:bool
     """Read Write Property: Enable Motion Blur."""
-    UseRealTimeMotionBlur:property    
+    UseRealTimeMotionBlur:bool
     """Read Write Property: Enable Real-time Motion Blur."""
-    ViewBackGroundPlaneMode:property    
+    ViewBackGroundPlaneMode:FBCameraViewPlaneMode
     """Read Write Property: Background plane view mode"""
-    ViewCameraInterest:property    
+    ViewCameraInterest:bool
     """Read Write Property: Show the camera interest?"""
-    ViewDisplaySafeArea:property    
+    ViewDisplaySafeArea:bool
     """Read Write Property: Display safe area?"""
-    ViewForeGroundPlaneMode:property    
+    ViewForeGroundPlaneMode:FBCameraViewPlaneMode
     """Read Write Property: Foreground plane view mode"""
-    ViewNearFarPlane:property    
+    ViewNearFarPlane:bool
     """Read Write Property: Show near/far planes?"""
-    ViewOpticalCenter:property    
+    ViewOpticalCenter:bool
     """Read Write Property: View optical center?"""
-    ViewShowAxis:property    
+    ViewShowAxis:bool
     """Read Write Property: Show axis?"""
-    ViewShowGrid:property    
+    ViewShowGrid:bool
     """Read Write Property: Show grid?"""
-    ViewShowName:property    
+    ViewShowName:bool
     """Read Write Property: Show name?"""
-    ViewShowTimeCode:property    
+    ViewShowTimeCode:bool
     """Read Write Property: Show time code?"""
-    WindowHeight:property    
+    WindowHeight:float
     """Read Only Property: Window height."""
-    WindowWidth:property    
+    WindowWidth:float
     """Read Only Property: Window width."""
     def GetCameraMatrix(self,Matrix:FBMatrix,Type:FBCameraMatrixType,EvalInfo:FBEvaluateInfo):
         """Obtains the camera's matrix.
@@ -8796,64 +8796,64 @@ class FBCamera(FBModel):
 class FBModelMarker(FBModel):
     """Model marker class.
     See sample: FBCamera.py."""
-    Color:property    
+    Color:FBColor
     """Read Write Property: Color of model marker."""
-    IKPivot:property    
+    IKPivot:FBVector3d
     """Read Write Property: marker Pivot Offset."""
-    Length:property    
+    Length:float
     """Read Write Property: Length for capsule (not related to scaling)."""
-    Look:property    
+    Look:FBMarkerLook
     """Read Write Property: Look of model marker."""
-    ResLevel:property    
+    ResLevel:FBMarkerResolutionLevel
     """Read Write Property: Resolution level of model marker."""
-    Size:property    
+    Size:float
     """Read Write Property: Size (not related to scaling)."""
-    Type:property    
+    Type:FBMarkerType
     """Read Write Property: Type of model marker."""
 class FBCameraStereo(FBCamera):
-    CenterCamera:property    
+    CenterCamera:property
     """Read Write Property:  This property hold the center camera connected to it. Must be either the master, left or right camera."""
-    DisplayZeroParallaxPlane:property    
+    DisplayZeroParallaxPlane:property
     """Read Write Property:  Display the zero parallax plane."""
-    FilmOffsetLeftCam:property    
+    FilmOffsetLeftCam:property
     """Read Write Property:  This property handles the film offset for the left camera. (inch)"""
-    FilmOffsetRightCam:property    
+    FilmOffsetRightCam:property
     """Read Write Property:  This property handles the film offset for the right camera. (inch)"""
-    InteraxialSeparation:property    
+    InteraxialSeparation:property
     """Read Write Property:  This property handles the distance between left and right cameras."""
-    LeftCamera:property    
+    LeftCamera:property
     """Read Write Property:  This property hold the left camera connected to it."""
-    PrecompFileName:property    
+    PrecompFileName:property
     """Read Write Property:  This property handles the precomp file name."""
-    RelativePrecompFileName:property    
+    RelativePrecompFileName:property
     """Read Write Property:  This property handles the relative precomp file name."""
-    RightCamera:property    
+    RightCamera:property
     """Read Write Property:  This property hold the right camera connected to it."""
-    Stereo:property    
+    Stereo:property
     """Read Write Property:  //!< This property handles the types of Stereo camera."""
-    ToeInAdjust:property    
+    ToeInAdjust:property
     """Read Write Property:  This property is to offset the computed toe-in effect when it's in Converged mode."""
-    ZeroParallax:property    
+    ZeroParallax:property
     """Read Write Property:  This property handles the distance on the camera view axis where the zero parallax plane occurs."""
-    ZeroParallaxPlaneColor:property    
+    ZeroParallaxPlaneColor:property
     """Read Write Property:  Zero parallax plane color."""
-    ZeroParallaxPlaneTransparency:property    
+    ZeroParallaxPlaneTransparency:property
     """Read Write Property:  Zero parallax plane transparency."""
 class FBModelNull(FBModel):
     """Null object class."""
-    Size:property    
+    Size:float
     """Read Write Property: Size (not related to scaling)."""
 class FBModelMarkerOptical(FBModelMarker):
     """Optical model marker class."""
-    Data:property    
+    Data:FBAnimationNode
     """Property: Data."""
-    Done:property    
+    Done:bool
     """Property: Done?"""
-    Gaps:property    
+    Gaps:FBPropertyListOpticalGap
     """Property: Gaps."""
-    Optical:property    
+    Optical:FBModelOptical
     """Property: Optical model."""
-    Segments:property    
+    Segments:FBPropertyListMarkerSegment
     """Property: Marker segments."""
     def ExportBegin(self)->int:
         """Begin export of optical data.
@@ -8914,19 +8914,19 @@ class FBModelMarkerOptical(FBModelMarker):
         ...
 class FBModelOptical(FBModel):
     """Optical model class."""
-    MarkerSize:property    
+    MarkerSize:float
     """Read Write Property: Size of markers."""
-    Markers:property    
+    Markers:FBPropertyListModelMarkerOptical
     """List: Markers."""
-    RigidBodies:property    
+    RigidBodies:FBPropertyListRigidBody
     """List: Rigid bodies."""
-    SamplingPeriod:property    
+    SamplingPeriod:FBTime
     """Read Write Property:Sampling period."""
-    SamplingStart:property    
+    SamplingStart:FBTime
     """Read Write Property: Sampling start time."""
-    SamplingStop:property    
+    SamplingStop:FBTime
     """Read Write Property:Sampling stop time."""
-    Segments:property    
+    Segments:FBPropertyListOpticalSegment
     """List: Segments."""
     def ClearSegments(self,UnUsedOnly:object):
         """Clear the segments (by default only the unused).
@@ -8952,30 +8952,30 @@ class FBModelOptical(FBModel):
         ...
 class FBModelPath3D(FBModel):
     """Path 3D model class."""
-    AutoControlNode:property    
+    AutoControlNode:bool
     """Read Write Property: Automatically create key control nodes."""
-    Color:property    
+    Color:FBColor
     """Read Write Property: Path display color in viewport."""
     EKeyPropertyBehavior:FBModelPath3D
     ELengthUnitType:FBModelPath3D
     EPathEndCapStyle:FBModelPath3D
-    KeyPropertyBehavior:property    
+    KeyPropertyBehavior:property
     """Read Only Property: Key property behavior."""
-    PathEndCapScale:property    
+    PathEndCapScale:float
     """Read Write Property: Path end cap display scale."""
-    PathEndCapStyle:property    
+    PathEndCapStyle:property
     """Read Write Property: Path end cap display style."""
-    PathLength:property    
+    PathLength:float
     """Read Only Property: Path Length In Centimeter."""
-    PathLengthInString:property    
+    PathLengthInString:str
     """Read Only Property: Path Length Display String According To The Current Unit."""
-    PathLengthShow:property    
+    PathLengthShow:bool
     """Read Write Property: Path length label display or not."""
-    PathLengthUnit:property    
+    PathLengthUnit:property
     """Read Write Property: Path Length Unit."""
-    TextBackground:property    
+    TextBackground:FBColorAndAlpha
     """Read Write Property: Path Length label display background color."""
-    TextScale:property    
+    TextScale:float
     """Read Write Property: Path Length label display scale."""
     eArchitectural:FBModelPath3D
     eArrow:FBModelPath3D
@@ -9273,23 +9273,23 @@ class FBModelPlane(FBModel):
 class FBModelRoot(FBModel):
     """Root object class.
     See sample: SelectModelsWithNameContainingSubstring.py."""
-    Size:property    
+    Size:float
     """Read Write Property: Size (not related to scaling)."""
 class FBModelSkeleton(FBModel):
     """Root object class."""
-    Color:property    
+    Color:FBColor
     """Read Write Property: Color of skeleton node."""
-    Length:property    
+    Length:float
     """Read Write Property: Length of skeleton node. (Note: Only effective when the look is set to: Capsule)"""
-    LinkFollowGeometryOffset:property    
+    LinkFollowGeometryOffset:bool
     """Read Write Property: Whether link to parent node must follow skeleton node or not, when skeleton node has a geometry offset."""
-    Look:property    
+    Look:FBSkeletonLook
     """Read Write Property: Look of skeleton node."""
-    PreserveLinkEndPosition:property    
+    PreserveLinkEndPosition:bool
     """Read Write Property: Whether skeleton node must preserve its links' end position to children nodes, when skeleton node has a geometry offset. (Note: Only effective when the look is set to: Bone, Box or Stick)"""
-    Resolution:property    
+    Resolution:FBSkeletonResolutionLevel
     """Read Write Property: Resolution of skeleton node. (Note: Only effective when the look is set to: Sphere, Capsule or Stick)"""
-    Size:property    
+    Size:float
     """Read Write Property: Size (not related to scaling)."""
     def GetSkinModelList(self,SkinModelList:FBModelList):
         """Return the list of skin model associated with this Skeleton(Bone), which could be the deformable skins connected via cluster, or non deformable skins which are parented directly under this bone.
@@ -9441,61 +9441,61 @@ class FBAudioIn(FBComponent):
 class FBAudioClip(FBComponent):
     """Used to play audio clips and access their properties.
     This class permits you to access audio clip's properties to read or change them. See sample: AudioTrackSetupTool.py."""
-    AccessMode:property    
+    AccessMode:FBAccessMode
     """Read Write Property: Specify the media data access mode between disk or memory."""
-    Bits:property    
+    Bits:int
     """Read Only Property: the bits of media."""
-    Channels:property    
+    Channels:int
     """Read Only Property: the number of channels in use."""
-    ClipSpeed:property    
+    ClipSpeed:float
     """Read Write Property: The speed of the media when being played."""
-    ConstrainDstToTake:property    
+    ConstrainDstToTake:bool
     """Read Write Property: Indicates whether to constrain the EndPoint to the end of the take."""
-    CurrentTake:property    
+    CurrentTake:FBTake
     """Read Write Property: The take this media belongs to."""
-    Destination:property    
+    Destination:FBAudioOut
     """Read Write Property: The audio output destination where the clip will be played."""
-    DstDuration:property    
+    DstDuration:FBTime
     """Read Write Property: When not used in the Story, this specify when the clips stops playing."""
-    DstEnd:property    
+    DstEnd:FBTime
     """Read Write Property: Total duration of this audio clip."""
-    DstIn:property    
+    DstIn:FBTime
     """Read Write Property: When not used in the Story, this specify when the clips begin to play."""
-    Duration:property    
+    Duration:FBTime
     """[Deprecated]Read Write Property: Refer to DstDuration."""
-    EndPoint:property    
+    EndPoint:FBTime
     """[Deprecated]Read Write Property: Refer to DstEnd."""
-    Filename:property    
+    Filename:str
     """[Deprecated]Read Only Property: Refer to Path"""
-    Format:property    
+    Format:int
     """Read Only Property: Data format of media, including rate, bits and channels count. You can typecast it to a FBAudioFmt."""
-    InPoint:property    
+    InPoint:FBTime
     """[Deprecated]Read Write Property: Refer to DstIn."""
-    LockClipSpeed:property    
+    LockClipSpeed:bool
     """Read Write Property: Indicates whether to lock the current playing speed."""
-    LockPitchToSpeed:property    
+    LockPitchToSpeed:bool
     """Read Write Property: Time stretch enabled factor."""
-    Path:property    
+    Path:str
     """Read Only Property: Full Path of the media."""
-    Pitch:property    
+    Pitch:float
     """Read Write Property: The audio clip pitch value. To write to this property, you must first set LockPitchToSpeed property to false."""
-    Rate:property    
+    Rate:int
     """Read Only Property: the rate of media."""
-    RelativePath:property    
+    RelativePath:str
     """Read Only Property: Relative path of media."""
-    Scrubbing:property    
+    Scrubbing:bool
     """Read Write Property: Control which clip (one at a time) can shuttle when playing a various speeds."""
-    SrcDuration:property    
+    SrcDuration:FBTime
     """Read Only Property: The duration time of media."""
-    SrcEnd:property    
+    SrcEnd:FBTime
     """Read Only Property: The end time of media."""
-    SrcIn:property    
+    SrcIn:FBTime
     """Read Only Property: The begin time of media."""
-    TakeSetsInPoint:property    
+    TakeSetsInPoint:bool
     """[Deprecated]Read Write Property: Indicates whether to lock the InPoint to the start of the take."""
-    UseChannel:property    
+    UseChannel:FBUseChnMode
     """Read Write Property: Enables you to control which track are used with stereo clips."""
-    UseChannelMode:property    
+    UseChannelMode:FBUseChnMode
     """[Deprecated]Read Write Property: Enables you to control which track are used with stereo clips."""
     def IsMediaReady(self)->bool:
         """Check if the audio clip constructed properly.
@@ -9516,11 +9516,11 @@ class FBAudioClip(FBComponent):
         ...
 class FBAssetMng(FBComponent):
     """Used to access asset manager functionity to get files locally or from a server."""
-    Description:property    
+    Description:str
     """Read Write Property: Description of the manager."""
-    LastError:property    
+    LastError:str
     """Last error string."""
-    MenuFlags:property    
+    MenuFlags:int
     """Read Write Property: Flags specifing which menu items are added by the manager."""
     def BrowseForFile(self)->object:
         """Let the user browse the asset database to select a file.
@@ -9600,7 +9600,7 @@ class FBAssetMng(FBComponent):
         ...
 class FBAssetItem(FBComponent):
     """Base class for all managed assets."""
-    LastError:property    
+    LastError:str
     """Last error string."""
     def CheckIn(self,Comment:str,KeepCheckedOut:object,Silent:object)->bool:
         """Checks in this item and all its children (if this is a folder item).
@@ -9661,29 +9661,29 @@ class FBAssetItem(FBComponent):
 class FBApplication(FBComponent):
     """FBApplication is used mainly to manage files.
     It provides functionality like that in the MotionBuilder file menu, for example, open file, save file.Note that event registration is instanced-based. When an FBApplication object is destroyed, all the event callbacks are unregistered. If you want to have a tool to be notified of events, it needs to have a FBApplication data member. See samples: FBFbxOptions.py, FBSystemEvents.py, ImportWithNamespace.py, BatchExportCharacterAnimationTool.py, ExportAnimationLibrary.py, SaveOneTakePerFile.py."""
-    CurrentActor:property    
+    CurrentActor:FBActor
     """Read Write Property: Indicate the current actor, as used by the character tool. Can be NULL. If not null, CurrentCharacter must be null, as the character tool works on only one item at a time."""
-    CurrentCharacter:property    
+    CurrentCharacter:FBCharacter
     """Read Write Property: Indicate the current character, as used by the character tool. Can be NULL. If not null, CurrentActor must be null, as the character tool works on only one item at a time. See sample: CurrentCharacterGoToStancePose.py."""
-    FBXFileName:property    
+    FBXFileName:str
     """Read Write Property: Current scene filename."""
-    OnFileExit:property    
+    OnFileExit:FBEvent
     """Event: A File Exit as been requested, nothing has been destroyed yet."""
-    OnFileMerge:property    
+    OnFileMerge:FBEvent
     """Event: A File Merge has been requested, nothing has been loaded yet."""
-    OnFileNew:property    
+    OnFileNew:FBEvent
     """Event: A File New has been requested, nothing has been destroyed yet."""
-    OnFileNewCompleted:property    
+    OnFileNewCompleted:FBEvent
     """Event: A File New has been completed."""
-    OnFileOpen:property    
+    OnFileOpen:FBEvent
     """Event: A File Open has been requested, nothing has been loaded yet."""
-    OnFileOpenCompleted:property    
+    OnFileOpenCompleted:FBEvent
     """Event: A File Open has been completed."""
-    OnFileSave:property    
+    OnFileSave:FBEvent
     """Event: A File Save has been requested, nothing has been saved yet."""
-    OnFileSaveCompleted:property    
+    OnFileSaveCompleted:FBEvent
     """Event: A File Save has been completed."""
-    OnOverrideFileOpen:property    
+    OnOverrideFileOpen:FBEventOverrideFileOpen
     """Event: Called when a file is about to be opened/merged. The user can override the process with his own file import system."""
     def AudioRender(self,AudioRenderOptions:FBAudioRenderOptions)->bool:
         """Render audio of current scene to media file, currently WAV file only.
@@ -9990,23 +9990,23 @@ class FBAssetFolder(FBAssetItem):
         ...
 class FBAnimationNode(FBComponent):
     """See samples: CopyAnimation.py, ClearKeysOnSelectedModels.py, TraversingRelationConstraint.py, FCurveEditor.py."""
-    ConnectorType:property    
+    ConnectorType:property
     """Read Only Property: Animation node connector type."""
-    DefaultInterpolation:property    
+    DefaultInterpolation:property
     """Read Write Property: Default type of interpolation."""
-    FCurve:property    
+    FCurve:property
     """Read Write Property: FCurve for animation. See sample: StartKeysAtCurrentTime.py."""
-    KeyCount:property    
+    KeyCount:property
     """Read Only Property: Number of keys."""
-    Label:property    
+    Label:property
     """Read Write Property: Label (UI Name)."""
-    Live:property    
+    Live:property
     """Read Write Property: Is animation live?"""
-    Nodes:property    
+    Nodes:property
     """List: List of animation nodes."""
-    RecordMode:property    
+    RecordMode:property
     """Read Write Property: Is the node in recording mode (device connectors)?"""
-    UserName:property    
+    UserName:property
     """Read Only Property: Name of animation node."""
     def ConvertGlobalToNodeTime(self,KeyTime:FBTime)->FBTime:
         """Convert global time to node time.
@@ -10094,17 +10094,17 @@ class FBAnimationNode(FBComponent):
 class FBAnimationLayer(FBComponent):
     """Used to access animation layer properties and modify them.
     Changing the various properties of the layers will modify how the animation will be interpreted. For example, muting a layer will mute all the animation contained on the layer. You can access the animation layer object from the take, usign the FBTake::GetLayer() and FBTake::GetLayerByName(). See the FBTake class for more details. See samples: AnimationLayers.py, MergeAnimationLayers.py."""
-    LayerMode:property    
+    LayerMode:FBLayerMode
     """Read Write Property: Layer mode. By default, the layer is in kFBLayerModeAdditive mode. Cannot be applied to the BaseAnimation Layer."""
-    LayerRotationMode:property    
+    LayerRotationMode:FBLayerRotationMode
     """Read Only Property: Layer rotation mode. Cannot be applied to the BaseAnimation Layer."""
-    Lock:property    
+    Lock:bool
     """Read Write Property: If true, the layer is locked. You cannot modify keyframes on a locked layer."""
-    Mute:property    
+    Mute:bool
     """Read Write Property: If true, the layer is muted. A muted layer is not included in the result animation. Cannot be applied to the BaseAnimation Layer."""
-    Solo:property    
+    Solo:bool
     """Read Write Property: If true, the layer is soloed. When you solo a layer, you mute other layers that are at the same level in the hierarchy, as well as the children of those layers. Cannot be applied to the BaseAnimation Layer."""
-    Weight:property    
+    Weight:float
     """Read Write Property: The weight value of a layer determines how much it is present in the result animation. Takes a value from 0 (the layer is not present) to 100. The weighting of a parent layer is factored into the weighting of its child layers, if any. BaseAnimation Layer always has a Weight of 100."""
     def AddChildLayer(self,AnimationLayer:FBAnimationLayer):
         """Add a child to the layer.
@@ -10192,7 +10192,7 @@ class FBConstraintManager(FBComponent):
         ...
 class FBConstructionHistory(FBComponent):
     """Access to global construction history functionality."""
-    OnChange:property    
+    OnChange:FBEvent
     """Event: History changed."""
     def GetDeltaOperations(self,Operations:list,sinceCommandId:object):
         """GetDeltaOperations Get the list of delta operations in the construction history.
@@ -10231,9 +10231,9 @@ class FBConstructionHistory(FBComponent):
 class FBControlSet(FBComponent):
     """Control set class.
     These classes are under development and may change dramatically between versions."""
-    ControlSetType:property    
+    ControlSetType:FBControlSetType
     """Read Property: the control Set Type (FKIK or IK)."""
-    UseAxis:property    
+    UseAxis:bool
     """Read Write Property: is using axis."""
     def GetFKIndex(self,Model:FBModel)->int:
         """Return The Index of the Given Model.
@@ -10309,31 +10309,31 @@ class FBCycleCreator(FBComponent):
         ...
 class FBDeck(FBComponent):
     """Interface to a tape deck."""
-    CassetteInside:property    
+    CassetteInside:bool
     """Read Only Property: Is the cassette inside?"""
-    EE:property    
+    EE:bool
     """Read Write Property: Is EE on?"""
-    IconFilename:property    
+    IconFilename:str
     """Read Write Property: Filename of icon for deck."""
-    Latency:property    
+    Latency:FBTime
     """Read Write Property: Latency of response for the deck;"""
-    Offset:property    
+    Offset:FBTime
     """Read Write Property: Current offset for the TC."""
-    Online:property    
+    Online:bool
     """Read Write Property: Is deck online?"""
-    PlayingBackward:property    
+    PlayingBackward:bool
     """Read Only Property: Playing backwards?"""
-    PlayingForward:property    
+    PlayingForward:bool
     """Read Only Property: Playing forward?"""
-    PostRoll:property    
+    PostRoll:FBTime
     """Read Write Property: Post-Roll."""
-    PreRoll:property    
+    PreRoll:FBTime
     """Read Write Property: Pre-Roll."""
-    StandBy:property    
+    StandBy:bool
     """Read Write Property: In standby mode?"""
-    TransportControl:property    
+    TransportControl:FBDeckTransportMode
     """Read Write Property: Mode w/r to TC (None, Sync, Main );"""
-    UniqueName:property    
+    UniqueName:str
     """internal Unique name."""
     def CueAt(self,Time:FBTime):
         """Cue deck at a given time.
@@ -10383,15 +10383,15 @@ class FBDeck(FBComponent):
     def ThreadSync(self):...
 class FBDeformer(FBComponent):
     """Base Model deformer class."""
-    DeformerType:property    
+    DeformerType:FBDeformerType
     """Read Only Property: Deformer Type."""
 class FBDeviceInstrument(FBComponent):
     """Instrument abstraction layer."""
-    Active:property    
+    Active:bool
     """Read Write Property: Is instrument active?"""
-    Device:property    
+    Device:FBDevice
     """Read Write Property: Handle to owner device."""
-    ModelTemplate:property    
+    ModelTemplate:FBModelTemplate
     """Read Write Property: Model template to build instruments' structure."""
     def InstrumentRecordFrame(self,RecordTime:FBTime,NotifyInfo:FBDeviceNotifyInfo):
         """Record the data to the function curves for the instrument.
@@ -10408,34 +10408,34 @@ class FBDeviceInstrument(FBComponent):
         ...
 class FBDeformerPointCache(FBDeformer):
     """Base Model deformer class."""
-    Active:property    
+    Active:bool
     """Read Write Property: Active."""
-    ChannelCount:property    
+    ChannelCount:int
     """Read Only Property: Channel Count."""
-    ChannelEnd:property    
+    ChannelEnd:FBTime
     """Read Only Property: Channel End."""
-    ChannelFrameRate:property    
+    ChannelFrameRate:float
     """Read Only Property: Channel FrameRate."""
-    ChannelIndex:property    
+    ChannelIndex:int
     """Read Write Property: Channel Index."""
-    ChannelName:property    
+    ChannelName:str
     """Read Only Property: Channel Name."""
-    ChannelPointCount:property    
+    ChannelPointCount:int
     """Read Only Property: Channel Point Count."""
-    ChannelSampleRegular:property    
+    ChannelSampleRegular:bool
     """Read Only Property: Channel Sample Regular."""
-    ChannelStart:property    
+    ChannelStart:FBTime
     """Read Only Property: Channel Start."""
-    PointCacheFile:property    
+    PointCacheFile:FBPointCacheFile
     """Read Write Property: Point Cache File Object."""
 class FBDeviceOpticalMarker(FBComponent):
     """Device optical marker.
     A device optical marker represents the input locations for interfacing optical hardware. This type of marker corresponds uniquely to the input (from the hardware) and will be represented on-screen by a FBModelMarkerOptical."""
-    IsUsed:property    
+    IsUsed:bool
     """Property: Is marker used?"""
-    Model:property    
+    Model:FBModel
     """Property: Model marker access."""
-    Occlusion:property    
+    Occlusion:float
     """Property: Occulsion data for marker."""
     Translation:property
     def SetData(self,X:object,Y:object,Z:object,Occlusion:object):
@@ -10447,27 +10447,27 @@ class FBDeviceOpticalMarker(FBComponent):
         Occlusion : Occulsion information for marker(default=0.0)."""
         ...
 class FBEvaluateManager(FBComponent):
-    DeviceCount:property    
+    DeviceCount:int
     """Read only Property: Number of devices to evaluate."""
-    DualQuaternionSkinning:property    
+    DualQuaternionSkinning:bool
     """Read/Write Property: Using state of the Dual Quaternion for skinning (CPU Skinning or GPU Skinning)."""
-    FrameSkipOptimization:property    
+    FrameSkipOptimization:bool
     """Read/Write Property: if true, apply frame skip optimization during playback. off-line rendering don't use frame skip optimization."""
-    NodeCount:property    
+    NodeCount:int
     """Read only Property: Number of nodes to evaluate."""
-    OnRenderingPipelineEvent:property    
+    OnRenderingPipelineEvent:property
     """For callback events at rendering pipeline."""
-    OnSynchronizationEvent:property    
+    OnSynchronizationEvent:property
     """For callback events at synchronization point."""
-    ParallelDeformation:property    
+    ParallelDeformation:bool
     """Read/Write Property: true if deformation is evaluated in parallel."""
-    ParallelEvaluation:property    
+    ParallelEvaluation:bool
     """Read/Write Property: true if parallel DAG schedule algorithm is being used. false when serial algorithm is being used."""
-    ParallelPipeline:property    
+    ParallelPipeline:bool
     """Read/Write Property: true if transformation is evaluated in parallel."""
-    ParallelScheduleType:property    
+    ParallelScheduleType:FBParallelScheduleType
     """DEPRICATED Read/Write Property: choose between serial and parallel DAG schedule algorithm. kFBParallelScheduleSimple and kFBParallelScheduleAdvanced will set ParallelEvalution to true. kFBParallelScheduleSerial will set ParallelEvalution to false"""
-    UseGPUDeformation:property    
+    UseGPUDeformation:bool
     """Read/Write Property: true if GPU deformation is used."""
     def InvalidateDAG(self):
         """Invalidate the DAG and trigger parallel scheduling at the next frame."""
@@ -10480,7 +10480,7 @@ class FBEvaluateManager(FBComponent):
 class FBFCurve(FBComponent):
     """FCurve class.
     See samples: ClearKeysOnSelectedModels.py, FCurveEditor.py."""
-    Keys:property    
+    Keys:FBPropertyListFCurveKey
     """List: Keys."""
     def CreateInterpolatorCurve(self,CurveType:FBInterpolatorCurveType)->object:
         """Create and interpolator curve.
@@ -10866,9 +10866,9 @@ class FBFCurveEditorUtility(FBComponent):
 class FBFCurveEventManager(FBComponent):
     """FCurve Event Manager Interface to the FBFCurveEventManager.
     This class is used to track the changes on a FCurve of a property."""
-    OnFCurveEvent:property    
+    OnFCurveEvent:property
     """Event: Called when a registered FCurve is modified."""
-    OnPropertyEvent:property    
+    OnPropertyEvent:property
     """Event: Called when a registered property state is modified (detached, destroyed...)."""
     def RegisterProperty(self,Property:FBPropertyAnimatable)->bool:
         """Register a property to the FCurve Event Manager.
@@ -10887,159 +10887,159 @@ class FBFCurveEventManager(FBComponent):
 class FBFbxOptions(FBComponent):
     """Customize file loading and saving.
     See samples: FBFbxOptions.py, ImportWithNamespace.py, BatchExportCharacterAnimationTool.py."""
-    ActorFaces:property    
+    ActorFaces:FBElementAction
     """Read Write Property: Handling of the Actor Faces elements."""
-    ActorFacesAnimation:property    
+    ActorFacesAnimation:bool
     """Read Write Property: Handling of the Actor Faces animation."""
-    Actors:property    
+    Actors:FBElementAction
     """Read Write Property: Handling of the Actors elements."""
-    Audio:property    
+    Audio:FBElementAction
     """Read Write Property: Handling of the Audio elements."""
-    BaseCameras:property    
+    BaseCameras:bool
     """Read Write Property: Consider base camera settings."""
-    Bones:property    
+    Bones:FBElementAction
     """Read Write Property: Handling of the Bones elements."""
-    BonesAnimation:property    
+    BonesAnimation:bool
     """Read Write Property: Handling of the Bones animation."""
-    CacheSize:property    
+    CacheSize:int
     """Read Write Property: The Cached buffer size used to accelerate IO system."""
-    CameraSwitcherSettings:property    
+    CameraSwitcherSettings:bool
     """Read Write Property: Consider camera switcher settings."""
-    Cameras:property    
+    Cameras:FBElementAction
     """Read Write Property: Handling of the Cameras elements."""
-    CamerasAnimation:property    
+    CamerasAnimation:bool
     """Read Write Property: Handling of the Cameras animation."""
-    CharacterExtensions:property    
+    CharacterExtensions:FBElementAction
     """Read Write Property: Handling of the Character Extensions."""
-    CharacterFaces:property    
+    CharacterFaces:FBElementAction
     """Read Write Property: Handling of the Character Faces elements."""
-    CharacterFacesAnimation:property    
+    CharacterFacesAnimation:bool
     """Read Write Property: Handling of the Character Faces animation."""
-    Characters:property    
+    Characters:FBElementAction
     """Read Write Property: Handling of the Characters elements."""
-    CharactersAnimation:property    
+    CharactersAnimation:bool
     """Read Write Property: Handling of the Characters animation."""
-    ClearSelectionBeforeSave:property    
+    ClearSelectionBeforeSave:bool
     """Read Write Property: Set to true if the current selected objects shouldn't saved when call FBApplication::SaveCharacterRigAndAnimation."""
-    ConsiderMuteSolo:property    
+    ConsiderMuteSolo:bool
     """Read Write property: Consider the mute/solo settings to identify identical layer when merging."""
-    Constraints:property    
+    Constraints:FBElementAction
     """Read Write Property: Handling of the Constraints elements."""
-    ConstraintsAnimation:property    
+    ConstraintsAnimation:bool
     """Read Write Property: Handling of the Constraints animation."""
-    CopyCharacterExtensions:property    
+    CopyCharacterExtensions:bool
     """Read Write Property:CopyMissingExtensions Set to true if the character extensions on the rig in the file should be copied to the target rig."""
-    CurrentCameraSettings:property    
+    CurrentCameraSettings:bool
     """Read Write Property: Consider current camera settings."""
-    Devices:property    
+    Devices:FBElementAction
     """Read Write Property: Handling of the Devices elements."""
-    DevicesAnimation:property    
+    DevicesAnimation:bool
     """Read Write Property: Handling of the Devices animation."""
-    EmbedMedia:property    
+    EmbedMedia:bool
     """Read Write Property: Embed all media in the FBX file itself. When saving in ASCII mode it is not possible to embed media."""
-    FileFormatAndVersion:property    
+    FileFormatAndVersion:FBFileFormatAndVersion
     """Read Write Property: File format and version chosen to save the scene."""
-    FileReference:property    
+    FileReference:bool
     """Read Write property: Load/Save scene as FileReference."""
-    FileReferenceEdit:property    
+    FileReferenceEdit:bool
     """Read Write Property: Load/Save the edits made to referenced objects or not."""
-    FileReferences:property    
+    FileReferences:FBElementAction
     """Read Write Property: Handling of the FileReferences elements."""
-    GlobalLightingSettings:property    
+    GlobalLightingSettings:bool
     """Read Write Property: Consider global Lighting settings."""
-    Groups:property    
+    Groups:FBElementAction
     """Read Write Property: Handling of the Groups elements."""
-    IgnoreConflicts:property    
+    IgnoreConflicts:bool
     """Read Write Property: Set to true to ignore conflicts between objects in character extensions and objects in the scene. Conflicting objects will be merged in the extension"""
-    KeepTransformHierarchy:property    
+    KeepTransformHierarchy:bool
     """Read Write Property: Indicate whether we keep transform hierarchy when SaveSelectedModelsOnly is true. Default value is false to ensure consistent behavior with SaveSelected operation via file menu."""
-    KeyingGroups:property    
+    KeyingGroups:FBElementAction
     """Read Write Property: Handling of the Keying Groups elements."""
-    Lights:property    
+    Lights:FBElementAction
     """Read Write Property: Handling of the Lights elements."""
-    LightsAnimation:property    
+    LightsAnimation:bool
     """Read Write Property: Handling of the Lights animation."""
-    Materials:property    
+    Materials:FBElementAction
     """Read Write Property: Handling of the Materials elements."""
-    MaterialsAnimation:property    
+    MaterialsAnimation:bool
     """Read Write Property: Handling of the Materials animation."""
-    Models:property    
+    Models:FBElementAction
     """Read Write Property: Handling of the Models elements."""
-    ModelsAnimation:property    
+    ModelsAnimation:bool
     """Read Write Property: Handling of the Models animation."""
-    NamespaceList:property    
+    NamespaceList:str
     """Read Write Property: A list of namespaces separated by '~'. On Load, duplicate the loaded objects into each namespace in the list. If the SetMultiLoadNamespaceList method is also called, this property is ignored."""
-    Notes:property    
+    Notes:FBElementAction
     """Read Write Property: Handling of the Notes elements."""
-    NotesAnimation:property    
+    NotesAnimation:bool
     """Read Write Property: Handling of the Notes animation."""
-    OpticalData:property    
+    OpticalData:FBElementAction
     """Read Write Property: Handling of the Optical Data elements."""
-    PhysicalProperties:property    
+    PhysicalProperties:FBElementAction
     """Read Write Property: Handling of the Physical Properties elements."""
-    PhysicalPropertiesAnimation:property    
+    PhysicalPropertiesAnimation:bool
     """Read Write Property: Handling of the Physical Properties animation."""
-    Poses:property    
+    Poses:FBElementAction
     """Read Write Property: Handling of the Poses elements."""
-    ProcessAnimationOnExtension:property    
+    ProcessAnimationOnExtension:bool
     """Read Write Property: Set to true if animation on character extensions should also be transferred."""
-    RemoveConstraintReference:property    
+    RemoveConstraintReference:bool
     """Read Write Property: Set to true if we should remove constraint reference."""
-    RemoveEmptyLayer:property    
+    RemoveEmptyLayer:bool
     """Read Write property: Remove empty animation layers that are in additive mode, without child or parent."""
-    ReplaceControlSet:property    
+    ReplaceControlSet:bool
     """Read Write Property: Set to true if the character extensions (and their children) should be saved when call FBApplication::SaveCharacterRigAndAnimation."""
-    ResetDOF:property    
+    ResetDOF:bool
     """Read Write Property: Set to true if we should change the limits on the target rig."""
-    ResetHierarchy:property    
+    ResetHierarchy:bool
     """Read Write Property: Set to true if we should reset the character hierarchy."""
-    RetargetOnBaseLayer:property    
+    RetargetOnBaseLayer:bool
     """Read Write Property: If the transfer method is retarget, set this parameter to control where the retarget correction will be made (on base layer or on another layer)."""
-    SaveCharacter:property    
+    SaveCharacter:bool
     """Read Write Property: Set to true if the character should be saved when call FBApplication::SaveCharacterRigAndAnimation."""
-    SaveCharacterExtensions:property    
+    SaveCharacterExtensions:bool
     """Read Write Property: Set to true if the character extensions (and their children) should be saved when call FBApplication::SaveCharacterRigAndAnimation."""
-    SaveControlSet:property    
+    SaveControlSet:bool
     """Read Write Property: Set to true if the rig (and its children) should be saved when call FBApplication::SaveCharacterRigAndAnimation."""
-    SaveSelectedModelsOnly:property    
+    SaveSelectedModelsOnly:bool
     """Read Write Property: Indicate that only the selected models will be saved."""
-    Scripts:property    
+    Scripts:FBElementAction
     """Read Write Property: Handling of the Scripts elements."""
-    SetPropertyStaticIfPossible:property    
+    SetPropertyStaticIfPossible:bool
     """Read Write Property: Set to false if want to keep properties' animated flag even when they are not really animated(no keyframe data) while retrieving/storing. See sample: SetPropertyStaticIfPossibleOption.py."""
-    Sets:property    
+    Sets:FBElementAction
     """Read Write Property: Handling of the Sets elements."""
-    Shaders:property    
+    Shaders:FBElementAction
     """Read Write Property: Handling of the Shaders elements."""
-    ShadersAnimation:property    
+    ShadersAnimation:bool
     """Read Write Property: Handling of the Shaders animation."""
-    ShowFileDialog:property    
+    ShowFileDialog:bool
     """Read Write Property: Set to true if want to pop up dialog for FileName, Format, Embed, Compression, UseTakeName, OneTakePerFile."""
-    ShowOptionsDialog:property    
+    ShowOptionsDialog:bool
     """Read Write Property: Set to true if want to pop up options dialog for detail settings."""
-    Solvers:property    
+    Solvers:FBElementAction
     """Read Write Property: Handling of the Solvers elements."""
-    SolversAnimation:property    
+    SolversAnimation:bool
     """Read Write Property: Handling of the Solvers animation."""
-    Story:property    
+    Story:FBElementAction
     """Read Write Property: Handling of the Story elements."""
-    StoryAnimation:property    
+    StoryAnimation:bool
     """Read Write Property: Handling of the Story animation (animatable properties on story objects)."""
-    TakeSpan:property    
+    TakeSpan:FBTakeSpanOnLoad
     """Read Write Property: Indicate how the take start and end point should be set. By default it is read from the file."""
-    Textures:property    
+    Textures:FBElementAction
     """Read Write Property: Handling of the Textures elements."""
-    TexturesAnimation:property    
+    TexturesAnimation:bool
     """Read Write Property: Handling of the Textures animation."""
-    TransferMethod:property    
+    TransferMethod:FBCharacterLoadAnimationMethod
     """Read Write Property: How should the animation should be transfered on the target rig."""
-    TransportSettings:property    
+    TransportSettings:bool
     """Read Write Property: Consider transport control settings."""
-    UpdateRecentFiles:property    
+    UpdateRecentFiles:bool
     """Read Write Property: Set to true to update recent file list."""
-    UseASCIIFormat:property    
+    UseASCIIFormat:bool
     """Read Write Property: Indicate if the resulting FBX file will be in binary or ASCII mode."""
-    Video:property    
+    Video:FBElementAction
     """Read Write Property: Handling of the Video elements."""
     def GetMultiLoadNamespaceList(self)->FBStringList:
         """Returns the list of namespaces that will be used when merging multiple scenes (see FBApplication::FileMerge).
@@ -11152,13 +11152,13 @@ class FBFbxOptions(FBComponent):
         ...
 class FBFileMonitoringManager(FBComponent):
     """File Change Monitoring Interface to the file change monitoring."""
-    OnFileChangeAnimationClip:property    
+    OnFileChangeAnimationClip:FBEvent
     """Event: Animation clip file change event."""
-    OnFileChangeFileReference:property    
+    OnFileChangeFileReference:FBEvent
     """Event: File Reference file change event."""
-    OnFileChangeMainScene:property    
+    OnFileChangeMainScene:FBEvent
     """Event: Main scene file change event."""
-    OnFileChangePythonEditorScript:property    
+    OnFileChangePythonEditorScript:FBEvent
     """Event: Python Editor Script file change event."""
     def AddFileToMonitor(self,FilePath:str,FileMonitoringType:FBFileMonitoringType):
         """Add file to monitor.
@@ -11219,9 +11219,9 @@ class FBFilter(FBComponent):
     # the object's translation animation.
     lFilter.PropertyList.Find( 'Precision' ).Data = 2.0
     lFilter.Apply( lModel.Translation.GetAnimationNode(), True )"""
-    Start:property    
+    Start:FBTime
     """Read Write Property: Start time of the filtering region"""
-    Stop:property    
+    Stop:FBTime
     """Read Write Property: Stop time of the filtering region"""
     def Apply(self,Node:FBAnimationNode,Recursive:object)->bool:
         """Apply the filter to an animation node.
@@ -11237,7 +11237,7 @@ class FBFilter(FBComponent):
 class FBFolder(FBComponent):
     """Folder class.
     This class is an interface to manipulate folders in the scene. See sample: FBFolder.py."""
-    Items:property    
+    Items:FBPropertyListComponent
     """List: List of components in the folder."""
 class FBGenericMenu(FBComponent):
     """A GenericMenu class.
@@ -11276,7 +11276,7 @@ class FBGenericMenu(FBComponent):
     
     
     You can also delete a Menu item: this will remove the item from the menu as well as freeing its memory.To be notified when a menuitem is clicked, you can register using OnMenuActivate. This will send a FBEventMenu containing the name and the Id of the menu item that was clicked. See sample: FBMenu.py."""
-    OnMenuActivate:property    
+    OnMenuActivate:FBEvent
     """Event Property: Register on this property to be notified when a menu item is clicked by the user."""
     def DeleteItem(self,ToDelete:FBGenericMenuItem):
         """Remove a menu item from the menu and delete it.
@@ -11361,34 +11361,34 @@ class FBGenericMenu(FBComponent):
 class FBGenericMenuItem(FBComponent):
     """FBGenericMenuItem This class stores data for a single menu item.
     A single menu item can contains another menu (embedded menu) or not. A GenericMenuItem has an Id and a Name.You can use a GenericMenuItem to modify the attributes of a menu (it is the only way to change its name).You cannot create a FBGenericMenuItem directly. You must use the insertion method in FBMenu of FBMenuManager to obtain a handle on a FBGenericMenuItem. See sample: FBMenu.py."""
-    Caption:property    
+    Caption:str
     """Read/Write Property: Caption of the menu item."""
-    Enable:property    
+    Enable:bool
     """Read/Write Property: Enable or Disable (grey out) a menu Item."""
-    Id:property    
+    Id:int
     """Read/Write Property: Id of the menu item."""
-    Menu:property    
+    Menu:FBGenericMenu
     """Read/Write Property: If the menu item leads to another menu."""
 class FBGeometry(FBComponent):
     """Geometry class.
     This class groups all geometry related elements which are shared across the different subclasses (FBMesh, FBSurface, FBNurbs and FBPatch). Geometry Material always use kFBGeometryReference_INDEX mode. While Normal, UV could have different combination of mapping and reference modes.Geometries created with SDK can support FBGeometryMapping_ALL_SAME or kFBGeometryMapping_BY_POLYGON for material, and kFBGeometryMapping_BY_CONTROL_POINT for Normal, Tangent, Binormal, Color and UV. Only one set of UV could be supported.Geometries passed from FBXSDK pipeline could have various complex mapping/reference mode combination for material, normal and UV. And could potentially contains multiple set of UVs. See samples: ShapeCreation.py, VertexArrayManipulation.py."""
-    BinormalMappingMode:property    
+    BinormalMappingMode:FBGeometryMappingMode
     """Read Only Property: Binormal mapping mode."""
-    BinormalReferenceMode:property    
+    BinormalReferenceMode:FBGeometryReferenceMode
     """Read Only Property: Binormal reference mode."""
-    MaterialMappingMode:property    
+    MaterialMappingMode:FBGeometryMappingMode
     """Read Property: Material mapping mode."""
-    NormalMappingMode:property    
+    NormalMappingMode:FBGeometryMappingMode
     """Read Only Property: Normal mapping mode."""
-    NormalReferenceMode:property    
+    NormalReferenceMode:FBGeometryReferenceMode
     """Read Only Property: Normal reference mode."""
-    TangentMappingMode:property    
+    TangentMappingMode:FBGeometryMappingMode
     """Read Only Property: Tangent mapping mode."""
-    TangentReferenceMode:property    
+    TangentReferenceMode:FBGeometryReferenceMode
     """Read Only Property: Tangent reference mode."""
-    VertexColorMappingMode:property    
+    VertexColorMappingMode:FBGeometryMappingMode
     """Read Only Property: Vertex Color mapping mode."""
-    VertexColorReferenceMode:property    
+    VertexColorReferenceMode:FBGeometryReferenceMode
     """Read Only Property: Vertex Color reference mode."""
     def GeometryBegin(self)->bool:
         """Begin geometry editing.
@@ -11700,7 +11700,7 @@ class FBGeometry(FBComponent):
         return : true if successful."""
         ...
 class FBHUDManager(FBComponent):
-    DefaultHUD:property    
+    DefaultHUD:property
     """Read Write Property: Specifies the HUD to be displayed on cameras that do not have HUD explicitly assigned."""
 class FBMesh(FBGeometry):
     """Mesh class.
@@ -11792,19 +11792,19 @@ class FBMesh(FBGeometry):
 class FBImage(FBComponent):
     """Image class.
     Utility class used to load and get manipulate image data from disk or memory. See sample: VideoMemory.py."""
-    Depth:property    
+    Depth:int
     """Read Write Property: Color depth of the image."""
-    Format:property    
+    Format:FBImageFormat
     """Read Write Property: Image data format."""
-    Height:property    
+    Height:int
     """Read Write Property: Height of the image in pixels."""
-    InterleaveType:property    
+    InterleaveType:FBImageInterleaveType
     """Read Only Property: Image interleave type. Only meaningful if image type is field."""
-    InterpolationType:property    
+    InterpolationType:FBImageInterpolationType
     """Read Only Property: Image interpolation type."""
-    Type:property    
+    Type:FBImageType
     """Read Only Property: Image type, refering to either frame or field."""
-    Width:property    
+    Width:int
     """Read Write Property: Width of the image in pixels."""
     def Cleanup(self):
         """Cleanup image data, making it black."""
@@ -11854,9 +11854,9 @@ class FBImage(FBComponent):
 class FBKeyControl(FBComponent):
     """Key control.
     Interface to use the key controls tool. See sample: MirrorPoseOverTime.py."""
-    AutoKey:property    
+    AutoKey:bool
     """Read Write Property: Enable/Disable Auto Key feature (key when moving 3D objects)."""
-    NewKeyInterpolationType:property    
+    NewKeyInterpolationType:FBNewKeyInterpolationType
     """Read Write Property: Current key interpolation type that will be used for new keys."""
     def MoveKeys(self,TimeSpan:FBTimeSpan,Pivot:FBModel,T:FBVector3d,R:FBVector3d,S:FBVector3d,Time:FBTime,ModelList:FBModelList):
         """Move animation keys in space, with respect to a pivot object.
@@ -12010,23 +12010,23 @@ class FBLogger(FBComponent):
 class FBCharacterExtension(FBKeyingGroup):
     """Objects Grouping class.
     This class is an interface to manipulate object's grouping in the scene. See sample: CreateCharacterExtensionOnSelectedObject.py."""
-    IncludePartInBodyPart:property    
+    IncludePartInBodyPart:bool
     """Read Write Property: Include or not this extension when the Body Part mode is active."""
-    IncludePartInFullBody:property    
+    IncludePartInFullBody:bool
     """Read Write Property: Include or not this extension when the Full Body mode is active."""
-    Label:property    
+    Label:str
     """Read Write Property: The logical name of the extension, use for mirroring."""
-    MirrorLabel:property    
+    MirrorLabel:int
     """Read Write Property: Enum that indicate which extension is used as mirror, 0 is none, 1 is self, 2-n represent the (ith - 2)character extension in the attached character excluding self."""
-    PlotAllowed:property    
+    PlotAllowed:FBPlotAllowed
     """Read Write Property: Controls if objects in the set are transformable."""
-    ReferenceModel:property    
+    ReferenceModel:FBModel
     """Read Write Property: Controls the referential of the extension."""
-    RetargetMode:property    
+    RetargetMode:FBCharacterExtensionRetargetMode
     """Read Write Property: Character extension retarget mode."""
-    StancePoseMode:property    
+    StancePoseMode:FBCharacterExtensionStancePoseMode
     """Read Write Property: Character extension stance pose mode."""
-    SyncActivationAndVisibilityMode:property    
+    SyncActivationAndVisibilityMode:FBSyncActivationAndVisibilityMode
     """Read Write Property: The 'Sync Activation & Visibility' mode."""
     def AddObjectProperties(self,Obj:FBComponent):
         """Add TR Properties from Object.
@@ -12137,17 +12137,17 @@ class FBCharacterExtension(FBKeyingGroup):
         ...
 class FBManipulator(FBComponent):
     """Manipulator class."""
-    Active:property    
+    Active:bool
     """Read Write Property: Is manipulator active?"""
-    AlwaysActive:property    
+    AlwaysActive:bool
     """Read Write Property: Is manipulator always active?"""
-    ConsumeEvent:property    
+    ConsumeEvent:bool
     """Read Write Property: Is manipulator consuming event? If true, this will prevent other manipulators from being called."""
-    DefaultBehavior:property    
+    DefaultBehavior:bool
     """Read Write Property: Using default manipulator behavior?"""
-    ViewerText:property    
+    ViewerText:str
     """Read Write Property: Text displayed in view."""
-    Visible:property    
+    Visible:bool
     """Read Write Property: Is manipulator visible?"""
 class FBMarkerSet(FBComponent):
     """Marker set class.
@@ -12376,27 +12376,27 @@ class FBMenuManager(FBComponent):
         ...
 class FBModelOpticalAdvanced(FBComponent):
     """Advanced optical model information."""
-    Active:property    
+    Active:bool
     """Property: Optical engine for model active?"""
-    AutoPlayToNextSegment:property    
+    AutoPlayToNextSegment:bool
     """Property: Automatic play to next segment ?"""
-    ControllerMode:property    
+    ControllerMode:FBControllerMode
     """Property: Controller mode."""
-    GenerationMode:property    
+    GenerationMode:FBGenerationMode
     """Property: Optical genration mode."""
-    InsertSegmentMode:property    
+    InsertSegmentMode:FBInsertSegmentMode
     """Property: Insert segment mode."""
-    MaxMatchDistance:property    
+    MaxMatchDistance:float
     """Property: Max matching distance."""
-    PlayToNextSegment:property    
+    PlayToNextSegment:bool
     """Property: Play to next segment ?"""
-    Quality:property    
+    Quality:FBAnimationNode
     """Property: Rigid body quality."""
-    SegmentMode:property    
+    SegmentMode:FBSegmentMode
     """Property: Segment mode."""
-    ShowRigidQuality:property    
+    ShowRigidQuality:bool
     """Property: Show the rigid quality?"""
-    UsedTake:property    
+    UsedTake:FBTake
     """Property: Take used by optical model."""
     def AcceptAllSegments(self):
         """Accept all segments."""
@@ -12416,19 +12416,19 @@ class FBModelOpticalAdvanced(FBComponent):
 class FBModelTemplate(FBComponent):
     """Model template class.
     Model templates are 'placeholders' for animation input from devices. These generic 'models' can be any type of element, and permit the abstraction of the input from the actual type of model. In order to animate a model, one should bind the model to an animation node."""
-    Bindings:property    
+    Bindings:FBPropertyListModelTemplateBinding
     """List: Bindings for animation interface."""
-    Children:property    
+    Children:FBPropertyListModelTemplate
     """List: Children for object hierarchy."""
-    DefaultRotation:property    
+    DefaultRotation:FBVector3d
     """Read Write Property: Default rotation."""
-    DefaultScaling:property    
+    DefaultScaling:FBVector3d
     """Read Write Property: Default scaling."""
-    DefaultTranslation:property    
+    DefaultTranslation:FBVector3d
     """Read Write Property: Default translation."""
-    Model:property    
+    Model:FBModel
     """Read Write Property: Model being interfaced."""
-    Prefix:property    
+    Prefix:str
     """Read Write Property: Prefix of model template."""
 class FBModelVertexData(FBComponent):
     def DisableOGLUVSet(self):
@@ -12650,49 +12650,49 @@ class FBModelVertexData(FBComponent):
 class FBMotionClip(FBComponent):
     """Motion class.
     Properties of this class are work in progress, but you can still list them and get their names."""
-    Filename:property    
+    Filename:str
     """Read Write Property: Filename and path of motion file."""
-    RelativePath:property    
+    RelativePath:str
     """Read Only Property: Relative path to the motion file."""
-    Start:property    
+    Start:FBTime
     """Read Only Property: Start time of clip."""
-    Stop:property    
+    Stop:FBTime
     """Read Only Property: Stop time of clip."""
 class FBMotionFileOptions(FBComponent):
     """Customize motion file loading."""
-    BaseRotationOnPreRotation:property    
+    BaseRotationOnPreRotation:bool
     """Read Write Property: If set to true, the base rotation will be imported as Pre Rotation. Used for htr, asf/amc files."""
-    BaseTranslationOnRotationOffset:property    
+    BaseTranslationOnRotationOffset:bool
     """Read Write Property: If set to true, the base translation will be imported as Rotation Pivot offset. Used for htr, asf/amc"""
-    CreateInsteadOfMerge:property    
+    CreateInsteadOfMerge:bool
     """Read Write Property: If set to true, the motion will imported/models will be created in the scene, if set to false, the motion will be merged."""
-    CreateOpticalSegments:property    
+    CreateOpticalSegments:bool
     """Read Write Property: If set to true, optical segments will be created. Used for trc, c3d files."""
-    CreateReferenceNode:property    
+    CreateReferenceNode:bool
     """Settings based on file type."""
-    CreateUnmatchedModels:property    
+    CreateUnmatchedModels:bool
     """Read Write Property: If set to true, nodes will be created to match the hierarchical structure of the imported file."""
-    CreateUnusedOpticalSegments:property    
+    CreateUnusedOpticalSegments:bool
     """Read Write Property: If set to true, unused optical segments will be created. Used for trc, c3d files."""
-    IgnoreModelType:property    
+    IgnoreModelType:bool
     """Read Write Property: If set to true, model type will not be considered when finding a matching model in the scene."""
-    ImportDOF:property    
+    ImportDOF:bool
     """Read Write Property: If set to true, the DOF value will be imported from the file."""
-    ImportScaling:property    
+    ImportScaling:bool
     """Read Write Property: If set to true, scaling values will be imported."""
-    KeepActorPrefix:property    
+    KeepActorPrefix:bool
     """Read Write Property: If set to true, the Actor prefix will be kept when naming each optical marker. Used with c3d files."""
-    KeepDummyNode:property    
+    KeepDummyNode:bool
     """Read Write Property: If set to true, dummy bones from the file are not removed. Used for asf/amc files."""
-    ModelSelection:property    
+    ModelSelection:FBModelSelection
     """Common settings when merging, unused with the CreateInsteadOfMerge property is set to true."""
-    SetLimits:property    
+    SetLimits:bool
     """Read Write Property: If set to true, use motion limits. Used for asf/amc files."""
-    SetOccludedToLastValidPosition:property    
+    SetOccludedToLastValidPosition:bool
     """Read Write Property: If set to true, occluded segments will be set to their last valid position. Used for trc, c3d files."""
-    TakeStartEnd:property    
+    TakeStartEnd:FBTakeSpanOnLoad
     """Read Write Property: Indicates how the start/end value of the take will be modified."""
-    UpAxisUsedInFile:property    
+    UpAxisUsedInFile:FBUpAxis
     """Read Write Property: Indicated the up axis used in the motion file. Only effective when loading c3d files."""
     def GetTakeCount(self)->int:
         """Return the take count in the file to be loaded.
@@ -12781,10 +12781,10 @@ class FBMotionFileOptions(FBComponent):
 class FBNamespace(FBComponent):
     """Objects Containing class.
     This class is an interface to manipulate object's containing in the scene."""
-    ChildrenNamespaces:property    
+    ChildrenNamespaces:FBPropertyListNamespace
     """List: Direct Children Namespace Objects."""
     ContentCount:property
-    ContentLocked:property    
+    ContentLocked:bool
     """Read Write Property: Content locking state."""
     def GetContent(self,Index:object)->object:
         """Get the namespace content object count (Not Recursive).
@@ -12806,11 +12806,11 @@ class FBNamespace(FBComponent):
         ...
 class FBOpticalGap(FBComponent):
     """Optical Gap class."""
-    Data:property    
+    Data:FBAnimationNode
     """Property: Gap curve data."""
-    Interpolation:property    
+    Interpolation:FBGapMode
     """Property: Gap mode."""
-    TimeSpan:property    
+    TimeSpan:FBTimeSpan
     """Property: Current timespan."""
     def InsertControlKey(self,Time:FBTime):
         """Insert a control key for the gap.
@@ -12825,9 +12825,9 @@ class FBOpticalGap(FBComponent):
 class FBFileReference(FBNamespace):
     """Objects Containing class.
     This class is an interface to manipulate object's containing in the scene. See sample: MBFileRefDemo.py."""
-    IsLoaded:property    
+    IsLoaded:bool
     """Read Write Property:  File Reference Load/Unload."""
-    ReferenceFilePath:property    
+    ReferenceFilePath:str
     """Read Write Property:  File Reference file path."""
     def ApplyRefEditPyScriptFromFile(self,RefEditPyScriptFilePath:str):
         """Apply specified reference edits from python script file.
@@ -12891,17 +12891,17 @@ class FBFileReference(FBNamespace):
         ...
 class FBOpticalSegment(FBComponent):
     """Optical segment class."""
-    Data:property    
+    Data:FBAnimationNode
     """Property: Segment curve data."""
-    Marker:property    
+    Marker:FBModelMarkerOptical
     """Property: Optical marker."""
-    MarkerTimeSpan:property    
+    MarkerTimeSpan:FBTimeSpan
     """Property: Marker/Segment timespan."""
-    OriginalTimeSpan:property    
+    OriginalTimeSpan:FBTimeSpan
     """Property: Original timespan for segment."""
-    TimeSpan:property    
+    TimeSpan:FBTimeSpan
     """Property: Current segment timespan."""
-    Used:property    
+    Used:bool
     """Property: Is segment used?"""
     def Cut(self,Time:FBTime):
         """Cut the segment for the marker at a given time.
@@ -12926,37 +12926,37 @@ class FBPlayerControl(FBComponent):
     
     
     Keys can also be set and used with Key(), GotoNextKey(), and GotoPreviousKey(). All actions are performed by default on the current take. The is the MotionBuilder default take, unless you have multiple takes in your scene. To switch between takes, use FBTake. See samples: ShotTrackSetupTool.py, RenderLayers.py, CameraSwitcher.py, BloopSlate.py, RecordLight.py, Timeline.py, CreateProfilingEventsLog.py, MirrorPoseOverTime.py, MultiLayerKeying.py, StartDevice.py, StopDevice.py, TimeCodeKeying.py."""
-    IsPlaying:property    
+    IsPlaying:bool
     """Read Only Property: Is the transport control playing?"""
-    IsPlotting:property    
+    IsPlotting:bool
     """Read Only Property: Is there a plotting in progress?"""
-    IsRecording:property    
+    IsRecording:bool
     """Read Only Property: Is there a recording in progress?"""
-    LoopActive:property    
+    LoopActive:bool
     """Read Write Property: Is looping active? Deprecated, use the LoopMode property instead."""
-    LoopMode:property    
+    LoopMode:FBTransportLoopMode
     """Read Write Property: Loop mode."""
-    LoopStart:property    
+    LoopStart:FBTime
     """Read Write Property: Loop begin time."""
-    LoopStop:property    
+    LoopStop:FBTime
     """Read Write Property: Loop end time."""
-    NextMarker:property    
+    NextMarker:FBTime
     """Read Only Property: Next marked time."""
-    OnChange:property    
+    OnChange:FBEvent
     """Event Property: Fired when something in the player control has changed. (see FBEventPlayerControlChange)"""
-    PlotSamplingPeriod:property    
+    PlotSamplingPeriod:FBTime
     """Read Write Property: Sampling period for the model plotting."""
-    PreviousMarker:property    
+    PreviousMarker:FBTime
     """Read Only Property: Previous marked time."""
-    RecordingSamplingPeriod:property    
+    RecordingSamplingPeriod:FBTime
     """Read Write Property: Sampling period for the model recording."""
-    SnapMode:property    
+    SnapMode:FBTransportSnapMode
     """Read Write Property: Set the transport control snap mode."""
-    TransportTimeFormat:property    
+    TransportTimeFormat:FBTransportTimeFormat
     """Read Write Property: Current Time Mode of the transport controls."""
-    ZoomWindowStart:property    
+    ZoomWindowStart:FBTime
     """Read Write Property: Starting time of the transport control zoom window."""
-    ZoomWindowStop:property    
+    ZoomWindowStop:FBTime
     """Read Write Property: Stopping time of the transport control zoom window."""
     def AddGlobalTimeMark(self,Time:FBTime)->int:
         """Add a global time mark.
@@ -13222,47 +13222,47 @@ class FBPlayerControl(FBComponent):
         ...
 class FBPointCacheFile(FBComponent):
     """Base Model deformer class."""
-    CacheFileName:property    
+    CacheFileName:str
     """Read Write Property: Filename of media."""
-    ChannelCount:property    
+    ChannelCount:int
     """Read Only Property: Channel Count."""
-    FreeRunning:property    
+    FreeRunning:bool
     """Read Write Property: Free Running."""
-    Loop:property    
+    Loop:bool
     """Read Write Property: Loop."""
-    Offset:property    
+    Offset:FBTime
     """Read Write Property: Offset."""
-    PlaySpeed:property    
+    PlaySpeed:float
     """Read Write Property: Play Speed."""
-    StartTime:property    
+    StartTime:FBTime
     """Read Write Property: Start Time."""
-    StopTime:property    
+    StopTime:FBTime
     """Read Write Property: Stop Time."""
 class FBRendererCallback(FBComponent):
     """Open Reality renderer callback interface."""
-    DefaultCameraBackPlateRendering:property    
+    DefaultCameraBackPlateRendering:bool
     """Read write Property: Set true to use default camera back plate rendering; set false to disable it."""
-    DefaultCameraFrontPlateRendering:property    
+    DefaultCameraFrontPlateRendering:bool
     """Read write Property: Set true to use default camera front plate rendering; set false to disable it."""
-    DefaultLightGroundProjectionRendering:property    
+    DefaultLightGroundProjectionRendering:bool
     """Read write Property: Set true to use default light ground projection rendering; set false to disable it."""
-    DefaultLightVolumeRendering:property    
+    DefaultLightVolumeRendering:bool
     """Read write Property: Set true to use default light volume rendering; set false to disable it."""
-    SupportIDBufferPicking:property    
+    SupportIDBufferPicking:bool
     """Read write Property: Can this Renderer Callback support IDBuffer Picking."""
 class FBRigidBody(FBComponent):
     """Rigid body class."""
-    Done:property    
+    Done:bool
     """Property: Done?"""
-    Markers:property    
+    Markers:FBPropertyListRigidBodyMarkers
     """Property: List of markers composing the rigid body."""
-    Mode:property    
+    Mode:FBRigidBodyMode
     """Property: Rigid body mode."""
-    Model:property    
+    Model:FBModel
     """Property: Rigid body model."""
-    QualityData:property    
+    QualityData:FBAnimationNode
     """Property: Quality of rigid body."""
-    SmoothWidth:property    
+    SmoothWidth:int
     """Property: Smoothing width."""
     def ComputeAnimation(self):
         """Compute the rigid body animation."""
@@ -13294,87 +13294,87 @@ class FBScene(FBComponent):
     
     
     See also the C++ code sample in toolscene. See samples: InsertCurrentTake.py, DeleteUnusedMedia.py, MirrorPoseOverTime.py, SelectModelsWithNameContainingSubstring.py, SetAllCamerasBackgroundColorFromFirstSelectedCamera.py, StartDevice.py."""
-    ActorFaces:property    
+    ActorFaces:FBPropertyListActorFace
     """List: ActorFaces in scene."""
-    Actors:property    
+    Actors:FBPropertyListActor
     """List: Actors in scene."""
-    AudioClips:property    
+    AudioClips:FBPropertyListAudioClip
     """List: Audio clips in scene."""
-    Cameras:property    
+    Cameras:FBPropertyListCamera
     """List: Cameras in scene."""
-    CharacterExtensions:property    
+    CharacterExtensions:FBPropertyListCharacterExtension
     """List: Character extensions available in the scene."""
-    CharacterFaces:property    
+    CharacterFaces:FBPropertyListCharacterFace
     """List: Character faces in scene."""
-    CharacterMarkerSets:property    
+    CharacterMarkerSets:FBPropertyListCharacterMarkerSet
     """List: Character marker sets in scene."""
-    CharacterPoses:property    
+    CharacterPoses:FBPropertyListCharacterPose
     """List: Character poses in scene."""
-    Characters:property    
+    Characters:FBPropertyListCharacter
     """List: Characters in scene."""
-    ConstraintSolvers:property    
+    ConstraintSolvers:FBPropertyListConstraintSolver
     """List: Constraint Solvers present in the scene."""
-    Constraints:property    
+    Constraints:FBPropertyListConstraint
     """List: Constraints in scene."""
-    ControlSets:property    
+    ControlSets:FBPropertyListControlSet
     """List: Control set rigs in scene."""
-    Deformers:property    
+    Deformers:FBPropertyListDeformer
     """List: Deformers for scene."""
-    Devices:property    
+    Devices:FBPropertyListDevice
     """List: Devices for scene."""
-    FileReferences:property    
+    FileReferences:FBPropertyListFileReference
     """List: FileReference available in the scene."""
-    Folders:property    
+    Folders:FBPropertyListFolder
     """List: Folders in scene."""
-    Groups:property    
+    Groups:FBPropertyListGroup
     """List: Groups available in the scene."""
-    HUDs:property    
+    HUDs:FBPropertyListHUD
     """Read Only Property: Heads Up Displays in the scene."""
-    Handles:property    
+    Handles:FBPropertyListHandle
     """List: Handles present in the scene."""
-    KeyingGroups:property    
+    KeyingGroups:FBPropertyListKeyingGroup
     """Read Write Property: Keying Groups in the scene."""
-    Lights:property    
+    Lights:FBPropertyListLight
     """List: Lights in scene."""
-    MarkerSets:property    
+    MarkerSets:FBPropertyListMarkerSet
     """List: Marker sets in scene."""
-    Materials:property    
+    Materials:FBPropertyListMaterial
     """List: Materials for scene."""
-    ModelOpticals:property    
+    ModelOpticals:FBPropertyListModelOptical
     """Read Write Property: Optical Data in the scene."""
-    ModelSkeletons:property    
+    ModelSkeletons:FBPropertyListModelSkeleton
     """Read Write Property: Bones (Skeletons) in the scene."""
-    MotionClips:property    
+    MotionClips:FBPropertyListMotionClip
     """List: Motion clips in scene."""
-    Namespaces:property    
+    Namespaces:FBPropertyListNamespace
     """List: Namespace (include FileReference) available in the scene"""
-    Notes:property    
+    Notes:FBPropertyListNote
     """List: Notes in scene."""
-    ObjectPoses:property    
+    ObjectPoses:FBPropertyListObjectPose
     """List: ObjectPoses in scene."""
-    OnChange:property    
+    OnChange:FBEvent
     """Event: Something in the scene has happened.(FBEventSceneChange)"""
-    OnTakeChange:property    
+    OnTakeChange:FBEvent
     """Event: Something related to a take has happened.(FBEventTakeChange)"""
-    PhysicalProperties:property    
+    PhysicalProperties:FBPropertyListPhysicalProperties
     """List: PhysicalProperties present in the scene."""
-    Poses:property    
+    Poses:FBPropertyListPose
     """List: Poses in scene."""
-    Renderer:property    
+    Renderer:FBRenderer
     """Read Only Property: Local renderer."""
-    RootModel:property    
+    RootModel:FBModel
     """Read Only Property: Scene Root model for that scene"""
-    Sets:property    
+    Sets:FBPropertyListSet
     """List: Sets available in the scene."""
-    Shaders:property    
+    Shaders:FBPropertyListShader
     """List: Shaders for scene."""
-    Takes:property    
+    Takes:FBPropertyListTake
     """List: Takes for scene."""
-    Textures:property    
+    Textures:FBPropertyListTexture
     """List: Textures for scene."""
-    UserObjects:property    
+    UserObjects:FBPropertyListUserObject
     """List: User objects"""
-    VideoClips:property    
+    VideoClips:FBPropertyListVideoClip
     """List: Video clips in scene."""
     def CandidateEvaluationAndResolve(self)->bool:
         """Resolving the Candidate.
@@ -13561,13 +13561,13 @@ class FBScene(FBComponent):
 class FBSet(FBBox):
     """Objects Set class.
     This class is an interface to manipulate object sets in the scene. Note: an item cannot be in two FBSet objects at once. Also, an FBGroup cannot contain FBSet objects, although an FBSet object can contain an FBGRoup."""
-    Items:property    
+    Items:FBPropertyListComponent
     """List: Items in the set."""
-    Pickable:property    
+    Pickable:bool
     """Read Write Property: Controls if objects in the set are pickable."""
-    Transformable:property    
+    Transformable:bool
     """Read Write Property: Controls if objects in the set are transformable."""
-    Visibility:property    
+    Visibility:bool
     """Read Write Property: Visibility of set (animatable)."""
     def Contains(self,Component:FBComponent)->int:
         """Contains.
@@ -13582,9 +13582,9 @@ class FBSet(FBBox):
         ...
 class FBShader(FBBox):
     """Shader class."""
-    RenderingPass:property    
+    RenderingPass:FBRenderingPass
     """Read Write Property: Rendering pass object are shaded in."""
-    ShaderDescription:property    
+    ShaderDescription:str
     """Description."""
     def Append(self,Model:FBModel)->bool:
         """Append shader toModel.
@@ -13642,21 +13642,21 @@ class FBShaderLighted(FBShader):
     if lModel <> None:
     lModel.Show = True
     lShader.ReplaceAll( lModel )"""
-    Alpha:property    
+    Alpha:float
     """Read Write Property: Controls the actual effect of the shader on the object. At 0.0 it does nothing, and at 1.0 it fully affects the object."""
-    Contrast:property    
+    Contrast:float
     """Read Write Property: Changes the contrast of the object when it reflects light."""
-    Luminosity:property    
+    Luminosity:float
     """Read Write Property: Changes the brightness of the object when reflecting light."""
-    Specular:property    
+    Specular:float
     """Read Write Property: Changes an object's level of shininess when it reflects light by affecting the specular highlight."""
-    Transparency:property    
+    Transparency:FBAlphaSource
     """Read Write Property: Indicates the computation method of the transparency."""
-    UseContrast:property    
+    UseContrast:bool
     """Read Write Property: Activate the Contrast option."""
-    UseLuminosity:property    
+    UseLuminosity:bool
     """Read Write Property: Activate the Luminosity option."""
-    UseSpecular:property    
+    UseSpecular:bool
     """Read Write Property: Activate the Specularity option."""
 class FBShaderManager():
     """Shader manager.
@@ -13714,9 +13714,9 @@ class FBShaderManager():
     
     
     See sample: VertexArrayManipulation.py."""
-    ShaderTypeNames:property    
+    ShaderTypeNames:FBStringList
     """List of available shaders."""
-    ShaderTypeNamesLocalized:property    
+    ShaderTypeNamesLocalized:FBStringList
     """List of available shaders."""
     def CreateShader(self,ShaderTypeName:str)->object:
         """Creates a shader according to the shader type provided.
@@ -13726,9 +13726,9 @@ class FBShaderManager():
         return : A pointer to the newly created shader object, or a NULL pointer if the type name was not recognised."""
         ...
 class FBShaderModelInfo():
-    Model:property    
+    Model:property
     """Read Write Property: Shader mModel"""
-    Model_Version:property    
+    Model_Version:property
     """Read Write Property: Shader version informations"""
     Shader_Version:property
 class FBShaderShadowLive(FBShader):
@@ -13754,21 +13754,21 @@ class FBShaderShadowLive(FBShader):
     lModel = FBFindModelByLabelName( 'Cube' )
     if lModel:
     lShader.ShadowCasterProperty.append( lModel )"""
-    Lights:property    
+    Lights:FBPropertyListObject
     """List: List of light object which will produce shadows."""
-    LocalShadow:property    
+    LocalShadow:bool
     """Read Write Property: Creates an accurate projection of a shadow for each object."""
-    Models:property    
+    Models:FBPropertyListObject
     """List: List of object which when lighted will cast a shadow."""
-    ShadowFrameType:property    
+    ShadowFrameType:FBShadowFrameType
     """Read Write Property: Used to select the shadow calculation method."""
-    ShadowIntensity:property    
+    ShadowIntensity:float
     """Read Write Property: Controls the darkness of shadows cast by a selected object."""
-    ShadowType:property    
+    ShadowType:FBShadowType
     """Read Write Property: Indicate which shadow type is desired."""
-    ShadowZOffset:property    
+    ShadowZOffset:float
     """Read Write Property: Specifies the offset of the Live Shadow shader's plane from the original selected plane."""
-    UseGobo:property    
+    UseGobo:bool
     """Read Write Property: Includes the gobo in the shadow map calculation."""
 class FBSkeletonState():
     def GetNodeMatrix(self,SkeletonId:FBSkeletonNodeId,SkeletonGlobalMatrix:FBMatrix):
@@ -13780,25 +13780,25 @@ class FBSkeletonState():
 class FBSpreadPart(FBComponent):
     """Spreadsheet part.
     Due to protected constructor, this can only be created by a child object."""
-    Column:property    
+    Column:int
     """Read Only Property: Column number."""
-    Enabled:property    
+    Enabled:bool
     """Read Write Property: Is SpreadPart enabled?"""
-    Justify:property    
+    Justify:FBTextJustify
     """Read Write Property: Text justification for SpreadPart"""
-    ReadOnly:property    
+    ReadOnly:bool
     """Read Write Property: Is SpreadPart read-only?"""
-    Row:property    
+    Row:int
     """Read Only Property: Row number."""
-    Style:property    
+    Style:FBCellStyle
     """Read Write Property: Style of cell"""
 class FBSpreadRow(FBSpreadPart):
     """Spreadsheet row."""
-    Caption:property    
+    Caption:str
     """Read Write Property: Caption to display with row."""
-    Parent:property    
+    Parent:property
     """Read Write Property: Parent of row (reference)."""
-    RowSelected:property    
+    RowSelected:bool
     """Read Write Property: Is row selected?"""
     def EditCaption(self)->bool:
         """Edit the row caption.
@@ -13811,9 +13811,9 @@ class FBSpreadRow(FBSpreadPart):
         ...
 class FBSpreadColumn(FBSpreadPart):
     """Spreadsheet column."""
-    Caption:property    
+    Caption:str
     """Read Write Property: Caption of the column."""
-    Width:property    
+    Width:int
     """Read Write Property: Column width."""
 class FBSpreadCell(FBSpreadPart):
     """Spreadsheet cell."""
@@ -13821,23 +13821,23 @@ class FBSpreadCell(FBSpreadPart):
 class FBStory(FBComponent):
     """Story Management class.
     This class serve as a management control for the Story global settings and members. See samples: CreateShotClip.py, InsertCurrentTake.py, BloopSlate.py, RecordLight.py, PlotNonSelectedCharStoryTracks.py, PlotSelectedCharStoryTracks.py, PrintClipNamesAndStartStopFrames.py."""
-    ClipsTextsVisible:property    
+    ClipsTextsVisible:bool
     """Read Write Property: If true, clips' texts are visible."""
-    LockedShot:property    
+    LockedShot:bool
     """Read Write Property: If true, shots will be locked (no time discontinuity)."""
-    MaintainShotAndClipShotLengthsSynced:property    
+    MaintainShotAndClipShotLengthsSynced:bool
     """Read Write Property: When working in time discontinuity, if true, shots and their corresponding shot clips will be kept in sync in regards of their lengths."""
-    Mute:property    
+    Mute:bool
     """Read Write Property: If true, the Story mode will be globally disabled."""
-    NoneBlockingPostprocess:property    
+    NoneBlockingPostprocess:bool
     """Read Write Property: If true, record to disk will post process recorded data in low priority thread without affecting application performance. Clip in story will remain unloaded."""
-    RecordToDisk:property    
+    RecordToDisk:bool
     """Read Write Property: If true, record to story will record directly to disk."""
-    RootEditFolder:property    
+    RootEditFolder:FBStoryFolder
     """Read Only Property: Story's root edit folder"""
-    RootFolder:property    
+    RootFolder:FBStoryFolder
     """Read Only Property: Story's root folder"""
-    SummaryClip:property    
+    SummaryClip:bool
     """Read Write Property: If true, summary clips for story folders will be created to help manipulating folder content."""
     def CleanEmptyTracksAndFolders(self)->int:
         """Remove all empty tracks and folders present in the Story Tool.
@@ -13847,117 +13847,117 @@ class FBStory(FBComponent):
 class FBStoryClip(FBComponent):
     """Story Clip class.
     Clips represents media, at a specific time, for a specific duration, in a track.Clip offset is depending on Traveling node and Traveling node function. First we compute clip transformation matrix, where scaling is always 1, 1, 1. Translation is in position of Traveling node at clip first frame. Rotation is based on vector from first to last frame position of Traveling node. On top of that we apply offset and expose that as Clip Offset T & R. When you change clip offset T or R we extract clip offset based on current clip transformation matrix. Clip transformation matrix can change when Traveling node change or Traveling node function change. See samples: AudioTrackSetupTool.py, VideoClip.py, PrintClipNamesAndStartStopFrames.py."""
-    AudioClip:property    
+    AudioClip:FBAudioClip
     """Read Only Property: The audio clip used by this StoryClip."""
-    AutoLoop:property    
+    AutoLoop:bool
     """Read Write Property: If true, clip will automatically loop"""
-    ClipAnimationPath:property    
+    ClipAnimationPath:str
     """Read Write Property: Animation clip's file path"""
-    ClipAudioPath:property    
+    ClipAudioPath:str
     """Read Write Property: Audio clip's file path"""
-    ClipPitch:property    
+    ClipPitch:float
     """Read Write Property: The clip pitch value."""
-    ClipVideoPath:property    
+    ClipVideoPath:str
     """Read Write Property: Video clip's file path"""
-    Color:property    
+    Color:FBColor
     """Read Write Property: Color of the clip."""
-    ConnectedToTake:property    
+    ConnectedToTake:bool
     """Read Write Property: When connected to current take, user can do updating from current take, but user can't edit clip animation by adding keys, only works for clips created by Insert Current Take."""
-    CustomTimeWarp:property    
+    CustomTimeWarp:FBAnimationNode
     """Read Only Property: Animation and Shot clip's custom TimeWarp FCurve."""
-    FrameRate:property    
+    FrameRate:float
     """Read Write Property: Frame rate value. Only effective when UseSystemFrameRate is false."""
-    Ghost:property    
+    Ghost:bool
     """Read Write Property: Show ghosts"""
-    GhostCustomTime:property    
+    GhostCustomTime:FBTime
     """Read Write Property: Custom time to display ghost, only applicable if ShowGhostClipMode is kFBStoryClipTimeCustom."""
-    GhostManipulatorCustomTime:property    
+    GhostManipulatorCustomTime:FBTime
     """Read Write Property: Custom time to display ghost manipulator, only applicable if GhostManipulatorMode is kFBStoryClipGhostCustom."""
-    GhostManipulatorMode:property    
+    GhostManipulatorMode:FBStoryClipGhostTimeMode
     """Read Write Property: Time mode to display ghost manipulator. See FBStoryClipGhostTimeMode."""
-    GhostManipulatorOffset:property    
+    GhostManipulatorOffset:FBVector3d
     """Read Write Property: Animation clip's ghost manipulator offset."""
-    GhostModel:property    
+    GhostModel:bool
     """Read Write Property: Show ghost of models"""
-    GhostPivot:property    
+    GhostPivot:bool
     """Read Write Property: Show ghost of match object"""
-    GhostTravelling:property    
+    GhostTravelling:bool
     """Read Write Property: Show ghost of clip vector or traveling node"""
-    ImageSequence:property    
+    ImageSequence:bool
     """Read Write Property: Whether is a image sequence."""
-    Loaded:property    
+    Loaded:bool
     """Read Write Property: If true, clip file is loaded into memory and can be evaluated (will affect track content)."""
-    LockPitchToSpeed:property    
+    LockPitchToSpeed:bool
     """Read Write Property: Time-stretching enabled or not."""
-    Loop:property    
+    Loop:bool
     """Read Write Property: If true, loop clip's animation"""
-    LoopTranslation:property    
+    LoopTranslation:FBVector3d
     """Read Write Property: Animation clip's loop translation."""
-    MarkIn:property    
+    MarkIn:FBTime
     """Read Write Property: Start time inside the clip."""
-    MarkOut:property    
+    MarkOut:FBTime
     """Read Write Property: Stop time inside the clip."""
-    MirrorAnimation:property    
+    MirrorAnimation:bool
     """Read Write Property: If true, clip animation will be mirrored"""
-    MirrorPlane:property    
+    MirrorPlane:FBStoryClipMirrorPlane
     """Read Write Property: Several mirror planes to mirror animation. See FBStoryClipMirrorPlane"""
-    Offset:property    
+    Offset:FBTime
     """Read Write Property: First loop time offset."""
-    OnChange:property    
+    OnChange:FBEvent
     """Event: Something in the clip has changed. (FBEventClip)"""
-    Pivots:property    
+    Pivots:FBPropertyListPivot
     """List: Pivots models (Generally, only one model is necessary)"""
-    PostBlend:property    
+    PostBlend:FBTimeSpan
     """Read Write Property: Start/Stop time of the post-blend phase."""
-    PreBlend:property    
+    PreBlend:FBTimeSpan
     """Read Write Property: Start/Stop time of the pre-blend phase."""
-    Rotation:property    
+    Rotation:FBVector3d
     """Read Write Property: Animation clip's rotation offset. Refer to class notes to learn more about how this is applied."""
-    Scale:property    
+    Scale:float
     """Read Write Property: Animation clip's scaling (some don't support this property)"""
-    ShotActionStart:property    
+    ShotActionStart:FBTime
     """Read Write Property: If not in locked shot mode (time discontinuity enabled), this time can be different from the Clip->Start property."""
-    ShotActionStop:property    
+    ShotActionStop:FBTime
     """Read Write Property: If not in locked shot mode (time discontinuity enabled), this time can be different from the Clip->Start property."""
-    ShotBackplate:property    
+    ShotBackplate:FBVideo
     """Read Write Property: The backplate used for that specific shot."""
-    ShotCamera:property    
+    ShotCamera:FBCamera
     """Read Write Property: The camera used for that specific shot."""
-    ShotFrontplate:property    
+    ShotFrontplate:FBVideo
     """Read Write Property: The frontplate used for that specific shot."""
-    ShotStartStopLocked:property    
+    ShotStartStopLocked:bool
     """Read Write Property: Shot clip's 'In/Out Locked' property value. True if the shot clip's In/Out properties (start/stop times of the clip local to its track) are locked, false otherwise."""
-    ShowBackplate:property    
+    ShowBackplate:bool
     """Read Write Property: Enable/Disable the shot backplate."""
-    ShowEmbeddedTimecode:property    
+    ShowEmbeddedTimecode:bool
     """Read Write Property: Whether to show embedded timecode of the clip, if available."""
-    ShowFrontplate:property    
+    ShowFrontplate:bool
     """Read Write Property: Enable/Disable the shot frontplate."""
-    ShowGhostClipMode:property    
+    ShowGhostClipMode:FBStoryClipShowGhostMode
     """Read Write Property: Show the ghost depending on the time. See FBStoryClipShowGhostMode"""
-    SolvingMode:property    
+    SolvingMode:FBStoryClipSolveMode
     """Read Write Property: Solve Modes for story character clips. See FBStoryClipSolveMode"""
-    Speed:property    
+    Speed:float
     """Read Write Property: Speed of the clip."""
-    Start:property    
+    Start:FBTime
     """Read Write Property: Start time of the clip local to its track."""
-    StartStopLocked:property    
+    StartStopLocked:bool
     """Read Write Property: Clip's 'In/Out Locked' property value. True if the clip's In/Out properties (start/stop times of the clip local to its track) are locked, false otherwise."""
-    Stop:property    
+    Stop:FBTime
     """Read Write Property: Stop time of the clip local to its track."""
-    TimeWarpEnabled:property    
+    TimeWarpEnabled:bool
     """Read Write Property: Animation and Shot clip's TimeWarp activeness."""
-    TimeWarpInterpolatorType:property    
+    TimeWarpInterpolatorType:FBStoryClipTimeWarpInterpolatorType
     """Read Write Property: Animation and Shot clip's TimeWarp interpolation type. See FBStoryClipTimeWarpInterpolatorType."""
-    TimeWarpReverse:property    
+    TimeWarpReverse:bool
     """Read Write Property: If true, reverse the Animation or Shot clip's TimeWarp FCurve."""
-    Translation:property    
+    Translation:FBVector3d
     """Read Write Property: Animation clip's translation offset. Refer to class notes to learn more about how this is applied."""
-    TravellingNode:property    
+    TravellingNode:FBPropertyListObject
     """List: Travelling node(s). If set, this property will overwrite the Track's Travelling node(s)."""
-    TravellingNodeFunction:property    
+    TravellingNodeFunction:FBStoryClipNodeFunction
     """Read Write Property: Travelling node function. If set, this property will overwrite the Track's Travelling node function. See FBStoryClipNodeFunction."""
-    UseSystemFrameRate:property    
+    UseSystemFrameRate:bool
     """Read Write Property: Whether always use system frame rate."""
     def CanAssignSourcesToDestinations(self)->bool:
         """CanAssignSourcesToDestinations.
@@ -14079,21 +14079,21 @@ class FBStoryClip(FBComponent):
 class FBStoryFolder(FBComponent):
     """Story Folder class.
     With folders, you can group tracks together and create different timelines. See sample: FBStoryFolder.py."""
-    Childs:property    
+    Childs:FBPropertyListStoryFolder
     """List: Children folders of this folder."""
-    Collapsed:property    
+    Collapsed:bool
     """Read Write Property: Toggle to collapse or expand the story folder."""
-    Label:property    
+    Label:str
     """Read Write Property: Label to display for this story folder."""
-    Mute:property    
+    Mute:bool
     """Read Write Property: If true, this story folder will be muted."""
-    Parent:property    
+    Parent:FBStoryFolder
     """Read Only Property: Object pointing to the folder's parent."""
-    RecordClipPath:property    
+    RecordClipPath:str
     """Read Write Property: Path for story recording. Can be relative or full path."""
-    Solo:property    
+    Solo:bool
     """Read Write Property: If true, this story folder will be the only one to play."""
-    Tracks:property    
+    Tracks:FBPropertyListStoryTrack
     """List: Tracks of this folder."""
     def AlignSelectedClips(self,Type:FBStoryClipAlignmentType,ReferenceClip:FBComponent):
         """Used to align selected clips .
@@ -14131,13 +14131,13 @@ class FBStoryFolder(FBComponent):
 class FBStoryGroupClip(FBComponent):
     """Story Group Clip class.
     Group Clip represents a group of clips that can be manipulated together."""
-    DependentClips:property    
+    DependentClips:FBPropertyListObject
     """Read Write Property: Clips that are included in the group clip."""
-    Start:property    
+    Start:FBTime
     """Read Write Property: Start time of the clip."""
-    StartStopLocked:property    
+    StartStopLocked:bool
     """Read Write Property: Clip's 'In/Out Locked' property value. True if the clip's In/Out properties (start/end times of the clip local to its track) are locked, false otherwise."""
-    Stop:property    
+    Stop:FBTime
     """Read Write Property: Stop time of the clip."""
     def Move(self,Delta:FBTime,Force:object)->FBTime:
         """Move.
@@ -14164,59 +14164,59 @@ class FBStoryGroupClip(FBComponent):
 class FBStoryTrack(FBConstraint):
     """Story Track class.
     Tracks are containers for clips (medias), have a specific type which offer different functions. Note: To change the travelling node of a track, search for the 'TravellingNode' property on the track and then connect/disconnect the appropriate object. Python example: lPropTravellingNode = lAnimTrack.PropertyList.Find('TravellingNode') lCube.ConnectDst(lPropTravellingNode) See samples: CreateShotClip.py, AudioTrackSetupTool.py, BloopSlate.py, RecordLight.py, FBStoryFolder.py, VideoClip.py, PlotNonSelectedCharStoryTracks.py, PlotSelectedCharStoryTracks.py, PrintClipNamesAndStartStopFrames.py."""
-    AcceptKey:property    
+    AcceptKey:bool
     """Read Write Property: Allow track to accept keys"""
-    AudioOutIndex:property    
+    AudioOutIndex:int
     """Read Write Property: Audio Output's index to use."""
-    Character:property    
+    Character:FBCharacter
     """Read Write Property: Character to use."""
-    CharacterIndex:property    
+    CharacterIndex:int
     """Read Write Property: Character's index to use."""
-    ClipNameConvention:property    
+    ClipNameConvention:str
     """Read Write Property: Naming convention for each new recording clip that is created. Can use special tags: <Name> <StartTCValue> <StartFrameValue> <StartDate> <StartTime> <TakeName>"""
-    Clips:property    
+    Clips:FBPropertyListStoryClip
     """List: Clips contained in this track."""
-    Details:property    
+    Details:FBPropertyListStoryDetails
     """List: All objects associated to this track for processing."""
-    Ghost:property    
+    Ghost:bool
     """Read Write Property: Show ghosts"""
-    GhostModel:property    
+    GhostModel:bool
     """Read Write Property: Show ghost of models"""
-    GhostPivot:property    
+    GhostPivot:bool
     """Read Write Property: Show ghost of match object"""
-    GhostShowTrackMode:property    
+    GhostShowTrackMode:FBStoryTrackGhostShowMode
     """Read Write Property: Show the ghosts for all the clips or only the adjacent clips. See FBStoryTrackGhostShowMode"""
-    GhostTravelling:property    
+    GhostTravelling:bool
     """Read Write Property: Show ghost of clip vector or traveling node"""
-    Label:property    
+    Label:str
     """Read Write Property: Label to display for this story track."""
-    Mute:property    
+    Mute:bool
     """Read Write Property: If true, this track wont' play."""
-    OffsetEnable:property    
+    OffsetEnable:bool
     """Read Write Property: When enabled, allow clip to be offset"""
-    ParentFolder:property    
+    ParentFolder:FBStoryFolder
     """Read Only Property: Parent folder."""
-    ParentTrack:property    
+    ParentTrack:FBStoryTrack
     """Read Only Property: Parent track, if the track is of Character or Animation type."""
-    PassThrough:property    
+    PassThrough:bool
     """Read Write Property: Enable passthrough of animation if there is no clip on track animation is taken from other tracks of take"""
-    RecordClipPath:property    
+    RecordClipPath:str
     """Read Write Property: Path for story recording. Can be relative or full path."""
-    RecordTrack:property    
+    RecordTrack:bool
     """Read Write Property: Path for story recording. Can be relative or full path."""
-    ReferenceMode:property    
+    ReferenceMode:FBStoryTrackRefMode
     """Read Write Property: Track composition mode, kFBStoryTrackOverride or kFBStoryTrackAdditive"""
-    ShowBackplate:property    
+    ShowBackplate:bool
     """Read Write Property: If true, the backplate will be shown."""
-    ShowFrontplate:property    
+    ShowFrontplate:bool
     """Read Write Property: If true, the frontplate will be shown."""
-    Solo:property    
+    Solo:bool
     """Read Write Property: If true, this track will be the only one to play."""
-    SubTracks:property    
+    SubTracks:FBPropertyListStorySubTrack
     """List: Only Character and Animation tracks can have sub-tracks."""
-    TrackVideo:property    
+    TrackVideo:FBVideo
     """Read Only Property: This FBVideo can be used as a texture."""
-    Type:property    
+    Type:FBStoryTrackType
     """Read Only Property: Type of the track"""
     def AddClip(self,Clip:FBComponent,Time:FBTime):
         """AddClip Add the clip to the track.
@@ -14351,19 +14351,19 @@ class FBStringList():
         ...
 class FBSurface(FBGeometry):
     """Surface class."""
-    SurfaceMode:property    
+    SurfaceMode:FBSurfaceMode
     """Read Write Property: Surface mode."""
-    UClosed:property    
+    UClosed:bool
     """Read Write Property: U Closed."""
-    USize:property    
+    USize:int
     """Read Write Property: Size in U directions."""
-    UStep:property    
+    UStep:int
     """Read Write Property: Step in U directions."""
-    VClosed:property    
+    VClosed:bool
     """Read Write Property: V Closed"""
-    VSize:property    
+    VSize:int
     """Read Write Property: Size in V directions."""
-    VStep:property    
+    VStep:int
     """Read Write Property: Step in V directions."""
     def ControlPointsBegin(self):...
     def ControlPointsEnd(self):...
@@ -14399,85 +14399,85 @@ class FBSystem(FBComponent):
     
     
     The Python sample FBSystemEvents.py shows how to register a callback to FBSystem. See samples: FBSystemEvents.py, CameraSwitcher.py, BatchExportCharacterAnimationTool.py, ExportAnimationLibrary.py."""
-    ApplicationPath:property    
+    ApplicationPath:str
     """Read Only Property: Location where the application is installed."""
-    AreMessageBoxesSuspended:property    
+    AreMessageBoxesSuspended:bool
     """Read Only Property: While true, the system is suspending the messages boxes that would normally be displayed."""
-    AssetManager:property    
+    AssetManager:FBAssetMng
     """Read Only Property: Current asset manager."""
-    AudioInputs:property    
+    AudioInputs:FBPropertyListAudioIn
     """List: Available audio inputs."""
-    AudioOutputs:property    
+    AudioOutputs:FBPropertyListAudioOut
     """List: Available audio outputs."""
-    BuildId:property    
+    BuildId:str
     """Read Only Property: Unique build Id string."""
-    BuildVersion:property    
+    BuildVersion:str
     """Read Only Property: Unique build version string. The format of the build version information is: Major.Minor.Revision.BuildNumber. All sub-parts of the build version string are containing only numeric characters."""
-    Cameras:property
-    ComputerName:property    
+    Cameras:FBPropertyListCamera
+    ComputerName:str
     """Read Only Property: Computer name. See sample: ShowMachineNameAndCameraNamePlusResolution.py."""
     ConfigPath:property
-    ConstructionHistory:property    
+    ConstructionHistory:FBConstructionHistory
     """Read Only Property: Construction History."""
-    CurrentTake:property    
+    CurrentTake:FBTake
     """Read Write Property: Current take. See samples: GoToNextTake.py,"""
-    DesktopSize:property    
+    DesktopSize:FBVector2d
     """Read Only Property: The width and height of the desktop."""
-    Devices:property
+    Devices:FBPropertyListDevice
     EPluginItemInfo:FBSystem
-    FrameRate:property    
+    FrameRate:float
     """Read Only Property: The frame rate of the viewer."""
-    FullScreenViewer:property    
+    FullScreenViewer:bool
     """Read Write Property: Indicates that the viewer is in full screen mode."""
-    Lights:property
-    LocalTime:property    
+    Lights:FBPropertyListLight
+    LocalTime:FBTime
     """Read Only Property: Local time in take."""
-    Manipulators:property    
+    Manipulators:FBPropertyListManipulator
     """List: of manipulators."""
-    Materials:property
-    OnConnectionDataNotify:property    
+    Materials:FBPropertyListMaterial
+    OnConnectionDataNotify:FBEventConnectionDataNotify
     """Event: A data event occurred between objects in the system."""
-    OnConnectionKeyingNotify:property    
+    OnConnectionKeyingNotify:FBEventConnectionKeyingNotify
     """Event: A keying event occurred when objects are being keyed."""
-    OnConnectionNotify:property    
+    OnConnectionNotify:FBEventConnectionNotify
     """Event: A connection event occurred between objects in the system. See sample: FBSystemEvents.py."""
-    OnConnectionStateNotify:property    
+    OnConnectionStateNotify:FBEventConnectionStateNotify
     """Event: A state change event occurred between objects in the system."""
-    OnUIIdle:property    
+    OnUIIdle:property
     """Event: User-interface idle event. Useful callback for less frequent GUI refresh and etc. lightweight tasks (occur once per several frames)."""
-    OnVideoFrameRendering:property    
+    OnVideoFrameRendering:FBEventVideoFrameRendering
     """Event: A video frame rendering event occurred when the scene is being off-line rendered into video files."""
-    PathImages:property    
+    PathImages:str
     """Read Only Property: Path to images."""
-    PathMeshs:property    
+    PathMeshs:str
     """Read Only Property: Path to meshes"""
-    ProcessMemory:property    
+    ProcessMemory:float
     """Read Only Property: The size (MB) of process's working set memory."""
-    ProcessMemoryPeak:property    
+    ProcessMemoryPeak:float
     """Read Only Property: The size (MB) of process's peak memory."""
-    PythonVersion:property    
+    PythonVersion:int
     """Read Only Property: The Python interpreter version being used. The value is either 27 or 37."""
-    Renderer:property    
+    Renderer:FBRenderer
     """Read Only Property: Default renderer."""
-    RootModel:property    
+    RootModel:FBModel
     """Read Only Property: Root model."""
-    Scene:property    
+    Scene:FBScene
     """Read Only Property: Scene."""
-    SceneRootModel:property    
+    SceneRootModel:FBModel
     """Read Only Property: Scene root model."""
-    Shaders:property
-    SuspendMessageBoxes:property    
+    Shaders:FBPropertyListShader
+    SuspendMessageBoxes:bool
     """Read Write Property: While true, all the message boxes, that would normally be displayed, are suspended."""
-    SystemTime:property    
+    SystemTime:FBTime
     """Read Only Property: System time."""
-    Takes:property
-    Textures:property
+    Takes:FBPropertyListTake
+    Textures:FBPropertyListTexture
     UserConfigPath:property
-    Version:property    
+    Version:float
     """Read Only Property: Application version."""
-    VideoInputs:property    
+    VideoInputs:FBPropertyListVideoIn
     """List: Available video inputs."""
-    VideoOutputs:property    
+    VideoOutputs:FBPropertyListVideoOut
     """List: Available video outputs."""
     ePluginItemDescription:FBSystem
     ePluginItemFileName:FBSystem
@@ -14531,19 +14531,19 @@ class FBSystem(FBComponent):
         ...
 class FBPatch(FBSurface):
     """Patch class."""
-    USurfaceType:property    
+    USurfaceType:FBSurfaceType
     """Read Write Property: Patch mode for U direction."""
-    VSurfaceType:property    
+    VSurfaceType:FBSurfaceType
     """Read Write Property: Patch mode for V direction."""
 class FBNurbs(FBSurface):
     """Nurbs class."""
-    UNurbType:property    
+    UNurbType:FBNurbType
     """Read Write Property: Nurbs Type for U direction."""
-    UOrder:property    
+    UOrder:int
     """Read Write Property: Nurbs U order."""
-    VNurbType:property    
+    VNurbType:FBNurbType
     """Read Write Property: Nurbs Type for V direction."""
-    VOrder:property    
+    VOrder:int
     """Read Write Property: Nurbs V order."""
     def GetControlKnotValue(self,UorV:object,Index:object)->float:
         """Get knot vector value of control point.
@@ -14621,11 +14621,11 @@ class FBTake(FBComponent):
     
     
     See samples: MergePreviewAnimationLayers.py, ExportAnimationLibrary.py, GoToNextTake.py, GoToPreviousTake.py, MirrorPoseOverTime.py, MultiLayerKeying.py, RenameFirstTakeOnMultipleFiles.py, SaveOneTakePerFile.py, TimeCodeKeying.py."""
-    Comments:property    
+    Comments:str
     """Read Write Property: Take comments."""
-    LocalTimeSpan:property    
+    LocalTimeSpan:FBTimeSpan
     """Read Write Property: Local time span."""
-    ReferenceTimeSpan:property    
+    ReferenceTimeSpan:FBTimeSpan
     """Read Write Property: Reference time span."""
     def AddTimeMark(self,Time:FBTime)->int:
         """Add a time mark to the take.
@@ -14928,29 +14928,29 @@ class FBTake(FBComponent):
         ...
 class FBTexture(FBBox):
     """See samples: HUDElements.py, MaterialAndTexture.py, TextureAnimation.py, VideoInput.py, VideoMemory.py, DeleteUnusedMedia.py."""
-    Alpha:property    
+    Alpha:property
     """Read Write Property: Texture alpha value."""
-    BlendMode:property    
+    BlendMode:property
     """Read Write Property: Texture blend mode."""
-    Height:property    
+    Height:property
     """Read Only Property: Height of texture."""
-    Mapping:property    
+    Mapping:property
     """Read Write Property: Texture mapping."""
-    Rotation:property    
+    Rotation:property
     """Read Write Property: Rotation coordinates."""
-    Scaling:property    
+    Scaling:property
     """Read Write Property: Scaling coordinates."""
-    SwapUV:property    
+    SwapUV:property
     """Read Write Property: Swap UV coordinates?"""
-    TextureOGLId:property    
+    TextureOGLId:property
     """Read Only: OpenGL texture buffer object Id."""
-    Translation:property    
+    Translation:property
     """Read Write Property: Translation coordinates."""
-    UseType:property    
+    UseType:property
     """Read Write Property: Texture Use Type."""
-    Video:property    
+    Video:property
     """Read Write Property: Media used for texturing."""
-    Width:property    
+    Width:property
     """Read Only Property: Width of texture."""
     def Clone(self)->object:
         """Clone the texture.
@@ -14964,9 +14964,9 @@ class FBTexture(FBBox):
 class FBLayeredTexture(FBTexture):
     """LayeredTexture class.
     This class is used to encapsulate list of textures. User could subclass this class to support customized blending & compostion modes. See /OpenRealitySDK/Samples/miscellaneous/texture_template/ for example. See sample: LayeredTexture.py."""
-    BackgroundColor:property    
+    BackgroundColor:FBColorAndAlpha
     """Read/Write Property: Animatable Background color which is used to clear color buffer before composition."""
-    Layers:property    
+    Layers:FBPropertyListTexture
     """Read/Write Property: Textures Layers."""
     def SetLayerConfigDirty(self):
         """Set layer config dirty to trigger new composition."""
@@ -14975,17 +14975,17 @@ class FBTime():
     """Time data structure.
     See samples: FBTime.py, CameraSwitcher.py, ExportAnimationLibrary.py, StartKeysAtCurrentTime.py."""
     ETimeFormats:FBTime
-    Infinity:FBTime    
+    Infinity:FBTime
     """Time constant: Infinity, the largest time value."""
-    MinusInfinity:FBTime    
+    MinusInfinity:FBTime
     """Time constant: Minus Infinity, the lowest negative time value."""
-    OneHour:FBTime    
+    OneHour:FBTime
     """Time constant: One Hour."""
-    OneMinute:FBTime    
+    OneMinute:FBTime
     """Time constant: One Minute."""
-    OneSecond:FBTime    
+    OneSecond:FBTime
     """Time constant: One Second."""
-    Zero:FBTime    
+    Zero:FBTime
     """Time constant: Zero."""
     eDefaultFormat:FBTime
     eFrame:FBTime
@@ -15058,25 +15058,25 @@ class FBTime():
 class FBTimeCode():
     """TimeCode data structure.
     See sample: TimeCodeKeying.py."""
-    FILM_23976:FBTimeCode    
+    FILM_23976:FBTimeCode
     """-23.976f"""
-    FILM_24:FBTimeCode    
+    FILM_24:FBTimeCode
     """-24.0f"""
-    FRAMES_11988:FBTimeCode    
+    FRAMES_11988:FBTimeCode
     """-119.88f"""
-    FRAMES_30:FBTimeCode    
+    FRAMES_30:FBTimeCode
     """-30.0f"""
-    FRAMES_5994:FBTimeCode    
+    FRAMES_5994:FBTimeCode
     """-59.94f"""
-    Frame:property
-    FrameRate:property
-    MPAL_30:FBTimeCode    
+    Frame:float
+    FrameRate:float
+    MPAL_30:FBTimeCode
     """-29.971f Currently not supported : '1' is added just to differentiate from NTSC_FULL(-29.97f)"""
-    NTSC_DROP:FBTimeCode    
+    NTSC_DROP:FBTimeCode
     """Rates."""
-    NTSC_FULL:FBTimeCode    
+    NTSC_FULL:FBTimeCode
     """-29.97f"""
-    PAL_25:FBTimeCode    
+    PAL_25:FBTimeCode
     """-25.0f"""
     TimeCodeString:property
     def GetRawFrame(self)->float:
@@ -15443,9 +15443,9 @@ class FBTransportAudioManager(FBComponent):
         ...
 class FBTreeNode(FBComponent):
     """A node in the tree view."""
-    Checked:property    
+    Checked:bool
     """Read Write Property: Is FBTreeNode checked."""
-    Reference:property    
+    Reference:property
     """Read Write Property: Data to be associated to this node."""
 class FBUV():
     def CopyFrom(self,arg2:FBUV)->FBUV:...
@@ -15456,13 +15456,13 @@ class FBUV():
 class FBUndoManager(FBComponent):
     """Access to global undo and redo functionality.
     Users have the possibility of undoing and redoing actions performed using the GUI, and interacting with the undo and redo stacks with custom actions.All undo/redo related functions should only be called inside UI event callback. Users should call TransactionBegin()/TransactionEnd() in pairs, Transaction stack must be closed before UI event callback return.This class cannot be used as a base class. See sample: IndividualUndoCalls.py."""
-    OnRedo:property    
+    OnRedo:FBEvent
     """Event: A redo operation will be executed."""
-    OnRedoCompleted:property    
+    OnRedoCompleted:FBEvent
     """Event: A redo operation has been executed."""
-    OnUndo:property    
+    OnUndo:FBEvent
     """Event: An undo operation will be executed."""
-    OnUndoCompleted:property    
+    OnUndoCompleted:FBEvent
     """Event: An undo operation has been executed."""
     def ActiveOperation(self)->bool:
         """Determine if an undo operation is in action.
@@ -15612,55 +15612,55 @@ class FBVertex():
 class FBVideo(FBBox):
     """Video media class.
     Similar to the FBModel class, the FBVideo class serves as a general media class for images, video clips and video memory, as well as the possibility of custom formats and custom live cards.To have a valid FBVideo object, it must be constructed with a string pointing to a valid media file. After the creation, the method 'IsValid()' should be used to confirm the object's status. An invalid object cannot be used or interact with any other application object. The only property that can be read and modified is its 'Filename'. To make convert an invalid FBVideo object into a valid one, simply change its Filename property to point to a supported media file. See sample: DeleteUnusedMedia.py."""
-    KeepOnGPU:property    
+    KeepOnGPU:bool
     """Read Write Property: Don't auto flush from GPU if true. session runtime flag, won't be saved."""
 class FBVideoClip(FBVideo):
     """See sample: VideoClip.py."""
-    CurrentFrame:property    
+    CurrentFrame:property
     """Read Write Property: Current frame."""
-    CurrentFrameTime:property    
+    CurrentFrameTime:property
     """Read Write Property: Current time in clip."""
-    CurrentFrameTimeCode:property    
+    CurrentFrameTimeCode:property
     """Read Only Property: Embedded timecode from current frame in clip. Use the method GetEmbeddedTimecode to get the timecode of a different frame than the current frame."""
-    Filename:property    
+    Filename:property
     """Read Write Property: Filename of media."""
-    Format:property    
+    Format:property
     """Read Only Property: Video format."""
-    FrameRate:property    
+    FrameRate:property
     """Read Write Property: Frame rate."""
-    FrameTime:property    
+    FrameTime:property
     """Read Only Property: Inverse of FPS, time per frame"""
-    FreeRunning:property    
+    FreeRunning:property
     """Read Write Property: Is free Running on?"""
-    Height:property    
+    Height:property
     """Read Only Property: Height of image."""
-    InterlaceMode:property    
+    InterlaceMode:property
     """Read Write Property: Interlace mode."""
-    LastFrame:property    
+    LastFrame:property
     """Read Only Property: Last frame in clip."""
-    LastFrameTime:property    
+    LastFrameTime:property
     """Read Only Property: Time of last frame"""
-    Loop:property    
+    Loop:property
     """Read Write Property: Loop video clip?"""
-    PlaySpeed:property    
+    PlaySpeed:property
     """Read Write Property: Playback speed."""
-    PowerOfTwoHeight:property    
+    PowerOfTwoHeight:property
     """Read Only Property: Closest power of two value superior to height of image."""
-    PowerOfTwoWidth:property    
+    PowerOfTwoWidth:property
     """Read Only Property: Closest power of two value superior to width of image."""
-    ProxyMode:property    
+    ProxyMode:property
     """Read Write Property: Proxy mode."""
-    RelativePath:property    
+    RelativePath:property
     """Read Only Property: Relative path of media."""
-    StartFrame:property    
+    StartFrame:property
     """Read Write Property: Frame to begin video playback from."""
-    StopFrame:property    
+    StopFrame:property
     """Read Write Property: Frame to end video playback at."""
-    StorageMode:property    
+    StorageMode:property
     """Read Write Property: Storage mode."""
-    TimeOffset:property    
+    TimeOffset:property
     """Read Write Property: Temporal offset for beginning of video."""
-    Width:property    
+    Width:property
     """Read Only Property: Width of image."""
     def DrawImage(self,X:object,Y:object,W:object,H:object,Frame:object):
         """Draw a frame of the image to the current view.
@@ -15689,16 +15689,16 @@ class FBVideoClip(FBVideo):
         return : true if data is valid."""
         ...
 class FBVideoClipImage(FBVideoClip):
-    ImageSequence:property    
+    ImageSequence:property
     """Read Write Property: Clip is an image sequence?"""
-    MaxMipMapResolution:property    
+    MaxMipMapResolution:property
     """Read Write Property: Maximum MipMap resolution will be loaded into GPU."""
-    UseSystemFrameRate:property    
+    UseSystemFrameRate:property
     """Read Write Property: Clip is using system frame rate?"""
 class FBVideoCodecManager():
     """Video Codec manager class.
     Use to set or get codec used and codec params See samples: codecExamples.py, render.py."""
-    VideoCodecMode:property    
+    VideoCodecMode:FBVideoCodecMode
     """Read Write Property: This decide how the system behaves when ask to render a file (codec dialog, uncompress, use default codec)"""
     def GetCodecIdList(self,FileFormatInfo:str)->list:
         """GetCodecIdList.
@@ -15730,42 +15730,42 @@ class FBVideoCodecManager():
 class FBVideoGrabOptions():
     """Video Grabbing Options.
     Contain options to control how the grabbing process will occur."""
-    AntiAliasing:property    
+    AntiAliasing:bool
     """Read Write Property: If true, video frames will be anti-aliased."""
-    AudioCustomStandaloneFileName:property    
+    AudioCustomStandaloneFileName:property
     """Destination for the custom audio standalone file, if mAudioUseCustomStandaloneFileName is set to true."""
-    AudioOutputLocation:property    
+    AudioOutputLocation:FBAudioOutputLocation
     """Audio output location when rendering using a video format (for still image formats & SWF (Flash) format, the audio is always rendered in a standalone file)."""
-    AudioRenderFormat:property    
+    AudioRenderFormat:int
     """Read Write Property: Audio render format."""
-    AudioUseCustomStandaloneFileName:property    
+    AudioUseCustomStandaloneFileName:bool
     """If true and if the audio is rendered in a standalone output file, the audio file is generated at the file location specified by mAudioCustomStandaloneFileName, otherwise the audio file is generated in the same directory as the rendered images/video files based on their names."""
-    BitsPerPixel:property    
+    BitsPerPixel:FBVideoRenderDepth
     """Read Write Property: Video grab color depth."""
-    CameraResolution:property    
+    CameraResolution:FBCameraResolutionMode
     """Read Write Property: Camera Resolution."""
-    FieldMode:property    
+    FieldMode:FBVideoRenderFieldMode
     """Read Write Property: Video grab field mode."""
-    OutputFileName:property    
+    OutputFileName:property
     """Read Write Property: Grabbing destination file."""
-    RenderAudio:property    
+    RenderAudio:bool
     """Read Write Property: If true and there's audio in the scene, render the audio as well."""
-    RendererCallbackIndex:property
-    RendererCallbackPrefIndex:property
-    ShowCameraLabel:property    
+    RendererCallbackIndex:int
+    RendererCallbackPrefIndex:int
+    ShowCameraLabel:bool
     """Read Write Property: If true, display camera label information."""
-    ShowSafeArea:property    
+    ShowSafeArea:bool
     """Read Write Property: If true, display safe area."""
-    ShowTimeCode:property    
+    ShowTimeCode:bool
     """Read Write Property: If true, display time code information."""
-    StereoDisplayMode:property
-    StillImageCompression:property    
+    StereoDisplayMode:FBStereoDisplayMode
+    StillImageCompression:int
     """Property: Compression ratio for image(jpg) 0-100 where 0=Greatest compression, 100=Least Compression."""
-    TimeSpan:property    
+    TimeSpan:FBTimeSpan
     """Read Write Property: Start and stop selection time to grab."""
-    TimeSteps:property    
+    TimeSteps:FBTime
     """Read Write Property: Time step length between each grab."""
-    ViewingMode:property    
+    ViewingMode:FBVideoRenderViewingMode
     """Read Write Property: Video grab viewing mode."""
 class FBVideoGrabber(FBComponent):
     """Video Grabber class.
@@ -15825,13 +15825,13 @@ class FBVideoGrabber(FBComponent):
 class FBVideoIn(FBVideo):
     """Basic video input class, supporting webcam and DV device.
     See sample: VideoInput.py."""
-    FilePath:property    
+    FilePath:str
     """Read Write Property: Location of the generated movie file after a recording session."""
-    Online:property    
+    Online:bool
     """Read Write Property: If true, the device is online and will display the current video feed."""
-    RecordAudio:property    
+    RecordAudio:bool
     """Read Write Property: If true, the device will also record audio during a recording session."""
-    Recording:property    
+    Recording:bool
     """Read Write Property: If true, the device will record during a recording session."""
     def LiveGetCompressor(self)->int:
         """Get the current compressor index.
@@ -15884,7 +15884,7 @@ class FBVideoIn(FBVideo):
 class FBVideoMemory(FBVideo):
     """FBVideoMemory allow external media source (which can't be supported by MoBu natively)  User could create / update OGL texture (GL_TEXTURE_2D type) externally, and pass in GL texture object id to TextureOGLId property.See 'Scripts/Samples/Video/VideoMemory.py' for usage example.
     See sample: VideoMemory.py."""
-    TextureOGLId:property    
+    TextureOGLId:int
     """Read Write Property: OpenGL texture buffer object id (GL_TEXTURE_2D type)."""
     def SetObjectImageSize(self,W:object,H:object):
         """Set image size to allow MoBu preview texture with proper dimension / aspect.
@@ -15895,28 +15895,28 @@ class FBVideoMemory(FBVideo):
 class FBVideoOut(FBVideo):
     """Video media class.
     See sample: VideoOutput.py."""
-    Online:property    
+    Online:bool
     """Read Write Property: If true, the device is online and will output display."""
 class FBViewingOptions():
     """Viewing options for rendering.
     The FBRenderer allows to get and set those options."""
-    DisplayMode:property    
+    DisplayMode:property
     """Read Write Property: Current Shading mode"""
-    DisplayWhat:property    
+    DisplayWhat:int
     """Read Write Property: current display mask."""
-    PaneIndex:property    
+    PaneIndex:int
     """Current Viewer Pane being rendered.
     
     return : Index of the pane being rendered."""
-    PickingMode:property    
+    PickingMode:FBPickingMode
     """Read Write Property: Reference to the current picking mode."""
-    ShowCameraLabel:property    
+    ShowCameraLabel:bool
     """Read Write Property: Show Camera Label when rendering."""
-    ShowSafeArea:property    
+    ShowSafeArea:bool
     """Read Write Property: Show Safe Area when rendering."""
-    ShowTimeCode:property    
+    ShowTimeCode:bool
     """Read Write Property: Show Time Code when rendering."""
-    StereoDisplayMode:property    
+    StereoDisplayMode:FBStereoDisplayMode
     """Get a reference to the stereo display mode.
     
     return : Reference to the current stereo display mode."""
@@ -15933,81 +15933,81 @@ class FBViewingOptions():
 class FBVisualComponent(FBComponent):
     """Visual Component base class.
     All of the user interface elements available in the SDK derive from this class."""
-    BorderCaption:property    
+    BorderCaption:property
     """Read Write Property: Caption to display in border."""
-    BorderCornerRadius:property    
+    BorderCornerRadius:property
     """Read Write Property: Corner radius (rounded)."""
-    BorderInSet:property    
+    BorderInSet:property
     """Read Write Property: Is border inset?"""
-    BorderMaxAngle:property    
+    BorderMaxAngle:property
     """Read Write Property: Max angle for rounding."""
-    BorderShowCaption:property    
+    BorderShowCaption:property
     """Read Write Property: Show caption?"""
-    BorderSpacing:property    
+    BorderSpacing:property
     """Read Write Property: Spacing of border."""
-    BorderStyle:property    
+    BorderStyle:property
     """Read Write Property: Style of border."""
-    BorderWidth:property    
+    BorderWidth:property
     """Read Write Property: Width of border."""
-    Caption:property    
+    Caption:str
     """Property: Widget caption."""
-    Enabled:property    
+    Enabled:bool
     """Read Write Property: Is visual enabled?"""
-    Height:property    
+    Height:int
     """Read Write Property: Height."""
-    Hint:property    
+    Hint:str
     """Read Write Property: Hint to show."""
-    Left:property    
+    Left:int
     """Read Write Property: Left coordinate."""
-    ReadOnly:property    
+    ReadOnly:bool
     """Read Write Property: Is visual component read only?"""
-    RegionAttachToHeight:property    
+    RegionAttachToHeight:property
     """Read Write Property: Height Attachment source."""
-    RegionAttachToWidth:property    
+    RegionAttachToWidth:property
     """Read Write Property: Width Attachment source."""
-    RegionAttachToX:property    
+    RegionAttachToX:property
     """Read Write Property X Attachment source."""
-    RegionAttachToY:property    
+    RegionAttachToY:property
     """Read Write Property: Y Attachment source."""
-    RegionAttachTypeHeight:property    
+    RegionAttachTypeHeight:property
     """Read Write Property: Height Attachment type."""
-    RegionAttachTypeWidth:property    
+    RegionAttachTypeWidth:property
     """Read Write Property: Width Attachment type."""
-    RegionAttachTypeX:property    
+    RegionAttachTypeX:property
     """Read Write Property: X Attachment type."""
-    RegionAttachTypeY:property    
+    RegionAttachTypeY:property
     """Read Write Property: Y Attachment type."""
-    RegionName:property    
+    RegionName:property
     """Read Write Property: Region name."""
-    RegionOffsetHeight:property    
+    RegionOffsetHeight:property
     """Read Write Property: Region height offset."""
-    RegionOffsetWidth:property    
+    RegionOffsetWidth:property
     """Read Write Property: Region width offset."""
-    RegionOffsetX:property    
+    RegionOffsetX:property
     """Read Write Property: Region X offset."""
-    RegionOffsetY:property    
+    RegionOffsetY:property
     """Read Write Property: Region Y offset."""
-    RegionPosMaxX:property    
+    RegionPosMaxX:property
     """Read Write Property: Region X position Max"""
-    RegionPosMaxY:property    
+    RegionPosMaxY:property
     """Read Write Property: Region Y position Max"""
-    RegionPosMinX:property    
+    RegionPosMinX:property
     """Read Write Property: Region X position Min"""
-    RegionPosMinY:property    
+    RegionPosMinY:property
     """Read Write Property: Region Y position Min"""
-    RegionRatioHeight:property    
+    RegionRatioHeight:property
     """Read Write Property: Ratio for Height attachment."""
-    RegionRatioWidth:property    
+    RegionRatioWidth:property
     """Read Write Property: Ratio for Width attachment."""
-    RegionRatioX:property    
+    RegionRatioX:property
     """Read Write Property: Ratio for X attachment."""
-    RegionRatioY:property    
+    RegionRatioY:property
     """Read Write Property: Ratio for Y attachment."""
-    Top:property    
+    Top:int
     """Read Write Property: Top coordinate."""
-    Visible:property    
+    Visible:bool
     """Read Write Property: Is visual component visible?"""
-    Width:property    
+    Width:int
     """Read Write Property: Width."""
     def AddChild(self,Child:FBVisualComponent,Id:object)->bool:
         """Add a child component.
@@ -16052,25 +16052,25 @@ class FBVisualComponent(FBComponent):
 class FBVisualContainer(FBVisualComponent):
     """Used to create a container for a tool UI.
     See samples: Container.py, PropertyDrop.py, TutorialBox.py."""
-    IconPosition:property    
+    IconPosition:FBIconPosition
     """Read Write Property: Where the icon is positioned for the items."""
-    ItemHeight:property    
+    ItemHeight:int
     """Read Write Property: Item height."""
-    ItemIndex:property    
+    ItemIndex:int
     """Read Write Property: Current item selected."""
-    ItemWidth:property    
+    ItemWidth:int
     """Read Write Property: Item width."""
-    ItemWrap:property    
+    ItemWrap:bool
     """Read Write Property: Are items wrapped when enough space is available?"""
-    Items:property    
+    Items:FBStringList
     """List: Names of items in container."""
-    OnChange:property    
+    OnChange:FBEvent
     """Event: Container contents changed."""
-    OnDblClick:property    
+    OnDblClick:FBEvent
     """Event: Double click."""
-    OnDragAndDrop:property    
+    OnDragAndDrop:FBEvent
     """Event: Drag and Drop event."""
-    Orientation:property    
+    Orientation:FBOrientation
     """Read Write Property: Orientation of container."""
     def GetSelection(self)->int:
         """Get the selected item.
@@ -16092,9 +16092,9 @@ class FBVisualContainer(FBVisualComponent):
         ...
 class FBView(FBVisualComponent):
     """Generic view."""
-    DoubleBuffer:property    
+    DoubleBuffer:bool
     """Read Only Property: Indicates if the view is double buffered."""
-    GraphicOGL:property    
+    GraphicOGL:bool
     """Read Only Property: Indicates if the view is OpenGL."""
     def DrawString(self,Text:str,X:float,Y:float,Enable:object):
         """Draw a string in the view.
@@ -16116,71 +16116,71 @@ class FBView(FBVisualComponent):
 class FBTree(FBVisualComponent):
     """Tree list view.
     See sample: Tree.py."""
-    AllowCollapse:property    
+    AllowCollapse:bool
     """Read Write Property: When OnCollapsing occurs, set this to true to allow collapse."""
-    AllowExpansion:property    
+    AllowExpansion:bool
     """Read Write Property: When OnExpanding occurs, set this to true to allow expansion."""
-    AutoExpandOnDblClick:property    
+    AutoExpandOnDblClick:bool
     """Read Write Property: Allow automatic expand on double click, default is false."""
-    AutoExpandOnDragOver:property    
+    AutoExpandOnDragOver:bool
     """Read Write Property: Allow automatic expand on drag over, default is false."""
-    AutoScroll:property    
+    AutoScroll:bool
     """Read Write Property: If AutoScroll property is True then the tree window will be automatically scrolled when the user drags item(s) over the boundaries of the tree."""
-    AutoScrollOnExpand:property    
+    AutoScrollOnExpand:bool
     """Read Write Property: Allow automatic scroll on expand, default is true."""
-    CheckBoxes:property    
+    CheckBoxes:bool
     """Read Write Property: Draw check boxe for each node."""
-    DeselectOnCollapse:property    
+    DeselectOnCollapse:bool
     """Read Write Property: Tells whether node are deselected if parent node is collapsed."""
-    EditNodeOn2Select:property    
+    EditNodeOn2Select:bool
     """Read Write Property: Set to true, to allow automatic node editing on second select."""
-    HighlightOnRightClick:property    
+    HighlightOnRightClick:bool
     """Read Write Property: Hightlight node on right click."""
-    Indent:property    
+    Indent:int
     """Read Write Property: Use Indent to determine how far child nodes are indented from their parent nodes when the parent is expanded."""
-    ItemHeight:property    
+    ItemHeight:int
     """Read Write Property: Height of an item."""
-    MultiDrag:property    
+    MultiDrag:bool
     """Read Write Property: Tells whether multiple drag/drop is allowed or not."""
-    MultiSelect:property    
+    MultiSelect:bool
     """Read Write Property: Tells whether multiple selection is allowed or not."""
-    NoSelectOnDrag:property    
+    NoSelectOnDrag:bool
     """Read Write Property: Tells whether node are selected if drag is start and node is not already selected."""
-    NoSelectOnRightClick:property    
+    NoSelectOnRightClick:bool
     """Read Write Property: Tells whether node are selected if right click on node."""
-    OnChange:property    
+    OnChange:FBEvent
     """Event: Change of the selection."""
-    OnClick:property    
+    OnClick:FBEvent
     """Event: Click on a node of the tree. Use OnSelect."""
-    OnClickCheck:property    
+    OnClickCheck:FBEvent
     """Event: Click on a node checkbox of the tree."""
-    OnCollapsed:property    
+    OnCollapsed:FBEvent
     """Event: Click on the '-' sign before a non-leaf node."""
-    OnCollapsing:property    
+    OnCollapsing:FBEvent
     """Event: Fired before the node collapse. To refuse collapsing, set AllowCollapse to false."""
-    OnDblClick:property    
+    OnDblClick:FBEvent
     """Event: Double-Click on a node of the tree. Use FBEventTreeSelect to cast event."""
-    OnDragAndDrop:property    
+    OnDragAndDrop:FBEvent
     """Event: Drag and drop of an element."""
-    OnExpanded:property    
+    OnExpanded:FBEvent
     """Event: Click on the '+' sign before a non-leaf node"""
-    OnExpanding:property    
+    OnExpanding:FBEvent
     """Event: Is fired before the node expand. To refuse expanding set AllowExpansion to false."""
-    OnSelect:property    
+    OnSelect:FBEvent
     """Event: A node was selected. Use FBEventTreeSelect to cast event."""
-    SelectedCount:property    
+    SelectedCount:int
     """Read Only Property: Count of selected items."""
-    SelectedNodes:property    
+    SelectedNodes:FBPropertyListTreeNode
     """Read Only Property: List of selected nodes."""
-    SelectionActive:property    
+    SelectionActive:bool
     """Read Write Property: Tells whether selection is allowed or not."""
-    ShowLines:property    
+    ShowLines:bool
     """Read Write Property: On node selection, will draw entire line selected"""
-    TreeHeight:property    
+    TreeHeight:int
     """Read Only Property: Height of the tree."""
-    TreeWidth:property    
+    TreeWidth:int
     """Read Only Property: Width of the tree."""
-    VisibleItemCount:property    
+    VisibleItemCount:int
     """Read Only Property: Count of visible items."""
     def Clear(self):
         """Clear the tree (remove all nodes)."""
@@ -16200,11 +16200,11 @@ class FBTree(FBVisualComponent):
 class FBThermometer(FBVisualComponent):
     """Thermometer.
     See sample: Thermometer.py."""
-    Max:property    
+    Max:float
     """Read Write Property: Maximum value."""
-    Min:property    
+    Min:float
     """Read Write Property: Minimum value."""
-    Value:property    
+    Value:float
     """Read Write Property: Current value."""
     def Clear(self):
         """Reset bounds and value."""
@@ -16212,32 +16212,32 @@ class FBThermometer(FBVisualComponent):
 class FBTabPanel(FBVisualComponent):
     """Tab panel.
     See sample: TabPanel.py."""
-    ItemIndex:property    
+    ItemIndex:int
     """Read Write Property: Current tab panel."""
-    Items:property    
+    Items:FBStringList
     """List: Names for tab panels."""
-    Layout:property    
+    Layout:FBLayout
     """Read Write Property: Layout for current tab panel."""
-    OnChange:property    
+    OnChange:FBEvent
     """Event: Tab panel change."""
-    TabStyle:property    
+    TabStyle:int
     """Read Write Property: Style of the tab panel, 0 creates normal tabs, 1 creates buttons to activate tabs."""
 class FBSpread(FBVisualComponent):
     """Base spreadsheet class.
     See samples: ActionScriptMgr.py, KeyboardMapper.py, Spread.py."""
-    Column:property    
+    Column:int
     """Read Write Property: Current column."""
-    MultiSelect:property    
+    MultiSelect:bool
     """Read Write Property: Can there be multiple selections?"""
-    OnCellChange:property    
+    OnCellChange:FBEvent
     """Event: Cell value changed."""
-    OnColumnClick:property    
+    OnColumnClick:FBEvent
     """Event: Column clicked."""
-    OnDragAndDrop:property    
+    OnDragAndDrop:FBEvent
     """Event: Drag and drop event."""
-    OnRowClick:property    
+    OnRowClick:FBEvent
     """Event: Row clicked."""
-    Row:property    
+    Row:property
     """Read Write Property: Current row."""
     def Clear(self):
         """Clear spreadsheet This function will empty spreadsheet of all its rows, columns and cells."""
@@ -16314,27 +16314,27 @@ class FBSpread(FBVisualComponent):
 class FBSlider(FBVisualComponent):
     """Slider.
     See samples: BlendShape_Editor.py, Slider.py."""
-    Max:property    
+    Max:float
     """Read Write Property: Maximum value."""
-    Min:property    
+    Min:float
     """Read Write Property: Minimum value."""
-    OnChange:property    
+    OnChange:FBEvent
     """Event: Slider value changed."""
-    OnTransaction:property    
+    OnTransaction:FBEvent
     """Event: Transaction begin/end (continuous value changes). This event property doesn't exist in pyfbsdk."""
-    Orientation:property    
+    Orientation:FBOrientation
     """Read Write Property: Slider orientation."""
-    Value:property    
+    Value:float
     """Read Write Property: Current value."""
 class FBScrollBox(FBVisualComponent):
     """Scroll Box.
     This class provides a layout that will be automatically managed with a scrollbar according to the specified width and height. This provides a way to add dynamic UI control. See sample: Scrollbox.py."""
-    Content:property    
+    Content:FBLayout
     """Read Property: an empty layout in which you can add scrollable content."""
     def SetContentSize(self,arg2:object,arg3:object):...
 class FBPropertyConnectionEditor(FBVisualComponent):
     """Property Connection Editor."""
-    Property:property    
+    Property:property
     """Read Write Property: Property to edit connections. Set to NULL to disable."""
     def PopupList(self):
         """Launch a list of connected objects."""
@@ -16345,17 +16345,17 @@ class FBPropertyConnectionEditor(FBVisualComponent):
 class FBPlotPopup(FBVisualComponent):
     """Plot Popup (for setting options only).
     See sample: FBPlotPopup.py."""
-    EnableEvaluateDeformation:property    
+    EnableEvaluateDeformation:bool
     """Read Write Property: Enable Evaluate Deformation option for popup."""
-    EnablePlotAuxEffectors:property    
+    EnablePlotAuxEffectors:bool
     """Read Write Property: Enable Plot Aux Effectors option for popup."""
-    EnablePlotCharacterExtension:property    
+    EnablePlotCharacterExtension:bool
     """Read Write Property: Enable Plot Character Extension option for popup."""
-    EnablePlotLockedProperties:property    
+    EnablePlotLockedProperties:bool
     """Read Write Property: Enable Plot Locked Properties option for popup."""
-    EnablePlotTranslationOnRootOnly:property    
+    EnablePlotTranslationOnRootOnly:bool
     """Read Write Property: Enable Plot Translation On Root Only option for popup."""
-    EnableSmartPlotControls:property    
+    EnableSmartPlotControls:bool
     """Read Write Property: Enable Smart Plot option for popup."""
     def GetPlotOptions(self)->FBPlotOptions:
         """Get plot options.
@@ -16376,19 +16376,19 @@ class FBPlotPopup(FBVisualComponent):
 class FBList(FBVisualComponent):
     """List of items.
     See samples: List.py, ToolCommunicationReceiver.py."""
-    ExtendedSelect:property    
+    ExtendedSelect:bool
     """Read Write Property: Extended selection state?"""
-    ItemIndex:property    
+    ItemIndex:int
     """Read Write Property: Current item index."""
-    Items:property    
+    Items:FBStringList
     """List: Names of items in list."""
-    MultiSelect:property    
+    MultiSelect:bool
     """Read Write Property: Can multiple items be selected?"""
-    OnChange:property    
+    OnChange:FBEvent
     """Event: List changed."""
-    OnDragAndDrop:property    
+    OnDragAndDrop:FBEvent
     """Event: Drag and drop event."""
-    Style:property    
+    Style:FBListStyle
     """Read Write Property: Style or direction of list."""
     def IsSelected(self,Index:object)->bool:
         """Returns whether or not the itemIndex is currently selected.
@@ -16402,15 +16402,15 @@ class FBLayoutRegion(FBVisualComponent):
 class FBLayout(FBVisualComponent):
     """Used to build the user interface.
     Layouts manage areas of the screen called regions. Regions contain UI components such as buttons, viewers, and edit boxes. Regions are added to layouts. When a UI component is bound to a region, the region defines how big it is and how it behaves when the layout is resized.Types of Layouts Device Constraint Manipulator Shader A region is first defined using the FBLayout::AddRegion() function. Once a region is defined and the corresponding UI component is created, and the component is bound to its region with FBLayout::SetControl(). You can use the FBSystem::OnUIIdle() in your layout to update real-time UI components such as guages and status indicators. In Python, FBBoxLayout and FBGridLayout take care of most of the region handling. They are used to create basic control layouts for simple tools. If you have a lot of content you can use FBScrollBox to manage it. For an example, see the Python sample Scrollbox.py.* Also see the Python sample Layout.py, and the C++ sample ortooluidemo. See samples: KeyboardMapper.py, ShotTrackSetupTool.py, Attach.py, Border.py, Layout.py."""
-    OnIdle:property    
+    OnIdle:FBEvent
     """Event: Idle."""
-    OnInput:property    
+    OnInput:FBEvent
     """Event: Input."""
-    OnPaint:property    
+    OnPaint:FBEvent
     """Event: Paint layout."""
-    OnResize:property    
+    OnResize:FBEvent
     """Event: Resize layout."""
-    OnShow:property    
+    OnShow:FBEvent
     """Event: Show layout."""
     def AddRegion(self,Name:str,Title:str,X:FBAddRegionParam,XType:FBAddRegionParam,XRelative:FBAddRegionParam,MultX:FBAddRegionParam)->bool:
         """Add a region to the layout.
@@ -16546,34 +16546,34 @@ class FBLayout(FBVisualComponent):
 class FBLabel(FBVisualComponent):
     """Text label.
     See sample: Label.py."""
-    Justify:property    
+    Justify:FBTextJustify
     """Read Write Property: Text justification for label."""
-    Style:property    
+    Style:FBTextStyle
     """Read Write Property: Text style appearance."""
-    WordWrap:property    
+    WordWrap:bool
     """Read Write Property: Enable wordwrap on text drawing."""
 class FBTool(FBLayout):
     """Tool class.
     See samples: MBFileRefDemo.py, CloseTool.py, MoveResizeToolExample.py, SafeToolCreationExample.py, ToolCommunicationReceiver.py, ToolNativeWidgetHolder.py."""
-    DisplayName:property    
+    DisplayName:str
     """Read Write Property: Tool Display Name (Caption on the tool's title bar)"""
-    MaxSizeX:property    
+    MaxSizeX:property
     """Read Property: Maximum Size in X (Disabled in this version). A value of -1 means no maximum size."""
-    MaxSizeY:property    
+    MaxSizeY:property
     """Maximum Size in Y (Disabled in this version). A value of -1 means no maximum size."""
-    MinSizeX:property    
+    MinSizeX:property
     """Read Property: Minimum Size in X. A value of -1 means no minimum value."""
-    MinSizeY:property    
+    MinSizeY:property
     """Read Property: Minimum Size in Y. A value of -1 means no minimum value."""
-    StartPosX:property    
+    StartPosX:property
     """Read Property: Starting Position in X. This is the initial position when the tool is opened. Default = 450"""
-    StartPosY:property    
+    StartPosY:property
     """Read Property: Starting Position in Y. This is the initial position when the tool is opened. Default = 450"""
-    StartSizeX:property    
+    StartSizeX:property
     """Read Property: Starting Size. This is the initial size in X when the tool is opened. Default = 800"""
-    StartSizeY:property    
+    StartSizeY:property
     """Read Property: Starting Size. This is the initial size in Y when the tool is opened. Default = 400"""
-    ToolName:property    
+    ToolName:property
     """Read Property: Tool Name"""
     def GetPossibleDockPosition(self)->FBToolPossibleDockPosition:
         """Get the possible docking position for the tool (concatenated).
@@ -16589,7 +16589,7 @@ class FBTool(FBLayout):
 class FBPopup(FBLayout):
     """Popup window.
     This class lets a window (inheriting from FBLayout) be created for another interface. See sample: Popup.py."""
-    Modal:property    
+    Modal:bool
     """Read Write Property: Modal?"""
     def Close(self,Ok:object):
         """Close popup.
@@ -16605,9 +16605,9 @@ class FBPopup(FBLayout):
 class FBImageContainer(FBVisualComponent):
     """Image.
     See sample: ImageContainer.py."""
-    Filename:property    
+    Filename:str
     """Read Write Property: Filename for image."""
-    OnDragAndDrop:property    
+    OnDragAndDrop:FBEvent
     """Event: Drag and drop."""
 class FBFCurveEditor(FBVisualComponent):
     """FCurve editor.
@@ -16632,29 +16632,29 @@ class FBFCurveEditor(FBVisualComponent):
         ...
 class FBEditVector(FBVisualComponent):
     """Vector edit widget."""
-    OnChange:property    
+    OnChange:FBEvent
     """Event: Vector value changed."""
-    Value:property    
+    Value:FBVector3d
     """Read Write Property: Current value of vector."""
 class FBEditTimeCode(FBVisualComponent):
-    OnChange:property    
+    OnChange:property
     """Event: Timecode changed."""
-    Value:property    
+    Value:FBTime
     """Read Write Property: Current timecode value."""
 class FBEditPropertyModern(FBVisualComponent):
     """Property editor widget.
     This is a more modern version of the widget FBEditProperty which is used in the property editor tool of the application.See class FBEditProperty for more details. See sample: PropertyDrop.py."""
-    LargeInc:property    
+    LargeInc:float
     """Read Write Property: Indicate the large increment applied when click-draging on the property value (usually left-click-dragging)"""
-    Precision:property    
+    Precision:float
     """Read Write Property: Used to specify the width and precision of the value shown. A value of 7.2 indicates to show at minimum 7 numbers, with 2 decimals."""
-    Property:property    
+    Property:property
     """Read Write Property: Property to edit. Set to NULL to disable."""
-    SliderMax:property    
+    SliderMax:float
     """Read Write Property: Should the property be editable using a slider, set the maximum value atainable with the slider."""
-    SliderMin:property    
+    SliderMin:float
     """Read Write Property: Should the property be editable using a slider, set the minimum value atainable with the slider."""
-    SmallInc:property    
+    SmallInc:float
     """Read Write Property: Indicate the small increment applied when click-draging on the property value (usually right-click-dragging)"""
     def SetBackgroundColorIndex(self,Index:object):
         """Set the background color index.
@@ -16683,62 +16683,62 @@ class FBEditProperty(FBVisualComponent):
     
     
     See sample: PropertyDrop.py."""
-    LargeInc:property    
+    LargeInc:float
     """Read Write Property: Indicate the large increment applied when click-draging on the property value (usually left-click-dragging)"""
-    Precision:property    
+    Precision:float
     """Read Write Property: Used to specify the width and precision of the value shown. A value of 7.2 indicates to show at minimum 7 numbers, with 2 decimals."""
-    Property:property    
+    Property:property
     """Read Write Property: Property to edit. Set to NULL to disable."""
-    SliderMax:property    
+    SliderMax:float
     """Read Write Property: Should the property be editable using a slider, set the maximum value atainable with the slider."""
-    SliderMin:property    
+    SliderMin:float
     """Read Write Property: Should the property be editable using a slider, set the minimum value atainable with the slider."""
-    SmallInc:property    
+    SmallInc:float
     """Read Write Property: Indicate the small increment applied when click-draging on the property value (usually right-click-dragging)"""
 class FBEditNumber(FBVisualComponent):
     """Number edit box."""
-    LargeStep:property    
+    LargeStep:float
     """Read Write Property: Large step value."""
-    Max:property    
+    Max:float
     """Read Write Property: Maximum value."""
-    Min:property    
+    Min:float
     """Read Write Property: Minimum value."""
-    OnChange:property    
+    OnChange:FBEvent
     """Event: Number changed."""
-    Precision:property    
+    Precision:float
     """Read Write Property: Precision of value."""
-    SmallStep:property    
+    SmallStep:float
     """Read Write Property: Small step value."""
-    Value:property    
+    Value:float
     """Read Write Property: Current value."""
 class FBEditColor(FBVisualComponent):
     """Color edit widget."""
-    ColorMode:property    
+    ColorMode:int
     """Read Write Property: 3 for RGB, 4 for RGBA (Default = 3)"""
-    OnChange:property    
+    OnChange:FBEvent
     """Event: Color changed."""
-    Value:property    
+    Value:FBColor
     """Read Write Property: Current value of color."""
 class FBEdit(FBVisualComponent):
     """Text edit box."""
-    OnChange:property    
+    OnChange:FBEvent
     """Event: Text changed."""
-    PasswordMode:property    
+    PasswordMode:bool
     """Read Write Property: Set password mode for this edit box."""
-    Text:property    
+    Text:str
     """Read Write Property: Text displayed."""
 class FBButton(FBVisualComponent):
     """Used to create and manage buttons in a user interface.
     This class includes functionality to create buttons in a user interface and add a callback. In MotionBuilder, buttons are created within regions, which are in turn created in layouts with FBLayout. For usage, see the Python sample Button.py. See also: FBButtonStyle, FBTextJustify, FBButtonLook. See samples: Button.py, Popup.py, RadioButton.py."""
-    Justify:property    
+    Justify:FBTextJustify
     """Read Write Property: Current state of button."""
-    Look:property    
+    Look:FBButtonLook
     """Read Write Property: Current state of button."""
-    OnClick:property    
+    OnClick:FBEvent
     """Event: Button clicked."""
-    State:property    
+    State:int
     """Read Write Property: Current state of button."""
-    Style:property    
+    Style:FBButtonStyle
     """Read Write Property: Button style."""
     def GetStateColor(self,State:FBButtonState)->FBColor:
         """Queries the color associated with a button state.
