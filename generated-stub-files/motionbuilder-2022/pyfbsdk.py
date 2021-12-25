@@ -3403,7 +3403,7 @@ class FBBatchOptions():
     """Read Write Property: The character to receive the animation."""
     FrameAnimation:bool
     """Read Write Property: Set timeline start and end time to corespond with the start and end of animation."""
-    InputDirectory:property
+    InputDirectory:str
     """Read Write Property: The directory containning the input files."""
     InputFileFormat:FBBatchFileFormat
     """Read Write Property: File format of the input files."""
@@ -3415,7 +3415,7 @@ class FBBatchOptions():
     """Read Write Property: Action to perform when a scene already contains batch takes while in a batch process."""
     OnTakeExistAction:FBBatchOnTakeExist
     """Read Write Property: Action to perform when a take already exist while in a batch process."""
-    OutputDirectory:property
+    OutputDirectory:str
     """Read Write Property: The directory containning the output files."""
     OutputFileFormat:FBBatchFileFormat
     """Read Write Property: File format of the output files."""
@@ -3427,7 +3427,7 @@ class FBBatchOptions():
     """Read Write Property: To plot the animation on the control set."""
     ProcessType:FBBatchProcessType
     """Read Write Property: What process should be done? Load, Save or Both."""
-    SkeletonFile:property
+    SkeletonFile:str
     """Read Write Property: The Skeleton file (for Acclaim AMC files)."""
     StartAnimationAtZero:bool
     """Read Write Property: Set the time of all loaded files to 0."""
@@ -3856,13 +3856,13 @@ class FBEventTreeSelect(FBEvent):
     TreeNode:FBTreeNode
     """Read Write Property: Selected tree node."""
 class FBEventVideoFrameRendering(FBEvent):
-    EState:FBEventVideoFrameRendering
+    EState:_Enum
     FrameCount:int
     FrameNumber:int
-    State:property
-    eBeginRendering:FBEventVideoFrameRendering
-    eEndRendering:FBEventVideoFrameRendering
-    eRendering:FBEventVideoFrameRendering
+    State:EState
+    eBeginRendering:EState
+    eEndRendering:EState
+    eRendering:EState
 class FBFCurveEvent(FBEvent):
     """This class is used when a modification is made on a FCurve.
     It contains the necessary information to identify the owner of the curve and what modification was made."""
@@ -4401,9 +4401,9 @@ class FBPythonWrapper():
 class FBPlug(FBPythonWrapper):
     """Connections Basic Open Reality SDK Element.
     Most elements that are available in the SDK inherit from this base class since FBComponent and FBProperty inherit from FBPlug. Basically, all objects can be connected together because they are all 'plugs'. To simplify the graph, you can think of a 'source' connection as a child, and a 'destination' connection as a parent. Also, it is correct to assume that a source affect/work on its destination. For example, a shader applied on an object would be seen as the source while the object is the destination. So FBPlug is a set of functions that enables you to control those connections with flexibility and ease. See samples: FBConstraintManager.py, FBFolder.py."""
-    ClassGroupName:FBPlug
+    ClassGroupName:str
     """ClassGroupName of the object."""
-    TypeInfo:FBPlug
+    TypeInfo:int
     """TypeInfo."""
     def BeginChange(self)->bool:...
     def ClassName(self)->str:...
@@ -7989,7 +7989,7 @@ class FBGroup(FBBox):
 class FBHUD(FBBox):
     """Heads Up display.
     Display scene related information to the screen. This information will also be present in the rendered frames when creating AVIs or QuickTime files. See samples: BloopSlate.py, HUDElements.py, HUDTextElement.py, RecordLight.py, Timeline.py, HUD.py."""
-    EStockElement:FBHUD
+    EStockElement:property
     Elements:FBPropertyListHUDElement
     """List: Elements present in the HUD."""
     HUDs:FBPropertyListHUD
@@ -7998,13 +7998,13 @@ class FBHUD(FBBox):
     """Event: Callback just before HUD is displayed to update custom values"""
     Visibility:bool
     """Read Write Property: Indicate if the information will be displayed or not."""
-    eBloopSlate:FBHUD
-    eFlashElement:FBHUD
-    eRecordLight:FBHUD
-    eRectElement:FBHUD
-    eTextElement:FBHUD
-    eTextureElement:FBHUD
-    eTimeline:FBHUD
+    eBloopSlate:property
+    eFlashElement:property
+    eRecordLight:property
+    eRectElement:property
+    eTextElement:property
+    eTextureElement:property
+    eTimeline:property
     def CreateCustomElement(self,HUDElementClassName:str,Name:str)->object:
         """Creates a custom HUD Element.
         
@@ -8544,7 +8544,7 @@ class FBLight(FBModel):
     """Read Write Property: Draw ground projection of gobo?"""
     DrawVolumetricLight:bool
     """Read Write Property: Draw volumetric light with gobo?"""
-    EAreaLightShapes:FBLight
+    EAreaLightShapes:_Enum
     EnableBarnDoor:bool
     """Read Write Property: Whether or not enable barn door."""
     FogIntensity:float
@@ -8565,8 +8565,8 @@ class FBLight(FBModel):
     """Read Write Property: Angle of right barn door."""
     TopBarnDoor:float
     """Read Write Property: Angle of top barn door."""
-    eRectangle:FBLight
-    eSphere:FBLight
+    eRectangle:EAreaLightShapes
+    eSphere:EAreaLightShapes
 class FBCameraSwitcher(FBModel):
     """Camera switcher.
     This class is a wrapper around the system's camera switcher object. There can only be one switcher in a given scene. Any attempts at creating a new instance will return the existing one. See sample: CameraSwitcher.py."""
@@ -8713,7 +8713,7 @@ class FBCamera(FBModel):
     """Read Write Property: Optical Center X (mm)."""
     OpticalCenterY:float
     """Read Write Property: Optical Center Y (mm)."""
-    OrthoFactor:FBCamera
+    OrthoFactor:float
     """Constant scale factor to be used with OrthoZoom for orthographic cameras."""
     OrthoZoom:float
     """Read Write Property: Zoom factor of an orthographic camera."""
@@ -8811,33 +8811,33 @@ class FBModelMarker(FBModel):
     Type:FBMarkerType
     """Read Write Property: Type of model marker."""
 class FBCameraStereo(FBCamera):
-    CenterCamera:property
+    CenterCamera:FBCameraStereo
     """Read Write Property:  This property hold the center camera connected to it. Must be either the master, left or right camera."""
-    DisplayZeroParallaxPlane:property
+    DisplayZeroParallaxPlane:bool
     """Read Write Property:  Display the zero parallax plane."""
-    FilmOffsetLeftCam:property
+    FilmOffsetLeftCam:float
     """Read Write Property:  This property handles the film offset for the left camera. (inch)"""
-    FilmOffsetRightCam:property
+    FilmOffsetRightCam:float
     """Read Write Property:  This property handles the film offset for the right camera. (inch)"""
-    InteraxialSeparation:property
+    InteraxialSeparation:float
     """Read Write Property:  This property handles the distance between left and right cameras."""
-    LeftCamera:property
+    LeftCamera:FBCamera
     """Read Write Property:  This property hold the left camera connected to it."""
-    PrecompFileName:property
+    PrecompFileName:str
     """Read Write Property:  This property handles the precomp file name."""
-    RelativePrecompFileName:property
+    RelativePrecompFileName:str
     """Read Write Property:  This property handles the relative precomp file name."""
-    RightCamera:property
+    RightCamera:FBCamera
     """Read Write Property:  This property hold the right camera connected to it."""
-    Stereo:property
+    Stereo:FBCameraStereoType
     """Read Write Property:  //!< This property handles the types of Stereo camera."""
-    ToeInAdjust:property
+    ToeInAdjust:float
     """Read Write Property:  This property is to offset the computed toe-in effect when it's in Converged mode."""
-    ZeroParallax:property
+    ZeroParallax:float
     """Read Write Property:  This property handles the distance on the camera view axis where the zero parallax plane occurs."""
-    ZeroParallaxPlaneColor:property
+    ZeroParallaxPlaneColor:FBColor
     """Read Write Property:  Zero parallax plane color."""
-    ZeroParallaxPlaneTransparency:property
+    ZeroParallaxPlaneTransparency:float
     """Read Write Property:  Zero parallax plane transparency."""
 class FBModelNull(FBModel):
     """Null object class."""
@@ -8956,14 +8956,14 @@ class FBModelPath3D(FBModel):
     """Read Write Property: Automatically create key control nodes."""
     Color:FBColor
     """Read Write Property: Path display color in viewport."""
-    EKeyPropertyBehavior:FBModelPath3D
-    ELengthUnitType:FBModelPath3D
-    EPathEndCapStyle:FBModelPath3D
-    KeyPropertyBehavior:property
+    EKeyPropertyBehavior:_Enum
+    ELengthUnitType:_Enum
+    EPathEndCapStyle:_Enum
+    KeyPropertyBehavior:KeyPropertyBehavior
     """Read Only Property: Key property behavior."""
     PathEndCapScale:float
     """Read Write Property: Path end cap display scale."""
-    PathEndCapStyle:property
+    PathEndCapStyle:PathEndCapStyle
     """Read Write Property: Path end cap display style."""
     PathLength:float
     """Read Only Property: Path Length In Centimeter."""
@@ -8977,15 +8977,15 @@ class FBModelPath3D(FBModel):
     """Read Write Property: Path Length label display background color."""
     TextScale:float
     """Read Write Property: Path Length label display scale."""
-    eArchitectural:FBModelPath3D
-    eArrow:FBModelPath3D
-    eCM:FBModelPath3D
-    eKM:FBModelPath3D
-    eLegacyVector4:FBModelPath3D
-    eM:FBModelPath3D
-    eMI:FBModelPath3D
-    eNone:FBModelPath3D
-    eVector:FBModelPath3D
+    eArchitectural:ELengthUnitType
+    eArrow:EPathEndCapStyle
+    eCM:ELengthUnitType
+    eKM:ELengthUnitType
+    eLegacyVector4:EKeyPropertyBehavior
+    eM:ELengthUnitType
+    eMI:ELengthUnitType
+    eNone:EPathEndCapStyle
+    eVector:EKeyPropertyBehavior
     def ConvertSegmentPercentToTotalPercent(self,Percent:object,EvaluateInfo:FBEvaluateInfo)->float:
         """Converting one key type Segment (time) to Total (percent).
         
@@ -10167,7 +10167,7 @@ class FBActorFace(FBComponent):
 class FBActionManager(FBComponent):
     """Action Manager class.
     This class is introduced to enable users to access to the actions related functions. between versions."""
-    CurrentInteractionMode:property
+    CurrentInteractionMode:str
 class FBConstraintManager(FBComponent):
     """Constraint manager.
     See sample: FBConstraintManager.py."""
@@ -10455,9 +10455,9 @@ class FBEvaluateManager(FBComponent):
     """Read/Write Property: if true, apply frame skip optimization during playback. off-line rendering don't use frame skip optimization."""
     NodeCount:int
     """Read only Property: Number of nodes to evaluate."""
-    OnRenderingPipelineEvent:property
+    OnRenderingPipelineEvent:FBEvent
     """For callback events at rendering pipeline."""
-    OnSynchronizationEvent:property
+    OnSynchronizationEvent:FBEvent
     """For callback events at synchronization point."""
     ParallelDeformation:bool
     """Read/Write Property: true if deformation is evaluated in parallel."""
@@ -14416,7 +14416,7 @@ class FBSystem(FBComponent):
     Cameras:FBPropertyListCamera
     ComputerName:str
     """Read Only Property: Computer name. See sample: ShowMachineNameAndCameraNamePlusResolution.py."""
-    ConfigPath:property
+    ConfigPath:str
     ConstructionHistory:FBConstructionHistory
     """Read Only Property: Construction History."""
     CurrentTake:FBTake
@@ -14424,7 +14424,7 @@ class FBSystem(FBComponent):
     DesktopSize:FBVector2d
     """Read Only Property: The width and height of the desktop."""
     Devices:FBPropertyListDevice
-    EPluginItemInfo:FBSystem
+    EPluginItemInfo:_Enum
     FrameRate:float
     """Read Only Property: The frame rate of the viewer."""
     FullScreenViewer:bool
@@ -14472,16 +14472,16 @@ class FBSystem(FBComponent):
     """Read Only Property: System time."""
     Takes:FBPropertyListTake
     Textures:FBPropertyListTexture
-    UserConfigPath:property
+    UserConfigPath:str
     Version:float
     """Read Only Property: Application version."""
     VideoInputs:FBPropertyListVideoIn
     """List: Available video inputs."""
     VideoOutputs:FBPropertyListVideoOut
     """List: Available video outputs."""
-    ePluginItemDescription:FBSystem
-    ePluginItemFileName:FBSystem
-    ePluginItemIconName:FBSystem
+    ePluginItemDescription:EPluginItemInfo
+    ePluginItemFileName:EPluginItemInfo
+    ePluginItemIconName:EPluginItemInfo
     def CurrentDirectory(self)->str:
         """Get current work directory.
         
@@ -14974,7 +14974,7 @@ class FBLayeredTexture(FBTexture):
 class FBTime():
     """Time data structure.
     See samples: FBTime.py, CameraSwitcher.py, ExportAnimationLibrary.py, StartKeysAtCurrentTime.py."""
-    ETimeFormats:FBTime
+    ETimeFormats:_Enum
     Infinity:FBTime
     """Time constant: Infinity, the largest time value."""
     MinusInfinity:FBTime
@@ -14987,9 +14987,9 @@ class FBTime():
     """Time constant: One Second."""
     Zero:FBTime
     """Time constant: Zero."""
-    eDefaultFormat:FBTime
-    eFrame:FBTime
-    eSMPTE:FBTime
+    eDefaultFormat:ETimeFormats
+    eFrame:ETimeFormats
+    eSMPTE:ETimeFormats
     def Get(self)->int:
         """Get time value (long)
         
@@ -15058,25 +15058,25 @@ class FBTime():
 class FBTimeCode():
     """TimeCode data structure.
     See sample: TimeCodeKeying.py."""
-    FILM_23976:FBTimeCode
+    FILM_23976:float
     """-23.976f"""
-    FILM_24:FBTimeCode
+    FILM_24:float
     """-24.0f"""
-    FRAMES_11988:FBTimeCode
+    FRAMES_11988:float
     """-119.88f"""
-    FRAMES_30:FBTimeCode
+    FRAMES_30:float
     """-30.0f"""
-    FRAMES_5994:FBTimeCode
+    FRAMES_5994:float
     """-59.94f"""
     Frame:float
     FrameRate:float
-    MPAL_30:FBTimeCode
+    MPAL_30:float
     """-29.971f Currently not supported : '1' is added just to differentiate from NTSC_FULL(-29.97f)"""
-    NTSC_DROP:FBTimeCode
+    NTSC_DROP:float
     """Rates."""
-    NTSC_FULL:FBTimeCode
+    NTSC_FULL:float
     """-29.97f"""
-    PAL_25:FBTimeCode
+    PAL_25:float
     """-25.0f"""
     TimeCodeString:property
     def GetRawFrame(self)->float:
@@ -16637,7 +16637,7 @@ class FBEditVector(FBVisualComponent):
     Value:FBVector3d
     """Read Write Property: Current value of vector."""
 class FBEditTimeCode(FBVisualComponent):
-    OnChange:property
+    OnChange:FBEvent
     """Event: Timecode changed."""
     Value:FBTime
     """Read Write Property: Current timecode value."""

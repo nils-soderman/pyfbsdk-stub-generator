@@ -34,6 +34,19 @@ SDK_FILES_PATH = SDK_CPP_PATH + "files_dup.js"
 #               Strucs & Enums
 # ------------------------------------------
 
+CToPythonVariableTranslation = {
+    "FBVector4": "FBVector4d",
+    "FBTVector": "FBVector3d",
+    "double": "float",
+    "FBString": "str",
+    "string": "str",
+    "char": "str",
+    "float": "float",
+    "int": "int",
+    "bool": "bool"
+}
+
+
 class FMoBoDocsParameterNames():
     NoDefaultValue = "NoDefaultValue"
 
@@ -74,6 +87,44 @@ class EPageType:
 #           Helper Functions
 # ------------------------------------------
 
+def ConvertVariableTypeToPython(Type: str):
+    """
+    Convert a C++ variable type to a python variable
+    Example: 'double' -> 'float'
+    """
+    # Remove type defenitions that doesn't carry any meaning when converted to python
+    for Char in ["(void *)", "*", "&", "const", "virtual", "static", "unsigned"]:
+        if Char in Type:
+            Type = Type.replace(Char, "").strip()
+
+    # Arrays, in the pyfbsdk there are two FBVector4<dobule> arrays. convert these into FBVector4
+    if "<" in Type:
+        if not Type.startswith("FBVector"):
+            raise NotImplementedError("Converting array type %s into python has not yet been implemented!" % Type)
+        Type = Type.partition("<")[0].strip()
+
+    # Check if variable needs to be translated into python, e.g. double -> float
+    for Key, Value in CToPythonVariableTranslation.items():
+        TypeInLowerCase = Type.lower()
+        if TypeInLowerCase == Key.lower():
+            return Value
+
+    return Type
+
+
+def GetClosestSupportedMotionBuilderVersion(Version: int):
+    """
+    Get the closest MotionBuilder version that is supported 
+    """
+    if Version < 2018:
+        return 2018
+
+    if Version == 2021:
+        return 2022
+
+    return Version
+
+
 def GetFullURL(Version, Path, bIsSDK = False):
     BaseURL = MOBU_DOCS_COULDHELP_URL if bIsSDK else MOBU_DOCS_VIEW_URL
     return "%s%s/%s" % (BaseURL, Version, Path)
@@ -111,7 +162,7 @@ def SaveFile(Filepath, Content):
 
 
 def CPlusVariableNamesToPython(Text):
-    for Char in ["(void *)", "*", "&", "const", "K_DEPRECATED", "virtual", "static", "unsigned"]:
+    for Char in ["(void *)", "*", "&", "const", "virtual", "static", "unsigned"]:
         Text = Text.replace(Char, "")
 
     if "<" in Text and ">" in Text:
@@ -251,8 +302,13 @@ class DocPageMember():
         self.Params = Params
         self.DocString = DocString
 
+    def GetType(self, bConvertToPython = False):
+        if bConvertToPython:
+            return ConvertVariableTypeToPython(self.Type)
+        return self.Type
+
     def __repr__(self):
-        return '<object %s: %s>' % (self.__name__, self.Name)
+        return '<object DocPageMember: %s>' % (self.Name)
 
 
 class DocumentationPage():
@@ -285,7 +341,7 @@ class DocumentationPage():
                 SaveFile(CacheFilepath, RawHTML)
         Parser = MotionBuilderDocumentationHtmlPageParser()
         Parser.feed(RawHTML)
-        
+
         self.Members = {x.Name: x for x in Parser.GetMembers()}
 
     def GetMember(self, Name):
