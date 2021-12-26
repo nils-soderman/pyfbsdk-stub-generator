@@ -3540,7 +3540,7 @@ class FBConfigFile():
         DefaultValue : Default value that will be returned if the item is not found.
         return : The value assigned to the item in the specified section of the config file, or the default value if not found."""
         ...
-    def GetOrSet(self,SectionName:str,ItemName:str,Value:str,Comment:str)->tuple:
+    def GetOrSet(self,SectionName:str,ItemName:str,Value:str,Comment:str)->bool:
         """Get a value from the config file and set it if it was not found.
         
         SectionName : Name of the section.
@@ -3762,7 +3762,7 @@ class FBEventDragAndDrop(FBEvent):
     def Clear(self):
         """Clear drag and drop list."""
         ...
-    def Get(self,Index:object)->object:
+    def Get(self,Index:object)->FBComponent:
         """Get the FBComponent specified byIndex from the Drag and Drop list.
         
         Index : Index in list where to get FBComponent.
@@ -3982,7 +3982,7 @@ class FBFilterManager():
     lFilter.FBDelete()"""
     FilterTypeNames:FBStringList
     """List of available filters."""
-    def CreateFilter(self,FilterTypeName:str)->object:
+    def CreateFilter(self,FilterTypeName:str)->FBFilter:
         """Create a filter instance according to the filter type requested.
         
         FilterTypeName : String describing the type of the desired filter, as obtained from list FilterTypeNames.
@@ -4016,12 +4016,12 @@ class FBMatrix():
     def Identity(self):
         """Load identity matrix."""
         ...
-    def Inverse(self):
+    def Inverse(self)->FBMatrix:
         """Get Inversed matrix.
         
         return : the matrix Inversed."""
         ...
-    def InverseProduct(self,Matrix:FBMatrix):
+    def InverseProduct(self,Matrix:FBMatrix)->FBMatrix:
         """InverseProduct Matrix.
         
         Matrix : Matrix to Product.
@@ -4034,7 +4034,7 @@ class FBMatrix():
         
         Value : Array to intialize matrix from."""
         ...
-    def Transpose(self):
+    def Transpose(self)->FBMatrix:
         """Get Transposed matrix.
         
         return : the matrix Transposed."""
@@ -4280,7 +4280,7 @@ class FBProfileTimeEvent():
         ...
 class FBPropertyListAnimationNode():
     """List of animation nodes.List: AudioClip"""
-    def FindByLabel(self,NodeLabel:str)->object:
+    def FindByLabel(self,NodeLabel:str)->FBAnimationNode:
         """Returns the animation node from its label.
         
         NodeLabel : Label of the searched animation node.
@@ -4325,7 +4325,7 @@ class FBPropertyListRigidBodyMarkers():
 class FBPropertyManager():
     """Property Manager.
     The property manager exists in all FBComponent objects, and contains an array of all the registered properties. These properties may be SDK properties, internal properties or both."""
-    def Find(self,PropertyName:str,MultilangLookup:object)->object:
+    def Find(self,PropertyName:str,MultilangLookup:object)->FBProperty:
         """Find a property, based on its name.
         
         PropertyName : Name of property to look for.
@@ -4419,22 +4419,22 @@ class FBPlug(FBPythonWrapper):
     def DisconnectSrcAt(self,arg2:object)->bool:...
     def EndChange(self):...
     def GetContentModified(self,arg2:FBPlugModificationFlag)->bool:...
-    def GetDst(self,arg2:object)->object:...
+    def GetDst(self,arg2:object)->FBPlug:...
     def GetDstCount(self)->int:...
     def GetDstType(self,arg2:object)->FBConnectionType:...
-    def GetOwned(self,arg2:object)->object:...
+    def GetOwned(self,arg2:object)->FBPlug:...
     def GetOwnedCount(self)->int:...
-    def GetOwner(self)->object:...
+    def GetOwner(self)->FBPlug:...
     def GetPlugConnectionModifiedList(self,arg2:FBPlugList,arg3:FBPlugModificationFlag,arg4:object)->int:...
     def GetSelfModified(self,arg2:FBPlugModificationFlag)->bool:...
-    def GetSrc(self,arg2:object)->object:...
+    def GetSrc(self,arg2:object)->FBPlug:...
     def GetSrcCount(self)->int:...
     def GetSrcType(self,arg2:object)->FBConnectionType:...
     def GetStatusFlag(self,arg2:FBPlugStatusFlag)->bool:...
     def Is(self,arg2:object)->bool:...
     def IsSDKComponent(self)->bool:...
     def MoveSrcAt(self,arg2:object,arg3:object)->bool:...
-    def PrintClassDefinitions():...
+    def PrintClassDefinitions(self):...
     def ReplaceDstAt(self,arg2:object,arg3:FBPlug)->bool:...
     def ReplaceSrcAt(self,arg2:object,arg3:FBPlug)->bool:...
     def RevertModification(self,arg2:FBPlugModificationFlag)->bool:...
@@ -4519,7 +4519,7 @@ class FBProperty(FBPlug):
         Flag : Flag to test if it is True or False.
         return : If the flag is True, the function returns True and vice-versa."""
         ...
-    def GetPropertyFlags(self)->int:
+    def GetPropertyFlags(self)->FBPropertyFlag:
         """GetPropertyFlags.
         
         return : Return all flags at once."""
@@ -4534,7 +4534,7 @@ class FBProperty(FBPlug):
         
         return : The property's type name."""
         ...
-    def GetReferencedProperty(self)->object:
+    def GetReferencedProperty(self)->FBProperty:
         """Get the referenced property, in the case of this property is a reference property (see the IsReferenceProperty() method).
         
         return : The referenced property, or a null pointer if this property is not a reference property."""
@@ -4684,7 +4684,7 @@ class FBComponent(FBPlug):
         
         Status : Status to query."""
         ...
-    def GetOwnerFileReference(self)->object:
+    def GetOwnerFileReference(self)->FBFileReference:
         """Get the owner FileReference object.
         
         p0 : p0
@@ -4732,7 +4732,7 @@ class FBComponent(FBPlug):
         ReferenceProperty : The property to from an other object to add a reference to (property cannot be a custom ORSDK property).
         return : True if the reference property could be added."""
         ...
-    def PropertyCreate(self,Name:str,Type:FBPropertyType,DataType:str,Animatable:object,IsUser:object,ReferenceSource:FBProperty)->object:
+    def PropertyCreate(self,Name:str,Type:FBPropertyType,DataType:str,Animatable:object,IsUser:object,ReferenceSource:FBProperty)->FBProperty:
         """Create user or dynamic property.
         
         Name : The name of the property.
@@ -4885,7 +4885,7 @@ class FBPropertyStringList(FBProperty):
         
         Value : to append"""
         ...
-    def count(self)->int:
+    def count(self,arg2:object)->int:
         """Returns the number of elements.
         Corresponds to python: del propertyList[2]
         
@@ -4923,7 +4923,7 @@ class FBPropertyStringList(FBProperty):
     def removeAll(self):
         """Remove all elements of list"""
         ...
-    def setReferenceAt(self,Reference:object):
+    def setReferenceAt(self,Reference:object,arg3:object):
         """Sets the reference value of an object.
         
         Reference : Reference of the object."""
@@ -4956,7 +4956,7 @@ class FBPropertyListComponent(FBProperty):
         
         Comp : to append"""
         ...
-    def count(self)->int:
+    def count(self,arg2:object)->int:
         """Returns the number of elements.
         Corresponds to python: del propertyList[2]
         
@@ -5050,7 +5050,7 @@ class FBPropertyListObjectPose(FBPropertyListComponent):
 class FBPropertyListObject(FBPropertyListComponent):
     """List-like structure fo system elements.
     PropertyList: ObjectPose.This container supports most of the list interface, but is limited to contain only FBComponent objects. New objects can be added, or objects in the list can be removed. The cardinality of the list and the use of the contained object will vary according the container object type. This class supports slice access for query, but not for assignment."""
-    def GetSingleConnect(self)->bool:
+    def GetSingleConnect(self)->int:
         """Get if the connection support only one connection.
         
         return : true is the connection support only one connection."""
@@ -5215,12 +5215,12 @@ class FBPropertyAnimatable(FBProperty):
         
         return : true if property can be muted"""
         ...
-    def GetAnimationNode(self)->object:
+    def GetAnimationNode(self)->FBAnimationNode:
         """Get the animation node for the property.
         
         return : Animation node for property. None is returned if property is not animated."""
         ...
-    def GetBox(self)->object:
+    def GetBox(self)->FBBox:
         """Get the owner box.
         
         return : Handle to the owning box (i.e. model)."""
@@ -5307,7 +5307,7 @@ class FBPropertyAnimatable(FBProperty):
         
         State : Focus (keyable) state to set for the property."""
         ...
-    def SetFocusChild(self,Index:object,State:object):
+    def SetFocusChild(self,Index:object,State:object)->bool:
         """Set the focus (keyable) state of child component.
         
         Index : Index of the child FCurve component.
@@ -5444,7 +5444,7 @@ class FBRenderer(FBComponent):
         All : true to frame with all models.
         return : true if successful."""
         ...
-    def GetCameraInPane(self,PaneIndex:int)->object:
+    def GetCameraInPane(self,PaneIndex:int)->FBCamera:
         """Return the camera displayed in the given pane index.
         If the Schematic View is displayed in the pane associated with the given pane index, the returned camera is the camera that would be displayed if the Schematic View was deactivated. If the Camera Switcher is on in the pane associated with the given pane index, the returned camera is the switcher's current camera.Note: To operate current camera in Camera Switcher, it is recommended to use FBCameraSwitcher().
         
@@ -5456,14 +5456,14 @@ class FBRenderer(FBComponent):
         
         return : The current bookmark name used by the Schematic View. An empty string is returned if there is no current bookmark."""
         ...
-    def GetDisplayableGeometry(self,Index:object)->object:
+    def GetDisplayableGeometry(self,Index:object)->FBModel:
         """Get the displayable geometry model.
         Those geometry models which have Show property ON are considered as 'displayable'.
         
         Index : displayable geometry model index to query.
         return : displayable geometry model."""
         ...
-    def GetDisplayableGeometryInCameraFrustum(self,ModelList:FBModelList,Camera:FBCamera):
+    def GetDisplayableGeometryInCameraFrustum(self,ModelList:FBModelList,Camera:FBCamera)->FBModelList:
         """Get a list of displayable geometry inside given camera's frustum.
         This function will return conservative result. It's possible for some geometry outside of the frustum will be considered to be visible, but it will not skip any real visible geometry. This function should only be called in the main rendering thread.
         
@@ -5471,7 +5471,7 @@ class FBRenderer(FBComponent):
         Camera : use current camera if NULL.
         return : Reference toModelList. ifModelList is NULL return a const reference to internal static FBModelList and consecutive call to this function will invalidate the result of previous call."""
         ...
-    def GetDisplayableLight(self,Index:object)->object:
+    def GetDisplayableLight(self,Index:object)->FBLight:
         """Get the displayable light.
         Those light models which have Show property ON are considered as 'displayable'.
         
@@ -5494,7 +5494,7 @@ class FBRenderer(FBComponent):
         
         return : A string list containing the bookmark names available in the Schematic View. An empty list is returned if no bookmark is available."""
         ...
-    def GetSchematicNodesBoundingBox(self,ConsiderCollapsedNodes:object)->tuple:
+    def GetSchematicNodesBoundingBox(self,ConsiderCollapsedNodes:object)->bool:
         """Returns the bounding box (top, left, bottom, right) used by all the Schematic View nodes.
         
         ConsiderCollapsedNodes : True to also consider nodes which are not visible because collapsed, false otherwise.
@@ -5504,7 +5504,7 @@ class FBRenderer(FBComponent):
         Right : Right value of the bounding box. Will be filled once the method returns.
         return : True if the operation is successful, false otherwise (e.g. the Schematic View has any node in it, etc.)."""
         ...
-    def GetSchematicNodesBoundingBoxFromModel(self,Model:FBModel,ConsiderCollapsedNodes:object)->tuple:
+    def GetSchematicNodesBoundingBoxFromModel(self,Model:FBModel,ConsiderCollapsedNodes:object)->bool:
         """Returns the bounding box (top, left, bottom, right) of a node's tree in the Schematic View, given a starting node.
         
         Model : The starting node from which the bounding box tree is requested.
@@ -5853,7 +5853,7 @@ class FBPose(FBComponent):
         
         Index : Index of the node."""
         ...
-    def GetNodeObject(self,Index:object)->object:
+    def GetNodeObject(self,Index:object)->FBModel:
         """Get the pose node object.
         
         Index : Index of the node.
@@ -5976,13 +5976,13 @@ class FBCharacterPose(FBPose):
         CharacterExtensionPose : Pose of a character extension to check its name.
         return : The name of the character extension (It is the label name of the character extension)."""
         ...
-    def GetCharacterExtensionPose(self,CharacterExtensionName:str)->object:
+    def GetCharacterExtensionPose(self,CharacterExtensionName:str)->FBObjectPose:
         """Get the pose of a character extension.
         
         CharacterExtensionName : Name of the character extension pose to get (It is the label name of the character extension).
         return : The pose of the character extension, NULL if not found."""
         ...
-    def GetCharacterExtensionPoseAt(self,Index:object)->object:
+    def GetCharacterExtensionPoseAt(self,Index:object)->FBObjectPose:
         """Get the pose of a character extension.
         
         Index : Index of the character extension pose to get.
@@ -6023,7 +6023,7 @@ class FBCharacterPose(FBPose):
         Character : Character to receive the pose.
         CharacterPoseOptions : Options used to paste the pose."""
         ...
-    def GetOrCreateCharacterExtensionPose(self,CharacterExtensionName:str)->object:
+    def GetOrCreateCharacterExtensionPose(self,CharacterExtensionName:str)->FBObjectPose:
         """Get the pose of a character extension and create it if necessary.
         
         CharacterExtensionName : Name of the character extension pose to get (It is the label name of the character extension).
@@ -6277,7 +6277,7 @@ class FBCluster(FBComponent):
         
         Threshold : Weight value under which links are considered unused (default=-1)."""
         ...
-    def LinkGetAssociateModel(self,LinkNumber:object)->object:
+    def LinkGetAssociateModel(self,LinkNumber:object)->FBModel:
         """Get model associated with link.
         
         LinkNumber : Number value of link to get associated model from.
@@ -6288,7 +6288,7 @@ class FBCluster(FBComponent):
         
         return : Number of links."""
         ...
-    def LinkGetModel(self,LinkNumber:object)->object:
+    def LinkGetModel(self,LinkNumber:object)->FBModel:
         """Get model from a link.
         
         LinkNumber : Number value of link to get model from.
@@ -6382,19 +6382,19 @@ class FBCluster(FBComponent):
 class FBCharacterMarkerSet(FBComponent):
     """Character marker set class.
     These classes are under development and may change dramatically between versions."""
-    def GetExtractionProperty(self,NodeId:FBBodyNodeId)->object:
+    def GetExtractionProperty(self,NodeId:FBBodyNodeId)->FBProperty:
         """Get the extraction property associated with each body part of the character.
         
         NodeId : FBBodyNodeId
         return : The property associated with givenNodeId."""
         ...
-    def GetMarkersProperty(self,NodeId:FBBodyNodeId)->object:
+    def GetMarkersProperty(self,NodeId:FBBodyNodeId)->FBProperty:
         """Get the marker property associated with each body part of the character.
         
         NodeId : FBBodyNodeId
         return : The property associated with givenNodeId."""
         ...
-    def GetSnapProperty(self,NodeId:FBBodyNodeId,What:FBModelTransformationType)->object:
+    def GetSnapProperty(self,NodeId:FBBodyNodeId,What:FBModelTransformationType)->FBProperty:
         """Get the snap property associated with each body part of the character for given transformation.
         Current version snap only translation and rotation.
         
@@ -6405,12 +6405,12 @@ class FBCharacterMarkerSet(FBComponent):
 class FBCameraSwitcherAudioManager(FBComponent):
     """Camera Switcher Audio Manager class.
     This class allows users to interact with the Audio Manager of the Camera Switcher."""
-    def GetAudioClip(self)->object:
+    def GetAudioClip(self)->FBAudioClip:
         """Get the Audio Clip displayed on the Camera Switcher.
         
         return : The Audio Clip displayed, nullptr (C++) / None (Python) if any."""
         ...
-    def GetAudioTrack(self)->object:
+    def GetAudioTrack(self)->FBStoryTrack:
         """Get the Audio Track displayed on the Camera Switcher.
         
         return : The Audio Track displayed, nullptr (C++) / None (Python) if any."""
@@ -6493,7 +6493,7 @@ class FBBox(FBComponent):
         AnimationNode : Handle to the animation node to be destroyed.
         return : true if destruction was successful."""
         ...
-    def AnimationNodeInGet(self)->object:
+    def AnimationNodeInGet(self)->FBAnimationNode:
         """Get the (IN/OUT) animation node for this box.
         
         return : A handle to the animation node for this box."""
@@ -6505,7 +6505,7 @@ class FBBox(FBComponent):
         return : true if node is user data."""
         ...
     def AnimationNodeOutGet(self)->object:...
-    def GetInConnector(self,Index:object)->object:
+    def GetInConnector(self,Index:object)->FBAnimationNode:
         """Get the animation node input associated with the given index.
         
         Index : The animation node input associated with the given index.
@@ -6516,7 +6516,7 @@ class FBBox(FBComponent):
         
         return : The number of animation node inputs for this box."""
         ...
-    def GetOutConnector(self,Index:object)->object:
+    def GetOutConnector(self,Index:object)->FBAnimationNode:
         """Get the animation node output associated with the given index.
         
         Index : The animation node output associated with the given index.
@@ -6550,7 +6550,7 @@ class FBConstraint(FBBox):
     """Read Write Property: Lock state."""
     Weight:float
     """Read Write Property: Weight of constraint."""
-    def AnimationNodeInCreate(self,UserId:object,Property:FBModel)->object:
+    def AnimationNodeInCreate(self,UserId:object,Property:FBModel,arg4:str)->FBAnimationNode:
         """Animation Node Creations (IN).
         Used to create the In connectors on an animation node. This function will return a newly created animation node, connected to the model specified byProperty.
         
@@ -6558,7 +6558,7 @@ class FBConstraint(FBBox):
         Property : Property of model to animate (must be animatable)
         return : Newly created IN animation node."""
         ...
-    def AnimationNodeOutCreate(self,UserId:object,Model:FBModel,Attribute:str)->object:
+    def AnimationNodeOutCreate(self,UserId:object,Model:FBModel,Attribute:str)->FBAnimationNode:
         """Animation Node Creations (IN/OUT).
         Used to create the connectors (in or out) on an animation node. This function will return a newly created animation node, connected to the model specified byModel.
         
@@ -6567,7 +6567,7 @@ class FBConstraint(FBBox):
         Attribute : Attribute of model to animate (i.e. Translation, Lcl Translation, etc.)
         return : Newly created IN/OUT animation node."""
         ...
-    def Clone(self)->object:
+    def Clone(self)->FBConstraint:
         """Clone the constraint.
         
         return : Newly created (and copied) constraint."""
@@ -6606,7 +6606,7 @@ class FBConstraint(FBBox):
         Model : Model to place at new reference.
         return : true if successful."""
         ...
-    def ReferenceGet(self,GroupIndex:object,ItemIndex:object)->object:
+    def ReferenceGet(self,GroupIndex:object,ItemIndex:object)->FBModel:
         """Get a reference.
         
         GroupIndex : Index of reference group containing desired reference.
@@ -6694,7 +6694,7 @@ class FBCharacterSolver(FBConstraint):
         R : Offset Rotation between the Bone and is parent at Stance Pose.
         Index : Index of extra Bone to get."""
         ...
-    def GetRegisteredSolverNames()->list:...
+    def GetRegisteredSolverNames(self)->list:...
     def GetTarget(self)->object:...
     def GetTransformationOffset(self,arg2:FBModel)->list:...
     def SetParentRotationOffset(self,R:FBModel,Index:FBVector3d):
@@ -7127,7 +7127,7 @@ class FBCharacter(FBConstraint):
         
         ActivePart : A pointer to an array of bool. On return, the index with a "true" value are active part."""
         ...
-    def GetCharacterMarkerSet(self,Force:object)->object:
+    def GetCharacterMarkerSet(self,Force:object)->FBCharacterMarkerSet:
         """Obtain Input CharacterMarkerSet.
         
         Force : If True, will return the current CharacterMarkerSet even if the character is not in CharacterMarkerSet Input.
@@ -7143,31 +7143,31 @@ class FBCharacter(FBConstraint):
         
         return : The string containing all errors and warnings."""
         ...
-    def GetCtrlRigModel(self,BodyNodeId:FBBodyNodeId)->object:
+    def GetCtrlRigModel(self,BodyNodeId:FBBodyNodeId)->FBModel:
         """Get the model associated with each body part in the Control Rig of the character.
         
         BodyNodeId : FBBodyNodeId
         return : The model in the Control Rig corresponding to the specified body part."""
         ...
-    def GetCurrentControlSet(self)->object:
+    def GetCurrentControlSet(self)->FBControlSet:
         """Obtain Input ControlSet.
         
         Force : If True, will return the current ControlSet even if the character is not in ControlSet Input.
         return : Return current Active ControlSet, NULL if none."""
         ...
-    def GetCycleAnalysisNode(self)->object:
+    def GetCycleAnalysisNode(self)->FBCycleAnalysisNode:
         """Get the Cycle Analysis Node from the current character.
         
         return : Cycle Analysis Node linked to the current character, or create a new node"""
         ...
-    def GetEffectorModel(self,EffectorId:FBEffectorId,EffectorSetID:FBEffectorSetID)->object:
+    def GetEffectorModel(self,EffectorId:FBEffectorId,EffectorSetID:FBEffectorSetID)->FBModel:
         """Get the model associated with each effector in the Control Rig of the character.
         
         EffectorId : The effector ID.
         EffectorSetID : Id of the ControlSet to obtain, if not specified the current one is taken.
         return : The model in the Control Rig corresponding to the specified Effector."""
         ...
-    def GetExternalSolver(self)->object:
+    def GetExternalSolver(self)->FBCharacterSolver:
         """Get a pointer to the external solver of a character, or NULL is no external solver is used on the character.
         
         return : The pointer of the current External Solver, NULL if it's the internal solver."""
@@ -7177,13 +7177,13 @@ class FBCharacter(FBConstraint):
         
         return : The FK visibility state."""
         ...
-    def GetFloorContactModel(self,MemberIndex:FBFloorContactID)->object:
+    def GetFloorContactModel(self,MemberIndex:FBFloorContactID)->FBModel:
         """Get the model associated with the floor contact ID.
         
         MemberIndex : Id of the floor contact
         return : The model associated with the floor contact ID"""
         ...
-    def GetGoalModel(self,BodyNodeId:FBBodyNodeId)->object:
+    def GetGoalModel(self,BodyNodeId:FBBodyNodeId)->FBModel:
         """Get the goal model associated with each body part in the Character Marker Set of the character.
         
         BodyNodeId : FBBodyNodeId
@@ -7200,7 +7200,7 @@ class FBCharacter(FBConstraint):
         Model : FBModel
         return : The model linked to the specified body part."""
         ...
-    def GetModel(self,BodyNodeId:FBBodyNodeId)->object:
+    def GetModel(self,BodyNodeId:FBBodyNodeId)->FBModel:
         """Get the model associated with each body part of the character.
         
         BodyNodeId : FBBodyNodeId
@@ -7789,14 +7789,14 @@ class FBConstraintRelation(FBConstraint):
     This class exposes the relation constraint and allows addition of new boxes and removal of existing ones. See sample: TraversingRelationConstraint.py."""
     Boxes:FBPropertyListBox
     """List: Boxes used in this constraint."""
-    def ConstrainObject(self,ConstrainedObject:FBBox)->object:
+    def ConstrainObject(self,ConstrainedObject:FBBox)->FBBox:
         """Create a receiver box.
         Use an existing FBBox object to create a receiver in the relation.
         
         ConstrainedObject : Destination box to insert in the constraint.
         return : A place holder box for the object."""
         ...
-    def CreateFunctionBox(self,Group:str,Name:str)->object:
+    def CreateFunctionBox(self,Group:str,Name:str)->FBBox:
         """Create a function box.
         Ask the constraint to create new function box.
         
@@ -7804,13 +7804,13 @@ class FBConstraintRelation(FBConstraint):
         Name : Name of the function, as seen in the GUI (case-sensitive!).
         return : The newly created function box, or NULL if the name/group combination was invalid."""
         ...
-    def GetBoxPosition(self)->tuple:
+    def GetBoxPosition(self,arg2:FBBox)->bool:
         """Get a box position in the GUI.
         Get the position of a box within the constraint layout view.
         
         return : A tuple containing: the result of operation (bool), X value (int), and Y value(int)"""
         ...
-    def SetAsSource(self,Source:FBBox)->object:
+    def SetAsSource(self,Source:FBBox)->FBBox:
         """Create a sender box.
         Use an existing FBBox object to create a sender in the relation.
         
@@ -7880,7 +7880,7 @@ class FBDevice(FBBox):
     def AckOneSampleSent(self):
         """Acknowlege that one sample was sent (for statistical purposes)."""
         ...
-    def ModelBindingCreate(self)->object:
+    def ModelBindingCreate(self)->FBModel:
         """Create a new model binding.
         
         return : The model root that has been created or NULL is an error occured."""
@@ -7969,7 +7969,7 @@ class FBGroup(FBBox):
     """Read Write Property: Controls if objects in the group are displayed."""
     Transformable:bool
     """Read Write Property: Controls if objects in the group are transformable."""
-    def Clone(self)->object:
+    def Clone(self)->FBGroup:
         """Clone the group.
         This will duplicated the current group.
         
@@ -8005,14 +8005,14 @@ class FBHUD(FBBox):
     eTextElement:property
     eTextureElement:property
     eTimeline:property
-    def CreateCustomElement(self,HUDElementClassName:str,Name:str)->object:
+    def CreateCustomElement(self,HUDElementClassName:str,Name:str)->FBHUDElement:
         """Creates a custom HUD Element.
         
         HUDElementClassName : The HUD Element class name (mainly, the ClassName parameter of the FBStorableCustomHUDElementImplementation macro).
         Name : Name for the custom HUD Element to create.
         return : The created custom HUD Element."""
         ...
-    def CreateElement(self,Type:EStockElement,Name:str)->object:
+    def CreateElement(self,Type:EStockElement,Name:str)->FBHUDElement:
         """Creates a stock HUD Element.
         
         Type : View to be called for expose.
@@ -8168,13 +8168,13 @@ class FBMaterial(FBBox):
     """Read Write Property: Transparency Factor value."""
     TransparentColor:FBColor
     """Read Write Property: Transparent color."""
-    def Clone(self)->object:
+    def Clone(self)->FBMaterial:
         """Clone the material.
         This will duplicated the current material.
         
         return : Newly created material."""
         ...
-    def GetTexture(self,Type:FBMaterialTextureType)->object:
+    def GetTexture(self,Type:FBMaterialTextureType)->FBTexture:
         """Retrieve associated texture.
         
         Type : MaterialTextureType to get connected texture from (default is Diffuse is not specified)."""
@@ -8311,7 +8311,7 @@ class FBModel(FBBox):
     """Read Write Property: Visibility of model. This can be overridden by the 'Show' property."""
     VisibilityInheritance:bool
     """Read Write Property: //!< When this value is set to True the Visibility of this model is also applied to all its descendants"""
-    def Clone(self)->object:
+    def Clone(self)->FBModel:
         """Clone the model.
         This will duplicate the current model.
         
@@ -8357,7 +8357,7 @@ class FBModel(FBBox):
         Min : Output parameter. Minimum value of the bounding box.
         Max : Output parameter. Maximum value of the bounding box."""
         ...
-    def GetHierarchyWorldMatrices(self,MatricesArray:int,MatricesArrayCount:FBModelHiercharyTraverserType,HiercharyTraverserType:FBEvaluateInfo)->list:
+    def GetHierarchyWorldMatrices(self,MatricesArray:int,MatricesArrayCount:FBModelHiercharyTraverserType,HiercharyTraverserType:FBEvaluateInfo)->int:
         """Computes the global transform matrices between this model and all its children (all levels).
         The hierarchy world matrix for a model is represented as a global transform matrix applied on an arbitrary root hierarchy node (this model for instance), considered as the world reference.
         
@@ -8477,7 +8477,7 @@ class FBModel(FBBox):
         EvaluateInfo : EvaluateInfo, Take Display if none specified
         Precision : Indicate the precision level, used when calculating the threshold value for gimble lock. 16 * pow(10.0, -10)) is the new default value since Mobu 2016, 16 * pow(10.0, -6)) is old default value before then."""
         ...
-    def SetSchematicPosition(self,Vector2d:object):
+    def SetSchematicPosition(self,Vector2d:object,arg3:object):
         """Set the position in the schematic view for the model.
         
         Vector2d : Position to set."""
@@ -9041,7 +9041,7 @@ class FBModelPath3D(FBModel):
         KeyIndex : Key ID to set with
         return : Return the vector containing the value of the path key."""
         ...
-    def PathKeyGetControlNode(self,KeyIndex:object)->object:
+    def PathKeyGetControlNode(self,KeyIndex:object)->FBModel:
         """Get the path key's control node.
         Only works when KeyPropertyBehavior is eVector.
         
@@ -9065,7 +9065,7 @@ class FBModelPath3D(FBModel):
         KeyIndex : Key ID to set with
         return : Double value of the length of left tangent"""
         ...
-    def PathKeyGetProperty(self,KeyIndex:object)->object:
+    def PathKeyGetProperty(self,KeyIndex:object)->FBProperty:
         """Get the path key's corresponding property.
         Only works when KeyPropertyBehavior is eVector.
         
@@ -9369,7 +9369,7 @@ class FBAudioIn(FBComponent):
         
         return : The delay currently set."""
         ...
-    def GetDestination(self)->object:
+    def GetDestination(self)->FBAudioOut:
         """Returns the Audio Out object currently used as the destination.
         (Windows only).
         
@@ -9522,12 +9522,12 @@ class FBAssetMng(FBComponent):
     """Last error string."""
     MenuFlags:int
     """Read Write Property: Flags specifing which menu items are added by the manager."""
-    def BrowseForFile(self)->object:
+    def BrowseForFile(self)->FBAssetFile:
         """Let the user browse the asset database to select a file.
         
         return : A file object representing the file that was selected, or NULL if none."""
         ...
-    def BrowseForFolder(self)->object:
+    def BrowseForFolder(self)->FBAssetFolder:
         """Let the user browse the asset database to select a folder.
         
         return : A FBAssetFolder* object representing the folder that was selected, or NULL if none."""
@@ -9535,7 +9535,7 @@ class FBAssetMng(FBComponent):
     def CheckAvailability(self)->bool:
         """Check if this manager can be used on the computer."""
         ...
-    def CreateServerPath(self,ServerPath:str)->object:
+    def CreateServerPath(self,ServerPath:str)->FBAssetFolder:
         """Create a folder path on the server side by adding each missing folders.
         
         ServerPath : The path to create on the server side.
@@ -9548,25 +9548,25 @@ class FBAssetMng(FBComponent):
         Filename : Path to the file on the local disk.
         return : A boolean indicating if the file is managed or not."""
         ...
-    def GetAssetFile(self,ServerFilename:str)->object:
+    def GetAssetFile(self,ServerFilename:str)->FBAssetFile:
         """Get a file object using it's server path.
         
         ServerFilename : Path to the file on the server.
         return : An FBAssetFile* object, or NULL if the file was not found."""
         ...
-    def GetAssetFileFromLocalPath(self,LocalFilename:str)->object:
+    def GetAssetFileFromLocalPath(self,LocalFilename:str)->FBAssetFile:
         """Get a file object using it's local path.
         
         LocalFilename : Path to the file on the local disk.
         return : An FBAssetFile* object, or NULL if the file was not found or no mapping could be done."""
         ...
-    def GetAssetFolder(self,ServerPath:str)->object:
+    def GetAssetFolder(self,ServerPath:str)->FBAssetFolder:
         """Get a folder object using it's server path.
         
         ServerPath : Path the the folder on the server.
         return : An FBAssetFolder* object, or NULL if the folder was not found."""
         ...
-    def GetAssetFolderFromLocalPath(self,LocalPath:str)->object:
+    def GetAssetFolderFromLocalPath(self,LocalPath:str)->FBAssetFolder:
         """Get a folder object using it's local path.
         
         LocalPath : Path to the folder on the local disk.
@@ -9635,7 +9635,7 @@ class FBAssetItem(FBComponent):
         
         return : The name of the item, as an FBString."""
         ...
-    def GetParent(self)->object:
+    def GetParent(self)->FBAssetFolder:
         """Get the parent folder of this item.
         
         return : An FBAssetFolder* if the parent was found, or NULL if this is the root item."""
@@ -9779,7 +9779,7 @@ class FBApplication(FBComponent):
         ClearSceneName : Set to true to clear the scene name, set to false to retain it. Default is true.
         return : true if successful."""
         ...
-    def FileOpen(self,p0:str,BufferLength:object)->bool:
+    def FileOpen(self,p0:str,BufferLength:object,arg4:FBFbxOptions)->bool:
         """Open a file from memory.
         
         p0 : the memory buffer for the file. Raw memory address is expected in pyfbsdk.
@@ -9805,7 +9805,7 @@ class FBApplication(FBComponent):
         """Flush event queue.
         Processes all pending events for the calling thread until there are no more events to process. You can call this function occasionally when your code is busy performing a long operation (e.g. copying a file)."""
         ...
-    def GetMaxFrameCount(self,p0:object,BufferLength:int,FrameCount:object)->object:
+    def GetMaxFrameCount(self,p0:object,BufferLength:int,FrameCount:object)->bool:
         """Get max frame count from a scene file in memory.
         
         p0 : the memory buffer for the file. Raw memory address is expected in pyfbsdk.
@@ -9946,7 +9946,7 @@ class FBAssetFile(FBAssetItem):
         ...
 class FBAssetFolder(FBAssetItem):
     """Class representing a folder stored in a version control database."""
-    def AddFile(self,LocalPath:str,Comment:str,CheckOut:object,Silent:object)->object:
+    def AddFile(self,LocalPath:str,Comment:str,CheckOut:object,Silent:object)->FBAssetFile:
         """Add a specified file into the database.
         It will be added in this folder.
         
@@ -9956,7 +9956,7 @@ class FBAssetFolder(FBAssetItem):
         Silent : IfSilent is set to true, no dialog will be displayed by this method.
         return : An FBAssetfile* object representing the newly added file."""
         ...
-    def AddFolder(self,Name:str,Comment:str,Silent:object)->object:
+    def AddFolder(self,Name:str,Comment:str,Silent:object)->FBAssetFolder:
         """Add a folder in the database.
         It will be added in this folder.
         
@@ -9965,7 +9965,7 @@ class FBAssetFolder(FBAssetItem):
         Silent : IfSilent is set to true, no dialog will be displayed by this method.
         return : An FBAssetFolder* object representing the newly added folder."""
         ...
-    def GetChild(self,Index:object)->object:
+    def GetChild(self,Index:object)->FBAssetItem:
         """Get the child at indexIndex.
         
         Index : int
@@ -9976,13 +9976,13 @@ class FBAssetFolder(FBAssetItem):
         
         return : The number of items in this folder."""
         ...
-    def GetFile(self,Name:str)->object:
+    def GetFile(self,Name:str)->FBAssetFile:
         """Get a file present in this folder by using it's name.
         
         Name : str
         return : The file with the given name, or NULL if it was not found."""
         ...
-    def GetFolder(self,Name:str)->object:
+    def GetFolder(self,Name:str)->FBAssetFolder:
         """Get a folder present in this folder by using it's name.
         
         Name : str
@@ -10044,7 +10044,7 @@ class FBAnimationNode(FBComponent):
         
         return : true if there is a key at the current time."""
         ...
-    def KeyAdd(self,Data:FBTime,Interpolation:object,TangentMode:FBInterpolation):
+    def KeyAdd(self,Data:FBTime,Interpolation:object,TangentMode:FBInterpolation,arg5:FBTangentMode):
         """Add a key to the animation node at current time.
         
         Data : Value of data to add.
@@ -10064,7 +10064,7 @@ class FBAnimationNode(FBComponent):
         
         Time : Time for the key"""
         ...
-    def ReadData(self,Data:FBEvaluateInfo)->list:
+    def ReadData(self,Data:FBEvaluateInfo,arg3:object)->list:
         """Read the last data evaluated for this animation node ...
         this call doesn't generate a pull on the connection attached to this AnimationNode. No validation is done on the pointer size. You must provide a buffer that is at least GetSizerOfData() size.
         
@@ -10118,7 +10118,7 @@ class FBAnimationLayer(FBComponent):
         
         return : Child layer count, or -1 if unsuccessful"""
         ...
-    def GetChildLayer(self,Index:object)->object:
+    def GetChildLayer(self,Index:object)->FBAnimationLayer:
         """Get the nth child layer of this layer.
         
         Index : Index of the child layer to get.
@@ -10134,7 +10134,7 @@ class FBAnimationLayer(FBComponent):
         
         return : The layer index in the current layer hierarchy. This value will change if the hierarchy is modified. Return -1 if unsuccessful."""
         ...
-    def GetParentLayer(self)->object:
+    def GetParentLayer(self)->FBAnimationLayer:
         """Get the parent layer.
         
         return : A pointer to the parent layer or NULL if the layer doesn't have a parent."""
@@ -10171,7 +10171,7 @@ class FBActionManager(FBComponent):
 class FBConstraintManager(FBComponent):
     """Constraint manager.
     See sample: FBConstraintManager.py."""
-    def TypeCreateConstraint(self,Name:object)->object:
+    def TypeCreateConstraint(self,Name:object)->FBConstraint:
         """Create a constraint by name.
         Given the constraint type name in the registry, this function create an instance of this constraint. The newly created constraint will be automatically added to the scene.
         
@@ -10241,7 +10241,7 @@ class FBControlSet(FBComponent):
         Model : Given Model to obtain Index
         return : The Index of the Given Model."""
         ...
-    def GetFKModel(self,Index:FBBodyNodeId)->object:
+    def GetFKModel(self,Index:FBBodyNodeId)->FBModel:
         """Return the object associated to the given Index.
         
         Index : Given Index to obtain Model
@@ -10259,7 +10259,7 @@ class FBControlSet(FBComponent):
         Model : Given Model to Obtain Index
         return : The Index of the Given Model."""
         ...
-    def GetIKEffectorModel(self,EffectorIndex:FBEffectorId,PivotIndex:object)->object:
+    def GetIKEffectorModel(self,EffectorIndex:FBEffectorId,PivotIndex:object)->FBModel:
         """Return the object associated to the given Index.
         
         EffectorIndex : Given Index to obtain Model
@@ -10278,7 +10278,7 @@ class FBControlSet(FBComponent):
         EffectorIndex : FBEffectorId
         return : return the number of IK Effector Slot"""
         ...
-    def GetReferenceModel(self)->object:
+    def GetReferenceModel(self)->FBModel:
         """Get the reference model associated with this Control Set.
         
         return : The reference model associated with the Control Set."""
@@ -10482,7 +10482,7 @@ class FBFCurve(FBComponent):
     See samples: ClearKeysOnSelectedModels.py, FCurveEditor.py."""
     Keys:FBPropertyListFCurveKey
     """List: Keys."""
-    def CreateInterpolatorCurve(self,CurveType:FBInterpolatorCurveType)->object:
+    def CreateInterpolatorCurve(self,CurveType:FBInterpolatorCurveType)->FBFCurve:
         """Create and interpolator curve.
         
         CurveType : Interpolator curve type to create."""
@@ -11283,7 +11283,7 @@ class FBGenericMenu(FBComponent):
         
         ToDelete : The item to remove."""
         ...
-    def Execute(self,X:object,Y:object,RightAlign:object)->object:
+    def Execute(self,X:object,Y:object,RightAlign:object)->FBGenericMenuItem:
         """Starts the menu as a pop-up menu at a specific location on screen.
         It returns the item that was clicked by the user.
         
@@ -11292,39 +11292,39 @@ class FBGenericMenu(FBComponent):
         RightAlign : All menu item will be align to the right justified (if true) or left justified (if false)
         return : The selected item by the user. Null if the user clicks outside the menu."""
         ...
-    def GetFirstItem(self)->object:
+    def GetFirstItem(self)->FBGenericMenuItem:
         """Returns the first menu item (if existing) in this menu.
         You can then use GetNextItem to iterate on other menu items.
         
         return : The first menu item in this Menu."""
         ...
-    def GetItem(self,ItemId:object)->object:
+    def GetItem(self,ItemId:object)->FBGenericMenuItem:
         """Returns the menu item corresponding to an id.
         
         ItemId : Id of the item we are looking for.
         return : Will return the Item corresponding to an id (null if not found)."""
         ...
-    def GetLastItem(self)->object:
+    def GetLastItem(self)->FBGenericMenuItem:
         """Returns the last menu item (if existing) in this menu.
         You can then use GetPrevItem to reverse iterate on other menu items.
         
         return : The last menu item in this Menu."""
         ...
-    def GetNextItem(self,Item:FBGenericMenuItem)->object:
+    def GetNextItem(self,Item:FBGenericMenuItem)->FBGenericMenuItem:
         """Returns the menu item following an other item.
         Returns null if this is the last item in menu.
         
         Item : Will return the item afterItem
         return : Will return the item afterItem. Null ifItem is the last item."""
         ...
-    def GetPrevItem(self,Item:FBGenericMenuItem)->object:
+    def GetPrevItem(self,Item:FBGenericMenuItem)->FBGenericMenuItem:
         """Returns the menu item preceding an other item.
         Returns null if this is the first item in menu.
         
         Item : Will return the item BEFOREItem
         return : Will return the item BEFOREItem. Null ifItem is the first item."""
         ...
-    def InsertAfter(self,BeforeItem:FBGenericMenuItem,ItemName:str,ItemId:object,Menu:FBGenericMenu)->object:
+    def InsertAfter(self,BeforeItem:FBGenericMenuItem,ItemName:str,ItemId:object,Menu:FBGenericMenu)->FBGenericMenuItem:
         """Inserts a new menu Item AFTER another item.
         
         BeforeItem : The reference item. We will create a new item AFTER this one.
@@ -11333,7 +11333,7 @@ class FBGenericMenu(FBComponent):
         Menu : Optional. If this Item leads to another menu (embedded) it can be specified here.
         return : Will return the menu item created from this insertion."""
         ...
-    def InsertBefore(self,AfterItem:FBGenericMenuItem,ItemName:str,ItemId:object,Menu:FBGenericMenu)->object:
+    def InsertBefore(self,AfterItem:FBGenericMenuItem,ItemName:str,ItemId:object,Menu:FBGenericMenu)->FBGenericMenuItem:
         """Inserts a new menu Item BEFORE another item.
         
         AfterItem : The reference item. We will create a new item BEFORE this one.
@@ -11342,7 +11342,7 @@ class FBGenericMenu(FBComponent):
         Menu : Optional. If this Item leads to another menu (embedded) it can be specified here.
         return : Will return the menu item created from this insertion."""
         ...
-    def InsertFirst(self,ItemName:str,ItemId:object,Menu:FBGenericMenu)->object:
+    def InsertFirst(self,ItemName:str,ItemId:object,Menu:FBGenericMenu)->FBGenericMenuItem:
         """Inserts a new menu Item at the first position in the menu list.
         
         ItemName : Caption of the newly added item.
@@ -11350,7 +11350,7 @@ class FBGenericMenu(FBComponent):
         Menu : Optional. If this Item leads to another menu (embedded) it can be specified here.
         return : Will return the menu item created from this insertion."""
         ...
-    def InsertLast(self,ItemName:str,ItemId:object,Menu:FBGenericMenu)->object:
+    def InsertLast(self,ItemName:str,ItemId:object,Menu:FBGenericMenu)->FBGenericMenuItem:
         """Inserts a new menu Item at the last position in the menu list.
         
         ItemName : Caption of the newly added item.
@@ -11400,70 +11400,70 @@ class FBGeometry(FBComponent):
         
         return : true if successful."""
         ...
-    def GetBinormalsDirectArray(self)->list:
+    def GetBinormalsDirectArray(self)->FBNormal:
         """Get a pointer to the direct array of binormals.
         Modify array value will be only effective when geometry editing is enabled.
         
         OutArrayCount : To return the length the array.
         return : Pointer to direct array of binormals, or NULL if the array hasn't been allocated yet."""
         ...
-    def GetBinormalsIndexArray(self)->list:
+    def GetBinormalsIndexArray(self)->int:
         """Get a pointer to the index array of binormals.
         Modify array value will be only effective when geometry editing is enabled.
         
         OutArrayCount : To return the length the array.
         return : Pointer to index array of binormals, or NULL if the array hasn't been allocated yet."""
         ...
-    def GetMaterialIndexArray(self)->list:
+    def GetMaterialIndexArray(self)->int:
         """Get a pointer to the index array of Material.
         Modify array value will be only effective when geometry editing is enabled.
         
         OutArrayCount : To return the length the array.
         return : Pointer to index array of Material, or NULL if the array hasn't been allocated yet."""
         ...
-    def GetNormalsDirectArray(self)->list:
+    def GetNormalsDirectArray(self)->FBNormal:
         """Get a pointer to the direct array of normals.
         Modify array value will be only effective when geometry editing is enabled.
         
         OutArrayCount : To return the length the array.
         return : Pointer to direct array of normals, or NULL if the array hasn't been allocated yet."""
         ...
-    def GetNormalsIndexArray(self)->list:
+    def GetNormalsIndexArray(self)->int:
         """Get a pointer to the index array of normals.
         Modify array value will be only effective when geometry editing is enabled.
         
         OutArrayCount : To return the length the array.
         return : Pointer to index array of normals, or NULL if the array hasn't been allocated yet."""
         ...
-    def GetPositionsArray(self)->list:
+    def GetPositionsArray(self)->FBVertex:
         """Get a pointer to the position array.
         Modify array value will be only effective when geometry editing is enabled.
         
         OutArrayCount : To return the length the array.
         return : Pointer to index array of normals, or NULL if the array hasn't been allocated yet."""
         ...
-    def GetTangentsDirectArray(self)->list:
+    def GetTangentsDirectArray(self)->FBNormal:
         """Get a pointer to the direct array of tangents.
         Modify array value will be only effective when geometry editing is enabled.
         
         OutArrayCount : To return the length the array.
         return : Pointer to direct array of tangents, or NULL if the array hasn't been allocated yet."""
         ...
-    def GetTangentsIndexArray(self)->list:
+    def GetTangentsIndexArray(self)->int:
         """Get a pointer to the index array of tangents.
         Modify array value will be only effective when geometry editing is enabled.
         
         OutArrayCount : To return the length the array.
         return : Pointer to index array of tangents, or NULL if the array hasn't been allocated yet."""
         ...
-    def GetUVSetDirectArray(self,OutArrayCount:str)->list:
+    def GetUVSetDirectArray(self,OutArrayCount:str)->FBUV:
         """Get a pointer to the direct array of UVset Modify array value will be only effective when geometry editing is enabled.
         
         OutArrayCount : To return the length the array.
         UVSetName : The name of UVset, NULL for the first UVset.
         return : pointer to the array of UV, or NULL is the array hasn't been allocated yet."""
         ...
-    def GetUVSetIndexArray(self,OutArrayCount:str)->list:
+    def GetUVSetIndexArray(self,OutArrayCount:str)->int:
         """Get a pointer to the index array of UVset.
         Modify array value will be only effective when geometry editing is enabled.
         
@@ -11495,7 +11495,7 @@ class FBGeometry(FBComponent):
         OutArrayCount : To return the length the array.
         return : Pointer to direct array of vertex colors, or NULL if the array hasn't been allocated yet."""
         ...
-    def GetVertexColorsIndexArray(self)->list:
+    def GetVertexColorsIndexArray(self)->int:
         """Get a pointer to the index array of vertex color.
         Modify array value will be only effective when geometry editing is enabled.
         
@@ -11755,7 +11755,7 @@ class FBMesh(FBGeometry):
         Vertex : Index in mesh of vertex to add to polygon, must be in range of [0, ControlPointCount)
         return : true if successful."""
         ...
-    def PolygonVertexArrayGet(self)->list:
+    def PolygonVertexArrayGet(self)->int:
         """Get the array of polygon vertex (i.e.
         index to control points). This array is a concatenation of the list of polygon vertices of all the polygons. Example: a mesh made of 2 triangles [1,2,3] and [2,3,4] results in [1,2,3,2,3,4]. The first polygon starts at position 0 and the second at position 3.
         
@@ -11822,7 +11822,7 @@ class FBImage(FBComponent):
         Height : New height of the image.
         return : Return true if the convert was successful."""
         ...
-    def GetBufferAddress(self)->int:
+    def GetBufferAddress(self)->str:
         """Access image data buffer, allow modifications.
         
         return : Pointer to the image data, values ranging from 0 to 255."""
@@ -11886,7 +11886,7 @@ class FBKeyingGroup(FBComponent):
     def ClearAllItems(self):
         """ClearAllItems clear object dependency, properties and child keying group."""
         ...
-    def DeselectAllAnimatableProperties():
+    def DeselectAllAnimatableProperties(self):
         """FBDeselectAllAnimatableProperties, deselect all animatable properties in the scene."""
         ...
     def FindPropertyIndex(self,Prop:FBProperty)->int:
@@ -11895,7 +11895,7 @@ class FBKeyingGroup(FBComponent):
         Prop : must be in the list (return -1 if not).
         return : the index ofProp in the keyinggroup property list."""
         ...
-    def GetCumulativeProperty(self,Index:object,StopAtVisible:object)->object:
+    def GetCumulativeProperty(self,Index:object,StopAtVisible:object)->FBProperty:
         """GetCumulativeProperty Same as GetSubKeyingGroup but recursive in child keying group.
         
         Index : index in the content Object Dependency list
@@ -11908,7 +11908,7 @@ class FBKeyingGroup(FBComponent):
         StopAtVisible : consider all keying group and stop to the first visible keying group.
         return : he number of ObjectDependency of the keying group."""
         ...
-    def GetParentKeyingGroup(self,Index:object)->object:
+    def GetParentKeyingGroup(self,Index:object)->FBKeyingGroup:
         """GetParentKeyingGroup.
         
         Index : is the index of the parent list of the current keying group.
@@ -11919,7 +11919,7 @@ class FBKeyingGroup(FBComponent):
         
         return : the number of parent."""
         ...
-    def GetProperty(self,Index:object)->object:
+    def GetProperty(self,Index:object)->FBProperty:
         """GetProperty from the keyinggroup list.
         
         Index : index of the desired property.
@@ -11930,7 +11930,7 @@ class FBKeyingGroup(FBComponent):
         
         return : the number of properties in the keying group."""
         ...
-    def GetSubKeyingGroup(self,Index:object)->object:
+    def GetSubKeyingGroup(self,Index:object)->FBKeyingGroup:
         """GetSubKeyingGroup.
         
         Index : index of the desired keying group child.
@@ -11941,7 +11941,7 @@ class FBKeyingGroup(FBComponent):
         
         return : the number of child keying group."""
         ...
-    def GetSubObject(self,Index:object)->object:
+    def GetSubObject(self,Index:object)->FBComponent:
         """GetSubObject.
         
         Index : index in the content Object Dependency list
@@ -12033,12 +12033,12 @@ class FBCharacterExtension(FBKeyingGroup):
         
         Obj : Object to add TR properties."""
         ...
-    def GetCharacter(self)->object:
+    def GetCharacter(self)->FBCharacter:
         """Return the attached Character.
         
         return : attached Character."""
         ...
-    def GetExtensionObjectWithLabelName(self,LabelName:str)->object:
+    def GetExtensionObjectWithLabelName(self,LabelName:str)->FBComponent:
         """Find stored object based on label name.
         
         LabelName : The label name.
@@ -12051,7 +12051,7 @@ class FBCharacterExtension(FBKeyingGroup):
         Obj : The extension object.
         ReturnObjectNameIfNotFound : If the value is true, if the object is not found,LabelName will be set to the object name; otherwiseLabelName will be set to empty string. By default the value is false."""
         ...
-    def GetMirrorExtension(self)->object:
+    def GetMirrorExtension(self)->FBCharacterExtension:
         """Return the character extension determined by MirrorLabel.
         
         return : character extension determined by MirrorLabel."""
@@ -12061,19 +12061,19 @@ class FBCharacterExtension(FBKeyingGroup):
         
         return : The total number of retarget properties."""
         ...
-    def GetRetargetReferenceProperty(self,PropIndex:object)->object:
+    def GetRetargetReferenceProperty(self,PropIndex:object)->FBProperty:
         """Return the reference property of the given index.
         
         PropIndex : Index to query.
         return : Reference property of the given index."""
         ...
-    def GetRetargetSourceProperty(self,PropIndex:object)->object:
+    def GetRetargetSourceProperty(self,PropIndex:object)->FBProperty:
         """Return the source property of the given index (the source property is the property that drives the reference property during retargeting).
         
         PropIndex : Index to query.
         return : Source property (the property that drives the reference property during retargeting) of the given index."""
         ...
-    def GetSourceExtension(self)->object:
+    def GetSourceExtension(self)->FBCharacterExtension:
         """Return the character extension that is used to drive this extension during retargeting.
         
         return : The character extension that is used to drive this extension during retargeting."""
@@ -12083,7 +12083,7 @@ class FBCharacterExtension(FBKeyingGroup):
         
         return : The enum that indicate which extension is used as a source during retargeting, 0 is none, 1-n represent the (ith - 1)character extension in the source character."""
         ...
-    def GetStancePose(self)->object:
+    def GetStancePose(self)->FBObjectPose:
         """Return stance pose.
         
         return : stance pose."""
@@ -12177,7 +12177,7 @@ class FBMarkerSet(FBComponent):
         NodeId : If specified, obtain the number of marker for the specific node.
         return : Total number of marker."""
         ...
-    def GetMarkerModel(self,NodeId:FBSkeletonNodeId,MarkerIndex:object)->object:
+    def GetMarkerModel(self,NodeId:FBSkeletonNodeId,MarkerIndex:object)->FBModel:
         """Get the model associated with a marker.
         
         NodeId : Id of Actor skeleton node.
@@ -12224,7 +12224,7 @@ class FBMarkerSet(FBComponent):
         MarkerIndex : Index of marker to access.
         return : True if marker is used, false otherwise."""
         ...
-    def GetReferenceModel(self)->object:
+    def GetReferenceModel(self)->FBModel:
         """Get the reference model associated with this marker set.
         
         return : The reference model associated with the marker set."""
@@ -12321,14 +12321,14 @@ class FBMenuManager(FBComponent):
         MenuItemFullPath : Path of the menu item to execute.
         return : True if the menu item has been executed, false otherwise. It could returns false if the menu item cannot be found or if the menu item is found but is disabled or is a separator."""
         ...
-    def GetMenu(self,Path:str)->object:
+    def GetMenu(self,Path:str)->FBGenericMenu:
         """Get the Menu (NOT menu item) corresponding to a menu path.
         Don't forget that most menu path already in MotionBuilder have a '&' character as the first letter of their name. You have to use the '/' character as a separator in the specified menu path (ex: 'Help/&Communities').
         
         Path : Path of the menu to retrieve
         return : the FBGenericMenu at this path./"""
         ...
-    def InsertAfter(self,MenuPath:str,BeforeMenuName:str,MenuName:str)->object:
+    def InsertAfter(self,MenuPath:str,BeforeMenuName:str,MenuName:str)->FBGenericMenuItem:
         """Insert a new menu at a specific path AFTER another item.
         
         MenuPath : Path where to insert the menu. If this is NULL (None) it will insert a new root menu.
@@ -12336,7 +12336,7 @@ class FBMenuManager(FBComponent):
         MenuName : str
         return : Returns the menu item corresponding to the newly inserted menu."""
         ...
-    def InsertBefore(self,MenuPath:str,AfterMenuName:str,MenuName:str)->object:
+    def InsertBefore(self,MenuPath:str,AfterMenuName:str,MenuName:str)->FBGenericMenuItem:
         """Insert a new menu at a specific path BEFORE another item.
         
         MenuPath : Path where to insert the menu. If this is NULL (None) it will insert a new root menu.
@@ -12344,14 +12344,14 @@ class FBMenuManager(FBComponent):
         MenuName : str
         return : Returns the menu item corresponding to the newly inserted menu."""
         ...
-    def InsertFirst(self,MenuPath:str,MenuName:str)->object:
+    def InsertFirst(self,MenuPath:str,MenuName:str)->FBGenericMenuItem:
         """Insert a new menu at the first position of a specific path.
         
         MenuPath : Path where to insert the menu. If this is NULL (None) it will insert a new root menu.
         MenuName : Name (Caption) of the newly inserted menu.
         return : Returns the menu item corresponding to the newly inserted menu."""
         ...
-    def InsertLast(self,MenuPath:str,MenuName:str)->object:
+    def InsertLast(self,MenuPath:str,MenuName:str)->FBGenericMenuItem:
         """Insert a new menu at the last position of a specific path.
         
         MenuPath : Path where to insert the menu. If this is NULL (None) it will insert a new root menu.
@@ -12786,7 +12786,7 @@ class FBNamespace(FBComponent):
     ContentCount:property
     ContentLocked:bool
     """Read Write Property: Content locking state."""
-    def GetContent(self,Index:object)->object:
+    def GetContent(self,Index:object)->FBComponent:
         """Get the namespace content object count (Not Recursive).
         
         Index : content object index to query. return content object inside this namespace (not recursive)"""
@@ -13492,7 +13492,7 @@ class FBScene(FBComponent):
         ASCIIFormat : save the file in ASCII format.
         return : True if successfully."""
         ...
-    def NamespaceGet(self,Namespace:str)->object:
+    def NamespaceGet(self,Namespace:str)->FBNamespace:
         """Get Namespace object.
         
         Namespace : the namespace to query
@@ -13516,7 +13516,7 @@ class FBScene(FBComponent):
         TypeInfo : the typeInfo of the type of interested object, 0 for all the objects.
         ExactTypeMatch : if True, the derived typeInfo won't be considered (For example, FBCamera won't be considered when passing FBModel::TypeInfo)."""
         ...
-    def NamespaceGetOwnerFileReference(self,Namespace:str)->object:
+    def NamespaceGetOwnerFileReference(self,Namespace:str)->FBFileReference:
         """Get Owner FileReference object if the namespace is originated from File Reference.
         
         Namespace : the namespace to work on, could be nested namespace inside the FileReference's namespace.
@@ -13718,7 +13718,7 @@ class FBShaderManager():
     """List of available shaders."""
     ShaderTypeNamesLocalized:FBStringList
     """List of available shaders."""
-    def CreateShader(self,ShaderTypeName:str)->object:
+    def CreateShader(self,ShaderTypeName:str)->FBShader:
         """Creates a shader according to the shader type provided.
         This method provides a generic way of creating shaders using the type name, internal or localized. The name of the new shader will be the same as the type name used, subject to changes according to the system's unique name policy.
         
@@ -13965,7 +13965,7 @@ class FBStoryClip(FBComponent):
         
         return : Returns true if the animation clip can assign its sources to some destinations, false otherwise."""
         ...
-    def Clone(self)->object:
+    def Clone(self)->FBStoryClip:
         """Clone the clip."""
         ...
     def DestinationSetObject(self,SrcName:str,Object:FBComponent)->bool:
@@ -14040,7 +14040,7 @@ class FBStoryClip(FBComponent):
         Force : Force clip to find the nearest position if the move fail.
         return : Returns the new clip's time position."""
         ...
-    def Razor(self,Time:FBTime)->object:
+    def Razor(self,Time:FBTime)->FBStoryClip:
         """Razor.
         Cut (razor) the clip at the specified time.
         
@@ -14232,7 +14232,7 @@ class FBStoryTrack(FBConstraint):
         """ChangeDetailsEnd.
         You must call this function after adding/removing any object to the Details list or it won't work."""
         ...
-    def CopyTakeIntoTrack(self,TimeSpan:FBTimeSpan,Take:FBTake,OutputOffset:FBTime,MakeUndoable:object)->object:
+    def CopyTakeIntoTrack(self,TimeSpan:FBTimeSpan,Take:FBTake,OutputOffset:FBTime,MakeUndoable:object)->FBStoryClip:
         """CopyTakeIntoTrack Copy animation from the specified take for affected objects of the track.
         
         TimeSpan : Time span for the clip to create.
@@ -14241,7 +14241,7 @@ class FBStoryTrack(FBConstraint):
         MakeUndoable : If the operation should be undoable.
         return : Created story clip if the operation succeeded otherwize NULL."""
         ...
-    def CreateSubTrack(self,TrackType:FBStoryTrackType,RefMode:FBStoryTrackRefMode)->object:
+    def CreateSubTrack(self,TrackType:FBStoryTrackType,RefMode:FBStoryTrackRefMode)->FBStoryTrack:
         """Create a sub track, Only Character and Animation tracks can have sub-tracks.
         
         TrackType : Type of the sub track to be created.
@@ -14644,7 +14644,7 @@ class FBTake(FBComponent):
     def ClearAllPropertiesOnCurrentLayer(self):
         """Clear all the animation on the current layer."""
         ...
-    def CopyTake(self,NewTakeName:str)->object:
+    def CopyTake(self,NewTakeName:str)->FBTake:
         """Copy the take.
         Will create a copy of the current take, with the current take data. This is analogous to creating a new take, and copying the current take data into it. The Layers data and the TimeWarp date will be copied. The newly created take will be set as the current take. The newly created take is automatically added to the scene and available in the Transport control.
         
@@ -14706,13 +14706,13 @@ class FBTake(FBComponent):
         
         return : The current layer index."""
         ...
-    def GetLayer(self,LayerIndex:object)->object:
+    def GetLayer(self,LayerIndex:object)->FBAnimationLayer:
         """Get the layer object that have the specified ID.
         
         LayerIndex : The index of the layer that will be returned.
         return : Layer with the specified ID."""
         ...
-    def GetLayerByName(self,Name:str)->object:
+    def GetLayerByName(self,Name:str)->FBAnimationLayer:
         """Get the layer object that have the specified name.
         
         Name : The name of the animation layer to get.
@@ -15171,7 +15171,7 @@ class FBTimeWarpManager(FBComponent):
         TimeWarp : The TimeWarp queried.
         return : the Nick Number of the timewarp."""
         ...
-    def GetTimeWarpAtIndex(self,Take:FBTake,Index:int)->object:
+    def GetTimeWarpAtIndex(self,Take:FBTake,Index:int)->FBAnimationNode:
         """Get the TimeWarp in a Take At specific Index.
         
         Take : The Take queried.
@@ -15184,7 +15184,7 @@ class FBTimeWarpManager(FBComponent):
         Take : The Take queried.
         return : the TimeWarp count."""
         ...
-    def GetTimeWarpFromNickNumber(self,Take:FBTake,Number:object)->object:
+    def GetTimeWarpFromNickNumber(self,Take:FBTake,Number:object)->FBAnimationNode:
         """Get the timeWarp of specific Nick Number in a Take.
         
         Take : The Take queried.
@@ -15242,7 +15242,7 @@ class FBTimeWarpManager(FBComponent):
         DstTake : Copy all TimeWarp to.
         SrcTake : Copy all TimeWarp from."""
         ...
-    def TimeWarpCreateNew(self,Name:str)->object:
+    def TimeWarpCreateNew(self,Name:str)->FBAnimationNode:
         """Create a TimeWarp with a specific name.
         
         Name : The name for the TimeWarp.
@@ -15370,12 +15370,12 @@ class FBToolLayoutManager(FBComponent):
 class FBTransportAudioManager(FBComponent):
     """Transport Tool Audio Manager class.
     This class allows users to interact with the Audio Manager of the Transport Tool."""
-    def GetAudioClip(self)->object:
+    def GetAudioClip(self)->FBAudioClip:
         """Get the Audio Clip displayed on the Transport Tool.
         
         return : The Audio Clip displayed, nullptr (C++) / None (Python) if any."""
         ...
-    def GetAudioTrack(self)->object:
+    def GetAudioTrack(self)->FBStoryTrack:
         """Get the Audio Track displayed on the Transport Tool.
         
         return : The Audio Track displayed, nullptr (C++) / None (Python) if any."""
@@ -15799,7 +15799,7 @@ class FBVideoGrabber(FBComponent):
         """Grab.
         Grab all specified video frames."""
         ...
-    def RenderSnapshot(self,Width:object,Height:object,CameraLabel:object,TimeCode:object,SafeArea:object,Axis:object,Grid:object,FrontPlate:object,BackPlate:object)->object:
+    def RenderSnapshot(self,Width:object,Height:object,CameraLabel:object,TimeCode:object,SafeArea:object,Axis:object,Grid:object,FrontPlate:object,BackPlate:object)->FBImage:
         """Render a snapshot of the actual display.
         
         Width : int
@@ -15870,7 +15870,7 @@ class FBVideoIn(FBVideo):
         
         return : Type of the video input device."""
         ...
-    def LiveSetCompressor(self,CompressorIndex:object):
+    def LiveSetCompressor(self,CompressorIndex:object)->bool:
         """Set the current compressor to be used when recording.
         
         CompressorIndex : Index of the compressor.
@@ -16016,7 +16016,7 @@ class FBVisualComponent(FBComponent):
         Id : User reference number to associate withChild(default=0).
         return : Operation was successful (true or false)."""
         ...
-    def GetChild(self,Id:object)->object:
+    def GetChild(self,Id:object)->FBVisualComponent:
         """Get a child component.
         
         Id : User reference number to look for child with(default=0).
@@ -16077,7 +16077,7 @@ class FBVisualContainer(FBVisualComponent):
         
         return : Index of current selection."""
         ...
-    def ItemIconSet(self,Ref:object,Filename:FBImage)->bool:
+    def ItemIconSet(self,Ref:object,Filename:FBImage,arg4:object)->bool:
         """Set an item's icon.
         
         Ref : Reference to item in container.
@@ -16185,12 +16185,12 @@ class FBTree(FBVisualComponent):
     def Clear(self):
         """Clear the tree (remove all nodes)."""
         ...
-    def GetRoot(self)->object:
+    def GetRoot(self)->FBTreeNode:
         """Get the root node.
         
         return : the root node of the tree."""
         ...
-    def InsertLast(self,Node:FBTreeNode,Name:str)->object:
+    def InsertLast(self,Node:FBTreeNode,Name:str)->FBTreeNode:
         """Insert node at the end.
         
         Node : Node under which the new node will appear.
@@ -16261,18 +16261,18 @@ class FBSpread(FBVisualComponent):
         Column : Column of cell.
         View : Handle of view."""
         ...
-    def GetColumn(self,Column:object)->object:
+    def GetColumn(self,Column:object)->FBSpreadColumn:
         """Get a column from a column number.
         
         Column : Column number.
         return : A copy of column."""
         ...
-    def GetCurrentCell(self)->object:
+    def GetCurrentCell(self)->FBSpreadCell:
         """Get the current cell.
         
         return : A copy of the the current cell."""
         ...
-    def GetRow(self,Ref:object)->object:
+    def GetRow(self,Ref:object)->FBSpreadRow:
         """Get a row from a row reference.
         
         Ref : Reference to a row.
@@ -16440,7 +16440,7 @@ class FBLayout(FBVisualComponent):
         
         Name : Name of region to remove control."""
         ...
-    def GetControl(self,Name:str)->object:
+    def GetControl(self,Name:str)->FBVisualComponent:
         """Get control of a region in a visual component.
         
         Name : Name of region to find.
@@ -16596,7 +16596,7 @@ class FBPopup(FBLayout):
         
         Ok : Equivalent of OK button clicked if true (default = false)."""
         ...
-    def Show(self,Parent:FBVisualComponent):
+    def Show(self,Parent:FBVisualComponent)->bool:
         """Show popup.
         
         Parent : Parent object for popup
@@ -16782,7 +16782,7 @@ class FBBrowsingProperty(FBVisualComponent):
         
         Object : Object whose properties will be displayed in the property brwoser."""
         ...
-    def ObjectGet(self,Index:object)->object:
+    def ObjectGet(self,Index:object)->FBPlug:
         """Return the object at the specified index.
         
         Index : Index of the object to get.
@@ -16843,7 +16843,7 @@ def FBAssetFolder_TypeInfo()->int:...
 def FBAssetItem_TypeInfo()->int:...
 def FBAssetMng_TypeInfo()->int:...
 def FBAudioClip_TypeInfo()->int:...
-def FBAudioFmt_AppendFormat(Format:object,SrcFormat:object)->int:
+def FBAudioFmt_AppendFormat(Format:object,SrcFormat:object,arg3:object,arg4:object)->int:
     """Append the rendering audio format with another audio format.
     
     Format : Audio format to use.
@@ -16897,7 +16897,7 @@ def FBAudioFmt_GetRateValue(Format:object)->int:
     Format : Audio format to use.
     return : Audio rate value as an integer value."""
     ...
-def FBAudioFmt_RemoveFormat(Format:object,SrcFormat:object)->int:
+def FBAudioFmt_RemoveFormat(Format:object,SrcFormat:object,arg3:object,arg4:object)->int:
     """Remove audio format from another audio format object.
     
     Format : Audio format to use.
@@ -17371,7 +17371,7 @@ def FBMessageBox(BoxTitle:str,Message:str,Button1Str:str,Button2Str:str,Button3S
     ScrolledMessage : Scroll message (default is 0).
     return : The number of the button selected."""
     ...
-def FBMessageBoxGetUserValue(BoxTitle:str,Message:str,Value:object,ValueType:FBPopupInputType,Button1Str:str,Button2Str:str,Button3Str:str,DefaultButton:object)->tuple:
+def FBMessageBoxGetUserValue(BoxTitle:str,Message:str,Value:object,ValueType:FBPopupInputType,Button1Str:str,Button2Str:str,Button3Str:str,DefaultButton:object,arg9:object)->tuple:
     """Dialog popup box to get user input.
     Opens a message box, with up to three buttons, asking the user to enter data. The type of data to be entered is specified by theValue andValueType parameters.
     

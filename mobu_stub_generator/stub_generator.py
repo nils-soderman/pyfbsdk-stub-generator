@@ -107,6 +107,11 @@ def PatchVariableType(VariableType: str, ExistingClassNames, ClassMembers = [], 
                 return NewVariableType
             return Default
 
+        if VariableType[0].isupper():
+            if VariableType in ExistingClassNames or VariableType in ClassMembers:
+                return VariableType
+            return Default
+
         return VariableType
 
     FBEventName = "FBEvent"
@@ -439,18 +444,16 @@ def GenerateStubClassFunction(Function, DocMembers, ExistingClassNames, ClassMem
     StubFunctionInstance = GenerateStubFunction(Function, DocMembers)
     StubFunctionInstance.bIsClassFunction = True
 
-    if DocPage and False:
+    if DocPage:
         Member = DocPage.GetMember(Function.__name__)
         if Member:
             if not StubFunctionInstance.ReturnType.startswith("FB"):
                 Type = Member.GetType(bConvertToPython = True)
                 if Type:
                     Type = PatchVariableType(Type, ExistingClassNames)
-                    StubFunctionInstance.ReturnType = Type
-
-        for Param in Member.Params:
-            PatchParameterName(Param.Name)
-
+                    if Type and not Type.startswith("k"):
+                        StubFunctionInstance.ReturnType = Type
+                    
     return StubFunctionInstance
 
 
