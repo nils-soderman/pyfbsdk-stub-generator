@@ -1,6 +1,7 @@
 #
 #   Code to generate a stub files
 #
+from __future__ import annotations
 import importlib
 import inspect
 import typing
@@ -37,6 +38,9 @@ class FObjectType:
 
 def PatchGeneratedDocString(Text):
     # Replace content
+    if not Text:
+        return ""
+
     for TagName, ReplaceWith in [("<b>", ""), ("</b>", ""), ("b>", ""), ("\\", "\\\\")]:
         Text = Text.replace(TagName, ReplaceWith)
 
@@ -76,7 +80,7 @@ def PatchGeneratedDocString(Text):
     return Text.strip()
 
 
-def PatchArgumentName(Param: str):
+def PatchParameterName(Param: str):
     # Remove the 'p' prefix
     if Param.startswith("p"):
         if not (len(Param) == 2 and Param[1].isdigit()):
@@ -92,40 +96,40 @@ def PatchVariableType(VariableType: str, ExistingClassNames, ClassMembers = [], 
     """
     Patch property types to match what's avaliable for Python.
     """
-    
+
     if VariableType == "enum":
         return "_Enum"
-    
+
     if not VariableType.startswith("FB"):
         if VariableType.startswith("Property"):
             NewVariableType = VariableType.replace("Property", "", 1)
             if NewVariableType in ExistingClassNames or NewVariableType in ClassMembers:
                 return NewVariableType
             return Default
-        
+
         return VariableType
-        
+
     FBEventName = "FBEvent"
     if VariableType.startswith(FBEventName) and not (VariableType in ExistingClassNames or VariableType in ClassMembers):
         if FBEventName in ExistingClassNames or FBEventName in ClassMembers:
             return FBEventName
-        
+
     if bAlwaysTryToRemoveProperty or VariableType not in ExistingClassNames:
         for Key, Value in docParser.CToPythonVariableTranslation.items():
             if "fbproperty%s" % Key.lower() == VariableType.lower() or "fbpropertyanimatable%s" % Key.lower() == VariableType.lower():
                 return Value
-        
+
         if VariableType.startswith("FBPropertyAnimatable"):
             NewVariableType = VariableType.replace("PropertyAnimatable", "", 1)
         else:
             NewVariableType = VariableType.replace("Property", "", 1)
-        
+
         if NewVariableType in ExistingClassNames or NewVariableType in ClassMembers:
             return NewVariableType
-        
+
     if VariableType in ExistingClassNames or VariableType in ClassMembers:
         return VariableType
-        
+
     return Default
 
 
@@ -184,6 +188,12 @@ class StubClass(StubBaseClass):
         # The class parent's needs to be declared before the class
         return self.Parents
 
+    def AddProperty(self, Property: StubProperty):
+        self.StubProperties.append(Property)
+
+    def AddFunction(self, Function: StubFunction):
+        self.StubFunctions.append(Function)
+
     def GetAsString(self):
         ParentClassesAsString = ','.join(self.Parents)
         ClassAsString = "class %s(%s):\n" % (self.Name, ParentClassesAsString)
@@ -204,29 +214,31 @@ class StubClass(StubBaseClass):
 
 
 class StubFunction(StubBaseClass):
-    def __init__(self, Name="", Indentation = 0, Settings = None):
+    def __init__(self, Name = "", Indentation = 0, Settings = None):
         super().__init__(Name = Name, Indentation = Indentation, Settings = Settings)
-        self.Params = []
+        self._Params = []
         self.ReturnType = None
         self.bIsClassFunction = False
 
-    def GetParametersAsString(self):
-        # self.Params = [("Name", "Type")]
-        ParamString = ""
-        for Index, Param in enumerate(self.Params):
-            if self.bIsClassFunction and Index == 0:
-                ParamString += "self"
-            else:
-                ParamString += Param[0]
-                if Param[1]:
-                    ParamString += ":%s" % Param[1]
-            ParamString += ","
+    def AddParameter(self, Parameter):
+        self._Params.append(Parameter)
 
-        return ParamString[:-1]
+    def SetParameter(self, Index, Paramter):
+        if Index > len(self._Params) - 1:
+            raise IndexError("given parameter index is larger than the size of the paramter array")
+        self._Params[Index] = Paramter
+
+    def GetParamsAsString(self):
+        if self.bIsClassFunction:
+            if len(self._Params) < 1:
+                return "self"
+            self._Params[0].bIsClassSelfParam = True
+        ParametersAsStrings = [x.GetAsString() for x in self._Params]
+        return ",".join(ParametersAsStrings)
 
     def GetAsString(self):
         FunctionAsString = self.Indent(
-            'def %s(%s)' % (self.Name, self.GetParametersAsString()),
+            'def %s(%s)' % (self.Name, self.GetParamsAsString()),
             bCurrent = True
         )
 
@@ -244,9 +256,28 @@ class StubFunction(StubBaseClass):
         return FunctionAsString
 
 
+class StubParameter():
+    def __init__(self, Name, Type = None, DefaultValue = None):
+        self.Name = Name
+        self.Type = Type
+        self.DefaultValue = DefaultValue
+        self.bIsClassSelfParam = False
+
+    def GetAsString(self):
+        if self.bIsClassSelfParam:
+            return "self"
+        ParamString = PatchParameterName(self.Name)
+        if self.Type:
+            ParamString += ":%s" % self.Type
+        if self.DefaultValue:
+            ParamString += "=%s" % self.DefaultValue
+
+        return ParamString
+
+
 class StubProperty(StubBaseClass):
     def __init__(self, Name="", Indentation = 0, Settings = None):
-        super().__init__(Name=Name, Indentation = Indentation, Settings = Settings)
+        super().__init__(Name = Name, Indentation = Indentation, Settings = Settings)
         self._Type = None
 
     def GetType(self):
@@ -268,17 +299,18 @@ class StubProperty(StubBaseClass):
 
 class GeneratedPythonDocumentation():
     """ pyfbsdk comes with a pyfbsdk_gen_doc.py, containing some doc strings etc. """
+
     def __init__(self, ModuleName):
         if os.path.isabs(ModuleName):
             # TODO: Load module from abs path instead (using importlib)
             raise Exception("Absolute path to module is currently not supported!\nWhen trying to load: %s" % ModuleName)
-        
+
         ImportedModule = importlib.import_module(ModuleName)
         self.Members = dict(inspect.getmembers(ImportedModule))
-        
+
     def GetMemberByName(self, Name):
         return self.Members.get(Name)
-    
+
     def GetDocString(self, Name):
         Member = self.GetMemberByName(Name)
         return Member.__doc__ if Member else ""
@@ -296,21 +328,6 @@ def GetObjectType(Object):
 def IsPrivate(Object):
     """ Check if the name of an object begins with a underscore """
     return Object.__name__.startswith("_")
-
-
-def GetArgumentsFromFunction(Function):
-    DocString = Function.__doc__
-    HelpFunction = DocString.split("->", 1)[0]
-    HelpArgumentString = HelpFunction.split("(", 1)[1].strip()[:-1]
-    HelpArgumentString = HelpArgumentString.replace("]", "").replace("[", "")
-    HelpArguments = HelpArgumentString.split(",")
-    ReturnValue = []
-    for Argument in HelpArguments:
-        if not Argument:
-            continue
-        Type, ArgName = Argument.strip().split(")")
-        ReturnValue.append((ArgName.strip(), Type[1:].strip()))
-    return ReturnValue
 
 
 def GetClassParents(Class):
@@ -366,40 +383,94 @@ def SortClasses(Classes: list):
 
     return Classes
 
+
+def GetParametersFromFunction(Function):
+    """
+    Try to get the return value from a function's docstring
+    (The docstring in pyfbsdk looks something like: "def MyFunc() -> bool")
+    """
+    try:
+        return [StubParameter(x) for x in inspect.getargspec(Function).args]
+    except:
+        pass
+
+    DocString: str = Function.__doc__
+    if not DocString or "->" not in DocString:
+        return []
+
+    HelpFunction = DocString.partition("->")[0]
+    if "(" not in HelpFunction:
+        return []
+
+    HelpParameterString = HelpFunction.split("(", 1)[1].strip()[:-1]
+    HelpParameterString = HelpParameterString.replace("]", "").replace("[", "")
+    HelpParameters = HelpParameterString.split(",")
+    ReturnValue = []
+
+    for Parameter in HelpParameters:
+        if not Parameter or ")" not in Parameter:
+            continue
+        Type, ParamName = Parameter.strip().split(")")
+        ReturnValue.append(
+            StubParameter(ParamName.strip(), Type[1:].strip())
+        )
+
+    return ReturnValue
+
+
 def GetReturnTypeFromDocString(Function):
+    if not Function.__doc__ or "->" not in Function.__doc__:
+        return None
+
     ReturnType = Function.__doc__.split("->", 1)[1].strip()
     if "\n" in ReturnType:
         ReturnType = ReturnType.split("\n")[0].strip()
     if ReturnType.endswith(":"):
         ReturnType = ReturnType[:-1].strip()
-        
+
     return ReturnType
 
 # --------------------------------------------------------
 #                   Generate Functions
 # --------------------------------------------------------
 
-def GenerateStubClassFunction(Function, DocMembers, MoBuDocumentation:docParser.MotionBuilderDocumentation = None):
+
+def GenerateStubClassFunction(Function, DocMembers, ExistingClassNames, ClassMemberNames, DocPage: docParser.DocumentationPage = None):
     StubFunctionInstance = GenerateStubFunction(Function, DocMembers)
     StubFunctionInstance.bIsClassFunction = True
-    
+
+    if DocPage and False:
+        Member = DocPage.GetMember(Function.__name__)
+        if Member:
+            if not StubFunctionInstance.ReturnType.startswith("FB"):
+                Type = Member.GetType(bConvertToPython = True)
+                if Type:
+                    Type = PatchVariableType(Type, ExistingClassNames)
+                    StubFunctionInstance.ReturnType = Type
+
+        for Param in Member.Params:
+            PatchParameterName(Param.Name)
+
     return StubFunctionInstance
 
 
-def GenerateStubFunction(Function, DocMembers, MoBuDocumentation:docParser.MotionBuilderDocumentation = None):
+def GenerateStubFunction(Function, DocMembers, MoBuDocumentation: docParser.MotionBuilderDocumentation = None):
     FunctionName: str = Function.__name__
 
     StubFunctionInstance = StubFunction(FunctionName)
 
     # Parameters
-    Parameters = GetArgumentsFromFunction(Function)
+    Parameters = GetParametersFromFunction(Function)
 
-    DocRef = DocMembers.get(FunctionName)
+    DocRef = DocMembers.get(FunctionName) if DocMembers else None
     if DocRef:
         StubFunctionInstance.SetDocString(DocRef.__doc__)
-        DocArguments = inspect.getargspec(DocRef).args
-        Parameters = [(PatchArgumentName(Name), Arg[1]) for Name, Arg in zip(DocArguments, Parameters)]
-    StubFunctionInstance.Params = Parameters
+        DocArgumentNames = inspect.getargspec(DocRef).args
+        for Parameter, DocArgName in zip(Parameters, DocArgumentNames):
+            Parameter.Name = DocArgName
+
+    for Parameter in Parameters:
+        StubFunctionInstance.AddParameter(Parameter)
 
     # Return Type
     StubFunctionInstance.ReturnType = GetReturnTypeFromDocString(Function)
@@ -431,24 +502,29 @@ def GenerateStubClass(Module, Class, GeneratedPyDoc, AllClassNames, MoBuDocument
         WebDocMember = Page.GetMember(Name) if Page else None
         if MemberType == FObjectType.Function:
             try:
-                StubClassInstance.StubFunctions.append(
-                    GenerateStubClassFunction(Reference, DocGenMembers)
+                StubClassInstance.AddFunction(
+                    GenerateStubClassFunction(Reference, DocGenMembers, AllClassNames, ClassMemberNames, Page)
                 )
             except:
                 pass  # print("Failed for %s" % Name)
         else:
             Property = StubProperty(Name)
+
             # Enums should have their 'self' as type
             if bIsEnum:
                 Property.SetType(ClassName)
-                
+
+            # Class Member
             else:
+                # Try to get the property type from the documentation
                 Type = WebDocMember.GetType(bConvertToPython = True) if WebDocMember else None
                 if not Type:
+                    # Attempt to get the type by evaluating some code
                     try:
                         exec("import %s" % Module.__name__)
                         Type = eval("type(%s.%s().%s).__name__" % (Module.__name__, ClassName, Name))
                     except Exception as e:
+                        # pyfbsdk FBModel types must be inialized with a name
                         if Module.__name__ == "pyfbsdk":
                             try:
                                 if eval("issubclass(%s.%s, %s.FBModel)" % (Module.__name__, ClassName, Module.__name__)):
@@ -460,13 +536,16 @@ def GenerateStubClass(Module, Class, GeneratedPyDoc, AllClassNames, MoBuDocument
                         Type = None
 
                 if Type:
-                    Property.SetType(PatchVariableType(Type, AllClassNames, ClassMemberNames))
+                    Type = PatchVariableType(Type, AllClassNames, ClassMemberNames)
+                    Property.SetType(Type)
 
-            StubClassInstance.StubProperties.append(Property)
+            # Get property doc string
             PropertyDocGenRef = DocGenMembers.get(Name)
-
             if PropertyDocGenRef:
                 Property.SetDocString(PropertyDocGenRef.__doc__)
+
+            # Add property to the class
+            StubClassInstance.AddProperty(Property)
 
     return StubClassInstance
 
@@ -493,8 +572,9 @@ def GenerateStub(Module, Filepath: str, SourcePyFile = "", DocumentationVersion:
 
     # Get all members from the pre-generated doc/stub file
     GeneratedPyDoc = GeneratedPythonDocumentation(SourcePyFile) if SourcePyFile else None
-    ImportedModule = importlib.import_module(SourcePyFile)
-    GeneratedPyDoc = dict(inspect.getmembers(ImportedModule))
+    if SourcePyFile:
+        ImportedModule = importlib.import_module(SourcePyFile)
+        GeneratedPyDoc = dict(inspect.getmembers(ImportedModule))
 
     # Get all Functions, Classes etc. inside of the module
     Functions = [x[1] for x in inspect.getmembers(Module) if GetObjectType(x[1]) == FObjectType.Function and not IsPrivate(x[1])]
@@ -506,7 +586,7 @@ def GenerateStub(Module, Filepath: str, SourcePyFile = "", DocumentationVersion:
     # Construct stub class instances based on all functions & classes found in the module
     StubFunctions = [GenerateStubFunction(x, GeneratedPyDoc, MoBuDocumentation) for x in Functions]
     StubClasses = [GenerateStubClass(Module, x, GeneratedPyDoc, AllClassNames, MoBuDocumentation) for x in Classes]
-    StubEnums = [GenerateStubClass(Module,x, GeneratedPyDoc, AllClassNames, bIsEnum = True) for x in Enums]
+    StubEnums = [GenerateStubClass(Module, x, GeneratedPyDoc, AllClassNames, bIsEnum = True) for x in Enums]
 
     Classes = SortClasses(StubClasses)
 

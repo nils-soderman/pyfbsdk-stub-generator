@@ -43,7 +43,8 @@ CToPythonVariableTranslation = {
     "char": "str",
     "float": "float",
     "int": "int",
-    "bool": "bool"
+    "bool": "bool",
+    "void": "None"
 }
 
 
