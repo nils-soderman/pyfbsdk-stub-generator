@@ -2,6 +2,7 @@
 #   Code to generate a stub files
 #
 from __future__ import annotations
+
 import importlib
 import inspect
 import typing
@@ -107,7 +108,7 @@ def PatchVariableType(VariableType: str, ExistingClassNames, ClassMembers = [], 
                 return NewVariableType
             return Default
 
-        if VariableType[0].isupper():
+        if VariableType[0].isupper() and not VariableType.startswith("List["):
             if VariableType in ExistingClassNames or VariableType in ClassMembers:
                 return VariableType
             return Default
@@ -137,6 +138,20 @@ def PatchVariableType(VariableType: str, ExistingClassNames, ClassMembers = [], 
 
     return Default
 
+
+def PatchDefaultValue(Value:str, ExistingClassNames, ClassMembers = [], Default = None):
+    
+    if Value.startswith("FB"):
+        return Value
+        if Value not in ExistingClassNames or Value not in ClassMembers:
+            if Value.lower().startswith("fbstring"):
+                return ""
+            
+            return Default
+        
+        return Value
+    
+    return Value
 
 # --------------------------------------------------------
 #                       Classes
@@ -191,7 +206,10 @@ class StubClass(StubBaseClass):
 
     def GetRequirements(self) -> list:
         # The class parent's needs to be declared before the class
-        return self.Parents
+        FunctionRequirements = []
+        for Function in self.StubFunctions:
+            FunctionRequirements += Function.GetRequirements()
+        return self.Parents + FunctionRequirements
 
     def AddProperty(self, Property: StubProperty):
         self.StubProperties.append(Property)
@@ -228,10 +246,19 @@ class StubFunction(StubBaseClass):
     def AddParameter(self, Parameter):
         self._Params.append(Parameter)
 
+    def GetParameters(self):
+        return self._Params
+
     def SetParameter(self, Index, Paramter):
         if Index > len(self._Params) - 1:
             raise IndexError("given parameter index is larger than the size of the paramter array")
         self._Params[Index] = Paramter
+
+    def GetRequirements(self) -> list:
+        ReturnValue = []
+        for Parameter in self._Params:
+            ReturnValue += Parameter.GetRequirements()
+        return ReturnValue
 
     def GetParamsAsString(self):
         if self.bIsClassFunction:
@@ -268,14 +295,28 @@ class StubParameter():
         self.DefaultValue = DefaultValue
         self.bIsClassSelfParam = False
 
+    def GetRequirements(self):
+        if self.DefaultValue and self.DefaultValue.startswith("FB"):
+            RequirementClass: str = self.DefaultValue
+            if "." in RequirementClass:
+                RequirementClass = RequirementClass.partition(".")[0]
+            return [RequirementClass]
+        return []
+
     def GetAsString(self):
         if self.bIsClassSelfParam:
             return "self"
+
         ParamString = PatchParameterName(self.Name)
+
         if self.Type:
             ParamString += ":%s" % self.Type
-        if self.DefaultValue:
-            ParamString += "=%s" % self.DefaultValue
+
+        if self.DefaultValue != docParser.FMoBoDocsParameterNames.NoDefaultValue:
+            if self.DefaultValue and self.DefaultValue.startswith("k"):
+                ParamString += "=%s.%s" % (self.Type, self.DefaultValue)
+            else:
+                ParamString += "=%s" % self.DefaultValue
 
         return ParamString
 
@@ -447,13 +488,26 @@ def GenerateStubClassFunction(Function, DocMembers, ExistingClassNames, ClassMem
     if DocPage:
         Member = DocPage.GetMember(Function.__name__)
         if Member:
+            # Return Type
             if not StubFunctionInstance.ReturnType.startswith("FB"):
                 Type = Member.GetType(bConvertToPython = True)
                 if Type:
-                    Type = PatchVariableType(Type, ExistingClassNames)
+                    Type = PatchVariableType(Type, ExistingClassNames, ClassMemberNames)
                     if Type and not Type.startswith("k"):
                         StubFunctionInstance.ReturnType = Type
-                    
+
+            for CurrentParam, DocParam in zip(StubFunctionInstance.GetParameters()[1:], Member.Params):
+                if DocParam.Name:
+                    CurrentParam.Name = DocParam.Name
+
+                NewParamType = DocParam.GetType(bConvertToPython = True)
+                if NewParamType:
+                    CurrentParam.Type = PatchVariableType(NewParamType, ExistingClassNames, ClassMemberNames, bAlwaysTryToRemoveProperty = False)
+
+                DefaultValue = DocParam.GetDefaultValue(bConvertToPython = True)
+                if DefaultValue:
+                    CurrentParam.DefaultValue = DefaultValue # PatchDefaultValue(DefaultValue, ExistingClassNames, ClassMemberNames)
+
     return StubFunctionInstance
 
 
@@ -508,8 +562,8 @@ def GenerateStubClass(Module, Class, GeneratedPyDoc, AllClassNames, MoBuDocument
                 StubClassInstance.AddFunction(
                     GenerateStubClassFunction(Reference, DocGenMembers, AllClassNames, ClassMemberNames, Page)
                 )
-            except:
-                pass  # print("Failed for %s" % Name)
+            except Exception as e:
+                print(e)
         else:
             Property = StubProperty(Name)
 

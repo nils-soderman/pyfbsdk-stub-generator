@@ -44,7 +44,15 @@ CToPythonVariableTranslation = {
     "float": "float",
     "int": "int",
     "bool": "bool",
-    "void": "None"
+    "void": "None",
+    "true": "True",
+    "false": "False",
+    "NULL": "None",
+    "kInt64": "int",
+    "kLong": "int",
+    "kULong": "int",
+    "kLongLong": "float",
+    "kReference": ""
 }
 
 
@@ -101,14 +109,19 @@ def ConvertVariableTypeToPython(Type: str):
     # Arrays, in the pyfbsdk there are two FBVector4<dobule> arrays. convert these into FBVector4
     if "<" in Type:
         if not Type.startswith("FBVector"):
-            raise NotImplementedError("Converting array type %s into python has not yet been implemented!" % Type)
+            return "List[%s]" % Type.partition("<")[2].partition(">")[0].strip()
         Type = Type.partition("<")[0].strip()
-
+    
     # Check if variable needs to be translated into python, e.g. double -> float
     for Key, Value in CToPythonVariableTranslation.items():
-        TypeInLowerCase = Type.lower()
-        if TypeInLowerCase == Key.lower():
+        if Type.lower() == Key.lower():
             return Value
+        
+    # Remove f suffix from floats e.g. 0.0f -> 0.0
+    if Type.endswith("f") and Type.replace(".", "").replace("f", "").isnumeric():
+        return Type[:-1]
+    
+    Type = Type.replace("::", ".")
 
     return Type
 
@@ -265,6 +278,8 @@ class MotionBuilderDocumentationHtmlPageParser(HTMLParser):
                 if "=" in ParamName:
                     ParamName, DefaultValue = ParamName.split("=")
                     DefaultValue = DefaultValue.strip()
+                    if DefaultValue.endswith(","):
+                        DefaultValue = DefaultValue[:-1]
                     ParamName = ParamName.strip()
 
                 # Make sure name doesn't end with a comma
@@ -291,6 +306,20 @@ class DocMemberParameter():
         self.Name = Name
         self.Type = Type
         self.Default = Default
+
+    def GetType(self, bConvertToPython = False):
+        if bConvertToPython:
+            return ConvertVariableTypeToPython(self.Type)
+        return self.Type
+
+    def GetDefaultValue(self, bConvertToPython = False):
+        if self.Default == FMoBoDocsParameterNames.NoDefaultValue:
+            return FMoBoDocsParameterNames.NoDefaultValue
+
+        if bConvertToPython:
+            return ConvertVariableTypeToPython(self.Default)
+
+        return self.Default
 
     def __repr__(self):
         return '<object %s: %s:%s = %s>' % (type(self).__name__, self.Name, self.Type, self.Default)
