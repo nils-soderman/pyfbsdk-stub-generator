@@ -7161,7 +7161,7 @@ class FBCharacter(FBConstraint):
         
         return : Cycle Analysis Node linked to the current character, or create a new node"""
         ...
-    def GetEffectorModel(self,EffectorId:FBEffectorId,EffectorSetID:FBEffectorSetID=FBEffectorSetDefault)->FBModel:
+    def GetEffectorModel(self,EffectorId:FBEffectorId,EffectorSetID:FBEffectorSetID=None)->FBModel:
         """Get the model associated with each effector in the Control Rig of the character.
         
         EffectorId : The effector ID.
@@ -13705,7 +13705,7 @@ class FBStoryClip(FBComponent):
         EffectiveDstList : String list containing the new effective destination.
         return : Returns true if the assign succeeded, false otherwise."""
         ...
-    def SetReadOnly(self,MakeClipReadOnly:bool,OutputFile:str=FBString())->bool:
+    def SetReadOnly(self,MakeClipReadOnly:bool,OutputFile:str="")->bool:
         """SetReadOnly Assigns the clip read-only status.
         
         MakeClipReadOnly : New read-only status

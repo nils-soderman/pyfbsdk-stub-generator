@@ -139,17 +139,25 @@ def PatchVariableType(VariableType: str, ExistingClassNames, ClassMembers = [], 
     return Default
 
 
-def PatchDefaultValue(Value:str, ExistingClassNames, ClassMembers = [], Default = None):
+def PatchDefaultValue(Value:str, VariableType, ExistingClassNames, ClassMembers = [], Default = None):
     
     if Value.startswith("FB"):
-        return Value
-        if Value not in ExistingClassNames or Value not in ClassMembers:
+        # If value is e.g. 'FBTime.MinusInfinity', only check if FBTime exists in ExistingCLassNames/ClassMembers
+        ValueToCheck = Value.partition(".")[0] if "." in Value else Value
+        
+        if ValueToCheck not in ExistingClassNames and ValueToCheck not in ClassMembers:
             if Value.lower().startswith("fbstring"):
-                return ""
+                return '""'
             
             return Default
         
         return Value
+    
+    # If value is a enum value, e.g. 'kFBConnectionTypeNone', return: 'FBConnectionType.kFBConnectionTypeNone'
+    if Value.startswith("k"):
+        if VariableType in ExistingClassNames or VariableType in ClassMembers:
+            return "%s.%s" % (VariableType, Value)
+        return Default
     
     return Value
 
@@ -313,10 +321,7 @@ class StubParameter():
             ParamString += ":%s" % self.Type
 
         if self.DefaultValue != docParser.FMoBoDocsParameterNames.NoDefaultValue:
-            if self.DefaultValue and self.DefaultValue.startswith("k"):
-                ParamString += "=%s.%s" % (self.Type, self.DefaultValue)
-            else:
-                ParamString += "=%s" % self.DefaultValue
+            ParamString += "=%s" % self.DefaultValue
 
         return ParamString
 
@@ -506,7 +511,7 @@ def GenerateStubClassFunction(Function, DocMembers, ExistingClassNames, ClassMem
 
                 DefaultValue = DocParam.GetDefaultValue(bConvertToPython = True)
                 if DefaultValue:
-                    CurrentParam.DefaultValue = DefaultValue # PatchDefaultValue(DefaultValue, ExistingClassNames, ClassMemberNames)
+                    CurrentParam.DefaultValue = PatchDefaultValue(DefaultValue, CurrentParam.Type, ExistingClassNames, ClassMemberNames)
 
     return StubFunctionInstance
 
