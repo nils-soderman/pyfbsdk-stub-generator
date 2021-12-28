@@ -26,14 +26,15 @@ def GetMotionBuilderVersion():
     return int(2000 + pyfbsdk.FBSystem().Version / 1000)
 
 
-def GenerateDefaultPackages():
+def GenerateDefaultPackages(OutputDir = ""):
     Version = GetMotionBuilderVersion()
-    OutputDir = os.path.join(OUTPUT_DIRECTORY, "motionbuilder-%s" % Version)
+    if not OutputDir:
+        OutputDir = os.path.join(OUTPUT_DIRECTORY, "motionbuilder-%s" % Version)
 
     StubsToGenerate = [
         (pyfbsdk, "pyfbsdk_gen_doc"),
-        # (pythonidelib, "")
-        # (pyfbsdk_additions, "pyfbsdk_additions")
+        (pythonidelib, ""),
+        (pyfbsdk_additions, "pyfbsdk_additions")
     ]
 
     for Module, GeneratedDocFile in StubsToGenerate:
