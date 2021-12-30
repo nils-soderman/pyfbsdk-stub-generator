@@ -13,19 +13,23 @@ from urllib import request
 # ------------------------------------------
 
 # Base URLs where the MoBu docs are stored
-MOBU_DOCS_VIEW_URL = "https://help.autodesk.com/view/MOBPRO/"  # General documentation
-MOBU_DOCS_COULDHELP_URL = "https://help.autodesk.com/cloudhelp/"  # Server that hosts the SDK docs
+AUTODESK_DOMAIN = "https://help.autodesk.com/"
+MOBU_DOCS_VIEW_URL = AUTODESK_DOMAIN + "view/MOBPRO/"  # Base url used to view content
+MOBU_DOCS_COULDHELP_URL = AUTODESK_DOMAIN + "cloudhelp/"  # Server that hosts the SDK doc files
+
+ENU_FOLDER = "ENU/"
 
 # Path to the main table of contents
-DOC_GUIDE_CONTENTS_PATH = "ENU/data/toctree.json"
+DOC_GUIDE_CONTENTS_PATH = "data/toctree.json"
 
 # Python paths to relevant table of contents
-PYFBSDK_PATH = "ENU/MotionBuilder-SDK/py_ref/group__pyfbsdk.js"
-PYFBSDK_ADDITIONS_PATH = "ENU/MotionBuilder-SDK/py_ref/group__pyfbsdk__additions.js"
-PYTHON_EXAMPLES_PATH = "ENU/MotionBuilder-SDK/py_ref/examples.js"
+PY_REF_PATH = "MotionBuilder-SDK/py_ref/"
+PYFBSDK_PATH = PY_REF_PATH + "group__pyfbsdk.js"
+PYFBSDK_ADDITIONS_PATH = PY_REF_PATH + "group__pyfbsdk__additions.js"
+PYTHON_EXAMPLES_PATH = PY_REF_PATH + "examples.js"
 
 # SDK paths to table of contents
-SDK_CPP_PATH = "ENU/MotionBuilder-SDK/cpp_ref/"
+SDK_CPP_PATH = "MotionBuilder-SDK/cpp_ref/"
 SDK_CLASSES_PATH = SDK_CPP_PATH + "annotated_dup.js"
 SDK_FILES_PATH = SDK_CPP_PATH + "files_dup.js"
 
@@ -111,16 +115,16 @@ def ConvertVariableTypeToPython(Type: str):
         if not Type.startswith("FBVector"):
             return "List[%s]" % Type.partition("<")[2].partition(">")[0].strip()
         Type = Type.partition("<")[0].strip()
-    
+
     # Check if variable needs to be translated into python, e.g. double -> float
     for Key, Value in CToPythonVariableTranslation.items():
         if Type.lower() == Key.lower():
             return Value
-        
+
     # Remove f suffix from floats e.g. 0.0f -> 0.0
     if Type.endswith("f") and Type.replace(".", "").replace("f", "").isnumeric():
         return Type[:-1]
-    
+
     Type = Type.replace("::", ".")
 
     return Type
@@ -139,9 +143,9 @@ def GetClosestSupportedMotionBuilderVersion(Version: int):
     return Version
 
 
-def GetFullURL(Version, Path, bIsSDK = False):
-    BaseURL = MOBU_DOCS_COULDHELP_URL if bIsSDK else MOBU_DOCS_VIEW_URL
-    return "%s%s/%s" % (BaseURL, Version, Path)
+def GetFullURL(Version, Path, bGetSource = False):
+    BaseURL = MOBU_DOCS_COULDHELP_URL if bGetSource else MOBU_DOCS_VIEW_URL
+    return "%s%s/%s%s" % (BaseURL, Version, ENU_FOLDER, Path)
 
 
 def GetUrlContent(Url: str):
@@ -173,16 +177,6 @@ def SaveFile(Filepath, Content):
 
     with open(Filepath, "w+") as File:
         File.write(Content)
-
-
-def CPlusVariableNamesToPython(Text):
-    for Char in ["(void *)", "*", "&", "const", "virtual", "static", "unsigned"]:
-        Text = Text.replace(Char, "")
-
-    if "<" in Text and ">" in Text:
-        # Handle Arrays
-        Text = re.sub(r"[A-z]*\s*<\s*[A-z]*\s*>", "object", Text)
-    return re.sub(' +', ' ', Text).strip()
 
 
 # ------------------------------------------
@@ -356,7 +350,12 @@ class DocumentationPage():
         return '<object %s, "%s">' % (type(self).__name__, self.Title)
 
     def GetURL(self):
-        return GetFullURL(self.Version, self.RelativeURL, bIsSDK = True)
+        return GetFullURL(self.Version, self.RelativeURL, bGetSource = True)
+    
+    def GetURLRelativeToENU(self):
+        if ENU_FOLDER in self.RelativeURL:
+            return self.RelativeURL.partition(ENU_FOLDER)[2]
+        return self.RelativeURL
 
     def LoadPage(self, bCache = False):
         if self.bIsLoaded:
@@ -379,18 +378,28 @@ class DocumentationPage():
 
 
 class DocumentationCategory(DocumentationPage):
-    def __init__(self, PageInfo):
-        super().__init__(PageInfo)
+    def __init__(self, Version, ParsedData, bLoadPage = False):
+        super().__init__(Version, 
+                         Title = ParsedData.get(FDictTags.Title), 
+                         RelativeURL = ParsedData.get(FDictTags.Url), 
+                         Id = ParsedData.get(FDictTags.Id), 
+                         bLoadPage = bLoadPage)
+        
         self.Pages = []
         self.SubCategories = []
-        self.LoadChildren(PageInfo)
+        
+        self.LoadChildren(ParsedData)
 
     def LoadChildren(self, PageInfo):
         for ChildPage in PageInfo.get(FDictTags.Children, []):
             if FDictTags.Children in ChildPage:
-                self.SubCategories.append(DocumentationCategory(ChildPage))
+                self.SubCategories.append(DocumentationCategory(self.Version, ChildPage))
             else:
-                self.Pages.append(DocumentationPage(ChildPage))
+                
+                self.Pages.append(DocumentationPage(self.Version, 
+                                                    ChildPage.get(FDictTags.Title),
+                                                    ChildPage.get(FDictTags.Url),
+                                                    ChildPage.get(FDictTags.Id)))
 
     def FindPage(self, PageName, bLoadPage = False, bCache = False):
         for Page in self.Pages:
@@ -410,6 +419,7 @@ class MotionBuilderDocumentation():
         self.bCache = bCache
         self._TableOfContents = []
         self._SDKClasses = {}
+        self._PythonExamples = {}
 
     def GetSDKClasses(self):
         if self._SDKClasses:
@@ -424,8 +434,9 @@ class MotionBuilderDocumentation():
             Page.LoadPage(self.bCache)
         return Page
 
-    def LoadTableOfContents(self):
-        self._TableOfContents = [DocumentationCategory(x) for x in GetDocsMainTableOfContent(self.Version)]
+    def GetMainTableOfContents(self):
+        if not self._TableOfContents:
+            self._TableOfContents = [DocumentationCategory(self.Version, x) for x in GetDocsMainTableOfContent(self.Version)]
         return self._TableOfContents
 
     def FindPage(self, PageName, PageType = EPageType.Unspecified, bLoadPage = True) -> DocumentationPage:
@@ -436,6 +447,12 @@ class MotionBuilderDocumentation():
             Page = ContentDict.FindPage(PageName, bLoadPage, self.bCache)
             if Page:
                 return Page
+            
+    def GetPythonExamples(self):
+        if not self._PythonExamples:
+            PythonExamples = GetDocsSDKContent(self.Version, PYTHON_EXAMPLES_PATH)
+            self._PythonExamples = {x[0]:DocumentationPage(self.Version, x[0], PY_REF_PATH + x[1]) for x in PythonExamples}
+        return self._PythonExamples
 
 
 # -------------------------------------------------------------
@@ -446,7 +463,7 @@ def GetDocsSDKContent(Version, Path):
     """
     Get SDK table of contents
     """
-    Content = GetUrlContent(GetFullURL(Version, Path, bIsSDK = True))
+    Content = GetUrlContent(GetFullURL(Version, Path, bGetSource = True))
     return ParseSDKTableOfContent(Content)
 
 
