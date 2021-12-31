@@ -351,9 +351,9 @@ class DocumentationPage():
 
     def GetURL(self):
         return GetFullURL(self.Version, self.RelativeURL, bGetSource = True)
-    
+
     def GetURLRelativeToENU(self):
-        if ENU_FOLDER in self.RelativeURL:
+        if self.RelativeURL and ENU_FOLDER in self.RelativeURL:
             return self.RelativeURL.partition(ENU_FOLDER)[2]
         return self.RelativeURL
 
@@ -379,15 +379,14 @@ class DocumentationPage():
 
 class DocumentationCategory(DocumentationPage):
     def __init__(self, Version, ParsedData, bLoadPage = False):
-        super().__init__(Version, 
-                         Title = ParsedData.get(FDictTags.Title), 
-                         RelativeURL = ParsedData.get(FDictTags.Url), 
-                         Id = ParsedData.get(FDictTags.Id), 
+        super().__init__(Version,
+                         Title = ParsedData.get(FDictTags.Title),
+                         RelativeURL = ParsedData.get(FDictTags.Url),
+                         Id = ParsedData.get(FDictTags.Id),
                          bLoadPage = bLoadPage)
-        
         self.Pages = []
         self.SubCategories = []
-        
+
         self.LoadChildren(ParsedData)
 
     def LoadChildren(self, PageInfo):
@@ -395,8 +394,7 @@ class DocumentationCategory(DocumentationPage):
             if FDictTags.Children in ChildPage:
                 self.SubCategories.append(DocumentationCategory(self.Version, ChildPage))
             else:
-                
-                self.Pages.append(DocumentationPage(self.Version, 
+                self.Pages.append(DocumentationPage(self.Version,
                                                     ChildPage.get(FDictTags.Title),
                                                     ChildPage.get(FDictTags.Url),
                                                     ChildPage.get(FDictTags.Id)))
@@ -447,11 +445,11 @@ class MotionBuilderDocumentation():
             Page = ContentDict.FindPage(PageName, bLoadPage, self.bCache)
             if Page:
                 return Page
-            
+
     def GetPythonExamples(self):
         if not self._PythonExamples:
             PythonExamples = GetDocsSDKContent(self.Version, PYTHON_EXAMPLES_PATH)
-            self._PythonExamples = {x[0]:DocumentationPage(self.Version, x[0], PY_REF_PATH + x[1]) for x in PythonExamples}
+            self._PythonExamples = {x[0]: DocumentationPage(self.Version, x[0], PY_REF_PATH + x[1]) for x in PythonExamples}
         return self._PythonExamples
 
 
@@ -492,4 +490,4 @@ def GetDocsMainTableOfContent(Version) -> list:
     """
     RawContent = GetUrlContent(GetFullURL(Version, DOC_GUIDE_CONTENTS_PATH))
     TableOfContent = json.loads(RawContent)
-    return TableOfContent["books"]
+    return TableOfContent.get("books", {})
