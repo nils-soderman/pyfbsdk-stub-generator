@@ -418,6 +418,7 @@ class MotionBuilderDocumentation():
         self._TableOfContents = []
         self._SDKClasses = {}
         self._PythonExamples = {}
+        self._PythonSDKToc = {}
 
     def GetSDKClasses(self):
         if self._SDKClasses:
@@ -436,6 +437,15 @@ class MotionBuilderDocumentation():
         if not self._TableOfContents:
             self._TableOfContents = [DocumentationCategory(self.Version, x) for x in GetDocsMainTableOfContent(self.Version)]
         return self._TableOfContents
+    
+    def GetPythonSDKTableOfContents(self):
+        if not self._PythonSDKToc:
+            PyfbsdkContent = GetDocsSDKContent(self.Version, PYFBSDK_PATH)
+            PyfbsdkAdditionsContent = GetDocsSDKContent(self.Version, PYFBSDK_ADDITIONS_PATH)
+            AllPythonSDKContent = PyfbsdkContent + PyfbsdkAdditionsContent
+            self._PythonSDKToc = {x[0]: DocumentationPage(self.Version, x[0], PY_REF_PATH + x[1]) for x in AllPythonSDKContent}
+        return self._PythonSDKToc
+        
 
     def FindPage(self, PageName, PageType = EPageType.Unspecified, bLoadPage = True) -> DocumentationPage:
         if PageType != EPageType.Unspecified:
