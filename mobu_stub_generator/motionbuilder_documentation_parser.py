@@ -34,6 +34,7 @@ SDK_CLASSES_PATH = SDK_CPP_PATH + "annotated_dup.js"
 SDK_FILES_PATH = SDK_CPP_PATH + "files_dup.js"
 
 
+
 # ------------------------------------------
 #               Strucs & Enums
 # ------------------------------------------
@@ -419,6 +420,7 @@ class MotionBuilderDocumentation():
         self._SDKClasses = {}
         self._PythonExamples = {}
         self._PythonSDKToc = {}
+        self._SDKContent = {}
 
     def GetSDKClasses(self):
         if self._SDKClasses:
@@ -445,6 +447,18 @@ class MotionBuilderDocumentation():
             AllPythonSDKContent = PyfbsdkContent + PyfbsdkAdditionsContent
             self._PythonSDKToc = {x[0]: DocumentationPage(self.Version, x[0], PY_REF_PATH + x[1]) for x in AllPythonSDKContent}
         return self._PythonSDKToc
+    
+    def GetSDKTableOfContents(self):
+        if not self._SDKContent:
+            Content = []
+            for FileName, PageUrl, Id in GetDocsSDKContent(self.Version, SDK_FILES_PATH):
+                if Id:
+                    Content += GetDocsSDKContent(self.Version, "%s%s.js" % (SDK_CPP_PATH, Id))
+            self._SDKContent = {x[0]: DocumentationPage(self.Version, x[0], SDK_CPP_PATH + x[1]) for x in Content}
+        return self._SDKContent
+                
+            
+        
         
 
     def FindPage(self, PageName, PageType = EPageType.Unspecified, bLoadPage = True) -> DocumentationPage:
