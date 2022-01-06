@@ -297,7 +297,7 @@ class StubFunction(StubBaseClass):
 
 
 class StubParameter():
-    def __init__(self, Name, Type = None, DefaultValue = None):
+    def __init__(self, Name, Type = None, DefaultValue = docParser.FMoBoDocsParameterNames.NoDefaultValue):
         self.Name = Name
         self.Type = Type
         self.DefaultValue = DefaultValue
@@ -319,10 +319,9 @@ class StubParameter():
 
         if self.Type:
             ParamString += ":%s" % self.Type
-
+            
         if self.DefaultValue != docParser.FMoBoDocsParameterNames.NoDefaultValue:
             ParamString += "=%s" % self.DefaultValue
-
         return ParamString
 
 
