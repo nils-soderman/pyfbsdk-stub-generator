@@ -297,7 +297,7 @@ class StubFunction(StubBaseClass):
 
 
 class StubParameter():
-    def __init__(self, Name, Type = None, DefaultValue = docParser.FMoBoDocsParameterNames.NoDefaultValue):
+    def __init__(self, Name, Type = None, DefaultValue = docParser.FMoBoDocsParameterNames.Undefined):
         self.Name = Name
         self.Type = Type
         self.DefaultValue = DefaultValue
@@ -320,7 +320,7 @@ class StubParameter():
         if self.Type:
             ParamString += ":%s" % self.Type
             
-        if self.DefaultValue != docParser.FMoBoDocsParameterNames.NoDefaultValue:
+        if self.DefaultValue != docParser.FMoBoDocsParameterNames.Undefined:
             ParamString += "=%s" % self.DefaultValue
         return ParamString
 
@@ -515,13 +515,19 @@ def GenerateStubClassFunction(Function, DocMembers, ExistingClassNames, ClassMem
     return StubFunctionInstance
 
 
-def GenerateStubFunction(Function, DocMembers, MoBuDocumentation: docParser.MotionBuilderDocumentation = None):
+def GenerateStubFunction(Function, DocMembers, ExistingClassNames = [], MoBuDocumentation: docParser.MotionBuilderDocumentation = None):
     FunctionName: str = Function.__name__
 
     StubFunctionInstance = StubFunction(FunctionName)
 
     # Parameters
     Parameters = GetParametersFromFunction(Function)
+    
+    SDKDocumentationFunctionName = FunctionName if FunctionName.startswith("FB") else "FB%s" % FunctionName
+    FunctionDocMember = MoBuDocumentation.GetSDKFunctionByName(SDKDocumentationFunctionName) if MoBuDocumentation else None
+
+    # Return Type
+    StubFunctionInstance.ReturnType = GetReturnTypeFromDocString(Function)
 
     DocRef = DocMembers.get(FunctionName) if DocMembers else None
     if DocRef:
@@ -530,11 +536,24 @@ def GenerateStubFunction(Function, DocMembers, MoBuDocumentation: docParser.Moti
         for Parameter, DocArgName in zip(Parameters, DocArgumentNames):
             Parameter.Name = DocArgName
 
+    if FunctionDocMember:
+        if not StubFunctionInstance.ReturnType or StubFunctionInstance.ReturnType in ["object", "None"]:
+            StubFunctionInstance.ReturnType = FunctionDocMember.GetType(bConvertToPython = True)
+        
+        for Parameter, ParameterDoc in zip(Parameters, FunctionDocMember.Params):
+            Parameter.Name = ParameterDoc.Name
+            
+            if not Parameter.Type or Parameter.Type in ["object"]:
+                Parameter.Type = ParameterDoc.GetType(bConvertToPython = True)
+            
+            WantedDefaultValue = ParameterDoc.GetDefaultValue(bConvertToPython = True)
+            Parameter.DefaultValue = PatchDefaultValue(WantedDefaultValue, Parameter.Type, ExistingClassNames)
+
     for Parameter in Parameters:
         StubFunctionInstance.AddParameter(Parameter)
+        
 
-    # Return Type
-    StubFunctionInstance.ReturnType = GetReturnTypeFromDocString(Function)
+
 
     return StubFunctionInstance
 
@@ -547,7 +566,7 @@ def GenerateStubClass(Module, Class, GeneratedPyDoc, AllClassNames, MoBuDocument
     StubClassInstance = StubClass(ClassName)
     StubClassInstance.Parents = GetClassParentNames(Class)
 
-    Page = MoBuDocumentation.GetSDKClassByName(ClassName) if MoBuDocumentation else None
+    Page = MoBuDocumentation.GetSDKClassPagesByName(ClassName) if MoBuDocumentation else None
 
     # TODO: DocMembers/DocGenRef etc. could be a class
     DocGenRef = GeneratedPyDoc.get(ClassName)
@@ -645,7 +664,7 @@ def GenerateStub(Module, Filepath: str, SourcePyFile = "", DocumentationVersion:
     AllClassNames = [x.__name__ for x in Classes + Enums]
 
     # Construct stub class instances based on all functions & classes found in the module
-    StubFunctions = [GenerateStubFunction(x, GeneratedPyDoc, MoBuDocumentation) for x in Functions]
+    StubFunctions = [GenerateStubFunction(x, GeneratedPyDoc, AllClassNames, MoBuDocumentation) for x in Functions]
     StubClasses = [GenerateStubClass(Module, x, GeneratedPyDoc, AllClassNames, MoBuDocumentation) for x in Classes]
     StubEnums = [GenerateStubClass(Module, x, GeneratedPyDoc, AllClassNames, bIsEnum = True) for x in Enums]
 
@@ -664,7 +683,7 @@ def GenerateStub(Module, Filepath: str, SourcePyFile = "", DocumentationVersion:
             StubFileContent += "%s\n" % File.read()
 
     # Add Enums, Classes & Functions to the string
-    StubFileContent += "%s\n" % "\n".join([x.GetAsString() for x in StubEnums + StubClasses + StubFunctions])
+    StubFileContent += "%s\n" % "\n".join([x.GetAsString() for x in  StubEnums + StubClasses + StubFunctions])
 
     # Write content into the file
     with open(Filepath, "w+") as File:

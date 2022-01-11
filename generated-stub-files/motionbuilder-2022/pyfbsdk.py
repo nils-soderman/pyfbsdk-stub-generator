@@ -16823,8 +16823,8 @@ class FBWidgetHolder(FBVisualComponent):
     """Native Widget Holder (can be used to embed native Qt Widget inside MoBu UI elements) A Widget holder provides a bridge to instantiate a Native Qt widget into MB framework.
     This will be used to allow user to create UI with QT designer and hook their created UI into MB. To allow a FBWidgetHolder to work properly, you need to specify a Creator function. This function will be called when needed to instantiate the native Widget.Or override WidgetCreate(QWidget*Parent) function in the subclass./bin/config/Scripts/UI/ToolNativeWidgetHolder.py for python usage example. See samples: MBFileRefDemo.py, ToolNativeWidgetHolder.py."""
     ...
-def CloseTool(arg1:FBTool)->bool:...
-def CloseToolByName(arg1:str)->bool:...
+def CloseTool(Tool:FBTool)->bool:...
+def CloseToolByName(ToolName:str)->bool:...
 def FBActionManager_TypeInfo()->int:...
 def FBActorFace_TypeInfo()->int:...
 def FBActor_TypeInfo()->int:...
@@ -16844,7 +16844,7 @@ def FBAssetFolder_TypeInfo()->int:...
 def FBAssetItem_TypeInfo()->int:...
 def FBAssetMng_TypeInfo()->int:...
 def FBAudioClip_TypeInfo()->int:...
-def FBAudioFmt_AppendFormat(Format:object,SrcFormat:object,arg3:object,arg4:object)->int:
+def FBAudioFmt_AppendFormat(Format:FBAudioFmt,Channels:int,Bits:int,Rate:int)->int:
     """Append the rendering audio format with another audio format.
     
     Format : Audio format to use.
@@ -16869,19 +16869,19 @@ def FBAudioFmt_ConvertRateMode(RateMode:FBAudioRateMode)->int:
     RateMode : The rate mode enum value.
     return : The FBAudioFmt object equivalent to the input rate mode enum value."""
     ...
-def FBAudioFmt_GetBitsValue(Format:object)->int:
+def FBAudioFmt_GetBitsValue(Format:FBAudioFmt)->int:
     """Get the bit depth value of the Audio format object.
     
     Format : Audio format to use.
     return : Bit depth value as an integer value."""
     ...
-def FBAudioFmt_GetBytesValue(Format:object)->int:
+def FBAudioFmt_GetBytesValue(Format:FBAudioFmt)->int:
     """Get the bytes value of the Audio format object.
     
     Format : Audio format to use.
     return : Bytes value as an integer value."""
     ...
-def FBAudioFmt_GetChannelValue(Format:object)->int:
+def FBAudioFmt_GetChannelValue(Format:FBAudioFmt)->int:
     """Get the channel value of the Audio format object.
     
     Format : Audio format to use.
@@ -16892,20 +16892,20 @@ def FBAudioFmt_GetDefaultFormat()->int:
     
     return : An audio format object."""
     ...
-def FBAudioFmt_GetRateValue(Format:object)->int:
+def FBAudioFmt_GetRateValue(Format:FBAudioFmt)->int:
     """Get the rate value of the Audio format object.
     
     Format : Audio format to use.
     return : Audio rate value as an integer value."""
     ...
-def FBAudioFmt_RemoveFormat(Format:object,SrcFormat:object,arg3:object,arg4:object)->int:
+def FBAudioFmt_RemoveFormat(Format:FBAudioFmt,Channels:int,Bits:int,Rate:int)->int:
     """Remove audio format from another audio format object.
     
     Format : Audio format to use.
     SrcFormat : Audio format to remove.
     return : An audio format object without the specified format settings passed in parameter."""
     ...
-def FBAudioFmt_TestFormat(SrcFormat:object,Channels:object,Bits:object,Rate:object)->bool:
+def FBAudioFmt_TestFormat(SrcFormat:FBAudioFmt,Channels:int,Bits:int,Rate:int)->bool:
     """Test if the given audio format object contains the channel, bit depth, and rate.
     
     SrcFormat : Audio format to test.
@@ -16934,7 +16934,7 @@ def FBCharacterMarkerSet_TypeInfo()->int:...
 def FBCharacterPose_TypeInfo()->int:...
 def FBCharacterSolver_TypeInfo()->int:...
 def FBCharacter_TypeInfo()->int:...
-def FBClamp(V:object,L:object,H:object)->float:
+def FBClamp(V:float,L:float,H:float)->float:
     """Clamp value.
     
     V : Value to clamp.
@@ -16944,7 +16944,7 @@ def FBClamp(V:object,L:object,H:object)->float:
     ...
 def FBCluster_TypeInfo()->int:...
 def FBComponent_TypeInfo()->int:...
-def FBConnect(Src:FBPlug,Dst:FBPlug,ConnectionType:FBConnectionType)->bool:
+def FBConnect(Src:FBPlug,Dst:FBPlug,ConnectionType:FBConnectionType=FBConnectionType.kFBConnectionTypeNone)->bool:
     """Request the connection two FBPlug objects.
     
     Src : Source plug.
@@ -16958,7 +16958,7 @@ def FBConstraintSolver_TypeInfo()->int:...
 def FBConstraint_TypeInfo()->int:...
 def FBConstructionHistory_TypeInfo()->int:...
 def FBControlSet_TypeInfo()->int:...
-def FBCreateObject(GroupName:str,EntryName:str,Name:str,p3:object)->object:
+def FBCreateObject(GroupName:str,EntryName:str,Name:str,Data:None=None)->FBComponent:
     """FBCreateObject.
     
     GroupName : Set the name of the Group.
@@ -16978,7 +16978,7 @@ def FBDeleteCharacterPinningPreset(PresetName:str)->bool:
     PresetName : The preset name to delete (not the file path nor the filename of the preset).
     return : True if the operation is successful, false otherwise."""
     ...
-def FBDeleteObjectsByName(NamePattern:str,NameSpace:str,GroupName:str)->int:
+def FBDeleteObjectsByName(NamePattern:str,NameSpace:str=None,GroupName:str=None)->int:
     """FBDeleteObjectsByName.
     This function will query the system for objects fulfilling a particular name pattern and delete them. specify a namespace preferred, delete all objects with the group name without specified a namespace specified may lead to inconsistent in scene. Wrap multiple calls to FBDeleteObjectsByName() inside pair of FBPreventUIUpdateBegin() / FBPreventUIUpdateEnd() could improve application's performance.
     
@@ -17024,7 +17024,7 @@ def FBFbxOptions_TypeInfo()->int:...
 def FBFileMonitoringManager_TypeInfo()->int:...
 def FBFileReference_TypeInfo()->int:...
 def FBFilter_TypeInfo()->int:...
-def FBFindModelByLabelName(ModelLabelName:str)->object:
+def FBFindModelByLabelName(ModelLabelName:str)->FBModel:
     """Find a model in the scene by its label name.
     Searches the scene for a model, based on the model's label name. Label name is 'NameSpaceName:ObjectName'. also known as 'PrefixName::ObjectName' Full name is 'GroupName::NameSpaceName:ObjectName'.
     
@@ -17039,14 +17039,14 @@ def FBFindModelByUniqueColorId(Color:FBColor)->tuple:
     SubItemIndex : Pass out SubImtem index value if not null. In pyfbsdk no such parameter.
     return : A handle onto the model with unique color id matching, returns NULL if no model was found by the search. In pyfbsdk return tuple [model, subItemIndex]"""
     ...
-def FBFindObjectByFullName(ObjectFullName:str)->object:
+def FBFindObjectByFullName(ObjectFullName:str)->FBComponent:
     """FBFindObjectByFullName.
     This function will query the system for an object with its FullName matching. Full name is 'GroupName::NameSpaceName:ObjectName'. Label name is 'NameSpaceName:ObjectName'. also known as 'PrefixName::ObjectName'
     
     ObjectFullName : Full Name of object to search for. Specify it with schema like "GroupName::NameSpaceName:ObjectName",or "GroupName::ObjectName" if no NameSpaceName.
     return : A handle onto the object with Full name matchingObjectFullName, returns NULL if no object was found by the search."""
     ...
-def FBFindObjectsByName(NamePattern:str,List:FBComponentList,IncludeNamespace:object,ModelsOnly:object):
+def FBFindObjectsByName(NamePattern:str,List:FBComponentList,IncludeNamespace:bool=True,ModelsOnly:bool=False):
     """FBFindObjectsByName.
     This function will query the system for objects fulfilling a particular name pattern
     
@@ -17133,7 +17133,7 @@ def FBGetGlobalMatrix(Matrix:FBMatrix,MatrixParent:FBMatrix,LocalMatrix:FBMatrix
     MatrixParent : Parent matrix.
     LocalMatrix : Local matrix."""
     ...
-def FBGetLastSelectedModel()->object:
+def FBGetLastSelectedModel()->FBModel:
     """Get the last selected model, which is the one having the manipulator in the viewer.
     
     return : The last selected model or nullptr (C++) or None (Python) if no model is selected."""
@@ -17168,7 +17168,7 @@ def FBGetMainWindow()->int:
     
     return : The MotionBuilder main window."""
     ...
-def FBGetMultiLangText(Context:FBPlug,Key:str,FlagReturnKey:object)->str:
+def FBGetMultiLangText(Context:FBPlug,Key:str,FlagReturnKey:bool=False)->str:
     """Name lookup in a user defined context context.
     This version of the function is a little less useful as the context string, if not empty, will usually refer to internal class names of objects which is not easily available to the outside world.As a general rule, an SDK object whose class is 'FBObject' will be wrapping an internal object of class 'KObject'. For example an 'FBCamera' is a wrapper around a 'KCamera' object. Similarily an 'FBConstraint' wll wrap a 'KConstraint'. This pattern is not universal and may differ at times, so it will not always be applicable. There are also cases where an 'FB' objects has no corresponding 'K' object, such as in the case of an 'FBSystem' object.On lookup there are potentially two searches made: a first one, using the context if one was provided. Should the first search fail, a second search will be done without using the context.Again the lookup result is dependant on the current language selected, as indicated by the class FBMultiLangManager.The following sample code shows 2 cases that do not use context, and 2 cases that are using a context which are internal class names.Python sample code:
     
@@ -17203,7 +17203,7 @@ def FBGetMultiLangText(Context:FBPlug,Key:str,FlagReturnKey:object)->str:
 def FBGetRenderingTaskCycle()->FBProfileTaskCycle:
     """Get rendering task cycle."""
     ...
-def FBGetSelectedModels(List:FBModelList,Parent:FBModel,Selected:object,SortBySelectOrder:object):
+def FBGetSelectedModels(List:FBModelList,Parent:FBModel=None,Selected:bool=True,SortBySelectOrder:bool=False):
     """Find all models that are selected (ifSelected is true) Searches recursively from a root model for models that are selected, and adds them to a list of models.
     
     List : List to add found models to.
@@ -17225,7 +17225,7 @@ def FBHUD_TypeInfo()->int:...
 def FBHandle_TypeInfo()->int:...
 def FBImageContainer_TypeInfo()->int:...
 def FBImage_TypeInfo()->int:...
-def FBInterpolateRotation(QOut:FBVector3d,Q0:FBVector3d,Q1:FBVector3d,U:object):
+def FBInterpolateRotation(ROut:FBVector3d,R0:FBVector3d,R1:FBVector3d,U:float):
     """Interpolate a rotation in Quaternion.
     
     QOut : Resulting, interpolated rotation.
@@ -17253,7 +17253,7 @@ def FBLoadCharacterPinningPreset(PresetName:str)->bool:
     PresetName : The preset name to load (not the file path nor the filename of the preset).
     return : True if the operation is successful, false otherwise."""
     ...
-def FBLoadFbxPrimitivesModel(ModelName:str)->object:
+def FBLoadFbxPrimitivesModel(ModelName:str)->FBModel:
     """Load a model.
     
     ModelName : Name of primitive model to load.
@@ -17287,14 +17287,14 @@ def FBMatrixToQuaternion(Quaternion:FBVector4d,Matrix:FBMatrix):
     Quaternion : Calculated quaternion.
     Matrix : Input matrix."""
     ...
-def FBMatrixToRotation(Vector:FBVector3d,Matrix:FBMatrix,RotationOrder:FBRotationOrder):
+def FBMatrixToRotation(Vector:FBVector3d,Matrix:FBMatrix,RotationOrder:FBRotationOrder=FBRotationOrder.kFBXYZ):
     """Obtain rotation vector from a matrix.
     
     Vector : Extracted rotation vector, ordered the same way as the rotation order specified byRotationOrder.
     Matrix : Input matrix.
     RotationOrder : Rotation order."""
     ...
-def FBMatrixToRotationWithPrecision(Vector:FBVector3d,Matrix:FBMatrix,RotationOrder:FBRotationOrder,Precision:object):
+def FBMatrixToRotationWithPrecision(Vector:FBVector3d,Matrix:FBMatrix,RotationOrder:FBRotationOrder,Precision:float=None):
     """Obtain rotation vector from a matrix.
     
     Vector : Extracted rotation vector.
@@ -17359,7 +17359,7 @@ def FBMergeTransactionIsOn()->bool:
     """Call to tell if system is during Merge transaction."""
     ...
 def FBMesh_TypeInfo()->int:...
-def FBMessageBox(BoxTitle:str,Message:str,Button1Str:str,Button2Str:str,Button3Str:str,DefaultButton:object,ScrolledMessage:object)->int:
+def FBMessageBox(BoxTitle:str,Message:str,Button1Str:str,Button2Str:str=None,Button3Str:str=None,DefaultButton:int=0,ScrolledMessage:int=0)->int:
     """Dialog popup box.
     Opens a message box containing a message and up to three buttons. Waits for the user to click a button.
     
@@ -17372,7 +17372,7 @@ def FBMessageBox(BoxTitle:str,Message:str,Button1Str:str,Button2Str:str,Button3S
     ScrolledMessage : Scroll message (default is 0).
     return : The number of the button selected."""
     ...
-def FBMessageBoxGetUserValue(BoxTitle:str,Message:str,Value:object,ValueType:FBPopupInputType,Button1Str:str,Button2Str:str,Button3Str:str,DefaultButton:object,arg9:object)->tuple:
+def FBMessageBoxGetUserValue(BoxTitle:str,Message:str,Value:None,ValueType:FBPopupInputType,Button1Str:str,Button2Str:str=None,Button3Str:str=None,DefaultButton:int=0,LastButtonCancel:bool=True)->tuple:
     """Dialog popup box to get user input.
     Opens a message box, with up to three buttons, asking the user to enter data. The type of data to be entered is specified by theValue andValueType parameters.
     
@@ -17386,7 +17386,7 @@ def FBMessageBoxGetUserValue(BoxTitle:str,Message:str,Value:object,ValueType:FBP
     DefaultButton : Indicates the default (pre-selected) button(default=0).
     return : A tuple containing the index of the button selected and the value entered by the user, if any."""
     ...
-def FBMessageBoxWithCheck(BoxTitle:str,Message:str,Button1Str:str,Button2Str:str,Button3Str:str,CheckBoxStr:str,CheckBoxValue:object,DefaultButton:object,ScrolledMessage:object)->tuple:
+def FBMessageBoxWithCheck(BoxTitle:str,Message:str,Button1Str:str,Button2Str:str,Button3Str:str,CheckBoxStr:str,CheckBoxValue:bool,DefaultButton:int=0,ScrolledMessage:int=0)->tuple:
     """Dialog popup box with 'don't show again' option.
     Opens a message box containing a message and up to three buttons. Waits for the user to click a button. This dialog also gives the user the option of never showing the dialog again.
     
@@ -17425,7 +17425,7 @@ def FBModelVertexData_TypeInfo()->int:...
 def FBModel_TypeInfo()->int:...
 def FBMotionClip_TypeInfo()->int:...
 def FBMotionFileOptions_TypeInfo()->int:...
-def FBMult(Result:FBVector4d,M:FBVector4d,V:object):
+def FBMult(Result:FBVector4d,V1:FBVector4d,V2:float):
     """Calculate the cross product of a Matrix and Scale Vector.
     
     Result : Resulting Matrix.
@@ -17442,7 +17442,7 @@ def FBObjectGetGlobalUniqueId()->int:
 def FBObjectGetLivingCount()->int:
     """Get current total living object count."""
     ...
-def FBObjectLifeLogEnable(Enable:object):
+def FBObjectLifeLogEnable(Enable:bool):
     """Enable object creation / deletion logging.
     Default logging if off This logging may hurt performance slightly. use it only for debug purpose.
     
@@ -17496,7 +17496,7 @@ def FBPlotPopup_TypeInfo()->int:...
 def FBPlug_TypeInfo()->int:...
 def FBPointCacheFile_TypeInfo()->int:...
 def FBPointCacheManager_TypeInfo()->int:...
-def FBPopNormalTool(ToolName:str,SetFocus:object)->bool:
+def FBPopNormalTool(ToolName:str,SetFocus:bool=True)->bool:
     """This function is used to bring up a specific tool in the GUI.
     
     ToolName : The name of the tool as shown in the Open Reality menu.
@@ -17512,7 +17512,7 @@ def FBPreventUIUpdateBegin():
 def FBPreventUIUpdateEnd():
     """Call to end blocking the UI updates."""
     ...
-def FBPreventUIUpdateIsOn():
+def FBPreventUIUpdateIsOn()->bool:
     """Call to tell if UI updates are blocked."""
     ...
 def FBProfiler_TypeInfo()->int:...
@@ -17540,7 +17540,7 @@ def FBQLength(Q:FBVector4d)->float:
     Q : Quaternion to calculate length for.
     return : Length of quaternionQ."""
     ...
-def FBQMult(Result:FBVector4d,Q1:FBVector4d,Q2:object):
+def FBQMult(Result:FBVector4d,Q1:FBVector4d,Q2:float):
     """Calculate the cross product of two quaternions.
     
     Result : Resulting quaternion.
@@ -17560,14 +17560,14 @@ def FBQuaternionToMatrix(Matrix:FBMatrix,Quaternion:FBVector4d):
     Matrix : Calculated rotation matrix.
     Quaternion : Input quaternion."""
     ...
-def FBQuaternionToRotation(Vector:FBVector3d,Quaternion:FBVector4d,RotationOrder:FBRotationOrder):
+def FBQuaternionToRotation(Vector:FBVector3d,Quaternion:FBVector4d,RotationOrder:FBRotationOrder=FBRotationOrder.kFBXYZ):
     """Get a rotation vector from a quaternion vector.
     
     Vector : Calculated rotation vector, ordered the same way as the rotation order specified byRotationOrder.
     Quaternion : Input quaternion.
     RotationOrder : Rotation order."""
     ...
-def FBQuaternionToRotationWithPrecision(Vector:FBVector3d,Quaternion:FBVector4d,RotationOrder:FBRotationOrder,Precision:object):
+def FBQuaternionToRotationWithPrecision(Vector:FBVector3d,Quaternion:FBVector4d,RotationOrder:FBRotationOrder,Precision:float=None):
     """Get a rotation vector from a quaternion vector.
     
     Vector : Calculated rotation vector.
@@ -17579,21 +17579,21 @@ def FBReferenceTime_TypeInfo()->int:...
 def FBRendererCallback_TypeInfo()->int:...
 def FBRenderer_TypeInfo()->int:...
 def FBRigidBody_TypeInfo()->int:...
-def FBRotationToMatrix(Matrix:FBMatrix,Vector:FBVector3d,RotationOrder:FBRotationOrder):
+def FBRotationToMatrix(Matrix:FBMatrix,Vector:FBVector3d,RotationOrder:FBRotationOrder=FBRotationOrder.kFBXYZ):
     """Convert a rotation vector to a matrix.
     
     Matrix : Calculated resulting matrix.
     Vector : Rotation vector, ordered the same way as the rotation order specified byRotationOrder.
     RotationOrder : Rotation order."""
     ...
-def FBRotationToQuaternion(Quaternion:FBVector4d,Vector:FBVector3d,RotationOrder:FBRotationOrder):
+def FBRotationToQuaternion(Quaternion:FBVector4d,Vector:FBVector3d,RotationOrder:FBRotationOrder=FBRotationOrder.kFBXYZ):
     """Get a quaternion from a rotation vector.
     
     Quaternion : Calculated quaternion.
     Vector : Input rotation vector, ordered the same way as the rotation order specified byRotationOrder.
     RotationOrder : Rotation order."""
     ...
-def FBSaveCharacterPinningPreset(PresetName:str,AllowOverwriting:object)->bool:
+def FBSaveCharacterPinningPreset(PresetName:str,AllowOverwriting:bool=False)->bool:
     """Saves a pinning preset from the current pinning values in the Character Controls Tool.
     
     PresetName : The preset name to save (not the file path nor the filename of the preset).
@@ -17607,30 +17607,30 @@ def FBScalingToMatrix(Matrix:FBMatrix,Vector:FBSVector):
     Vector : Scaling vector."""
     ...
 def FBScene_TypeInfo()->int:...
-def FBSchedulingDependencyOutput(Enable:object):
+def FBSchedulingDependencyOutput(Enable:bool):
     """Debug function for MT dependency debug.
     When enabled log file will be created and updated each time MultiThreaded scheduling is happening (scene rebuild)
     
     Enable : ON/OFF switch. This is not stored in config (should be changed only for debug purpose, because slow down rebuild process )"""
     ...
 def FBScrollBox_TypeInfo()->int:...
-def FBSetActorMarkerSetVisibility(Show:object)->bool:
+def FBSetActorMarkerSetVisibility(Show:bool)->bool:
     """Sets visibility of the marker set of the current actor.
     
     Show : Specifies if the market of the current actor should be visible.
     return : True if the operation is successful, false otherwise."""
     ...
-def FBSetCharacterFingerTipsVisibility(Show:object):
+def FBSetCharacterFingerTipsVisibility(Show:bool):
     """Sets visibility of the finger-tips of the current character.
     
     Show : Specifies if finger-tips of the current character should be visible."""
     ...
-def FBSetCharacterFloorContactsVisibility(Show:object):
+def FBSetCharacterFloorContactsVisibility(Show:bool):
     """Sets visibility of the floor contacts of the current character.
     
     Show : Specifies if floor contacts of the current character should be visible."""
     ...
-def FBSetConstantKeyReducerThresholdValue(ThresholdType:FBConstantKeyReducerThresholdType,Value:object):
+def FBSetConstantKeyReducerThresholdValue(ThresholdType:FBConstantKeyReducerThresholdType,Value:float):
     """Set a specific threshold value used by the Constant Key Reducer filter.
     
     ThresholdType : The threshold type to set its value.
@@ -17754,13 +17754,13 @@ def FBVisualComponent_TypeInfo()->int:...
 def FBVisualContainer_TypeInfo()->int:...
 def FBWebView_TypeInfo()->int:...
 def FBWidgetHolder_TypeInfo()->int:...
-def GetToolPosition(arg1:FBTool)->tuple:...
-def GetToolPositionByName(arg1:str)->tuple:...
-def GetToolSize(arg1:FBTool)->tuple:...
-def GetToolSizeByName(arg1:str)->tuple:...
-def SetToolPosition(arg1:FBTool,arg2:object,arg3:object):...
-def SetToolPositionByName(arg1:str,arg2:object,arg3:object):...
-def SetToolSize(arg1:FBTool,arg2:object,arg3:object):...
-def SetToolSizeByName(arg1:str,arg2:object,arg3:object):...
-def ShowTool(arg1:FBTool,arg2:object)->object:...
-def ShowToolByName(arg1:str,arg2:object)->object:...
+def GetToolPosition(Tool:FBTool)->tuple:...
+def GetToolPositionByName(ToolName:str)->tuple:...
+def GetToolSize(Tool:FBTool)->tuple:...
+def GetToolSizeByName(ToolName:str)->tuple:...
+def SetToolPosition(Tool:FBTool,PosX:int,PosY:int):...
+def SetToolPositionByName(ToolName:str,PosX:int,PosY:int):...
+def SetToolSize(Tool:FBTool,Width:int,Height:int):...
+def SetToolSizeByName(ToolName:str,Width:int,Height:int):...
+def ShowTool(Tool:FBTool,ResizeWnd:bool=True)->FBTool:...
+def ShowToolByName(ToolName:str,ResizeWnd:bool=True)->FBTool:...

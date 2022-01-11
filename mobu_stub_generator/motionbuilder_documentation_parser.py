@@ -34,7 +34,6 @@ SDK_CLASSES_PATH = SDK_CPP_PATH + "annotated_dup.js"
 SDK_FILES_PATH = SDK_CPP_PATH + "files_dup.js"
 
 
-
 # ------------------------------------------
 #               Strucs & Enums
 # ------------------------------------------
@@ -62,7 +61,7 @@ CToPythonVariableTranslation = {
 
 
 class FMoBoDocsParameterNames():
-    NoDefaultValue = "NoDefaultValue"
+    Undefined = "NoDefaultValue"
 
 
 class FDictTags:
@@ -107,7 +106,7 @@ def ConvertVariableTypeToPython(Type: str):
     Example: 'double' -> 'float'
     """
     # Remove type defenitions that doesn't carry any meaning when converted to python
-    for Char in ["(void *)", "*", "&", "const", "virtual", "static", "unsigned"]:
+    for Char in ["(void *)", "*", "&"]:
         if Char in Type:
             Type = Type.replace(Char, "").strip()
 
@@ -116,6 +115,9 @@ def ConvertVariableTypeToPython(Type: str):
         if not Type.startswith("FBVector"):
             return "List[%s]" % Type.partition("<")[2].partition(">")[0].strip()
         Type = Type.partition("<")[0].strip()
+
+    if " " in Type:
+        Type = Type.rpartition(" ")[2]
 
     # Check if variable needs to be translated into python, e.g. double -> float
     for Key, Value in CToPythonVariableTranslation.items():
@@ -150,6 +152,7 @@ def GetFullURL(Version, Path, bGetSource = False):
 
 
 def GetUrlContent(Url: str):
+    print("Url: %s" %(Url))
     Response = request.urlopen(Url)
     return Response.read().decode('utf-8')
 
@@ -176,7 +179,7 @@ def SaveFile(Filepath, Content):
     if not os.path.isdir(os.path.dirname(Filepath)):
         os.makedirs(os.path.dirname(Filepath))
 
-    with open(Filepath, "w+") as File:
+    with open(Filepath, "w+", encoding="utf-8") as File:
         File.write(Content)
 
 
@@ -263,13 +266,12 @@ class MotionBuilderDocumentationHtmlPageParser(HTMLParser):
         ParameterTypes = Item.get(FMoBuDocsParserItem.ParameterTypes, [])
         if ParameterNames and ParameterTypes:
             # Make sure the lists have the same lenght, if not something must have gone wrong when parsing.
-            if not len(ParameterNames) == len(ParameterTypes):
-                raise Exception("%s has different array sizes in ParamNames & Types:\n%s\n%s" % (Name, str(ParameterNames), str(ParameterTypes)))
+            # if not len(ParameterNames) == len(ParameterTypes):
+            #     raise Exception("%s has different array sizes in ParamNames & Types:\n%s\n%s" % (Name, str(ParameterNames), str(ParameterTypes)))
 
             for ParamName, ParamType in zip(ParameterNames, ParameterTypes):
-
                 # If parameter has a default value, it'll be stored with the ParamName, example: 'MyParam = false'
-                DefaultValue = FMoBoDocsParameterNames.NoDefaultValue
+                DefaultValue = FMoBoDocsParameterNames.Undefined
                 if "=" in ParamName:
                     ParamName, DefaultValue = ParamName.split("=")
                     DefaultValue = DefaultValue.strip()
@@ -281,10 +283,13 @@ class MotionBuilderDocumentationHtmlPageParser(HTMLParser):
                 if ParamName.endswith(","):
                     ParamName = ParamName[:-1]
 
+                if not ParameterTypes:
+                    ParameterTypes = FMoBoDocsParameterNames.Undefined
+
                 Params.append(DocMemberParameter(ParamName, ParamType, DefaultValue))
 
         # Get docstring, there should always just be one, so get the first one
-        DocString = Item.get(FMoBuDocsParserItem.Doc, [""])[0]
+        DocString = Item.get(FMoBuDocsParserItem.Doc, "")
 
         return DocPageMember(Name, Type, Params, DocString)
 
@@ -297,7 +302,7 @@ class MotionBuilderDocumentationHtmlPageParser(HTMLParser):
 # ------------------------------------------
 
 class DocMemberParameter():
-    def __init__(self, Name, Type, Default = FMoBoDocsParameterNames.NoDefaultValue):
+    def __init__(self, Name, Type, Default = FMoBoDocsParameterNames.Undefined):
         self.Name = Name
         self.Type = Type
         self.Default = Default
@@ -308,8 +313,8 @@ class DocMemberParameter():
         return self.Type
 
     def GetDefaultValue(self, bConvertToPython = False):
-        if self.Default == FMoBoDocsParameterNames.NoDefaultValue:
-            return FMoBoDocsParameterNames.NoDefaultValue
+        if self.Default == FMoBoDocsParameterNames.Undefined:
+            return FMoBoDocsParameterNames.Undefined
 
         if bConvertToPython:
             return ConvertVariableTypeToPython(self.Default)
@@ -362,6 +367,8 @@ class DocumentationPage():
         if self.bIsLoaded:
             return
         CacheFilepath = GetCacheFilepath(self.RelativeURL)
+        if "#" in CacheFilepath:
+            CacheFilepath = CacheFilepath.partition("#")[0]
         RawHTML = ""
         if bCache and os.path.isfile(CacheFilepath):
             RawHTML = ReadFile(CacheFilepath)
@@ -425,41 +432,45 @@ class MotionBuilderDocumentation():
     def GetSDKClasses(self):
         if self._SDKClasses:
             return self._SDKClasses
-        ClassesContent = GetDocsSDKContent(self.Version, SDK_CLASSES_PATH)
+        ClassesContent = GetDocsSDKContent(self.Version, SDK_CLASSES_PATH, self.bCache)
         self._SDKClasses = {x[0]: DocumentationPage(self.Version, x[0], SDK_CPP_PATH + x[1]) for x in ClassesContent}
         return self._SDKClasses
 
-    def GetSDKClassByName(self, ClassName, bLoadPage = True):
-        Page = self.GetSDKClasses().get(ClassName)
+    def GetSDKTableOfContents(self):
+        if not self._SDKContent:
+            Content = []
+            for FileName, PageUrl, Id in GetDocsSDKContent(self.Version, SDK_FILES_PATH, self.bCache):
+                if Id:
+                    Content += GetDocsSDKContent(self.Version, "%s%s.js" % (SDK_CPP_PATH, Id), self.bCache)
+            # TODO: Clean up
+            self._SDKContent = self.GetSDKClasses()
+            self._SDKContent.update({x[0]: DocumentationPage(self.Version, x[0], SDK_CPP_PATH + x[1]) for x in Content})
+        return self._SDKContent
+
+    def GetSDKClassPagesByName(self, ClassName, bLoadPage = True):
+        Page = self.GetSDKTableOfContents().get(ClassName)
         if Page and bLoadPage:
             Page.LoadPage(self.bCache)
         return Page
+
+    def GetSDKFunctionByName(self, FunctionName):
+        Page = self.GetSDKTableOfContents().get(FunctionName)
+        if Page:
+            Page.LoadPage(self.bCache)
+            return Page.GetMember(FunctionName)
 
     def GetMainTableOfContents(self):
         if not self._TableOfContents:
             self._TableOfContents = [DocumentationCategory(self.Version, x) for x in GetDocsMainTableOfContent(self.Version)]
         return self._TableOfContents
-    
+
     def GetPythonSDKTableOfContents(self):
         if not self._PythonSDKToc:
-            PyfbsdkContent = GetDocsSDKContent(self.Version, PYFBSDK_PATH)
-            PyfbsdkAdditionsContent = GetDocsSDKContent(self.Version, PYFBSDK_ADDITIONS_PATH)
+            PyfbsdkContent = GetDocsSDKContent(self.Version, PYFBSDK_PATH, self.bCache)
+            PyfbsdkAdditionsContent = GetDocsSDKContent(self.Version, PYFBSDK_ADDITIONS_PATH, self.bCache)
             AllPythonSDKContent = PyfbsdkContent + PyfbsdkAdditionsContent
             self._PythonSDKToc = {x[0]: DocumentationPage(self.Version, x[0], PY_REF_PATH + x[1]) for x in AllPythonSDKContent}
         return self._PythonSDKToc
-    
-    def GetSDKTableOfContents(self):
-        if not self._SDKContent:
-            Content = []
-            for FileName, PageUrl, Id in GetDocsSDKContent(self.Version, SDK_FILES_PATH):
-                if Id:
-                    Content += GetDocsSDKContent(self.Version, "%s%s.js" % (SDK_CPP_PATH, Id))
-            self._SDKContent = {x[0]: DocumentationPage(self.Version, x[0], SDK_CPP_PATH + x[1]) for x in Content}
-        return self._SDKContent
-                
-            
-        
-        
 
     def FindPage(self, PageName, PageType = EPageType.Unspecified, bLoadPage = True) -> DocumentationPage:
         if PageType != EPageType.Unspecified:
@@ -481,11 +492,22 @@ class MotionBuilderDocumentation():
 #             Functions for parsing table of contents
 # -------------------------------------------------------------
 
-def GetDocsSDKContent(Version, Path):
+def GetDocsSDKContent(Version, Path, bCache = False):
     """
     Get SDK table of contents
     """
-    Content = GetUrlContent(GetFullURL(Version, Path, bGetSource = True))
+    Content = None
+    CacheFilepath = GetCacheFilepath(Path)
+    bCacheFileExists = os.path.isfile(CacheFilepath)
+
+    if bCache and bCacheFileExists:
+        Content = ReadFile(CacheFilepath)
+    else:
+        Content = GetUrlContent(GetFullURL(Version, Path, bGetSource = True))
+
+    if bCache and not bCacheFileExists:
+        SaveFile(CacheFilepath, Content)
+
     return ParseSDKTableOfContent(Content)
 
 
@@ -515,3 +537,5 @@ def GetDocsMainTableOfContent(Version) -> list:
     RawContent = GetUrlContent(GetFullURL(Version, DOC_GUIDE_CONTENTS_PATH))
     TableOfContent = json.loads(RawContent)
     return TableOfContent.get("books", {})
+
+print(MotionBuilderDocumentation(2022, True).GetSDKFunctionByName("FBShowToolByName").GetType(bConvertToPython = True))
