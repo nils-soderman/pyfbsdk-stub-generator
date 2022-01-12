@@ -403,7 +403,7 @@ def GetClassMembers(Class):
     IgnoreMembers = ["names", "values", "__slots__", "__instance_size__"]
     Members = inspect.getmembers(Class)
     ParentClass = GetClassParents(Class)[0]
-    UniqueMemebers = [x for x in Members if not hasattr(ParentClass, x[0]) and x[0] not in IgnoreMembers and not x[0].startswith("__")]
+    UniqueMemebers = [x for x in Members if not hasattr(ParentClass, x[0]) and x[0] not in IgnoreMembers] #  and not x[0].startswith("__")
     return UniqueMemebers
 
 

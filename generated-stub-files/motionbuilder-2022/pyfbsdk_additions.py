@@ -6,6 +6,8 @@ class FBButtonGroup(object):
     - Use the Add method to Add new radio button to the group.
     - Use AddCallback method to register a UNIQUE callback that will be called when ANY
     of the registered radio buttons is clicked."""
+    __weakref__:FBButtonGroup
+    """list of weak references to the object (if defined)"""
     def Add(self,btn):
         """Add a radio button to group."""
         ...
@@ -14,6 +16,16 @@ class FBButtonGroup(object):
         ...
     def _MultiCallback(self,control,event):...
 class str(object):
+    __add__:str
+    __contains__:str
+    __getitem__:str
+    __getnewargs__:str
+    __iter__:str
+    __len__:str
+    __mod__:str
+    __mul__:str
+    __rmod__:str
+    __rmul__:str
     capitalize:str
     casefold:str
     center:str
