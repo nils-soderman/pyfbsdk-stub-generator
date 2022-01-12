@@ -544,7 +544,7 @@ def GenerateStubFunction(Function, DocMembers, ExistingClassNames = [], MoBuDocu
             Parameter.Name = ParameterDoc.Name
             
             if not Parameter.Type or Parameter.Type in ["object"]:
-                Parameter.Type = ParameterDoc.GetType(bConvertToPython = True)
+                Parameter.Type = PatchVariableType(ParameterDoc.GetType(bConvertToPython = True), ExistingClassNames, bAlwaysTryToRemoveProperty = False)
             
             WantedDefaultValue = ParameterDoc.GetDefaultValue(bConvertToPython = True)
             Parameter.DefaultValue = PatchDefaultValue(WantedDefaultValue, Parameter.Type, ExistingClassNames)

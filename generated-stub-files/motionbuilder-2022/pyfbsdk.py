@@ -16844,7 +16844,7 @@ def FBAssetFolder_TypeInfo()->int:...
 def FBAssetItem_TypeInfo()->int:...
 def FBAssetMng_TypeInfo()->int:...
 def FBAudioClip_TypeInfo()->int:...
-def FBAudioFmt_AppendFormat(Format:FBAudioFmt,Channels:int,Bits:int,Rate:int)->int:
+def FBAudioFmt_AppendFormat(Format,Channels:int,Bits:int,Rate:int)->int:
     """Append the rendering audio format with another audio format.
     
     Format : Audio format to use.
@@ -16869,19 +16869,19 @@ def FBAudioFmt_ConvertRateMode(RateMode:FBAudioRateMode)->int:
     RateMode : The rate mode enum value.
     return : The FBAudioFmt object equivalent to the input rate mode enum value."""
     ...
-def FBAudioFmt_GetBitsValue(Format:FBAudioFmt)->int:
+def FBAudioFmt_GetBitsValue(Format)->int:
     """Get the bit depth value of the Audio format object.
     
     Format : Audio format to use.
     return : Bit depth value as an integer value."""
     ...
-def FBAudioFmt_GetBytesValue(Format:FBAudioFmt)->int:
+def FBAudioFmt_GetBytesValue(Format)->int:
     """Get the bytes value of the Audio format object.
     
     Format : Audio format to use.
     return : Bytes value as an integer value."""
     ...
-def FBAudioFmt_GetChannelValue(Format:FBAudioFmt)->int:
+def FBAudioFmt_GetChannelValue(Format)->int:
     """Get the channel value of the Audio format object.
     
     Format : Audio format to use.
@@ -16892,20 +16892,20 @@ def FBAudioFmt_GetDefaultFormat()->int:
     
     return : An audio format object."""
     ...
-def FBAudioFmt_GetRateValue(Format:FBAudioFmt)->int:
+def FBAudioFmt_GetRateValue(Format)->int:
     """Get the rate value of the Audio format object.
     
     Format : Audio format to use.
     return : Audio rate value as an integer value."""
     ...
-def FBAudioFmt_RemoveFormat(Format:FBAudioFmt,Channels:int,Bits:int,Rate:int)->int:
+def FBAudioFmt_RemoveFormat(Format,Channels:int,Bits:int,Rate:int)->int:
     """Remove audio format from another audio format object.
     
     Format : Audio format to use.
     SrcFormat : Audio format to remove.
     return : An audio format object without the specified format settings passed in parameter."""
     ...
-def FBAudioFmt_TestFormat(SrcFormat:FBAudioFmt,Channels:int,Bits:int,Rate:int)->bool:
+def FBAudioFmt_TestFormat(SrcFormat,Channels:int,Bits:int,Rate:int)->bool:
     """Test if the given audio format object contains the channel, bit depth, and rate.
     
     SrcFormat : Audio format to test.
@@ -16958,7 +16958,7 @@ def FBConstraintSolver_TypeInfo()->int:...
 def FBConstraint_TypeInfo()->int:...
 def FBConstructionHistory_TypeInfo()->int:...
 def FBControlSet_TypeInfo()->int:...
-def FBCreateObject(GroupName:str,EntryName:str,Name:str,Data:None=None)->FBComponent:
+def FBCreateObject(GroupName:str,EntryName:str,Name:str,Data=None)->FBComponent:
     """FBCreateObject.
     
     GroupName : Set the name of the Group.
@@ -17372,7 +17372,7 @@ def FBMessageBox(BoxTitle:str,Message:str,Button1Str:str,Button2Str:str=None,But
     ScrolledMessage : Scroll message (default is 0).
     return : The number of the button selected."""
     ...
-def FBMessageBoxGetUserValue(BoxTitle:str,Message:str,Value:None,ValueType:FBPopupInputType,Button1Str:str,Button2Str:str=None,Button3Str:str=None,DefaultButton:int=0,LastButtonCancel:bool=True)->tuple:
+def FBMessageBoxGetUserValue(BoxTitle:str,Message:str,Value,ValueType:FBPopupInputType,Button1Str:str,Button2Str:str=None,Button3Str:str=None,DefaultButton:int=0,LastButtonCancel:bool=True)->tuple:
     """Dialog popup box to get user input.
     Opens a message box, with up to three buttons, asking the user to enter data. The type of data to be entered is specified by theValue andValueType parameters.
     

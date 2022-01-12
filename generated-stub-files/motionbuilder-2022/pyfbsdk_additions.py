@@ -189,7 +189,7 @@ def FBCreateUniqueTool(name):
     """Create a Tool with a unique name. Will destroy
     any other similarly named tool."""
     ...
-def FBDestroyTool(Tool:FBTool):
+def FBDestroyTool(Tool):
     """Destroy a Tool."""
     ...
 def FBDestroyToolByName(ToolName:str):
