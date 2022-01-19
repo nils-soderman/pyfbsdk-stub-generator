@@ -1,5 +1,5 @@
 from __future__ import annotations
-from typing import List
+from typing import List, overload
 class _Enum:
     __slots__:tuple
     names:dict
@@ -4567,6 +4567,9 @@ class FBPlug(FBPythonWrapper):
     def GetStatusFlag(self,Status:FBPlugStatusFlag)->bool:...
     def Is(self,TypeId:int)->bool:...
     def IsSDKComponent(self)->bool:...
+    @overload
+    def MoveSrcAt(self,Src:FBPlug,AtSrc:FBPlug)->bool:...
+    @overload
     def MoveSrcAt(self,Index:int,AtIndex:int)->bool:...
     def PrintClassDefinitions(self):...
     def ReplaceDstAt(self,Index:int,Dst:FBPlug)->bool:...
@@ -6252,6 +6255,15 @@ class FBCharacterPose(FBPose):
         Index : Index of the extra bone to get."""
         ...
     def GetExtraBones(self)->list:...
+    @overload
+    def GetMirrorPlaneEquation(self,MirrorPlaneEquation:FBMatrix,Character:FBCharacter,CharacterPoseOptions:FBCharacterPoseOptions):
+        """Get the mirror plane equation that would be used to mirror according to the CharacterPoseOptions.
+        
+        MirrorPlaneEquation : Out: Mirror plane equation.
+        Character : Character to receive the pose.
+        CharacterPoseOptions : Options used to paste the pose."""
+        ...
+    @overload
     def GetMirrorPlaneEquation(self,MirrorPlaneEquation:FBVector4d,Character:FBCharacter,CharacterPoseOptions:FBCharacterPoseOptions):
         """Get the mirror plane equation that would be used to mirror according to the CharacterPoseOptions.
         
@@ -7543,6 +7555,13 @@ class FBCharacter(FBConstraint):
         SetAsBiped : true to use biped characterization or false to use quadruped.
         return : current state of the flag after the operation (true if it did succeed)."""
         ...
+    @overload
+    def SetExternalSolver(self,Solver:FBCharacterSolver):
+        """Set character solver.
+        
+        Solver : Character solver that will be used by the character."""
+        ...
+    @overload
     def SetExternalSolver(self,Index:int):
         """Set character solver.
         
@@ -8715,6 +8734,13 @@ class FBModel(FBBox):
         EvaluateInfo : EvaluateInfo, Take Display if none specified
         Precision : Indicate the precision level, used when calculating the threshold value for gimble lock. 16 * pow(10.0, -10)) is the new default value since Mobu 2016, 16 * pow(10.0, -6)) is old default value before then."""
         ...
+    @overload
+    def SetSchematicPosition(self,Vector2d:FBVector2d):
+        """Set the position in the schematic view for the model.
+        
+        Vector2d : Position to set."""
+        ...
+    @overload
     def SetSchematicPosition(self,X:int,Y:int):
         """Set the position in the schematic view for the model.
         
@@ -10002,6 +10028,17 @@ class FBApplication(FBComponent):
         Options : A FBMotionFileOptions object that contains the path to the files, as well as the options to load those motion files.
         return : True if the import succeeded."""
         ...
+    @overload
+    def FileMerge(self,Filename:str,ShowUIMsg:bool=False,Options:FBFbxOptions=None)->bool:
+        """Merge multiple files with the current scene.
+        Command File->Merge in the menus.
+        
+        Pathlist : Files to merge.
+        ShowUIMsg : Set false if don't want to popup any UI dialog or messages (default=false).
+        Options : Provide finer control on file open options (default=NULL). if not null, Option dialog will only show if both option's ShowOptionsDialog property andShowUIMsg are true. It is possible to merge multiple scenes, each one within its own user specified namespace, by calling the FBFbxOptions::SetMultiLoadNamespaceList method first. When doing so though, the FBFbxOption.NamespaceList property is then ignored.
+        return : true if successful."""
+        ...
+    @overload
     def FileMerge(self,Pathlist:FBStringList,ShowUIMsg:bool=False,Options:FBFbxOptions=None)->bool:
         """Merge multiple files with the current scene.
         Command File->Merge in the menus.
@@ -10018,7 +10055,16 @@ class FBApplication(FBComponent):
         ClearSceneName : Set to true to clear the scene name, set to false to retain it. Default is true.
         return : true if successful."""
         ...
-    def FileOpen(self,Buffer,BufferLength:int,arg4:FBFbxOptions)->bool:
+    @overload
+    def FileOpen(self,Filename:str,ShowUIMsg:bool=False,Options:FBFbxOptions=None)->bool:
+        """Open a file from memory.
+        
+        p0 : the memory buffer for the file. Raw memory address is expected in pyfbsdk.
+        BufferLength : the memory buffer size.
+        return : true if file opened successfully."""
+        ...
+    @overload
+    def FileOpen(self,Buffer,BufferLength:int)->bool:
         """Open a file from memory.
         
         p0 : the memory buffer for the file. Raw memory address is expected in pyfbsdk.
@@ -10410,6 +10456,15 @@ class FBActionManager(FBComponent):
 class FBConstraintManager(FBComponent):
     """Constraint manager.
     See sample: FBConstraintManager.py."""
+    @overload
+    def TypeCreateConstraint(self,Name:str)->FBConstraint:
+        """Create a constraint by name.
+        Given the constraint type name in the registry, this function create an instance of this constraint. The newly created constraint will be automatically added to the scene.
+        
+        Name : the name of the constraint to be created.
+        return : The newly created constraint, or NULL ifName doesn't match any registered constraints."""
+        ...
+    @overload
     def TypeCreateConstraint(self,TypeIndex:int)->FBConstraint:
         """Create a constraint by name.
         Given the constraint type name in the registry, this function create an instance of this constraint. The newly created constraint will be automatically added to the scene.
@@ -11112,7 +11167,17 @@ class FBFilter(FBComponent):
     """Read Write Property: Start time of the filtering region"""
     Stop:FBTime
     """Read Write Property: Stop time of the filtering region"""
-    def Apply(self,Curve:FBFCurve,Recursive:object)->bool:
+    @overload
+    def Apply(self,Node:FBAnimationNode,Recursive:bool)->bool:
+        """Apply the filter to an animation node.
+        This is the other apply method and it can be used on an object's animation node.
+        
+        Node : Node to apply filter to.
+        Recursive : Recursively apply filter on child nodes?
+        return : true if successful."""
+        ...
+    @overload
+    def Apply(self,Curve:FBFCurve)->bool:
         """Apply the filter to an animation node.
         This is the other apply method and it can be used on an object's animation node.
         
@@ -11415,6 +11480,17 @@ class FBGeometry(FBComponent):
     def ShapeGetCount(self)->int:
         """Get Shape Count."""
         ...
+    @overload
+    def ShapeGetDiffPoint(self,ShapeIdx:int,DiffIndex:int,OriIndex:int,PosDiff:FBVertex)->bool:
+        """Get the differentiate point.
+        
+        ShapeIdx : The index of the shape
+        DiffIndex : The index of the diff point in this shape.
+        OriIndex : The index of the diff point in the original geometry.
+        PosDiff : The position differentiation.
+        NormalDiff : The normal differentiation."""
+        ...
+    @overload
     def ShapeGetDiffPoint(self,ShapeIdx:int,DiffIndex:int,OriIndex:int,PosDiff:FBVertex,NormalDiff:FBNormal)->bool:
         """Get the differentiate point.
         
@@ -11437,6 +11513,17 @@ class FBGeometry(FBComponent):
         DiffSize : Total number of different point (pos or normal) compared to base geometry.
         WithNormal : Currently normal won't be considered during shape blending."""
         ...
+    @overload
+    def ShapeSetDiffPoint(self,ShapeIdx:int,DiffIndex:int,OriIndex:int,PosDiff:FBVertex)->bool:
+        """Set the differentiate point.
+        
+        ShapeIdx : The index of the shape
+        DiffIndex : The index of the diff point in this shape.
+        OriIndex : The index of the diff point in the original geometry.
+        PosDiff : The position differentiation.
+        NormalDiff : The normal differentiation."""
+        ...
+    @overload
     def ShapeSetDiffPoint(self,ShapeIdx:int,DiffIndex:int,OriIndex:int,PosDiff:FBVertex,NormalDiff:FBNormal)->bool:
         """Set the differentiate point.
         
@@ -11446,7 +11533,134 @@ class FBGeometry(FBComponent):
         PosDiff : The position differentiation.
         NormalDiff : The normal differentiation."""
         ...
+    @overload
+    def VertexAdd(self,x:float,y:float,z:float)->int:
+        """Begin geometry editing.
+        
+        px : float
+        py : float
+        pz : float
+        nx : float
+        ny : float
+        nz : float
+        UVu : float
+        UVv : float
+        Red : float
+        Green : float
+        Blue : float
+        Alpha : float
+        return : true if successful."""
+        ...
+    @overload
+    def VertexAdd(self,x:float,y:float,z:float,nx:float,ny:float,nz:float)->int:
+        """Begin geometry editing.
+        
+        px : float
+        py : float
+        pz : float
+        nx : float
+        ny : float
+        nz : float
+        UVu : float
+        UVv : float
+        Red : float
+        Green : float
+        Blue : float
+        Alpha : float
+        return : true if successful."""
+        ...
+    @overload
+    def VertexAdd(self,x:float,y:float,z:float,nx:float,ny:float,nz:float,UVu:float,UVv:float)->int:
+        """Begin geometry editing.
+        
+        px : float
+        py : float
+        pz : float
+        nx : float
+        ny : float
+        nz : float
+        UVu : float
+        UVv : float
+        Red : float
+        Green : float
+        Blue : float
+        Alpha : float
+        return : true if successful."""
+        ...
+    @overload
+    def VertexAdd(self,x:float,y:float,z:float,nx:float,ny:float,nz:float,UVu:float,UVv:float,Red:float,Green:float,Blue:float,Alpha:float)->int:
+        """Begin geometry editing.
+        
+        px : float
+        py : float
+        pz : float
+        nx : float
+        ny : float
+        nz : float
+        UVu : float
+        UVv : float
+        Red : float
+        Green : float
+        Blue : float
+        Alpha : float
+        return : true if successful."""
+        ...
+    @overload
     def VertexAdd(self,Vertex:FBVertex)->int:
+        """Begin geometry editing.
+        
+        px : float
+        py : float
+        pz : float
+        nx : float
+        ny : float
+        nz : float
+        UVu : float
+        UVv : float
+        Red : float
+        Green : float
+        Blue : float
+        Alpha : float
+        return : true if successful."""
+        ...
+    @overload
+    def VertexAdd(self,Vertex:FBVertex,Normal:FBNormal)->int:
+        """Begin geometry editing.
+        
+        px : float
+        py : float
+        pz : float
+        nx : float
+        ny : float
+        nz : float
+        UVu : float
+        UVv : float
+        Red : float
+        Green : float
+        Blue : float
+        Alpha : float
+        return : true if successful."""
+        ...
+    @overload
+    def VertexAdd(self,Vertex:FBVertex,Normal:FBNormal,UV:FBUV)->int:
+        """Begin geometry editing.
+        
+        px : float
+        py : float
+        pz : float
+        nx : float
+        ny : float
+        nz : float
+        UVu : float
+        UVv : float
+        Red : float
+        Green : float
+        Blue : float
+        Alpha : float
+        return : true if successful."""
+        ...
+    @overload
+    def VertexAdd(self,Vertex:FBVertex,Normal:FBNormal,UV:FBUV,VertexColor)->int:
         """Begin geometry editing.
         
         px : float
@@ -11489,7 +11703,19 @@ class FBGeometry(FBComponent):
         Index : Index of Vertex to get Color for(default=-1).
         return : Color of vertex at UVSetIndex."""
         ...
-    def VertexColorSet(self,Red:float,Green:float)->bool:
+    @overload
+    def VertexColorSet(self,Color,Index:int=-1)->bool:
+        """Set a UV coordinate.
+        
+        Red : Red Color Channel to set, range [0, 1].
+        Green : Green Color Channel to set, range [0, 1].
+        Blue : Blue Color Channel to set, range [0, 1].
+        Alpha : Alpha Color Channel to set, range [0, 1].
+        Index : Index of Vertex to affect with Red, Green, Blue and Alpha (default=-1).
+        return : true if successful."""
+        ...
+    @overload
+    def VertexColorSet(self,Red:float,Green:float,Blue:float,Alpha:float,Index:int=-1)->bool:
         """Set a UV coordinate.
         
         Red : Red Color Channel to set, range [0, 1].
@@ -11542,6 +11768,17 @@ class FBGeometry(FBComponent):
         Index : Vertex to get normal at(default=-1).
         return : Normal of vertex atIndex."""
         ...
+    @overload
+    def VertexNormalSet(self,x:float,y:float,z:float,Index:int=-1)->bool:
+        """Set a normal at a vertex.
+        
+        px : X coordinate of normal.
+        py : Y coordinate of normal.
+        pz : Z coordinate of normal.
+        Index : Index of vertex to set Normal at(default=-1).
+        return : true if successful."""
+        ...
+    @overload
     def VertexNormalSet(self,Vertex:FBNormal,Index:int=-1)->bool:
         """Set a normal at a vertex.
         
@@ -11551,6 +11788,17 @@ class FBGeometry(FBComponent):
         Index : Index of vertex to set Normal at(default=-1).
         return : true if successful."""
         ...
+    @overload
+    def VertexSet(self,x:float,y:float,z:float,Index:int=-1)->bool:
+        """Set a vertex.
+        
+        px : X coordinate to set.
+        py : Y coordinate to set.
+        pz : Z coordinate to set.
+        Index : Index of vertex to set(default=-1).
+        return : true if successful."""
+        ...
+    @overload
     def VertexSet(self,Vertex:FBVertex,Index:int=-1)->bool:
         """Set a vertex.
         
@@ -11580,7 +11828,17 @@ class FBGeometry(FBComponent):
         Index : Index of Vertex to get UV coordinate for(default=-1).
         return : UV coordinate of vertex at UVSetIndex."""
         ...
-    def VertexUVSet(self,U:float,V:float)->bool:
+    @overload
+    def VertexUVSet(self,UV:FBUV,Index:int=-1)->bool:
+        """Set a UV coordinate.
+        
+        U : U coordinate to set.
+        V : V coordinate to set.
+        Index : Index of Vertex to affect with UV coordinate(default=-1).
+        return : true if successful."""
+        ...
+    @overload
+    def VertexUVSet(self,U:float,V:float,Index:int=-1)->bool:
         """Set a UV coordinate.
         
         U : U coordinate to set.
@@ -11894,6 +12152,9 @@ class FBKeyingGroup(FBComponent):
 class FBLogger(FBComponent):
     def DisableClear(self):...
     def DumpObject(self,arg2:FBPlug,arg3:object)->object:...
+    @overload
+    def Enable(self,ClassName:str,Enable:bool)->bool:...
+    @overload
     def Enable(self,TypeInfo:int,Enable:bool)->bool:...
     def GetLog(self)->object:...
 class FBCharacterExtension(FBKeyingGroup):
@@ -12966,14 +13227,31 @@ class FBPlayerControl(FBComponent):
         
         return : Current mode of the transport controls."""
         ...
-    def Goto(self,p0:FBTime,p1:FBTimeReferential)->bool:
+    @overload
+    def Goto(self,Time:FBTime)->bool:
         """Goto a time specified byTime.
         
         p0 : Time to jump to.
         p1 : Time referential to use. kFBTimeReferentialAction or kFBTimeReferentialEdit
         return : true if successful."""
         ...
-    def GotoEnd(self,p0:FBTimeReferential)->bool:
+    @overload
+    def Goto(self,arg1:FBTime,arg2:FBTimeReferential)->bool:
+        """Goto a time specified byTime.
+        
+        p0 : Time to jump to.
+        p1 : Time referential to use. kFBTimeReferentialAction or kFBTimeReferentialEdit
+        return : true if successful."""
+        ...
+    @overload
+    def GotoEnd(self)->bool:
+        """GotoEnd button (FastForward).
+        
+        p0 : Time referential to use. kFBTimeReferentialAction or kFBTimeReferentialEdit
+        return : true if successful."""
+        ...
+    @overload
+    def GotoEnd(self,arg1:FBTimeReferential)->bool:
         """GotoEnd button (FastForward).
         
         p0 : Time referential to use. kFBTimeReferentialAction or kFBTimeReferentialEdit
@@ -12985,7 +13263,15 @@ class FBPlayerControl(FBComponent):
     def GotoPreviousKey(self):
         """Go to the previous key."""
         ...
-    def GotoStart(self,p0:FBTimeReferential)->bool:
+    @overload
+    def GotoStart(self)->bool:
+        """GotoStart button (Rewind).
+        
+        p0 : Time referential to use. kFBTimeReferentialAction or kFBTimeReferentialEdit
+        return : true if successful."""
+        ...
+    @overload
+    def GotoStart(self,arg1:FBTimeReferential)->bool:
         """GotoStart button (Rewind).
         
         p0 : Time referential to use. kFBTimeReferentialAction or kFBTimeReferentialEdit
@@ -13092,13 +13378,29 @@ class FBPlayerControl(FBComponent):
         TimeMode : Indicate the frame rate value to use base on the FBTimeMode values enum.(kFBTimeModeDefault will be stored in fps)
         Custom : Should the time mode be kFBTimeModeCustom, this is used to specify the custom framerate."""
         ...
-    def StepBackward(self,p0:FBTimeReferential)->bool:
+    @overload
+    def StepBackward(self)->bool:
         """Step one frame backward.
         
         p0 : Time referential to use. kFBTimeReferentialAction or kFBTimeReferentialEdit
         return : true if successful."""
         ...
-    def StepForward(self,p0:FBTimeReferential)->bool:
+    @overload
+    def StepBackward(self,arg1:FBTimeReferential)->bool:
+        """Step one frame backward.
+        
+        p0 : Time referential to use. kFBTimeReferentialAction or kFBTimeReferentialEdit
+        return : true if successful."""
+        ...
+    @overload
+    def StepForward(self)->bool:
+        """Step one frame ahead.
+        
+        p0 : Time referential to use. kFBTimeReferentialAction or kFBTimeReferentialEdit
+        return : true if successful."""
+        ...
+    @overload
+    def StepForward(self,arg1:FBTimeReferential)->bool:
         """Step one frame ahead.
         
         p0 : Time referential to use. kFBTimeReferentialAction or kFBTimeReferentialEdit
@@ -13916,7 +14218,18 @@ class FBStoryClip(FBComponent):
         
         return : Returns true if successful."""
         ...
+    @overload
     def Match(self):
+        """Match.
+        Match the animation clip to its previous/next animation clip, one to each other.
+        
+        ObjectName : The object name that specifies which part of the track content to use to match clips. If the object name is not valid, or empty, the match object will be disabled so that the blend does not take it into account when matching clips.
+        TimeType : The time type specifying which point of a cross-blend the selected clip is matched.
+        TranslationType : The translation type specifying if/how a clip's match object is translated to match another clip's animation.
+        RotationType : The rotation type specifying if/how a clip's match object is rotated to match another clip's animation."""
+        ...
+    @overload
+    def Match(self,ObjectName:str,TimeType:FBStoryClipMatchingTimeType,TranslationType:FBStoryClipMatchingTranslationType,RotationType:FBStoryClipMatchingRotationType):
         """Match.
         Match the animation clip to its previous/next animation clip, one to each other.
         
@@ -14185,7 +14498,17 @@ class FBStringList():
     def Clear(self):
         """Clear the list (remove all the items)."""
         ...
-    def Find(self,Ref:object)->int:
+    @overload
+    def Find(self,String:str,CaseSensitive:bool=True,StartWith:bool=False)->int:
+        """Find the index with the stringString (or start withString)
+        
+        String : String to search for.
+        CaseSensitive : true if considering case.
+        StartWith : true if to find the index of the string which start withString.
+        return : Index where S is stored."""
+        ...
+    @overload
+    def Find(self,Ref)->int:
         """Find the index with the stringString (or start withString)
         
         String : String to search for.
@@ -14558,6 +14881,13 @@ class FBTime():
     eDefaultFormat:ETimeFormats
     eFrame:ETimeFormats
     eSMPTE:ETimeFormats
+    @overload
+    def Get(self)->float:
+        """Get time value (long)
+        
+        return : Time value as long."""
+        ...
+    @overload
     def Get(self)->float:
         """Get time value (long)
         
@@ -14957,6 +15287,15 @@ class FBTake(FBComponent):
         
         PlotPeriod : Period for the plot."""
         ...
+    @overload
+    def PlotTakeOnObjects(self,PlotOptions:FBPlotOptions,ObjectsToPlot:List[FBBox]):
+        """Plot the animation on given objects.
+        This method will plot the animation of the take to the specified objects. Although the method supports boxes, the most common use case it to specify FBModels that have been cast to boxes.
+        
+        PlotPeriod : Period for the plot.
+        ObjectsToPlot : Objects to plot."""
+        ...
+    @overload
     def PlotTakeOnObjects(self,PlotPeriod:FBTime,ObjectsToPlot:List[FBBox]):
         """Plot the animation on given objects.
         This method will plot the animation of the take to the specified objects. Although the method supports boxes, the most common use case it to specify FBModels that have been cast to boxes.
@@ -14971,12 +15310,28 @@ class FBTake(FBComponent):
         PlotPeriod : Period for the plot.
         PropertiesToPlot : Properties to plot."""
         ...
+    @overload
+    def PlotTakeOnSelected(self,PlotOptions:FBPlotOptions):
+        """Plot the animation on selected models.
+        Will plot the animation of the take in question on the selected models in the scene.
+        
+        PlotPeriod : Period for the plot."""
+        ...
+    @overload
     def PlotTakeOnSelected(self,PlotPeriod:FBTime):
         """Plot the animation on selected models.
         Will plot the animation of the take in question on the selected models in the scene.
         
         PlotPeriod : Period for the plot."""
         ...
+    @overload
+    def PlotTakeOnSelectedProperties(self,PlotOptions:FBPlotOptions):
+        """Plot the animation on selected properties.
+        Will plot the animation of the take in question on the selected properties in the scene.
+        
+        PlotPeriod : Period for the plot."""
+        ...
+    @overload
     def PlotTakeOnSelectedProperties(self,PlotPeriod:FBTime):
         """Plot the animation on selected properties.
         Will plot the animation of the take in question on the selected properties in the scene.
@@ -15079,6 +15434,17 @@ class FBFCurve(FBComponent):
         TangentMode : Tangent calculation method of the inserted key, default value is Auto (Smooth).
         return : The position of the new key in the list of FCurve keys."""
         ...
+    @overload
+    def KeyDelete(self,Start:FBTime=FBTime.MinusInfinity,Stop:FBTime=FBTime.Infinity,Inclusive:bool=False)->bool:
+        """Delete keys within a time range.
+        This function is much faster than multiple removes.
+        
+        Start : Start of time range.
+        Stop : End of time range.
+        Inclusive : True to include within the time range the keys atStartTime andStopTime, false otherwise.
+        return : True if the delete operation is successful, false otherwise (e.g. the FCurve is locked, no keys found within the time range, etc.)."""
+        ...
+    @overload
     def KeyDelete(self,StartIndex:int,StopIndex:int)->bool:
         """Delete keys within a time range.
         This function is much faster than multiple removes.
@@ -15217,6 +15583,18 @@ class FBFCurve(FBComponent):
         Interpolation : Interpolation type of the inserted key, default value is Cubic interpolation.
         TangentMode : Tangent calculation method of the inserted key, default value is Auto (Smooth)."""
         ...
+    @overload
+    def KeyOffset(self,OffsetTime:FBTime,StartTime:FBTime=FBTime.MinusInfinity,StopTime:FBTime=FBTime.Infinity,Inclusive:bool=True)->bool:
+        """Offset keys within a time range by a given offset time.
+        Non-moving keys that are situated in the target range are deleted automatically, to preserve the animation being offset.
+        
+        OffsetTime : The offset time to apply on keys.
+        StartTime : Start of time range.
+        StopTime : End of time range.
+        Inclusive : True to include within the time range the keys atStartTime andStopTime, false otherwise.
+        return : True if the offset operation is successful, false otherwise (e.g. the FCurve is locked, no keys found within the time range, etc.)."""
+        ...
+    @overload
     def KeyOffset(self,OffsetTime:FBTime,StartIndex:int,StopIndex:int)->bool:
         """Offset keys within a time range by a given offset time.
         Non-moving keys that are situated in the target range are deleted automatically, to preserve the animation being offset.
@@ -15560,6 +15938,15 @@ class FBToolLayoutManager(FBComponent):
         LayoutName : The new layout name to create.
         return : The new layout's name (could be different that the one supplied) if the operation is successful, nullptr (C++) or None (Python) otherwise."""
         ...
+    @overload
+    def DeleteLayout(self,LayoutName:str)->bool:
+        """Delete the layout with the given layout name.
+        Deleting a factory layout is not permitted.
+        
+        LayoutName : The layout name to delete.
+        return : True if the operation is successful, false otherwise."""
+        ...
+    @overload
     def DeleteLayout(self,LayoutIdx:int)->bool:
         """Delete the layout with the given layout name.
         Deleting a factory layout is not permitted.
@@ -15612,6 +15999,14 @@ class FBToolLayoutManager(FBComponent):
         AutoUpdate : The 'Auto-update Layout' state value.
         return : True if the operation is successful, false otherwise."""
         ...
+    @overload
+    def SetCurrentLayout(self,LayoutName:str)->bool:
+        """Set the current layout from the given layout name.
+        
+        LayoutName : The layout's name to set as the current layout.
+        return : True if the operation is successful, false otherwise."""
+        ...
+    @overload
     def SetCurrentLayout(self,LayoutIdx:int)->bool:
         """Set the current layout from the given layout name.
         
@@ -16446,7 +16841,16 @@ class FBVisualContainer(FBVisualComponent):
         
         return : Index of current selection."""
         ...
-    def ItemIconSet(self,Ref:object,Image:FBImage,UseACopyOfTheImage:bool=True)->bool:
+    @overload
+    def ItemIconSet(self,Ref,Filename:str)->bool:
+        """Set an item's icon.
+        
+        Ref : Reference to item in container.
+        Filename : Name of file where image is located.
+        return : Operation was successful (true or false)."""
+        ...
+    @overload
+    def ItemIconSet(self,Ref,Image:FBImage,UseACopyOfTheImage:bool=True)->bool:
         """Set an item's icon.
         
         Ref : Reference to item in container.
@@ -17212,7 +17616,7 @@ def FBAssetFolder_TypeInfo()->int:...
 def FBAssetItem_TypeInfo()->int:...
 def FBAssetMng_TypeInfo()->int:...
 def FBAudioClip_TypeInfo()->int:...
-def FBAudioFmt_AppendFormat(Format,Channels:int,Bits:int,Rate:int)->int:
+def FBAudioFmt_AppendFormat(Format,SrcFormat,arg3:object,arg4:object)->int:
     """Append the rendering audio format with another audio format.
     
     Format : Audio format to use.
@@ -17266,7 +17670,7 @@ def FBAudioFmt_GetRateValue(Format)->int:
     Format : Audio format to use.
     return : Audio rate value as an integer value."""
     ...
-def FBAudioFmt_RemoveFormat(Format,Channels:int,Bits:int,Rate:int)->int:
+def FBAudioFmt_RemoveFormat(Format,SrcFormat,arg3:object,arg4:object)->int:
     """Remove audio format from another audio format object.
     
     Format : Audio format to use.
@@ -17593,7 +17997,7 @@ def FBHUD_TypeInfo()->int:...
 def FBHandle_TypeInfo()->int:...
 def FBImageContainer_TypeInfo()->int:...
 def FBImage_TypeInfo()->int:...
-def FBInterpolateRotation(ROut:FBVector3d,R0:FBVector3d,R1:FBVector3d,U:float):
+def FBInterpolateRotation(QOut:FBVector3d,Q0:FBVector3d,Q1:FBVector3d,U:float):
     """Interpolate a rotation in Quaternion.
     
     QOut : Resulting, interpolated rotation.
@@ -17793,7 +18197,7 @@ def FBModelVertexData_TypeInfo()->int:...
 def FBModel_TypeInfo()->int:...
 def FBMotionClip_TypeInfo()->int:...
 def FBMotionFileOptions_TypeInfo()->int:...
-def FBMult(Result:FBVector4d,V1:FBVector4d,V2:float):
+def FBMult(Result:FBVector4d,M:FBVector4d,V:FBSVector):
     """Calculate the cross product of a Matrix and Scale Vector.
     
     Result : Resulting Matrix.
@@ -17908,7 +18312,7 @@ def FBQLength(Q:FBVector4d)->float:
     Q : Quaternion to calculate length for.
     return : Length of quaternionQ."""
     ...
-def FBQMult(Result:FBVector4d,Q1:FBVector4d,Q2:float):
+def FBQMult(Result:FBVector4d,Q1:FBVector4d,Q2):
     """Calculate the cross product of two quaternions.
     
     Result : Resulting quaternion.

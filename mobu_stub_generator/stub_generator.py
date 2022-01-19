@@ -250,6 +250,7 @@ class StubFunction(StubBaseClass):
         self._Params = []
         self.ReturnType = None
         self.bIsClassFunction = False
+        self.bIsOverload = False
 
     def AddParameter(self, Parameter):
         self._Params.append(Parameter)
@@ -277,7 +278,11 @@ class StubFunction(StubBaseClass):
         return ",".join(ParametersAsStrings)
 
     def GetAsString(self):
-        FunctionAsString = self.Indent(
+        FunctionAsString = ""
+        if self.bIsOverload:
+            FunctionAsString += "%s\n" % self.Indent("@overload", bCurrent = True)
+            
+        FunctionAsString += self.Indent(
             'def %s(%s)' % (self.Name, self.GetParamsAsString()),
             bCurrent = True
         )
@@ -485,34 +490,59 @@ def GetReturnTypeFromDocString(Function):
 # --------------------------------------------------------
 
 
-def GenerateStubClassFunction(Function, DocMembers, ExistingClassNames, ClassMemberNames, DocPage: docParser.DocumentationPage = None):
+def GetClassInitFunctions(Class):
+    Functions = []
+    
+    
+    return Functions
+
+def GenerateStubClassFunctions(Function, DocMembers, ExistingClassNames, ClassMemberNames, DocPage: docParser.DocumentationPage = None):
+    if DocPage:
+        Members = DocPage.GetMembersByName(Function.__name__)
+        if Members:
+            Functions = []
+            for Member in Members:
+                # Return Type
+                StubFunctionInstance = GenerateStubFunction(Function, DocMembers)
+                StubFunctionInstance.bIsClassFunction = True
+                StubFunctionInstance.bIsOverload = len(Members) > 1
+                
+                if not StubFunctionInstance.ReturnType.startswith("FB"):
+                    Type = Member.GetType(bConvertToPython = True)
+                    if Type:
+                        Type = PatchVariableType(Type, ExistingClassNames, ClassMemberNames)
+                        if Type and not Type.startswith("k"):
+                            StubFunctionInstance.ReturnType = Type
+
+                if len(Members) > 1:
+                    StubFunctionInstance:StubFunction
+                    StubFunctionInstance._Params = []
+                    for i in range(len(Member.Params) + 1):
+                        StubFunctionInstance.AddParameter(StubParameter(""))
+                        
+                i = 0
+                for CurrentParam, DocParam in zip(StubFunctionInstance.GetParameters()[1:], Member.Params):
+                    i += 1
+                    if DocParam.Name:
+                        CurrentParam.Name = DocParam.Name
+                    elif not CurrentParam.Name:
+                        CurrentParam.Name = "arg%s" % i
+
+                    NewParamType = DocParam.GetType(bConvertToPython = True)
+                    if NewParamType:
+                        CurrentParam.Type = PatchVariableType(NewParamType, ExistingClassNames, ClassMemberNames, bAlwaysTryToRemoveProperty = False)
+
+                    DefaultValue = DocParam.GetDefaultValue(bConvertToPython = True)
+                    if DefaultValue:
+                        CurrentParam.DefaultValue = PatchDefaultValue(DefaultValue, CurrentParam.Type, ExistingClassNames, ClassMemberNames)
+                        
+                Functions.append(StubFunctionInstance)
+                
+            return Functions
+        
     StubFunctionInstance = GenerateStubFunction(Function, DocMembers)
     StubFunctionInstance.bIsClassFunction = True
-
-    if DocPage:
-        Member = DocPage.GetMember(Function.__name__)
-        if Member:
-            # Return Type
-            if not StubFunctionInstance.ReturnType.startswith("FB"):
-                Type = Member.GetType(bConvertToPython = True)
-                if Type:
-                    Type = PatchVariableType(Type, ExistingClassNames, ClassMemberNames)
-                    if Type and not Type.startswith("k"):
-                        StubFunctionInstance.ReturnType = Type
-
-            for CurrentParam, DocParam in zip(StubFunctionInstance.GetParameters()[1:], Member.Params):
-                if DocParam.Name:
-                    CurrentParam.Name = DocParam.Name
-
-                NewParamType = DocParam.GetType(bConvertToPython = True)
-                if NewParamType:
-                    CurrentParam.Type = PatchVariableType(NewParamType, ExistingClassNames, ClassMemberNames, bAlwaysTryToRemoveProperty = False)
-
-                DefaultValue = DocParam.GetDefaultValue(bConvertToPython = True)
-                if DefaultValue:
-                    CurrentParam.DefaultValue = PatchDefaultValue(DefaultValue, CurrentParam.Type, ExistingClassNames, ClassMemberNames)
-
-    return StubFunctionInstance
+    return [StubFunctionInstance]
 
 
 def GenerateStubFunction(Function, DocMembers, ExistingClassNames = [], MoBuDocumentation: docParser.MotionBuilderDocumentation = None):
@@ -525,6 +555,8 @@ def GenerateStubFunction(Function, DocMembers, ExistingClassNames = [], MoBuDocu
     
     SDKDocumentationFunctionName = FunctionName if FunctionName.startswith("FB") else "FB%s" % FunctionName
     FunctionDocMember = MoBuDocumentation.GetSDKFunctionByName(SDKDocumentationFunctionName) if MoBuDocumentation else None
+    if isinstance(FunctionDocMember, list):
+        FunctionDocMember = FunctionDocMember[0]
 
     # Return Type
     StubFunctionInstance.ReturnType = GetReturnTypeFromDocString(Function)
@@ -565,6 +597,9 @@ def GenerateStubClass(Module, Class, GeneratedPyDoc, AllClassNames, MoBuDocument
 
     StubClassInstance = StubClass(ClassName)
     StubClassInstance.Parents = GetClassParentNames(Class)
+    
+    for Function in GetClassInitFunctions(Class):
+        StubClassInstance.AddFunction(Function)
 
     Page = MoBuDocumentation.GetSDKClassPagesByName(ClassName) if MoBuDocumentation else None
 
@@ -579,15 +614,14 @@ def GenerateStubClass(Module, Class, GeneratedPyDoc, AllClassNames, MoBuDocument
     ClassMemberNames = [x[0] for x in ClassMembers]
     for Name, Reference in ClassMembers:
         MemberType = GetObjectType(Reference)
-        WebDocMember = Page.GetMember(Name) if Page else None
         if MemberType == FObjectType.Function:
             try:
-                StubClassInstance.AddFunction(
-                    GenerateStubClassFunction(Reference, DocGenMembers, AllClassNames, ClassMemberNames, Page)
-                )
+                for StubFunction in GenerateStubClassFunctions(Reference, DocGenMembers, AllClassNames, ClassMemberNames, Page):
+                    StubClassInstance.AddFunction(StubFunction)
             except Exception as e:
                 print(e)
         else:
+            WebDocMembers = Page.GetMembersByName(Name) if Page else None
             Property = StubProperty(Name)
 
             # Enums should have their 'self' as type
@@ -597,7 +631,7 @@ def GenerateStubClass(Module, Class, GeneratedPyDoc, AllClassNames, MoBuDocument
             # Class Member
             else:
                 # Try to get the property type from the documentation
-                Type = WebDocMember.GetType(bConvertToPython = True) if WebDocMember else None
+                Type = WebDocMembers[0].GetType(bConvertToPython = True) if WebDocMembers else None
                 if not Type:
                     # Attempt to get the type by evaluating some code
                     try:

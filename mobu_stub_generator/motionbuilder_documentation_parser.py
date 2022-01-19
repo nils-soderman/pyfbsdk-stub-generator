@@ -379,10 +379,10 @@ class DocumentationPage():
         Parser = MotionBuilderDocumentationHtmlPageParser()
         Parser.feed(RawHTML)
 
-        self.Members = {x.Name: x for x in Parser.GetMembers()}
+        self.Members = Parser.GetMembers()
 
-    def GetMember(self, Name):
-        return self.Members.get(Name, None)
+    def GetMembersByName(self, Name):  
+        return [x for x in self.Members if x.Name == Name]
 
 
 class DocumentationCategory(DocumentationPage):
@@ -457,7 +457,7 @@ class MotionBuilderDocumentation():
         Page = self.GetSDKTableOfContents().get(FunctionName)
         if Page:
             Page.LoadPage(self.bCache)
-            return Page.GetMember(FunctionName)
+            return Page.GetMembersByName(FunctionName)
 
     def GetMainTableOfContents(self):
         if not self._TableOfContents:
@@ -537,5 +537,3 @@ def GetDocsMainTableOfContent(Version) -> list:
     RawContent = GetUrlContent(GetFullURL(Version, DOC_GUIDE_CONTENTS_PATH))
     TableOfContent = json.loads(RawContent)
     return TableOfContent.get("books", {})
-
-print(MotionBuilderDocumentation(2022, True).GetSDKFunctionByName("FBShowToolByName").GetType(bConvertToPython = True))
