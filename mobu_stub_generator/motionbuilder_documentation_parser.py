@@ -129,6 +129,8 @@ def ConvertVariableTypeToPython(Type: str):
         return Type[:-1]
 
     Type = Type.replace("::", ".")
+    if Type.startswith("."):
+        Type = Type[1:]
 
     return Type
 
@@ -308,7 +310,7 @@ class DocMemberParameter():
         self.Default = Default
 
     def GetType(self, bConvertToPython = False):
-        if bConvertToPython:
+        if self.Type and bConvertToPython:
             return ConvertVariableTypeToPython(self.Type)
         return self.Type
 
@@ -333,7 +335,7 @@ class DocPageMember():
         self.DocString = DocString
 
     def GetType(self, bConvertToPython = False):
-        if bConvertToPython:
+        if self.Type and bConvertToPython:
             return ConvertVariableTypeToPython(self.Type)
         return self.Type
 
@@ -537,3 +539,5 @@ def GetDocsMainTableOfContent(Version) -> list:
     RawContent = GetUrlContent(GetFullURL(Version, DOC_GUIDE_CONTENTS_PATH))
     TableOfContent = json.loads(RawContent)
     return TableOfContent.get("books", {})
+
+print(MotionBuilderDocumentation(2022, True).GetSDKClassPagesByName("FBCharacterSolver").GetURL())

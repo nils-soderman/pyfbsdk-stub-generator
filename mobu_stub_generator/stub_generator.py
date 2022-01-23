@@ -108,9 +108,24 @@ def PatchVariableType(VariableType: str, ExistingClassNames, ClassMembers = [], 
                 return NewVariableType
             return Default
 
-        if VariableType[0].isupper() and not VariableType.startswith("List["):
-            if VariableType in ExistingClassNames or VariableType in ClassMembers:
+        if VariableType[0].isupper():
+            if VariableType.startswith("List["):
+                ListVariable = VariableType[len("List["):-1]
+                PatchedListVar = PatchVariableType(ListVariable, ExistingClassNames, ClassMembers)
+                if PatchedListVar is None:
+                    return "list"
                 return VariableType
+                
+            else:
+                if VariableType in ExistingClassNames or VariableType in ClassMembers:
+                    return VariableType
+                if VariableType.startswith("K"):
+                    NewVariableAttempt = PatchVariableType("FB%s" % VariableType[1:], ExistingClassNames, ClassMembers)
+                    if NewVariableAttempt:
+                        return NewVariableAttempt
+                return Default
+
+        if VariableType in ["tType"]:
             return Default
 
         return VariableType
@@ -404,11 +419,12 @@ def GetClassParentNames(Class):
     return ParentClassNames
 
 
-def GetClassMembers(Class):
+def GetClassMembers(Class, bIsEnum = False):
     IgnoreMembers = ["names", "values", "__slots__", "__instance_size__"]
+    AllowMembers = [] if bIsEnum else ["__init__"]
     Members = inspect.getmembers(Class)
     ParentClass = GetClassParents(Class)[0]
-    UniqueMemebers = [x for x in Members if not hasattr(ParentClass, x[0]) and x[0] not in IgnoreMembers] #  and not x[0].startswith("__")
+    UniqueMemebers = [x for x in Members if (not hasattr(ParentClass, x[0]) and x[0] not in IgnoreMembers) or x[0] in AllowMembers] #  and not x[0].startswith("__")
     return UniqueMemebers
 
 
@@ -489,33 +505,32 @@ def GetReturnTypeFromDocString(Function):
 #                   Generate Functions
 # --------------------------------------------------------
 
-
-def GetClassInitFunctions(Class):
-    Functions = []
-    
-    
-    return Functions
-
-def GenerateStubClassFunctions(Function, DocMembers, ExistingClassNames, ClassMemberNames, DocPage: docParser.DocumentationPage = None):
+def GenerateStubClassFunctions(Class, Function, DocMembers, ExistingClassNames, ClassMemberNames, DocPage: docParser.DocumentationPage = None):
     if DocPage:
-        Members = DocPage.GetMembersByName(Function.__name__)
+        FunctionName = Function.__name__
+        bIsInit = Function.__name__ == "__init__"
+        if bIsInit:
+            FunctionName = DocPage.Title
+        Members = DocPage.GetMembersByName(FunctionName)
         if Members:
             Functions = []
             for Member in Members:
                 # Return Type
-                StubFunctionInstance = GenerateStubFunction(Function, DocMembers)
+                StubFunctionInstance:StubFunction = GenerateStubFunction(Function, DocMembers, ExistingClassNames)
                 StubFunctionInstance.bIsClassFunction = True
                 StubFunctionInstance.bIsOverload = len(Members) > 1
                 
-                if not StubFunctionInstance.ReturnType.startswith("FB"):
+                if Function.__name__ == "__init__":
+                    StubFunctionInstance.ReturnType = None
+                    
+                elif not StubFunctionInstance.ReturnType.startswith("FB"):
                     Type = Member.GetType(bConvertToPython = True)
                     if Type:
                         Type = PatchVariableType(Type, ExistingClassNames, ClassMemberNames)
                         if Type and not Type.startswith("k"):
                             StubFunctionInstance.ReturnType = Type
-
+                    
                 if len(Members) > 1:
-                    StubFunctionInstance:StubFunction
                     StubFunctionInstance._Params = []
                     for i in range(len(Member.Params) + 1):
                         StubFunctionInstance.AddParameter(StubParameter(""))
@@ -526,7 +541,7 @@ def GenerateStubClassFunctions(Function, DocMembers, ExistingClassNames, ClassMe
                     if DocParam.Name:
                         CurrentParam.Name = DocParam.Name
                     elif not CurrentParam.Name:
-                        CurrentParam.Name = "arg%s" % i
+                        CurrentParam.Name = "p%s" % i
 
                     NewParamType = DocParam.GetType(bConvertToPython = True)
                     if NewParamType:
@@ -535,12 +550,19 @@ def GenerateStubClassFunctions(Function, DocMembers, ExistingClassNames, ClassMe
                     DefaultValue = DocParam.GetDefaultValue(bConvertToPython = True)
                     if DefaultValue:
                         CurrentParam.DefaultValue = PatchDefaultValue(DefaultValue, CurrentParam.Type, ExistingClassNames, ClassMemberNames)
+                    
+                bHasDefaultValue = False
+                for x in StubFunctionInstance.GetParameters():
+                    if bHasDefaultValue and x.DefaultValue == docParser.FMoBoDocsParameterNames.Undefined:
+                        x.DefaultValue = None
+                    elif x.DefaultValue != docParser.FMoBoDocsParameterNames.Undefined:
+                        bHasDefaultValue = True
                         
                 Functions.append(StubFunctionInstance)
                 
             return Functions
         
-    StubFunctionInstance = GenerateStubFunction(Function, DocMembers)
+    StubFunctionInstance = GenerateStubFunction(Function, DocMembers, ExistingClassNames)
     StubFunctionInstance.bIsClassFunction = True
     return [StubFunctionInstance]
 
@@ -597,11 +619,12 @@ def GenerateStubClass(Module, Class, GeneratedPyDoc, AllClassNames, MoBuDocument
 
     StubClassInstance = StubClass(ClassName)
     StubClassInstance.Parents = GetClassParentNames(Class)
-    
-    for Function in GetClassInitFunctions(Class):
-        StubClassInstance.AddFunction(Function)
 
-    Page = MoBuDocumentation.GetSDKClassPagesByName(ClassName) if MoBuDocumentation else None
+    DocumentPageName = ClassName
+    if DocumentPageName.startswith("FBVector"):
+        DocumentPageName = DocumentPageName.rstrip("d")
+
+    Page = MoBuDocumentation.GetSDKClassPagesByName(DocumentPageName) if MoBuDocumentation else None
 
     # TODO: DocMembers/DocGenRef etc. could be a class
     DocGenRef = GeneratedPyDoc.get(ClassName)
@@ -610,17 +633,17 @@ def GenerateStubClass(Module, Class, GeneratedPyDoc, AllClassNames, MoBuDocument
         StubClassInstance.SetDocString(DocGenRef.__doc__)
         DocGenMembers = dict(GetClassMembers(DocGenRef))
 
-    ClassMembers = GetClassMembers(Class)
+    ClassMembers = GetClassMembers(Class, bIsEnum)
     ClassMemberNames = [x[0] for x in ClassMembers]
     for Name, Reference in ClassMembers:
         MemberType = GetObjectType(Reference)
         if MemberType == FObjectType.Function:
             try:
-                for StubFunction in GenerateStubClassFunctions(Reference, DocGenMembers, AllClassNames, ClassMemberNames, Page):
+                for StubFunction in GenerateStubClassFunctions(Class, Reference, DocGenMembers, AllClassNames, ClassMemberNames, Page):
                     StubClassInstance.AddFunction(StubFunction)
             except Exception as e:
                 print(e)
-        else:
+        elif Name not in ["__init__"]:
             WebDocMembers = Page.GetMembersByName(Name) if Page else None
             Property = StubProperty(Name)
 

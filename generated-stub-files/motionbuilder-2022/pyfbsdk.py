@@ -3385,6 +3385,9 @@ class FBAddRegionParam():
     """Read Property: Name of Region to attach relative to."""
     mType:property
     """Read Property: Type of Attachment."""
+    def __init__(self,arg2:object,arg3:FBAttachType,arg4:str,arg5:float):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBAudioRenderOptions():
     """Audio Render Options structure.
     Contain options to control how the audio rendering will occur. See sample: AudioRendering.py."""
@@ -3398,6 +3401,9 @@ class FBAudioRenderOptions():
     """Property: Rate mode for number of samples per second. 44100 hz default,8000, 11025,12000,16000,22050,24000,32000,44100,48000,64000,88200,96000 available for audio render."""
     TimeSpan:FBTimeSpan
     """Property: Start and stop selection time to render."""
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBBatchOptions():
     """Option parameters for the batch process."""
     Character:property
@@ -3440,6 +3446,9 @@ class FBBatchOptions():
     """Read Write Property: Write frame rate in Acclaim AMC files."""
     WriteTranslation:bool
     """Read Write Property: Write translation animation data included with Acclaim AMC files."""
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBCallback():
     """This class is used for the internal callback framework and is not meant to be used by clients."""
     Callback:property
@@ -3448,6 +3457,9 @@ class FBCallback():
     """Read Property: Event type to which this callback is connected."""
     Wrapper:property
     """Read Property: Pyfbsdk Wrapper that is the owner of the callback."""
+    def __init__(self,arg2:object,arg3:FBEventName,arg4:object):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBCharacterPoseOptions():
     """Stores options for operations on poses.
     This class exposes the object used to store the options for operations on object poses. Before using a FBCharacterPoseOptions, you need to specify the various members of the object. Here are the default values of a FBCharacterPoseOptions object: mCharacterPoseKeyingMode = kFBCharacterPoseKeyingModeFullBody mModelToMatch = NULL mMirrorPlaneType = kFBMirrorPlaneTypeAuto mMirrorPlaneEquation = 1.0, 0.0, 0.0, 0.0 mMirrorPlaneTiltAngle = 90.0 mMirrorPlanePanAngle = 0.0 Flag = kFBCharacterPoseNoFlag You need to change at least the Flag value by using SetFlag() to set how the pose will be pasted; see the FBCharacterPoseFlag enum for the various options."""
@@ -3478,6 +3490,9 @@ class FBCharacterPoseOptions():
         Flag : Flag to set.
         Value : Value to set."""
         ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBColor():
     """FBColor class.
     Color vector.This class creates a list like object, which can be modified using the list protocol method. But unlike lists, its length is fixed: it always contain 3 floating point values. Thus it does not support the any list methods that would affect its length. The values within can be changed, usually via the bracket operator.
@@ -3505,6 +3520,22 @@ class FBColor():
     def __iadd__(self,arg2:FBColor)->object:...
     def __idiv__(self,arg2:FBColor)->object:...
     def __imul__(self,arg2:FBColor)->object:...
+    @overload
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
+    @overload
+    def __init__(self,Value:float):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
+    @overload
+    def __init__(self,Red:float,Green:float,Blue:float):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
+    @overload
+    def __init__(self,Vector:FBColor):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
     def __isub__(self,arg2:FBColor)->object:...
     def __len__(self)->int:
         """Returns the number of elements.
@@ -3547,6 +3578,30 @@ class FBColorAndAlpha():
     def __iadd__(self,arg2:FBColorAndAlpha)->object:...
     def __idiv__(self,arg2:FBColorAndAlpha)->object:...
     def __imul__(self,arg2:FBColorAndAlpha)->object:...
+    @overload
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
+    @overload
+    def __init__(self,Value:float):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
+    @overload
+    def __init__(self,Red:float,Green:float,Blue:float,Alpha:float=1.0):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
+    @overload
+    def __init__(self,Value:FBColor):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
+    @overload
+    def __init__(self,Value):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
+    @overload
+    def __init__(self,Vector:FBColorAndAlpha):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
     def __isub__(self,arg2:FBColorAndAlpha)->object:...
     def __len__(self)->int:
         """Returns the number of elements.
@@ -3578,6 +3633,9 @@ class FBComponentList():
         
         Index : Index of the components to get
         return : FBComponent element value"""
+        ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
         ...
     def __len__(self)->int:
         """Returns the number of elements.
@@ -3619,6 +3677,14 @@ class FBConfigFile():
         Value : Value assigned to the item.
         Comment : Optional parameter that can be used to add a comment.
         return : true if the item was written to the config file, false otherwise."""
+        ...
+    @overload
+    def __init__(self,ConfigFileName:str,VirtualMode:bool=False,ClearFile:bool=False):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
+    @overload
+    def __init__(self,ConfigFileName:str,ConfigFilePath:str,VirtualMode:bool=False,ClearFile:bool=False):
+        """Initialize self.  See help(type(self)) for accurate signature."""
         ...
 class FBConstraintInfo():
     """Constraint information class.
@@ -3676,6 +3742,9 @@ class FBConstructionOperation():
         
         script : Script content as a string. Defaults to empty."""
         ...
+    def __init__(self,arg2:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBDeviceNotifyInfo():
     """Device Input and Output Notification information structure.
     This structure is passed to the real-time device IO callback DeviceIONotify. It furnishes the device callback with the system time, local time, and sync counts for the current device cycle."""
@@ -3724,6 +3793,9 @@ class FBDirMap():
         
         Path : The path to process"""
         ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBEvaluateInfo():
     """AnimationNodeNotify evaluation information.
     This structure is passed to the AnimationNodeNotify calls (in Constraints, Devices, and Boxes), giving the connectors information with regards to the start or stop times of the evaluation. In general, only the start time is of interest for the current evaluation cycle. The advantage of the structure is to have a common time for the evaluation of all the elements in the scene."""
@@ -3761,19 +3833,27 @@ class FBEventActivate(FBEvent):
     Data:property
     """Read Write Property: Generic data of event."""
 class FBEventClipChange(FBEvent):
-    ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBEventConnectionDataNotify(FBEvent):
     """Connection notify event class."""
     Action:FBConnectionAction
     """Read Only Property: Connection's action performed."""
     Plug:FBPlug
     """Read Only Property: The plug involved in the action."""
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBEventConnectionKeyingNotify(FBEvent):
     Action:FBConnectionAction
     Plug:property
     Property:property
     StartTime:FBTime
     StopTime:FBTime
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBEventConnectionNotify(FBEvent):
     """Connection notify event class."""
     Action:FBConnectionAction
@@ -3788,16 +3868,25 @@ class FBEventConnectionNotify(FBEvent):
     """Read Only Property: Index of the source in the destination component."""
     SrcPlug:FBPlug
     """Read Only Property: The source plug involved in the action."""
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBEventConnectionStateNotify(FBEvent):
     """Connection notify event class."""
     Action:FBConnectionAction
     """Read Only Property: Connection's action performed."""
     Plug:FBPlug
     """Read Only Property: The plug involved in the action."""
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBEventDblClick(FBEvent):
     """Input event class."""
     Selection:int
     """Read Only Property: Id of selection."""
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBEventDragAndDrop(FBEvent):
     """Drag and drop interface.Event: Global Evaluation pipeline critical timing callback event."""
     Components:property
@@ -3870,14 +3959,22 @@ class FBEventOverrideFileOpen(FBEvent):
     """Read Only Property: Path to the file that will be opened/merged."""
     WillOverride:bool
     """Read Write Property: Set to true for handling the file load, false by default. If the return value is false, MotionBuilder will proceed with the normal file open/merge process."""
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBEventPlayerControlChange(FBEvent):
-    ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBEventResize(FBEvent):
     """Event sent to a control that resizes."""
     Height:int
     """Property: New Height of the window."""
     Width:int
     """Property: New Width of the window."""
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBEventSceneChange(FBEvent):
     """Select model event class.
     This event occurs every time a model is:(un)selectedaddeddestroyedrenamed, etc.."""
@@ -3885,6 +3982,9 @@ class FBEventSceneChange(FBEvent):
     """Read Only Property: Child component of the event."""
     Component:FBComponent
     """Read Only Property: Modified component"""
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBEventShow(FBEvent):
     """Show event class."""
     Shown:bool
@@ -3902,6 +4002,9 @@ class FBEventTakeChange(FBEvent):
     This event occurs every time a take is:addeddestroyedrenamedselected, etc."""
     Take:FBTake
     """Read Only Property: The take modified."""
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBEventTransaction(FBEvent):
     """Transaction event."""
     IsBeginTransaction:bool
@@ -3916,6 +4019,9 @@ class FBEventTreeSelect(FBEvent):
     """FBTree selection event.Event: Video Frame offline Rendering Event."""
     TreeNode:FBTreeNode
     """Read Write Property: Selected tree node."""
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBEventVideoFrameRendering(FBEvent):
     EState:_Enum
     FrameCount:int
@@ -3924,6 +4030,9 @@ class FBEventVideoFrameRendering(FBEvent):
     eBeginRendering:EState
     eEndRendering:EState
     eRendering:EState
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBFCurveEvent(FBEvent):
     """This class is used when a modification is made on a FCurve.
     It contains the necessary information to identify the owner of the curve and what modification was made."""
@@ -3942,6 +4051,9 @@ class FBFCurveEvent(FBEvent):
     ParentAnimationNode:property
     ParentComponent:property
     ParentProperty:property
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBFCurveKey():
     """KeyFrame for an FCurve.
     See sample: StartKeysAtCurrentTime.py."""
@@ -3987,6 +4099,14 @@ class FBFCurveKey():
     """Read Write Property: Time of key."""
     Value:float
     """Read Write Property: Value of Key"""
+    @overload
+    def __init__(self,FCurve:FBFCurve=None,KeyIndex:int=1):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
+    @overload
+    def __init__(self,FCurveKey:FBFCurveKey):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBFilePopup():
     """File Popup (for open/save).
     See samples: AudioTrackSetupTool.py, FBFilePopup.py."""
@@ -4005,6 +4125,9 @@ class FBFilePopup():
         """Execute file popup.
         
         return : true if OK is clicked by user."""
+        ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
         ...
 class FBFilterManager():
     """Filter manager.
@@ -4049,6 +4172,9 @@ class FBFilterManager():
         FilterTypeName : String describing the type of the desired filter, as obtained from list FilterTypeNames.
         return : A pointer to a filter instance, or a NULL if the type name was invalid."""
         ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBFolderPopup():
     """Folder Popup (for selecting a directory).
     See samples: RenderLayers.py, BatchExportCharacterAnimationTool.py, RenameFirstTakeOnMultipleFiles.py, FBFolderPopup.py."""
@@ -4059,6 +4185,9 @@ class FBFolderPopup():
         """Execute folder popup.
         
         return : true if OK is clicked by user."""
+        ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
         ...
 class FBMatrix():
     """FBMatrix class.
@@ -4114,6 +4243,18 @@ class FBMatrix():
         ...
     def __iadd__(self,arg2:FBMatrix)->object:...
     def __imul__(self,arg2:FBMatrix)->object:...
+    @overload
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
+    @overload
+    def __init__(self,Value:float):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
+    @overload
+    def __init__(self,Matrix:FBMatrix):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
     def __isub__(self,arg2:FBMatrix)->object:...
     def __len__(self)->int:
         """Returns the number of elements.
@@ -4158,6 +4299,9 @@ class FBModelList():
         
         Index : Index of the components to get
         return : Model element value"""
+        ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
         ...
     def __len__(self)->int:
         """Returns the number of elements.
@@ -4214,6 +4358,9 @@ class FBMultiLangManager():
         Language : The string corresponding to the desired language, as defined in property Languages.
         return : Indicate if the change of language was successful."""
         ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBNormal():
     def CopyFrom(self,arg2:FBNormal)->FBNormal:...
     def CrossProduct(self,arg2:FBNormal)->FBNormal:...
@@ -4230,6 +4377,7 @@ class FBNormal():
     def __iadd__(self,arg2:FBNormal)->object:...
     def __idiv__(self,arg2:FBNormal)->object:...
     def __imul__(self,arg2:FBNormal)->object:...
+    def __init__(self):...
     def __isub__(self,arg2:FBNormal)->object:...
     def __len__(self)->int:...
     def __mul__(self,arg2:FBNormal)->object:...
@@ -4257,6 +4405,9 @@ class FBObjectPoseMirrorOptions():
         Flag : Flag to set.
         Value : Value to set."""
         ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBObjectPoseOptions():
     """FBObjectPoseOptions class.
     This class exposes the object used to store the options for operations on object poses."""
@@ -4283,6 +4434,9 @@ class FBObjectPoseOptions():
         Flag : Flag to set.
         Value : Value to set."""
         ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBPickInfosList():
     """FBPickInfosList class.
     This class implements a special sort of list that can only contains a pick info which is a tuple<FBModel, FBVector3d>. A pick info give the position (FBVector3d) and the model (FBModel) that was pick on screen.To users FBPickInfosList behave like a typle, since it is not possible to add new objects in the list. Only methods or function that uses FBPickInfosList as argument can insert new objects. Users can query the content of the list with the bracket operator.
@@ -4299,6 +4453,9 @@ class FBPickInfosList():
         
         Index : Index of the components to get
         return : PickInfos element value. A Pick info is a tuple<FBModel, FBVector3d>"""
+        ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
         ...
     def __len__(self)->int:
         """Returns the number of elements.
@@ -4332,9 +4489,13 @@ class FBPlotOptions():
     """Read Write Property: The rotation filter to apply."""
     UseConstantKeyReducer:bool
     """Read Write Property: Should we use a constant key reducer with the filter?"""
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBPlugList():
     def GetCount(self)->int:...
     def __getitem__(self,arg2:object)->object:...
+    def __init__(self):...
     def __len__(self)->int:...
 class FBProfileTaskCycle():
     """FBProfileTaskCycle.
@@ -4479,6 +4640,9 @@ class FBPropertyStateEvent(FBEvent):
     """Read Only Property: Event type, please see the FBPropertyStateEventType for the possible types."""
     ParentComponent:property
     Property:property
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBPropertyViewDefinition():
     """FBProperty View.
     View definition for one property."""
@@ -4951,6 +5115,9 @@ class FBReferenceTime(FBComponent):
         ReferenceTime : Time to use as reference time.
         System : System time."""
         ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBPropertyViewManager(FBComponent):
     """FBProperty View Manager.
     Interface to create new property views. There are two ways of creating properties view:on library load using AddPropertyView, RemovePropertyView, HidePropertyView - example can be found in \\OpenRealitySDK\\Samples\\constraints\\CharacterSolver\\HIK2014Solverwhile application is running using FBPropertyViewList - example can be found in in\\config\\Scripts\\Samples\\Properties\\PropertyViewManager.py See sample: PropertyViewManager.py."""
@@ -5002,6 +5169,9 @@ class FBPropertyViewManager(FBComponent):
         ClassName : Property owner class name.
         PropertyName : Property name.
         return : true if succeed (should not be call on system views)."""
+        ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
         ...
 class FBPropertyVector3d(FBProperty):
     def __getitem__(self,arg2:object)->float:...
@@ -5979,6 +6149,9 @@ class FBProgress(FBComponent):
         """Return true if User is pressing and holding 'ESC' key to request the cancellation.
         Must be called in between ProgressBegin()/ProgressDone()."""
         ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBProfiler(FBComponent):
     """FBProfiler.
     Central place to query profiling results and change profiling options. See sample: CreateProfilingEventsLog.py."""
@@ -6058,6 +6231,9 @@ class FBProfiler(FBComponent):
         Index : Index of stat.
         return : Stop time (in seconds)."""
         ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBPose(FBComponent):
     """Pose class."""
     Type:FBPoseType
@@ -6127,6 +6303,9 @@ class FBPose(FBComponent):
         Index : Index of the node.
         Object : Object to associate with this pose node."""
         ...
+    def __init__(self,Name:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBPointCacheManager(FBComponent):
     """Point Cache Manager Interface to the point cache manager.
     See sample: CharacterPointCache.py."""
@@ -6154,6 +6333,9 @@ class FBPointCacheManager(FBComponent):
     """Read Write Property: Valid only when ApplyCacheOnNewModel is on. Create New Models under NewModelRoot. otherwise, a NULL model will be created."""
     SaveEveryFrame:int
     """Read Write Property: Recording Frequency."""
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBCharacterPose(FBPose):
     """Used to work with character poses.
     This class exposes the object used to store the pose of objects. See sample: MirrorPoseOverTime.py."""
@@ -6321,6 +6503,9 @@ class FBCharacterPose(FBPose):
         """Remove the pose of a character extension.
         
         Index : Index of the character extension pose to remove."""
+        ...
+    def __init__(self,Name:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
         ...
 class FBObjectPose(FBPose):
     """FBObjectPose class.
@@ -6502,6 +6687,9 @@ class FBObjectPose(FBPose):
         ObjectName : Name of the object to set the transform.
         PoseTransformType : Transform type in which to set the transform (Local, Global or LocalRef)."""
         ...
+    def __init__(self,Name:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBCluster(FBComponent):
     """Weighting interface for meshes.
     This class is experimental. See sample: FBClusterTransactions.py."""
@@ -6627,6 +6815,9 @@ class FBCluster(FBComponent):
         Weight : Weight to give to vertex.
         Index : Index of link to get vertex from."""
         ...
+    def __init__(self,Model:FBModel):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBCharacterMarkerSet(FBComponent):
     """Character marker set class.
     These classes are under development and may change dramatically between versions."""
@@ -6649,6 +6840,9 @@ class FBCharacterMarkerSet(FBComponent):
         NodeId : FBBodyNodeId
         What : FBModelTransformationType
         return : The property associated with givenNodeId andWhat."""
+        ...
+    def __init__(self,Name:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
         ...
 class FBCameraSwitcherAudioManager(FBComponent):
     """Camera Switcher Audio Manager class.
@@ -6724,6 +6918,9 @@ class FBCameraSwitcherAudioManager(FBComponent):
         Show : True to show the right channel, false otherwise.
         return : True if the operation is successful, false otherwise."""
         ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBBox(FBComponent):
     """A box is a fundamental building block in the application architecture.
     All animatable elements are derived in some way from the main box class, either by deriving directly or owning a box."""
@@ -6775,10 +6972,15 @@ class FBBox(FBComponent):
         
         return : The number of animation node outputs for this box."""
         ...
+    def __init__(self,Name:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBAudioOut(FBComponent):
     """Audio Out class.
     Properties of this class are work in progress, but you can still list them and get their names."""
-    ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBBoxPlaceHolder(FBBox):
     """Wrapper around a specific instance of a FBBox object.
     This class is mainly used with a constraint relation to have multiple boxes that are a representation of the same underlying box. The underlying box will usually be a device. Instantiation of FBBoxPlaceHolder should be left to the the system."""
@@ -6954,6 +7156,9 @@ class FBCharacterSolver(FBConstraint):
         Index : Index of extra Bone to get."""
         ...
     def SetTransformationOffset(self,arg2:FBModel,arg3:FBVector3d,arg4:FBVector3d,arg5:FBVector3d):...
+    def __init__(self,Name:str,Object=None,arg4:str=None):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBCharacterFace(FBConstraint):
     """Animates a character face using an actor as input.
     These classes are under development and may change dramatically between versions."""
@@ -7178,6 +7383,9 @@ class FBCharacterFace(FBConstraint):
         ShapeId : Index of the shape in the blendshape group to set.
         Name : Name to set on the shape.
         return : True if the operation completed successfully."""
+        ...
+    def __init__(self,Name:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
         ...
 class FBCharacter(FBConstraint):
     """A character is the link between a motion source and a character model.
@@ -7599,6 +7807,9 @@ class FBCharacter(FBConstraint):
         EffectorIndex : Given Index to obtain Model
         Value : The object Pinned in Translation status.
         return : True if the operation is successful, false otherwise."""
+        ...
+    def __init__(self,Name:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
         ...
 class FBActor(FBConstraint):
     """FBActor is used to link motion data to a character.
@@ -8040,6 +8251,9 @@ class FBActor(FBConstraint):
         
         EvalInfo : Evaluate Info of the Values"""
         ...
+    def __init__(self,Name:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBConstraintRelation(FBConstraint):
     """ConstraintRelation class.
     This class exposes the relation constraint and allows addition of new boxes and removal of existing ones. See sample: TraversingRelationConstraint.py."""
@@ -8082,6 +8296,9 @@ class FBConstraintRelation(FBConstraint):
         Y : New Y position.
         return : A boolean value indicating success (True) or failure (False)."""
         ...
+    def __init__(self,Name:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBCycleAnalysisNode(FBBox):
     """Cycle Analysis class."""
     RealTime:bool
@@ -8099,9 +8316,14 @@ class FBCycleAnalysisNode(FBBox):
     def GetRootRFCurve(self)->object:...
     def GetRootSpeedFCurve(self)->object:...
     def GetRootXZFCurve(self)->object:...
+    def __init__(self,Name:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBConstraintSolver(FBConstraint):
     """Base class for constraint solver."""
-    ...
+    def __init__(self,arg2:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBDevice(FBBox):
     """Base Device class.
     Cannot be instantiated from Python. See samples: StartDevice.py, StopDevice.py."""
@@ -8172,6 +8394,9 @@ class FBGlobalLight(FBBox):
     """Read Write Property: End fog distance."""
     FogMode:FBFogMode
     """Read Write Property: Fog falloff mode."""
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBDeviceOptical(FBDevice):
     """Optical device class."""
     AutoAntialiasing:bool
@@ -8214,6 +8439,9 @@ class FBDeviceOptical(FBDevice):
         Time : Time of evaluation.
         DeviceNotifyInfo : Notification information when thread was called."""
         ...
+    def __init__(self,Name:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBGroup(FBBox):
     """Objects Grouping class.
     This class is an interface to manipulate object's grouping in the scene. See samples: FBGetSelectedModels.py, FBGroup.py."""
@@ -8241,6 +8469,9 @@ class FBGroup(FBBox):
         """Select.
         
         Select : If true, group contents will be selected."""
+        ...
+    def __init__(self,Name:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
         ...
 class FBHUD(FBBox):
     """Heads Up display.
@@ -8274,6 +8505,9 @@ class FBHUD(FBBox):
         Type : View to be called for expose.
         Name : Name for the HUD Element to create.
         return : The created HUD Element."""
+        ...
+    def __init__(self,Name:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
         ...
 class FBHUDElement(FBBox):
     """Heads Up display.
@@ -8320,16 +8554,25 @@ class FBHandle(FBBox):
         """Meta selection.
         With this method, the handle itself is selected as well as all the models that are manipulated by the handle."""
         ...
+    def __init__(self,Name:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBHUDFlashElement(FBHUDElement):
     """Heads Up display.
     Flash HUD element. Display a flash (swf) file rendered on the HUD. See sample: HUDElements.py."""
     FilePath:str
     """Read Write Property: Path to load the swf file from"""
+    def __init__(self,Name:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBHUDRectElement(FBHUDElement):
     """Heads Up display.
     Rectangle HUD element. See sample: HUDElements.py."""
     Color:FBColorAndAlpha
     """Read Write Property: Color of the rectangluar region."""
+    def __init__(self,Name:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBHUDBloopSlateElement(FBHUDFlashElement):
     """Heads Up display.
     Bloop Slate HUD element. Display a bloop slate (swf) file rendered on the HUD."""
@@ -8343,6 +8586,9 @@ class FBHUDBloopSlateElement(FBHUDFlashElement):
     """Read Write Property: Delay before the bloop slate is displayed after recording has started."""
     ShowDuration:FBTime
     """Read Write Property: Time that the bloop slate will be displayed."""
+    def __init__(self,Name:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBHUDTimelineElement(FBHUDFlashElement):
     """Heads Up display.
     HUD Timeline element. Displays a timeline that shows Head, Cut, Tail regions, and current time cursor. The drawing is defined in the flash file(timeline.swf). See sample: Timeline.py."""
@@ -8362,6 +8608,9 @@ class FBHUDTimelineElement(FBHUDFlashElement):
     """Read Write Property: Specifies duration of the Tail region."""
     TailIdleColor:FBColorAndAlpha
     """Read Write Property: Specifies color of the Tail region when it is idle."""
+    def __init__(self,Name:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBHUDTextElement(FBHUDElement):
     """Heads Up display.
     Text element. Render text with a background rectangle to the HUD. See samples: HUDElements.py, HUDTextElement.py, HUD.py."""
@@ -8380,11 +8629,17 @@ class FBHUDTextElement(FBHUDElement):
     def GetFontList(self)->FBStringList:
         """Returns a list of supported fonts."""
         ...
+    def __init__(self,Name:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBHUDTextureElement(FBHUDElement):
     """Heads Up display.
     Texture HUD element. Display a texture on a rectangle on the HUD. See sample: HUDElements.py."""
     Texture:FBPropertyListTexture
     """Read Write Property: Texture to display."""
+    def __init__(self,Name:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBMaterial(FBBox):
     """Material class.
     See samples: MaterialAndTexture.py, TextureAnimation.py, VideoInput.py, VideoMemory.py."""
@@ -8445,6 +8700,9 @@ class FBMaterial(FBBox):
         Type : MaterialTextureType to set connected texture to."""
         ...
     def __copy__(self)->object:...
+    def __init__(self,Name:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBModel(FBBox):
     """Model class.
     In the MotionBuilder UI, a model can be any object in a scene, created using geometry. Models can represent simple objects like cubes, or complex objects like characters.FBModel is a base class which is not used so much directly, but is the parent of well-used classes like FBCamera, FBLight, and FBModelMarker.It also implements a number of widely-implemented functions and attributes, such as: Clone(), FBDelete() UI attributes such as Show, Pickable, and Visibility Positional attributes such as Rotation, Scaling, and Translation The following Python snippet shows how to create, show, rotate, and delete a cube
@@ -8783,10 +9041,15 @@ class FBNote(FBBox):
         Comp : Component from which to detach note.
         return : A boolean indicating if the operation was successful or not."""
         ...
+    def __init__(self,Name:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBModelCube(FBModel):
     """Cube model class.
     See samples: FBGroup.py, FBModelCube.py."""
-    ...
+    def __init__(self,Name:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBLight(FBModel):
     """Light class."""
     AreaLightShape:property
@@ -8832,6 +9095,9 @@ class FBLight(FBModel):
     """Read Write Property: Angle of top barn door."""
     eRectangle:EAreaLightShapes
     eSphere:EAreaLightShapes
+    def __init__(self,Name:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBCameraSwitcher(FBModel):
     """Camera switcher.
     This class is a wrapper around the system's camera switcher object. There can only be one switcher in a given scene. Any attempts at creating a new instance will return the existing one. See sample: CameraSwitcher.py."""
@@ -8847,6 +9113,9 @@ class FBCameraSwitcher(FBModel):
         return : True if the plot operation has been processed successfully, false otherwise."""
         ...
     def UseEvaluateSwitch(self):...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBCamera(FBModel):
     """Creates custom cameras and manages system cameras.
     When you look at a scene in the MotionBuilder Viewer, you are using a camera view.There are two types of cameras: Producer cameras. By default one of the producer cameras is used. These are always present. They can be configured but not destroyed. Custom cameras, created by the user.The SystemCamera property indicates whether a given camera is a producer or a custom camera.When you create a camera you should make it visible with the show property (inherited from FBModel).Use FBCameraSwitcher to get and set the current camera. For usage, see the Python sample CameraSwitcher.py.To see how to create a camera with a marker as an interest, see the Python sample code in FBCamera.py. For usage in C++, see the manipcamera sample. See samples: NewCamera.py, RenderLayers.py, CameraSwitcher.py, SetAllCamerasBackgroundColor.py, SetAllCamerasBackgroundColorFromCurrentCamera.py, SetAllCamerasBackgroundColorFromFirstSelectedCamera.py, FBCamera.py."""
@@ -9058,6 +9327,9 @@ class FBCamera(FBModel):
         RelativeToViewport : true indicates (pX,pY) is relative to the window; false indicates (pX,pY) is relative to the viewport of the camera.
         return : The world coordinates in 3D space"""
         ...
+    def __init__(self,Name:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBModelMarker(FBModel):
     """Model marker class.
     See sample: FBCamera.py."""
@@ -9075,6 +9347,9 @@ class FBModelMarker(FBModel):
     """Read Write Property: Size (not related to scaling)."""
     Type:FBMarkerType
     """Read Write Property: Type of model marker."""
+    def __init__(self,Name:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBCameraStereo(FBCamera):
     CenterCamera:FBCameraStereo
     """Read Write Property:  This property hold the center camera connected to it. Must be either the master, left or right camera."""
@@ -9104,10 +9379,16 @@ class FBCameraStereo(FBCamera):
     """Read Write Property:  Zero parallax plane color."""
     ZeroParallaxPlaneTransparency:float
     """Read Write Property:  Zero parallax plane transparency."""
+    def __init__(self,arg2:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBModelNull(FBModel):
     """Null object class."""
     Size:float
     """Read Write Property: Size (not related to scaling)."""
+    def __init__(self,Name:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBModelMarkerOptical(FBModelMarker):
     """Optical model marker class."""
     Data:FBAnimationNode
@@ -9177,6 +9458,9 @@ class FBModelMarkerOptical(FBModelMarker):
         
         Optical : New optical model."""
         ...
+    def __init__(self,Name:str=None,Optical:FBModelOptical=None):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBModelOptical(FBModel):
     """Optical model class."""
     MarkerSize:float
@@ -9214,6 +9498,9 @@ class FBModelOptical(FBModel):
         """Setup importation for optical model.
         
         return : true if successful."""
+        ...
+    def __init__(self,Name:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
         ...
 class FBModelPath3D(FBModel):
     """Path 3D model class."""
@@ -9532,14 +9819,22 @@ class FBModelPath3D(FBModel):
     def UpdateGeometry(self):
         """Update path geometry explicitly."""
         ...
+    def __init__(self,Name:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBModelPlane(FBModel):
     """Plane model class."""
-    ...
+    def __init__(self,Name:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBModelRoot(FBModel):
     """Root object class.
     See sample: SelectModelsWithNameContainingSubstring.py."""
     Size:float
     """Read Write Property: Size (not related to scaling)."""
+    def __init__(self,Name:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBModelSkeleton(FBModel):
     """Root object class."""
     Color:FBColor
@@ -9561,10 +9856,15 @@ class FBModelSkeleton(FBModel):
         
         SkinModelList : List to be appended with skin models (with no duplicated items)."""
         ...
+    def __init__(self,Name:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBPhysicalProperties(FBBox):
     """Base class for physical properties attach to a model.
     See sample: RigiBody.py."""
-    ...
+    def __init__(self,arg2:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBAudioIn(FBComponent):
     """Audio In class.
     Used to control Audio In objects (like a Microphone Audio Device).
@@ -9703,6 +10003,9 @@ class FBAudioIn(FBComponent):
         
         return : True if operation is successful, false otherwise."""
         ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBAudioClip(FBComponent):
     """Used to play audio clips and access their properties.
     This class permits you to access audio clip's properties to read or change them. See sample: AudioTrackSetupTool.py."""
@@ -9778,6 +10081,9 @@ class FBAudioClip(FBComponent):
         """Stop any playing triggered audio clip on a specified destination.
         
         Destination : Where the audio clip is playing. If NULL, the default destination will be used."""
+        ...
+    def __init__(self,FileName:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
         ...
 class FBAssetMng(FBComponent):
     """Used to access asset manager functionity to get files locally or from a server."""
@@ -10212,6 +10518,9 @@ class FBApplication(FBComponent):
     def UpdateAllWidgets(self):
         """Request to refresh display of all UI widgets."""
         ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBAssetFile(FBAssetItem):
     """Class representing a file stored in a version control database."""
     def GetCheckedOutBy(self)->str:
@@ -10376,6 +10685,9 @@ class FBAnimationNode(FBComponent):
         EvaluateInfo : Node evaluation information (access to system and local time).
         return : true if successful."""
         ...
+    def __init__(self,arg2:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBAnimationLayer(FBComponent):
     """Used to access animation layer properties and modify them.
     Changing the various properties of the layers will modify how the animation will be interpreted. For example, muting a layer will mute all the animation contained on the layer. You can access the animation layer object from the take, usign the FBTake::GetLayer() and FBTake::GetLayerByName(). See the FBTake class for more details. See samples: AnimationLayers.py, MergeAnimationLayers.py."""
@@ -10441,6 +10753,9 @@ class FBAnimationLayer(FBComponent):
         
         ParentLayer : A pointer to the parent layer or NULL if you want to unparent the layer."""
         ...
+    def __init__(self,Name:str,LayerID:int):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBActorFace(FBComponent):
     """Used to plot actor face animation.
     These classes are under development and may change dramatically between versions."""
@@ -10449,10 +10764,16 @@ class FBActorFace(FBComponent):
         
         return : True if the operation completed successfully."""
         ...
+    def __init__(self,Name:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBActionManager(FBComponent):
     """Action Manager class.
     This class is introduced to enable users to access to the actions related functions. between versions."""
     CurrentInteractionMode:str
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBConstraintManager(FBComponent):
     """Constraint manager.
     See sample: FBConstraintManager.py."""
@@ -10483,6 +10804,9 @@ class FBConstraintManager(FBComponent):
         
         TypeIndex : Index of a constraint type.
         return : Name of constraint type."""
+        ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
         ...
 class FBConstructionHistory(FBComponent):
     """Access to global construction history functionality."""
@@ -10582,6 +10906,9 @@ class FBControlSet(FBComponent):
         
         return : The reference name associated with the Control Set."""
         ...
+    def __init__(self,Name:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBCycleCreator(FBComponent):
     """See sample: CycleCreator.py."""
     def CreateCycle(self,StartTime:FBTime,EndTime:FBTime,Char:FBCharacter,MoveStartToZero:object,AddZeroKey:object,NewTakeName:str,ReferencedIK:FBModel,PasteTx:object,PasteTy:object,PasteTz:object,PasteR:object,PasteG:object)->bool:
@@ -10600,6 +10927,9 @@ class FBCycleCreator(FBComponent):
         PasteR : Whether consider Rotation on referenced IK when doing pose pasting
         PasteG : Whether respect Gravity when doing pose pasting (Translation = Global XZ / Rotation = Global Y). Note: if G is true then Ty will be forced changed to false.
         return : true if successful."""
+        ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
         ...
 class FBDeck(FBComponent):
     """Interface to a tape deck."""
@@ -10679,6 +11009,9 @@ class FBDeformer(FBComponent):
     """Base Model deformer class."""
     DeformerType:FBDeformerType
     """Read Only Property: Deformer Type."""
+    def __init__(self,Name:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBDeviceInstrument(FBComponent):
     """Instrument abstraction layer."""
     Active:bool
@@ -10699,6 +11032,9 @@ class FBDeviceInstrument(FBComponent):
         
         EvaluateInfo : Evaluation information structure.
         return : true if successful."""
+        ...
+    def __init__(self,Device:FBDevice):
+        """Initialize self.  See help(type(self)) for accurate signature."""
         ...
 class FBDeformerPointCache(FBDeformer):
     """Base Model deformer class."""
@@ -10722,6 +11058,9 @@ class FBDeformerPointCache(FBDeformer):
     """Read Only Property: Channel Start."""
     PointCacheFile:FBPointCacheFile
     """Read Write Property: Point Cache File Object."""
+    def __init__(self,Name:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBDeviceOpticalMarker(FBComponent):
     """Device optical marker.
     A device optical marker represents the input locations for interfacing optical hardware. This type of marker corresponds uniquely to the input (from the hardware) and will be represented on-screen by a FBModelMarkerOptical."""
@@ -10739,6 +11078,9 @@ class FBDeviceOpticalMarker(FBComponent):
         Y : Y position for marker.
         Z : Z position for marker(default=0.0).
         Occlusion : Occulsion information for marker(default=0.0)."""
+        ...
+    def __init__(self,Name:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
         ...
 class FBEvaluateManager(FBComponent):
     DeviceCount:int
@@ -10770,6 +11112,9 @@ class FBEvaluateManager(FBComponent):
         """Check if the application main loop is in interactive or offline render mode.
         
         return : true if is application is is interactive mode."""
+        ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
         ...
 class FBFCurveEditorUtility(FBComponent):
     """FBFCurveEditor Utility class Utility class allowing different operations on a FBFCurveEditor or on the main FCurveEditor."""
@@ -10807,6 +11152,9 @@ class FBFCurveEditorUtility(FBComponent):
         Editor : Pointer to a FBFCurveEditor where the time span will be set, NULL to set the time span on the default editor.
         return : True if successful, false otherwise."""
         ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBFCurveEventManager(FBComponent):
     """FCurve Event Manager Interface to the FBFCurveEventManager.
     This class is used to track the changes on a FCurve of a property."""
@@ -10827,6 +11175,9 @@ class FBFCurveEventManager(FBComponent):
         
         Property : The property to stop tracking.
         return : True if the unregistration was successful, False otherwise."""
+        ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
         ...
 class FBFbxOptions(FBComponent):
     """Customize file loading and saving.
@@ -11094,6 +11445,9 @@ class FBFbxOptions(FBComponent):
         TakeIndex : index of take to set
         Select : set true if should be saved or loaded."""
         ...
+    def __init__(self,Load:bool):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBFileMonitoringManager(FBComponent):
     """File Change Monitoring Interface to the file change monitoring."""
     OnFileChangeAnimationClip:FBEvent
@@ -11124,6 +11478,9 @@ class FBFileMonitoringManager(FBComponent):
         """Remove file from monitoring.
         
         FilePath : The file path to be removed."""
+        ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
         ...
 class FBFilter(FBComponent):
     """Filters are used to modify motion capture data.
@@ -11193,6 +11550,9 @@ class FBFolder(FBComponent):
     This class is an interface to manipulate folders in the scene. See sample: FBFolder.py."""
     Items:FBPropertyListComponent
     """List: List of components in the folder."""
+    def __init__(self,Name:str,Component:FBComponent):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBGenericMenu(FBComponent):
     """A GenericMenu class.
     You can use this class either to create a new menu in the menu bar (or in a menuitem in the menu bar) or you can use this class to create a pop-up menu.
@@ -11311,6 +11671,9 @@ class FBGenericMenu(FBComponent):
         ItemId : Unique id of this menu item.
         Menu : Optional. If this Item leads to another menu (embedded) it can be specified here.
         return : Will return the menu item created from this insertion."""
+        ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
         ...
 class FBGenericMenuItem(FBComponent):
     """FBGenericMenuItem This class stores data for a single menu item.
@@ -11849,6 +12212,9 @@ class FBGeometry(FBComponent):
 class FBHUDManager(FBComponent):
     DefaultHUD:property
     """Read Write Property: Specifies the HUD to be displayed on cameras that do not have HUD explicitly assigned."""
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBMesh(FBGeometry):
     """Mesh class.
     See samples: GeometryInstancing.py, VertexArrayManipulation.py, VertexColor.py."""
@@ -11936,6 +12302,9 @@ class FBMesh(FBGeometry):
         IndexArray : Index array of triangle strip.
         MaterialId : Index of material for this polygon. Only effective when MaterialMappingMode is kFBGeometryMapping_BY_POLYGON mode."""
         ...
+    def __init__(self,Name:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBImage(FBComponent):
     """Image class.
     Utility class used to load and get manipulate image data from disk or memory. See sample: VideoMemory.py."""
@@ -11998,6 +12367,9 @@ class FBImage(FBComponent):
         Compressed : If true, the image data in the file will be compressed.
         return : Return true if the image was successfully written on disk."""
         ...
+    def __init__(self,FileName:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBKeyControl(FBComponent):
     """Key control.
     Interface to use the key controls tool. See sample: MirrorPoseOverTime.py."""
@@ -12016,6 +12388,9 @@ class FBKeyControl(FBComponent):
         S : The global scaling factors to apply to the pivot
         Time : The time at which the transformation values are applied to the pivot object
         ModelList : List of models for which the animation will be modified. Optional parameter. If not supplied, the models in the current keying group will be used"""
+        ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
         ...
 class FBKeyingGroup(FBComponent):
     """KeyingGroup class.
@@ -12149,6 +12524,9 @@ class FBKeyingGroup(FBComponent):
         
         Object : Object that will be used to set the keying group object type. Use NULL to remove the filter."""
         ...
+    def __init__(self,Name:str,Type:FBKeyingGroupType):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBLogger(FBComponent):
     def DisableClear(self):...
     def DumpObject(self,arg2:FBPlug,arg3:object)->object:...
@@ -12157,6 +12535,7 @@ class FBLogger(FBComponent):
     @overload
     def Enable(self,TypeInfo:int,Enable:bool)->bool:...
     def GetLog(self)->object:...
+    def __init__(self):...
 class FBCharacterExtension(FBKeyingGroup):
     """Objects Grouping class.
     This class is an interface to manipulate object's grouping in the scene. See sample: CreateCharacterExtensionOnSelectedObject.py."""
@@ -12284,6 +12663,9 @@ class FBCharacterExtension(FBKeyingGroup):
         ...
     def UpdateStancePose(self):
         """Update the stance pose to the current position of the character extension element."""
+        ...
+    def __init__(self,Name:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
         ...
 class FBManipulator(FBComponent):
     """Manipulator class."""
@@ -12439,6 +12821,9 @@ class FBMarkerSet(FBComponent):
         
         ReferenceModel : Model to be associated to the marker."""
         ...
+    def __init__(self,Name:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBMenuManager(FBComponent):
     """The menu manager allows access to MotionBuilder menu bar.
     It can be used to retrieve the item corresponding to a menu path in the menu bar. A menu path is similar to a file path but it specifies the location of menu item in a hierarchy of menu. ex: to retrieve the item corresponding to MoBu Save item: item = menuMgr.GetMenu('File/Save')Other menu items in MoBu menu bar include the following: 'File', 'Edit','Animation','Window','Settings', 'Layout','Help'The menu manager can be used to insert new menu item in the menubar. You have to specify the menu path at which to insert the menu (to insert a new root menu, use NULL or None as the menu path)
@@ -12524,6 +12909,9 @@ class FBMenuManager(FBComponent):
         ItemId : Id of the item in the menu to disable.
         Enable : Enable (true) or disable (false) a menu item."""
         ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBModelOpticalAdvanced(FBComponent):
     """Advanced optical model information."""
     Active:bool
@@ -12562,6 +12950,9 @@ class FBModelOpticalAdvanced(FBComponent):
         ...
     def SkipSegment(self):
         """Skip segment."""
+        ...
+    def __init__(self,Optical:FBModelOptical):
+        """Initialize self.  See help(type(self)) for accurate signature."""
         ...
 class FBModelTemplate(FBComponent):
     """Model template class.
@@ -12808,6 +13199,14 @@ class FBMotionClip(FBComponent):
     """Read Only Property: Start time of clip."""
     Stop:FBTime
     """Read Only Property: Stop time of clip."""
+    @overload
+    def __init__(self,FileName:str,Object=None):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
+    @overload
+    def __init__(self,Name:str,Filename:str,Object=None):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBMotionFileOptions(FBComponent):
     """Customize motion file loading."""
     BaseRotationOnPreRotation:bool
@@ -12928,6 +13327,9 @@ class FBMotionFileOptions(FBComponent):
         TakeIndex : Index of take to set.
         StopTime : Time of the last frame of the take"""
         ...
+    def __init__(self,StringList:FBStringList):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBNamespace(FBComponent):
     """Objects Containing class.
     This class is an interface to manipulate object's containing in the scene."""
@@ -12954,6 +13356,14 @@ class FBNamespace(FBComponent):
         TypeInfo : the typeInfo of the type of interested object, 0 for all the objects.
         ExactTypeMatch : if True, the derived typeInfo won't be considered (For example, FBCamera won't be considered when passing FBModel::TypeInfo)."""
         ...
+    @overload
+    def __init__(self,MultiLevelNamespace:str,Object):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
+    @overload
+    def __init__(self,SingleLevelNamespace:str,ParentNSObj:FBNamespace):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBOpticalGap(FBComponent):
     """Optical Gap class."""
     Data:FBAnimationNode
@@ -12971,6 +13381,14 @@ class FBOpticalGap(FBComponent):
         """Check if valid (if item exists).
         
         return : true if segment is valid."""
+        ...
+    @overload
+    def __init__(self,Marker:FBModelMarkerOptical=None):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
+    @overload
+    def __init__(self,Gap:FBOpticalGap):
+        """Initialize self.  See help(type(self)) for accurate signature."""
         ...
 class FBFileReference(FBNamespace):
     """Objects Containing class.
@@ -13039,6 +13457,14 @@ class FBFileReference(FBNamespace):
         MergeCurrentRefEdit : Merge the current RefEdit to if True if the reference items' name are matching.
         return : True if swap successfully."""
         ...
+    @overload
+    def __init__(self,MultiLevelNamespace:str,Object):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
+    @overload
+    def __init__(self,SingleLevelNamespace:str,ParentNSObj:FBNamespace):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBOpticalSegment(FBComponent):
     """Optical segment class."""
     Data:FBAnimationNode
@@ -13065,6 +13491,14 @@ class FBOpticalSegment(FBComponent):
         ...
     def Reset(self):
         """Reset the marker segment."""
+        ...
+    @overload
+    def __init__(self,Optical:FBModelOptical=None):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
+    @overload
+    def __init__(self,Segment:FBOpticalSegment):
+        """Initialize self.  See help(type(self)) for accurate signature."""
         ...
 class FBPlayerControl(FBComponent):
     """Player control.
@@ -13236,7 +13670,7 @@ class FBPlayerControl(FBComponent):
         return : true if successful."""
         ...
     @overload
-    def Goto(self,arg1:FBTime,arg2:FBTimeReferential)->bool:
+    def Goto(self,p1:FBTime,p2:FBTimeReferential)->bool:
         """Goto a time specified byTime.
         
         p0 : Time to jump to.
@@ -13251,7 +13685,7 @@ class FBPlayerControl(FBComponent):
         return : true if successful."""
         ...
     @overload
-    def GotoEnd(self,arg1:FBTimeReferential)->bool:
+    def GotoEnd(self,p1:FBTimeReferential)->bool:
         """GotoEnd button (FastForward).
         
         p0 : Time referential to use. kFBTimeReferentialAction or kFBTimeReferentialEdit
@@ -13271,7 +13705,7 @@ class FBPlayerControl(FBComponent):
         return : true if successful."""
         ...
     @overload
-    def GotoStart(self,arg1:FBTimeReferential)->bool:
+    def GotoStart(self,p1:FBTimeReferential)->bool:
         """GotoStart button (Rewind).
         
         p0 : Time referential to use. kFBTimeReferentialAction or kFBTimeReferentialEdit
@@ -13386,7 +13820,7 @@ class FBPlayerControl(FBComponent):
         return : true if successful."""
         ...
     @overload
-    def StepBackward(self,arg1:FBTimeReferential)->bool:
+    def StepBackward(self,p1:FBTimeReferential)->bool:
         """Step one frame backward.
         
         p0 : Time referential to use. kFBTimeReferentialAction or kFBTimeReferentialEdit
@@ -13400,7 +13834,7 @@ class FBPlayerControl(FBComponent):
         return : true if successful."""
         ...
     @overload
-    def StepForward(self,arg1:FBTimeReferential)->bool:
+    def StepForward(self,p1:FBTimeReferential)->bool:
         """Step one frame ahead.
         
         p0 : Time referential to use. kFBTimeReferentialAction or kFBTimeReferentialEdit
@@ -13410,6 +13844,9 @@ class FBPlayerControl(FBComponent):
         """Stop button.
         
         return : true if successful."""
+        ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
         ...
 class FBPointCacheFile(FBComponent):
     """Base Model deformer class."""
@@ -13429,6 +13866,9 @@ class FBPointCacheFile(FBComponent):
     """Read Write Property: Start Time."""
     StopTime:FBTime
     """Read Write Property: Stop Time."""
+    def __init__(self,Name:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBRendererCallback(FBComponent):
     """Open Reality renderer callback interface."""
     DefaultCameraBackPlateRendering:bool
@@ -13441,6 +13881,9 @@ class FBRendererCallback(FBComponent):
     """Read write Property: Set true to use default light volume rendering; set false to disable it."""
     SupportIDBufferPicking:bool
     """Read write Property: Can this Renderer Callback support IDBuffer Picking."""
+    def __init__(self,Name:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBRigidBody(FBComponent):
     """Rigid body class."""
     Done:bool
@@ -13466,6 +13909,14 @@ class FBRigidBody(FBComponent):
     def Snap(self):
         """Snap the rigid body."""
         ...
+    @overload
+    def __init__(self,Optical:FBModelOptical=None):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
+    @overload
+    def __init__(self,RigidBody:FBRigidBody):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBSVector():
     """Three dimensional scaling vector.
     See sample: Vectors.py."""
@@ -13482,6 +13933,18 @@ class FBSVector():
     def __iadd__(self,arg2:FBSVector)->object:...
     def __idiv__(self,arg2:FBSVector)->object:...
     def __imul__(self,arg2:FBSVector)->object:...
+    @overload
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
+    @overload
+    def __init__(self,Value:float):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
+    @overload
+    def __init__(self,p1:float,p2:float,p3:float=1.0):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
     def __isub__(self,arg2:FBSVector)->object:...
     def __len__(self)->int:...
     def __mul__(self,arg2:FBSVector)->object:...
@@ -13783,6 +14246,9 @@ class FBSet(FBBox):
         
         Select : If true, set contents will be selected."""
         ...
+    def __init__(self,Name:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBShader(FBBox):
     """Shader class."""
     RenderingPass:FBRenderingPass
@@ -13861,6 +14327,9 @@ class FBShaderLighted(FBShader):
     """Read Write Property: Activate the Luminosity option."""
     UseSpecular:bool
     """Read Write Property: Activate the Specularity option."""
+    def __init__(self,Name:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBShaderManager():
     """Shader manager.
     This class provides access to the list of available shaders, both system shaders and user shaders. The list comes in two versions:ShaderTypeNames : which gives the internal names of the shaders,ShaderTypeNamesLocalized : uses the GUI names of the shaders.Both of these lists will have the same number of elements. The strings at position i in the lists refer to the same shader type. In cases where there is no localized version of the shader name, the internal name will be used in ShaderTypeNamesLocalized, thus ensuring consistency between the two lists.It also provides a generic shader creation method that uses the shader type name, internal or localized, to create the new shader instance.The destruction of shaders is achieved by calling the FBDelete method of a shader instance.The list of all the instantiated shaders can be obtained from instances of classes FBSystem or FBScene. Both classes have a Shaders property which lists the existing shader instances.Strings are used instead of enum, define or typedef values to refer to shader types as this proves to be more flexible.The system has a default shader of type 'Lighted'. Do not attempt to destroy it.The use of localized names in shader creation is non portable as it is dependent of the current language used by the application. The name may also change from one version to another. Using the internal name is the only way to ensure portable shader creation.Sample C++ code:
@@ -13928,6 +14397,9 @@ class FBShaderManager():
         ShaderTypeName : Name of the type of shader desired.
         return : A pointer to the newly created shader object, or a NULL pointer if the type name was not recognised."""
         ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBShaderModelInfo():
     Model:property
     """Read Write Property: Shader mModel"""
@@ -13973,6 +14445,9 @@ class FBShaderShadowLive(FBShader):
     """Read Write Property: Specifies the offset of the Live Shadow shader's plane from the original selected plane."""
     UseGobo:bool
     """Read Write Property: Includes the gobo in the shadow map calculation."""
+    def __init__(self,Name:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBSkeletonState():
     def GetNodeMatrix(self,SkeletonId:FBSkeletonNodeId,SkeletonGlobalMatrix:FBMatrix):
         """Returned global matrix associated to the given Index.
@@ -14046,6 +14521,9 @@ class FBStory(FBComponent):
         """Remove all empty tracks and folders present in the Story Tool.
         
         return : The number of empty story tracks and/or folders removed."""
+        ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
         ...
 class FBStoryClip(FBComponent):
     """Story Clip class.
@@ -14290,6 +14768,18 @@ class FBStoryClip(FBComponent):
         
         return : Returns true if succeed."""
         ...
+    @overload
+    def __init__(self,ClipObject:FBComponent,Track:FBStoryTrack,Time:FBTime,Object=None):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
+    @overload
+    def __init__(self,FilePath:str,Track:FBStoryTrack,Time:FBTime,Object=None):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
+    @overload
+    def __init__(self,FilePath:str,Track:FBStoryTrack,Time:FBTime,TimeOffset:FBTime,Object=None):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBStoryFolder(FBComponent):
     """Story Folder class.
     With folders, you can group tracks together and create different timelines. See sample: FBStoryFolder.py."""
@@ -14342,6 +14832,9 @@ class FBStoryFolder(FBComponent):
         
         Load : bool"""
         ...
+    def __init__(self,ParentFolder:FBStoryFolder=None):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBStoryGroupClip(FBComponent):
     """Story Group Clip class.
     Group Clip represents a group of clips that can be manipulated together."""
@@ -14374,6 +14867,9 @@ class FBStoryGroupClip(FBComponent):
         Cut (razor) the clip at the specified time.
         
         Time : Time where to cut. This time is local to the track, not to the clip."""
+        ...
+    def __init__(self,AffectedClipObject:List[FBStoryClip]):
+        """Initialize self.  See help(type(self)) for accurate signature."""
         ...
 class FBStoryTrack(FBConstraint):
     """Story Track class.
@@ -14479,6 +14975,14 @@ class FBStoryTrack(FBConstraint):
         
         Load : bool"""
         ...
+    @overload
+    def __init__(self,TrackType:FBStoryTrackType,Folder:FBStoryFolder=None,Object=None):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
+    @overload
+    def __init__(self,Source:FBComponent,Folder:FBStoryFolder=None,Object=None):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBStringList():
     """String list.
     See sample: Memo.py."""
@@ -14574,6 +15078,18 @@ class FBStringList():
         """Sort the string list (ascending)"""
         ...
     def __getitem__(self,arg2:object)->str:...
+    @overload
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
+    @overload
+    def __init__(self,String:str,Separator:str='~'):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
+    @overload
+    def __init__(self,Other:FBStringList):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
     def __len__(self)->int:...
     def __setitem__(self,arg2:object,arg3:str)->bool:...
 class FBSurface(FBGeometry):
@@ -14756,12 +15272,18 @@ class FBSystem(FBComponent):
         RelativeFilePath : The relative file path
         return : Full file path based on combining the current directory"""
         ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBPatch(FBSurface):
     """Patch class."""
     USurfaceType:FBSurfaceType
     """Read Write Property: Patch mode for U direction."""
     VSurfaceType:FBSurfaceType
     """Read Write Property: Patch mode for V direction."""
+    def __init__(self,Name:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBNurbs(FBSurface):
     """Nurbs class."""
     UNurbType:FBNurbType
@@ -14816,6 +15338,9 @@ class FBNurbs(FBSurface):
         Index : Index of control point to set weight at.
         Weight : Weight of control point."""
         ...
+    def __init__(self,Name:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBTexture(FBBox):
     """See samples: HUDElements.py, MaterialAndTexture.py, TextureAnimation.py, VideoInput.py, VideoMemory.py, DeleteUnusedMedia.py."""
     Alpha:property
@@ -14852,6 +15377,9 @@ class FBTexture(FBBox):
         """RenderOptions : FBRenderOptions"""
         ...
     def __copy__(self)->object:...
+    def __init__(self,arg2:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBLayeredTexture(FBTexture):
     """LayeredTexture class.
     This class is used to encapsulate list of textures. User could subclass this class to support customized blending & compostion modes. See /OpenRealitySDK/Samples/miscellaneous/texture_template/ for example. See sample: LayeredTexture.py."""
@@ -14861,6 +15389,9 @@ class FBLayeredTexture(FBTexture):
     """Read/Write Property: Textures Layers."""
     def SetLayerConfigDirty(self):
         """Set layer config dirty to trigger new composition."""
+        ...
+    def __init__(self,Name:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
         ...
 class FBTime():
     """Time data structure.
@@ -14954,6 +15485,9 @@ class FBTime():
         Time : String to set time from."""
         ...
     def __add__(self,arg2:FBTime)->object:...
+    def __init__(self,Hour:int):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
     def __sub__(self,arg2:FBTime)->object:...
 class FBTimeCode():
     """TimeCode data structure.
@@ -15021,6 +15555,9 @@ class FBTimeCode():
         
         Time : String to set time from.
         Format : Format to use for the string(default=FBTime::eDefaultFormat)."""
+        ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
         ...
 class FBTake(FBComponent):
     """A take is a container for animation in a scene.
@@ -15383,6 +15920,9 @@ class FBTake(FBComponent):
         Index : Index of the time mark.
         Time : The new time for the time mark.
         return : The new index of the modified time mark."""
+        ...
+    def __init__(self,Name:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
         ...
 class FBFCurve(FBComponent):
     """FCurve class.
@@ -15757,6 +16297,9 @@ class FBFCurve(FBComponent):
         
         ExtrapolationMode : FBExtrapolationMode"""
         ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBTimeSpan():
     """TimeSpan class."""
     def GetDirection(self)->int:
@@ -15782,6 +16325,9 @@ class FBTimeSpan():
         
         Start : Start time.
         Stop : Stop time."""
+        ...
+    def __init__(self,Start:FBTime=0,Stop:FBTime=0):
+        """Initialize self.  See help(type(self)) for accurate signature."""
         ...
 class FBTimeWarpManager(FBComponent):
     """Time Warp Manager Interface to the Time Warp Manager.
@@ -15906,6 +16452,9 @@ class FBTimeWarpManager(FBComponent):
     def TimeWarpTakeChange(self):
         """Call registered callbacks when changes related to TimeWarp happen."""
         ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBToolLayoutManager(FBComponent):
     """Tool Layout Manager class.
     This class allows users to interact with Layouts.Sample Python code:
@@ -16019,6 +16568,9 @@ class FBToolLayoutManager(FBComponent):
         
         return : True if the operation is successful, false otherwise."""
         ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBTransportAudioManager(FBComponent):
     """Transport Tool Audio Manager class.
     This class allows users to interact with the Audio Manager of the Transport Tool."""
@@ -16093,6 +16645,9 @@ class FBTransportAudioManager(FBComponent):
         Show : True to show the right channel, false otherwise.
         return : True if the operation is successful, false otherwise."""
         ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBTreeNode(FBComponent):
     """A node in the tree view."""
     Checked:bool
@@ -16110,6 +16665,7 @@ class FBUV():
     def __iadd__(self,arg2:FBUV)->object:...
     def __idiv__(self,arg2:FBUV)->object:...
     def __imul__(self,arg2:FBUV)->object:...
+    def __init__(self):...
     def __isub__(self,arg2:FBUV)->object:...
     def __len__(self)->int:...
     def __mul__(self,arg2:FBUV)->object:...
@@ -16185,8 +16741,13 @@ class FBUndoManager(FBComponent):
         
         NoRedo : If true, once the action is undone, it cannot be redone."""
         ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBUserObject(FBBox):
-    ...
+    def __init__(self,arg2:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBVector2d():
     """Vector2d class.
     This class creates a list like object, which can be modified using the list protocol method. But unlike lists, its length is fixed: it always contain 2 floating point values. Thus it does not support the any list methods that would affect its length. The values within can be changed, usually via the bracket operator.
@@ -16214,6 +16775,22 @@ class FBVector2d():
     def __iadd__(self,arg2:FBVector2d)->object:...
     def __idiv__(self,arg2:FBVector2d)->object:...
     def __imul__(self,arg2:FBVector2d)->object:...
+    @overload
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
+    @overload
+    def __init__(self,Vector:list):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
+    @overload
+    def __init__(self,Value):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
+    @overload
+    def __init__(self,p1,p2):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
     def __isub__(self,arg2:FBVector2d)->object:...
     def __len__(self)->int:
         """Returns the number of elements.
@@ -16262,6 +16839,22 @@ class FBVector3d():
     def __iadd__(self,arg2:FBVector3d)->object:...
     def __idiv__(self,arg2:FBVector3d)->object:...
     def __imul__(self,arg2:FBVector3d)->object:...
+    @overload
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
+    @overload
+    def __init__(self,Vector:list):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
+    @overload
+    def __init__(self,Value):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
+    @overload
+    def __init__(self,p1,p2,p3=0):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
     def __isub__(self,arg2:FBVector3d)->object:...
     def __len__(self)->int:
         """Returns the number of elements.
@@ -16310,6 +16903,22 @@ class FBVector4d():
     def __iadd__(self,arg2:FBVector4d)->object:...
     def __idiv__(self,arg2:FBVector4d)->object:...
     def __imul__(self,arg2:FBVector4d)->object:...
+    @overload
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
+    @overload
+    def __init__(self,Vector:list):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
+    @overload
+    def __init__(self,Value):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
+    @overload
+    def __init__(self,p1,p2,p3,p4=1):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
     def __isub__(self,arg2:FBVector4d)->object:...
     def __len__(self)->int:
         """Returns the number of elements.
@@ -16358,6 +16967,9 @@ class FBVertex():
     def __iadd__(self,arg2:FBVertex)->object:...
     def __idiv__(self,arg2:FBVertex)->object:...
     def __imul__(self,arg2:FBVertex)->object:...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
     def __isub__(self,arg2:FBVertex)->object:...
     def __len__(self)->int:
         """Returns the number of elements.
@@ -16378,6 +16990,9 @@ class FBVideo(FBBox):
     Similar to the FBModel class, the FBVideo class serves as a general media class for images, video clips and video memory, as well as the possibility of custom formats and custom live cards.To have a valid FBVideo object, it must be constructed with a string pointing to a valid media file. After the creation, the method 'IsValid()' should be used to confirm the object's status. An invalid object cannot be used or interact with any other application object. The only property that can be read and modified is its 'Filename'. To make convert an invalid FBVideo object into a valid one, simply change its Filename property to point to a supported media file. See sample: DeleteUnusedMedia.py."""
     KeepOnGPU:bool
     """Read Write Property: Don't auto flush from GPU if true. session runtime flag, won't be saved."""
+    def __init__(self,Name:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBVideoClip(FBVideo):
     """See sample: VideoClip.py."""
     CurrentFrame:property
@@ -16452,6 +17067,9 @@ class FBVideoClip(FBVideo):
         
         return : true if data is valid."""
         ...
+    def __init__(self,arg2:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBVideoClipImage(FBVideoClip):
     ImageSequence:property
     """Read Write Property: Clip is an image sequence?"""
@@ -16459,6 +17077,9 @@ class FBVideoClipImage(FBVideoClip):
     """Read Write Property: Maximum MipMap resolution will be loaded into GPU."""
     UseSystemFrameRate:property
     """Read Write Property: Clip is using system frame rate?"""
+    def __init__(self,arg2:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBVideoCodecManager():
     """Video Codec manager class.
     Use to set or get codec used and codec params See samples: codecExamples.py, render.py."""
@@ -16490,6 +17111,9 @@ class FBVideoCodecManager():
         
         FileFormatInfo : file format description string (AVI, MOV...)
         CodecId : the codec id to set as default"""
+        ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
         ...
 class FBVideoGrabOptions():
     """Video Grabbing Options.
@@ -16531,6 +17155,9 @@ class FBVideoGrabOptions():
     """Read Write Property: Time step length between each grab."""
     ViewingMode:FBVideoRenderViewingMode
     """Read Write Property: Video grab viewing mode."""
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBVideoGrabber(FBComponent):
     """Video Grabber class.
     Used to grab video frames generated with the FBRenderer. See samples: codecExamples.py, render.py, RenderLayers.py, JpegRender.py."""
@@ -16585,6 +17212,9 @@ class FBVideoGrabber(FBComponent):
         """SetOptions.
         
         Options : Struct that contain all grabbing options."""
+        ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
         ...
 class FBVideoIn(FBVideo):
     """Basic video input class, supporting webcam and DV device.
@@ -16645,6 +17275,9 @@ class FBVideoIn(FBVideo):
         
         Index : Index of the resolution and frame rate."""
         ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBVideoMemory(FBVideo):
     """FBVideoMemory allow external media source (which can't be supported by MoBu natively)  User could create / update OGL texture (GL_TEXTURE_2D type) externally, and pass in GL texture object id to TextureOGLId property.See 'Scripts/Samples/Video/VideoMemory.py' for usage example.
     See sample: VideoMemory.py."""
@@ -16656,11 +17289,17 @@ class FBVideoMemory(FBVideo):
         W : Width of image.
         H : Height of image."""
         ...
+    def __init__(self,Name:str):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBVideoOut(FBVideo):
     """Video media class.
     See sample: VideoOutput.py."""
     Online:bool
     """Read Write Property: If true, the device is online and will output display."""
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBViewingOptions():
     """Viewing options for rendering.
     The FBRenderer allows to get and set those options."""
@@ -16863,6 +17502,9 @@ class FBVisualContainer(FBVisualComponent):
         Ref : Reference of container to edit.
         return : Operation was successful (true or false)."""
         ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBView(FBVisualComponent):
     """Generic view."""
     DoubleBuffer:bool
@@ -16885,6 +17527,9 @@ class FBView(FBVisualComponent):
         W : Viewport W (width) value.
         H : Viewport H (height) value.
         return : Operation was successful (true or false)."""
+        ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
         ...
 class FBTree(FBVisualComponent):
     """Tree list view.
@@ -16970,6 +17615,9 @@ class FBTree(FBVisualComponent):
         Name : Text to display for this node.
         return : the newly created node."""
         ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBThermometer(FBVisualComponent):
     """Thermometer.
     See sample: Thermometer.py."""
@@ -16981,6 +17629,9 @@ class FBThermometer(FBVisualComponent):
     """Read Write Property: Current value."""
     def Clear(self):
         """Reset bounds and value."""
+        ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
         ...
 class FBTabPanel(FBVisualComponent):
     """Tab panel.
@@ -16995,6 +17646,9 @@ class FBTabPanel(FBVisualComponent):
     """Event: Tab panel change."""
     TabStyle:int
     """Read Write Property: Style of the tab panel, 0 creates normal tabs, 1 creates buttons to activate tabs."""
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBSpread(FBVisualComponent):
     """Base spreadsheet class.
     See samples: ActionScriptMgr.py, KeyboardMapper.py, Spread.py."""
@@ -17084,6 +17738,9 @@ class FBSpread(FBVisualComponent):
         Column : Column of cell.
         View : View to use to set cell's view."""
         ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBSlider(FBVisualComponent):
     """Slider.
     See samples: BlendShape_Editor.py, Slider.py."""
@@ -17099,12 +17756,18 @@ class FBSlider(FBVisualComponent):
     """Read Write Property: Slider orientation."""
     Value:float
     """Read Write Property: Current value."""
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBScrollBox(FBVisualComponent):
     """Scroll Box.
     This class provides a layout that will be automatically managed with a scrollbar according to the specified width and height. This provides a way to add dynamic UI control. See sample: Scrollbox.py."""
     Content:FBLayout
     """Read Property: an empty layout in which you can add scrollable content."""
     def SetContentSize(self,arg2:object,arg3:object):...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBPropertyConnectionEditor(FBVisualComponent):
     """Property Connection Editor."""
     Property:property
@@ -17114,6 +17777,9 @@ class FBPropertyConnectionEditor(FBVisualComponent):
         ...
     def PopupTree(self):
         """Launch a tree of object connections."""
+        ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
         ...
 class FBPlotPopup(FBVisualComponent):
     """Plot Popup (for setting options only).
@@ -17146,6 +17812,9 @@ class FBPlotPopup(FBVisualComponent):
         
         PlotOptions : Set the plot options that will be used when displaying the plot popup. First use the GetPlotOptions(), change the options and use the SetPlotOptions() to set them before calling the Popup() function."""
         ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBList(FBVisualComponent):
     """List of items.
     See samples: List.py, ToolCommunicationReceiver.py."""
@@ -17169,9 +17838,14 @@ class FBList(FBVisualComponent):
         Index : Index to see if select or not.
         return : true if item atIndex is selected."""
         ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBLayoutRegion(FBVisualComponent):
     """Layout region."""
-    ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBLayout(FBVisualComponent):
     """Used to build the user interface.
     Layouts manage areas of the screen called regions. Regions contain UI components such as buttons, viewers, and edit boxes. Regions are added to layouts. When a UI component is bound to a region, the region defines how big it is and how it behaves when the layout is resized.Types of Layouts Device Constraint Manipulator Shader A region is first defined using the FBLayout::AddRegion() function. Once a region is defined and the corresponding UI component is created, and the component is bound to its region with FBLayout::SetControl(). You can use the FBSystem::OnUIIdle() in your layout to update real-time UI components such as guages and status indicators. In Python, FBBoxLayout and FBGridLayout take care of most of the region handling. They are used to create basic control layouts for simple tools. If you have a lot of content you can use FBScrollBox to manage it. For an example, see the Python sample Scrollbox.py.* Also see the Python sample Layout.py, and the C++ sample ortooluidemo. See samples: KeyboardMapper.py, ShotTrackSetupTool.py, Attach.py, Border.py, Layout.py."""
@@ -17316,6 +17990,9 @@ class FBLayout(FBVisualComponent):
         H : New region height.
         return : Operation was successful (true or false)."""
         ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBLabel(FBVisualComponent):
     """Text label.
     See sample: Label.py."""
@@ -17325,6 +18002,9 @@ class FBLabel(FBVisualComponent):
     """Read Write Property: Text style appearance."""
     WordWrap:bool
     """Read Write Property: Enable wordwrap on text drawing."""
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBTool(FBLayout):
     """Tool class.
     See samples: MBFileRefDemo.py, CloseTool.py, MoveResizeToolExample.py, SafeToolCreationExample.py, ToolCommunicationReceiver.py, ToolNativeWidgetHolder.py."""
@@ -17359,6 +18039,14 @@ class FBTool(FBLayout):
         
         Flags : Set the docking position flag values. Note: this function overwrites all flags with those passed in parameter."""
         ...
+    @overload
+    def __init__(self,Name:str=None):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
+    @overload
+    def __init__(self,Name:str,RegisterTool:bool):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBPopup(FBLayout):
     """Popup window.
     This class lets a window (inheriting from FBLayout) be created for another interface. See sample: Popup.py."""
@@ -17375,6 +18063,9 @@ class FBPopup(FBLayout):
         Parent : Parent object for popup
         return : Operation was successful (true or false)."""
         ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBImageContainer(FBVisualComponent):
     """Image.
     See sample: ImageContainer.py."""
@@ -17382,6 +18073,9 @@ class FBImageContainer(FBVisualComponent):
     """Read Write Property: Filename for image."""
     OnDragAndDrop:FBEvent
     """Event: Drag and drop."""
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBFCurveEditor(FBVisualComponent):
     """FCurve editor.
     See sample: FCurveEditor.py."""
@@ -17403,17 +18097,26 @@ class FBFCurveEditor(FBVisualComponent):
         
         Node : Animation node to hide from editor."""
         ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBEditVector(FBVisualComponent):
     """Vector edit widget."""
     OnChange:FBEvent
     """Event: Vector value changed."""
     Value:FBVector3d
     """Read Write Property: Current value of vector."""
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBEditTimeCode(FBVisualComponent):
     OnChange:FBEvent
     """Event: Timecode changed."""
     Value:FBTime
     """Read Write Property: Current timecode value."""
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBEditPropertyModern(FBVisualComponent):
     """Property editor widget.
     This is a more modern version of the widget FBEditProperty which is used in the property editor tool of the application.See class FBEditProperty for more details. See sample: PropertyDrop.py."""
@@ -17434,6 +18137,9 @@ class FBEditPropertyModern(FBVisualComponent):
         Use the system-defined color palette to set the backgound color. By default the color used is kFBColorIndexStdListBg1
         
         Index : FBColorIndex"""
+        ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
         ...
 class FBEditProperty(FBVisualComponent):
     """Property editor widget.
@@ -17468,6 +18174,9 @@ class FBEditProperty(FBVisualComponent):
     """Read Write Property: Should the property be editable using a slider, set the minimum value atainable with the slider."""
     SmallInc:float
     """Read Write Property: Indicate the small increment applied when click-draging on the property value (usually right-click-dragging)"""
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBEditNumber(FBVisualComponent):
     """Number edit box."""
     LargeStep:float
@@ -17484,6 +18193,9 @@ class FBEditNumber(FBVisualComponent):
     """Read Write Property: Small step value."""
     Value:float
     """Read Write Property: Current value."""
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBEditColor(FBVisualComponent):
     """Color edit widget."""
     ColorMode:int
@@ -17492,6 +18204,9 @@ class FBEditColor(FBVisualComponent):
     """Event: Color changed."""
     Value:FBColor
     """Read Write Property: Current value of color."""
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBEdit(FBVisualComponent):
     """Text edit box."""
     OnChange:FBEvent
@@ -17500,6 +18215,9 @@ class FBEdit(FBVisualComponent):
     """Read Write Property: Set password mode for this edit box."""
     Text:str
     """Read Write Property: Text displayed."""
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBButton(FBVisualComponent):
     """Used to create and manage buttons in a user interface.
     This class includes functionality to create buttons in a user interface and add a callback. In MotionBuilder, buttons are created within regions, which are in turn created in layouts with FBLayout. For usage, see the Python sample Button.py. See also: FBButtonStyle, FBTextJustify, FBButtonLook. See samples: Button.py, Popup.py, RadioButton.py."""
@@ -17534,6 +18252,9 @@ class FBButton(FBVisualComponent):
         State : The state to be set.
         Color : The desired color vector."""
         ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBMemo(FBEdit):
     """Multi-line text input.
     See samples: Memo.py, TutorialBox.py, TutorialGrid.py."""
@@ -17546,6 +18267,9 @@ class FBMemo(FBEdit):
         """Set the content of the memo.
         
         Lines : Content of the memo from will be set to it."""
+        ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
         ...
 class FBBrowsingProperty(FBVisualComponent):
     """Property browsing.
@@ -17571,6 +18295,9 @@ class FBBrowsingProperty(FBVisualComponent):
         
         Object : Object to remove."""
         ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBArrowButton(FBVisualComponent):
     """Creates a button which opens a layout to display content.
     When pushed a layout to display content (another control or a layout) is opened. A small arrow to the left of the button title, shows whether the content is shown (points down) or not (points to the title). See samples: ArrowButton.py, FBCamera.py."""
@@ -17583,6 +18310,9 @@ class FBArrowButton(FBVisualComponent):
         ContentWidth : Width of the content
         ContentHeight : Height of the content"""
         ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBWebView(FBVisualComponent):
     """Web viewer.
     See sample: WebView.py."""
@@ -17591,10 +18321,15 @@ class FBWebView(FBVisualComponent):
         
         URL : url to load in the WebView."""
         ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 class FBWidgetHolder(FBVisualComponent):
     """Native Widget Holder (can be used to embed native Qt Widget inside MoBu UI elements) A Widget holder provides a bridge to instantiate a Native Qt widget into MB framework.
     This will be used to allow user to create UI with QT designer and hook their created UI into MB. To allow a FBWidgetHolder to work properly, you need to specify a Creator function. This function will be called when needed to instantiate the native Widget.Or override WidgetCreate(QWidget*Parent) function in the subclass./bin/config/Scripts/UI/ToolNativeWidgetHolder.py for python usage example. See samples: MBFileRefDemo.py, ToolNativeWidgetHolder.py."""
-    ...
+    def __init__(self):
+        """Initialize self.  See help(type(self)) for accurate signature."""
+        ...
 def CloseTool(Tool:FBTool)->bool:...
 def CloseToolByName(ToolName:str)->bool:...
 def FBActionManager_TypeInfo()->int:...
