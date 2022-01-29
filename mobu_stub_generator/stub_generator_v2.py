@@ -12,6 +12,7 @@ import os
 import re
 
 from importlib import reload
+from typing import List, overload
 
 sys.path.append(os.path.dirname(__file__))
 
@@ -64,10 +65,19 @@ def Indent(Text: str):
     return TAB_CHARACTER + ("\n%s" % TAB_CHARACTER).join(Text.split("\n"))
 
 
+def IsMethodStatic(Class, MethodName: str):
+    """ 
+    Check if a method is static
+    Args:
+        - Class: reference to the class
+        - Method: Name of the method
+    """
+    return isinstance(inspect.getattr_static(Class, MethodName), staticmethod)
+
+
 # -------------------------------------------------------------
 #                       Functions
 # -------------------------------------------------------------
-
 
 def GetCustomAdditions():
     with open(ADDITIONS_FILEPATH, 'r') as File:
@@ -167,6 +177,34 @@ def GetFunctionInfoFromDocString(Function):
 
     return FunctionParamters
 
+
+def SortClasses(Classes: list):
+    """ 
+    Sort classes based on their parent class
+    If a class has another class as their parent class, it'll be placed later in the list
+    """
+    ClassNames = [x.Name for x in Classes]
+
+    i = 0
+    while (i < len(Classes)):
+        # Check if class has any required classes that needs to be defined before it (aka. parent classes)
+        Requirements = Classes[i].GetRequirements()
+        if Requirements:
+            # Get the required class that has the highest index in the list
+            RequiredIndices = [ClassNames.index(x) for x in Requirements if x in ClassNames]
+            RequiredMaxIndex = max(RequiredIndices) if RequiredIndices else -1
+
+            # If current index is lower than the highest required index, move current index to be just below the required one.
+            if RequiredMaxIndex > i:
+                Classes.insert(RequiredMaxIndex + 1, Classes.pop(i))
+                ClassNames.insert(RequiredMaxIndex + 1, ClassNames.pop(i))
+                i -= 1  # Because we moved current index away, re-itterate over the same index once more.
+
+        i += 1
+
+    return Classes
+
+
 # -------------------------------------------------------------
 #                       Classes
 # -------------------------------------------------------------
@@ -174,7 +212,7 @@ def GetFunctionInfoFromDocString(Function):
 
 class StubBaseClass():
     def __init__(self, Name = "") -> None:
-        self.Name = Name
+        self.Name: str = Name
         self.DocString = ""
 
     def GetAsString(self) -> str:
@@ -201,12 +239,13 @@ class StubFunction(StubBaseClass):
         self._Params = Parameters
         self.ReturnType = ReturnType
         self.bIsMethod = False
+        self.bIsStatic = False
         self.bIsOverload = False
 
     def AddParameter(self, Parameter):
         self._Params.append(Parameter)
 
-    def GetParameters(self):
+    def GetParameters(self) -> List[StubParameter]:
         return self._Params
 
     def SetParameter(self, Index, Paramter):
@@ -227,13 +266,15 @@ class StubFunction(StubBaseClass):
                 Param.Name = "self"
                 Param.Type = None
             ParametersAsStrings.append(Param.GetAsString())
-            
-        return ",".join(ParametersAsStrings)
 
+        return ",".join(ParametersAsStrings)
+    
     def GetAsString(self):
         FunctionAsString = ""
         if self.bIsOverload:
             FunctionAsString += "@overload\n"
+        elif self.bIsStatic:
+            FunctionAsString += "@staticmethod\n"
 
         FunctionAsString += 'def %s(%s)' % (self.Name, self.GetParamsAsString())
 
@@ -334,8 +375,16 @@ class StubParameter(StubBaseClass):
             return [RequirementClass]
         return []
 
+    def GetNiceName(self):
+        ReturnValue = self.Name
+        if ReturnValue.startswith("p"):
+            ReturnValue = ReturnValue.lstrip("p")
+        if self.Type == "bool":
+            ReturnValue = "b%s" % ReturnValue
+        return ReturnValue
+
     def GetAsString(self):
-        ParamString = self.Name  # PatchParameterName(self.Name)
+        ParamString = self.GetNiceName()  # PatchParameterName(self.Name)
         if self.Type:
             ParamString += ":%s" % self.Type
 
@@ -352,13 +401,21 @@ class StubParameter(StubBaseClass):
 
 class PyfbsdkStubGenerator():
     def __init__(self):
-        self.Functions = []
-        self.Classes = []
-        self.Enums = []
+        self.Functions: List[StubFunction] = []
+        self.Classes: List[StubClass] = []
+        self.Enums: List[StubClass] = []
+        self.DocumentationParser = docParser.MotionBuilderDocumentation(GetMotionBuilderVersion(), bCache = True)
+
+    # ---------------------------------------------------
+    #                      Internal
+    # --------------------------------------------------
 
     def _GenerateEnumInstance(self, Class):
         """ 
-        Generate enum instances based on the loaded pyfbsdk module
+        Generate a StubClass instance from a class (enum) reference
+
+        Args:
+            - Class {class}: reference to the class
         """
         # Create the stub instance
         ClassName = GetObjectName(Class)
@@ -375,9 +432,12 @@ class PyfbsdkStubGenerator():
 
         return EnumClassInstance
 
-    def _GenerateClassInstance(self, Class):
+    def _GenerateClassInstance(self, Class) -> StubClass:
         """ 
-        Generate enum instances based on the loaded pyfbsdk module
+        Generate a StubClass instance from a class reference
+
+        Args:
+            - Class {class}: reference to the class
         """
         # Create the stub instance
         ClassName = GetObjectName(Class)
@@ -389,6 +449,7 @@ class PyfbsdkStubGenerator():
             Type = GetObjectType(MemberReference)
             if Type == FObjectType.Function:
                 for StubMethod in self._GenerateFunctionInstances(MemberReference):
+                    StubMethod.bIsStatic = IsMethodStatic(Class, MemberName)
                     ClassInstance.AddFunction(StubMethod)
             elif MemberName not in ["__init__"]:
                 Property = StubProperty(MemberName)
@@ -401,7 +462,15 @@ class PyfbsdkStubGenerator():
 
         return ClassInstance
 
-    def _GenerateFunctionInstances(self, Function):
+    def _GenerateFunctionInstances(self, Function) -> List[StubFunction]:
+        """ 
+        Generate StubFunction instances from a function reference.
+
+        Args:
+            - Function {function}: reference to the function
+
+        Returns: A list of function instances, can be multiple if it has overload versions
+        """
         FunctionName = GetObjectName(Function)
 
         StubFunctions = []
@@ -418,20 +487,63 @@ class PyfbsdkStubGenerator():
 
         return StubFunctions
 
-    def GenerateString(self):
+    # ---------------------------------------------------
+    #           Online Documentation Functions
+    # --------------------------------------------------
+
+    def _PatchFunctionsFromDocumentation(self, Functions: List[StubFunction]):
+        for Function in Functions:
+            Documentations = self.DocumentationParser.GetSDKFunctionByName(Function.Name)
+            if not Documentations:
+                # Try adding FB
+                Documentations = self.DocumentationParser.GetSDKFunctionByName("FB%s" % Function.Name)
+                if not Documentations:
+                    continue
+
+            Documentation = Documentations[0]
+            if Function.bIsOverload:
+                # TODO: Find the most relevat documentation
+                continue
+
+            # Patch the return type
+            if Function.ReturnType is None or Function.ReturnType in ["object", "tuple"]:
+                NewReturnType = Documentation.GetType(bConvertToPython = True)
+                if NewReturnType and NewReturnType != "None":
+                    Function.ReturnType = NewReturnType
+
+            # Patch the parameters
+            DocumentationParam: docParser.DocMemberParameter
+            for Parameter, DocumentationParam in zip(Function.GetParameters(), Documentation.Params):
+                Parameter.Name = DocumentationParam.Name
+                if Parameter.DefaultValue is not None:
+                    Parameter.DefaultValue = DocumentationParam.GetDefaultValue(bConvertToPython = True)
+                if Parameter.Type == "object":
+                    Parameter.Type = DocumentationParam.GetType(bConvertToPython = True)
+                    
+            # TODO: Patch docstring
+            Documentation.DocString
+
+    def GenerateString(self, bUseOnlineDocumentation = True):
         """ 
-        Returns: The stub file as a string 
+        Returns: The stub file as a string
         """
         # Get the content
         Functions, Classes, Enums = GetPyfbsdkContent()
 
-        # Generate a string
+        # Generate the initial classes & functions
         self.Enums = [self._GenerateEnumInstance(Enum) for Enum in Enums]
         self.Classes = [self._GenerateClassInstance(Class) for Class in Classes]
+        # Sort classes so that if there is if a class has a parent class, that parent comes before the child
+        self.Classes = SortClasses(self.Classes)
         for Function in Functions:
             self.Functions.extend(self._GenerateFunctionInstances(Function))
 
-        StubString = GetCustomAdditions()
+        # Use the online documentation to try and create better param names, values etc.
+        if bUseOnlineDocumentation:
+            self._PatchFunctionsFromDocumentation(self.Functions)
+
+        # Generate a string
+        StubString = GetCustomAdditions()  # Read the custom additions file first
         StubString += "\n".join([x.GetAsString() for x in self.Enums])
         StubString += "\n"
         StubString += "\n".join([x.GetAsString() for x in self.Classes])
@@ -458,7 +570,7 @@ def main():
     GeneratePYFBSDKStub(Filepath)
 
     GenerationTime = time.time() - StartTime
-    print("Generating pyfbsdk stub file took: %ss." % GenerationTime)
+    print("Generating pyfbsdk stub file took: %ss." % round(GenerationTime, 2))
 
 
 main()
