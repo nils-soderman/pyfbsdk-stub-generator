@@ -39,8 +39,10 @@ SDK_FILES_PATH = SDK_CPP_PATH + "files_dup.js"
 # ------------------------------------------
 
 CToPythonVariableTranslation = {
+    "FBQuaternion" : "FBVector4d",
+    "FBRVector" : "FBVector3d",
     "FBVector4": "FBVector4d",
-    "FBTVector": "FBVector3d",
+    "FBTVector": "FBVector4d",
     "double": "float",
     "FBString": "str",
     "string": "str",
@@ -539,5 +541,3 @@ def GetDocsMainTableOfContent(Version) -> list:
     RawContent = GetUrlContent(GetFullURL(Version, DOC_GUIDE_CONTENTS_PATH))
     TableOfContent = json.loads(RawContent)
     return TableOfContent.get("books", {})
-
-print(MotionBuilderDocumentation(2022, True).GetSDKClassPagesByName("FBCharacterSolver").GetURL())

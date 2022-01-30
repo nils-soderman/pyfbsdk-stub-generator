@@ -27,6 +27,22 @@ TAB_CHARACTER = "    "
 
 
 # -------------------------------------------------------------
+#                         Translations
+# -------------------------------------------------------------
+
+# In the online C++ MotionBuilder documentation these classes/functions have following aliases:
+TranslationDocumentationClassNames = {
+    "FBVector3d": "FBVector3",
+    "FBVector4d": "FBVector4"
+}
+
+TranslationDocumentationMethodNames = {
+    "__sub__": "operator-",
+    "__getitem__": "operator[]",
+}
+
+
+# -------------------------------------------------------------
 #                       Structs & Enums
 # -------------------------------------------------------------
 
@@ -268,7 +284,7 @@ class StubFunction(StubBaseClass):
             ParametersAsStrings.append(Param.GetAsString())
 
         return ",".join(ParametersAsStrings)
-    
+
     def GetAsString(self):
         FunctionAsString = ""
         if self.bIsOverload:
@@ -385,7 +401,7 @@ class StubParameter(StubBaseClass):
 
     def GetAsString(self):
         ParamString = self.GetNiceName()  # PatchParameterName(self.Name)
-        if self.Type:
+        if self.Type and self.Type != "object":
             ParamString += ":%s" % self.Type
 
         if self.DefaultValue is not None:
@@ -491,37 +507,87 @@ class PyfbsdkStubGenerator():
     #           Online Documentation Functions
     # --------------------------------------------------
 
-    def _PatchFunctionsFromDocumentation(self, Functions: List[StubFunction]):
-        for Function in Functions:
-            Documentations = self.DocumentationParser.GetSDKFunctionByName(Function.Name)
-            if not Documentations:
-                # Try adding FB
-                Documentations = self.DocumentationParser.GetSDKFunctionByName("FB%s" % Function.Name)
+    def _PatchFunctionsFromDocumentation(self, Functions: List[StubFunction], DocumentationMembers = None):
+        UsedDocumentations = []
+        for StubFunctionInstance in Functions:
+            Documentations = []
+            if DocumentationMembers:
+                Documentations = DocumentationMembers
+            else:
+                Documentations = self.DocumentationParser.GetSDKFunctionByName(StubFunctionInstance.Name)
                 if not Documentations:
-                    continue
+                    # Try adding FB
+                    Documentations = self.DocumentationParser.GetSDKFunctionByName("FB%s" % StubFunctionInstance.Name)
+                    if not Documentations:
+                        continue
 
-            Documentation = Documentations[0]
-            if Function.bIsOverload:
-                # TODO: Find the most relevat documentation
+            # If it's a method
+            StubParameterInstances = StubFunctionInstance.GetParameters()[1:] if StubFunctionInstance.bIsMethod else StubFunctionInstance.GetParameters()
+
+            Documentation = None
+            if StubFunctionInstance.bIsOverload:
+                HighestScore = -1
+                BestMatch = None
+                for Doc in Documentations:
+                    if Doc in UsedDocumentations:
+                        continue
+
+                    # Check if number of parameters match
+                    if len(Doc.Params) != len(StubParameterInstances):
+                        continue
+
+                    # Find the one with highest matching parameter score
+                    Score = -1
+                    for Parameter, DocumentationParam in zip(StubParameterInstances, Doc.Params):
+                        ParamType = DocumentationParam.GetType(bConvertToPython = True)
+                        if Parameter.Type == ParamType:
+                            Score += 1
+
+                    if Score > HighestScore:
+                        BestMatch = Doc
+
+                if BestMatch:
+                    Documentation = BestMatch
+                    UsedDocumentations.append(Doc)
+
+            else:
+                Documentation = Documentations[0]
+
+            if not Documentation:
                 continue
 
             # Patch the return type
-            if Function.ReturnType is None or Function.ReturnType in ["object", "tuple"]:
+            if StubFunctionInstance.ReturnType is None or StubFunctionInstance.ReturnType in ["object", "tuple"]:
                 NewReturnType = Documentation.GetType(bConvertToPython = True)
                 if NewReturnType and NewReturnType != "None":
-                    Function.ReturnType = NewReturnType
+                    StubFunctionInstance.ReturnType = NewReturnType
 
             # Patch the parameters
             DocumentationParam: docParser.DocMemberParameter
-            for Parameter, DocumentationParam in zip(Function.GetParameters(), Documentation.Params):
+            for Parameter, DocumentationParam in zip(StubParameterInstances, Documentation.Params):
                 Parameter.Name = DocumentationParam.Name
                 if Parameter.DefaultValue is not None:
                     Parameter.DefaultValue = DocumentationParam.GetDefaultValue(bConvertToPython = True)
                 if Parameter.Type == "object":
                     Parameter.Type = DocumentationParam.GetType(bConvertToPython = True)
-                    
+
             # TODO: Patch docstring
             Documentation.DocString
+
+    def _PatchClassFromDocumentation(self, Classes: List[StubClass]):
+        for StubClassInstance in Classes:
+            DocumentationClassName = TranslationDocumentationClassNames.get(StubClassInstance.Name, StubClassInstance.Name)
+            Documentation = self.DocumentationParser.GetSDKClassPagesByName(DocumentationClassName)
+            if not Documentation:
+                continue
+
+            # Patch functions
+            for StubFunctionInstance in StubClassInstance.StubFunctions:
+                DocumentationFunctionName = TranslationDocumentationMethodNames.get(StubFunctionInstance.Name, StubFunctionInstance.Name)
+                if DocumentationFunctionName == "__init__":
+                    DocumentationFunctionName = StubClassInstance.Name
+                FunctionDocumentations = Documentation.GetMembersByName(DocumentationFunctionName)
+                self._PatchFunctionsFromDocumentation([StubFunctionInstance], FunctionDocumentations)
 
     def GenerateString(self, bUseOnlineDocumentation = True):
         """ 
@@ -541,6 +607,7 @@ class PyfbsdkStubGenerator():
         # Use the online documentation to try and create better param names, values etc.
         if bUseOnlineDocumentation:
             self._PatchFunctionsFromDocumentation(self.Functions)
+            self._PatchClassFromDocumentation(self.Classes)
 
         # Generate a string
         StubString = GetCustomAdditions()  # Read the custom additions file first
