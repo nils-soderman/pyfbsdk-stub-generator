@@ -25,6 +25,9 @@ DEFAULT_OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "generated-st
 ADDITIONS_FILEPATH = os.path.join(os.path.dirname(__file__), "additions_pyfbsdk.py")
 TAB_CHARACTER = "    "
 
+# TODO: Broken stuff:
+# * FBModel.GetHierarchyWorldMatrices() - First param in the docs doesn't exists in the python version  
+# * FBInterpolateRotation() - Both of them use the same documentation :/
 
 # -------------------------------------------------------------
 #                         Translations
@@ -39,6 +42,16 @@ TranslationDocumentationClassNames = {
 TranslationDocumentationMethodNames = {
     "__sub__": "operator-",
     "__getitem__": "operator[]",
+}
+
+PropertyTypeTranslation = {
+    "FBPropertyString": "str",
+    "FBPropertyInt": "int",
+    "FBPropertyFloat": "float",
+    "FBPropertyDouble": "float",
+    "FBPropertyAnimatableDouble": "float",
+    "FBPropertyBool": "bool",
+    "FBPropertyAnimatableBool": "bool",
 }
 
 
@@ -252,11 +265,14 @@ class StubBaseClass():
 class StubFunction(StubBaseClass):
     def __init__(self, Name = "", Parameters = [], ReturnType = None):
         super().__init__(Name = Name)
-        self._Params = Parameters
+        self._Params: List[StubParameter] = Parameters
         self.ReturnType = ReturnType
         self.bIsMethod = False
         self.bIsStatic = False
         self.bIsOverload = False
+
+    def __repr__(self):
+        return "<%s: %s>" % (self.__class__.__name__, self.Name)
 
     def AddParameter(self, Parameter):
         self._Params.append(Parameter)
@@ -313,7 +329,7 @@ class StubClass(StubBaseClass):
         super().__init__(Name = Name)
         self.Parents = []
         self.StubProperties = []
-        self.StubFunctions = []
+        self.StubFunctions: List[StubProperty] = []
 
     def AddFunction(self, Function: StubFunction):
         Function.bIsMethod = True  # Make function a method
@@ -324,6 +340,9 @@ class StubClass(StubBaseClass):
 
     def AddParent(self, Parent: str):
         self.Parents.append(Parent)
+
+    def GetStubProperties(self) -> List[StubProperty]:
+        return self.StubProperties
 
     def GetRequirements(self) -> list:
         # The class parent's needs to be declared before the class
@@ -393,7 +412,7 @@ class StubParameter(StubBaseClass):
 
     def GetNiceName(self):
         ReturnValue = self.Name
-        if ReturnValue.startswith("p"):
+        if ReturnValue.startswith("p") and not (ReturnValue[1].isnumeric()):
             ReturnValue = ReturnValue.lstrip("p")
         if self.Type == "bool":
             ReturnValue = "b%s" % ReturnValue
@@ -422,9 +441,17 @@ class PyfbsdkStubGenerator():
         self.Enums: List[StubClass] = []
         self.DocumentationParser = docParser.MotionBuilderDocumentation(GetMotionBuilderVersion(), bCache = True)
 
+        self._AllClassNames = []
+        
+        self._DebugPropertiesConvertedToDefault = []
+
     # ---------------------------------------------------
     #                      Internal
     # --------------------------------------------------
+    def GetAllClassNames(self):
+        if not self._AllClassNames:
+            self._AllClassNames = [x.Name for x in self.Classes + self.Enums]
+        return self._AllClassNames
 
     def _GenerateEnumInstance(self, Class):
         """ 
@@ -507,6 +534,36 @@ class PyfbsdkStubGenerator():
     #           Online Documentation Functions
     # --------------------------------------------------
 
+    def _PatchPropertyType(self, PropertyType: str):
+        """ 
+        Patch a class property type, e.g. turning 'FBPropertyCamera' -> 'FBCamera'
+        """
+        # Default property types to always accept as valid
+        if PropertyType in ["str", "float", "bool", "int"]:
+            return PropertyType
+        
+        # Check if PropertyType exists as a known type to be translated into something else
+        if PropertyType in PropertyTypeTranslation:
+            return PropertyTypeTranslation[PropertyType]
+
+        # Remove FBProperty / FBPropertyAnimatable
+        if PropertyType.startswith("FBProperty") and not PropertyType.startswith("FBPropertyList"):
+            StrPartToRemove = "PropertyAnimatable" if PropertyType.startswith("FBPropertyAnimatable") else "Property"
+            NewPropertyType = PropertyType.replace(StrPartToRemove, "", 1)
+            if NewPropertyType in self.GetAllClassNames():
+                return NewPropertyType
+
+        if PropertyType in self.GetAllClassNames():
+            return PropertyType
+
+        self._DebugPropertiesConvertedToDefault.append(PropertyType)
+        return "property"
+    
+    def _PatchParameter(self, StubParameterInstance: StubParameter):
+        if StubParameterInstance.DefaultValue:
+            if StubParameterInstance.DefaultValue.startswith("k"):
+                StubParameterInstance.DefaultValue = "%s.%s" % (StubParameterInstance.Type, StubParameterInstance.DefaultValue)
+
     def _PatchFunctionsFromDocumentation(self, Functions: List[StubFunction], DocumentationMembers = None):
         UsedDocumentations = []
         for StubFunctionInstance in Functions:
@@ -537,7 +594,7 @@ class PyfbsdkStubGenerator():
                         continue
 
                     # Find the one with highest matching parameter score
-                    Score = -1
+                    Score = 0
                     for Parameter, DocumentationParam in zip(StubParameterInstances, Doc.Params):
                         ParamType = DocumentationParam.GetType(bConvertToPython = True)
                         if Parameter.Type == ParamType:
@@ -548,7 +605,7 @@ class PyfbsdkStubGenerator():
 
                 if BestMatch:
                     Documentation = BestMatch
-                    UsedDocumentations.append(Doc)
+                    UsedDocumentations.append(Documentation)
 
             else:
                 Documentation = Documentations[0]
@@ -567,10 +624,13 @@ class PyfbsdkStubGenerator():
             for Parameter, DocumentationParam in zip(StubParameterInstances, Documentation.Params):
                 Parameter.Name = DocumentationParam.Name
                 if Parameter.DefaultValue is not None:
-                    Parameter.DefaultValue = DocumentationParam.GetDefaultValue(bConvertToPython = True)
+                    NewDefaultValue = DocumentationParam.GetDefaultValue(bConvertToPython = True)
+                    if NewDefaultValue:
+                        Parameter.DefaultValue = NewDefaultValue
                 if Parameter.Type == "object":
                     Parameter.Type = DocumentationParam.GetType(bConvertToPython = True)
-
+                self._PatchParameter(Parameter)
+                
             # TODO: Patch docstring
             Documentation.DocString
 
@@ -582,12 +642,35 @@ class PyfbsdkStubGenerator():
                 continue
 
             # Patch functions
+            # First collect all functions with the same name, so we itterate over them at the same time
+            StubFunctionsInstancesDict = {}
             for StubFunctionInstance in StubClassInstance.StubFunctions:
-                DocumentationFunctionName = TranslationDocumentationMethodNames.get(StubFunctionInstance.Name, StubFunctionInstance.Name)
+                Value = StubFunctionsInstancesDict.get(StubFunctionInstance.Name, [])
+                Value.append(StubFunctionInstance)
+                StubFunctionsInstancesDict[StubFunctionInstance.Name] = Value
+
+            for StubFunctionName, StubFunctionInstances in StubFunctionsInstancesDict.items():
+                DocumentationFunctionName = TranslationDocumentationMethodNames.get(StubFunctionName, StubFunctionName)
                 if DocumentationFunctionName == "__init__":
-                    DocumentationFunctionName = StubClassInstance.Name
+                    DocumentationFunctionName = DocumentationClassName
                 FunctionDocumentations = Documentation.GetMembersByName(DocumentationFunctionName)
-                self._PatchFunctionsFromDocumentation([StubFunctionInstance], FunctionDocumentations)
+                self._PatchFunctionsFromDocumentation(StubFunctionInstances, FunctionDocumentations)
+
+            # Patch properties
+            for StubPropertyInstance in StubClassInstance.GetStubProperties():
+                DocumentationMembers = Documentation.GetMembersByName(StubPropertyInstance.Name)
+                if not DocumentationMembers:
+                    continue
+
+                # Properties doesn't have overloads, so we can get the first result
+                PropertyDocumentation = DocumentationMembers[0]
+
+                if StubPropertyInstance.Type == "property":
+                    NewType = PropertyDocumentation.GetType(bConvertToPython = True)
+                    NewType = self._PatchPropertyType(NewType)
+                    StubPropertyInstance.Type = NewType
+
+            # TODO: Add Docstring
 
     def GenerateString(self, bUseOnlineDocumentation = True):
         """ 
@@ -600,7 +683,6 @@ class PyfbsdkStubGenerator():
         self.Enums = [self._GenerateEnumInstance(Enum) for Enum in Enums]
         self.Classes = [self._GenerateClassInstance(Class) for Class in Classes]
         # Sort classes so that if there is if a class has a parent class, that parent comes before the child
-        self.Classes = SortClasses(self.Classes)
         for Function in Functions:
             self.Functions.extend(self._GenerateFunctionInstances(Function))
 
@@ -608,6 +690,11 @@ class PyfbsdkStubGenerator():
         if bUseOnlineDocumentation:
             self._PatchFunctionsFromDocumentation(self.Functions)
             self._PatchClassFromDocumentation(self.Classes)
+            # c = [x for x in self.Classes if x.Name == "FBVector3d"]
+            # self._PatchClassFromDocumentation(c)
+
+        # Sort classes after all patches are done and we know their requirements
+        self.Classes = SortClasses(self.Classes)
 
         # Generate a string
         StubString = GetCustomAdditions()  # Read the custom additions file first
@@ -616,6 +703,8 @@ class PyfbsdkStubGenerator():
         StubString += "\n".join([x.GetAsString() for x in self.Classes])
         StubString += "\n"
         StubString += "\n".join([x.GetAsString() for x in self.Functions])
+
+        print(self._DebugPropertiesConvertedToDefault)
 
         return StubString
 

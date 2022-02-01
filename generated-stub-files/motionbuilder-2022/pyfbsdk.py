@@ -1978,11 +1978,11 @@ class FBAddRegionParam():
     mType:property
     def __init__(self,arg2,arg3:FBAttachType,arg4:str,arg5:float=None):...
 class FBAudioRenderOptions():
-    BitDepthMode:property
-    ChannelMode:property
-    OutputFileName:property
-    RateMode:property
-    TimeSpan:property
+    BitDepthMode:FBAudioBitDepthMode
+    ChannelMode:FBAudioChannelMode
+    OutputFileName:str
+    RateMode:FBAudioRateMode
+    TimeSpan:FBTimeSpan
     def __init__(self):...
 class FBBatchOptions():
     Character:property
@@ -2012,12 +2012,12 @@ class FBCallback():
     Wrapper:property
     def __init__(self,arg2,arg3:FBEventName,arg4):...
 class FBCharacterPoseOptions():
-    mCharacterPoseKeyingMode:property
-    mMirrorPlaneEquation:property
-    mMirrorPlanePanAngle:property
-    mMirrorPlaneTiltAngle:property
-    mMirrorPlaneType:property
-    mModelToMatch:property
+    mCharacterPoseKeyingMode:FBCharacterPoseKeyingMode
+    mMirrorPlaneEquation:FBVector4d
+    mMirrorPlanePanAngle:float
+    mMirrorPlaneTiltAngle:float
+    mMirrorPlaneType:FBMirrorPlaneType
+    mModelToMatch:FBModel
     def ClearFlag(self):...
     def GetFlag(self,Flag:FBCharacterPoseFlag)->bool:...
     def SetFlag(self,Flag:FBCharacterPoseFlag,bValue:bool):...
@@ -2053,9 +2053,9 @@ class FBColor():
     @overload
     def __init__(self,Vector:FBColor):...
     @overload
-    def __init__(self,arg2,arg3,arg4):...
+    def __init__(self,Red:float,Green:float,Blue:float):...
     @overload
-    def __init__(self,arg2):...
+    def __init__(self,Value:float):...
     @overload
     def __init__(self,arg2:list):...
     @overload
@@ -2108,11 +2108,11 @@ class FBColorAndAlpha():
     @overload
     def __init__(self,Vector:FBColorAndAlpha):...
     @overload
-    def __init__(self,arg2,arg3,arg4,arg5=None):...
+    def __init__(self,Red:float,Green:float,Blue:float,Alpha:float=1.0):...
     @overload
-    def __init__(self,arg2):...
+    def __init__(self,Value:FBColorF):...
     @overload
-    def __init__(self,arg2:list):...
+    def __init__(self,Value:list):...
     @overload
     def __isub__(self,arg2:FBColorAndAlpha)->object:...
     @overload
@@ -2187,14 +2187,14 @@ class FBEvaluateInfo():
     def GetSystemTime(self)->FBTime:...
     def IsStop(self)->bool:...
 class FBEvent():
-    Type:property
+    Type:int
 class FBEventActivate(FBEvent):
     Data:property
 class FBEventClipChange(FBEvent):
     def __init__(self):...
 class FBEventConnectionDataNotify(FBEvent):
-    Action:property
-    Plug:property
+    Action:FBConnectionAction
+    Plug:FBPlug
     def __init__(self):...
 class FBEventConnectionKeyingNotify(FBEvent):
     Action:property
@@ -2204,26 +2204,26 @@ class FBEventConnectionKeyingNotify(FBEvent):
     StopTime:property
     def __init__(self):...
 class FBEventConnectionNotify(FBEvent):
-    Action:property
-    ConnectionType:property
-    DstPlug:property
-    NewPlug:property
-    SrcIndex:property
-    SrcPlug:property
+    Action:FBConnectionAction
+    ConnectionType:FBConnectionType
+    DstPlug:FBPlug
+    NewPlug:FBPlug
+    SrcIndex:int
+    SrcPlug:FBPlug
     def __init__(self):...
 class FBEventConnectionStateNotify(FBEvent):
-    Action:property
-    Plug:property
+    Action:FBConnectionAction
+    Plug:FBPlug
     def __init__(self):...
 class FBEventDblClick(FBEvent):
-    Selection:property
+    Selection:int
     def __init__(self):...
 class FBEventDragAndDrop(FBEvent):
     Components:property
     Data:property
-    PosX:property
-    PosY:property
-    State:property
+    PosX:int
+    PosY:int
+    State:FBDragAndDropState
     def Accept(self):...
     def Add(self,Component:FBComponent,Id:int=0):...
     def Clear(self):...
@@ -2234,47 +2234,47 @@ class FBEventEvalGlobalCallback(FBEvent):
 class FBEventExpose(FBEvent):
     ...
 class FBEventFileChange(FBEvent):
-    Path:property
+    Path:str
 class FBEventInput(FBEvent):
-    InputType:property
-    Key:property
-    KeyState:property
-    MouseButton:property
-    X:property
-    Y:property
+    InputType:FBInputType
+    Key:int
+    KeyState:int
+    MouseButton:int
+    X:int
+    Y:int
 class FBEventMenu(FBEvent):
-    Id:property
-    Name:property
+    Id:int
+    Name:str
 class FBEventOverrideFileOpen(FBEvent):
-    FilePath:property
-    WillOverride:property
+    FilePath:str
+    WillOverride:bool
     def __init__(self):...
 class FBEventPlayerControlChange(FBEvent):
     def __init__(self):...
 class FBEventResize(FBEvent):
-    Height:property
-    Width:property
+    Height:int
+    Width:int
     def __init__(self):...
 class FBEventSceneChange(FBEvent):
-    ChildComponent:property
-    Component:property
+    ChildComponent:FBComponent
+    Component:FBComponent
     def __init__(self):...
 class FBEventShow(FBEvent):
-    Shown:property
+    Shown:bool
 class FBEventSpread(FBEvent):
-    Action:property
-    Column:property
-    Row:property
+    Action:int
+    Column:int
+    Row:int
 class FBEventTakeChange(FBEvent):
-    Take:property
+    Take:FBTake
     def __init__(self):...
 class FBEventTransaction(FBEvent):
-    IsBeginTransaction:property
+    IsBeginTransaction:bool
 class FBEventTree(FBEvent):
-    TreeNode:property
+    TreeNode:FBTreeNode
     Why:property
 class FBEventTreeSelect(FBEvent):
-    TreeNode:property
+    TreeNode:FBTreeNode
     def __init__(self):...
 class FBEventVideoFrameRendering(FBEvent):
     EState:type
@@ -2286,55 +2286,55 @@ class FBEventVideoFrameRendering(FBEvent):
     eRendering:EState
     def __init__(self):...
 class FBFCurveEvent(FBEvent):
-    Curve:property
-    CurveIndex:property
-    CurveName:property
-    EventType:property
-    KeyIndexStart:property
-    KeyIndexStop:property
+    Curve:FBFCurve
+    CurveIndex:int
+    CurveName:str
+    EventType:FBFCurveEventType
+    KeyIndexStart:int
+    KeyIndexStop:int
     ParentAnimationNode:property
     ParentComponent:property
     ParentProperty:property
     def __init__(self):...
 class FBFCurveKey():
-    Bias:property
-    Continuity:property
-    ExtrapolationMode:property
-    Interpolation:property
-    LeftBezierTangent:property
-    LeftDerivative:property
-    LeftTangentWeight:property
-    MarkedForManipulation:property
-    RightBezierTangent:property
-    RightDerivative:property
-    RightTangentWeight:property
-    Selected:property
-    TangentBreak:property
-    TangentClampMode:property
-    TangentConstantMode:property
-    TangentCustomIndex:property
-    TangentMode:property
-    TangentWeightMode:property
-    Tension:property
-    Time:property
-    Value:property
+    Bias:float
+    Continuity:float
+    ExtrapolationMode:FBExtrapolationMode
+    Interpolation:FBInterpolation
+    LeftBezierTangent:float
+    LeftDerivative:float
+    LeftTangentWeight:float
+    MarkedForManipulation:bool
+    RightBezierTangent:float
+    RightDerivative:float
+    RightTangentWeight:float
+    Selected:bool
+    TangentBreak:bool
+    TangentClampMode:FBTangentClampMode
+    TangentConstantMode:FBTangentConstantMode
+    TangentCustomIndex:FBTangentCustomIndex
+    TangentMode:FBTangentMode
+    TangentWeightMode:FBTangentWeightMode
+    Tension:float
+    Time:FBTime
+    Value:float
     def __init__(self):...
 class FBFilePopup():
-    Caption:property
-    FileName:property
-    Filter:property
-    FullFilename:property
-    Path:property
-    Style:property
+    Caption:str
+    FileName:str
+    Filter:str
+    FullFilename:str
+    Path:str
+    Style:FBFilePopupStyle
     def Execute(self)->bool:...
     def __init__(self):...
 class FBFilterManager():
-    FilterTypeNames:property
+    FilterTypeNames:FBStringList
     def CreateFilter(self,FilterTypeName:str)->FBFilter:...
     def __init__(self):...
 class FBFolderPopup():
-    Caption:property
-    Path:property
+    Caption:str
+    Path:str
     def Execute(self)->bool:...
     def __init__(self):...
 class FBMatrix():
@@ -2358,9 +2358,9 @@ class FBMatrix():
     @overload
     def __init__(self):...
     @overload
-    def __init__(self,arg2:list):...
+    def __init__(self,Matrix:list):...
     @overload
-    def __init__(self,Matrix:FBMatrix):...
+    def __init__(self,Value:FBMatrix):...
     def __isub__(self,arg2:FBMatrix)->object:...
     def __len__(self)->int:...
     @overload
@@ -2382,7 +2382,7 @@ class FBModelList():
     def count(self)->int:...
     def removeAll(self):...
 class FBMultiLangManager():
-    Languages:property
+    Languages:FBStringList
     def GetCurrentLanguage(self)->str:...
     def SetCurrentLanguage(self,Language:str)->bool:...
     def __init__(self):...
@@ -2447,16 +2447,16 @@ class FBNormal():
     @overload
     def __truediv__(self,arg2)->object:...
 class FBObjectPoseMirrorOptions():
-    mMirrorPlaneEquation:property
+    mMirrorPlaneEquation:FBVector4d
     def ClearFlag(self):...
     def GetFlag(self,Flag:FBObjectPoseMirrorOptionsFlag)->bool:...
     def SetFlag(self,Flag:FBObjectPoseMirrorOptionsFlag,bValue:bool):...
     def __init__(self):...
 class FBObjectPoseOptions():
-    mPoseTransformType:property
-    mReferenceGRM:property
-    mReferenceGSM:property
-    mReferenceGT:property
+    mPoseTransformType:FBPoseTransformType
+    mReferenceGRM:FBMatrix
+    mReferenceGSM:FBMatrix
+    mReferenceGT:FBVector4d
     def ClearFlag(self):...
     def GetFlag(self,Flag:FBObjectPoseOptionsFlag)->bool:...
     def SetFlag(self,Flag:FBObjectPoseOptionsFlag,bValue:bool):...
@@ -2548,7 +2548,7 @@ class FBPropertyManager():
     def __getitem__(self,Index:int)->FBProperty:...
     def __len__(self)->int:...
 class FBPropertyStateEvent(FBEvent):
-    EventType:property
+    EventType:FBPropertyStateEventType
     ParentComponent:property
     Property:property
     def __init__(self):...
@@ -2570,10 +2570,10 @@ class FBPlug(FBPythonWrapper):
     TypeInfo:int
     def BeginChange(self)->bool:...
     def ClassName(self)->str:...
-    def ConnectDst(self,Dst:FBPlug,ConnectionType:FBConnectionType=kFBConnectionTypeNone)->bool:...
-    def ConnectDstAt(self,Src_DstIndex:int,Dst:FBPlug,ConnectionType:FBConnectionType=kFBConnectionTypeNone)->bool:...
-    def ConnectSrc(self,Src:FBPlug,ConnectionType:FBConnectionType=kFBConnectionTypeNone)->bool:...
-    def ConnectSrcAt(self,Dst_SrcIndex:int,Src:FBPlug,ConnectionType:FBConnectionType=kFBConnectionTypeNone)->bool:...
+    def ConnectDst(self,Dst:FBPlug,ConnectionType:FBConnectionType=FBConnectionType.kFBConnectionTypeNone)->bool:...
+    def ConnectDstAt(self,Src_DstIndex:int,Dst:FBPlug,ConnectionType:FBConnectionType=FBConnectionType.kFBConnectionTypeNone)->bool:...
+    def ConnectSrc(self,Src:FBPlug,ConnectionType:FBConnectionType=FBConnectionType.kFBConnectionTypeNone)->bool:...
+    def ConnectSrcAt(self,Dst_SrcIndex:int,Src:FBPlug,ConnectionType:FBConnectionType=FBConnectionType.kFBConnectionTypeNone)->bool:...
     def DisconnectAllDst(self):...
     def DisconnectAllSrc(self):...
     def DisconnectDst(self,Dst:FBPlug)->bool:...
@@ -2597,14 +2597,14 @@ class FBPlug(FBPythonWrapper):
     def Is(self,TypeId:int)->bool:...
     def IsSDKComponent(self)->bool:...
     @overload
-    def MoveSrcAt(self,arg2,arg3)->bool:...
+    def MoveSrcAt(self,Index:int,AtIndex:int)->bool:...
     @overload
     def MoveSrcAt(self,Src:FBPlug,AtSrc:FBPlug)->bool:...
     @staticmethod
     def PrintClassDefinitions():...
     def ReplaceDstAt(self,Index:int,Dst:FBPlug)->bool:...
     def ReplaceSrcAt(self,Index:int,Src:FBPlug)->bool:...
-    def RevertModification(self,Flag:FBPlugModificationFlag=kFBAllModifiedMask)->bool:...
+    def RevertModification(self,Flag:FBPlugModificationFlag=FBPlugModificationFlag.kFBAllModifiedMask)->bool:...
     def SetContentModified(self,Flag:FBPlugModificationFlag,bBool:bool):...
     def SetSelfModified(self,Flag:FBPlugModificationFlag,bBool:bool):...
     def SetStatusFlag(self,Status:FBPlugStatusFlag,bValue:bool):...
@@ -2621,7 +2621,7 @@ class FBProperty(FBPlug):
     Data:property
     Name:property
     def AllowsLocking(self)->bool:...
-    def AsString(self,Flag:FBDataAsStringFlag=kFBDataAsStringUI)->str:...
+    def AsString(self,Flag:FBDataAsStringFlag=FBDataAsStringFlag.kFBDataAsStringUI)->str:...
     def EnumList(self,Index:int)->str:...
     def GetEnumStringList(self,bCreateIt:bool=False)->FBStringList:...
     def GetMax(self)->float:...
@@ -2656,14 +2656,14 @@ class FBProperty(FBPlug):
     def SetName(self,Name:str):...
     def SetString(self,String:str)->bool:...
 class FBComponent(FBPlug):
-    Components:property
+    Components:FBPropertyListComponent
     FullName:property
-    LongName:property
-    Name:property
+    LongName:str
+    Name:str
     OwnerNamespace:property
-    Parents:property
-    PropertyList:property
-    Selected:property
+    Parents:FBPropertyListComponent
+    PropertyList:FBPropertyManager
+    Selected:bool
     def DisableObjectFlags(self,Flags:FBObjectFlag):...
     def EnableObjectFlags(self,Flags:FBObjectFlag):...
     def FBCreate(self)->bool:...
@@ -2688,9 +2688,9 @@ class FBPropertyVector4d(FBProperty):
     def __len__(self)->int:...
     def __setitem__(self,arg2,arg3):...
 class FBReferenceTime(FBComponent):
-    Count:property
-    CurrentTimeReferenceID:property
-    ItemIndex:property
+    Count:int
+    CurrentTimeReferenceID:int
+    ItemIndex:int
     def Add(self,Name:str)->int:...
     def GetReferenceTimeName(self,ID:int)->str:...
     def GetTime(self,ID:int,System:FBTime)->FBTime:...
@@ -2995,34 +2995,34 @@ class FBPropertyAnimatableBool(FBPropertyAnimatable):
 class FBPropertyAnimatableAction(FBPropertyAnimatable):
     ...
 class FBRenderer(FBComponent):
-    AdvancedLightingMode:property
-    AdvancedMaterialMode:property
-    AutoEvaluate:property
-    Background:property
-    CurrentCamera:property
-    CurrentPaneCallbackIndex:property
-    CurrentPaneCallbackPrefIndex:property
-    DisplayNormals:property
-    DisplaySetUpdateId:property
-    DisplayableGeometryCount:property
-    DisplayableLightCount:property
-    FrustumCulling:property
-    HideManipulatorsOnManip:property
-    HideManipulatorsOnPlayback:property
-    IDBufferDisplay:property
-    IDBufferPicking:property
-    IDBufferPickingAlpha:property
-    PickingEnabled:property
-    RegisteredCallbackCount:property
-    RendererCallbacks:property
-    RendererUpdateId:property
-    Scene:property
-    SelectionForceSnapPointsDisplay:property
-    SelectionOverride:property
-    SelectionOverrideColor:property
-    SelectionOverrideTransparency:property
-    ShowStats:property
-    UseCameraSwitcher:property
+    AdvancedLightingMode:bool
+    AdvancedMaterialMode:bool
+    AutoEvaluate:bool
+    Background:bool
+    CurrentCamera:FBCamera
+    CurrentPaneCallbackIndex:int
+    CurrentPaneCallbackPrefIndex:int
+    DisplayNormals:bool
+    DisplaySetUpdateId:int
+    DisplayableGeometryCount:int
+    DisplayableLightCount:int
+    FrustumCulling:bool
+    HideManipulatorsOnManip:bool
+    HideManipulatorsOnPlayback:bool
+    IDBufferDisplay:bool
+    IDBufferPicking:bool
+    IDBufferPickingAlpha:float
+    PickingEnabled:bool
+    RegisteredCallbackCount:int
+    RendererCallbacks:FBPropertyListRendererCallback
+    RendererUpdateId:int
+    Scene:FBScene
+    SelectionForceSnapPointsDisplay:bool
+    SelectionOverride:bool
+    SelectionOverrideColor:FBColor
+    SelectionOverrideTransparency:float
+    ShowStats:bool
+    UseCameraSwitcher:bool
     def ArrangeAllInSchematic(self,Mode:FBArrangeMode):...
     def ArrangeObjectsInSchematicFromModel(self,Model:FBModel)->bool:...
     def ArrangeSelectedObjectsInSchematic(self):...
@@ -3047,7 +3047,7 @@ class FBRenderer(FBComponent):
     def IsModelInsideCameraFrustum(self,Geometry:FBModel,Camera:FBCamera)->bool:...
     def KeyboardInput(self,KeyIndex:FBDeviceKeyboardKey,bKeyState:bool,bIsTrigger:bool=False):...
     def MouseInput(self,X:int,Y:int,InputType:FBInputType,ButtonKey:int,Modifier:FBInputModifier,WheelDeltaValue:int=0,Layer:int=-1)->bool:...
-    def MouseInputNormalized(self,X:float,Y:float,InputType:FBInputType,ButtonKey:int,Modifier:FBInputModifier,WheelDeltaValue:int=NoDefaultValue,Layer:int=-1,PaneId:int=-1)->bool:...
+    def MouseInputNormalized(self,X:float,Y:float,InputType:FBInputType,ButtonKey:int,Modifier:FBInputModifier,WheelDeltaValue:int=None,Layer:int=-1,PaneId:int=-1)->bool:...
     def OGLModelDisplay(self,arg2:FBRenderOptions,arg3:FBModel):...
     def OGLSetupSceneLights(self,RenderOptions:FBRenderOptions):...
     def Pick(self,X:int,Y:int,PickInfosList:FBPickInfosList)->bool:...
@@ -3069,19 +3069,19 @@ class FBRenderer(FBComponent):
     def SetViewport(self,X:int,Y:int,W:int,H:int):...
     def UpdateCurrentSchematicBookmark(self)->bool:...
 class FBProgress(FBComponent):
-    Caption:property
-    Percent:property
-    Text:property
+    Caption:str
+    Percent:int
+    Text:str
     def ProgressBegin(self):...
     def ProgressDone(self):...
     def UserRequestCancell(self)->bool:...
     def __init__(self):...
 class FBProfiler(FBComponent):
-    ActiveSampling:property
-    BufferSize:property
-    EvaluationDepth:property
-    FrameReference:property
-    ProfilingMode:property
+    ActiveSampling:bool
+    BufferSize:int
+    EvaluationDepth:int
+    FrameReference:bool
+    ProfilingMode:FBProfilingMode
     def GetEndEventSample(self,Index:int)->FBProfileTimeEvent:...
     def GetEventSample(self,Index:int)->FBProfileTimeEvent:...
     def GetEventSampleCount(self)->int:...
@@ -3095,7 +3095,7 @@ class FBProfiler(FBComponent):
     def GetStatStop(self,Index:int)->float:...
     def __init__(self):...
 class FBPose(FBComponent):
-    Type:property
+    Type:FBPoseType
     def AddNode(self,Object:FBModel,Matrix:FBMatrix=None,bIsLocalMatrix:bool=False)->int:...
     def CreatePoseThumbnail(self):...
     def Find(self,NodeName:str)->int:...
@@ -3110,18 +3110,18 @@ class FBPose(FBComponent):
     def SetNodeObject(self,Index:int,Object:FBModel):...
     def __init__(self,Name:str):...
 class FBPointCacheManager(FBComponent):
-    AllowCacheResampling:property
-    AlwaysAskForPath:property
-    ApplyCacheOnNewModel:property
-    ApplyGlobalTransform:property
-    CacheAABBox:property
-    CacheNormal:property
-    CreateFilePerFrameCache:property
-    CreateMultiChannelCache:property
-    DefaultPath:property
-    Models:property
-    NewModelRoot:property
-    SaveEveryFrame:property
+    AllowCacheResampling:bool
+    AlwaysAskForPath:bool
+    ApplyCacheOnNewModel:bool
+    ApplyGlobalTransform:bool
+    CacheAABBox:bool
+    CacheNormal:bool
+    CreateFilePerFrameCache:bool
+    CreateMultiChannelCache:bool
+    DefaultPath:str
+    Models:FBPropertyListObject
+    NewModelRoot:FBModel
+    SaveEveryFrame:int
     def SetTransformReference(self):...
     def __init__(self):...
 class FBCharacterPose(FBPose):
@@ -3157,14 +3157,14 @@ class FBCharacterPose(FBPose):
     def RemoveCharacterExtensionPoseAt(self,Index:int):...
     def __init__(self,Name:str):...
 class FBObjectPose(FBPose):
-    def AddStanceOffset(self,ObjectName:str,StancePose:FBObjectPose,PoseTransformType:FBPoseTransformType=kFBPoseTransformInvalid):...
-    def AddStanceOffsetAllObjects(self,StancePose:FBObjectPose,PoseTransformType:FBPoseTransformType=kFBPoseTransformInvalid):...
+    def AddStanceOffset(self,ObjectName:str,StancePose:FBObjectPose,PoseTransformType:FBPoseTransformType=FBPoseTransformType.kFBPoseTransformInvalid):...
+    def AddStanceOffsetAllObjects(self,StancePose:FBObjectPose,PoseTransformType:FBPoseTransformType=FBPoseTransformType.kFBPoseTransformInvalid):...
     def ClearPose(self):...
     def CopyFrom(self,FromPose:FBObjectPose):...
     def CopyObjectPose(self,ObjectName:str,Object:FBComponent):...
-    def CopyPoseAllObjectsTransformFrom(self,FromPose:FBObjectPose,PoseTransformType:FBPoseTransformType=kFBPoseTransformInvalid):...
+    def CopyPoseAllObjectsTransformFrom(self,FromPose:FBObjectPose,PoseTransformType:FBPoseTransformType=FBPoseTransformType.kFBPoseTransformInvalid):...
     def CopyPoseDataFrom(self,FromPose:FBObjectPose):...
-    def CopyPoseTransformFrom(self,FromPose:FBObjectPose,ObjectName:str,PoseTransformType:FBPoseTransformType=kFBPoseTransformInvalid):...
+    def CopyPoseTransformFrom(self,FromPose:FBObjectPose,ObjectName:str,PoseTransformType:FBPoseTransformType=FBPoseTransformType.kFBPoseTransformInvalid):...
     def CopyPropertyPose(self,ObjectName:str,Property:FBProperty):...
     def CopyTransform(self,ObjectName:str,Object:FBComponent,ObjectPoseOptions:FBObjectPoseOptions):...
     def GetPropertyValue(self,Value:list,Size:int,ObjectName:str,PropertyName:str):...
@@ -3172,7 +3172,7 @@ class FBObjectPose(FBPose):
     def GetTransform(self,T:FBVector4d,RM:FBMatrix,SM:FBMatrix,ObjectName:str,PoseTransformType:FBPoseTransformType)->bool:...
     def IsPropertyPoseable(self,Property:FBProperty)->bool:...
     def IsPropertyStored(self,ObjectName:str,PropertyName:str)->bool:...
-    def IsTransformStored(self,ObjectName:str,PoseTransformType:FBPoseTransformType=kFBPoseTransformInvalid)->bool:...
+    def IsTransformStored(self,ObjectName:str,PoseTransformType:FBPoseTransformType=FBPoseTransformType.kFBPoseTransformInvalid)->bool:...
     def MirrorPose(self,ObjectName:str,ObjectPoseMirrorOptions:FBObjectPoseMirrorOptions):...
     def MirrorPoseAllObjects(self,ObjectPoseMirrorOptions:FBObjectPoseMirrorOptions):...
     def MultTransform(self,ObjectName:str,GX:FBMatrix,TransformAttribute:FBModelTransformationType,PoseTransformType:FBPoseTransformType):...
@@ -3180,14 +3180,14 @@ class FBObjectPose(FBPose):
     def PasteObjectPose(self,ObjectName:str,Object:FBComponent):...
     def PastePropertyPose(self,ObjectName:str,Property:FBProperty):...
     def PasteTransform(self,ObjectName:str,Object:FBComponent,ObjectPoseOptions:FBObjectPoseOptions):...
-    def RemoveStanceOffset(self,ObjectName:str,StancePose:FBObjectPose,PoseTransformType:FBPoseTransformType=kFBPoseTransformInvalid):...
-    def RemoveStanceOffsetAllObjects(self,StancePose:FBObjectPose,PoseTransformType:FBPoseTransformType=kFBPoseTransformInvalid):...
+    def RemoveStanceOffset(self,ObjectName:str,StancePose:FBObjectPose,PoseTransformType:FBPoseTransformType=FBPoseTransformType.kFBPoseTransformInvalid):...
+    def RemoveStanceOffsetAllObjects(self,StancePose:FBObjectPose,PoseTransformType:FBPoseTransformType=FBPoseTransformType.kFBPoseTransformInvalid):...
     def SetPropertyValue(self,ObjectName:str,PropertyName:str,Value:float,Size:int):...
     def SetTransform(self,T:FBVector4d,RM:FBMatrix,SM:FBMatrix,ObjectName:str,PoseTransformType:FBPoseTransformType):...
     def __init__(self,Name:str):...
 class FBCluster(FBComponent):
-    ClusterAccuracy:property
-    ClusterMode:property
+    ClusterAccuracy:float
+    ClusterMode:FBClusterMode
     def ClusterBegin(self,Index:int=-1)->int:...
     def ClusterEnd(self)->int:...
     def LinkClearUnused(self,Threshold:float=-1.0):...
@@ -3231,10 +3231,10 @@ class FBCameraSwitcherAudioManager(FBComponent):
     def SetShowRightChannel(self,bShow:bool)->bool:...
     def __init__(self):...
 class FBBox(FBComponent):
-    Animatable:property
-    Live:property
-    RecordMode:property
-    UniqueName:property
+    Animatable:bool
+    Live:bool
+    RecordMode:bool
+    UniqueName:str
     def AnimationNodeDestroy(self,AnimationNode:FBAnimationNode)->bool:...
     def AnimationNodeInGet(self)->FBAnimationNode:...
     def AnimationNodeIsUserData(self,AnimationNode:FBAnimationNode)->bool:...
@@ -3247,14 +3247,14 @@ class FBBox(FBComponent):
 class FBAudioOut(FBComponent):
     def __init__(self):...
 class FBBoxPlaceHolder(FBBox):
-    Box:property
+    Box:FBBox
 class FBConstraint(FBBox):
-    Active:property
-    Deformer:property
-    Description:property
-    HasLayout:property
-    Lock:property
-    Weight:property
+    Active:bool
+    Deformer:bool
+    Description:str
+    HasLayout:bool
+    Lock:bool
+    Weight:float
     def AnimationNodeInCreate(self,UserId,Property:FBModel,arg4:str)->FBAnimationNode:...
     def AnimationNodeOutCreate(self,UserId,Model:FBModel,Attribute:str)->FBAnimationNode:...
     def Clone(self)->FBConstraint:...
@@ -3279,12 +3279,12 @@ class FBConstraint(FBBox):
     def SnapSuggested(self):...
     def __copy__(self)->object:...
 class FBModelPlaceHolder(FBBoxPlaceHolder):
-    Model:property
-    UseGlobalTransforms:property
+    Model:FBModel
+    UseGlobalTransforms:bool
 class FBCharacterSolver(FBConstraint):
     ExtraBones:property
     ExtraFK:property
-    Source:property
+    Source:FBComponent
     def GetParentRotationOffset(self,R:FBModel)->FBVector3d:...
     @staticmethod
     def GetRegisteredSolverNames()->list:...
@@ -3294,8 +3294,8 @@ class FBCharacterSolver(FBConstraint):
     def SetTransformationOffset(self,arg2:FBModel,arg3:FBVector3d,arg4:FBVector3d,arg5:FBVector3d):...
     def __init__(self,Name:str,Object:FBCharacter,arg4:str):...
 class FBCharacterFace(FBConstraint):
-    ActiveInput:property
-    InputActorFace:property
+    ActiveInput:bool
+    InputActorFace:FBActorFace
     def ClusterGroupAdd(self,List:FBModelList,Name:str)->int:...
     def ClusterGroupFindByName(self,Name:str)->int:...
     def ClusterGroupGetCount(self)->int:...
@@ -3332,66 +3332,66 @@ class FBCharacterFace(FBConstraint):
     def ShapeSetName(self,ShapeGrpId:int,ShapeId:int,Name:str)->bool:...
     def __init__(self,Name:str):...
 class FBCharacter(FBConstraint):
-    ActiveInput:property
-    CharacterExtensions:property
-    ContactBehaviour:property
-    FKFingerMultiplier:property
-    FKFingerTipMultiplier:property
-    FKThumbTipMultiplier:property
-    HipsTranslationMode:property
-    HumanFingerLimits:property
-    InputActor:property
-    InputCharacter:property
-    InputType:property
-    InverseLeftElbow:property
-    InverseLeftKnee:property
-    InverseRightElbow:property
-    InverseRightKnee:property
-    KeyingMode:property
-    LeftElbowKillPitch:property
-    LeftHandIndexIndex:property
-    LeftHandIndexMiddle:property
-    LeftHandIndexPinky:property
-    LeftHandIndexRing:property
-    LeftHandMiddleIndex:property
-    LeftHandMiddleMiddle:property
-    LeftHandMiddlePinky:property
-    LeftHandMiddleRing:property
-    LeftHandPinkyIndex:property
-    LeftHandPinkyMiddle:property
-    LeftHandPinkyPinky:property
-    LeftHandPinkyRing:property
-    LeftHandRingIndex:property
-    LeftHandRingMiddle:property
-    LeftHandRingPinky:property
-    LeftHandRingRing:property
-    LeftKneeKillPitch:property
-    LockX:property
-    LockY:property
-    LockZ:property
-    MirrorMode:property
-    RightElbowKillPitch:property
-    RightHandIndexIndex:property
-    RightHandIndexMiddle:property
-    RightHandIndexPinky:property
-    RightHandIndexRing:property
-    RightHandMiddleIndex:property
-    RightHandMiddleMiddle:property
-    RightHandMiddlePinky:property
-    RightHandMiddleRing:property
-    RightHandPinkyIndex:property
-    RightHandPinkyMiddle:property
-    RightHandPinkyPinky:property
-    RightHandPinkyRing:property
-    RightHandRingIndex:property
-    RightHandRingMiddle:property
-    RightHandRingPinky:property
-    RightHandRingRing:property
-    RightKneeKillPitch:property
-    RollSolver:property
-    ShoulderCorrection:property
-    SyncMode:property
-    WriteReference:property
+    ActiveInput:bool
+    CharacterExtensions:FBPropertyListCharacterExtension
+    ContactBehaviour:FBCharacterContactBehaviour
+    FKFingerMultiplier:float
+    FKFingerTipMultiplier:float
+    FKThumbTipMultiplier:float
+    HipsTranslationMode:FBCharacterHipsTranslationMode
+    HumanFingerLimits:bool
+    InputActor:FBActor
+    InputCharacter:FBCharacter
+    InputType:FBCharacterInputType
+    InverseLeftElbow:bool
+    InverseLeftKnee:bool
+    InverseRightElbow:bool
+    InverseRightKnee:bool
+    KeyingMode:FBCharacterKeyingMode
+    LeftElbowKillPitch:bool
+    LeftHandIndexIndex:float
+    LeftHandIndexMiddle:float
+    LeftHandIndexPinky:float
+    LeftHandIndexRing:float
+    LeftHandMiddleIndex:float
+    LeftHandMiddleMiddle:float
+    LeftHandMiddlePinky:float
+    LeftHandMiddleRing:float
+    LeftHandPinkyIndex:float
+    LeftHandPinkyMiddle:float
+    LeftHandPinkyPinky:float
+    LeftHandPinkyRing:float
+    LeftHandRingIndex:float
+    LeftHandRingMiddle:float
+    LeftHandRingPinky:float
+    LeftHandRingRing:float
+    LeftKneeKillPitch:bool
+    LockX:bool
+    LockY:bool
+    LockZ:bool
+    MirrorMode:bool
+    RightElbowKillPitch:bool
+    RightHandIndexIndex:float
+    RightHandIndexMiddle:float
+    RightHandIndexPinky:float
+    RightHandIndexRing:float
+    RightHandMiddleIndex:float
+    RightHandMiddleMiddle:float
+    RightHandMiddlePinky:float
+    RightHandMiddleRing:float
+    RightHandPinkyIndex:float
+    RightHandPinkyMiddle:float
+    RightHandPinkyPinky:float
+    RightHandPinkyRing:float
+    RightHandRingIndex:float
+    RightHandRingMiddle:float
+    RightHandRingPinky:float
+    RightHandRingRing:float
+    RightKneeKillPitch:bool
+    RollSolver:FBCharacterRollSolver
+    ShoulderCorrection:float
+    SyncMode:bool
+    WriteReference:bool
     def AddCharacterExtension(self,Ext:FBCharacterExtension):...
     def ConnectControlRig(self,ControlSet:FBControlSet,bUpdateLimit:bool,bResetHierarchy:bool):...
     def CopyAnimation(self):...
@@ -3443,184 +3443,184 @@ class FBCharacter(FBConstraint):
     def SetTranslationPin(self,EffectorIndex:FBEffectorId,bValue:bool)->bool:...
     def __init__(self,Name:str):...
 class FBActor(FBConstraint):
-    BodyColor:property
-    ChestOffsetR:property
-    ChestOffsetT:property
-    ChestPosition:property
-    FKFingerMultiplier:property
-    FKFingerTipMultiplier:property
-    FKThumbTipMultiplier:property
-    HeadOffsetR:property
-    HeadOffsetT:property
-    HeadPosition:property
-    HipsOffsetR:property
-    HipsOffsetT:property
-    HipsPosition:property
-    HumanFingerLimits:property
-    IKManip:property
-    LeftAnkleOffsetR:property
-    LeftAnkleOffsetT:property
-    LeftAnklePosition:property
-    LeftCollarOffsetR:property
-    LeftCollarOffsetT:property
-    LeftCollarPosition:property
-    LeftElbowOffsetR:property
-    LeftElbowOffsetT:property
-    LeftElbowPosition:property
-    LeftFootOffsetR:property
-    LeftFootOffsetT:property
-    LeftFootPosition:property
-    LeftHandIndexIndex:property
-    LeftHandIndexMiddle:property
-    LeftHandIndexPinky:property
-    LeftHandIndexRing:property
-    LeftHandMiddleIndex:property
-    LeftHandMiddleMiddle:property
-    LeftHandMiddlePinky:property
-    LeftHandMiddleRing:property
-    LeftHandPinkyIndex:property
-    LeftHandPinkyMiddle:property
-    LeftHandPinkyPinky:property
-    LeftHandPinkyRing:property
-    LeftHandRingIndex:property
-    LeftHandRingMiddle:property
-    LeftHandRingPinky:property
-    LeftHandRingRing:property
-    LeftHipOffsetR:property
-    LeftHipOffsetT:property
-    LeftHipPosition:property
-    LeftIndexAOffsetR:property
-    LeftIndexAOffsetT:property
-    LeftIndexBOffsetR:property
-    LeftIndexBOffsetT:property
-    LeftIndexCOffsetR:property
-    LeftIndexCOffsetT:property
-    LeftKneeOffsetR:property
-    LeftKneeOffsetT:property
-    LeftKneePosition:property
-    LeftMiddleAOffsetR:property
-    LeftMiddleAOffsetT:property
-    LeftMiddleBOffsetR:property
-    LeftMiddleBOffsetT:property
-    LeftMiddleCOffsetR:property
-    LeftMiddleCOffsetT:property
-    LeftPinkyAOffsetR:property
-    LeftPinkyAOffsetT:property
-    LeftPinkyBOffsetR:property
-    LeftPinkyBOffsetT:property
-    LeftPinkyCOffsetR:property
-    LeftPinkyCOffsetT:property
-    LeftRingAOffsetR:property
-    LeftRingAOffsetT:property
-    LeftRingBOffsetR:property
-    LeftRingBOffsetT:property
-    LeftRingCOffsetR:property
-    LeftRingCOffsetT:property
-    LeftShoulderOffsetR:property
-    LeftShoulderOffsetT:property
-    LeftShoulderPosition:property
-    LeftThumbAOffsetR:property
-    LeftThumbAOffsetT:property
-    LeftThumbBOffsetR:property
-    LeftThumbBOffsetT:property
-    LeftThumbCOffsetR:property
-    LeftThumbCOffsetT:property
-    LeftWristOffsetR:property
-    LeftWristOffsetT:property
-    LeftWristPosition:property
-    ManipulateOffsets:property
-    MarkerSet:property
-    MarkerSetSize:property
-    NeckOffsetR:property
-    NeckOffsetT:property
-    NeckPosition:property
-    OutputMarkerSet:property
-    PivotColor:property
-    PivotPointsVisibility:property
-    PivotSize:property
-    RightAnkleOffsetR:property
-    RightAnkleOffsetT:property
-    RightAnklePosition:property
-    RightCollarOffsetR:property
-    RightCollarOffsetT:property
-    RightCollarPosition:property
-    RightElbowOffsetR:property
-    RightElbowOffsetT:property
-    RightElbowPosition:property
-    RightFootOffsetR:property
-    RightFootOffsetT:property
-    RightFootPosition:property
-    RightHandIndexIndex:property
-    RightHandIndexMiddle:property
-    RightHandIndexPinky:property
-    RightHandIndexRing:property
-    RightHandMiddleIndex:property
-    RightHandMiddleMiddle:property
-    RightHandMiddlePinky:property
-    RightHandMiddleRing:property
-    RightHandPinkyIndex:property
-    RightHandPinkyMiddle:property
-    RightHandPinkyPinky:property
-    RightHandPinkyRing:property
-    RightHandRingIndex:property
-    RightHandRingMiddle:property
-    RightHandRingPinky:property
-    RightHandRingRing:property
-    RightHipOffsetR:property
-    RightHipOffsetT:property
-    RightHipPosition:property
-    RightIndexAOffsetR:property
-    RightIndexAOffsetT:property
-    RightIndexBOffsetR:property
-    RightIndexBOffsetT:property
-    RightIndexCOffsetR:property
-    RightIndexCOffsetT:property
-    RightKneeOffsetR:property
-    RightKneeOffsetT:property
-    RightKneePosition:property
-    RightMiddleAOffsetR:property
-    RightMiddleAOffsetT:property
-    RightMiddleBOffsetR:property
-    RightMiddleBOffsetT:property
-    RightMiddleCOffsetR:property
-    RightMiddleCOffsetT:property
-    RightPinkyAOffsetR:property
-    RightPinkyAOffsetT:property
-    RightPinkyBOffsetR:property
-    RightPinkyBOffsetT:property
-    RightPinkyCOffsetR:property
-    RightPinkyCOffsetT:property
-    RightRingAOffsetR:property
-    RightRingAOffsetT:property
-    RightRingBOffsetR:property
-    RightRingBOffsetT:property
-    RightRingCOffsetR:property
-    RightRingCOffsetT:property
-    RightShoulderOffsetR:property
-    RightShoulderOffsetT:property
-    RightShoulderPosition:property
-    RightThumbAOffsetR:property
-    RightThumbAOffsetT:property
-    RightThumbBOffsetR:property
-    RightThumbBOffsetT:property
-    RightThumbCOffsetR:property
-    RightThumbCOffsetT:property
-    RightWristOffsetR:property
-    RightWristOffsetT:property
-    RightWristPosition:property
-    SkeletonColor:property
-    SkeletonVisibility:property
-    SymmetryEditRotation:property
-    SymmetryEditScaling:property
-    SymmetryEditTranslation:property
-    Visibility:property
-    WaistOffsetR:property
-    WaistOffsetT:property
-    WaistPosition:property
+    BodyColor:FBColor
+    ChestOffsetR:FBVector3d
+    ChestOffsetT:FBVector3d
+    ChestPosition:FBVector3d
+    FKFingerMultiplier:float
+    FKFingerTipMultiplier:float
+    FKThumbTipMultiplier:float
+    HeadOffsetR:FBVector3d
+    HeadOffsetT:FBVector3d
+    HeadPosition:FBVector3d
+    HipsOffsetR:FBVector3d
+    HipsOffsetT:FBVector3d
+    HipsPosition:FBVector3d
+    HumanFingerLimits:bool
+    IKManip:bool
+    LeftAnkleOffsetR:FBVector3d
+    LeftAnkleOffsetT:FBVector3d
+    LeftAnklePosition:FBVector3d
+    LeftCollarOffsetR:FBVector3d
+    LeftCollarOffsetT:FBVector3d
+    LeftCollarPosition:FBVector3d
+    LeftElbowOffsetR:FBVector3d
+    LeftElbowOffsetT:FBVector3d
+    LeftElbowPosition:FBVector3d
+    LeftFootOffsetR:FBVector3d
+    LeftFootOffsetT:FBVector3d
+    LeftFootPosition:FBVector3d
+    LeftHandIndexIndex:float
+    LeftHandIndexMiddle:float
+    LeftHandIndexPinky:float
+    LeftHandIndexRing:float
+    LeftHandMiddleIndex:float
+    LeftHandMiddleMiddle:float
+    LeftHandMiddlePinky:float
+    LeftHandMiddleRing:float
+    LeftHandPinkyIndex:float
+    LeftHandPinkyMiddle:float
+    LeftHandPinkyPinky:float
+    LeftHandPinkyRing:float
+    LeftHandRingIndex:float
+    LeftHandRingMiddle:float
+    LeftHandRingPinky:float
+    LeftHandRingRing:float
+    LeftHipOffsetR:FBVector3d
+    LeftHipOffsetT:FBVector3d
+    LeftHipPosition:FBVector3d
+    LeftIndexAOffsetR:FBVector3d
+    LeftIndexAOffsetT:FBVector3d
+    LeftIndexBOffsetR:FBVector3d
+    LeftIndexBOffsetT:FBVector3d
+    LeftIndexCOffsetR:FBVector3d
+    LeftIndexCOffsetT:FBVector3d
+    LeftKneeOffsetR:FBVector3d
+    LeftKneeOffsetT:FBVector3d
+    LeftKneePosition:FBVector3d
+    LeftMiddleAOffsetR:FBVector3d
+    LeftMiddleAOffsetT:FBVector3d
+    LeftMiddleBOffsetR:FBVector3d
+    LeftMiddleBOffsetT:FBVector3d
+    LeftMiddleCOffsetR:FBVector3d
+    LeftMiddleCOffsetT:FBVector3d
+    LeftPinkyAOffsetR:FBVector3d
+    LeftPinkyAOffsetT:FBVector3d
+    LeftPinkyBOffsetR:FBVector3d
+    LeftPinkyBOffsetT:FBVector3d
+    LeftPinkyCOffsetR:FBVector3d
+    LeftPinkyCOffsetT:FBVector3d
+    LeftRingAOffsetR:FBVector3d
+    LeftRingAOffsetT:FBVector3d
+    LeftRingBOffsetR:FBVector3d
+    LeftRingBOffsetT:FBVector3d
+    LeftRingCOffsetR:FBVector3d
+    LeftRingCOffsetT:FBVector3d
+    LeftShoulderOffsetR:FBVector3d
+    LeftShoulderOffsetT:FBVector3d
+    LeftShoulderPosition:FBVector3d
+    LeftThumbAOffsetR:FBVector3d
+    LeftThumbAOffsetT:FBVector3d
+    LeftThumbBOffsetR:FBVector3d
+    LeftThumbBOffsetT:FBVector3d
+    LeftThumbCOffsetR:FBVector3d
+    LeftThumbCOffsetT:FBVector3d
+    LeftWristOffsetR:FBVector3d
+    LeftWristOffsetT:FBVector3d
+    LeftWristPosition:FBVector3d
+    ManipulateOffsets:bool
+    MarkerSet:FBMarkerSet
+    MarkerSetSize:float
+    NeckOffsetR:FBVector3d
+    NeckOffsetT:FBVector3d
+    NeckPosition:FBVector3d
+    OutputMarkerSet:FBMarkerSet
+    PivotColor:FBColor
+    PivotPointsVisibility:bool
+    PivotSize:float
+    RightAnkleOffsetR:FBVector3d
+    RightAnkleOffsetT:FBVector3d
+    RightAnklePosition:FBVector3d
+    RightCollarOffsetR:FBVector3d
+    RightCollarOffsetT:FBVector3d
+    RightCollarPosition:FBVector3d
+    RightElbowOffsetR:FBVector3d
+    RightElbowOffsetT:FBVector3d
+    RightElbowPosition:FBVector3d
+    RightFootOffsetR:FBVector3d
+    RightFootOffsetT:FBVector3d
+    RightFootPosition:FBVector3d
+    RightHandIndexIndex:float
+    RightHandIndexMiddle:float
+    RightHandIndexPinky:float
+    RightHandIndexRing:float
+    RightHandMiddleIndex:float
+    RightHandMiddleMiddle:float
+    RightHandMiddlePinky:float
+    RightHandMiddleRing:float
+    RightHandPinkyIndex:float
+    RightHandPinkyMiddle:float
+    RightHandPinkyPinky:float
+    RightHandPinkyRing:float
+    RightHandRingIndex:float
+    RightHandRingMiddle:float
+    RightHandRingPinky:float
+    RightHandRingRing:float
+    RightHipOffsetR:FBVector3d
+    RightHipOffsetT:FBVector3d
+    RightHipPosition:FBVector3d
+    RightIndexAOffsetR:FBVector3d
+    RightIndexAOffsetT:FBVector3d
+    RightIndexBOffsetR:FBVector3d
+    RightIndexBOffsetT:FBVector3d
+    RightIndexCOffsetR:FBVector3d
+    RightIndexCOffsetT:FBVector3d
+    RightKneeOffsetR:FBVector3d
+    RightKneeOffsetT:FBVector3d
+    RightKneePosition:FBVector3d
+    RightMiddleAOffsetR:FBVector3d
+    RightMiddleAOffsetT:FBVector3d
+    RightMiddleBOffsetR:FBVector3d
+    RightMiddleBOffsetT:FBVector3d
+    RightMiddleCOffsetR:FBVector3d
+    RightMiddleCOffsetT:FBVector3d
+    RightPinkyAOffsetR:FBVector3d
+    RightPinkyAOffsetT:FBVector3d
+    RightPinkyBOffsetR:FBVector3d
+    RightPinkyBOffsetT:FBVector3d
+    RightPinkyCOffsetR:FBVector3d
+    RightPinkyCOffsetT:FBVector3d
+    RightRingAOffsetR:FBVector3d
+    RightRingAOffsetT:FBVector3d
+    RightRingBOffsetR:FBVector3d
+    RightRingBOffsetT:FBVector3d
+    RightRingCOffsetR:FBVector3d
+    RightRingCOffsetT:FBVector3d
+    RightShoulderOffsetR:FBVector3d
+    RightShoulderOffsetT:FBVector3d
+    RightShoulderPosition:FBVector3d
+    RightThumbAOffsetR:FBVector3d
+    RightThumbAOffsetT:FBVector3d
+    RightThumbBOffsetR:FBVector3d
+    RightThumbBOffsetT:FBVector3d
+    RightThumbCOffsetR:FBVector3d
+    RightThumbCOffsetT:FBVector3d
+    RightWristOffsetR:FBVector3d
+    RightWristOffsetT:FBVector3d
+    RightWristPosition:FBVector3d
+    SkeletonColor:FBColor
+    SkeletonVisibility:bool
+    SymmetryEditRotation:bool
+    SymmetryEditScaling:bool
+    SymmetryEditTranslation:bool
+    Visibility:bool
+    WaistOffsetR:FBVector3d
+    WaistOffsetT:FBVector3d
+    WaistPosition:FBVector3d
     @overload
     def GetCurrentSkeletonState(self)->FBSkeletonState:...
     @overload
-    def GetCurrentSkeletonState(self,arg2)->FBSkeletonState:...
+    def GetCurrentSkeletonState(self,bResetOrientation:bool)->FBSkeletonState:...
     def GetDefaultSkeletonState(self)->FBSkeletonState:...
     def GetDefinitionRotationVector(self,SkeletonId:FBSkeletonNodeId,RotationVector:FBVector3d):...
     def GetDefinitionScaleVector(self,SkeletonId:FBSkeletonNodeId,ScaleVector:FBVector3d):...
@@ -3632,19 +3632,19 @@ class FBActor(FBConstraint):
     def UpdateValues(self,EvalInfo:FBEvaluateInfo):...
     def __init__(self,Name:str):...
 class FBConstraintRelation(FBConstraint):
-    Boxes:property
+    Boxes:FBPropertyListBox
     def ConstrainObject(self,ConstrainedObject:FBBox)->FBBox:...
     def CreateFunctionBox(self,Group:str,Name:str)->FBBox:...
     def GetBoxPosition(self,Box:FBBox)->bool:...
     def SetAsSource(self,Source:FBBox)->FBBox:...
     def SetBoxPosition(self,Box:FBBox,X:int,Y:int)->bool:...
-    def __init__(self,Name:str=NoDefaultValue):...
+    def __init__(self,Name:str=None):...
 class FBCycleAnalysisNode(FBBox):
-    RealTime:property
-    RootHMode:property
-    RootRMode:property
-    RootSpeedMode:property
-    RootXZMode:property
+    RealTime:bool
+    RootHMode:FBRootHMode
+    RootRMode:FBRootRMode
+    RootSpeedMode:FBRootSpeedMode
+    RootXZMode:FBRootXZMode
     def GetPoseFCurve(self)->object:...
     def GetRootHFCurve(self)->object:...
     def GetRootRFCurve(self)->object:...
@@ -3654,17 +3654,17 @@ class FBCycleAnalysisNode(FBBox):
 class FBConstraintSolver(FBConstraint):
     def __init__(self,arg2:str=None):...
 class FBDevice(FBBox):
-    CommType:property
-    HardwareVersionInfo:property
-    Information:property
-    ModelBindingRoot:property
-    ModelTemplate:property
-    Online:property
-    RecordingStartTime:property
-    RecordingStopTime:property
-    SamplingMode:property
-    SamplingPeriod:property
-    Status:property
+    CommType:int
+    HardwareVersionInfo:str
+    Information:str
+    ModelBindingRoot:FBModel
+    ModelTemplate:FBModelTemplate
+    Online:bool
+    RecordingStartTime:FBTime
+    RecordingStopTime:FBTime
+    SamplingMode:FBDeviceSamplingMode
+    SamplingPeriod:FBTime
+    Status:str
     def AckOneBadSampleReceived(self):...
     def AckOneSampleReceived(self):...
     def AckOneSampleSent(self):...
@@ -3673,45 +3673,45 @@ class FBDevice(FBBox):
     def RecordingDoneAnimation(self,AnimationNode:FBAnimationNode):...
     def RecordingInitAnimation(self,AnimationNode:FBAnimationNode):...
 class FBGlobalLight(FBBox):
-    AmbientColor:property
-    FogBegin:property
-    FogColor:property
-    FogDensity:property
-    FogEnable:property
-    FogEnd:property
-    FogMode:property
+    AmbientColor:FBColor
+    FogBegin:float
+    FogColor:FBColor
+    FogDensity:float
+    FogEnable:bool
+    FogEnd:float
+    FogMode:FBFogMode
     def __init__(self):...
 class FBDeviceOptical(FBDevice):
-    AutoAntialiasing:property
-    DampingTime:property
-    ForceOpticalSamplingRate:property
-    MarkerTimeStamp:property
-    Markers:property
-    ModelOptical:property
-    OpticalSamplingRate:property
-    SkipFrame:property
-    SupportOcclusion:property
-    UseMarkerTimeStamp:property
+    AutoAntialiasing:bool
+    DampingTime:float
+    ForceOpticalSamplingRate:bool
+    MarkerTimeStamp:FBTime
+    Markers:FBPropertyListDeviceOpticalMarker
+    ModelOptical:FBModel
+    OpticalSamplingRate:float
+    SkipFrame:bool
+    SupportOcclusion:bool
+    UseMarkerTimeStamp:bool
     def DeviceOperation(self,Operation:kDeviceOperations)->bool:...
     def DeviceOpticalBeginSetup(self):...
     def DeviceOpticalEndSetup(self):...
     def DeviceOpticalRecordFrame(self,Time:FBTime,DeviceNotifyInfo:FBDeviceNotifyInfo):...
     def __init__(self,Name:str):...
 class FBGroup(FBBox):
-    Items:property
-    Pickable:property
-    Show:property
-    Transformable:property
+    Items:FBPropertyListComponent
+    Pickable:bool
+    Show:bool
+    Transformable:bool
     def Clone(self)->FBGroup:...
     def Contains(self,Component:FBComponent)->bool:...
     def Select(self,bSelect:bool):...
     def __init__(self,Name:str):...
 class FBHUD(FBBox):
     EStockElement:type
-    Elements:property
-    HUDs:property
-    OnDisplay:property
-    Visibility:property
+    Elements:FBPropertyListHUDElement
+    HUDs:FBPropertyListHUD
+    OnDisplay:FBEvent
+    Visibility:bool
     eBloopSlate:EStockElement
     eFlashElement:EStockElement
     eRecordLight:EStockElement
@@ -3723,142 +3723,142 @@ class FBHUD(FBBox):
     def CreateElement(self,Type:EStockElement,Name:str)->FBHUDElement:...
     def __init__(self,Name:str):...
 class FBHUDElement(FBBox):
-    Height:property
-    HorizontalDock:property
-    Justification:property
-    PositionByPercent:property
-    ScaleByPercent:property
-    ScaleUniformly:property
-    Show:property
-    VerticalDock:property
-    Visibility:property
-    Width:property
-    X:property
-    Y:property
+    Height:float
+    HorizontalDock:FBHUDElementHAlignment
+    Justification:FBHUDElementHAlignment
+    PositionByPercent:bool
+    ScaleByPercent:bool
+    ScaleUniformly:bool
+    Show:bool
+    VerticalDock:FBHUDElementVAlignment
+    Visibility:bool
+    Width:float
+    X:float
+    Y:float
 class FBHandle(FBBox):
-    Follow:property
-    Image:property
-    Manipulate:property
-    ManipulateRotation:property
-    ManipulateScaling:property
-    ManipulateTranslation:property
+    Follow:FBPropertyListObject
+    Image:FBPropertyListObject
+    Manipulate:FBPropertyListObject
+    ManipulateRotation:FBPropertyListObject
+    ManipulateScaling:FBPropertyListObject
+    ManipulateTranslation:FBPropertyListObject
     def Select(self):...
     def __init__(self,Name:str):...
 class FBHUDFlashElement(FBHUDElement):
-    FilePath:property
+    FilePath:str
     def __init__(self,Name:str):...
 class FBHUDRectElement(FBHUDElement):
-    Color:property
+    Color:FBColorAndAlpha
     def __init__(self,Name:str):...
 class FBHUDBloopSlateElement(FBHUDFlashElement):
-    BackgroundColor:property
-    Enable:property
-    ForegroundColor:property
-    ShowAfterDelayOnRecordPlay:property
-    ShowDuration:property
+    BackgroundColor:FBColorAndAlpha
+    Enable:bool
+    ForegroundColor:FBColorAndAlpha
+    ShowAfterDelayOnRecordPlay:FBTime
+    ShowDuration:FBTime
     def __init__(self,Name:str):...
 class FBHUDTimelineElement(FBHUDFlashElement):
-    CutActiveColor:property
-    CutIdleColor:property
-    HeadActiveColor:property
-    HeadDuration:property
-    HeadIdleColor:property
-    TailActiveColor:property
-    TailDuration:property
-    TailIdleColor:property
+    CutActiveColor:FBColorAndAlpha
+    CutIdleColor:FBColorAndAlpha
+    HeadActiveColor:FBColorAndAlpha
+    HeadDuration:FBTime
+    HeadIdleColor:FBColorAndAlpha
+    TailActiveColor:FBColorAndAlpha
+    TailDuration:FBTime
+    TailIdleColor:FBColorAndAlpha
     def __init__(self,Name:str):...
 class FBHUDTextElement(FBHUDElement):
-    AdjustWidthToFitText:property
-    BackgroundColor:property
-    Color:property
-    Content:property
-    Font:property
-    ForceTimeCodeDisplay:property
+    AdjustWidthToFitText:bool
+    BackgroundColor:FBColorAndAlpha
+    Color:FBColorAndAlpha
+    Content:str
+    Font:str
+    ForceTimeCodeDisplay:bool
     def GetFontList(self)->FBStringList:...
     def __init__(self,Name:str):...
 class FBHUDTextureElement(FBHUDElement):
-    Texture:property
+    Texture:FBPropertyListTexture
     def __init__(self,Name:str):...
 class FBMaterial(FBBox):
-    Ambient:property
-    AmbientFactor:property
-    Bump:property
-    BumpFactor:property
-    Diffuse:property
-    DiffuseFactor:property
-    DisplacementColor:property
-    DisplacementFactor:property
-    Emissive:property
-    EmissiveFactor:property
-    NormalMap:property
-    Reflection:property
-    ReflectionFactor:property
-    Shininess:property
-    Specular:property
-    SpecularFactor:property
-    TransparencyFactor:property
-    TransparentColor:property
+    Ambient:FBColor
+    AmbientFactor:float
+    Bump:FBColor
+    BumpFactor:float
+    Diffuse:FBColor
+    DiffuseFactor:float
+    DisplacementColor:FBColor
+    DisplacementFactor:float
+    Emissive:FBColor
+    EmissiveFactor:float
+    NormalMap:FBColor
+    Reflection:FBColor
+    ReflectionFactor:float
+    Shininess:float
+    Specular:FBColor
+    SpecularFactor:float
+    TransparencyFactor:float
+    TransparentColor:FBColor
     def Clone(self)->FBMaterial:...
-    def GetTexture(self,Type:FBMaterialTextureType=kFBMaterialTextureDiffuse)->FBTexture:...
+    def GetTexture(self,Type:FBMaterialTextureType=FBMaterialTextureType.kFBMaterialTextureDiffuse)->FBTexture:...
     def OGLInit(self):...
-    def SetTexture(self,Texture:FBTexture,Type:FBMaterialTextureType=kFBMaterialTextureDiffuse):...
+    def SetTexture(self,Texture:FBTexture,Type:FBMaterialTextureType=FBMaterialTextureType.kFBMaterialTextureDiffuse):...
     def __copy__(self)->object:...
     def __init__(self,Name:str):...
 class FBModel(FBBox):
-    AnimationNode:property
-    BlendShapeDeformable:property
-    CastsShadows:property
-    Children:property
-    ConstrainDeformable:property
+    AnimationNode:FBAnimationNode
+    BlendShapeDeformable:bool
+    CastsShadows:bool
+    Children:FBPropertyListModel
+    ConstrainDeformable:bool
     CullingMode:property
-    Deformers:property
-    GeometricRotation:property
-    GeometricScaling:property
-    GeometricTranslation:property
-    Geometry:property
-    GeometryUpdateId:property
-    Icon3D:property
-    IsConstrained:property
-    IsDeformable:property
-    IsVisible:property
-    LookAt:property
-    Materials:property
-    ModelVertexData:property
-    Parent:property
-    Pickable:property
-    PointCacheDeformable:property
-    PointCacheRecord:property
-    PostRotation:property
-    PreRotation:property
-    PrimaryVisibility:property
-    QuaternionInterpolate:property
-    ReceiveShadows:property
-    Rotation:property
-    RotationActive:property
-    RotationMax:property
-    RotationMaxX:property
-    RotationMaxY:property
-    RotationMaxZ:property
-    RotationMin:property
-    RotationMinX:property
-    RotationMinY:property
-    RotationMinZ:property
-    RotationOrder:property
-    RotationSpaceForLimitOnly:property
-    Scaling:property
-    Scene:property
-    Shaders:property
-    ShadingMode:property
-    Show:property
-    SkeletonDeformable:property
-    SoftSelected:property
-    Textures:property
-    Transformable:property
-    Translation:property
-    UniqueColorId:property
-    UpVector:property
-    Visibility:property
-    VisibilityInheritance:property
+    Deformers:FBPropertyListDeformer
+    GeometricRotation:FBVector3d
+    GeometricScaling:FBVector3d
+    GeometricTranslation:FBVector3d
+    Geometry:FBGeometry
+    GeometryUpdateId:int
+    Icon3D:bool
+    IsConstrained:bool
+    IsDeformable:bool
+    IsVisible:bool
+    LookAt:FBModel
+    Materials:FBPropertyListMaterial
+    ModelVertexData:FBModelVertexData
+    Parent:FBModel
+    Pickable:bool
+    PointCacheDeformable:bool
+    PointCacheRecord:bool
+    PostRotation:FBVector3d
+    PreRotation:FBVector3d
+    PrimaryVisibility:bool
+    QuaternionInterpolate:bool
+    ReceiveShadows:bool
+    Rotation:FBVector3d
+    RotationActive:bool
+    RotationMax:FBVector3d
+    RotationMaxX:bool
+    RotationMaxY:bool
+    RotationMaxZ:bool
+    RotationMin:FBVector3d
+    RotationMinX:bool
+    RotationMinY:bool
+    RotationMinZ:bool
+    RotationOrder:FBModelRotationOrder
+    RotationSpaceForLimitOnly:bool
+    Scaling:FBVector3d
+    Scene:FBScene
+    Shaders:FBPropertyListShader
+    ShadingMode:FBModelShadingMode
+    Show:bool
+    SkeletonDeformable:bool
+    SoftSelected:bool
+    Textures:FBPropertyListTexture
+    Transformable:bool
+    Translation:FBVector3d
+    UniqueColorId:FBColor
+    UpVector:FBModel
+    Visibility:bool
+    VisibilityInheritance:bool
     def Clone(self)->FBModel:...
     def CollapseInSchematic(self):...
     def DofToLRM(self,LM:FBMatrix,Dof:FBVector3d):...
@@ -3869,12 +3869,12 @@ class FBModel(FBBox):
     def GetAdditionalUniqueColorID(self,Index:int)->FBColor:...
     def GetAdditionalUniqueColorIDCount(self)->int:...
     def GetBoundingBox(self,Min:FBVector3d,Max:FBVector3d):...
-    def GetHierarchyWorldMatrices(self,MatricesArray:int,MatricesArrayCount:FBModelHiercharyTraverserType,HiercharyTraverserType:FBEvaluateInfo=NoDefaultValue)->list:...
+    def GetHierarchyWorldMatrices(self,MatricesArray:int,MatricesArrayCount:FBModelHiercharyTraverserType,HiercharyTraverserType:FBEvaluateInfo=None)->list:...
     def GetLocalTransformationMatrixWithGlobalRotationDoF(self,Matrix:FBMatrix,bInverse:bool=False,EvaluateInfo:FBEvaluateInfo=None):...
-    def GetMatrix(self,Matrix:FBMatrix,What:FBModelTransformationType=kModelTransformation,bGlobalInfo:bool=True,EvaluateInfo:FBEvaluateInfo=None):...
+    def GetMatrix(self,Matrix:FBMatrix,What:FBModelTransformationType=FBModelTransformationType.kModelTransformation,bGlobalInfo:bool=True,EvaluateInfo:FBEvaluateInfo=None):...
     def GetSchematicPosition(self)->FBVector2d:...
     def GetSelectedPointsCount(self)->int:...
-    def GetVector(self,Vector:FBVector3d,What:FBModelTransformationType=kModelTranslation,bGlobalInfo:bool=True,EvaluateInfo:FBEvaluateInfo=None):...
+    def GetVector(self,Vector:FBVector3d,What:FBModelTransformationType=FBModelTransformationType.kModelTranslation,bGlobalInfo:bool=True,EvaluateInfo:FBEvaluateInfo=None):...
     def IsCollapsedInSchematic(self)->bool:...
     def IsEvaluationReady(self,What:FBModelEvaluationTaskType,EvaluateInfo:FBEvaluateInfo=None)->bool:...
     def IsForceAlwaysEvaluate(self)->bool:...
@@ -3885,18 +3885,18 @@ class FBModel(FBBox):
     def RayCast(self,Camera:FBCamera,MouseX:int,MouseY:int,HitPosition:FBVector3d,HitNormal:FBVector3d)->bool:...
     def RotationToMatrix(self,Matrix:FBMatrix,Rotation:FBVector3d):...
     def SetAdditionalUniqueColorIDCount(self,Count:int)->bool:...
-    def SetMatrix(self,Matrix:FBMatrix,What:FBModelTransformationType=kModelTransformation,bGlobalInfo:bool=True,PushUndo:FBEvaluateInfo=False):...
-    def SetMatrixWithPrecision(self,Matrix:FBMatrix,What:FBModelTransformationType=kModelTransformation,bGlobalInfo:bool=True,PushUndo:FBEvaluateInfo=False,EvaluateInfo:FBEvaluateInfo=None):...
+    def SetMatrix(self,Matrix:FBMatrix,What:FBModelTransformationType=FBModelTransformationType.kModelTransformation,bGlobalInfo:bool=True,PushUndo:FBEvaluateInfo=False):...
+    def SetMatrixWithPrecision(self,Matrix:FBMatrix,What:FBModelTransformationType=FBModelTransformationType.kModelTransformation,bGlobalInfo:bool=True,PushUndo:FBEvaluateInfo=False,EvaluateInfo:FBEvaluateInfo=None):...
     @overload
-    def SetSchematicPosition(self,arg2,arg3):...
+    def SetSchematicPosition(self,X:int,Y:int):...
     @overload
     def SetSchematicPosition(self,Vector2d:FBVector2d):...
-    def SetVector(self,Vector:FBVector3d,What:FBModelTransformationType=kModelTranslation,bGlobalInfo:bool=True,PushUndo:FBEvaluateInfo=False):...
+    def SetVector(self,Vector:FBVector3d,What:FBModelTransformationType=FBModelTransformationType.kModelTranslation,bGlobalInfo:bool=True,PushUndo:FBEvaluateInfo=False):...
     def SetupPropertiesForShapes(self):...
     def UseFrustumCulling(self)->bool:...
     def __copy__(self)->object:...
 class FBNote(FBBox):
-    StaticComment:property
+    StaticComment:str
     def Attach(self,Comp:FBComponent=None)->bool:...
     def Detach(self,Comp:FBComponent=None)->bool:...
     def __init__(self,Name:str):...
@@ -3904,148 +3904,148 @@ class FBModelCube(FBModel):
     def __init__(self,Name:str):...
 class FBLight(FBModel):
     AreaLightShape:property
-    AttenuationType:property
-    BottomBarnDoor:property
-    CastLightOnObject:property
-    CastShadows:property
-    ConeAngle:property
-    DiffuseColor:property
-    DrawFrontFacingVolumetric:property
-    DrawGroundProjection:property
-    DrawVolumetricLight:property
+    AttenuationType:FBAttenuationType
+    BottomBarnDoor:float
+    CastLightOnObject:bool
+    CastShadows:bool
+    ConeAngle:float
+    DiffuseColor:FBColor
+    DrawFrontFacingVolumetric:bool
+    DrawGroundProjection:bool
+    DrawVolumetricLight:bool
     EAreaLightShapes:type
-    EnableBarnDoor:property
-    FogIntensity:property
-    GoboMedia:property
-    InnerAngle:property
-    Intensity:property
-    LeftBarnDoor:property
-    LightType:property
-    OuterAngle:property
-    RightBarnDoor:property
-    TopBarnDoor:property
+    EnableBarnDoor:bool
+    FogIntensity:float
+    GoboMedia:FBVideo
+    InnerAngle:float
+    Intensity:float
+    LeftBarnDoor:float
+    LightType:FBLightType
+    OuterAngle:float
+    RightBarnDoor:float
+    TopBarnDoor:float
     eRectangle:EAreaLightShapes
     eSphere:EAreaLightShapes
     def __init__(self,Name:str):...
 class FBCameraSwitcher(FBModel):
-    CurrentCamera:property
-    CurrentCameraIndex:property
+    CurrentCamera:FBCamera
+    CurrentCameraIndex:int
     def PlotToCamera(self,Camera:FBCamera)->bool:...
     def UseEvaluateSwitch(self):...
     def __init__(self):...
 class FBCamera(FBModel):
     AnimatableFarPlane:property
     AnimatableNearPlane:property
-    AntiAliasingIntensity:property
-    AntiAliasingMethod:property
-    ApertureMode:property
-    BackGroundColor:property
-    BackGroundImageCenter:property
-    BackGroundImageCrop:property
-    BackGroundImageFit:property
-    BackGroundImageKeepRatio:property
-    BackGroundImageOffsetX:property
-    BackGroundImageOffsetY:property
-    BackGroundImageScaleX:property
-    BackGroundImageScaleY:property
-    BackGroundMedia:property
-    BackGroundPlaneDistance:property
-    BackGroundPlaneDistanceMode:property
-    BackGroundTexture:property
-    CameraViewportHeight:property
-    CameraViewportWidth:property
-    CameraViewportX:property
-    CameraViewportY:property
-    Display2DMagnifierFrame:property
-    DisplayTurnTableIcon:property
-    FarPlaneDistance:property
-    FieldOfView:property
-    FieldOfViewX:property
-    FieldOfViewY:property
-    FilmAspectRatio:property
-    FilmBackType:property
-    FilmSizeHeight:property
-    FilmSizeWidth:property
-    FocalLength:property
-    FocusAngle:property
-    FocusDistanceSource:property
-    FocusModel:property
-    FocusSpecificDistance:property
-    ForeGroundAlpha:property
-    ForeGroundImageCenter:property
-    ForeGroundImageCrop:property
-    ForeGroundImageFit:property
-    ForeGroundImageKeepRatio:property
-    ForeGroundImageOffsetX:property
-    ForeGroundImageOffsetY:property
-    ForeGroundImageScaleX:property
-    ForeGroundImageScaleY:property
-    ForeGroundMaterialThreshold:property
-    ForeGroundMedia:property
-    ForeGroundPlaneDistance:property
-    ForeGroundPlaneDistanceMode:property
-    ForeGroundTexture:property
-    ForeGroundTransparent:property
-    FrameColor:property
-    FrameSizeMode:property
-    HUDs:property
-    InteractiveMode:property
-    Interest:property
-    MagnifierPosX:property
-    MagnifierPosY:property
-    MagnifierZoom:property
-    MotionBlurIntensity:property
-    MouseLockCamera:property
-    NearPlaneDistance:property
-    NumberOfSamples:property
-    OpticalCenterX:property
-    OpticalCenterY:property
+    AntiAliasingIntensity:float
+    AntiAliasingMethod:FBCameraAntiAliasingMethod
+    ApertureMode:FBCameraApertureMode
+    BackGroundColor:FBColor
+    BackGroundImageCenter:bool
+    BackGroundImageCrop:bool
+    BackGroundImageFit:bool
+    BackGroundImageKeepRatio:bool
+    BackGroundImageOffsetX:float
+    BackGroundImageOffsetY:float
+    BackGroundImageScaleX:float
+    BackGroundImageScaleY:float
+    BackGroundMedia:FBVideo
+    BackGroundPlaneDistance:float
+    BackGroundPlaneDistanceMode:FBCameraDistanceMode
+    BackGroundTexture:FBTexture
+    CameraViewportHeight:int
+    CameraViewportWidth:int
+    CameraViewportX:int
+    CameraViewportY:int
+    Display2DMagnifierFrame:bool
+    DisplayTurnTableIcon:bool
+    FarPlaneDistance:float
+    FieldOfView:float
+    FieldOfViewX:float
+    FieldOfViewY:float
+    FilmAspectRatio:float
+    FilmBackType:FBCameraFilmBackType
+    FilmSizeHeight:float
+    FilmSizeWidth:float
+    FocalLength:float
+    FocusAngle:float
+    FocusDistanceSource:FBCameraFocusDistanceSource
+    FocusModel:FBModel
+    FocusSpecificDistance:float
+    ForeGroundAlpha:float
+    ForeGroundImageCenter:bool
+    ForeGroundImageCrop:bool
+    ForeGroundImageFit:bool
+    ForeGroundImageKeepRatio:bool
+    ForeGroundImageOffsetX:float
+    ForeGroundImageOffsetY:float
+    ForeGroundImageScaleX:float
+    ForeGroundImageScaleY:float
+    ForeGroundMaterialThreshold:float
+    ForeGroundMedia:FBVideo
+    ForeGroundPlaneDistance:float
+    ForeGroundPlaneDistanceMode:FBCameraDistanceMode
+    ForeGroundTexture:FBTexture
+    ForeGroundTransparent:bool
+    FrameColor:FBColor
+    FrameSizeMode:FBCameraFrameSizeMode
+    HUDs:FBPropertyListHUD
+    InteractiveMode:bool
+    Interest:FBModel
+    MagnifierPosX:float
+    MagnifierPosY:float
+    MagnifierZoom:float
+    MotionBlurIntensity:float
+    MouseLockCamera:bool
+    NearPlaneDistance:float
+    NumberOfSamples:int
+    OpticalCenterX:float
+    OpticalCenterY:float
     OrthoFactor:float
-    OrthoZoom:property
-    PixelAspectRatio:property
-    ResolutionHeight:property
-    ResolutionMode:property
-    ResolutionWidth:property
-    Roll:property
-    SafeAreaMode:property
-    SamplingType:property
-    SqueezeRatio:property
-    SystemCamera:property
-    TurnTable:property
-    Type:property
-    Use2DMagnifier:property
-    UseAccumulationBuffer:property
-    UseAntiAliasing:property
-    UseDepthOfField:property
-    UseFrameColor:property
-    UseMotionBlur:property
-    UseRealTimeMotionBlur:property
-    ViewBackGroundPlaneMode:property
-    ViewCameraInterest:property
-    ViewDisplaySafeArea:property
-    ViewForeGroundPlaneMode:property
-    ViewNearFarPlane:property
-    ViewOpticalCenter:property
-    ViewShowAxis:property
-    ViewShowGrid:property
-    ViewShowName:property
-    ViewShowTimeCode:property
-    WindowHeight:property
-    WindowWidth:property
+    OrthoZoom:float
+    PixelAspectRatio:float
+    ResolutionHeight:float
+    ResolutionMode:FBCameraResolutionMode
+    ResolutionWidth:float
+    Roll:float
+    SafeAreaMode:FBCameraSafeAreaMode
+    SamplingType:FBCameraSamplingType
+    SqueezeRatio:float
+    SystemCamera:bool
+    TurnTable:float
+    Type:FBCameraType
+    Use2DMagnifier:bool
+    UseAccumulationBuffer:bool
+    UseAntiAliasing:bool
+    UseDepthOfField:bool
+    UseFrameColor:bool
+    UseMotionBlur:bool
+    UseRealTimeMotionBlur:bool
+    ViewBackGroundPlaneMode:FBCameraViewPlaneMode
+    ViewCameraInterest:bool
+    ViewDisplaySafeArea:bool
+    ViewForeGroundPlaneMode:FBCameraViewPlaneMode
+    ViewNearFarPlane:bool
+    ViewOpticalCenter:bool
+    ViewShowAxis:bool
+    ViewShowGrid:bool
+    ViewShowName:bool
+    ViewShowTimeCode:bool
+    WindowHeight:float
+    WindowWidth:float
     def GetCameraMatrix(self,Matrix:FBMatrix,Type:FBCameraMatrixType,EvalInfo:FBEvaluateInfo=None):...
     @overload
     def InverseProjection(self,arg2,arg3,arg4)->FBVector4d:...
     @overload
-    def InverseProjection(self,arg2,arg3,arg4,arg5)->FBVector4d:...
+    def InverseProjection(self,X:int,Y:int,DistanceFromCamera:float,bRelativeToViewport:bool)->FBVector4d:...
     def __init__(self,Name:str):...
 class FBModelMarker(FBModel):
-    Color:property
-    IKPivot:property
-    Length:property
-    Look:property
-    ResLevel:property
-    Size:property
-    Type:property
+    Color:FBColor
+    IKPivot:FBVector3d
+    Length:float
+    Look:FBMarkerLook
+    ResLevel:FBMarkerResolutionLevel
+    Size:float
+    Type:FBMarkerType
     def __init__(self,Name:str):...
 class FBCameraStereo(FBCamera):
     CenterCamera:property
@@ -4064,14 +4064,14 @@ class FBCameraStereo(FBCamera):
     ZeroParallaxPlaneTransparency:property
     def __init__(self,arg2:str):...
 class FBModelNull(FBModel):
-    Size:property
+    Size:float
     def __init__(self,Name:str):...
 class FBModelMarkerOptical(FBModelMarker):
-    Data:property
-    Done:property
-    Gaps:property
-    Optical:property
-    Segments:property
+    Data:FBAnimationNode
+    Done:bool
+    Gaps:FBPropertyListOpticalGap
+    Optical:FBModelOptical
+    Segments:FBPropertyListMarkerSegment
     def ExportBegin(self)->int:...
     def ExportEnd(self)->bool:...
     def ExportKey(self,X:float,Y:float,Z:float=None,Occlusion:float=None)->bool:...
@@ -4083,33 +4083,33 @@ class FBModelMarkerOptical(FBModelMarker):
     def SetModelOptical(self,Optical:FBModelOptical):...
     def __init__(self,Name:str,Optical:FBModelOptical):...
 class FBModelOptical(FBModel):
-    MarkerSize:property
-    Markers:property
-    RigidBodies:property
-    SamplingPeriod:property
-    SamplingStart:property
-    SamplingStop:property
-    Segments:property
+    MarkerSize:float
+    Markers:FBPropertyListModelMarkerOptical
+    RigidBodies:FBPropertyListRigidBody
+    SamplingPeriod:FBTime
+    SamplingStart:FBTime
+    SamplingStop:FBTime
+    Segments:FBPropertyListOpticalSegment
     def ClearSegments(self,bUnUsedOnly:bool=True):...
     def CreateRigidBody(self,RigidBodyName:str,Markers:list)->FBRigidBody:...
     def ExportSetup(self)->bool:...
     def ImportSetup(self)->bool:...
     def __init__(self,Name:str):...
 class FBModelPath3D(FBModel):
-    AutoControlNode:property
-    Color:property
+    AutoControlNode:bool
+    Color:FBColor
     EKeyPropertyBehavior:type
     ELengthUnitType:type
     EPathEndCapStyle:type
     KeyPropertyBehavior:property
-    PathEndCapScale:property
+    PathEndCapScale:float
     PathEndCapStyle:property
-    PathLength:property
-    PathLengthInString:property
-    PathLengthShow:property
+    PathLength:float
+    PathLengthInString:str
+    PathLengthShow:bool
     PathLengthUnit:property
-    TextBackground:property
-    TextScale:property
+    TextBackground:FBColorAndAlpha
+    TextScale:float
     eArchitectural:ELengthUnitType
     eArrow:EPathEndCapStyle
     eCM:ELengthUnitType
@@ -4167,16 +4167,16 @@ class FBModelPath3D(FBModel):
 class FBModelPlane(FBModel):
     def __init__(self,Name:str):...
 class FBModelRoot(FBModel):
-    Size:property
+    Size:float
     def __init__(self,Name:str):...
 class FBModelSkeleton(FBModel):
-    Color:property
-    Length:property
-    LinkFollowGeometryOffset:property
-    Look:property
-    PreserveLinkEndPosition:property
-    Resolution:property
-    Size:property
+    Color:FBColor
+    Length:float
+    LinkFollowGeometryOffset:bool
+    Look:FBSkeletonLook
+    PreserveLinkEndPosition:bool
+    Resolution:FBSkeletonResolutionLevel
+    Size:float
     def GetSkinModelList(self,SkinModelList:FBModelList):...
     def __init__(self,Name:str):...
 class FBPhysicalProperties(FBBox):
@@ -4188,7 +4188,7 @@ class FBAudioIn(FBComponent):
     def GetSupportedFormats(self)->int:...
     def IsOnline(self)->bool:...
     def IsReadyToRecord(self)->bool:...
-    def PrepareToRecord(self,RecordingPath:str,ExistingClipAction:FBExistingClipAction=kFBExistingClipAskUser,ExistingFileAction:FBExistingFileAction=kFBExistingFileAskUser)->bool:...
+    def PrepareToRecord(self,RecordingPath:str,ExistingClipAction:FBExistingClipAction=FBExistingClipAction.kFBExistingClipAskUser,ExistingFileAction:FBExistingFileAction=FBExistingFileAction.kFBExistingFileAskUser)->bool:...
     def SetDelay(self,Delay:FBTime)->bool:...
     def SetDestination(self,AudioOut:FBAudioOut)->bool:...
     def SetOnline(self,bOnline:bool)->bool:...
@@ -4196,42 +4196,42 @@ class FBAudioIn(FBComponent):
     def TurnOffRecording(self)->bool:...
     def __init__(self):...
 class FBAudioClip(FBComponent):
-    AccessMode:property
-    Bits:property
-    Channels:property
-    ClipSpeed:property
-    ConstrainDstToTake:property
-    CurrentTake:property
-    Destination:property
-    DstDuration:property
-    DstEnd:property
-    DstIn:property
-    Duration:property
-    EndPoint:property
-    Filename:property
-    Format:property
-    InPoint:property
-    LockClipSpeed:property
-    LockPitchToSpeed:property
-    Path:property
-    Pitch:property
-    Rate:property
-    RelativePath:property
-    Scrubbing:property
-    SrcDuration:property
-    SrcEnd:property
-    SrcIn:property
-    TakeSetsInPoint:property
-    UseChannel:property
-    UseChannelMode:property
+    AccessMode:FBAccessMode
+    Bits:int
+    Channels:int
+    ClipSpeed:float
+    ConstrainDstToTake:bool
+    CurrentTake:FBTake
+    Destination:FBAudioOut
+    DstDuration:FBTime
+    DstEnd:FBTime
+    DstIn:FBTime
+    Duration:FBTime
+    EndPoint:FBTime
+    Filename:str
+    Format:int
+    InPoint:FBTime
+    LockClipSpeed:bool
+    LockPitchToSpeed:bool
+    Path:str
+    Pitch:float
+    Rate:int
+    RelativePath:str
+    Scrubbing:bool
+    SrcDuration:FBTime
+    SrcEnd:FBTime
+    SrcIn:FBTime
+    TakeSetsInPoint:bool
+    UseChannel:FBUseChnMode
+    UseChannelMode:FBUseChnMode
     def IsMediaReady(self)->bool:...
-    def Play(self,Style:FBTriggerStyle=kFBTriggerStyleContinue,Destination:FBAudioOut=None)->bool:...
+    def Play(self,Style:FBTriggerStyle=FBTriggerStyle.kFBTriggerStyleContinue,Destination:FBAudioOut=None)->bool:...
     def Stop(self,Destination:FBAudioOut=None):...
     def __init__(self,FileName:str):...
 class FBAssetMng(FBComponent):
-    Description:property
-    LastError:property
-    MenuFlags:property
+    Description:str
+    LastError:str
+    MenuFlags:int
     def BrowseForFile(self)->FBAssetFile:...
     def BrowseForFolder(self)->FBAssetFolder:...
     def CheckAvailability(self)->bool:...
@@ -4247,7 +4247,7 @@ class FBAssetMng(FBComponent):
     def ShowSettings(self):...
     def WithinManagedPath(self,LocalPath:str)->bool:...
 class FBAssetItem(FBComponent):
-    LastError:property
+    LastError:str
     def CheckIn(self,Comment:str="",bKeepCheckedOut:bool=False,bSilent:bool=False)->bool:...
     def CheckOut(self,Comment:str="",bDontGetLocal:bool=False,bSilent:bool=False)->bool:...
     def GetLatest(self,bReplaceCheckedOut:bool=False,bSilent:bool=False)->bool:...
@@ -4259,18 +4259,18 @@ class FBAssetItem(FBComponent):
     def ShowProperties(self):...
     def UndoCheckOut(self,bReplaceLocalFile:bool=True,bSilent:bool=False)->bool:...
 class FBApplication(FBComponent):
-    CurrentActor:property
-    CurrentCharacter:property
-    FBXFileName:property
-    OnFileExit:property
-    OnFileMerge:property
-    OnFileNew:property
-    OnFileNewCompleted:property
-    OnFileOpen:property
-    OnFileOpenCompleted:property
-    OnFileSave:property
-    OnFileSaveCompleted:property
-    OnOverrideFileOpen:property
+    CurrentActor:FBActor
+    CurrentCharacter:FBCharacter
+    FBXFileName:str
+    OnFileExit:FBEvent
+    OnFileMerge:FBEvent
+    OnFileNew:FBEvent
+    OnFileNewCompleted:FBEvent
+    OnFileOpen:FBEvent
+    OnFileOpenCompleted:FBEvent
+    OnFileSave:FBEvent
+    OnFileSaveCompleted:FBEvent
+    OnOverrideFileOpen:FBEventOverrideFileOpen
     def AudioRender(self,AudioRenderOptions:FBAudioRenderOptions=None)->bool:...
     def ExecuteScript(self,Filename:str)->bool:...
     def FileAppend(self,Filename:str,bShowUIMsg:bool=False,Options:FBFbxOptions=None)->bool:...
@@ -4284,7 +4284,7 @@ class FBApplication(FBComponent):
     @overload
     def FileMerge(self,Pathlist:str,bShowUIMsg:bool=False,Options:FBFbxOptions=None)->bool:...
     @overload
-    def FileMerge(self,Pathlist:FBStringList,bShowUIMsg:bool=False,Options:FBFbxOptions=None)->bool:...
+    def FileMerge(self,Filename:FBStringList,bShowUIMsg:bool=False,Options:FBFbxOptions=None)->bool:...
     def FileNew(self,bAskUser:bool=False,bClearSceneName:bool=True)->bool:...
     @overload
     def FileOpen(self,Filename:str,bShowUIMsg:bool=False,Options:FBFbxOptions=None)->bool:...
@@ -4368,12 +4368,12 @@ class FBAnimationNode(FBComponent):
     def WriteData(self,arg2:list,arg3:FBEvaluateInfo=None)->int:...
     def __init__(self,arg2:str):...
 class FBAnimationLayer(FBComponent):
-    LayerMode:property
-    LayerRotationMode:property
-    Lock:property
-    Mute:property
-    Solo:property
-    Weight:property
+    LayerMode:FBLayerMode
+    LayerRotationMode:FBLayerRotationMode
+    Lock:bool
+    Mute:bool
+    Solo:bool
+    Weight:float
     def AddChildLayer(self,AnimationLayer:FBAnimationLayer):...
     def GetChildCount(self)->int:...
     def GetChildLayer(self,Index:int)->FBAnimationLayer:...
@@ -4392,14 +4392,14 @@ class FBActionManager(FBComponent):
     def __init__(self):...
 class FBConstraintManager(FBComponent):
     @overload
-    def TypeCreateConstraint(self,arg2)->object:...
+    def TypeCreateConstraint(self,TypeIndex:int)->FBConstraint:...
     @overload
     def TypeCreateConstraint(self,Name:str)->FBConstraint:...
     def TypeGetCount(self)->int:...
     def TypeGetName(self,TypeIndex:int)->str:...
     def __init__(self):...
 class FBConstructionHistory(FBComponent):
-    OnChange:property
+    OnChange:FBEvent
     def GetDeltaOperations(self,Operations:list,sinceCommandId:int):...
     def GetScriptOutput(self,script:list,errors:list):...
     def GetState(self)->FBConstructionHistoryState:...
@@ -4407,8 +4407,8 @@ class FBConstructionHistory(FBComponent):
     def NetUndo(self,key:int):...
     def RunOperation(self,operation:FBConstructionOperation,out_errors:list)->int:...
 class FBControlSet(FBComponent):
-    ControlSetType:property
-    UseAxis:property
+    ControlSetType:FBControlSetType
+    UseAxis:bool
     def GetFKIndex(self,Model:FBModel)->int:...
     def GetFKModel(self,Index:FBBodyNodeId)->FBModel:...
     def GetFKName(self,Index:FBBodyNodeId)->str:...
@@ -4423,19 +4423,19 @@ class FBCycleCreator(FBComponent):
     def CreateCycle(self,arg2:FBTime,arg3:FBTime,arg4:FBCharacter=None,arg5=None,arg6=None,arg7:str=None,arg8:FBModel=None,arg9=None,arg10=None,arg11=None,arg12=None,arg13=None)->bool:...
     def __init__(self):...
 class FBDeck(FBComponent):
-    CassetteInside:property
-    EE:property
-    IconFilename:property
-    Latency:property
-    Offset:property
-    Online:property
-    PlayingBackward:property
-    PlayingForward:property
-    PostRoll:property
-    PreRoll:property
-    StandBy:property
-    TransportControl:property
-    UniqueName:property
+    CassetteInside:bool
+    EE:bool
+    IconFilename:str
+    Latency:FBTime
+    Offset:FBTime
+    Online:bool
+    PlayingBackward:bool
+    PlayingForward:bool
+    PostRoll:FBTime
+    PreRoll:FBTime
+    StandBy:bool
+    TransportControl:FBDeckTransportMode
+    UniqueName:str
     def CueAt(self,Time:FBTime):...
     def DeckAutoCommandsNotify(self):...
     def DeckStatusUpdateNotify(self):...
@@ -4450,31 +4450,31 @@ class FBDeck(FBComponent):
     def Stop(self):...
     def ThreadSync(self):...
 class FBDeformer(FBComponent):
-    DeformerType:property
+    DeformerType:FBDeformerType
     def __init__(self,Name:str):...
 class FBDeviceInstrument(FBComponent):
-    Active:property
-    Device:property
-    ModelTemplate:property
+    Active:bool
+    Device:FBDevice
+    ModelTemplate:FBModelTemplate
     def InstrumentRecordFrame(self,RecordTime:FBTime,NotifyInfo:FBDeviceNotifyInfo):...
     def InstrumentWriteData(self,EvaluateInfo:FBEvaluateInfo)->bool:...
     def __init__(self,Device:FBDevice):...
 class FBDeformerPointCache(FBDeformer):
-    Active:property
-    ChannelCount:property
-    ChannelEnd:property
-    ChannelFrameRate:property
-    ChannelIndex:property
-    ChannelName:property
-    ChannelPointCount:property
-    ChannelSampleRegular:property
-    ChannelStart:property
-    PointCacheFile:property
+    Active:bool
+    ChannelCount:int
+    ChannelEnd:FBTime
+    ChannelFrameRate:float
+    ChannelIndex:int
+    ChannelName:str
+    ChannelPointCount:int
+    ChannelSampleRegular:bool
+    ChannelStart:FBTime
+    PointCacheFile:FBPointCacheFile
     def __init__(self,Name:str):...
 class FBDeviceOpticalMarker(FBComponent):
-    IsUsed:property
-    Model:property
-    Occlusion:property
+    IsUsed:bool
+    Model:FBModel
+    Occlusion:float
     Translation:property
     def SetData(self,X:float,Y:float,Z:float=0.0,Occlusion:float=0.0):...
     def __init__(self,Name:str):...
@@ -4493,75 +4493,6 @@ class FBEvaluateManager(FBComponent):
     def InvalidateDAG(self):...
     def IsInteractiveMode(self)->bool:...
     def __init__(self):...
-class FBFCurve(FBComponent):
-    Keys:property
-    def CreateInterpolatorCurve(self,CurveType:FBInterpolatorCurveType)->FBFCurve:...
-    def EditBegin(self,KeyCount:int=-1):...
-    def EditClear(self):...
-    def EditEnd(self,KeyCount:int=-1):...
-    def Evaluate(self,Time:FBTime)->float:...
-    def GetPostExtrapolationCount(self)->int:...
-    def GetPostExtrapolationMode(self)->FBExtrapolationMode:...
-    def GetPreExtrapolationCount(self)->int:...
-    def GetPreExtrapolationMode(self)->FBExtrapolationMode:...
-    def KeyAdd(self,Time:FBTime,Value:float)->int:...
-    @overload
-    def KeyDelete(self,arg2,arg3)->bool:...
-    @overload
-    def KeyDelete(self,Start:FBTime,Stop:FBTime,bInclusive:bool=False)->bool:...
-    def KeyDeleteByIndexRange(self,arg2,arg3)->bool:...
-    def KeyDeleteByTimeRange(self,arg2:FBTime,arg3:FBTime,arg4=None)->bool:...
-    def KeyGetInterpolation(self,Index:int)->FBInterpolation:...
-    def KeyGetLeftBezierTangent(self,Index:int)->float:...
-    def KeyGetLeftDerivative(self,Index:int)->float:...
-    def KeyGetLeftTangentWeight(self,Index:int)->float:...
-    def KeyGetMarkedForManipulation(self,Index:int)->bool:...
-    def KeyGetRightBezierTangent(self,Index:int)->float:...
-    def KeyGetRightDerivative(self,Index:int)->float:...
-    def KeyGetRightTangentWeight(self,Index:int)->float:...
-    def KeyGetSelected(self,Index:int)->bool:...
-    def KeyGetTCBBias(self,Index:int)->float:...
-    def KeyGetTCBContinuity(self,Index:int)->float:...
-    def KeyGetTCBTension(self,Index:int)->float:...
-    def KeyGetTangentBreak(self,Index:int)->bool:...
-    def KeyGetTangentClampMode(self,Index:int)->FBTangentClampMode:...
-    def KeyGetTangentConstantMode(self,Index:int)->FBTangentConstantMode:...
-    def KeyGetTangentCustomIndex(self,Index:int)->FBTangentCustomIndex:...
-    def KeyGetTangentMode(self,Index:int)->FBTangentMode:...
-    def KeyGetTangentWeightMode(self,Index:int)->FBTangentWeightMode:...
-    def KeyGetTime(self,Index:int)->FBTime:...
-    def KeyGetValue(self,Index:int)->float:...
-    def KeyInsert(self,Time:FBTime,Interpolation:FBInterpolation=kFBInterpolationCubic,TangentMode:FBTangentMode=kFBTangentModeAuto):...
-    @overload
-    def KeyOffset(self,OffsetTime:FBTime,StartIndex:int,StopIndex:int)->bool:...
-    @overload
-    def KeyOffset(self,OffsetTime:FBTime,StartTime:FBTime=FBTime.MinusInfinity,StopTime:FBTime=FBTime.Infinity,bInclusive:bool=True)->bool:...
-    def KeyReplaceBy(self,Source:FBFCurve,Start:FBTime=FBTime.MinusInfinity,Stop:FBTime=FBTime.Infinity,bUseExactGivenSpan:bool=False,bKeyStartEndOnNoKey:bool=True):...
-    def KeySetInterpolation(self,Index:int,Value:FBInterpolation):...
-    def KeySetLeftBezierTangent(self,Index:int,Value:float):...
-    def KeySetLeftDerivative(self,Index:int,Value:float):...
-    def KeySetLeftTangentWeight(self,Index:int,Value:float):...
-    def KeySetMarkedForManipulation(self,Index:int,bValue:bool)->bool:...
-    def KeySetRightBezierTangent(self,Index:int,Value:float):...
-    def KeySetRightDerivative(self,Index:int,Value:float):...
-    def KeySetRightTangentWeight(self,Index:int,Value:float):...
-    def KeySetSelected(self,Index:int,bValue:bool)->bool:...
-    def KeySetTCBBias(self,Index:int,Value:float):...
-    def KeySetTCBContinuity(self,Index:int,Value:float):...
-    def KeySetTCBTension(self,Index:int,Value:float):...
-    def KeySetTangentBreak(self,Index:int,bValue:bool):...
-    def KeySetTangentClampMode(self,Index:int,Value:FBTangentClampMode):...
-    def KeySetTangentConstantMode(self,Index:int,Value:FBTangentConstantMode):...
-    def KeySetTangentCustomIndex(self,Index:int,Value:FBTangentCustomIndex):...
-    def KeySetTangentMode(self,Index:int,Value:FBTangentMode):...
-    def KeySetTangentWeightMode(self,Index:int,Value:FBTangentWeightMode):...
-    def KeySetTime(self,Index:int,Value:FBTime):...
-    def KeySetValue(self,Index:int,Value:float):...
-    def SetPostExtrapolationCount(self,Count:int):...
-    def SetPostExtrapolationMode(self,ExtrapolationMode:FBExtrapolationMode):...
-    def SetPreExtrapolationCount(self,Count:int):...
-    def SetPreExtrapolationMode(self,ExtrapolationMode:FBExtrapolationMode):...
-    def __init__(self):...
 class FBFCurveEditorUtility(FBComponent):
     def Frame(self,bSelectedKeysOnly:bool,Editor:FBFCurveEditor=None)->bool:...
     def GetObjects(self,ObjectList:list)->bool:...
@@ -4576,83 +4507,83 @@ class FBFCurveEventManager(FBComponent):
     def UnregisterProperty(self,Property:FBPropertyAnimatable)->bool:...
     def __init__(self):...
 class FBFbxOptions(FBComponent):
-    ActorFaces:property
-    ActorFacesAnimation:property
-    Actors:property
-    Audio:property
-    BaseCameras:property
-    Bones:property
-    BonesAnimation:property
-    CacheSize:property
-    CameraSwitcherSettings:property
-    Cameras:property
-    CamerasAnimation:property
-    CharacterExtensions:property
-    CharacterFaces:property
-    CharacterFacesAnimation:property
-    Characters:property
-    CharactersAnimation:property
-    ClearSelectionBeforeSave:property
-    ConsiderMuteSolo:property
-    Constraints:property
-    ConstraintsAnimation:property
-    CopyCharacterExtensions:property
-    CurrentCameraSettings:property
-    Devices:property
-    DevicesAnimation:property
-    EmbedMedia:property
-    FileFormatAndVersion:property
-    FileReference:property
-    FileReferenceEdit:property
-    FileReferences:property
-    GlobalLightingSettings:property
-    Groups:property
-    IgnoreConflicts:property
-    KeepTransformHierarchy:property
-    KeyingGroups:property
-    Lights:property
-    LightsAnimation:property
-    Materials:property
-    MaterialsAnimation:property
-    Models:property
-    ModelsAnimation:property
-    NamespaceList:property
-    Notes:property
-    NotesAnimation:property
-    OpticalData:property
-    PhysicalProperties:property
-    PhysicalPropertiesAnimation:property
-    Poses:property
-    ProcessAnimationOnExtension:property
-    RemoveConstraintReference:property
-    RemoveEmptyLayer:property
-    ReplaceControlSet:property
-    ResetDOF:property
-    ResetHierarchy:property
-    RetargetOnBaseLayer:property
-    SaveCharacter:property
-    SaveCharacterExtensions:property
-    SaveControlSet:property
-    SaveSelectedModelsOnly:property
-    Scripts:property
-    SetPropertyStaticIfPossible:property
-    Sets:property
-    Shaders:property
-    ShadersAnimation:property
-    ShowFileDialog:property
-    ShowOptionsDialog:property
-    Solvers:property
-    SolversAnimation:property
-    Story:property
-    StoryAnimation:property
-    TakeSpan:property
-    Textures:property
-    TexturesAnimation:property
-    TransferMethod:property
-    TransportSettings:property
-    UpdateRecentFiles:property
-    UseASCIIFormat:property
-    Video:property
+    ActorFaces:FBElementAction
+    ActorFacesAnimation:bool
+    Actors:FBElementAction
+    Audio:FBElementAction
+    BaseCameras:bool
+    Bones:FBElementAction
+    BonesAnimation:bool
+    CacheSize:int
+    CameraSwitcherSettings:bool
+    Cameras:FBElementAction
+    CamerasAnimation:bool
+    CharacterExtensions:FBElementAction
+    CharacterFaces:FBElementAction
+    CharacterFacesAnimation:bool
+    Characters:FBElementAction
+    CharactersAnimation:bool
+    ClearSelectionBeforeSave:bool
+    ConsiderMuteSolo:bool
+    Constraints:FBElementAction
+    ConstraintsAnimation:bool
+    CopyCharacterExtensions:bool
+    CurrentCameraSettings:bool
+    Devices:FBElementAction
+    DevicesAnimation:bool
+    EmbedMedia:bool
+    FileFormatAndVersion:FBFileFormatAndVersion
+    FileReference:bool
+    FileReferenceEdit:bool
+    FileReferences:FBElementAction
+    GlobalLightingSettings:bool
+    Groups:FBElementAction
+    IgnoreConflicts:bool
+    KeepTransformHierarchy:bool
+    KeyingGroups:FBElementAction
+    Lights:FBElementAction
+    LightsAnimation:bool
+    Materials:FBElementAction
+    MaterialsAnimation:bool
+    Models:FBElementAction
+    ModelsAnimation:bool
+    NamespaceList:str
+    Notes:FBElementAction
+    NotesAnimation:bool
+    OpticalData:FBElementAction
+    PhysicalProperties:FBElementAction
+    PhysicalPropertiesAnimation:bool
+    Poses:FBElementAction
+    ProcessAnimationOnExtension:bool
+    RemoveConstraintReference:bool
+    RemoveEmptyLayer:bool
+    ReplaceControlSet:bool
+    ResetDOF:bool
+    ResetHierarchy:bool
+    RetargetOnBaseLayer:bool
+    SaveCharacter:bool
+    SaveCharacterExtensions:bool
+    SaveControlSet:bool
+    SaveSelectedModelsOnly:bool
+    Scripts:FBElementAction
+    SetPropertyStaticIfPossible:bool
+    Sets:FBElementAction
+    Shaders:FBElementAction
+    ShadersAnimation:bool
+    ShowFileDialog:bool
+    ShowOptionsDialog:bool
+    Solvers:FBElementAction
+    SolversAnimation:bool
+    Story:FBElementAction
+    StoryAnimation:bool
+    TakeSpan:FBTakeSpanOnLoad
+    Textures:FBElementAction
+    TexturesAnimation:bool
+    TransferMethod:FBCharacterLoadAnimationMethod
+    TransportSettings:bool
+    UpdateRecentFiles:bool
+    UseASCIIFormat:bool
+    Video:FBElementAction
     def GetMultiLoadNamespaceList(self)->FBStringList:...
     def GetTakeCount(self)->int:...
     def GetTakeDescription(self,TakeIndex:int)->str:...
@@ -4675,28 +4606,28 @@ class FBFbxOptions(FBComponent):
     @overload
     def __init__(self,arg2,arg3:str):...
 class FBFileMonitoringManager(FBComponent):
-    OnFileChangeAnimationClip:property
-    OnFileChangeFileReference:property
-    OnFileChangeMainScene:property
-    OnFileChangePythonEditorScript:property
+    OnFileChangeAnimationClip:FBEvent
+    OnFileChangeFileReference:FBEvent
+    OnFileChangeMainScene:FBEvent
+    OnFileChangePythonEditorScript:FBEvent
     def AddFileToMonitor(self,FilePath:str,FileMonitoringType:FBFileMonitoringType):...
     def CleanFileMonitoring(self,bIncludePythonEditorScripts:bool=True):...
     def PauseFileMonitoring(self,bPause:bool=True):...
     def RemoveFileFromMonitor(self,FilePath:str):...
     def __init__(self):...
 class FBFilter(FBComponent):
-    Start:property
-    Stop:property
+    Start:FBTime
+    Stop:FBTime
     @overload
     def Apply(self,Node:FBAnimationNode,bRecursive:bool)->bool:...
     @overload
     def Apply(self,Curve:FBFCurve)->bool:...
     def Reset(self):...
 class FBFolder(FBComponent):
-    Items:property
+    Items:FBPropertyListComponent
     def __init__(self,Name:str,Component:FBComponent):...
 class FBGenericMenu(FBComponent):
-    OnMenuActivate:property
+    OnMenuActivate:FBEvent
     def DeleteItem(self,ToDelete:FBGenericMenuItem):...
     def Execute(self,X:int,Y:int,bRightAlign:bool=True)->FBGenericMenuItem:...
     def GetFirstItem(self)->FBGenericMenuItem:...
@@ -4710,20 +4641,20 @@ class FBGenericMenu(FBComponent):
     def InsertLast(self,ItemName:str,ItemId:int,Menu:FBGenericMenu=None)->FBGenericMenuItem:...
     def __init__(self):...
 class FBGenericMenuItem(FBComponent):
-    Caption:property
-    Enable:property
-    Id:property
-    Menu:property
+    Caption:str
+    Enable:bool
+    Id:int
+    Menu:FBGenericMenu
 class FBGeometry(FBComponent):
-    BinormalMappingMode:property
-    BinormalReferenceMode:property
-    MaterialMappingMode:property
-    NormalMappingMode:property
-    NormalReferenceMode:property
-    TangentMappingMode:property
-    TangentReferenceMode:property
-    VertexColorMappingMode:property
-    VertexColorReferenceMode:property
+    BinormalMappingMode:FBGeometryMappingMode
+    BinormalReferenceMode:FBGeometryReferenceMode
+    MaterialMappingMode:FBGeometryMappingMode
+    NormalMappingMode:FBGeometryMappingMode
+    NormalReferenceMode:FBGeometryReferenceMode
+    TangentMappingMode:FBGeometryMappingMode
+    TangentReferenceMode:FBGeometryReferenceMode
+    VertexColorMappingMode:FBGeometryMappingMode
+    VertexColorReferenceMode:FBGeometryReferenceMode
     def GeometryBegin(self)->bool:...
     def GeometryEnd(self)->bool:...
     def GetBinormalsDirectArray(self)->list:...
@@ -4734,8 +4665,8 @@ class FBGeometry(FBComponent):
     def GetPositionsArray(self)->list:...
     def GetTangentsDirectArray(self)->list:...
     def GetTangentsIndexArray(self)->list:...
-    def GetUVSetDirectArray(self,OutArrayCount:str=NoDefaultValue)->list:...
-    def GetUVSetIndexArray(self,OutArrayCount:str=NoDefaultValue)->list:...
+    def GetUVSetDirectArray(self,OutArrayCount:str=None)->list:...
+    def GetUVSetIndexArray(self,OutArrayCount:str=None)->list:...
     def GetUVSetMappingMode(self,UVSetName:str=None)->FBGeometryMappingMode:...
     def GetUVSetReferenceMode(self,UVSetName:str=None)->FBGeometryReferenceMode:...
     def GetUVSets(self)->FBStringList:...
@@ -4764,15 +4695,15 @@ class FBGeometry(FBComponent):
     @overload
     def VertexAdd(self,Vertex:FBVertex)->int:...
     @overload
-    def VertexAdd(self,arg2,arg3,arg4)->int:...
+    def VertexAdd(self,Vertex:FBVertex,Normal:FBNormal,UV:FBUV)->int:...
     def VertexArrayClear(self)->bool:...
     def VertexArrayInit(self,Vertexcount:int,bUniqueMaterial:bool,FBGeometryArrayIDs:int=0)->bool:...
     def VertexClear(self)->bool:...
     def VertexColorGet(self,Index:int)->FBColorAndAlpha:...
     @overload
-    def VertexColorSet(self,arg2:FBColorAndAlpha,arg3=None)->bool:...
+    def VertexColorSet(self,Color:FBColorAndAlpha,Index:int=-1)->bool:...
     @overload
-    def VertexColorSet(self,arg2,arg3,arg4,arg5,arg6=None)->bool:...
+    def VertexColorSet(self,Red:float,Green:float,Blue:float,Alpha:float,Index:int=-1)->bool:...
     def VertexCount(self)->int:...
     def VertexGet(self,Index:int)->FBVertex:...
     def VertexGetSelected(self,Index:int)->bool:...
@@ -4783,11 +4714,11 @@ class FBGeometry(FBComponent):
     @overload
     def VertexNormalSet(self,Vertex:FBNormal,Index:int=-1)->bool:...
     @overload
-    def VertexNormalSet(self,arg2,arg3,arg4,arg5=None)->bool:...
+    def VertexNormalSet(self,x:float,y:float,z:float,Index:int=-1)->bool:...
     @overload
     def VertexSet(self,Vertex:FBVertex,Index:int=-1)->bool:...
     @overload
-    def VertexSet(self,arg2,arg3,arg4,arg5=None)->bool:...
+    def VertexSet(self,x:float,y:float,z:float,Index:int=-1)->bool:...
     def VertexSetSelected(self,Index:int,bState:bool)->bool:...
     def VertexSetVisible(self,Index:int,bState:bool)->bool:...
     def VertexUVGet(self,Index:int)->FBUV:...
@@ -4815,13 +4746,13 @@ class FBMesh(FBGeometry):
     def TriangleStripAdd(self,IndexArraySize:int,IndexArray:list,MaterialId:int=0)->bool:...
     def __init__(self,Name:str):...
 class FBImage(FBComponent):
-    Depth:property
-    Format:property
-    Height:property
-    InterleaveType:property
-    InterpolationType:property
-    Type:property
-    Width:property
+    Depth:int
+    Format:FBImageFormat
+    Height:int
+    InterleaveType:FBImageInterleaveType
+    InterpolationType:FBImageInterpolationType
+    Type:FBImageType
+    Width:int
     def Cleanup(self):...
     def ConvertFormat(self,NewFormat:FBImageFormat)->bool:...
     def ConvertSize(self,Width:int,Height:int)->bool:...
@@ -4832,8 +4763,8 @@ class FBImage(FBComponent):
     def WriteToTif(self,FileName:str,Comments:str,bCompressed:bool)->bool:...
     def __init__(self,FileName:str):...
 class FBKeyControl(FBComponent):
-    AutoKey:property
-    NewKeyInterpolationType:property
+    AutoKey:bool
+    NewKeyInterpolationType:FBNewKeyInterpolationType
     def MoveKeys(self,TimeSpan:FBTimeSpan,Pivot:FBModel,T:FBVector3d,R:FBVector3d,S:FBVector3d,Time:FBTime,ModelList:FBModelList=None):...
     def __init__(self):...
 class FBKeyingGroup(FBComponent):
@@ -4869,21 +4800,21 @@ class FBLogger(FBComponent):
     def DisableClear(self):...
     def DumpObject(self,arg2:FBPlug,arg3)->object:...
     @overload
-    def Enable(self,arg2,arg3)->bool:...
+    def Enable(self,TypeInfo:int,bEnable:bool)->bool:...
     @overload
     def Enable(self,ClassName:str,bEnable:bool)->bool:...
     def GetLog(self)->object:...
     def __init__(self):...
 class FBCharacterExtension(FBKeyingGroup):
-    IncludePartInBodyPart:property
-    IncludePartInFullBody:property
-    Label:property
-    MirrorLabel:property
-    PlotAllowed:property
-    ReferenceModel:property
-    RetargetMode:property
-    StancePoseMode:property
-    SyncActivationAndVisibilityMode:property
+    IncludePartInBodyPart:bool
+    IncludePartInFullBody:bool
+    Label:str
+    MirrorLabel:int
+    PlotAllowed:FBPlotAllowed
+    ReferenceModel:FBModel
+    RetargetMode:FBCharacterExtensionRetargetMode
+    StancePoseMode:FBCharacterExtensionStancePoseMode
+    SyncActivationAndVisibilityMode:FBSyncActivationAndVisibilityMode
     def AddObjectProperties(self,Obj:FBComponent):...
     def GetCharacter(self)->FBCharacter:...
     def GetExtensionObjectWithLabelName(self,LabelName:str)->FBComponent:...
@@ -4906,18 +4837,18 @@ class FBCharacterExtension(FBKeyingGroup):
     def UpdateStancePose(self):...
     def __init__(self,Name:str):...
 class FBManipulator(FBComponent):
-    Active:property
-    AlwaysActive:property
-    ConsumeEvent:property
-    DefaultBehavior:property
-    ViewerText:property
-    Visible:property
+    Active:bool
+    AlwaysActive:bool
+    ConsumeEvent:bool
+    DefaultBehavior:bool
+    ViewerText:str
+    Visible:bool
 class FBMarkerSet(FBComponent):
     def AddMarker(self,NodeId:FBSkeletonNodeId,Model:FBModel=None,bIsOriented:bool=False)->int:...
     def BeginTransaction(self):...
     def EndTransaction(self):...
     def GetLinkToModelOk(self)->bool:...
-    def GetMarkerCount(self,NodeId:FBSkeletonNodeId=kFBSkeletonInvalidIndex)->int:...
+    def GetMarkerCount(self,NodeId:FBSkeletonNodeId=FBSkeletonNodeId.kFBSkeletonInvalidIndex)->int:...
     def GetMarkerModel(self,NodeId:FBSkeletonNodeId,MarkerIndex:int)->FBModel:...
     def GetMarkerName(self,NodeId:FBSkeletonNodeId,MarkerIndex:int)->str:...
     def GetMarkerOriented(self,NodeId:FBSkeletonNodeId,MarkerIndex:int)->bool:...
@@ -4926,7 +4857,7 @@ class FBMarkerSet(FBComponent):
     def GetMarkerTOffset(self,NodeId:FBSkeletonNodeId,MarkerIndex:int,TOffset:FBVector3d):...
     def GetMarkerUsed(self,NodeId:FBSkeletonNodeId,MarkerIndex:int)->bool:...
     def GetReferenceModel(self)->FBModel:...
-    def GetUsedMarkerCount(self,NodeId:FBSkeletonNodeId=kFBSkeletonInvalidIndex)->int:...
+    def GetUsedMarkerCount(self,NodeId:FBSkeletonNodeId=FBSkeletonNodeId.kFBSkeletonInvalidIndex)->int:...
     def SetMarkerModel(self,NodeId:FBSkeletonNodeId,MarkerIndex:int,Model:FBModel):...
     def SetMarkerName(self,NodeId:FBSkeletonNodeId,MarkerIndex:int,MarkerName:str):...
     def SetMarkerOriented(self,NodeId:FBSkeletonNodeId,MarkerIndex:int,bIsOriented:bool):...
@@ -4949,17 +4880,17 @@ class FBMenuManager(FBComponent):
     def SetItemEnable(self,MenuPath:str,ItemId:int,bEnable:bool):...
     def __init__(self):...
 class FBModelOpticalAdvanced(FBComponent):
-    Active:property
-    AutoPlayToNextSegment:property
-    ControllerMode:property
-    GenerationMode:property
-    InsertSegmentMode:property
-    MaxMatchDistance:property
-    PlayToNextSegment:property
-    Quality:property
-    SegmentMode:property
-    ShowRigidQuality:property
-    UsedTake:property
+    Active:bool
+    AutoPlayToNextSegment:bool
+    ControllerMode:FBControllerMode
+    GenerationMode:FBGenerationMode
+    InsertSegmentMode:FBInsertSegmentMode
+    MaxMatchDistance:float
+    PlayToNextSegment:bool
+    Quality:FBAnimationNode
+    SegmentMode:FBSegmentMode
+    ShowRigidQuality:bool
+    UsedTake:FBTake
     def AcceptAllSegments(self):...
     def AcceptSegment(self):...
     def AutomaticBuild(self):...
@@ -4967,13 +4898,13 @@ class FBModelOpticalAdvanced(FBComponent):
     def SkipSegment(self):...
     def __init__(self,Optical:FBModelOptical):...
 class FBModelTemplate(FBComponent):
-    Bindings:property
-    Children:property
-    DefaultRotation:property
-    DefaultScaling:property
-    DefaultTranslation:property
-    Model:property
-    Prefix:property
+    Bindings:FBPropertyListModelTemplateBinding
+    Children:FBPropertyListModelTemplate
+    DefaultRotation:FBVector3d
+    DefaultScaling:FBVector3d
+    DefaultTranslation:FBVector3d
+    Model:FBModel
+    Prefix:str
 class FBModelVertexData(FBComponent):
     def DisableOGLUVSet(self):...
     def DisableOGLVertexData(self):...
@@ -5010,29 +4941,29 @@ class FBModelVertexData(FBComponent):
     def VertexArrayMappingRelease(self):...
     def VertexArrayMappingRequest(self):...
 class FBMotionClip(FBComponent):
-    Filename:property
-    RelativePath:property
-    Start:property
-    Stop:property
+    Filename:str
+    RelativePath:str
+    Start:FBTime
+    Stop:FBTime
     def __init__(self,FileName:str):...
 class FBMotionFileOptions(FBComponent):
-    BaseRotationOnPreRotation:property
-    BaseTranslationOnRotationOffset:property
-    CreateInsteadOfMerge:property
-    CreateOpticalSegments:property
-    CreateReferenceNode:property
-    CreateUnmatchedModels:property
-    CreateUnusedOpticalSegments:property
-    IgnoreModelType:property
-    ImportDOF:property
-    ImportScaling:property
-    KeepActorPrefix:property
-    KeepDummyNode:property
-    ModelSelection:property
-    SetLimits:property
-    SetOccludedToLastValidPosition:property
-    TakeStartEnd:property
-    UpAxisUsedInFile:property
+    BaseRotationOnPreRotation:bool
+    BaseTranslationOnRotationOffset:bool
+    CreateInsteadOfMerge:bool
+    CreateOpticalSegments:bool
+    CreateReferenceNode:bool
+    CreateUnmatchedModels:bool
+    CreateUnusedOpticalSegments:bool
+    IgnoreModelType:bool
+    ImportDOF:bool
+    ImportScaling:bool
+    KeepActorPrefix:bool
+    KeepDummyNode:bool
+    ModelSelection:FBModelSelection
+    SetLimits:bool
+    SetOccludedToLastValidPosition:bool
+    TakeStartEnd:FBTakeSpanOnLoad
+    UpAxisUsedInFile:FBUpAxis
     def GetTakeCount(self)->int:...
     def GetTakeName(self,TakeIndex:int)->str:...
     def GetTakeSamples(self,TakeIndex:int)->int:...
@@ -5049,23 +4980,23 @@ class FBMotionFileOptions(FBComponent):
     def SetTakeStop(self,TakeIndex:int,StopTime:FBTime):...
     def __init__(self,StringList:FBStringList):...
 class FBNamespace(FBComponent):
-    ChildrenNamespaces:property
+    ChildrenNamespaces:FBPropertyListNamespace
     ContentCount:property
-    ContentLocked:property
+    ContentLocked:bool
     def GetContent(self,Index:int)->FBComponent:...
     def GetContentCount(self)->int:...
-    def GetContentList(self,ContentList:FBComponentList,ModificationFlags:FBPlugModificationFlag=kFBPlugAllContent,bRecursive:bool=True,TypeInfo:int=FBPlug.TypeInfo,bExactTypeMatch:bool=False):...
+    def GetContentList(self,ContentList:FBComponentList,ModificationFlags:FBPlugModificationFlag=FBPlugModificationFlag.kFBPlugAllContent,bRecursive:bool=True,TypeInfo:int=FBPlug.TypeInfo,bExactTypeMatch:bool=False):...
     def __init__(self,MultiLevelNamespace:str,Object:FBNamespace):...
 class FBOpticalGap(FBComponent):
-    Data:property
-    Interpolation:property
-    TimeSpan:property
+    Data:FBAnimationNode
+    Interpolation:FBGapMode
+    TimeSpan:FBTimeSpan
     def InsertControlKey(self,Time:FBTime):...
     def IsValid(self)->bool:...
     def __init__(self,Marker:FBModelMarkerOptical):...
 class FBFileReference(FBNamespace):
-    IsLoaded:property
-    ReferenceFilePath:property
+    IsLoaded:bool
+    ReferenceFilePath:str
     def ApplyRefEditPyScriptFromFile(self,RefEditPyScriptFilePath:str):...
     def ApplyRefEditPyScriptFromString(self,RefEditPyScript:str):...
     def BakeRefEditToFile(self,FilePath:str)->bool:...
@@ -5074,37 +5005,37 @@ class FBFileReference(FBNamespace):
     def DuplicateFileRef(self,DstNameSpaceList:FBStringList,bWithRefEdit:bool=False)->bool:...
     def GetRefEdit(self,FilePath:str=None)->str:...
     def GetRefFileList(self,RefFileList:FBStringList):...
-    def RevertRefEdit(self,Plug:FBPlug=None,ModificationFlag:FBPlugModificationFlag=kFBAllModifiedMask):...
+    def RevertRefEdit(self,Plug:FBPlug=None,ModificationFlag:FBPlugModificationFlag=FBPlugModificationFlag.kFBAllModifiedMask):...
     def SwapReferenceFilePath(self,FilePath:str,bApplyAvailableRefEdit:bool,bMergeCurrentRefEdit:bool)->bool:...
     def __init__(self,MultiLevelNamespace:str,Object:FBNamespace):...
 class FBOpticalSegment(FBComponent):
-    Data:property
-    Marker:property
-    MarkerTimeSpan:property
-    OriginalTimeSpan:property
-    TimeSpan:property
-    Used:property
+    Data:FBAnimationNode
+    Marker:FBModelMarkerOptical
+    MarkerTimeSpan:FBTimeSpan
+    OriginalTimeSpan:FBTimeSpan
+    TimeSpan:FBTimeSpan
+    Used:bool
     def Cut(self,Time:FBTime):...
     def IsValid(self)->bool:...
     def Reset(self):...
     def __init__(self,Optical:FBModelOptical):...
 class FBPlayerControl(FBComponent):
-    IsPlaying:property
-    IsPlotting:property
-    IsRecording:property
-    LoopActive:property
-    LoopMode:property
-    LoopStart:property
-    LoopStop:property
-    NextMarker:property
-    OnChange:property
-    PlotSamplingPeriod:property
-    PreviousMarker:property
-    RecordingSamplingPeriod:property
-    SnapMode:property
-    TransportTimeFormat:property
-    ZoomWindowStart:property
-    ZoomWindowStop:property
+    IsPlaying:bool
+    IsPlotting:bool
+    IsRecording:bool
+    LoopActive:bool
+    LoopMode:FBTransportLoopMode
+    LoopStart:FBTime
+    LoopStop:FBTime
+    NextMarker:FBTime
+    OnChange:FBEvent
+    PlotSamplingPeriod:FBTime
+    PreviousMarker:FBTime
+    RecordingSamplingPeriod:FBTime
+    SnapMode:FBTransportSnapMode
+    TransportTimeFormat:FBTransportTimeFormat
+    ZoomWindowStart:FBTime
+    ZoomWindowStop:FBTime
     def AddGlobalTimeMark(self,Time:FBTime)->int:...
     def DeleteAllGlobalTimeMarks(self):...
     def DeleteGlobalTimeMark(self,Index:int)->bool:...
@@ -5126,7 +5057,7 @@ class FBPlayerControl(FBComponent):
     def GetPreviousGlobalTimeMarkIndex(self)->int:...
     def GetTimeReferential(self)->FBTimeReferential:...
     def GetTransportFps(self)->FBTimeMode:...
-    def GetTransportFpsValue(self,TimeMode:FBTimeMode=kFBTimeModeDefault)->float:...
+    def GetTransportFpsValue(self,TimeMode:FBTimeMode=FBTimeMode.kFBTimeModeDefault)->float:...
     def GetTransportMode(self)->FBTransportMode:...
     def Goto(self,Time:FBTime,arg3:FBTimeReferential=None)->bool:...
     def GotoEnd(self,arg2:FBTimeReferential=None)->bool:...
@@ -5156,29 +5087,29 @@ class FBPlayerControl(FBComponent):
     def Stop(self)->bool:...
     def __init__(self):...
 class FBPointCacheFile(FBComponent):
-    CacheFileName:property
-    ChannelCount:property
-    FreeRunning:property
-    Loop:property
-    Offset:property
-    PlaySpeed:property
-    StartTime:property
-    StopTime:property
+    CacheFileName:str
+    ChannelCount:int
+    FreeRunning:bool
+    Loop:bool
+    Offset:FBTime
+    PlaySpeed:float
+    StartTime:FBTime
+    StopTime:FBTime
     def __init__(self,Name:str):...
 class FBRendererCallback(FBComponent):
-    DefaultCameraBackPlateRendering:property
-    DefaultCameraFrontPlateRendering:property
-    DefaultLightGroundProjectionRendering:property
-    DefaultLightVolumeRendering:property
-    SupportIDBufferPicking:property
+    DefaultCameraBackPlateRendering:bool
+    DefaultCameraFrontPlateRendering:bool
+    DefaultLightGroundProjectionRendering:bool
+    DefaultLightVolumeRendering:bool
+    SupportIDBufferPicking:bool
     def __init__(self,Name:str):...
 class FBRigidBody(FBComponent):
-    Done:property
-    Markers:property
-    Mode:property
-    Model:property
-    QualityData:property
-    SmoothWidth:property
+    Done:bool
+    Markers:FBPropertyListRigidBodyMarkers
+    Mode:FBRigidBodyMode
+    Model:FBModel
+    QualityData:FBAnimationNode
+    SmoothWidth:int
     def ComputeAnimation(self):...
     def IsValid(self)->bool:...
     def Snap(self):...
@@ -5215,9 +5146,9 @@ class FBSVector():
     @overload
     def __init__(self):...
     @overload
-    def __init__(self,arg2:FBSVector):...
+    def __init__(self,Value:FBSVector):...
     @overload
-    def __init__(self,arg2,arg3,arg4):...
+    def __init__(self,p1:float,p2:float,p3:float):...
     @overload
     def __init__(self,arg2):...
     @overload
@@ -5242,47 +5173,47 @@ class FBSVector():
     @overload
     def __truediv__(self,arg2)->object:...
 class FBScene(FBComponent):
-    ActorFaces:property
-    Actors:property
-    AudioClips:property
-    Cameras:property
-    CharacterExtensions:property
-    CharacterFaces:property
-    CharacterMarkerSets:property
-    CharacterPoses:property
-    Characters:property
-    ConstraintSolvers:property
-    Constraints:property
-    ControlSets:property
-    Deformers:property
-    Devices:property
-    FileReferences:property
-    Folders:property
-    Groups:property
-    HUDs:property
-    Handles:property
-    KeyingGroups:property
-    Lights:property
-    MarkerSets:property
-    Materials:property
-    ModelOpticals:property
-    ModelSkeletons:property
-    MotionClips:property
-    Namespaces:property
-    Notes:property
-    ObjectPoses:property
-    OnChange:property
-    OnTakeChange:property
-    PhysicalProperties:property
-    Poses:property
-    Renderer:property
-    RootModel:property
-    Sets:property
-    Shaders:property
-    Takes:property
-    Textures:property
-    UserObjects:property
-    VideoClips:property
+    ActorFaces:FBPropertyListActorFace
+    Actors:FBPropertyListActor
+    AudioClips:FBPropertyListAudioClip
+    Cameras:FBPropertyListCamera
+    CharacterExtensions:FBPropertyListCharacterExtension
+    CharacterFaces:FBPropertyListCharacterFace
+    CharacterMarkerSets:FBPropertyListCharacterMarkerSet
+    CharacterPoses:FBPropertyListCharacterPose
+    Characters:FBPropertyListCharacter
+    ConstraintSolvers:FBPropertyListConstraintSolver
+    Constraints:FBPropertyListConstraint
+    ControlSets:FBPropertyListControlSet
+    Deformers:FBPropertyListDeformer
+    Devices:FBPropertyListDevice
+    FileReferences:FBPropertyListFileReference
+    Folders:FBPropertyListFolder
+    Groups:FBPropertyListGroup
+    HUDs:FBPropertyListHUD
+    Handles:FBPropertyListHandle
+    KeyingGroups:FBPropertyListKeyingGroup
+    Lights:FBPropertyListLight
+    MarkerSets:FBPropertyListMarkerSet
+    Materials:FBPropertyListMaterial
+    ModelOpticals:FBPropertyListModelOptical
+    ModelSkeletons:FBPropertyListModelSkeleton
+    MotionClips:FBPropertyListMotionClip
+    Namespaces:FBPropertyListNamespace
+    Notes:FBPropertyListNote
+    ObjectPoses:FBPropertyListObjectPose
+    OnChange:FBEvent
+    OnTakeChange:FBEvent
+    PhysicalProperties:FBPropertyListPhysicalProperties
+    Poses:FBPropertyListPose
+    Renderer:FBRenderer
+    RootModel:FBModel
+    Sets:FBPropertyListSet
+    Shaders:FBPropertyListShader
+    Takes:FBPropertyListTake
+    Textures:FBPropertyListTexture
+    UserObjects:FBPropertyListUserObject
+    VideoClips:FBPropertyListVideoClip
     def CandidateEvaluationAndResolve(self)->bool:...
     def CleanEmptyGroups(self)->int:...
     def CleanEmptyRelationConstraints(self)->int:...
@@ -5300,46 +5231,46 @@ class FBScene(FBComponent):
     def GetScriptsPaths(self)->FBStringList:...
     def NamespaceCleanup(self)->bool:...
     def NamespaceDelete(self,Namespace:str)->bool:...
-    def NamespaceDeleteContent(self,Namespace:str,ModificationFlags:FBPlugModificationFlag=kFBPlugAllContent,bRecursive:bool=True,TypeInfo:int=FBPlug.TypeInfo,bExactTypeMatch:bool=False)->bool:...
+    def NamespaceDeleteContent(self,Namespace:str,ModificationFlags:FBPlugModificationFlag=FBPlugModificationFlag.kFBPlugAllContent,bRecursive:bool=True,TypeInfo:int=FBPlug.TypeInfo,bExactTypeMatch:bool=False)->bool:...
     def NamespaceEmpty(self,Namespace:str)->bool:...
     def NamespaceExist(self,Namespace:str)->bool:...
     def NamespaceExport(self,Namespace:str,FilePath:str,bASCIIFormat:bool=False)->bool:...
     def NamespaceGet(self,Namespace:str)->FBNamespace:...
     def NamespaceGetChildrenList(self,NamespaceList:FBStringList,Namespace:str=None,bRecursive:bool=True)->int:...
-    def NamespaceGetContentList(self,ContentList:FBComponentList,Namespace:str,ModificationFlags:FBPlugModificationFlag=kFBPlugAllContent,bRecursive:bool=True,TypeInfo:int=FBPlug.TypeInfo,bExactTypeMatch:bool=False):...
+    def NamespaceGetContentList(self,ContentList:FBComponentList,Namespace:str,ModificationFlags:FBPlugModificationFlag=FBPlugModificationFlag.kFBPlugAllContent,bRecursive:bool=True,TypeInfo:int=FBPlug.TypeInfo,bExactTypeMatch:bool=False):...
     def NamespaceGetOwnerFileReference(self,Namespace:str)->FBFileReference:...
     def NamespaceImport(self,Namespace:str,FilePath:str,bAsFileReference:bool=False)->bool:...
     def NamespaceImportToMultiple(self,DstNamespaceList:FBStringList,FilePath:str,bAsFileReference:bool=False)->bool:...
     def NamespaceRename(self,NameSpace:str,NewNamespace:str,bRecursive:bool=True,TypeInfo:int=FBPlug.TypeInfo,bExactTypeMatch:bool=False)->bool:...
-    def NamespaceSelectContent(self,Namespace:str,bSelect:bool,ModificationFlags:FBPlugModificationFlag=kFBPlugAllContent,bRecursive:bool=True,TypeInfo:int=FBPlug.TypeInfo,bExactTypeMatch:bool=False):...
+    def NamespaceSelectContent(self,Namespace:str,bSelect:bool,ModificationFlags:FBPlugModificationFlag=FBPlugModificationFlag.kFBPlugAllContent,bRecursive:bool=True,TypeInfo:int=FBPlug.TypeInfo,bExactTypeMatch:bool=False):...
 class FBSet(FBBox):
-    Items:property
-    Pickable:property
-    Transformable:property
-    Visibility:property
+    Items:FBPropertyListComponent
+    Pickable:bool
+    Transformable:bool
+    Visibility:bool
     def Contains(self,Component:FBComponent)->int:...
     def Select(self,bSelect:bool):...
     def __init__(self,Name:str):...
 class FBShader(FBBox):
-    RenderingPass:property
-    ShaderDescription:property
+    RenderingPass:FBRenderingPass
+    ShaderDescription:str
     def Append(self,Model:FBModel)->bool:...
     def CloneShaderParameter(self,NewShader:FBShader):...
     def ReplaceAll(self,Model:FBModel)->bool:...
     def ShaderNeedBeginRender(self)->bool:...
 class FBShaderLighted(FBShader):
-    Alpha:property
-    Contrast:property
-    Luminosity:property
-    Specular:property
-    Transparency:property
-    UseContrast:property
-    UseLuminosity:property
-    UseSpecular:property
-    def __init__(self,Name:str=NoDefaultValue):...
+    Alpha:float
+    Contrast:float
+    Luminosity:float
+    Specular:float
+    Transparency:FBAlphaSource
+    UseContrast:bool
+    UseLuminosity:bool
+    UseSpecular:bool
+    def __init__(self,Name:str=None):...
 class FBShaderManager():
-    ShaderTypeNames:property
-    ShaderTypeNamesLocalized:property
+    ShaderTypeNames:FBStringList
+    ShaderTypeNamesLocalized:FBStringList
     def CreateShader(self,ShaderTypeName:str)->FBShader:...
     def __init__(self):...
 class FBShaderModelInfo():
@@ -5347,104 +5278,104 @@ class FBShaderModelInfo():
     Model_Version:property
     Shader_Version:property
 class FBShaderShadowLive(FBShader):
-    Lights:property
-    LocalShadow:property
-    Models:property
-    ShadowFrameType:property
-    ShadowIntensity:property
-    ShadowType:property
-    ShadowZOffset:property
-    UseGobo:property
-    def __init__(self,Name:str=NoDefaultValue):...
+    Lights:FBPropertyListObject
+    LocalShadow:bool
+    Models:FBPropertyListObject
+    ShadowFrameType:FBShadowFrameType
+    ShadowIntensity:float
+    ShadowType:FBShadowType
+    ShadowZOffset:float
+    UseGobo:bool
+    def __init__(self,Name:str=None):...
 class FBSkeletonState():
     def GetNodeMatrix(self,arg2:FBSkeletonNodeId,arg3:FBMatrix):...
 class FBSpreadPart(FBComponent):
-    Column:property
-    Enabled:property
-    Justify:property
-    ReadOnly:property
-    Row:property
-    Style:property
+    Column:int
+    Enabled:bool
+    Justify:FBTextJustify
+    ReadOnly:bool
+    Row:int
+    Style:FBCellStyle
 class FBSpreadRow(FBSpreadPart):
-    Caption:property
+    Caption:str
     Parent:property
-    RowSelected:property
+    RowSelected:bool
     def EditCaption(self)->bool:...
     def Remove(self):...
 class FBSpreadColumn(FBSpreadPart):
-    Caption:property
-    Width:property
+    Caption:str
+    Width:int
 class FBSpreadCell(FBSpreadPart):
     ...
 class FBStory(FBComponent):
-    ClipsTextsVisible:property
-    LockedShot:property
-    MaintainShotAndClipShotLengthsSynced:property
-    Mute:property
-    NoneBlockingPostprocess:property
-    RecordToDisk:property
-    RootEditFolder:property
-    RootFolder:property
-    SummaryClip:property
+    ClipsTextsVisible:bool
+    LockedShot:bool
+    MaintainShotAndClipShotLengthsSynced:bool
+    Mute:bool
+    NoneBlockingPostprocess:bool
+    RecordToDisk:bool
+    RootEditFolder:FBStoryFolder
+    RootFolder:FBStoryFolder
+    SummaryClip:bool
     def CleanEmptyTracksAndFolders(self)->int:...
     def __init__(self):...
 class FBStoryClip(FBComponent):
-    AudioClip:property
-    AutoLoop:property
-    ClipAnimationPath:property
-    ClipAudioPath:property
-    ClipPitch:property
-    ClipVideoPath:property
-    Color:property
-    ConnectedToTake:property
-    CustomTimeWarp:property
-    FrameRate:property
-    Ghost:property
-    GhostCustomTime:property
-    GhostManipulatorCustomTime:property
-    GhostManipulatorMode:property
-    GhostManipulatorOffset:property
-    GhostModel:property
-    GhostPivot:property
-    GhostTravelling:property
-    ImageSequence:property
-    Loaded:property
-    LockPitchToSpeed:property
-    Loop:property
-    LoopTranslation:property
-    MarkIn:property
-    MarkOut:property
-    MirrorAnimation:property
-    MirrorPlane:property
-    Offset:property
-    OnChange:property
-    Pivots:property
-    PostBlend:property
-    PreBlend:property
-    Rotation:property
-    Scale:property
-    ShotActionStart:property
-    ShotActionStop:property
-    ShotBackplate:property
-    ShotCamera:property
-    ShotFrontplate:property
-    ShotStartStopLocked:property
-    ShowBackplate:property
-    ShowEmbeddedTimecode:property
-    ShowFrontplate:property
-    ShowGhostClipMode:property
-    SolvingMode:property
-    Speed:property
-    Start:property
-    StartStopLocked:property
-    Stop:property
-    TimeWarpEnabled:property
-    TimeWarpInterpolatorType:property
-    TimeWarpReverse:property
-    Translation:property
-    TravellingNode:property
-    TravellingNodeFunction:property
-    UseSystemFrameRate:property
+    AudioClip:FBAudioClip
+    AutoLoop:bool
+    ClipAnimationPath:str
+    ClipAudioPath:str
+    ClipPitch:float
+    ClipVideoPath:str
+    Color:FBColor
+    ConnectedToTake:bool
+    CustomTimeWarp:FBAnimationNode
+    FrameRate:float
+    Ghost:bool
+    GhostCustomTime:FBTime
+    GhostManipulatorCustomTime:FBTime
+    GhostManipulatorMode:FBStoryClipGhostTimeMode
+    GhostManipulatorOffset:FBVector3d
+    GhostModel:bool
+    GhostPivot:bool
+    GhostTravelling:bool
+    ImageSequence:bool
+    Loaded:bool
+    LockPitchToSpeed:bool
+    Loop:bool
+    LoopTranslation:FBVector3d
+    MarkIn:FBTime
+    MarkOut:FBTime
+    MirrorAnimation:bool
+    MirrorPlane:FBStoryClipMirrorPlane
+    Offset:FBTime
+    OnChange:FBEvent
+    Pivots:FBPropertyListPivot
+    PostBlend:FBTimeSpan
+    PreBlend:FBTimeSpan
+    Rotation:FBVector3d
+    Scale:float
+    ShotActionStart:FBTime
+    ShotActionStop:FBTime
+    ShotBackplate:FBVideo
+    ShotCamera:FBCamera
+    ShotFrontplate:FBVideo
+    ShotStartStopLocked:bool
+    ShowBackplate:bool
+    ShowEmbeddedTimecode:bool
+    ShowFrontplate:bool
+    ShowGhostClipMode:FBStoryClipShowGhostMode
+    SolvingMode:FBStoryClipSolveMode
+    Speed:float
+    Start:FBTime
+    StartStopLocked:bool
+    Stop:FBTime
+    TimeWarpEnabled:bool
+    TimeWarpInterpolatorType:FBStoryClipTimeWarpInterpolatorType
+    TimeWarpReverse:bool
+    Translation:FBVector3d
+    TravellingNode:FBPropertyListObject
+    TravellingNodeFunction:FBStoryClipNodeFunction
+    UseSystemFrameRate:bool
     def CanAssignSourcesToDestinations(self)->bool:...
     def Clone(self)->FBStoryClip:...
     def DestinationSetObject(self,SrcName:str,Object:FBComponent)->bool:...
@@ -5472,14 +5403,14 @@ class FBStoryClip(FBComponent):
     @overload
     def __init__(self,FilePath:str,Track:FBStoryTrack,Time:FBTime,Object:FBTime):...
 class FBStoryFolder(FBComponent):
-    Childs:property
-    Collapsed:property
-    Label:property
-    Mute:property
-    Parent:property
-    RecordClipPath:property
-    Solo:property
-    Tracks:property
+    Childs:FBPropertyListStoryFolder
+    Collapsed:bool
+    Label:str
+    Mute:bool
+    Parent:FBStoryFolder
+    RecordClipPath:str
+    Solo:bool
+    Tracks:FBPropertyListStoryTrack
     def AlignSelectedClips(self,Type:FBStoryClipAlignmentType,ReferenceClip:FBComponent):...
     def AlignSelectedClipsGroup(self,Type:FBStoryGroupClipAlignmentType):...
     def ConvertClipsToReadOnly(self,bSelected:bool,FilePath:str):...
@@ -5488,42 +5419,42 @@ class FBStoryFolder(FBComponent):
     def Load(self,bLoad:bool):...
     def __init__(self,ParentFolder:FBStoryFolder=None):...
 class FBStoryGroupClip(FBComponent):
-    DependentClips:property
-    Start:property
-    StartStopLocked:property
-    Stop:property
+    DependentClips:FBPropertyListObject
+    Start:FBTime
+    StartStopLocked:bool
+    Stop:FBTime
     def Move(self,Delta:FBTime,bForce:bool)->FBTime:...
     def MoveTo(self,Time:FBTime,bForce:bool)->FBTime:...
     def Razor(self,Time:FBTime):...
     def __init__(self,AffectedClipObject:list):...
 class FBStoryTrack(FBConstraint):
-    AcceptKey:property
-    AudioOutIndex:property
-    Character:property
-    CharacterIndex:property
-    ClipNameConvention:property
-    Clips:property
-    Details:property
-    Ghost:property
-    GhostModel:property
-    GhostPivot:property
-    GhostShowTrackMode:property
-    GhostTravelling:property
-    Label:property
-    Mute:property
-    OffsetEnable:property
-    ParentFolder:property
-    ParentTrack:property
-    PassThrough:property
-    RecordClipPath:property
-    RecordTrack:property
-    ReferenceMode:property
-    ShowBackplate:property
-    ShowFrontplate:property
-    Solo:property
-    SubTracks:property
-    TrackVideo:property
-    Type:property
+    AcceptKey:bool
+    AudioOutIndex:int
+    Character:FBCharacter
+    CharacterIndex:int
+    ClipNameConvention:str
+    Clips:FBPropertyListStoryClip
+    Details:FBPropertyListStoryDetails
+    Ghost:bool
+    GhostModel:bool
+    GhostPivot:bool
+    GhostShowTrackMode:FBStoryTrackGhostShowMode
+    GhostTravelling:bool
+    Label:str
+    Mute:bool
+    OffsetEnable:bool
+    ParentFolder:FBStoryFolder
+    ParentTrack:FBStoryTrack
+    PassThrough:bool
+    RecordClipPath:str
+    RecordTrack:bool
+    ReferenceMode:FBStoryTrackRefMode
+    ShowBackplate:bool
+    ShowFrontplate:bool
+    Solo:bool
+    SubTracks:FBPropertyListStorySubTrack
+    TrackVideo:FBVideo
+    Type:FBStoryTrackType
     def AddClip(self,Clip:FBComponent,Time:FBTime):...
     def ChangeDetailsBegin(self):...
     def ChangeDetailsEnd(self):...
@@ -5541,7 +5472,7 @@ class FBStringList():
     def AsString(self,Separator:str='~')->str:...
     def Clear(self):...
     @overload
-    def Find(self,arg2)->int:...
+    def Find(self,Ref)->int:...
     @overload
     def Find(self,String:str,bCaseSensitive:bool=True,bStartWith:bool=False)->int:...
     def GetAt(self,Index:int)->str:...
@@ -5562,13 +5493,13 @@ class FBStringList():
     def __len__(self)->int:...
     def __setitem__(self,arg2,arg3:str)->bool:...
 class FBSurface(FBGeometry):
-    SurfaceMode:property
-    UClosed:property
-    USize:property
-    UStep:property
-    VClosed:property
-    VSize:property
-    VStep:property
+    SurfaceMode:FBSurfaceMode
+    UClosed:bool
+    USize:int
+    UStep:int
+    VClosed:bool
+    VSize:int
+    VStep:int
     def ControlPointsBegin(self):...
     def ControlPointsEnd(self):...
     def GetControlPoint(self,arg2,arg3,arg4,arg5,arg6):...
@@ -5579,51 +5510,51 @@ class FBSurface(FBGeometry):
     def SurfaceEditEnd(self):...
     def SurfaceEnd(self):...
 class FBSystem(FBComponent):
-    ApplicationPath:property
-    AreMessageBoxesSuspended:property
-    AssetManager:property
-    AudioInputs:property
-    AudioOutputs:property
-    BuildId:property
-    BuildVersion:property
+    ApplicationPath:str
+    AreMessageBoxesSuspended:bool
+    AssetManager:FBAssetMng
+    AudioInputs:FBPropertyListAudioIn
+    AudioOutputs:FBPropertyListAudioOut
+    BuildId:str
+    BuildVersion:str
     Cameras:property
-    ComputerName:property
+    ComputerName:str
     ConfigPath:property
-    ConstructionHistory:property
-    CurrentTake:property
-    DesktopSize:property
+    ConstructionHistory:FBConstructionHistory
+    CurrentTake:FBTake
+    DesktopSize:FBVector2d
     Devices:property
     EPluginItemInfo:type
-    FrameRate:property
-    FullScreenViewer:property
+    FrameRate:float
+    FullScreenViewer:bool
     Lights:property
-    LocalTime:property
-    Manipulators:property
+    LocalTime:FBTime
+    Manipulators:FBPropertyListManipulator
     Materials:property
-    OnConnectionDataNotify:property
-    OnConnectionKeyingNotify:property
-    OnConnectionNotify:property
-    OnConnectionStateNotify:property
+    OnConnectionDataNotify:FBEventConnectionDataNotify
+    OnConnectionKeyingNotify:FBEventConnectionKeyingNotify
+    OnConnectionNotify:FBEventConnectionNotify
+    OnConnectionStateNotify:FBEventConnectionStateNotify
     OnUIIdle:property
-    OnVideoFrameRendering:property
-    PathImages:property
-    PathMeshs:property
-    ProcessMemory:property
-    ProcessMemoryPeak:property
-    PythonVersion:property
-    Renderer:property
-    RootModel:property
-    Scene:property
-    SceneRootModel:property
+    OnVideoFrameRendering:FBEventVideoFrameRendering
+    PathImages:str
+    PathMeshs:str
+    ProcessMemory:float
+    ProcessMemoryPeak:float
+    PythonVersion:int
+    Renderer:FBRenderer
+    RootModel:FBModel
+    Scene:FBScene
+    SceneRootModel:FBModel
     Shaders:property
-    SuspendMessageBoxes:property
-    SystemTime:property
+    SuspendMessageBoxes:bool
+    SystemTime:FBTime
     Takes:property
     Textures:property
     UserConfigPath:property
-    Version:property
-    VideoInputs:property
-    VideoOutputs:property
+    Version:float
+    VideoInputs:FBPropertyListVideoIn
+    VideoOutputs:FBPropertyListVideoOut
     ePluginItemDescription:EPluginItemInfo
     ePluginItemFileName:EPluginItemInfo
     ePluginItemIconName:EPluginItemInfo
@@ -5637,14 +5568,14 @@ class FBSystem(FBComponent):
     def MakeFullPath(self,RelativeFilePath:str)->str:...
     def __init__(self):...
 class FBPatch(FBSurface):
-    USurfaceType:property
-    VSurfaceType:property
+    USurfaceType:FBSurfaceType
+    VSurfaceType:FBSurfaceType
     def __init__(self,Name:str):...
 class FBNurbs(FBSurface):
-    UNurbType:property
-    UOrder:property
-    VNurbType:property
-    VOrder:property
+    UNurbType:FBNurbType
+    UOrder:int
+    VNurbType:FBNurbType
+    VOrder:int
     def GetControlKnotValue(self,UorV:int,Index:int)->float:...
     def GetControlMultiplicity(self,UorV:int,Index:int)->int:...
     def GetControlWeight(self,Index:int)->float:...
@@ -5652,64 +5583,6 @@ class FBNurbs(FBSurface):
     def SetControlKnotValue(self,UorV:int,Index:int,KnotValue:float):...
     def SetControlMultiplicity(self,UorV:int,Index:int,Multiplicity:int):...
     def SetControlWeight(self,Index:int,Weight:float):...
-    def __init__(self,Name:str):...
-class FBTake(FBComponent):
-    Comments:property
-    LocalTimeSpan:property
-    ReferenceTimeSpan:property
-    def AddTimeMark(self,Time:FBTime)->int:...
-    def ClearAllProperties(self,bOnSelectedObjectsOnly:bool,bOnLockedProperties:bool=False):...
-    def ClearAllPropertiesOnCurrentLayer(self):...
-    def CopyTake(self,NewTakeName:str)->FBTake:...
-    def CreateNewLayer(self):...
-    def DeleteAllTimeMarks(self):...
-    def DeleteAnimation(self,StartTime:FBTime=FBTime.MinusInfinity,StopTime:FBTime=FBTime.Infinity,bInclusive:bool=True,LayerID:int=-1,bOnLockedProperties:bool=False)->bool:...
-    def DeleteAnimationOnObjects(self,Objects:list,StartTime:FBTime=FBTime.MinusInfinity,StopTime:FBTime=FBTime.Infinity,bInclusive:bool=True,LayerID:int=-1,bOnLockedProperties:bool=False)->bool:...
-    def DeleteAnimationOnProperties(self,Properties:list,StartTime:FBTime=FBTime.MinusInfinity,StopTime:FBTime=FBTime.Infinity,bInclusive:bool=True,LayerID:int=-1,bOnLockedProperties:bool=False,PropertyComponents:FBPropertyComponents=kFBPropertyComponentAll)->bool:...
-    def DeleteTimeMark(self,Index:int)->bool:...
-    def DuplicateSelectedLayers(self):...
-    def GetCurrentLayer(self)->int:...
-    def GetLayer(self,LayerIndex:int)->FBAnimationLayer:...
-    def GetLayerByName(self,Name:str)->FBAnimationLayer:...
-    def GetLayerCount(self)->int:...
-    def GetLayerRealSelection(self)->bool:...
-    def GetNextTimeMarkIndex(self)->int:...
-    def GetPreviousTimeMarkIndex(self)->int:...
-    def GetTimeMarkAction(self,Index:int)->FBTimeMarkAction:...
-    def GetTimeMarkColor(self,Index:int)->FBColor:...
-    def GetTimeMarkCount(self)->int:...
-    def GetTimeMarkName(self,Index:int)->str:...
-    def GetTimeMarkTime(self,Index:int)->FBTime:...
-    def MergeLayers(self,MergeOptions:FBAnimationLayerMergeOptions,bDeleteMergedLayers:bool,MergeMode:FBMergeLayerMode,bMergeLockedProperties:bool=False):...
-    def MoveCurrentLayerDown(self)->bool:...
-    def MoveCurrentLayerUp(self)->bool:...
-    def OffsetAnimation(self,OffsetTime:FBTime,StartTime:FBTime=FBTime.MinusInfinity,StopTime:FBTime=FBTime.Infinity,bInclusive:bool=True,LayerID:int=-1,bOnLockedProperties:bool=False)->bool:...
-    def OffsetAnimationOnObjects(self,Objects:list,OffsetTime:FBTime,StartTime:FBTime=FBTime.MinusInfinity,StopTime:FBTime=FBTime.Infinity,bInclusive:bool=True,LayerID:int=-1,bOnLockedProperties:bool=False)->bool:...
-    def OffsetAnimationOnProperties(self,Properties:list,OffsetTime:FBTime,StartTime:FBTime=FBTime.MinusInfinity,StopTime:FBTime=FBTime.Infinity,bInclusive:bool=True,LayerID:int=-1,bOnLockedProperties:bool=False,PropertyComponents:FBPropertyComponents=kFBPropertyComponentAll)->bool:...
-    def PlotAllTakesOnObjects(self,PlotPeriod:FBTime,ObjectsToPlot:list):...
-    def PlotAllTakesOnProperties(self,PlotPeriod:FBTime,PropertiesToPlot:list):...
-    def PlotAllTakesOnSelected(self,PlotPeriod:FBTime):...
-    def PlotAllTakesOnSelectedProperties(self,PlotPeriod:FBTime):...
-    @overload
-    def PlotTakeOnObjects(self,PlotPeriod:FBTime,ObjectsToPlot:list):...
-    @overload
-    def PlotTakeOnObjects(self,PlotOptions:FBPlotOptions,ObjectsToPlot:list):...
-    def PlotTakeOnProperties(self,PlotPeriod:FBTime,PropertiesToPlot:list):...
-    @overload
-    def PlotTakeOnSelected(self,PlotPeriod:FBTime):...
-    @overload
-    def PlotTakeOnSelected(self,PlotOptions:FBPlotOptions):...
-    @overload
-    def PlotTakeOnSelectedProperties(self,PlotPeriod:FBTime):...
-    @overload
-    def PlotTakeOnSelectedProperties(self,PlotOptions:FBPlotOptions):...
-    def RemoveLayer(self,LayerIndex:int):...
-    def SetCurrentLayer(self,LayerIndex:int):...
-    def SetLayerRealSelection(self,bValue:bool):...
-    def SetTimeMarkAction(self,Index:int,Action:FBTimeMarkAction)->bool:...
-    def SetTimeMarkColor(self,Index:int,Color:FBColor)->bool:...
-    def SetTimeMarkName(self,Index:int,Name:str)->bool:...
-    def SetTimeMarkTime(self,Index:int,Time:FBTime)->int:...
     def __init__(self,Name:str):...
 class FBTexture(FBBox):
     Alpha:property
@@ -5729,8 +5602,8 @@ class FBTexture(FBBox):
     def __copy__(self)->object:...
     def __init__(self,arg2:str):...
 class FBLayeredTexture(FBTexture):
-    BackgroundColor:property
-    Layers:property
+    BackgroundColor:FBColorAndAlpha
+    Layers:FBPropertyListTexture
     def SetLayerConfigDirty(self):...
     def __init__(self,Name:str):...
 class FBTime():
@@ -5745,15 +5618,15 @@ class FBTime():
     eFrame:ETimeFormats
     eSMPTE:ETimeFormats
     def Get(self)->int:...
-    def GetFrame(self,TimeMode:FBTimeMode=kFBTimeModeDefault)->int:...
+    def GetFrame(self,TimeMode:FBTimeMode=FBTimeMode.kFBTimeModeDefault)->int:...
     def GetMilliSeconds(self)->int:...
     def GetSecondDouble(self)->float:...
-    def GetTimeString(self,Mode:FBTimeMode=kFBTimeModeDefault,Format:ETimeFormats=eDefaultFormat)->str:...
+    def GetTimeString(self,Mode:FBTimeMode=FBTimeMode.kFBTimeModeDefault,Format:ETimeFormats=eDefaultFormat)->str:...
     def Set(self,Time:float):...
-    def SetFrame(self,Frames:float,TimeMode:FBTimeMode=kFBTimeModeDefault):...
+    def SetFrame(self,Frames:float,TimeMode:FBTimeMode=FBTimeMode.kFBTimeModeDefault):...
     def SetMilliSeconds(self,MilliSeconds:float):...
     def SetSecondDouble(self,Time:float):...
-    def SetTime(self,Hour:int,Minute:int=0,Second:int=0,Frame:int=0,Field:int=0,TimeMode:FBTimeMode=kFBTimeModeDefault):...
+    def SetTime(self,Hour:int,Minute:int=0,Second:int=0,Frame:int=0,Field:int=0,TimeMode:FBTimeMode=FBTimeMode.kFBTimeModeDefault):...
     def SetTimeString(self,Time:str):...
     @overload
     def __add__(self,arg2:FBTime)->object:...
@@ -5762,13 +5635,13 @@ class FBTime():
     @overload
     def __init__(self,arg2=None):...
     @overload
-    def __init__(self,Hour:int,Minute:int,Second:int=0,Frame:int=0,Field:int=0,TimeMode:FBTimeMode=kFBTimeModeDefault):...
+    def __init__(self,Hour:int,Minute:int,Second:int=0,Frame:int=0,Field:int=0,TimeMode:FBTimeMode=FBTimeMode.kFBTimeModeDefault):...
     @overload
     def __init__(self,arg2:FBTime):...
     @overload
-    def __sub__(self,Time:FBTime)->FBTime:...
+    def __sub__(self,Constant:FBTime)->FBTime:...
     @overload
-    def __sub__(self,arg2)->object:...
+    def __sub__(self,Time:FBTime)->FBTime:...
 class FBTimeCode():
     FILM_23976:float
     FILM_24:float
@@ -5796,6 +5669,133 @@ class FBTimeCode():
     def __init__(self,Rate:float=FRAMES_30):...
     @overload
     def __init__(self,arg2:FBTimeCode):...
+class FBTake(FBComponent):
+    Comments:str
+    LocalTimeSpan:FBTimeSpan
+    ReferenceTimeSpan:FBTimeSpan
+    def AddTimeMark(self,Time:FBTime)->int:...
+    def ClearAllProperties(self,bOnSelectedObjectsOnly:bool,bOnLockedProperties:bool=False):...
+    def ClearAllPropertiesOnCurrentLayer(self):...
+    def CopyTake(self,NewTakeName:str)->FBTake:...
+    def CreateNewLayer(self):...
+    def DeleteAllTimeMarks(self):...
+    def DeleteAnimation(self,StartTime:FBTime=FBTime.MinusInfinity,StopTime:FBTime=FBTime.Infinity,bInclusive:bool=True,LayerID:int=-1,bOnLockedProperties:bool=False)->bool:...
+    def DeleteAnimationOnObjects(self,Objects:list,StartTime:FBTime=FBTime.MinusInfinity,StopTime:FBTime=FBTime.Infinity,bInclusive:bool=True,LayerID:int=-1,bOnLockedProperties:bool=False)->bool:...
+    def DeleteAnimationOnProperties(self,Properties:list,StartTime:FBTime=FBTime.MinusInfinity,StopTime:FBTime=FBTime.Infinity,bInclusive:bool=True,LayerID:int=-1,bOnLockedProperties:bool=False,PropertyComponents:FBPropertyComponents=FBPropertyComponents.kFBPropertyComponentAll)->bool:...
+    def DeleteTimeMark(self,Index:int)->bool:...
+    def DuplicateSelectedLayers(self):...
+    def GetCurrentLayer(self)->int:...
+    def GetLayer(self,LayerIndex:int)->FBAnimationLayer:...
+    def GetLayerByName(self,Name:str)->FBAnimationLayer:...
+    def GetLayerCount(self)->int:...
+    def GetLayerRealSelection(self)->bool:...
+    def GetNextTimeMarkIndex(self)->int:...
+    def GetPreviousTimeMarkIndex(self)->int:...
+    def GetTimeMarkAction(self,Index:int)->FBTimeMarkAction:...
+    def GetTimeMarkColor(self,Index:int)->FBColor:...
+    def GetTimeMarkCount(self)->int:...
+    def GetTimeMarkName(self,Index:int)->str:...
+    def GetTimeMarkTime(self,Index:int)->FBTime:...
+    def MergeLayers(self,MergeOptions:FBAnimationLayerMergeOptions,bDeleteMergedLayers:bool,MergeMode:FBMergeLayerMode,bMergeLockedProperties:bool=False):...
+    def MoveCurrentLayerDown(self)->bool:...
+    def MoveCurrentLayerUp(self)->bool:...
+    def OffsetAnimation(self,OffsetTime:FBTime,StartTime:FBTime=FBTime.MinusInfinity,StopTime:FBTime=FBTime.Infinity,bInclusive:bool=True,LayerID:int=-1,bOnLockedProperties:bool=False)->bool:...
+    def OffsetAnimationOnObjects(self,Objects:list,OffsetTime:FBTime,StartTime:FBTime=FBTime.MinusInfinity,StopTime:FBTime=FBTime.Infinity,bInclusive:bool=True,LayerID:int=-1,bOnLockedProperties:bool=False)->bool:...
+    def OffsetAnimationOnProperties(self,Properties:list,OffsetTime:FBTime,StartTime:FBTime=FBTime.MinusInfinity,StopTime:FBTime=FBTime.Infinity,bInclusive:bool=True,LayerID:int=-1,bOnLockedProperties:bool=False,PropertyComponents:FBPropertyComponents=FBPropertyComponents.kFBPropertyComponentAll)->bool:...
+    def PlotAllTakesOnObjects(self,PlotPeriod:FBTime,ObjectsToPlot:list):...
+    def PlotAllTakesOnProperties(self,PlotPeriod:FBTime,PropertiesToPlot:list):...
+    def PlotAllTakesOnSelected(self,PlotPeriod:FBTime):...
+    def PlotAllTakesOnSelectedProperties(self,PlotPeriod:FBTime):...
+    @overload
+    def PlotTakeOnObjects(self,PlotPeriod:FBTime,ObjectsToPlot:list):...
+    @overload
+    def PlotTakeOnObjects(self,PlotOptions:FBPlotOptions,ObjectsToPlot:list):...
+    def PlotTakeOnProperties(self,PlotPeriod:FBTime,PropertiesToPlot:list):...
+    @overload
+    def PlotTakeOnSelected(self,PlotPeriod:FBTime):...
+    @overload
+    def PlotTakeOnSelected(self,PlotOptions:FBPlotOptions):...
+    @overload
+    def PlotTakeOnSelectedProperties(self,PlotPeriod:FBTime):...
+    @overload
+    def PlotTakeOnSelectedProperties(self,PlotOptions:FBPlotOptions):...
+    def RemoveLayer(self,LayerIndex:int):...
+    def SetCurrentLayer(self,LayerIndex:int):...
+    def SetLayerRealSelection(self,bValue:bool):...
+    def SetTimeMarkAction(self,Index:int,Action:FBTimeMarkAction)->bool:...
+    def SetTimeMarkColor(self,Index:int,Color:FBColor)->bool:...
+    def SetTimeMarkName(self,Index:int,Name:str)->bool:...
+    def SetTimeMarkTime(self,Index:int,Time:FBTime)->int:...
+    def __init__(self,Name:str):...
+class FBFCurve(FBComponent):
+    Keys:FBPropertyListFCurveKey
+    def CreateInterpolatorCurve(self,CurveType:FBInterpolatorCurveType)->FBFCurve:...
+    def EditBegin(self,KeyCount:int=-1):...
+    def EditClear(self):...
+    def EditEnd(self,KeyCount:int=-1):...
+    def Evaluate(self,Time:FBTime)->float:...
+    def GetPostExtrapolationCount(self)->int:...
+    def GetPostExtrapolationMode(self)->FBExtrapolationMode:...
+    def GetPreExtrapolationCount(self)->int:...
+    def GetPreExtrapolationMode(self)->FBExtrapolationMode:...
+    def KeyAdd(self,Time:FBTime,Value:float)->int:...
+    @overload
+    def KeyDelete(self,StartIndex:int,StopIndex:int)->bool:...
+    @overload
+    def KeyDelete(self,Start:FBTime,Stop:FBTime,bInclusive:bool=False)->bool:...
+    def KeyDeleteByIndexRange(self,arg2,arg3)->bool:...
+    def KeyDeleteByTimeRange(self,arg2:FBTime,arg3:FBTime,arg4=None)->bool:...
+    def KeyGetInterpolation(self,Index:int)->FBInterpolation:...
+    def KeyGetLeftBezierTangent(self,Index:int)->float:...
+    def KeyGetLeftDerivative(self,Index:int)->float:...
+    def KeyGetLeftTangentWeight(self,Index:int)->float:...
+    def KeyGetMarkedForManipulation(self,Index:int)->bool:...
+    def KeyGetRightBezierTangent(self,Index:int)->float:...
+    def KeyGetRightDerivative(self,Index:int)->float:...
+    def KeyGetRightTangentWeight(self,Index:int)->float:...
+    def KeyGetSelected(self,Index:int)->bool:...
+    def KeyGetTCBBias(self,Index:int)->float:...
+    def KeyGetTCBContinuity(self,Index:int)->float:...
+    def KeyGetTCBTension(self,Index:int)->float:...
+    def KeyGetTangentBreak(self,Index:int)->bool:...
+    def KeyGetTangentClampMode(self,Index:int)->FBTangentClampMode:...
+    def KeyGetTangentConstantMode(self,Index:int)->FBTangentConstantMode:...
+    def KeyGetTangentCustomIndex(self,Index:int)->FBTangentCustomIndex:...
+    def KeyGetTangentMode(self,Index:int)->FBTangentMode:...
+    def KeyGetTangentWeightMode(self,Index:int)->FBTangentWeightMode:...
+    def KeyGetTime(self,Index:int)->FBTime:...
+    def KeyGetValue(self,Index:int)->float:...
+    def KeyInsert(self,Time:FBTime,Interpolation:FBInterpolation=FBInterpolation.kFBInterpolationCubic,TangentMode:FBTangentMode=FBTangentMode.kFBTangentModeAuto):...
+    @overload
+    def KeyOffset(self,OffsetTime:FBTime,StartIndex:int,StopIndex:int)->bool:...
+    @overload
+    def KeyOffset(self,OffsetTime:FBTime,StartTime:FBTime=FBTime.MinusInfinity,StopTime:FBTime=FBTime.Infinity,bInclusive:bool=True)->bool:...
+    def KeyReplaceBy(self,Source:FBFCurve,Start:FBTime=FBTime.MinusInfinity,Stop:FBTime=FBTime.Infinity,bUseExactGivenSpan:bool=False,bKeyStartEndOnNoKey:bool=True):...
+    def KeySetInterpolation(self,Index:int,Value:FBInterpolation):...
+    def KeySetLeftBezierTangent(self,Index:int,Value:float):...
+    def KeySetLeftDerivative(self,Index:int,Value:float):...
+    def KeySetLeftTangentWeight(self,Index:int,Value:float):...
+    def KeySetMarkedForManipulation(self,Index:int,bValue:bool)->bool:...
+    def KeySetRightBezierTangent(self,Index:int,Value:float):...
+    def KeySetRightDerivative(self,Index:int,Value:float):...
+    def KeySetRightTangentWeight(self,Index:int,Value:float):...
+    def KeySetSelected(self,Index:int,bValue:bool)->bool:...
+    def KeySetTCBBias(self,Index:int,Value:float):...
+    def KeySetTCBContinuity(self,Index:int,Value:float):...
+    def KeySetTCBTension(self,Index:int,Value:float):...
+    def KeySetTangentBreak(self,Index:int,bValue:bool):...
+    def KeySetTangentClampMode(self,Index:int,Value:FBTangentClampMode):...
+    def KeySetTangentConstantMode(self,Index:int,Value:FBTangentConstantMode):...
+    def KeySetTangentCustomIndex(self,Index:int,Value:FBTangentCustomIndex):...
+    def KeySetTangentMode(self,Index:int,Value:FBTangentMode):...
+    def KeySetTangentWeightMode(self,Index:int,Value:FBTangentWeightMode):...
+    def KeySetTime(self,Index:int,Value:FBTime):...
+    def KeySetValue(self,Index:int,Value:float):...
+    def SetPostExtrapolationCount(self,Count:int):...
+    def SetPostExtrapolationMode(self,ExtrapolationMode:FBExtrapolationMode):...
+    def SetPreExtrapolationCount(self,Count:int):...
+    def SetPreExtrapolationMode(self,ExtrapolationMode:FBExtrapolationMode):...
+    def __init__(self):...
 class FBTimeSpan():
     def GetDirection(self)->int:...
     def GetDuration(self)->FBTime:...
@@ -5828,7 +5828,7 @@ class FBTimeWarpManager(FBComponent):
 class FBToolLayoutManager(FBComponent):
     def CreateLayout(self,LayoutName:str)->str:...
     @overload
-    def DeleteLayout(self,arg2)->bool:...
+    def DeleteLayout(self,LayoutIdx:int)->bool:...
     @overload
     def DeleteLayout(self,LayoutName:str)->bool:...
     def GetAutoUpdateLayout(self)->bool:...
@@ -5840,7 +5840,7 @@ class FBToolLayoutManager(FBComponent):
     def RenameLayout(self,OldLayoutName:str,NewLayoutName:str)->str:...
     def SetAutoUpdateLayout(self,bAutoUpdate:bool)->bool:...
     @overload
-    def SetCurrentLayout(self,arg2)->bool:...
+    def SetCurrentLayout(self,LayoutIdx:int)->bool:...
     @overload
     def SetCurrentLayout(self,LayoutName:str)->bool:...
     def UpdateCurrentLayout(self)->bool:...
@@ -5861,7 +5861,7 @@ class FBTransportAudioManager(FBComponent):
     def SetShowRightChannel(self,bShow:bool)->bool:...
     def __init__(self):...
 class FBTreeNode(FBComponent):
-    Checked:property
+    Checked:bool
     Reference:property
 class FBUV():
     @overload
@@ -5919,10 +5919,10 @@ class FBUV():
     @overload
     def __truediv__(self,arg2)->object:...
 class FBUndoManager(FBComponent):
-    OnRedo:property
-    OnRedoCompleted:property
-    OnUndo:property
-    OnUndoCompleted:property
+    OnRedo:FBEvent
+    OnRedoCompleted:FBEvent
+    OnUndo:FBEvent
+    OnUndoCompleted:FBEvent
     def ActiveOperation(self)->bool:...
     def Clear(self)->bool:...
     def Redo(self):...
@@ -6026,11 +6026,11 @@ class FBVector3d():
     @overload
     def __init__(self):...
     @overload
-    def __init__(self,arg2:FBVector3d):...
+    def __init__(self,Value:FBVector3d):...
     @overload
-    def __init__(self,arg2,arg3,arg4):...
+    def __init__(self,p1:tType,p2:tType,p3:tType):...
     @overload
-    def __init__(self,arg2):...
+    def __init__(self,Vector:List[tType]):...
     @overload
     def __init__(self,arg2:list):...
     @overload
@@ -6087,11 +6087,11 @@ class FBVector4d():
     @overload
     def __init__(self):...
     @overload
-    def __init__(self,arg2:FBVector4d):...
+    def __init__(self,Value:FBVector4d):...
     @overload
-    def __init__(self,arg2,arg3,arg4,arg5):...
+    def __init__(self,p1:tType,p2:tType,p3:tType,p4:tType):...
     @overload
-    def __init__(self,arg2):...
+    def __init__(self,Vector:List[tType]):...
     @overload
     def __init__(self,arg2:list):...
     @overload
@@ -6175,7 +6175,7 @@ class FBVertex():
     @overload
     def __truediv__(self,arg2)->object:...
 class FBVideo(FBBox):
-    KeepOnGPU:property
+    KeepOnGPU:bool
     def __init__(self,Name:str):...
 class FBVideoClip(FBVideo):
     CurrentFrame:property
@@ -6252,10 +6252,10 @@ class FBVideoGrabber(FBComponent):
     def SetOptions(self,Options:FBVideoGrabOptions):...
     def __init__(self):...
 class FBVideoIn(FBVideo):
-    FilePath:property
-    Online:property
-    RecordAudio:property
-    Recording:property
+    FilePath:str
+    Online:bool
+    RecordAudio:bool
+    Recording:bool
     def LiveGetCompressor(self)->int:...
     def LiveGetCompressorCount(self)->int:...
     def LiveGetCompressorName(self,CompressorIndex:int)->str:...
@@ -6267,21 +6267,21 @@ class FBVideoIn(FBVideo):
     def LiveSetResolutionFR(self,Index:int):...
     def __init__(self):...
 class FBVideoMemory(FBVideo):
-    TextureOGLId:property
+    TextureOGLId:int
     def SetObjectImageSize(self,W:int,H:int):...
     def __init__(self,Name:str):...
 class FBVideoOut(FBVideo):
-    Online:property
+    Online:bool
     def __init__(self):...
 class FBViewingOptions():
     DisplayMode:property
-    DisplayWhat:property
-    PaneIndex:property
-    PickingMode:property
-    ShowCameraLabel:property
-    ShowSafeArea:property
-    ShowTimeCode:property
-    StereoDisplayMode:property
+    DisplayWhat:int
+    PaneIndex:int
+    PickingMode:FBPickingMode
+    ShowCameraLabel:bool
+    ShowSafeArea:bool
+    ShowTimeCode:bool
+    StereoDisplayMode:FBStereoDisplayMode
     def InPicking(self)->bool:...
     def IsInColorBufferPicking(self)->bool:...
     def IsInSelectionBufferPicking(self)->bool:...
@@ -6295,12 +6295,12 @@ class FBVisualComponent(FBComponent):
     BorderSpacing:property
     BorderStyle:property
     BorderWidth:property
-    Caption:property
-    Enabled:property
-    Height:property
-    Hint:property
-    Left:property
-    ReadOnly:property
+    Caption:str
+    Enabled:bool
+    Height:int
+    Hint:str
+    Left:int
+    ReadOnly:bool
     RegionAttachToHeight:property
     RegionAttachToWidth:property
     RegionAttachToX:property
@@ -6322,9 +6322,9 @@ class FBVisualComponent(FBComponent):
     RegionRatioWidth:property
     RegionRatioX:property
     RegionRatioY:property
-    Top:property
-    Visible:property
-    Width:property
+    Top:int
+    Visible:bool
+    Width:int
     def AddChild(self,Child:FBVisualComponent,Id:int=0)->bool:...
     def GetChild(self,Id:int)->FBVisualComponent:...
     def GetQWidgetAddress(self)->int:...
@@ -6333,16 +6333,16 @@ class FBVisualComponent(FBComponent):
     def ViewExpose(self):...
     def ViewInput(self,MouseX:int,MouseY:int,Action:FBInputType,ButtonKey:int,Modifier:int):...
 class FBVisualContainer(FBVisualComponent):
-    IconPosition:property
-    ItemHeight:property
-    ItemIndex:property
-    ItemWidth:property
-    ItemWrap:property
-    Items:property
-    OnChange:property
-    OnDblClick:property
-    OnDragAndDrop:property
-    Orientation:property
+    IconPosition:FBIconPosition
+    ItemHeight:int
+    ItemIndex:int
+    ItemWidth:int
+    ItemWrap:bool
+    Items:FBStringList
+    OnChange:FBEvent
+    OnDblClick:FBEvent
+    OnDragAndDrop:FBEvent
+    Orientation:FBOrientation
     def GetSelection(self)->int:...
     @overload
     def ItemIconSet(self,Ref,Image:FBImage,bUseACopyOfTheImage:bool=True)->bool:...
@@ -6351,69 +6351,69 @@ class FBVisualContainer(FBVisualComponent):
     def ItemNameEdit(self,Ref)->bool:...
     def __init__(self):...
 class FBView(FBVisualComponent):
-    DoubleBuffer:property
-    GraphicOGL:property
+    DoubleBuffer:bool
+    GraphicOGL:bool
     def DrawString(self,Text:str,X:float,Y:float,Enable:int=-1):...
     def SetViewport(self,X:int,Y:int,W:int,H:int)->bool:...
     def __init__(self):...
 class FBTree(FBVisualComponent):
-    AllowCollapse:property
-    AllowExpansion:property
-    AutoExpandOnDblClick:property
-    AutoExpandOnDragOver:property
-    AutoScroll:property
-    AutoScrollOnExpand:property
-    CheckBoxes:property
-    DeselectOnCollapse:property
-    EditNodeOn2Select:property
-    HighlightOnRightClick:property
-    Indent:property
-    ItemHeight:property
-    MultiDrag:property
-    MultiSelect:property
-    NoSelectOnDrag:property
-    NoSelectOnRightClick:property
-    OnChange:property
-    OnClick:property
-    OnClickCheck:property
-    OnCollapsed:property
-    OnCollapsing:property
-    OnDblClick:property
-    OnDragAndDrop:property
-    OnExpanded:property
-    OnExpanding:property
-    OnSelect:property
-    SelectedCount:property
-    SelectedNodes:property
-    SelectionActive:property
-    ShowLines:property
-    TreeHeight:property
-    TreeWidth:property
-    VisibleItemCount:property
+    AllowCollapse:bool
+    AllowExpansion:bool
+    AutoExpandOnDblClick:bool
+    AutoExpandOnDragOver:bool
+    AutoScroll:bool
+    AutoScrollOnExpand:bool
+    CheckBoxes:bool
+    DeselectOnCollapse:bool
+    EditNodeOn2Select:bool
+    HighlightOnRightClick:bool
+    Indent:int
+    ItemHeight:int
+    MultiDrag:bool
+    MultiSelect:bool
+    NoSelectOnDrag:bool
+    NoSelectOnRightClick:bool
+    OnChange:FBEvent
+    OnClick:FBEvent
+    OnClickCheck:FBEvent
+    OnCollapsed:FBEvent
+    OnCollapsing:FBEvent
+    OnDblClick:FBEvent
+    OnDragAndDrop:FBEvent
+    OnExpanded:FBEvent
+    OnExpanding:FBEvent
+    OnSelect:FBEvent
+    SelectedCount:int
+    SelectedNodes:FBPropertyListTreeNode
+    SelectionActive:bool
+    ShowLines:bool
+    TreeHeight:int
+    TreeWidth:int
+    VisibleItemCount:int
     def Clear(self):...
     def GetRoot(self)->FBTreeNode:...
     def InsertLast(self,Node:FBTreeNode,Name:str)->FBTreeNode:...
     def __init__(self):...
 class FBThermometer(FBVisualComponent):
-    Max:property
-    Min:property
-    Value:property
+    Max:float
+    Min:float
+    Value:float
     def Clear(self):...
     def __init__(self):...
 class FBTabPanel(FBVisualComponent):
-    ItemIndex:property
-    Items:property
-    Layout:property
-    OnChange:property
-    TabStyle:property
+    ItemIndex:int
+    Items:FBStringList
+    Layout:FBLayout
+    OnChange:FBEvent
+    TabStyle:int
     def __init__(self):...
 class FBSpread(FBVisualComponent):
-    Column:property
-    MultiSelect:property
-    OnCellChange:property
-    OnColumnClick:property
-    OnDragAndDrop:property
-    OnRowClick:property
+    Column:int
+    MultiSelect:bool
+    OnCellChange:FBEvent
+    OnColumnClick:FBEvent
+    OnDragAndDrop:FBEvent
+    OnRowClick:FBEvent
     Row:property
     def Clear(self):...
     def ColumnAdd(self,String:str,Ref=0):...
@@ -6429,12 +6429,12 @@ class FBSpread(FBVisualComponent):
     def SetCellView(self,Ref,Column:int,View:FBVisualComponent):...
     def __init__(self):...
 class FBSlider(FBVisualComponent):
-    Max:property
-    Min:property
-    OnChange:property
-    OnTransaction:property
-    Orientation:property
-    Value:property
+    Max:float
+    Min:float
+    OnChange:FBEvent
+    OnTransaction:FBEvent
+    Orientation:FBOrientation
+    Value:float
     def __init__(self):...
 class FBScrollBox(FBVisualComponent):
     Content:property
@@ -6446,34 +6446,34 @@ class FBPropertyConnectionEditor(FBVisualComponent):
     def PopupTree(self):...
     def __init__(self):...
 class FBPlotPopup(FBVisualComponent):
-    EnableEvaluateDeformation:property
-    EnablePlotAuxEffectors:property
-    EnablePlotCharacterExtension:property
-    EnablePlotLockedProperties:property
-    EnablePlotTranslationOnRootOnly:property
-    EnableSmartPlotControls:property
+    EnableEvaluateDeformation:bool
+    EnablePlotAuxEffectors:bool
+    EnablePlotCharacterExtension:bool
+    EnablePlotLockedProperties:bool
+    EnablePlotTranslationOnRootOnly:bool
+    EnableSmartPlotControls:bool
     def GetPlotOptions(self)->FBPlotOptions:...
     def Popup(self,WindowName:str)->bool:...
     def SetPlotOptions(self,PlotOptions:FBPlotOptions):...
     def __init__(self):...
 class FBList(FBVisualComponent):
-    ExtendedSelect:property
-    ItemIndex:property
-    Items:property
-    MultiSelect:property
-    OnChange:property
-    OnDragAndDrop:property
+    ExtendedSelect:bool
+    ItemIndex:int
+    Items:FBStringList
+    MultiSelect:bool
+    OnChange:FBEvent
+    OnDragAndDrop:FBEvent
     Style:property
     def IsSelected(self,Index:int)->bool:...
     def __init__(self):...
 class FBLayoutRegion(FBVisualComponent):
     def __init__(self):...
 class FBLayout(FBVisualComponent):
-    OnIdle:property
-    OnInput:property
-    OnPaint:property
-    OnResize:property
-    OnShow:property
+    OnIdle:FBEvent
+    OnInput:FBEvent
+    OnPaint:FBEvent
+    OnResize:FBEvent
+    OnShow:FBEvent
     def AddRegion(self,Name:str,Title:str,X:FBAddRegionParam,XType:FBAddRegionParam,XRelative:FBAddRegionParam,MultX:FBAddRegionParam)->bool:...
     def ClearControl(self,Name:str):...
     def GetControl(self,Name:str)->FBVisualComponent:...
@@ -6493,12 +6493,12 @@ class FBLayout(FBVisualComponent):
     def SizeRegion(self,Name:str,W:int,H:int)->bool:...
     def __init__(self):...
 class FBLabel(FBVisualComponent):
-    Justify:property
-    Style:property
-    WordWrap:property
+    Justify:FBTextJustify
+    Style:FBTextStyle
+    WordWrap:bool
     def __init__(self):...
 class FBTool(FBLayout):
-    DisplayName:property
+    DisplayName:str
     MaxSizeX:property
     MaxSizeY:property
     MinSizeX:property
@@ -6512,13 +6512,13 @@ class FBTool(FBLayout):
     def SetPossibleDockPosition(self,Flags:FBToolPossibleDockPosition):...
     def __init__(self,Name:str,arg3=None):...
 class FBPopup(FBLayout):
-    Modal:property
+    Modal:bool
     def Close(self,bOk:bool):...
     def Show(self,Parent:FBVisualComponent=None):...
     def __init__(self):...
 class FBImageContainer(FBVisualComponent):
-    Filename:property
-    OnDragAndDrop:property
+    Filename:str
+    OnDragAndDrop:FBEvent
     def __init__(self):...
 class FBFCurveEditor(FBVisualComponent):
     def AddAnimationNode(self,Node:FBAnimationNode):...
@@ -6527,55 +6527,55 @@ class FBFCurveEditor(FBVisualComponent):
     def RemoveAnimationNode(self,Node:FBAnimationNode):...
     def __init__(self):...
 class FBEditVector(FBVisualComponent):
-    OnChange:property
-    Value:property
+    OnChange:FBEvent
+    Value:FBVector3d
     def __init__(self):...
 class FBEditTimeCode(FBVisualComponent):
     OnChange:property
     Value:property
     def __init__(self):...
 class FBEditPropertyModern(FBVisualComponent):
-    LargeInc:property
-    Precision:property
+    LargeInc:float
+    Precision:float
     Property:property
-    SliderMax:property
-    SliderMin:property
-    SmallInc:property
+    SliderMax:float
+    SliderMin:float
+    SmallInc:float
     def SetBackgroundColorIndex(self,Index:FBColorIndex):...
     def __init__(self):...
 class FBEditProperty(FBVisualComponent):
-    LargeInc:property
-    Precision:property
+    LargeInc:float
+    Precision:float
     Property:property
-    SliderMax:property
-    SliderMin:property
-    SmallInc:property
+    SliderMax:float
+    SliderMin:float
+    SmallInc:float
     def __init__(self):...
 class FBEditNumber(FBVisualComponent):
-    LargeStep:property
-    Max:property
-    Min:property
-    OnChange:property
-    Precision:property
-    SmallStep:property
-    Value:property
+    LargeStep:float
+    Max:float
+    Min:float
+    OnChange:FBEvent
+    Precision:float
+    SmallStep:float
+    Value:float
     def __init__(self):...
 class FBEditColor(FBVisualComponent):
-    ColorMode:property
-    OnChange:property
-    Value:property
+    ColorMode:int
+    OnChange:FBEvent
+    Value:FBColor
     def __init__(self):...
 class FBEdit(FBVisualComponent):
-    OnChange:property
-    PasswordMode:property
-    Text:property
+    OnChange:FBEvent
+    PasswordMode:bool
+    Text:str
     def __init__(self):...
 class FBButton(FBVisualComponent):
-    Justify:property
-    Look:property
-    OnClick:property
-    State:property
-    Style:property
+    Justify:FBTextJustify
+    Look:FBButtonLook
+    OnClick:FBEvent
+    State:int
+    Style:FBButtonStyle
     def GetStateColor(self,State:FBButtonState)->FBColor:...
     def SetImageFileNames(self,UpImage:str,DownImage:str=0,ThirdImage:str=0,bFromResources:bool=False):...
     def SetStateColor(self,State:FBButtonState,Color:FBColor):...
@@ -6614,9 +6614,9 @@ def FBAssetItem_TypeInfo()->int:...
 def FBAssetMng_TypeInfo()->int:...
 def FBAudioClip_TypeInfo()->int:...
 @overload
-def FBAudioFmt_AppendFormat(arg1,arg2,arg3,arg4)->int:...
+def FBAudioFmt_AppendFormat(Format:FBAudioFmt,Channels:int,Bits:int,Rate:int)->int:...
 @overload
-def FBAudioFmt_AppendFormat(arg1,arg2)->int:...
+def FBAudioFmt_AppendFormat(Format:FBAudioFmt,SrcFormat:FBAudioFmt)->int:...
 def FBAudioFmt_ConvertBitDepthMode(BitDepthMode:FBAudioBitDepthMode)->int:...
 def FBAudioFmt_ConvertChannelMode(ChannelMode:FBAudioChannelMode)->int:...
 def FBAudioFmt_ConvertRateMode(RateMode:FBAudioRateMode)->int:...
@@ -6626,9 +6626,9 @@ def FBAudioFmt_GetChannelValue(Format:FBAudioFmt)->int:...
 def FBAudioFmt_GetDefaultFormat()->int:...
 def FBAudioFmt_GetRateValue(Format:FBAudioFmt)->int:...
 @overload
-def FBAudioFmt_RemoveFormat(arg1,arg2,arg3,arg4)->int:...
+def FBAudioFmt_RemoveFormat(Format:FBAudioFmt,Channels:int,Bits:int,Rate:int)->int:...
 @overload
-def FBAudioFmt_RemoveFormat(arg1,arg2)->int:...
+def FBAudioFmt_RemoveFormat(Format:FBAudioFmt,SrcFormat:FBAudioFmt)->int:...
 def FBAudioFmt_TestFormat(SrcFormat:FBAudioFmt,Channels:int,Bits:int,Rate:int)->bool:...
 def FBAudioIn_TypeInfo()->int:...
 def FBAudioOut_TypeInfo()->int:...
@@ -6650,7 +6650,7 @@ def FBCharacter_TypeInfo()->int:...
 def FBClamp(V:float,L:float,H:float)->float:...
 def FBCluster_TypeInfo()->int:...
 def FBComponent_TypeInfo()->int:...
-def FBConnect(Src:FBPlug,Dst:FBPlug,ConnectionType:FBConnectionType=kFBConnectionTypeNone)->bool:...
+def FBConnect(Src:FBPlug,Dst:FBPlug,ConnectionType:FBConnectionType=FBConnectionType.kFBConnectionTypeNone)->bool:...
 def FBConstraintManager_TypeInfo()->int:...
 def FBConstraintRelation_TypeInfo()->int:...
 def FBConstraintSolver_TypeInfo()->int:...
@@ -6736,7 +6736,7 @@ def FBImage_TypeInfo()->int:...
 @overload
 def FBInterpolateRotation(ROut:FBVector3d,R0:FBVector3d,R1:FBVector3d,U:float):...
 @overload
-def FBInterpolateRotation(QOut:FBVector4d,Q0:FBVector4d,Q1:FBVector4d,U:float):...
+def FBInterpolateRotation(ROut:FBVector4d,R0:FBVector4d,R1:FBVector4d,U:float):...
 def FBKeyControl_TypeInfo()->int:...
 def FBKeyingGroup_TypeInfo()->int:...
 def FBLabel_TypeInfo()->int:...
@@ -6759,7 +6759,7 @@ def FBMatrixInverse(Matrix:FBMatrix,Src:FBMatrix):...
 def FBMatrixMult(Matrix:FBMatrix,A:FBMatrix,B:FBMatrix):...
 def FBMatrixOrthogonalize(Matrix:FBMatrix):...
 def FBMatrixToQuaternion(Quaternion:FBVector4d,Matrix:FBMatrix):...
-def FBMatrixToRotation(Vector:FBVector3d,Matrix:FBMatrix,RotationOrder:FBRotationOrder=kFBXYZ):...
+def FBMatrixToRotation(Vector:FBVector3d,Matrix:FBMatrix,RotationOrder:FBRotationOrder=FBRotationOrder.kFBXYZ):...
 def FBMatrixToRotationWithPrecision(Vector:FBVector3d,Matrix:FBMatrix,RotationOrder:FBRotationOrder,Precision:float):...
 def FBMatrixToScaling(Vector:FBSVector,Matrix:FBMatrix):...
 def FBMatrixToTQS(TVector:FBVector4d,Quaternion:FBVector4d,SVector:FBSVector,Matrix:FBMatrix):...
@@ -6801,9 +6801,9 @@ def FBMult(Result:FBVector4d,V1:FBVector4d,V2:float):...
 @overload
 def FBMult(Result:FBVector4d,V1:FBVector4d,V2:FBVector4d):...
 @overload
-def FBMult(Result:FBMatrix,M:FBMatrix,V:FBSVector):...
+def FBMult(Result:FBMatrix,V1:FBMatrix,V2:FBSVector):...
 @overload
-def FBMult(Result:FBMatrix,M:FBMatrix,V:FBSVector):...
+def FBMult(Result:FBMatrix,V1:FBMatrix,V2:FBSVector):...
 def FBNamespace_TypeInfo()->int:...
 def FBNote_TypeInfo()->int:...
 def FBNurbs_TypeInfo()->int:...
@@ -6849,14 +6849,14 @@ def FBQMult(Result:FBVector4d,Q1:FBVector4d,Q2:float):...
 def FBQMult(Result:FBVector4d,Q1:FBVector4d,Q2:FBVector4d):...
 def FBQSub(Result:FBVector4d,Q1:FBVector4d,Q2:FBVector4d):...
 def FBQuaternionToMatrix(Matrix:FBMatrix,Quaternion:FBVector4d):...
-def FBQuaternionToRotation(Vector:FBVector3d,Quaternion:FBVector4d,RotationOrder:FBRotationOrder=kFBXYZ):...
+def FBQuaternionToRotation(Vector:FBVector3d,Quaternion:FBVector4d,RotationOrder:FBRotationOrder=FBRotationOrder.kFBXYZ):...
 def FBQuaternionToRotationWithPrecision(Vector:FBVector3d,Quaternion:FBVector4d,RotationOrder:FBRotationOrder,Precision:float):...
 def FBReferenceTime_TypeInfo()->int:...
 def FBRendererCallback_TypeInfo()->int:...
 def FBRenderer_TypeInfo()->int:...
 def FBRigidBody_TypeInfo()->int:...
-def FBRotationToMatrix(Matrix:FBMatrix,Vector:FBVector3d,RotationOrder:FBRotationOrder=kFBXYZ):...
-def FBRotationToQuaternion(Quaternion:FBVector4d,Vector:FBVector3d,RotationOrder:FBRotationOrder=kFBXYZ):...
+def FBRotationToMatrix(Matrix:FBMatrix,Vector:FBVector3d,RotationOrder:FBRotationOrder=FBRotationOrder.kFBXYZ):...
+def FBRotationToQuaternion(Quaternion:FBVector4d,Vector:FBVector3d,RotationOrder:FBRotationOrder=FBRotationOrder.kFBXYZ):...
 def FBSaveCharacterPinningPreset(PresetName:str,bAllowOverwriting:bool=False)->bool:...
 def FBScalingToMatrix(Matrix:FBMatrix,Vector:FBSVector):...
 def FBScene_TypeInfo()->int:...

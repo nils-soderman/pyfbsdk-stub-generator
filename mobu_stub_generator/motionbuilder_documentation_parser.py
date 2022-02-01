@@ -318,7 +318,7 @@ class DocMemberParameter():
 
     def GetDefaultValue(self, bConvertToPython = False):
         if self.Default == FMoBoDocsParameterNames.Undefined:
-            return FMoBoDocsParameterNames.Undefined
+            return None
 
         if bConvertToPython:
             return ConvertVariableTypeToPython(self.Default)
