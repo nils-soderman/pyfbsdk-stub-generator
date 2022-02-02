@@ -54,6 +54,16 @@ PropertyTypeTranslation = {
     "FBPropertyAnimatableBool": "bool",
 }
 
+VariableTypeTranslations = {
+    "FBColorF": "FBColor",
+    "tType": "float"  # This is probably incorrect, but gives the desired results for 2022 at least :)
+}
+
+# List of known enum values that doesn't start with a 'k' (should only be FBEffectorSetID)
+KnownEnumValuesNotStartingWithK = [
+    "FBEffectorSetDefault"
+]
+
 
 # -------------------------------------------------------------
 #                       Structs & Enums
@@ -534,7 +544,7 @@ class PyfbsdkStubGenerator():
     #           Online Documentation Functions
     # --------------------------------------------------
 
-    def _PatchPropertyType(self, PropertyType: str):
+    def _EnsurePropertyTypeIsValid(self, PropertyType: str):
         """ 
         Patch a class property type, e.g. turning 'FBPropertyCamera' -> 'FBCamera'
         """
@@ -560,9 +570,30 @@ class PyfbsdkStubGenerator():
         return "property"
     
     def _PatchParameter(self, StubParameterInstance: StubParameter):
+        # Patch type
+        if StubParameterInstance.Type in VariableTypeTranslations:
+            StubParameterInstance.Type = VariableTypeTranslations[StubParameterInstance.Type]
+        elif StubParameterInstance.Type.startswith("FB") and StubParameterInstance.Type not in self.GetAllClassNames():
+            StubParameterInstance.Type = None
+        elif StubParameterInstance.Type.startswith("List"):
+            ClassType = StubParameterInstance.Type.replace("List[", "", 1)[:-1]
+            ClassType = VariableTypeTranslations.get(ClassType, ClassType)
+            StubParameterInstance.Type = "List[%s]" % ClassType
+        
+        # Patch default value
         if StubParameterInstance.DefaultValue:
-            if StubParameterInstance.DefaultValue.startswith("k"):
+            if StubParameterInstance.DefaultValue.startswith("k") or StubParameterInstance.DefaultValue in KnownEnumValuesNotStartingWithK:
                 StubParameterInstance.DefaultValue = "%s.%s" % (StubParameterInstance.Type, StubParameterInstance.DefaultValue)
+                
+            elif StubParameterInstance.DefaultValue.startswith("FB") and StubParameterInstance.DefaultValue not in self.GetAllClassNames():
+                if "." not in StubParameterInstance.DefaultValue:
+                    # TODO: We should split on '.' & ensure the first classname actually exists
+                    StubParameterInstance.DefaultValue = "None"
+                
+    def _EnsureReturnValueIsValid(self, ReturnValue):
+        if ReturnValue.startswith("FB") and ReturnValue not in self.GetAllClassNames():
+            return "object"
+        return ReturnValue
 
     def _PatchFunctionsFromDocumentation(self, Functions: List[StubFunction], DocumentationMembers = None):
         UsedDocumentations = []
@@ -617,7 +648,7 @@ class PyfbsdkStubGenerator():
             if StubFunctionInstance.ReturnType is None or StubFunctionInstance.ReturnType in ["object", "tuple"]:
                 NewReturnType = Documentation.GetType(bConvertToPython = True)
                 if NewReturnType and NewReturnType != "None":
-                    StubFunctionInstance.ReturnType = NewReturnType
+                    StubFunctionInstance.ReturnType = self._EnsureReturnValueIsValid(NewReturnType)
 
             # Patch the parameters
             DocumentationParam: docParser.DocMemberParameter
@@ -627,7 +658,8 @@ class PyfbsdkStubGenerator():
                     NewDefaultValue = DocumentationParam.GetDefaultValue(bConvertToPython = True)
                     if NewDefaultValue:
                         Parameter.DefaultValue = NewDefaultValue
-                if Parameter.Type == "object":
+                
+                if not Parameter.Type or Parameter.Type == "object":
                     Parameter.Type = DocumentationParam.GetType(bConvertToPython = True)
                 self._PatchParameter(Parameter)
                 
@@ -667,7 +699,7 @@ class PyfbsdkStubGenerator():
 
                 if StubPropertyInstance.Type == "property":
                     NewType = PropertyDocumentation.GetType(bConvertToPython = True)
-                    NewType = self._PatchPropertyType(NewType)
+                    NewType = self._EnsurePropertyTypeIsValid(NewType)
                     StubPropertyInstance.Type = NewType
 
             # TODO: Add Docstring
