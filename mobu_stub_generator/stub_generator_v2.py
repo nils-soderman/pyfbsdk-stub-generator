@@ -28,6 +28,8 @@ TAB_CHARACTER = "    "
 # TODO: Broken stuff:
 # * FBModel.GetHierarchyWorldMatrices() - First param in the docs doesn't exists in the python version  
 # * FBInterpolateRotation() - Both of them use the same documentation :/
+# Support URLs in the doc strings
+# FBAudioFmt_AppendFormat - code example
 
 # -------------------------------------------------------------
 #                         Translations
@@ -569,6 +571,61 @@ class PyfbsdkStubGenerator():
         self._DebugPropertiesConvertedToDefault.append(PropertyType)
         return "property"
     
+    def _PatchDocstring(self, DocString: str, Function:StubFunction = None):
+        Translations = {
+            " Null ": " `None` ",
+            " null ": " `None` ",
+            " NULL ": " `None` "
+        }
+        FunctionParamterLowerNames = [x.Name.lower() for x in Function.GetParameters()]
+        
+        NewDocString = ""
+        UnderTitle = None
+        NumberOfParameters = 0
+        for i, Line in enumerate(DocString.split("\n")):
+            Line = Line.strip()
+            if not Line:
+                continue
+            
+            if i == 0 and Line.strip(".") == Function.Name:
+                continue
+            
+            bIsLineATitle = Line.startswith("#")
+            if bIsLineATitle:
+                bAddExtraLine = bool(UnderTitle)
+                Line = Line.partition(" ")[2]
+                UnderTitle = Line.lower()
+                Line = "### %s:" % Line
+                if bAddExtraLine:
+                    Line = "\n%s" % Line
+                
+            if UnderTitle and not bIsLineATitle:
+                if UnderTitle in ["parameters", "return values"]:
+                    ParameterName, _, Description = Line.partition(" ")
+                    NumberOfParameters += 1
+                    Line = "- %s: %s" % (ParameterName, Description)
+            
+            # Null -> None translation
+            for Key, Item in Translations.items():
+                if Key in Line:
+                    if Key.lower().strip() == "null" and "null pointer" in Line.lower():
+                        continue
+                    Line = Line.replace(Key, Item)
+            
+            NewDocString += "%s\n" % Line
+            
+        NumberOfFunctionParams = len(Function.GetParameters()) - 1 if Function.bIsMethod else len(Function.GetParameters())
+        if NumberOfFunctionParams != NumberOfParameters:
+            # Patch number of params
+            pass
+        
+        for Parameter in Function.GetParameters():
+            NewDocString = NewDocString.replace(Parameter.Name, Parameter.GetNiceName())
+        
+        NewDocString = NewDocString.replace("  ", " ")
+            
+        return NewDocString.strip()
+    
     def _PatchParameter(self, StubParameterInstance: StubParameter):
         # Patch type
         if StubParameterInstance.Type in VariableTypeTranslations:
@@ -663,8 +720,7 @@ class PyfbsdkStubGenerator():
                     Parameter.Type = DocumentationParam.GetType(bConvertToPython = True)
                 self._PatchParameter(Parameter)
                 
-            # TODO: Patch docstring
-            Documentation.DocString
+            StubFunctionInstance.DocString = self._PatchDocstring(Documentation.DocString, StubFunctionInstance)
 
     def _PatchClassFromDocumentation(self, Classes: List[StubClass]):
         for StubClassInstance in Classes:
@@ -735,8 +791,6 @@ class PyfbsdkStubGenerator():
         StubString += "\n".join([x.GetAsString() for x in self.Classes])
         StubString += "\n"
         StubString += "\n".join([x.GetAsString() for x in self.Functions])
-
-        print(self._DebugPropertiesConvertedToDefault)
 
         return StubString
 

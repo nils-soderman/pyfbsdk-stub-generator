@@ -195,6 +195,7 @@ class MotionBuilderDocumentationHtmlPageParser(HTMLParser):
     """
     HTML parser to fetch interesting content from a MotionBuilder SDK documentation page
     """
+    
 
     def __init__(self, *, convert_charrefs: bool = ...):
         super().__init__(convert_charrefs=convert_charrefs)
@@ -204,8 +205,11 @@ class MotionBuilderDocumentationHtmlPageParser(HTMLParser):
         self.CurrentItem = None  # Current item name
         self.CurrentItemDataTag = None  # Tag that the parser is collecting data for
         self.CurrentItemDataCollector = ""  # Data collected by the parser for the active tag
+        self.CurrentRawTag = None
+        self.DocAdditionalChar = ""
 
     def handle_starttag(self, tag, attrs):
+        self.CurrentRawTag = tag
         Attributes = dict(attrs)
         ClassName = Attributes.get("class")
 
@@ -224,8 +228,18 @@ class MotionBuilderDocumentationHtmlPageParser(HTMLParser):
                 self.CurrentItemDataTag = ClassName
                 self.CurrentItemDataCollector = ""
 
+        # 
+        if self.CurrentItemDataTag == FMoBuDocsParserItem.Doc:
+            if tag in ["tr", "p", "dd"]:
+                self.DocAdditionalChar = "\n"
+            elif tag == "dt":
+                self.DocAdditionalChar = "\n# "
+
     def handle_data(self, Data):
         if self.CurrentItemDataTag and self.CurrentItem != None and Data.strip():
+            if self.CurrentItemDataTag == FMoBuDocsParserItem.Doc:
+                self.CurrentItemDataCollector += self.DocAdditionalChar
+                self.DocAdditionalChar = " "
             self.CurrentItemDataCollector += Data
 
     def handle_endtag(self, tag):
@@ -293,7 +307,7 @@ class MotionBuilderDocumentationHtmlPageParser(HTMLParser):
                 Params.append(DocMemberParameter(ParamName, ParamType, DefaultValue))
 
         # Get docstring, there should always just be one, so get the first one
-        DocString = Item.get(FMoBuDocsParserItem.Doc, "")
+        DocString = Item.get(FMoBuDocsParserItem.Doc, "").strip()
 
         return DocPageMember(Name, Type, Params, DocString)
 
