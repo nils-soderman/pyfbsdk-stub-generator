@@ -9118,7 +9118,7 @@ class FBFbxOptions(FBComponent):
         """Sets the list of namespaces that will be used when merging multiple scenes (see FBApplication::FileMerge ).
         The number of namespaces contained in this list must match the number of files merged, otherwise the merge operation will abort. The first namespace in the list will be applied on the first merged scene, the second namespace in the list will be applied on the second merged scene, and so one and so forth. This list is affecting only the merge operation. When merging multiple scenes, if this list of namespaces is set, the FBFbxOptions::NamespaceList property value is ignored.
         ### Parameters:
-        - MultiLoadNamespaceList: The multi load namespace list to set. # This example shows how to merge multiple scenes, each scene in its own user specified namespace:"""
+        - MultiLoadNamespaceList: The multi load namespace list to set."""
         ...
     def SetObjectsToSave(self,ObjectsToSave:list):
         """Sets the list of objects that will be saved.
@@ -10435,7 +10435,12 @@ class FBMenuManager(FBComponent):
         - pMenuItemPath: Path of the menu item to execute.
         
         ### Returns:
-        True if the menu item has been executed, false otherwise. It could returns false if the menu item cannot be found or if the menu item is found but is disabled or is a separator. # This example shows how to display the About Box, as if the user opened it via the main menu Help > About MotionBuilder:"""
+        True if the menu item has been executed, false otherwise. It could returns false if the menu item cannot be found or if the menu item is found but is disabled or is a separator.
+        
+        >>> # This example shows how to display the About Box, as if the user opened it via the main menu Help > About MotionBuilder:
+        menuManager = FBMenuManager ()
+        aboutBoxFullPath = "Help/&About MotionBuilder"
+        menuManager. ExecuteMenuItemFromFullPath ( aboutBoxFullPath )"""
         ...
     def GetMenu(self,Path:str)->FBGenericMenu:
         """Get the Menu (NOT menu item) corresponding to a menu path.
@@ -12222,9 +12227,9 @@ class FBSystem(FBComponent):
         ...
     def GetCommandLineArgs(self)->FBStringList:
         """Returns the command line arguments for SDK.
-        This function returns portion of the command line arguments within a pair of delimiters (–sdk-begin & –sdk-end). Example:
-        motionbuilder -console -G500,500 -suspendMessages –sdk-begin –department mocap –usage on-stage –sdk-end C:/temp/sample.fbx
-        Note that "-console", "-G500,500", "-suspendMessages" and "C:/temp/sample.fbx" are for MotionBuilder itself hence are consumed accordingly. Only those arguments between –sdk-begin and –sdk-end are accessible with this function. In this example, they will be "--department mocap --usage on-stage"
+        This function returns portion of the command line arguments within a pair of delimiters (ï¿½sdk-begin & ï¿½sdk-end). Example:
+        motionbuilder -console -G500,500 -suspendMessages ï¿½sdk-begin ï¿½department mocap ï¿½usage on-stage ï¿½sdk-end C:/temp/sample.fbx
+        Note that "-console", "-G500,500", "-suspendMessages" and "C:/temp/sample.fbx" are for MotionBuilder itself hence are consumed accordingly. Only those arguments between ï¿½sdk-begin and ï¿½sdk-end are accessible with this function. In this example, they will be "--department mocap --usage on-stage"
         This SDK command line argument is useful for plugin deployment and management in large production facility, where different department or different workflow may require a different set of plugins or functionality/behavior dynamically.
         Python users also have access to this through official built-in module sys.argv which could be parsed easily via argparse module.
         ### Returns:
@@ -15107,7 +15112,27 @@ def FBAudioFmt_AppendFormat(Format,Channels:int,Bits:int,Rate:int)->int:
     
     ### Returns:
     An audio format object with the specified format.
-    Python sample code: from pyfbsdk import *"""
+    ### Python sample code:
+    
+    >>> from pyfbsdk import *
+    def printFormat( AudioFormat ):
+        print "Audio Render Format: " , AudioFormat
+        print "Audio Channels: " , FBAudioFmt_GetChannelValue ( AudioFormat )
+        print "Audio Bit Depth: " , FBAudioFmt_GetBitsValue ( AudioFormat )
+        print "Audio Rate: " , FBAudioFmt_GetRateValue ( AudioFormat )
+        print ""
+    # Given an AudioFormat, modify the rate from the old rate to 48000 while
+    # keeping the other settings intact
+    AudioFormat = FBAudioFmt_GetDefaultFormat ()
+    print "Old Format:"
+    printFormat( AudioFormat )
+    oldrate = FBAudioFmt_GetRateValue ( AudioFormat )
+    AudioFormat = FBAudioFmt_RemoveFormat (AudioFormat, 0, 0, oldrate)
+    print "Format after removing Audio Rate:"
+    printFormat( AudioFormat )
+    AudioFormat = FBAudioFmt_AppendFormat (AudioFormat, 0, 0, 48000)
+    print "New Format after modifying Audio Rate to 48000"
+    printFormat( AudioFormat )"""
     ...
 @overload
 def FBAudioFmt_AppendFormat(Format,SrcFormat)->int:
@@ -15456,7 +15481,19 @@ def FBGetMainWindow()->int:
     """Return the MotionBuilder main window.
     ### Returns:
     The MotionBuilder main window.
-    The following Python snippet shows how to get the MotionBuilder main window. from PySide2 import QtWidgets"""
+    The following Python snippet shows how to get the MotionBuilder main window.
+    
+    >>> from PySide2 import QtWidgets
+    import shiboken2
+    def getMainWindow():
+        ptr = FBGetMainWindow ()
+        if ptr is not None:
+            return shiboken2.wrapInstance(ptr, QtWidgets.QWidget)
+    mainWindow = getMainWindow()
+    if mainWindow is not None:
+        print( mainWindow.windowTitle() )
+    else:
+        print( "MotionBuilder main window not found!" )"""
     ...
 @overload
 def FBGetMultiLangText(Context:FBPlug,Key:str,bFlagReturnKey:bool=False)->str:
@@ -15473,7 +15510,40 @@ def FBGetMultiLangText(Context:FBPlug,Key:str,bFlagReturnKey:bool=False)->str:
     
     ### Returns:
     The corresponding string if the lookup was succesfull. If not will return an empty string if bFlagReturnKey was false. Otherwise will return the key string.
-    Python sample code: from pyfbsdk import *"""
+    ### Python sample code:
+    
+    >>> from pyfbsdk import *
+    # Let's pick the first camera present in the system.
+    lCamera = FBSystem ().Cameras[0]
+    # We know that cameras have a property named 'LockMode'.
+    lPropInternalName = lCamera. PropertyList . Find ( 'LockMode' )
+    if lPropInternalName:
+        print 'Actual property name, as defined internally: "%s"' % lPropInternalName. GetName ()
+        print 'Property name as shown by the GUI: "%s"' % FBGetMultiLangText ( lCamera, lPropInternalName.GetName())
+        lPropLocalizedName = lCamera.PropertyList.Find( FBGetMultiLangText ( lCamera, lPropInternalName.GetName()))
+        if lPropLocalizedName and lPropInternalName.GetName() == lPropLocalizedName.GetName():
+            print 'Found the same property using both the internal (%s) and localized name (%s).' % (
+                lPropLocalizedName.GetName(),
+    FBGetMultiLangText ( lCamera, lPropInternalName.GetName()))
+    
+    ### C++ sample code:
+    
+    >>> // Let's pick the first camera present in the system.
+    FBCamera * lCamera = FBSystem ().Cameras[0];
+    // We know that cameras have a property named 'LockMode'.
+    FBProperty * lPropInternalName = lCamera->PropertyList.Find( "LockMode" );
+    if ( lPropInternalName )
+    {
+    FBTrace ( "Actual property name, as defined internally: '%s'\\n" , lPropInternalName-> GetName ());
+    FBTrace ( "Property name as shown by the GUI: '%s'\\n" , FBGetMultiLangText ( lCamera, lPropInternalName-> GetName ()));
+    FBProperty * lPropLocalizedName = lCamera->PropertyList.Find( FBGetMultiLangText ( lCamera, lPropInternalName-> GetName ()));
+    if ( lPropLocalizedName && stricmp( lPropInternalName-> GetName (), lPropLocalizedName-> GetName ()) == 0 )
+        {
+    FBTrace ( "Found the same property using both the internal (%s) and localized name (%s).\\n" ,
+                lPropLocalizedName-> GetName (),
+    FBGetMultiLangText ( lCamera, lPropInternalName-> GetName ()));
+        }
+    }"""
     ...
 @overload
 def FBGetMultiLangText(Context:str,Key:str,bFlagReturnKey:bool=False)->str:
@@ -15490,7 +15560,40 @@ def FBGetMultiLangText(Context:str,Key:str,bFlagReturnKey:bool=False)->str:
     
     ### Returns:
     The corresponding string if the lookup was succesfull. If not will return an empty string if bFlagReturnKey was false. Otherwise will return the key string.
-    Python sample code: from pyfbsdk import *"""
+    ### Python sample code:
+    
+    >>> from pyfbsdk import *
+    # Let's pick the first camera present in the system.
+    lCamera = FBSystem ().Cameras[0]
+    # We know that cameras have a property named 'LockMode'.
+    lPropInternalName = lCamera. PropertyList . Find ( 'LockMode' )
+    if lPropInternalName:
+        print 'Actual property name, as defined internally: "%s"' % lPropInternalName. GetName ()
+        print 'Property name as shown by the GUI: "%s"' % FBGetMultiLangText ( lCamera, lPropInternalName.GetName())
+        lPropLocalizedName = lCamera.PropertyList.Find( FBGetMultiLangText ( lCamera, lPropInternalName.GetName()))
+        if lPropLocalizedName and lPropInternalName.GetName() == lPropLocalizedName.GetName():
+            print 'Found the same property using both the internal (%s) and localized name (%s).' % (
+                lPropLocalizedName.GetName(),
+    FBGetMultiLangText ( lCamera, lPropInternalName.GetName()))
+    
+    ### C++ sample code:
+    
+    >>> // Let's pick the first camera present in the system.
+    FBCamera * lCamera = FBSystem ().Cameras[0];
+    // We know that cameras have a property named 'LockMode'.
+    FBProperty * lPropInternalName = lCamera->PropertyList.Find( "LockMode" );
+    if ( lPropInternalName )
+    {
+    FBTrace ( "Actual property name, as defined internally: '%s'\\n" , lPropInternalName-> GetName ());
+    FBTrace ( "Property name as shown by the GUI: '%s'\\n" , FBGetMultiLangText ( lCamera, lPropInternalName-> GetName ()));
+    FBProperty * lPropLocalizedName = lCamera->PropertyList.Find( FBGetMultiLangText ( lCamera, lPropInternalName-> GetName ()));
+    if ( lPropLocalizedName && stricmp( lPropInternalName-> GetName (), lPropLocalizedName-> GetName ()) == 0 )
+        {
+    FBTrace ( "Found the same property using both the internal (%s) and localized name (%s).\\n" ,
+                lPropLocalizedName-> GetName (),
+    FBGetMultiLangText ( lCamera, lPropInternalName-> GetName ()));
+        }
+    }"""
     ...
 def FBGetRenderingTaskCycle()->FBProfileTaskCycle:...
 def FBGetSelectedModels(List:FBModelList,Parent:FBModel=None,bSelected:bool=True,bSortBySelectOrder:bool=False):

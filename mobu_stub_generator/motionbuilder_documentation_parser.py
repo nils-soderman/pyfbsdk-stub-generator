@@ -206,12 +206,29 @@ class MotionBuilderDocumentationHtmlPageParser(HTMLParser):
         self.CurrentItemDataTag = None  # Tag that the parser is collecting data for
         self.CurrentItemDataCollector = ""  # Data collected by the parser for the active tag
         self.CurrentRawTag = None
+        self.CurrentRawClassName = None
         self.DocAdditionalChar = ""
+        self.CodeExampleLevel = 0
+        
+        self.IgnoreLevel = 0
 
     def handle_starttag(self, tag, attrs):
-        self.CurrentRawTag = tag
         Attributes = dict(attrs)
         ClassName = Attributes.get("class")
+        self.CurrentRawClassName = ClassName
+        self.CurrentRawTag = tag
+        
+        if self.IgnoreLevel > 0:
+            self.IgnoreLevel += 1
+            return
+        
+        IGNORE_DATA_CLASS_NAMES = ["ttc"]
+        if ClassName in IGNORE_DATA_CLASS_NAMES:
+            self.IgnoreLevel = 1
+            return
+        
+        if self.CodeExampleLevel > 0:
+            self.CodeExampleLevel += 1
 
         if tag == "div":
             if ClassName == FMoBuDocsParserItem.Item:
@@ -219,23 +236,29 @@ class MotionBuilderDocumentationHtmlPageParser(HTMLParser):
                     self.TotalItems.append(self.CurrentItem)
                 self.CurrentItem = {}
 
-            if ClassName == FMoBuDocsParserItem.Doc:
+            elif ClassName == FMoBuDocsParserItem.Doc:
                 self.CurrentItemDataTag = FMoBuDocsParserItem.Doc
                 self.CurrentItemDataCollector = ""
+                
+            elif ClassName == "fragment" and self.CurrentItemDataTag == FMoBuDocsParserItem.Doc:
+                self.CodeExampleLevel = 1
+                self.DocAdditionalChar = "\n@CODE\n"
 
         elif tag == "td" and not self.CurrentItemDataTag:
             if ClassName in FMoBuDocsParserItem.GetValues():
                 self.CurrentItemDataTag = ClassName
                 self.CurrentItemDataCollector = ""
-
-        # 
-        if self.CurrentItemDataTag == FMoBuDocsParserItem.Doc:
-            if tag in ["tr", "p", "dd"]:
+        
+        if self.CurrentItemDataTag == FMoBuDocsParserItem.Doc and not self.DocAdditionalChar.strip():
+            if tag in ["tr", "p", "dd"] or ClassName == "line":
                 self.DocAdditionalChar = "\n"
             elif tag == "dt":
                 self.DocAdditionalChar = "\n# "
 
     def handle_data(self, Data):
+        if self.IgnoreLevel > 0:
+            return
+        
         if self.CurrentItemDataTag and self.CurrentItem != None and Data.strip():
             if self.CurrentItemDataTag == FMoBuDocsParserItem.Doc:
                 self.CurrentItemDataCollector += self.DocAdditionalChar
@@ -243,6 +266,16 @@ class MotionBuilderDocumentationHtmlPageParser(HTMLParser):
             self.CurrentItemDataCollector += Data
 
     def handle_endtag(self, tag):
+        if self.IgnoreLevel > 0:
+            self.IgnoreLevel -= 1
+            return
+        
+        if self.CodeExampleLevel > 0:
+            self.CodeExampleLevel -= 1
+            if self.CodeExampleLevel == 0 and self.CurrentItemDataTag == FMoBuDocsParserItem.Doc:
+                self.CurrentItemDataCollector += "\n@ENDCODE"
+            return
+        
         if self.CurrentItemDataTag == FMoBuDocsParserItem.Doc:
             if tag == "div":
                 self.CurrentItem[self.CurrentItemDataTag] = self.CurrentItemDataCollector
@@ -555,3 +588,5 @@ def GetDocsMainTableOfContent(Version) -> list:
     RawContent = GetUrlContent(GetFullURL(Version, DOC_GUIDE_CONTENTS_PATH))
     TableOfContent = json.loads(RawContent)
     return TableOfContent.get("books", {})
+
+# print(MotionBuilderDocumentation(2022, True).GetSDKFunctionByName("FBAudioFmt_AppendFormat")[1].DocString)

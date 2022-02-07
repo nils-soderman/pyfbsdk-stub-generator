@@ -30,7 +30,8 @@ TAB_CHARACTER = "    "
 # * FBInterpolateRotation() - Both of them use the same documentation :/
 # Support URLs in the doc strings
 # FBAudioFmt_AppendFormat - code example
-# FBStoryClip -> GetAffectedAnimationNodes
+# FBStoryClip -> GetAffectedAnimationNodes & FBModel::GetHierarchyWorldMatrices()
+# GetCommandLineArgs (unknown char in docstring)
 
 # -------------------------------------------------------------
 #                         Translations
@@ -588,35 +589,59 @@ class PyfbsdkStubGenerator():
         NewDocString = ""
         UnderTitle = None
         NumberOfParameters = 0
+        bParsingCode = False
+        CodeLines = 0
         for i, Line in enumerate(DocString.split("\n")):
-            Line = Line.strip()
-            if not Line:
+            if not Line.strip():
                 continue
-
-            if i == 0 and (Line.strip(".") == Function.Name or Line.lower().endswith("constructor.")):
+            
+            if not bParsingCode:
+                Line = Line.strip()
+                
+            if Line == "@CODE":
+                bParsingCode = True
+                CodeLines = 0
                 continue
+            elif bParsingCode and Line == "@ENDCODE":
+                bParsingCode = False
+                Line = ""
+            
+            if bParsingCode:
+                Line = Line.replace("\\n", "\\\\n")
+                if CodeLines == 0:
+                    Line = "\n>>> %s" % Line
+                else:
+                    NumberOfTabs = int((len(Line) - len(Line.lstrip())) / 2)
+                    Line = (TAB_CHARACTER * NumberOfTabs) + Line.lstrip()
+                CodeLines += 1
+            else:
+                if i == 0 and (Line.strip(".") == Function.Name or Line.lower().endswith("constructor.")):
+                    continue           
 
-            bIsLineATitle = Line.startswith("#")
-            if bIsLineATitle:
-                bAddExtraLine = bool(UnderTitle)
-                Line = Line.partition(" ")[2]
-                UnderTitle = Line.lower()
-                Line = "### %s:" % Line
-                if bAddExtraLine:
-                    Line = "\n%s" % Line
+                bIsLineATitle = Line.startswith("#")
+                if bIsLineATitle:
+                    bAddExtraLine = bool(UnderTitle)
+                    Line = Line.partition(" ")[2]
+                    UnderTitle = Line.lower()
+                    Line = "### %s:" % Line
+                    if bAddExtraLine:
+                        Line = "\n%s" % Line
 
-            if UnderTitle and not bIsLineATitle:
-                if UnderTitle in ["parameters", "return values"]:
-                    ParameterName, _, Description = Line.partition(" ")
-                    NumberOfParameters += 1
-                    Line = "- %s: %s" % (ParameterName, Description)
+                if Line in ["C++ sample code:", "Python sample code:"]:
+                    Line = "### %s" % Line
 
-            # Null -> None translation
-            for Key, Item in Translations.items():
-                if Key in Line:
-                    if Key.lower().strip() == "null" and "null pointer" in Line.lower():
-                        continue
-                    Line = Line.replace(Key, Item)
+                if UnderTitle and not bIsLineATitle:
+                    if UnderTitle in ["parameters", "return values"]:
+                        ParameterName, _, Description = Line.partition(" ")
+                        NumberOfParameters += 1
+                        Line = "- %s: %s" % (ParameterName, Description)
+
+                # Null -> None translation
+                for Key, Item in Translations.items():
+                    if Key in Line:
+                        if Key.lower().strip() == "null" and "null pointer" in Line.lower():
+                            continue
+                        Line = Line.replace(Key, Item)
 
             NewDocString += "%s\n" % Line
 
