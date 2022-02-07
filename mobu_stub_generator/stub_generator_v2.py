@@ -26,10 +26,11 @@ ADDITIONS_FILEPATH = os.path.join(os.path.dirname(__file__), "additions_pyfbsdk.
 TAB_CHARACTER = "    "
 
 # TODO: Broken stuff:
-# * FBModel.GetHierarchyWorldMatrices() - First param in the docs doesn't exists in the python version  
+# * FBModel.GetHierarchyWorldMatrices() - First param in the docs doesn't exists in the python version
 # * FBInterpolateRotation() - Both of them use the same documentation :/
 # Support URLs in the doc strings
 # FBAudioFmt_AppendFormat - code example
+# FBStoryClip -> GetAffectedAnimationNodes
 
 # -------------------------------------------------------------
 #                         Translations
@@ -451,10 +452,11 @@ class PyfbsdkStubGenerator():
         self.Functions: List[StubFunction] = []
         self.Classes: List[StubClass] = []
         self.Enums: List[StubClass] = []
-        self.DocumentationParser = docParser.MotionBuilderDocumentation(GetMotionBuilderVersion(), bCache = True)
+        self.Version = GetMotionBuilderVersion()
+        self.DocumentationParser = docParser.MotionBuilderDocumentation(self.Version, bCache = True)
 
         self._AllClassNames = []
-        
+
         self._DebugPropertiesConvertedToDefault = []
 
     # ---------------------------------------------------
@@ -553,7 +555,7 @@ class PyfbsdkStubGenerator():
         # Default property types to always accept as valid
         if PropertyType in ["str", "float", "bool", "int"]:
             return PropertyType
-        
+
         # Check if PropertyType exists as a known type to be translated into something else
         if PropertyType in PropertyTypeTranslation:
             return PropertyTypeTranslation[PropertyType]
@@ -570,15 +572,19 @@ class PyfbsdkStubGenerator():
 
         self._DebugPropertiesConvertedToDefault.append(PropertyType)
         return "property"
-    
-    def _PatchDocstring(self, DocString: str, Function:StubFunction = None):
+
+    def _PatchFunctionDocstring(self, DocString: str, Function: StubFunction = None):
         Translations = {
             " Null ": " `None` ",
             " null ": " `None` ",
             " NULL ": " `None` "
         }
-        FunctionParamterLowerNames = [x.Name.lower() for x in Function.GetParameters()]
         
+        # Prevent some functions from having a docstring.
+        # These functions doesn't need a docstring and will only increase filesize
+        if Function.Name in ["__getitem__"]:
+            return ""
+
         NewDocString = ""
         UnderTitle = None
         NumberOfParameters = 0
@@ -586,10 +592,10 @@ class PyfbsdkStubGenerator():
             Line = Line.strip()
             if not Line:
                 continue
-            
-            if i == 0 and Line.strip(".") == Function.Name:
+
+            if i == 0 and (Line.strip(".") == Function.Name or Line.lower().endswith("constructor.")):
                 continue
-            
+
             bIsLineATitle = Line.startswith("#")
             if bIsLineATitle:
                 bAddExtraLine = bool(UnderTitle)
@@ -598,34 +604,49 @@ class PyfbsdkStubGenerator():
                 Line = "### %s:" % Line
                 if bAddExtraLine:
                     Line = "\n%s" % Line
-                
+
             if UnderTitle and not bIsLineATitle:
                 if UnderTitle in ["parameters", "return values"]:
                     ParameterName, _, Description = Line.partition(" ")
                     NumberOfParameters += 1
                     Line = "- %s: %s" % (ParameterName, Description)
-            
+
             # Null -> None translation
             for Key, Item in Translations.items():
                 if Key in Line:
                     if Key.lower().strip() == "null" and "null pointer" in Line.lower():
                         continue
                     Line = Line.replace(Key, Item)
-            
+
             NewDocString += "%s\n" % Line
-            
-        NumberOfFunctionParams = len(Function.GetParameters()) - 1 if Function.bIsMethod else len(Function.GetParameters())
-        if NumberOfFunctionParams != NumberOfParameters:
-            # Patch number of params
-            pass
-        
+
+        # Replace parameter names with their Nice Names. 'pMyParam' -> 'MyParam'
         for Parameter in Function.GetParameters():
             NewDocString = NewDocString.replace(Parameter.Name, Parameter.GetNiceName())
-        
+
+        # Remove parameters that doesn't exists in the Python version (but is included in the SDK docs)
+        NumberOfFunctionParams = len(Function.GetParameters()) - 1 if Function.bIsMethod else len(Function.GetParameters())
+        if NumberOfParameters > NumberOfFunctionParams:
+            ParameterNiceNames = [x.GetNiceName() for x in Function.GetParameters()]
+            NewDocStringAfterParamFix = ""
+            bInParamsList = False
+            for Line in NewDocString.split("\n"):
+                if Line.startswith("###"):
+                    bInParamsList = Line.partition(" ")[2] in ["Parameters:", "ReturnValues:"]
+                    if bInParamsList and NumberOfFunctionParams == 0:
+                        continue
+
+                elif bInParamsList:
+                    if Line.lstrip("- ").partition(":")[0] not in ParameterNiceNames:
+                        continue
+
+                NewDocStringAfterParamFix += "%s\n" % Line
+            NewDocString = NewDocStringAfterParamFix
+
         NewDocString = NewDocString.replace("  ", " ")
-            
+
         return NewDocString.strip()
-    
+
     def _PatchParameter(self, StubParameterInstance: StubParameter):
         # Patch type
         if StubParameterInstance.Type in VariableTypeTranslations:
@@ -636,17 +657,17 @@ class PyfbsdkStubGenerator():
             ClassType = StubParameterInstance.Type.replace("List[", "", 1)[:-1]
             ClassType = VariableTypeTranslations.get(ClassType, ClassType)
             StubParameterInstance.Type = "List[%s]" % ClassType
-        
+
         # Patch default value
         if StubParameterInstance.DefaultValue:
             if StubParameterInstance.DefaultValue.startswith("k") or StubParameterInstance.DefaultValue in KnownEnumValuesNotStartingWithK:
                 StubParameterInstance.DefaultValue = "%s.%s" % (StubParameterInstance.Type, StubParameterInstance.DefaultValue)
-                
+
             elif StubParameterInstance.DefaultValue.startswith("FB") and StubParameterInstance.DefaultValue not in self.GetAllClassNames():
                 if "." not in StubParameterInstance.DefaultValue:
                     # TODO: We should split on '.' & ensure the first classname actually exists
                     StubParameterInstance.DefaultValue = "None"
-                
+
     def _EnsureReturnValueIsValid(self, ReturnValue):
         if ReturnValue.startswith("FB") and ReturnValue not in self.GetAllClassNames():
             return "object"
@@ -715,12 +736,12 @@ class PyfbsdkStubGenerator():
                     NewDefaultValue = DocumentationParam.GetDefaultValue(bConvertToPython = True)
                     if NewDefaultValue:
                         Parameter.DefaultValue = NewDefaultValue
-                
+
                 if not Parameter.Type or Parameter.Type == "object":
                     Parameter.Type = DocumentationParam.GetType(bConvertToPython = True)
                 self._PatchParameter(Parameter)
-                
-            StubFunctionInstance.DocString = self._PatchDocstring(Documentation.DocString, StubFunctionInstance)
+
+            StubFunctionInstance.DocString = self._PatchFunctionDocstring(Documentation.DocString, StubFunctionInstance)
 
     def _PatchClassFromDocumentation(self, Classes: List[StubClass]):
         for StubClassInstance in Classes:
