@@ -580,7 +580,7 @@ class PyfbsdkStubGenerator():
             " null ": " `None` ",
             " NULL ": " `None` "
         }
-        
+
         # Prevent some functions from having a docstring.
         # These functions doesn't need a docstring and will only increase filesize
         if Function.Name in ["__getitem__"]:
@@ -594,10 +594,10 @@ class PyfbsdkStubGenerator():
         for i, Line in enumerate(DocString.split("\n")):
             if not Line.strip():
                 continue
-            
+
             if not bParsingCode:
                 Line = Line.strip()
-                
+
             if Line == "@CODE":
                 bParsingCode = True
                 CodeLines = 0
@@ -605,7 +605,7 @@ class PyfbsdkStubGenerator():
             elif bParsingCode and Line == "@ENDCODE":
                 bParsingCode = False
                 Line = ""
-            
+
             if bParsingCode:
                 Line = Line.replace("\\n", "\\\\n")
                 if CodeLines == 0:
@@ -616,7 +616,7 @@ class PyfbsdkStubGenerator():
                 CodeLines += 1
             else:
                 if i == 0 and (Line.strip(".") == Function.Name or Line.lower().endswith("constructor.")):
-                    continue           
+                    continue
 
                 bIsLineATitle = Line.startswith("#")
                 if bIsLineATitle:
@@ -642,6 +642,8 @@ class PyfbsdkStubGenerator():
                         if Key.lower().strip() == "null" and "null pointer" in Line.lower():
                             continue
                         Line = Line.replace(Key, Item)
+
+                Line = Line.replace("\"", "'")
 
             NewDocString += "%s\n" % Line
 
@@ -669,6 +671,24 @@ class PyfbsdkStubGenerator():
             NewDocString = NewDocStringAfterParamFix
 
         NewDocString = NewDocString.replace("  ", " ")
+
+        return NewDocString.strip()
+
+    def _PatchPropertyDocString(self, Docstring: str):
+        NewDocString = ""
+
+        for Line in Docstring.split("\n"):
+            Line = Line.strip()
+
+            # Remove all 'Definition at line x' lines.
+            if Line.startswith("Definition at line"):
+                continue
+
+            NewDocString += "%s\n" % Line
+
+        # Remove double spaces
+        NewDocString = NewDocString.replace("  ", " ")
+        NewDocString = NewDocString.replace("\"", "'")
 
         return NewDocString.strip()
 
@@ -804,7 +824,9 @@ class PyfbsdkStubGenerator():
                     NewType = self._EnsurePropertyTypeIsValid(NewType)
                     StubPropertyInstance.Type = NewType
 
-            # TODO: Add Docstring
+                StubPropertyInstance.DocString = self._PatchPropertyDocString(PropertyDocumentation.DocString)
+
+            # TODO: Add Class Docstring
 
     def GenerateString(self, bUseOnlineDocumentation = True):
         """ 
