@@ -598,8 +598,8 @@ class PyfbsdkStubGenerator():
             if not bParsingCode:
                 Line = Line.strip()
     
-                # if Line.startswith("Definition at line"):
-                #     continue
+                if Line.startswith("Definition at line"):
+                    continue
 
             if Line == "@CODE":
                 bParsingCode = True
