@@ -6,123 +6,237 @@ class _Enum:
     values:dict
 class ETimeFormats:...
 class FBAccessMode(_Enum):
+    """Data access modes."""
     kFBAccessModeDisk:FBAccessMode
+    """Access data directly to disk using a cache system."""
     kFBAccessModeMemory:FBAccessMode
+    """Access data from memory, which means that it will copyed entirely into it."""
 class FBAlphaSource(_Enum):
+    """Shader transparency computation.
+    There are different way to compute transparency, and this lists the supported options."""
     kFBAlphaSource2DTransparency:FBAlphaSource
+    """2D Transparency."""
     kFBAlphaSourceAccurateAlpha:FBAlphaSource
+    """Accurate Transparency."""
     kFBAlphaSourceAdditiveAlpha:FBAlphaSource
+    """Additive Transparency."""
     kFBAlphaSourceMatteAlpha:FBAlphaSource
+    """Matte."""
     kFBAlphaSourceNoAlpha:FBAlphaSource
+    """No transparency."""
     kFBAlphaSourceTransluscentAlpha:FBAlphaSource
+    """Translucent."""
     kFBAlphaSourceTransluscentZSortAlpha:FBAlphaSource
+    """Translucent(Models Z Sort)."""
 class FBAnimationLayerMergeOptions(_Enum):
+    """Merge option for animation layers."""
     kFBAnimLayerMerge_AllLayers_AllProperties:FBAnimationLayerMergeOptions
+    """Merge the animation of all properties of the selected models from all the layers to the BaseAnimation layer."""
     kFBAnimLayerMerge_AllLayers_CompleteScene:FBAnimationLayerMergeOptions
+    """Merge the animation of all properties from all the layers to the BaseAnimation layer."""
     kFBAnimLayerMerge_AllLayers_SelectedProperties:FBAnimationLayerMergeOptions
+    """Merge the animation of the selected properties of the selected models from all the layers to the BaseAnimation layer."""
     kFBAnimLayerMerge_SelectedLayers_AllProperties:FBAnimationLayerMergeOptions
+    """Merge the animation of all properties of the selected models from the selected layers to the selected layer with the lowest index."""
     kFBAnimLayerMerge_SelectedLayers_CompleteScene:FBAnimationLayerMergeOptions
+    """Merge the animation of all properties from the selected layers to the selected layer with the lowest index."""
     kFBAnimLayerMerge_SelectedLayers_SelectedProperties:FBAnimationLayerMergeOptions
+    """Merge the animation of the selected properties of the selected models from the selected layers to the selected layer with the lowest index."""
 class FBAnimationNodeConnectorType(_Enum):
+    """Different types for the animation node connectors."""
     kFBAnimationNodeConnectorTypeConnectedIn:FBAnimationNodeConnectorType
+    """The animation node input connector is connected to an animation node output connector (valid for input connector only)."""
     kFBAnimationNodeConnectorTypeConnectedOut:FBAnimationNodeConnectorType
+    """The animation node output connector is connected to at least one animation node input connector (valid for output connector only)."""
     kFBAnimationNodeConnectorTypeConstantIn:FBAnimationNodeConnectorType
+    """The animation node input connector has a constant value set to it (valid for input connector only)."""
     kFBAnimationNodeConnectorTypeNone:FBAnimationNodeConnectorType
+    """The animation node connector is not connected and doesn't have a constant value set to it."""
 class FBArrangeMode(_Enum):
+    """Modes for arranging objects in schematic view."""
     kHorizontalMode:FBArrangeMode
+    """Arrange all objects horizontally."""
     kVerticalMode:FBArrangeMode
+    """Arrange all objects vertically."""
 class FBAssetMngFileOptions(_Enum):
+    """Behavior of the application when working with managed files."""
     kFileAddOnNewSave:FBAssetMngFileOptions
+    """Add new file automatically on save."""
     kFileAddOnNewSave_Ask:FBAssetMngFileOptions
+    """Ask for adding new file on save."""
     kFileCheckInOnClose:FBAssetMngFileOptions
+    """Check in file automatically when closing it."""
     kFileCheckInOnClose_Ask:FBAssetMngFileOptions
+    """Ask for check in file when closing it."""
     kFileCheckOutOnLoad:FBAssetMngFileOptions
+    """Check out file automatically on load."""
     kFileCheckOutOnLoad_Ask:FBAssetMngFileOptions
+    """Ask for checkout on load."""
     kFileOptionsAll:FBAssetMngFileOptions
     kFileUploadOnSave:FBAssetMngFileOptions
+    """Upload file automatically on save."""
     kFileUploadOnSave_Ask:FBAssetMngFileOptions
+    """Ask for upload on save."""
 class FBAssetMngMenuOptions(_Enum):
+    """Show or hide version control menu items.
+    Let you specify which functionalities will be available from the menus."""
     kMenuAddToDatabase:FBAssetMngMenuOptions
+    """File -> Add to database."""
     kMenuAll:FBAssetMngMenuOptions
+    """Support everything."""
     kMenuCheckIn:FBAssetMngMenuOptions
+    """Version Control -> Check In."""
     kMenuCheckOut:FBAssetMngMenuOptions
+    """Version Control -> Check Out."""
     kMenuEnable:FBAssetMngMenuOptions
+    """Version Control -> Disable Version Control Integration."""
     kMenuFileAll:FBAssetMngMenuOptions
+    """Support all elements from the File menu."""
     kMenuGetLatest:FBAssetMngMenuOptions
+    """Version Control -> Get Latest."""
     kMenuOpenFromDatabase:FBAssetMngMenuOptions
+    """File -> Open from database."""
     kMenuShowExplorer:FBAssetMngMenuOptions
+    """Version Control -> Show Explorer."""
     kMenuShowHistory:FBAssetMngMenuOptions
+    """Version Control -> Show History."""
     kMenuShowProperties:FBAssetMngMenuOptions
+    """Version Control -> Show Properties."""
     kMenuShowReferenceMng:FBAssetMngMenuOptions
+    """Version Control -> Show Reference Manager."""
     kMenuShowSettings:FBAssetMngMenuOptions
+    """Version Control -> Show Settings."""
     kMenuSourceControlAll:FBAssetMngMenuOptions
+    """Support all elements from the Version Control menu."""
     kMenuSourceControlMin:FBAssetMngMenuOptions
+    """Support only the basics functionalities."""
     kMenuUndoCheckOut:FBAssetMngMenuOptions
+    """Version Control -> Undo Check Out."""
     kMenuUploadToDatabase:FBAssetMngMenuOptions
+    """File -> Upload to database."""
 class FBAttachType(_Enum):
+    """Types of attachments between UI regions."""
     kFBAttachBottom:FBAttachType
+    """Attach to bottom [max(y1,y2)]"""
     kFBAttachCenter:FBAttachType
+    """Attach to center [center(x1,y1,x2,y2)]"""
     kFBAttachHeight:FBAttachType
+    """Attach to height [abs(y2-y1)]"""
     kFBAttachLeft:FBAttachType
+    """Attach to left [min(x1,x2)]"""
     kFBAttachNone:FBAttachType
+    """No attachment."""
     kFBAttachRight:FBAttachType
+    """Attach to right [max(x1,x2)]"""
     kFBAttachTop:FBAttachType
+    """Attach to top [min(y1,y2)]"""
     kFBAttachWidth:FBAttachType
+    """Attach to width [abs(x2-x1)]"""
 class FBAttenuationType(_Enum):
     kFBAttenuationCubic:FBAttenuationType
     kFBAttenuationLinear:FBAttenuationType
     kFBAttenuationNone:FBAttenuationType
     kFBAttenuationQuadratic:FBAttenuationType
 class FBAudioBitDepthMode(_Enum):
+    """Enum FBAudioBitDepthMode."""
     kFBAudioBitDepthMode_16:FBAudioBitDepthMode
+    """16 bits, Wave file render support."""
     kFBAudioBitDepthMode_24:FBAudioBitDepthMode
+    """24 bits, Wave file render support."""
     kFBAudioBitDepthMode_8:FBAudioBitDepthMode
+    """8 bits, Wave file render support."""
     kFBAudioBitDepthMode_FP:FBAudioBitDepthMode
+    """FP type audio, Wave file render not support."""
 class FBAudioChannelMode(_Enum):
+    """Enum FBAudioChannelMode."""
     kFBAudioChannelModeMono:FBAudioChannelMode
+    """1 channel, Wave file render support."""
     kFBAudioChannelModeStereo:FBAudioChannelMode
+    """2 channels, Wave file render support."""
     kFBAudioChannelMode_4:FBAudioChannelMode
+    """4 channels, Wave file render not support."""
     kFBAudioChannelMode_8:FBAudioChannelMode
+    """8 channels, Wave file render not support."""
 class FBAudioOutputLocation(_Enum):
+    """Type of locations where the audio is rendered when rendering a scene using a video format."""
     FBAudioOutputLocationCount:FBAudioOutputLocation
+    """Count."""
     FBAudioOutputLocationEmbedded:FBAudioOutputLocation
+    """The audio is embedded within the video output file."""
     FBAudioOutputLocationEmbeddedAndStandalone:FBAudioOutputLocation
+    """The audio is embedded within the video output file and is also rendered in a standalone output file."""
     FBAudioOutputLocationStandalone:FBAudioOutputLocation
+    """The audio is rendered in a standalone output file."""
 class FBAudioRateMode(_Enum):
+    """Enum FBAudioRateMode."""
     kFBAudioRateMode_100000:FBAudioRateMode
+    """100000 hz, Wave file render not support."""
     kFBAudioRateMode_12000:FBAudioRateMode
+    """12000 hz, Wave file render support."""
     kFBAudioRateMode_12500:FBAudioRateMode
+    """12500 hz, Wave file render not support."""
     kFBAudioRateMode_16000:FBAudioRateMode
+    """16000 hz, Wave file render support."""
     kFBAudioRateMode_22050:FBAudioRateMode
+    """22050 hz, Wave file render support."""
     kFBAudioRateMode_24000:FBAudioRateMode
+    """24000 hz, Wave file render support."""
     kFBAudioRateMode_25000:FBAudioRateMode
+    """25000 hz, Wave file render not support."""
     kFBAudioRateMode_32000:FBAudioRateMode
+    """32000 hz, Wave file render support."""
     kFBAudioRateMode_44100:FBAudioRateMode
+    """44100 hz, Wave file render support."""
     kFBAudioRateMode_48000:FBAudioRateMode
+    """48000 hz, Wave file render support."""
     kFBAudioRateMode_50000:FBAudioRateMode
+    """50000 hz, Wave file render not support."""
     kFBAudioRateMode_64000:FBAudioRateMode
+    """64000 hz, Wave file render support."""
     kFBAudioRateMode_8000:FBAudioRateMode
+    """8000 hz, Wave file render support."""
     kFBAudioRateMode_88200:FBAudioRateMode
+    """88200 hz, Wave file render support."""
     kFBAudioRateMode_96000:FBAudioRateMode
+    """96000 hz, Wave file render support."""
     kFBRAudioateMode_11025:FBAudioRateMode
+    """11025 hz, Wave file render support."""
 class FBBatchFileFormat(_Enum):
+    """Different file formats for the batch."""
     kFBBatchFileFormatAMC:FBBatchFileFormat
+    """File format for Acclaim AMC."""
     kFBBatchFileFormatBVH:FBBatchFileFormat
+    """File format for Biovision BVH."""
     kFBBatchFileFormatC3D:FBBatchFileFormat
+    """File format for Vicon C3D."""
     kFBBatchFileFormatFBX:FBBatchFileFormat
+    """File format for FBX (animation only)."""
     kFBBatchFileFormatHTR:FBBatchFileFormat
+    """File format for Motion Analysis HTR."""
     kFBBatchFileFormatTRC:FBBatchFileFormat
+    """File format for Motion Analysis TRC."""
 class FBBatchOnContainsBatchTakes(_Enum):
+    """Different actions to perform when a scene already contains batch takes while in a batch process."""
     kFBBatchOnContainsBatchTakesSaveAllTakes:FBBatchOnContainsBatchTakes
+    """Save all the takes."""
     kFBBatchOnContainsBatchTakesSaveBatchTakesOnly:FBBatchOnContainsBatchTakes
+    """Save only the batch takes."""
 class FBBatchOnTakeExist(_Enum):
+    """Different actions to perform when a take already exist while in a batch process."""
     kFBBatchOnTakeExistOverwrite:FBBatchOnTakeExist
+    """Overwrite the take."""
     kFBBatchOnTakeExistSkip:FBBatchOnTakeExist
+    """Skip the take."""
 class FBBatchProcessType(_Enum):
+    """Different process type for the batch."""
     kFBBatchProcessTypeConvert:FBBatchProcessType
+    """Does the load and save."""
     kFBBatchProcessTypeLoad:FBBatchProcessType
+    """Load the files and plot the character with every take."""
     kFBBatchProcessTypeSave:FBBatchProcessType
+    """Save the takes in different files."""
 class FBBatchStatus(_Enum):
+    """Different return values of the Batch process."""
     kFBBatchStatusActorInputMarkersetHasNoReferenceModel:FBBatchStatus
     kFBBatchStatusActorInputMarkersetNotCorrectlyAssociated:FBBatchStatus
     kFBBatchStatusActorInputMarkersetNotSpecified:FBBatchStatus
@@ -139,32 +253,53 @@ class FBBatchStatus(_Enum):
     kFBBatchStatusOutputDirectoryNotValid:FBBatchStatus
     kFBBatchStatusSuccess:FBBatchStatus
 class FBBodyNodeId(_Enum):
+    """All body nodes."""
     kFBChestNodeId:FBBodyNodeId
+    """Spine 1."""
     kFBHeadNodeId:FBBodyNodeId
+    """Required."""
     kFBHipsNodeId:FBBodyNodeId
+    """Required."""
     kFBHipsTranslationNodeId:FBBodyNodeId
     kFBInvalidNodeId:FBBodyNodeId
     kFBLastNodeId:FBBodyNodeId
     kFBLastNodeId_Old:FBBodyNodeId
     kFBLeftAnkleNodeId:FBBodyNodeId
+    """Required."""
     kFBLeftCollarNodeId:FBBodyNodeId
     kFBLeftElbowNodeId:FBBodyNodeId
+    """Required."""
     kFBLeftElbowRollNode1Id:FBBodyNodeId
+    """New leaf roll bone."""
     kFBLeftElbowRollNode2Id:FBBodyNodeId
+    """New leaf roll bone."""
     kFBLeftElbowRollNode3Id:FBBodyNodeId
+    """New leaf roll bone."""
     kFBLeftElbowRollNode4Id:FBBodyNodeId
+    """New leaf roll bone."""
     kFBLeftElbowRollNode5Id:FBBodyNodeId
+    """New leaf roll bone."""
     kFBLeftElbowRollNodeId:FBBodyNodeId
     kFBLeftExtraFingerANodeId:FBBodyNodeId
+    """New extra finger bone."""
     kFBLeftExtraFingerBNodeId:FBBodyNodeId
+    """New extra finger bone."""
     kFBLeftExtraFingerCNodeId:FBBodyNodeId
+    """New extra finger bone."""
     kFBLeftExtraFingerDNodeId:FBBodyNodeId
+    """New extra finger bone."""
     kFBLeftExtraFingerInNodeId:FBBodyNodeId
+    """New extra finger bone."""
     kFBLeftExtraFootFingerANodeId:FBBodyNodeId
+    """New extra finger bone."""
     kFBLeftExtraFootFingerBNodeId:FBBodyNodeId
+    """New extra finger bone."""
     kFBLeftExtraFootFingerCNodeId:FBBodyNodeId
+    """New extra finger bone."""
     kFBLeftExtraFootFingerDNodeId:FBBodyNodeId
+    """New extra finger bone."""
     kFBLeftExtraFootFingerInNodeId:FBBodyNodeId
+    """New extra finger bone."""
     kFBLeftFootIndexANodeId:FBBodyNodeId
     kFBLeftFootIndexBNodeId:FBBodyNodeId
     kFBLeftFootIndexCNodeId:FBBodyNodeId
@@ -193,11 +328,17 @@ class FBBodyNodeId(_Enum):
     kFBLeftFootThumbInNodeId:FBBodyNodeId
     kFBLeftHandNodeId:FBBodyNodeId
     kFBLeftHipNodeId:FBBodyNodeId
+    """Required."""
     kFBLeftHipRollNode1Id:FBBodyNodeId
+    """New leaf roll bone."""
     kFBLeftHipRollNode2Id:FBBodyNodeId
+    """New leaf roll bone."""
     kFBLeftHipRollNode3Id:FBBodyNodeId
+    """New leaf roll bone."""
     kFBLeftHipRollNode4Id:FBBodyNodeId
+    """New leaf roll bone."""
     kFBLeftHipRollNode5Id:FBBodyNodeId
+    """New leaf roll bone."""
     kFBLeftHipRollNodeId:FBBodyNodeId
     kFBLeftIndexANodeId:FBBodyNodeId
     kFBLeftIndexBNodeId:FBBodyNodeId
@@ -205,11 +346,17 @@ class FBBodyNodeId(_Enum):
     kFBLeftIndexDNodeId:FBBodyNodeId
     kFBLeftIndexInNodeId:FBBodyNodeId
     kFBLeftKneeNodeId:FBBodyNodeId
+    """Required."""
     kFBLeftKneeRollNode1Id:FBBodyNodeId
+    """New leaf roll bone."""
     kFBLeftKneeRollNode2Id:FBBodyNodeId
+    """New leaf roll bone."""
     kFBLeftKneeRollNode3Id:FBBodyNodeId
+    """New leaf roll bone."""
     kFBLeftKneeRollNode4Id:FBBodyNodeId
+    """New leaf roll bone."""
     kFBLeftKneeRollNode5Id:FBBodyNodeId
+    """New leaf roll bone."""
     kFBLeftKneeRollNodeId:FBBodyNodeId
     kFBLeftMiddleANodeId:FBBodyNodeId
     kFBLeftMiddleBNodeId:FBBodyNodeId
@@ -227,11 +374,17 @@ class FBBodyNodeId(_Enum):
     kFBLeftRingDNodeId:FBBodyNodeId
     kFBLeftRingInNodeId:FBBodyNodeId
     kFBLeftShoulderNodeId:FBBodyNodeId
+    """Required."""
     kFBLeftShoulderRollNode1Id:FBBodyNodeId
+    """New leaf roll bone."""
     kFBLeftShoulderRollNode2Id:FBBodyNodeId
+    """New leaf roll bone."""
     kFBLeftShoulderRollNode3Id:FBBodyNodeId
+    """New leaf roll bone."""
     kFBLeftShoulderRollNode4Id:FBBodyNodeId
+    """New leaf roll bone."""
     kFBLeftShoulderRollNode5Id:FBBodyNodeId
+    """New leaf roll bone."""
     kFBLeftShoulderRollNodeId:FBBodyNodeId
     kFBLeftThumbANodeId:FBBodyNodeId
     kFBLeftThumbBNodeId:FBBodyNodeId
@@ -239,6 +392,7 @@ class FBBodyNodeId(_Enum):
     kFBLeftThumbDNodeId:FBBodyNodeId
     kFBLeftThumbInNodeId:FBBodyNodeId
     kFBLeftWristNodeId:FBBodyNodeId
+    """Required."""
     kFBNeck1NodeId:FBBodyNodeId
     kFBNeck2NodeId:FBBodyNodeId
     kFBNeck3NodeId:FBBodyNodeId
@@ -251,24 +405,41 @@ class FBBodyNodeId(_Enum):
     kFBNeckNodeId:FBBodyNodeId
     kFBReferenceNodeId:FBBodyNodeId
     kFBRightAnkleNodeId:FBBodyNodeId
+    """Required."""
     kFBRightCollarNodeId:FBBodyNodeId
     kFBRightElbowNodeId:FBBodyNodeId
+    """Required."""
     kFBRightElbowRollNode1Id:FBBodyNodeId
+    """New leaf roll bone."""
     kFBRightElbowRollNode2Id:FBBodyNodeId
+    """New leaf roll bone."""
     kFBRightElbowRollNode3Id:FBBodyNodeId
+    """New leaf roll bone."""
     kFBRightElbowRollNode4Id:FBBodyNodeId
+    """New leaf roll bone."""
     kFBRightElbowRollNode5Id:FBBodyNodeId
+    """New leaf roll bone."""
     kFBRightElbowRollNodeId:FBBodyNodeId
     kFBRightExtraFingerANodeId:FBBodyNodeId
+    """New extra finger bone."""
     kFBRightExtraFingerBNodeId:FBBodyNodeId
+    """New extra finger bone."""
     kFBRightExtraFingerCNodeId:FBBodyNodeId
+    """New extra finger bone."""
     kFBRightExtraFingerDNodeId:FBBodyNodeId
+    """New extra finger bone."""
     kFBRightExtraFingerInNodeId:FBBodyNodeId
+    """New extra finger bone."""
     kFBRightExtraFootFingerANodeId:FBBodyNodeId
+    """New extra finger bone."""
     kFBRightExtraFootFingerBNodeId:FBBodyNodeId
+    """New extra finger bone."""
     kFBRightExtraFootFingerCNodeId:FBBodyNodeId
+    """New extra finger bone."""
     kFBRightExtraFootFingerDNodeId:FBBodyNodeId
+    """New extra finger bone."""
     kFBRightExtraFootFingerInNodeId:FBBodyNodeId
+    """New extra finger bone."""
     kFBRightFootIndexANodeId:FBBodyNodeId
     kFBRightFootIndexBNodeId:FBBodyNodeId
     kFBRightFootIndexCNodeId:FBBodyNodeId
@@ -297,11 +468,17 @@ class FBBodyNodeId(_Enum):
     kFBRightFootThumbInNodeId:FBBodyNodeId
     kFBRightHandNodeId:FBBodyNodeId
     kFBRightHipNodeId:FBBodyNodeId
+    """Required."""
     kFBRightHipRollNode1Id:FBBodyNodeId
+    """New leaf roll bone."""
     kFBRightHipRollNode2Id:FBBodyNodeId
+    """New leaf roll bone."""
     kFBRightHipRollNode3Id:FBBodyNodeId
+    """New leaf roll bone."""
     kFBRightHipRollNode4Id:FBBodyNodeId
+    """New leaf roll bone."""
     kFBRightHipRollNode5Id:FBBodyNodeId
+    """New leaf roll bone."""
     kFBRightHipRollNodeId:FBBodyNodeId
     kFBRightIndexANodeId:FBBodyNodeId
     kFBRightIndexBNodeId:FBBodyNodeId
@@ -309,11 +486,17 @@ class FBBodyNodeId(_Enum):
     kFBRightIndexDNodeId:FBBodyNodeId
     kFBRightIndexInNodeId:FBBodyNodeId
     kFBRightKneeNodeId:FBBodyNodeId
+    """Required."""
     kFBRightKneeRollNode1Id:FBBodyNodeId
+    """New leaf roll bone."""
     kFBRightKneeRollNode2Id:FBBodyNodeId
+    """New leaf roll bone."""
     kFBRightKneeRollNode3Id:FBBodyNodeId
+    """New leaf roll bone."""
     kFBRightKneeRollNode4Id:FBBodyNodeId
+    """New leaf roll bone."""
     kFBRightKneeRollNode5Id:FBBodyNodeId
+    """New leaf roll bone."""
     kFBRightKneeRollNodeId:FBBodyNodeId
     kFBRightMiddleANodeId:FBBodyNodeId
     kFBRightMiddleBNodeId:FBBodyNodeId
@@ -331,11 +514,17 @@ class FBBodyNodeId(_Enum):
     kFBRightRingDNodeId:FBBodyNodeId
     kFBRightRingInNodeId:FBBodyNodeId
     kFBRightShoulderNodeId:FBBodyNodeId
+    """Required."""
     kFBRightShoulderRollNode1Id:FBBodyNodeId
+    """New leaf roll bone."""
     kFBRightShoulderRollNode2Id:FBBodyNodeId
+    """New leaf roll bone."""
     kFBRightShoulderRollNode3Id:FBBodyNodeId
+    """New leaf roll bone."""
     kFBRightShoulderRollNode4Id:FBBodyNodeId
+    """New leaf roll bone."""
     kFBRightShoulderRollNode5Id:FBBodyNodeId
+    """New leaf roll bone."""
     kFBRightShoulderRollNodeId:FBBodyNodeId
     kFBRightThumbANodeId:FBBodyNodeId
     kFBRightThumbBNodeId:FBBodyNodeId
@@ -343,6 +532,7 @@ class FBBodyNodeId(_Enum):
     kFBRightThumbDNodeId:FBBodyNodeId
     kFBRightThumbInNodeId:FBBodyNodeId
     kFBRightWristNodeId:FBBodyNodeId
+    """Required."""
     kFBSpine2NodeId:FBBodyNodeId
     kFBSpine3NodeId:FBBodyNodeId
     kFBSpine4NodeId:FBBodyNodeId
@@ -352,48 +542,89 @@ class FBBodyNodeId(_Enum):
     kFBSpine8NodeId:FBBodyNodeId
     kFBSpine9NodeId:FBBodyNodeId
     kFBWaistNodeId:FBBodyNodeId
+    """Required, Spine 0."""
 class FBBodyPartId(_Enum):
+    """Body part for character."""
     kFBCtrlSetPartChest:FBBodyPartId
+    """Chest Body Part."""
     kFBCtrlSetPartHead:FBBodyPartId
+    """Head Body Part."""
     kFBCtrlSetPartHips:FBBodyPartId
+    """Hips Body Part."""
     kFBCtrlSetPartLeftArm:FBBodyPartId
+    """Left Arm Body Part."""
     kFBCtrlSetPartLeftFoot:FBBodyPartId
+    """Left Foot Body Part."""
     kFBCtrlSetPartLeftHand:FBBodyPartId
+    """Left Hand Body Part."""
     kFBCtrlSetPartLeftLeg:FBBodyPartId
+    """Left Leg Body Part."""
     kFBCtrlSetPartNone:FBBodyPartId
+    """No part selected."""
     kFBCtrlSetPartRightArm:FBBodyPartId
+    """Right Arm Body Part."""
     kFBCtrlSetPartRightFoot:FBBodyPartId
+    """Right Foot Body Part."""
     kFBCtrlSetPartRightHand:FBBodyPartId
+    """Right Hand Body Part."""
     kFBCtrlSetPartRightLeg:FBBodyPartId
+    """Right Leg Body Part."""
     kFBLastCtrlSetPartIndex:FBBodyPartId
+    """Part count."""
 class FBBorderStyle(_Enum):
+    """Different border types available."""
     kFBEmbossBorder:FBBorderStyle
+    """Embossed border."""
     kFBEmbossEdgeSmoothBorder:FBBorderStyle
+    """Edged smooth border."""
     kFBEmbossSmoothBorder:FBBorderStyle
+    """Smooth border."""
     kFBEmbossSmoothEdgeBorder:FBBorderStyle
+    """Smoothed edges border."""
     kFBHighlightBorder:FBBorderStyle
+    """Highlight border."""
     kFBNoBorder:FBBorderStyle
+    """No border."""
     kFBPickingBorder:FBBorderStyle
+    """Picking border."""
     kFBStandardBorder:FBBorderStyle
+    """Standard border."""
     kFBStandardEdgeSmoothBorder:FBBorderStyle
+    """Standard edged smooth border."""
     kFBStandardSmoothBorder:FBBorderStyle
+    """Standard smooth border."""
     kFBStandardSmoothEdgeBorder:FBBorderStyle
+    """Standard smoothed edges border."""
 class FBButtonLook(_Enum):
+    """Button look."""
     kFBLookAlphaBackground:FBButtonLook
     kFBLookColorChange:FBButtonLook
     kFBLookFlat:FBButtonLook
     kFBLookNormal:FBButtonLook
     kFBLookPush:FBButtonLook
 class FBButtonState(_Enum):
+    """Possible button states.
+    Currently, only two button states are possible."""
     kFBButtonState0:FBButtonState
+    """State is 0, usually meaning not active."""
     kFBButtonState1:FBButtonState
+    """State is 1, usually meaning active."""
 class FBButtonStyle(_Enum):
+    """Style of buttons.
+    # Warning
+    Not all button styles are completely functional."""
     kFB2States:FBButtonStyle
+    """2 state button (2 colors)."""
     kFBBitmap2States:FBButtonStyle
+    """2 state button with 2 bitmaps."""
     kFBBitmapButton:FBButtonStyle
+    """Button with bitmap on it."""
     kFBCheckbox:FBButtonStyle
+    """Check box."""
     kFBPushButton:FBButtonStyle
+    """Normal button."""
     kFBRadioButton:FBButtonStyle
+    """Radio button."""
 class FBCameraAntiAliasingMethod(_Enum):
     kFBAntiAliasingSoftware:FBCameraAntiAliasingMethod
     kFBAntialiasingMultiSamplingOnyx:FBCameraAntiAliasingMethod
@@ -464,37 +695,62 @@ class FBCameraViewPlaneMode(_Enum):
     kFBViewPlaneDisabled:FBCameraViewPlaneMode
     kFBViewPlaneWhenMedia:FBCameraViewPlaneMode
 class FBCellStyle(_Enum):
+    """Different styles of spreadsheet cell styles."""
     kFBCellStyle2StatesButton:FBCellStyle
+    """2 state button."""
     kFBCellStyle3StatesButton:FBCellStyle
+    """3 state button."""
     kFBCellStyleButton:FBCellStyle
+    """Button."""
     kFBCellStyleDefault:FBCellStyle
+    """Default cell style."""
     kFBCellStyleDouble:FBCellStyle
+    """Double."""
     kFBCellStyleInteger:FBCellStyle
+    """Integer."""
     kFBCellStyleMenu:FBCellStyle
+    """Menu."""
     kFBCellStyleString:FBCellStyle
+    """String."""
     kFBCellStyleTime:FBCellStyle
+    """Time."""
     kFBCellStyleView:FBCellStyle
+    """View (user definable, you need to specify the view using  FBSpread::SetCellView() )."""
     kFBCellStyleVoid:FBCellStyle
+    """Void (no value)."""
 class FBCharacterContactBehaviour(_Enum):
+    """Character Contact Behaviour."""
     kFBLastContactBehaviour:FBCharacterContactBehaviour
     kFBParamContactAlwaysSync:FBCharacterContactBehaviour
     kFBParamContactNeverSync:FBCharacterContactBehaviour
     kFBParamContactSyncOnKey:FBCharacterContactBehaviour
 class FBCharacterExtensionRetargetMode(_Enum):
+    """Character extension Retarget Mode"""
     kFBRetargetModeAuto:FBCharacterExtensionRetargetMode
+    """Auto Mapping."""
     kFBRetargetModeManual:FBCharacterExtensionRetargetMode
+    """Manually Assign."""
     kFBRetargetModeOff:FBCharacterExtensionRetargetMode
+    """Off."""
 class FBCharacterExtensionStancePoseMode(_Enum):
+    """Character Extension Stance Pose mode when the stance pose is activated on a character."""
     kFBStancePose_Always:FBCharacterExtensionStancePoseMode
+    """Character extension will always go in stance pose."""
     kFBStancePose_Never:FBCharacterExtensionStancePoseMode
+    """Character extension will never go in stance pose."""
     kFBStancePose_Reference_Selected:FBCharacterExtensionStancePoseMode
+    """Character extension will go in stance pose if its reference is selected."""
     kFBStancePose_Selected:FBCharacterExtensionStancePoseMode
+    """Character extension will go in stance pose if it is selected."""
     kFBStancePose_Self_Or_Reference_Selected:FBCharacterExtensionStancePoseMode
+    """Character extension will go in stance pose if it is selected or if its reference is selected."""
 class FBCharacterHipsTranslationMode(_Enum):
+    """Character Hips Translation modes."""
     kFBLastHipsTranslationMode:FBCharacterHipsTranslationMode
     kFBParamHipsTranslationBodyRigid:FBCharacterHipsTranslationMode
     kFBParamHipsTranslationWorldRigid:FBCharacterHipsTranslationMode
 class FBCharacterInputType(_Enum):
+    """Character Input/Output types."""
     kFBCharacterInputActor:FBCharacterInputType
     kFBCharacterInputCharacter:FBCharacterInputType
     kFBCharacterInputMarkerSet:FBCharacterInputType
@@ -502,6 +758,7 @@ class FBCharacterInputType(_Enum):
     kFBCharacterInputStance:FBCharacterInputType
     kFBCharacterOutputMarkerSet:FBCharacterInputType
 class FBCharacterKeyingMode(_Enum):
+    """Character keying modes."""
     kFBCharacterKeyingBodyPart:FBCharacterKeyingMode
     kFBCharacterKeyingFullBody:FBCharacterKeyingMode
     kFBCharacterKeyingFullBodyNoPull:FBCharacterKeyingMode
@@ -513,9 +770,11 @@ class FBCharacterLoadAnimationMethod(_Enum):
     kFBCharacterLoadPlotIfSampled:FBCharacterLoadAnimationMethod
     kFBCharacterLoadRetarget:FBCharacterLoadAnimationMethod
 class FBCharacterPlotWhere(_Enum):
+    """Where to plot a character."""
     kFBCharacterPlotOnControlRig:FBCharacterPlotWhere
     kFBCharacterPlotOnSkeleton:FBCharacterPlotWhere
 class FBCharacterPoseFlag(_Enum):
+    """Character Pose Options flags."""
     kFBCharacterPoseGravity:FBCharacterPoseFlag
     kFBCharacterPoseMatchFKTranslation:FBCharacterPoseFlag
     kFBCharacterPoseMatchPivot:FBCharacterPoseFlag
@@ -527,195 +786,367 @@ class FBCharacterPoseFlag(_Enum):
     kFBCharacterPoseNoFlag:FBCharacterPoseFlag
     kFBCharacterPoseUseKeyingGroup:FBCharacterPoseFlag
 class FBCharacterPoseKeyingMode(_Enum):
+    """Character Pose Keying Mode."""
     kFBCharacterPoseKeyingModeBodyPart:FBCharacterPoseKeyingMode
     kFBCharacterPoseKeyingModeCount:FBCharacterPoseKeyingMode
     kFBCharacterPoseKeyingModeFullBody:FBCharacterPoseKeyingMode
     kFBCharacterPoseKeyingModeInvalid:FBCharacterPoseKeyingMode
 class FBCharacterResetProperties(_Enum):
+    """Character Reset Properties Type."""
     kFBCharacterResetPropertiesAll:FBCharacterResetProperties
     kFBCharacterResetPropertiesDefinition:FBCharacterResetProperties
     kFBCharacterResetPropertiesSolving:FBCharacterResetProperties
 class FBCharacterRollSolver(_Enum):
+    """Character Roll Solver version."""
     kFBLastRollSolver:FBCharacterRollSolver
     kFBParamRollSolver70:FBCharacterRollSolver
     kFBParamRollSolver75:FBCharacterRollSolver
 class FBClipEnd(_Enum):
+    """Clip end actions."""
     kFBClipEndEnd:FBClipEnd
+    """On clip end stop clip."""
     kFBClipEndLoop:FBClipEnd
+    """On clip end loop clip."""
 class FBClusterMode(_Enum):
+    """Different clustering modes."""
     kFBClusterAdditive:FBClusterMode
+    """Add the values together."""
     kFBClusterNormalize:FBClusterMode
+    """Normalize (values between 0.0 and 1.0 )"""
     kFBClusterTotal100:FBClusterMode
+    """The balanced values will add up to 100 percent."""
 class FBCommPortType(_Enum):
+    """Communication port type."""
     kFBInternal:FBCommPortType
+    """Internal."""
     kFBPhysical:FBCommPortType
+    """Physical."""
     kFBVirtual:FBCommPortType
+    """Virtual."""
 class FBCommType(_Enum):
+    """Communications type.
+    Different base types of communications. There is always the 'other' type in order to use another type of communication."""
     kFBCommTypeNetworkTCP:FBCommType
+    """Network (TCP) device."""
     kFBCommTypeNetworkUDP:FBCommType
+    """Network (UDP) device."""
     kFBCommTypeNone:FBCommType
+    """A non-communicating device."""
     kFBCommTypeOther:FBCommType
+    """Any other type of communications."""
     kFBCommTypeSerial:FBCommType
+    """Serial communications."""
     kFBCommTypeSharedMemory:FBCommType
+    """Accessing shared memory."""
     kFBCommTypeSimulator:FBCommType
+    """Software simulator."""
 class FBCommandState(_Enum):
+    """FBCommandState."""
     kFBCommandStateMute:FBCommandState
+    """Mute."""
     kFBCommandStateMuteBecauseSolo:FBCommandState
+    """Mute because of solo."""
     kFBCommandStateSolo:FBCommandState
+    """Solo."""
     kFBCommandStateStandard:FBCommandState
+    """Standard."""
 class FBConnectionAction(_Enum):
+    """Possible actions when a notify plug event occurs."""
     kFBBeginChange:FBConnectionAction
+    """Begin change on destination."""
     kFBBeginReplaceDst:FBConnectionAction
+    """Begin replace destination during merge."""
     kFBBeginReplaceSrc:FBConnectionAction
+    """Begin replace source during merge."""
     kFBCandidate:FBConnectionAction
+    """Data candidate event, before the data is set."""
     kFBCandidateGlobal:FBConnectionAction
+    """Data candidate event, global candidate."""
     kFBCandidated:FBConnectionAction
+    """Data candidate event, after the data is set."""
     kFBConnect:FBConnectionAction
     kFBConnectDst:FBConnectionAction
+    """Connect destination to source."""
     kFBConnectSrc:FBConnectionAction
+    """Connect source to destination."""
     kFBConnected:FBConnectionAction
     kFBConnectedDst:FBConnectionAction
+    """Connected destination to source."""
     kFBConnectedOwner:FBConnectionAction
+    """Connected owner to destination."""
     kFBConnectedSrc:FBConnectionAction
+    """Connected source to destination."""
     kFBDescription:FBConnectionAction
+    """Component description event."""
     kFBDestroy:FBConnectionAction
+    """Component destroy."""
     kFBDetached:FBConnectionAction
+    """Component detached from scene."""
     kFBDisconnect:FBConnectionAction
     kFBDisconnectDst:FBConnectionAction
+    """Disconnect destination from source."""
     kFBDisconnectOwner:FBConnectionAction
+    """Disconnect owner from destination."""
     kFBDisconnectSrc:FBConnectionAction
+    """Disconnect source from destination."""
     kFBDisconnected:FBConnectionAction
     kFBDisconnectedDst:FBConnectionAction
+    """Disconnected destination from source."""
     kFBDisconnectedSrc:FBConnectionAction
+    """Disconnected source from destination."""
     kFBEndChange:FBConnectionAction
+    """End change on destination."""
     kFBEndReplaceDst:FBConnectionAction
+    """End replace destination during merge."""
     kFBEndReplaceSrc:FBConnectionAction
+    """End replace source during merge."""
     kFBKeyingCandidate:FBConnectionAction
+    """Component keying candidate event."""
     kFBKeyingCurveChange:FBConnectionAction
+    """Component curve has changed."""
     kFBKeyingCurveEndChange:FBConnectionAction
+    """Component curve changes in Dopesheet completed."""
     kFBKeyingDeleteKey:FBConnectionAction
+    """Component keying delete event."""
     kFBKeyingKey:FBConnectionAction
+    """Component keying add event."""
     kFBPrefixRename:FBConnectionAction
+    """Component prefix is going to be renamed."""
     kFBPrefixRenamed:FBConnectionAction
+    """Component prefix has been renamed."""
     kFBRename:FBConnectionAction
+    """Component is going to be renamed."""
     kFBRenamed:FBConnectionAction
+    """Component has been renamed."""
     kFBReorderSrc:FBConnectionAction
+    """Reorder of source."""
     kFBReorderedSrc:FBConnectionAction
+    """Source has been reordered."""
     kFBRequestConnectDst:FBConnectionAction
+    """Request connection of destination to source."""
     kFBRequestConnectSrc:FBConnectionAction
+    """Request connection of source to destination."""
     kFBRequestDisconnectDst:FBConnectionAction
+    """Request disconnection of destination to source."""
     kFBRequestDisconnectSrc:FBConnectionAction
+    """Request disconnection of source to destination."""
     kFBRequestPrefixRename:FBConnectionAction
+    """Compoent request Prefix Rename."""
     kFBRequestRename:FBConnectionAction
+    """Component request rename."""
     kFBReselect:FBConnectionAction
+    """Component re-selection."""
     kFBSelect:FBConnectionAction
+    """Component selection."""
     kFBUnselect:FBConnectionAction
+    """Component de-selection."""
 class FBConnectionType(_Enum):
+    """Connection types available between plugs."""
     kFBConnectionTypeNone:FBConnectionType
+    """Default connection type."""
     kFBConnectionTypeSystem:FBConnectionType
+    """System connection type."""
 class FBConsoleChannelType(_Enum):
+    """Console channel types."""
     kFBConsoleButton:FBConsoleChannelType
+    """Button."""
     kFBConsoleDisplay:FBConsoleChannelType
+    """Display."""
     kFBConsoleEncoder:FBConsoleChannelType
+    """Generic encoder."""
     kFBConsoleJoystick:FBConsoleChannelType
+    """Joystick."""
     kFBConsoleKey:FBConsoleChannelType
+    """Key."""
     kFBConsoleNull:FBConsoleChannelType
+    """Generic type."""
     kFBConsoleSlider:FBConsoleChannelType
+    """Slider."""
     kFBConsoleTransport:FBConsoleChannelType
+    """Transport."""
 class FBConstantKeyReducerThresholdType(_Enum):
+    """Different threshold types for the Constant Key Reducer filter."""
     kFBDefaultThreshold:FBConstantKeyReducerThresholdType
+    """All other curves threshold."""
     kFBRotationThreshold:FBConstantKeyReducerThresholdType
+    """Rotation threshold."""
     kFBScalingThreshold:FBConstantKeyReducerThresholdType
+    """Scaling threshold."""
     kFBTranslationThreshold:FBConstantKeyReducerThresholdType
+    """Translation threshold."""
 class FBConstructionHistoryState(_Enum):
+    """Construction history manager state."""
     kFBConstructionHistory_Listening:FBConstructionHistoryState
+    """Construction history is currently listening and recording operations."""
     kFBConstructionHistory_Replaying:FBConstructionHistoryState
+    """Construction history is currently replaying an operation."""
 class FBControlSetType(_Enum):
+    """Character ControlSet type."""
     kFBControlSetTypeFKIK:FBControlSetType
     kFBControlSetTypeIKOnly:FBControlSetType
     kFBControlSetTypeNone:FBControlSetType
 class FBControllerMode(_Enum):
+    """Controller modes for optical model."""
     kFBControllerLabelling:FBControllerMode
+    """Labelling controller."""
     kFBControllerNone:FBControllerMode
+    """No controller mode."""
     kFBControllerRigidBody:FBControllerMode
+    """Rigid body controller."""
     kFBControllerSegment:FBControllerMode
+    """Segment controller."""
 class FBDataAsStringFlag(_Enum):
+    """FBDataAsStringFlag."""
     kFBDataAsStringPersistence:FBDataAsStringFlag
+    """Convert data to string type for storage."""
     kFBDataAsStringUI:FBDataAsStringFlag
+    """Convert data to string type for UI display."""
 class FBDeckTransportMode(_Enum):
+    """FBDeckTransportMode."""
     kFBDeckTransportMain:FBDeckTransportMode
+    """Transport main."""
     kFBDeckTransportMaster:FBDeckTransportMode
+    """K_DEPRECATED_2021, use kFBDeckTransportMain."""
     kFBDeckTransportNone:FBDeckTransportMode
+    """No transport interaction."""
     kFBDeckTransportSlave:FBDeckTransportMode
+    """K_DEPRECATED_2021, use kFBDeckTransportSync."""
     kFBDeckTransportSync:FBDeckTransportMode
+    """Sync to transport controls."""
 class FBDeformerType(_Enum):
+    """Determine the deformer type.  kFBDeformerSkeleton  Skeleton (Bone) driven skinning deformer. kFBDeformerPointCache  Pre-recorded point cache deformer. kFBGeometryMapping_BY_POLYGON_VERTEX  There will be one mapping coordinate for each vertex, for each polygon/strip it is part of. This means that a vertex will have as many mapping coordinates as polygons it is part of. kFBGeometryMapping_BY_POLYGON  There can be only one mapping coordinate for the whole polygon/strip. kFBGeometryMapping_BY_EDGE  There will be one mapping coordinate for each unique edge in the mesh. This is meant to be used with smoothing layer elements. kFBGeometryMapping_ALL_SAME  There can be only one mapping coordinate for the whole surface."""
     kFBDeformerPointCache:FBDeformerType
     kFBDeformerSkeleton:FBDeformerType
     kFBDeformerUnkown:FBDeformerType
 class FBDeviceKeyboardKey(_Enum):
+    """Keyboard keys (for input)."""
     kFBDKey0:FBDeviceKeyboardKey
+    """'0'."""
     kFBDKey1:FBDeviceKeyboardKey
+    """'1'."""
     kFBDKey2:FBDeviceKeyboardKey
+    """'2'."""
     kFBDKey3:FBDeviceKeyboardKey
+    """'3'."""
     kFBDKey4:FBDeviceKeyboardKey
+    """'4'."""
     kFBDKey5:FBDeviceKeyboardKey
+    """'5'."""
     kFBDKey6:FBDeviceKeyboardKey
+    """'6'."""
     kFBDKey7:FBDeviceKeyboardKey
+    """'7'."""
     kFBDKey8:FBDeviceKeyboardKey
+    """'8'."""
     kFBDKey9:FBDeviceKeyboardKey
+    """'9'."""
     kFBDKeyArrowDown:FBDeviceKeyboardKey
+    """Down."""
     kFBDKeyArrowLeft:FBDeviceKeyboardKey
+    """Left."""
     kFBDKeyArrowRight:FBDeviceKeyboardKey
+    """Right."""
     kFBDKeyArrowUp:FBDeviceKeyboardKey
+    """Up."""
     kFBDKeyEnd:FBDeviceKeyboardKey
+    """End."""
     kFBDKeyEscape:FBDeviceKeyboardKey
+    """Escape."""
     kFBDKeyF1:FBDeviceKeyboardKey
+    """'F1'."""
     kFBDKeyF10:FBDeviceKeyboardKey
+    """'F10'."""
     kFBDKeyF11:FBDeviceKeyboardKey
+    """'F11'."""
     kFBDKeyF12:FBDeviceKeyboardKey
+    """'F12'."""
     kFBDKeyF2:FBDeviceKeyboardKey
+    """'F2'."""
     kFBDKeyF3:FBDeviceKeyboardKey
+    """'F3'."""
     kFBDKeyF4:FBDeviceKeyboardKey
+    """'F4'."""
     kFBDKeyF5:FBDeviceKeyboardKey
+    """'F5'"""
     kFBDKeyF6:FBDeviceKeyboardKey
+    """'F6'."""
     kFBDKeyF7:FBDeviceKeyboardKey
+    """'F7'."""
     kFBDKeyF8:FBDeviceKeyboardKey
+    """'F8'."""
     kFBDKeyF9:FBDeviceKeyboardKey
+    """'F9'."""
     kFBDKeyHome:FBDeviceKeyboardKey
+    """Home."""
     kFBDKeyPageDown:FBDeviceKeyboardKey
+    """Page Down."""
     kFBDKeyPageUp:FBDeviceKeyboardKey
+    """Page Up."""
     kFBDKeyReturn:FBDeviceKeyboardKey
+    """Return."""
     kFBDKeySpace:FBDeviceKeyboardKey
+    """Space bar."""
 class FBDeviceSamplingMode(_Enum):
+    """Recording types.
+    The different values for this will control the way the keys are added when the device is being recorded. There are four different types of recording keys for devices: Hardware Timestamping. This case is when the hardware provides timestamps with each packet. Hardware Frequency. The hardware is guaranteed to provide packets at a given frequency. Auto Frequency Packets are coming in at a fixed, unknown frequency. The recorded data will be resampled to be equidistant. Software Timestamping. The application will provide a timestamp for each packet depending on when it receives the data."""
     kFBAutoFrequency:FBDeviceSamplingMode
+    """Device is running at unknown, fixed frequency."""
     kFBHardwareFrequency:FBDeviceSamplingMode
+    """Device is running at known, fixed frequency."""
     kFBHardwareTimestamp:FBDeviceSamplingMode
+    """Device supplies timestamp."""
     kFBSoftwareTimestamp:FBDeviceSamplingMode
+    """The software will timestamp packets as they arrive."""
 class FBDisplayMode(_Enum):
+    """Model display options."""
     kFBDisplayModeCount:FBDisplayMode
+    """End of enum, this value indicates the number of display modes available."""
     kFBDisplayModeDefault:FBDisplayMode
+    """Use default display mode."""
     kFBDisplayModeFlatShade:FBDisplayMode
+    """Flat shading."""
     kFBDisplayModeHardShade:FBDisplayMode
+    """Hard shading."""
     kFBDisplayModeTexture:FBDisplayMode
+    """Textures are displayed."""
     kFBDisplayModeWireFrame:FBDisplayMode
+    """Wire-frame rendering."""
 class FBDisplayWhat(_Enum):
+    """Model display mask This mask determines what types of models are displayed by the renderer."""
     kFBDisplay3dIcon:FBDisplayWhat
+    """3D icons are displayed (3D icons are 3D elements that do not exist in the scene)."""
     kFBDisplayAll:FBDisplayWhat
+    """Everything is displayed."""
     kFBDisplayCamera:FBDisplayWhat
+    """Cameras are displayed."""
     kFBDisplayCenter:FBDisplayWhat
+    """Centers are displayed."""
     kFBDisplayLight:FBDisplayWhat
+    """Lights are displayed."""
     kFBDisplayMarker:FBDisplayWhat
+    """Markers are displayed."""
     kFBDisplayNone:FBDisplayWhat
+    """Nothing is displayed."""
     kFBDisplayNull:FBDisplayWhat
+    """Null models are displayed."""
     kFBDisplaySkeleton:FBDisplayWhat
+    """Skeletons and bones are displayed."""
 class FBDragAndDropState(_Enum):
+    """State of Drag and Drop."""
     kFBDragAndDropBegin:FBDragAndDropState
+    """Begin a drag and drop sequence."""
     kFBDragAndDropDrag:FBDragAndDropState
+    """Dragging."""
     kFBDragAndDropDrop:FBDragAndDropState
+    """Dropping."""
     kFBDragAndDropEnd:FBDragAndDropState
+    """End of drag and drop."""
     kFBDragOnEmpty:FBDragAndDropState
+    """Empty the drag and drop stack."""
     kFBDragOnEmptyDrop:FBDragAndDropState
+    """Dropping empty stack."""
 class FBEffectorId(_Enum):
+    """All effector nodes."""
     kFBChestEndEffectorId:FBEffectorId
     kFBChestOriginEffectorId:FBEffectorId
     kFBHeadEffectorId:FBEffectorId
@@ -763,6 +1194,7 @@ class FBEffectorId(_Enum):
     kFBRightShoulderEffectorId:FBEffectorId
     kFBRightWristEffectorId:FBEffectorId
 class FBEffectorSetID(_Enum):
+    """Effector ID identifier."""
     EFBffectorSetAux7:FBEffectorSetID
     FBEffectorSetAux1:FBEffectorSetID
     FBEffectorSetAux10:FBEffectorSetID
@@ -785,6 +1217,8 @@ class FBElementAction(_Enum):
     kFBElementActionMerge:FBElementAction
     kFBElementActionSave:FBElementAction
 class FBEventAnimationNodeType(_Enum):
+    """Event based on animation node.
+    Types of transformation."""
     kFBEventAnimationNodeConstraintChange:FBEventAnimationNodeType
     kFBEventAnimationNodeDataChange:FBEventAnimationNodeType
     kFBEventAnimationNodeNone:FBEventAnimationNodeType
@@ -822,40 +1256,70 @@ class FBEventName(_Enum):
     kFBEventTreeSelect:FBEventName
     kFBEventUnbindSDK:FBEventName
 class FBExistingClipAction(_Enum):
+    """Action to perform, when preparing an Audio In object to record, when the action clip associated to the recording path is already in the scene."""
     kFBExistingClipAbortOperation:FBExistingClipAction
+    """Cancel preparing the audio in to record."""
     kFBExistingClipAskUser:FBExistingClipAction
+    """Ask the user for desired operation via a dialog."""
     kFBExistingClipRemove:FBExistingClipAction
+    """Remove the action clip from the scene."""
 class FBExistingFileAction(_Enum):
+    """Action to perform, when preparing an Audio In object to record, when the action clip associated to the recording path already exists on disk and is not empty."""
     kFBExistingFileAbortOperation:FBExistingFileAction
+    """Cancel preparing the audio in to record."""
     kFBExistingFileAppend:FBExistingFileAction
+    """Append the new recording to existing recording. Warning: Be sure that the current file format match your recording option!"""
     kFBExistingFileAskUser:FBExistingFileAction
+    """Ask the user for desired operation via a dialog."""
     kFBExistingFileOverwrite:FBExistingFileAction
+    """Overwrite the existing file on disk."""
 class FBExtrapolationMode(_Enum):
+    """Modes for pre / post extrapolation."""
     kFCurveExtrapolationConst:FBExtrapolationMode
     kFCurveExtrapolationKeepSlope:FBExtrapolationMode
     kFCurveExtrapolationMirrorRepetition:FBExtrapolationMode
     kFCurveExtrapolationRelativeRepetition:FBExtrapolationMode
     kFCurveExtrapolationRepetition:FBExtrapolationMode
 class FBFCurveEventType(_Enum):
+    """This enum indicates what modification was made to a tracked FCurve."""
     kFBFCurveEventTypeDerivativedChanged:FBFCurveEventType
+    """A key left/right/both derivative was changed, please note that this event can affect the key specified in the event index and the following key."""
     kFBFCurveEventTypeKeyAdded:FBFCurveEventType
+    """A new key was added."""
     kFBFCurveEventTypeKeyBiasChanged:FBFCurveEventType
+    """A key bias was changed (only valid on TCB key)"""
     kFBFCurveEventTypeKeyContinuityChanged:FBFCurveEventType
+    """A key continuity was changed (only valid on TCB key)"""
     kFBFCurveEventTypeKeyInterpolationChanged:FBFCurveEventType
+    """A key interpolation mode was changed."""
     kFBFCurveEventTypeKeyMassOperation:FBFCurveEventType
+    """An operation affecting multiple keys was made."""
     kFBFCurveEventTypeKeyPostExtrapolationChanged:FBFCurveEventType
+    """A curve post-extrapolation value was changed."""
     kFBFCurveEventTypeKeyPreExtrapolationChanged:FBFCurveEventType
+    """A curve pre-extrapolation value was changed."""
     kFBFCurveEventTypeKeyRemoved:FBFCurveEventType
+    """A key was removed."""
     kFBFCurveEventTypeKeyTangentBreakChanged:FBFCurveEventType
+    """A key break mode was changed."""
     kFBFCurveEventTypeKeyTangentChanged:FBFCurveEventType
+    """A key tangent was changed."""
     kFBFCurveEventTypeKeyTangentClampModeChanged:FBFCurveEventType
+    """A key clamping mode was changed."""
     kFBFCurveEventTypeKeyTangentConstantChanged:FBFCurveEventType
+    """A key constant mode was changed."""
     kFBFCurveEventTypeKeyTensionChanged:FBFCurveEventType
+    """A key tension was changed (only valid on TCB key)"""
     kFBFCurveEventTypeKeyTimeChanged:FBFCurveEventType
+    """A key time was changed."""
     kFBFCurveEventTypeKeyValueChanged:FBFCurveEventType
+    """A key value was changed."""
     kFBFCurveEventTypeKeyVelocityChanged:FBFCurveEventType
+    """A key velocity was changed."""
     kFBFCurveEventTypeKeyWeightChanged:FBFCurveEventType
+    """A key left/right weight was changed, please note that this event can affect the key specified in the event index and the following key."""
     kFBFCurveEventTypeUnknownOperation:FBFCurveEventType
+    """Invalid event."""
 class FBFileFormatAndVersion(_Enum):
     kFBDefaultFormatAndVersion:FBFileFormatAndVersion
     kFBFBX2010:FBFileFormatAndVersion
@@ -868,18 +1332,32 @@ class FBFileFormatAndVersion(_Enum):
     kFBFBX2019:FBFileFormatAndVersion
     kFBFBX2020:FBFileFormatAndVersion
 class FBFileMonitoringType(_Enum):
+    """File Monitoring Type."""
     kFBFileMonitoring_ANIMATIONCLIP:FBFileMonitoringType
+    """Animation clip change monitoring."""
     kFBFileMonitoring_FILEREFERENCE:FBFileMonitoringType
+    """File Reference change monitoring."""
     kFBFileMonitoring_InvalidIndex:FBFileMonitoringType
+    """Invalid value."""
     kFBFileMonitoring_MAINSCENE:FBFileMonitoringType
+    """Main Scene change monitoring."""
     kFBFileMonitoring_PYTHONEDITORSCRIPT:FBFileMonitoringType
+    """Python Editor Script change monitoring."""
 class FBFilePopupStyle(_Enum):
+    """Different types of file popup windows."""
     kFBFilePopupOpen:FBFilePopupStyle
+    """Open file popup (Shows 'Open Directory')."""
     kFBFilePopupSave:FBFilePopupStyle
+    """Save file popup (Shows 'Save Directory')."""
 class FBFilterType(_Enum):
+    """Filter types.
+    A filter can be of one or both types in order to process data on single or multiple curves of data. Ex: a gimble killer filter needs to be of type vector because the three curves are inter-dependant."""
     kFBFilterNumber:FBFilterType
+    """Filter single FCurves."""
     kFBFilterVector:FBFilterType
+    """Filter a vector (3 FCurves)."""
 class FBFloorContactID(_Enum):
+    """Floor contact for the given index."""
     FBLastCharacterMember:FBFloorContactID
     FBLeftFootMemberIndex:FBFloorContactID
     FBLeftHandMemberIndex:FBFloorContactID
@@ -890,31 +1368,51 @@ class FBFogMode(_Enum):
     kFBFogModeLinear:FBFogMode
     kFBFogModeSquareExponential:FBFogMode
 class FBGapMode(_Enum):
+    """Gap interpolation modes."""
     kFBGapBezier:FBGapMode
+    """Bezier interpolation."""
     kFBGapConstant:FBGapMode
+    """Constant interpolation."""
     kFBGapCurve:FBGapMode
+    """Cubic/curve interpolation."""
     kFBGapLinear:FBGapMode
+    """Linear interpolation."""
     kFBGapRigidBody:FBGapMode
+    """Use rigid body information."""
     kFBGapSample:FBGapMode
+    """Sampled data."""
 class FBGenerationMode(_Enum):
+    """Generation modes for optical model."""
     kFBGenerationFast:FBGenerationMode
+    """Fast re-generation."""
     kFBGenerationNone:FBGenerationMode
+    """No re-generation."""
 class FBGeometryArrayElementType(_Enum):
+    """Type of data when requesting an array."""
     kFBGeometryArrayElementType_Float:FBGeometryArrayElementType
     kFBGeometryArrayElementType_Float2:FBGeometryArrayElementType
     kFBGeometryArrayElementType_Float3:FBGeometryArrayElementType
+    """Each element is an array of 3 float."""
     kFBGeometryArrayElementType_Float4:FBGeometryArrayElementType
+    """Each element is an array of 4 float."""
     kFBGeometryArrayElementType_FloatMatrix4x4:FBGeometryArrayElementType
     kFBGeometryArrayElementType_Integer:FBGeometryArrayElementType
     kFBGeometryArrayElementType_IntegerArrayPointer:FBGeometryArrayElementType
     kFBGeometryArrayElementType_Unknown:FBGeometryArrayElementType
 class FBGeometryArrayID(_Enum):
+    """ID to use when requesting a specific array of data for a model."""
     kFBGeometryArrayID_Binormal:FBGeometryArrayID
+    """ID to the Binormal array."""
     kFBGeometryArrayID_Color:FBGeometryArrayID
+    """ID to the Vertex Color Array."""
     kFBGeometryArrayID_Normal:FBGeometryArrayID
+    """ID to the Normal by Point array."""
     kFBGeometryArrayID_Point:FBGeometryArrayID
+    """ID to the Point array."""
     kFBGeometryArrayID_Tangent:FBGeometryArrayID
+    """ID to the Tangent array."""
 class FBGeometryMappingMode(_Enum):
+    """Determine how the element is mapped on a surface.  kFBGeometryMapping_NONE  The mapping is undetermined. kFBGeometryMapping_BY_CONTROL_POINT  There will be one mapping coordinate for each surface control point/vertex. kFBGeometryMapping_BY_POLYGON_VERTEX  There will be one mapping coordinate for each vertex, for each polygon/strip it is part of. This means that a vertex will have as many mapping coordinates as polygons it is part of. kFBGeometryMapping_BY_POLYGON  There can be only one mapping coordinate for the whole polygon/strip. kFBGeometryMapping_BY_EDGE  There will be one mapping coordinate for each unique edge in the mesh. This is meant to be used with smoothing layer elements. kFBGeometryMapping_ALL_SAME  There can be only one mapping coordinate for the whole surface."""
     kFBGeometryMapping_ALL_SAME:FBGeometryMappingMode
     kFBGeometryMapping_BY_CONTROL_POINT:FBGeometryMappingMode
     kFBGeometryMapping_BY_EDGE:FBGeometryMappingMode
@@ -933,30 +1431,51 @@ class FBGeometryPrimitiveType(_Enum):
     kFBGeometry_TRIANGLE_FAN:FBGeometryPrimitiveType
     kFBGeometry_TRIANGLE_STRIP:FBGeometryPrimitiveType
 class FBGeometryReferenceMode(_Enum):
+    """Determine how the mapping information is stored in the array of coordinate.  kFBGeometryReference_DIRECT  This indicates that the mapping information for the n'th element is found in the n'th place of DirectArray. kFBGeometryReference_INDEX , This indicates that the mapping information for the n'th element is found in the n'th place of IndexArray. kFBGeometryReference_INDEX_TO_DIRECT  This indicates that the KLayerElementTemplate::mIndexArray contains, for the n'th element, an index in the KLayerElementTemplate::mDirectArray array of mapping elements. eINDEX_TO_DIRECT is usually useful to store coordinates for eBY_POLYGON_VERTEX mapping mode elements. Since the same coordinates are usually repeated a large number of times, it saves spaces to store the coordinate only one time and refer to them with an index. Materials and Textures are also referenced with this mode and the actual Material/Texture can be accessed via the KLayerElementTemplate::mDirectArray"""
     kFBGeometryReference_DIRECT:FBGeometryReferenceMode
     kFBGeometryReference_INDEX:FBGeometryReferenceMode
     kFBGeometryReference_INDEX_TO_DIRECT:FBGeometryReferenceMode
 class FBGlobalEvalCallbackTiming(_Enum):
+    """Global Evaluation callback timing.
+    Let the user to register callback function at different stage of background evaluation."""
     kFBGlobalEvalCallbackAfterDAG:FBGlobalEvalCallbackTiming
+    """Invoked after all DAG (Transformation & Deformation) evaluation tasks finished in evaluation pipeline / thread."""
     kFBGlobalEvalCallbackAfterDeform:FBGlobalEvalCallbackTiming
+    """Invoked after all deformation tasks finished in evaluation pipeline / thread."""
     kFBGlobalEvalCallbackAfterPlottingFrame:FBGlobalEvalCallbackTiming
+    """Invoked after plotting a frame."""
     kFBGlobalEvalCallbackAfterRender:FBGlobalEvalCallbackTiming
+    """Invoked in rendering pipeline, after any rendering tasks finish (just before swapping GL back/front buffer)."""
     kFBGlobalEvalCallbackBeforeDAG:FBGlobalEvalCallbackTiming
+    """Invoked before any DAG (Transformation & Deformation) evaluation tasks started in evaluation pipeline / thread."""
     kFBGlobalEvalCallbackBeforePlottingFrame:FBGlobalEvalCallbackTiming
+    """Invoked before plotting a frame."""
     kFBGlobalEvalCallbackBeforeRender:FBGlobalEvalCallbackTiming
+    """Invoked in rendering pipeline, before any rendering tasks start (immediately after clearing GL back buffer)."""
     kFBGlobalEvalCallbackSyn:FBGlobalEvalCallbackTiming
+    """Invoked when both evaluation & rendering pipelines / threads are stopped. Useful for some complicated scene change tasks to avoid race condition."""
 class FBHUDElementHAlignment(_Enum):
     kFBHUDCenter:FBHUDElementHAlignment
+    """Center."""
     kFBHUDLeft:FBHUDElementHAlignment
+    """Left alignment."""
     kFBHUDRight:FBHUDElementHAlignment
+    """Right alignment."""
 class FBHUDElementVAlignment(_Enum):
     kFBHUDBottom:FBHUDElementVAlignment
+    """Bottom alignment."""
     kFBHUDTop:FBHUDElementVAlignment
+    """Top alignment."""
     kFBHUDVCenter:FBHUDElementVAlignment
+    """Center."""
 class FBIconPosition(_Enum):
+    """Different icon positions possible."""
     kFBIconLeft:FBIconPosition
+    """Icon on left of text."""
     kFBIconTop:FBIconPosition
+    """Icon on top of text."""
 class FBImageFormat(_Enum):
+    """Image formats."""
     kFBImageFormatABGR32:FBImageFormat
     kFBImageFormatARGB32:FBImageFormat
     kFBImageFormatBGR16:FBImageFormat
@@ -966,74 +1485,134 @@ class FBImageFormat(_Enum):
     kFBImageFormatRGBA32:FBImageFormat
     kFBImageFormatUnknown:FBImageFormat
 class FBImageInterleaveType(_Enum):
+    """Image field interleave types."""
     kFBImageInterleaveTypeAverage:FBImageInterleaveType
     kFBImageInterleaveTypeEven:FBImageInterleaveType
     kFBImageInterleaveTypeFullFrame:FBImageInterleaveType
     kFBImageInterleaveTypeOdd:FBImageInterleaveType
 class FBImageInterpolationType(_Enum):
+    """Image interpolation types."""
     kFBImageInterpolationTypeDuplicate:FBImageInterpolationType
     kFBImageInterpolationTypeLinear:FBImageInterpolationType
     kFBImageInterpolationTypeNone:FBImageInterpolationType
 class FBImageType(_Enum):
+    """Image types."""
     kFBImageTypeField:FBImageType
     kFBImageTypeFrame:FBImageType
 class FBInputKey(_Enum):
+    """Keyboard inputs."""
     kFBKeyBackSpace:FBInputKey
+    """Backspace."""
     kFBKeyDel:FBInputKey
+    """Delete."""
     kFBKeyDown:FBInputKey
+    """Down."""
     kFBKeyEnd:FBInputKey
+    """End."""
     kFBKeyEscape:FBInputKey
+    """Escape."""
     kFBKeyF1:FBInputKey
+    """F1."""
     kFBKeyF10:FBInputKey
+    """F10."""
     kFBKeyF11:FBInputKey
+    """F11."""
     kFBKeyF12:FBInputKey
+    """F12."""
     kFBKeyF2:FBInputKey
+    """F2."""
     kFBKeyF3:FBInputKey
+    """F3."""
     kFBKeyF4:FBInputKey
+    """F4."""
     kFBKeyF5:FBInputKey
+    """F5."""
     kFBKeyF6:FBInputKey
+    """F6."""
     kFBKeyF7:FBInputKey
+    """F7."""
     kFBKeyF8:FBInputKey
+    """F8."""
     kFBKeyF9:FBInputKey
+    """F9."""
     kFBKeyHome:FBInputKey
+    """Home."""
     kFBKeyIns:FBInputKey
+    """Insert."""
     kFBKeyLeft:FBInputKey
+    """Left."""
     kFBKeyPageDown:FBInputKey
+    """Page Down."""
     kFBKeyPageUp:FBInputKey
+    """Page Up."""
     kFBKeyReturn:FBInputKey
+    """Return."""
     kFBKeyRight:FBInputKey
+    """Right."""
     kFBKeyTab:FBInputKey
+    """Tab."""
     kFBKeyUp:FBInputKey
+    """Up."""
 class FBInputModifier(_Enum):
+    """Input Modifiers (Ctrl, Alt, Shift)."""
     kFBKeyAlt:FBInputModifier
+    """Alt was pressed."""
     kFBKeyCtrl:FBInputModifier
+    """Control was pressed."""
     kFBKeyNone:FBInputModifier
+    """No modifier."""
     kFBKeyShift:FBInputModifier
+    """Shift was pressed."""
 class FBInputType(_Enum):
+    """Types of input events."""
     kFBButtonDoubleClick:FBInputType
+    """A mouse button was double clicked."""
     kFBButtonPress:FBInputType
+    """A mouse button was pressed."""
     kFBButtonRelease:FBInputType
+    """A mouse button was released."""
     kFBDragging:FBInputType
+    """The mouse is dragging items."""
     kFBDropping:FBInputType
+    """The mouse is dropping items."""
     kFBKeyPress:FBInputType
+    """A keyboard key was pressed."""
     kFBKeyPressRaw:FBInputType
+    """A keyboard key was pressed."""
     kFBKeyRelease:FBInputType
+    """A keyboard key was released."""
     kFBKeyReleaseRaw:FBInputType
+    """A keyboard key was released."""
     kFBMotionNotify:FBInputType
+    """The mouse has been moved."""
     kFBMouseEnter:FBInputType
+    """The mouse pointer is entering the window."""
     kFBMouseLeave:FBInputType
+    """The mouse pointer is leaving the window."""
     kFBMouseWheelNotify:FBInputType
+    """The mouse wheel has moved."""
     kFBUnknownInput:FBInputType
+    """The internal event could not be translated."""
 class FBInsertSegmentMode(_Enum):
+    """Insert segment modes."""
     kFBInsertSegmentFromStart:FBInsertSegmentMode
+    """Insert from start."""
     kFBInsertSegmentToEnd:FBInsertSegmentMode
+    """Insert to end."""
     kFBInsertSegmentWhole:FBInsertSegmentMode
+    """Insert whole."""
 class FBInterpolation(_Enum):
+    """Types of interpolation for an FCurve."""
     kFBInterpolationConstant:FBInterpolation
+    """Constant interpolation."""
     kFBInterpolationCubic:FBInterpolation
+    """Cubic interpolation."""
     kFBInterpolationCustom:FBInterpolation
+    """Custom interpolation."""
     kFBInterpolationLinear:FBInterpolation
+    """Linear interpolation."""
 class FBInterpolatorCurveType(_Enum):
+    """Types of interpolator for an FCurve."""
     kFBInterpolatorCurveFastIn:FBInterpolatorCurveType
     kFBInterpolatorCurveFastOut:FBInterpolatorCurveType
     kFBInterpolatorCurveLast:FBInterpolatorCurveType
@@ -1044,60 +1623,110 @@ class FBInterpolatorCurveType(_Enum):
     kFBInterpolatorCurveSmoothIn:FBInterpolatorCurveType
     kFBInterpolatorCurveSmoothOut:FBInterpolatorCurveType
 class FBKeyingGroupType(_Enum):
+    """Keying group types."""
     kFBKeyingGroupGlobal:FBKeyingGroupType
+    """All selected objects with the same properties as those defined in the keying group will be keyed."""
     kFBKeyingGroupLocal:FBKeyingGroupType
+    """Only properties of objects specified in the keying group will be keyed."""
     kFBKeyingGroupObjectType:FBKeyingGroupType
+    """All selected objects of the specified type in the keying group with the same properties as those defined in the keying group will be keyed."""
 class FBLayerMode(_Enum):
+    """Layer mode."""
     kFBLayerModeAdditive:FBLayerMode
+    """Layer value will be added to the other layers to computed the final value."""
     kFBLayerModeInvalidIndex:FBLayerMode
+    """Invalid value."""
     kFBLayerModeOverride:FBLayerMode
+    """Layer value will override the value of the other precedent layers."""
     kFBLayerModeOverridePassthrough:FBLayerMode
+    """If the layer has a weight of 75%, the precedent layers will have a combined effect of 25% on the final value. Setting the weight to 100% is similar to setting the layer in override."""
 class FBLayerRotationMode(_Enum):
+    """Rotation mode for layer."""
     kFBLayerRotationModeEulerRotation:FBLayerRotationMode
+    """The rotation will be computed component by component."""
     kFBLayerRotationModeInvalidIndex:FBLayerRotationMode
+    """Invalid value."""
     kFBLayerRotationModeQuaternionRotation:FBLayerRotationMode
+    """The rotation will be computed using quaternion."""
 class FBLightType(_Enum):
     kFBLightTypeArea:FBLightType
     kFBLightTypeInfinite:FBLightType
     kFBLightTypePoint:FBLightType
     kFBLightTypeSpot:FBLightType
 class FBListStyle(_Enum):
+    """List style or direction."""
     kFBDropDownList:FBListStyle
+    """Drop down list."""
     kFBVerticalList:FBListStyle
+    """Vertical list."""
 class FBManipulatorPickType(_Enum):
+    """Types of manipulator picking."""
     FBPickObjects:FBManipulatorPickType
+    """Pick objects."""
     FBPickPoints:FBManipulatorPickType
+    """Pick points."""
     FBPickSurfaces:FBManipulatorPickType
+    """Pick surfaces."""
 class FBManipulatorTransformType(_Enum):
+    """Manipulator transform stles."""
     kFBManipulatorTransformNone:FBManipulatorTransformType
+    """No manipulator."""
     kFBManipulatorTransformRotation:FBManipulatorTransformType
+    """Rotation manipulator."""
     kFBManipulatorTransformScaling:FBManipulatorTransformType
+    """Scaling manipulator."""
     kFBManipulatorTransformTranslation:FBManipulatorTransformType
+    """Translation manipulator."""
 class FBMarkerLook(_Enum):
+    """Look of the marker."""
     kFBMarkerLookAimRollGoal:FBMarkerLook
+    """Aim & Roll goal."""
     kFBMarkerLookBone:FBMarkerLook
+    """Bone."""
     kFBMarkerLookBox:FBMarkerLook
+    """Box."""
     kFBMarkerLookCapsule:FBMarkerLook
+    """Capsule."""
     kFBMarkerLookCircle:FBMarkerLook
+    """Circle."""
     kFBMarkerLookCube:FBMarkerLook
+    """Cube."""
     kFBMarkerLookHardCross:FBMarkerLook
+    """Thick cross."""
     kFBMarkerLookLightCross:FBMarkerLook
+    """Wireframe cross."""
     kFBMarkerLookNone:FBMarkerLook
+    """None."""
     kFBMarkerLookRigidGoal:FBMarkerLook
+    """Rigid goal."""
     kFBMarkerLookRotationGoal:FBMarkerLook
+    """Rotation goal."""
     kFBMarkerLookSphere:FBMarkerLook
+    """Sphere."""
     kFBMarkerLookSquare:FBMarkerLook
+    """Square."""
     kFBMarkerLookStick:FBMarkerLook
+    """Box with a sphere on one end."""
 class FBMarkerResolutionLevel(_Enum):
+    """Resolution of marker mesh sphere and capsule (Quality)."""
     kFBMarkerHighResolution:FBMarkerResolutionLevel
+    """Highest resolution."""
     kFBMarkerLowResolution:FBMarkerResolutionLevel
+    """Lowest resolution."""
     kFBMarkerMediumResolution:FBMarkerResolutionLevel
+    """Medium resolution."""
 class FBMarkerType(_Enum):
+    """Type of the marker."""
     kFBMarkerTypeFKEffector:FBMarkerType
+    """FK effector."""
     kFBMarkerTypeIKEffector:FBMarkerType
+    """IK effector."""
     kFBMarkerTypeOptical:FBMarkerType
+    """Optical."""
     kFBMarkerTypeStandard:FBMarkerType
+    """Standard."""
 class FBMaterialTextureType(_Enum):
+    """Various Material texture channels' type."""
     kFBMaterialTextureAmbient:FBMaterialTextureType
     kFBMaterialTextureAmbientFactor:FBMaterialTextureType
     kFBMaterialTextureBump:FBMaterialTextureType
@@ -1114,15 +1743,25 @@ class FBMaterialTextureType(_Enum):
     kFBMaterialTextureTransparent:FBMaterialTextureType
     kFBMaterialTextureTransparentFactor:FBMaterialTextureType
 class FBMenuItemType(_Enum):
+    """Types of menu items available."""
     kFBMenuItemMotionExport:FBMenuItemType
+    """Motion Files->Export."""
     kFBMenuItemMotionImport:FBMenuItemType
+    """Motion Files->Import."""
     kFBMenuItemSceneExport:FBMenuItemType
+    """Scenes->Export."""
     kFBMenuItemSceneImport:FBMenuItemType
+    """Scenes->Import."""
 class FBMergeLayerMode(_Enum):
+    """Merge layer mode for animation layers. This will specify the mode of the resulting merged layer, if applicable (To BaseAnimation layer mode cannot be modified)."""
     kFBMergeLayerModeAdditive:FBMergeLayerMode
+    """The resulting layer will be in additive mode, if possible."""
     kFBMergeLayerModeAutomatic:FBMergeLayerMode
+    """The resulting layer will be in override mode if one of the source layer is in override, otherwise, it will be in additive mode."""
     kFBMergeLayerModeOverride:FBMergeLayerMode
+    """The resulting layer will be in override mode, if possible."""
 class FBMirrorPlaneType(_Enum):
+    """Mirror Plane Type."""
     kFBMirrorPlaneTypeAuto:FBMirrorPlaneType
     kFBMirrorPlaneTypeCount:FBMirrorPlaneType
     kFBMirrorPlaneTypeEquation:FBMirrorPlaneType
@@ -1132,24 +1771,42 @@ class FBMirrorPlaneType(_Enum):
     kFBMirrorPlaneTypeXZ:FBMirrorPlaneType
     kFBMirrorPlaneTypeZY:FBMirrorPlaneType
 class FBModelCullingMode(_Enum):
+    """Model Culling Mode."""
     kFBCullingOff:FBModelCullingMode
+    """Culling Off."""
     kFBCullingOnCCW:FBModelCullingMode
+    """Culling with Counter Clock Wise."""
     kFBCullingOnCW:FBModelCullingMode
+    """Culling with Clock Wise."""
 class FBModelEvaluationTaskType(_Enum):
     kFBModelEvaluationBBox:FBModelEvaluationTaskType
+    """Model's bouding box computation task (approximately for deformable model)"""
     kFBModelEvaluationDeform:FBModelEvaluationTaskType
+    """Model's deformation task (for deformable model)"""
     kFBModelEvaluationTransform:FBModelEvaluationTaskType
+    """Model's transformation evaluation task (Global )"""
 class FBModelHiercharyTraverserType(_Enum):
+    """Types of hierarchy traverser search type."""
     kModelTraverserBreadthFirst:FBModelHiercharyTraverserType
+    """Breadth-first search."""
     kModelTraverserDepthFirst:FBModelHiercharyTraverserType
+    """Depth-first search."""
 class FBModelRotationOrder(_Enum):
+    """Ways to apply Rotation."""
     kFBEulerXYZ:FBModelRotationOrder
+    """XYZ Euler Order."""
     kFBEulerXZY:FBModelRotationOrder
+    """XZY Euler Order."""
     kFBEulerYXZ:FBModelRotationOrder
+    """YXZ Euler Order."""
     kFBEulerYZX:FBModelRotationOrder
+    """YZX Euler Order."""
     kFBEulerZXY:FBModelRotationOrder
+    """ZXY Euler Order."""
     kFBEulerZYX:FBModelRotationOrder
+    """ZYX Euler Order."""
     kFBSphericXYZ:FBModelRotationOrder
+    """Spheric XYZ Order."""
 class FBModelSelection(_Enum):
     kFBAllModels:FBModelSelection
     kFBCreateModels:FBModelSelection
@@ -1159,87 +1816,164 @@ class FBModelSelection(_Enum):
     kFBSelectedModelAndChildren:FBModelSelection
     kFBSelectedModels:FBModelSelection
 class FBModelShadingMode(_Enum):
+    """Modes for model shading."""
     kFBModelShadingAll:FBModelShadingMode
+    """Lighted, shaded, textured shading."""
     kFBModelShadingDefault:FBModelShadingMode
+    """Default shading."""
     kFBModelShadingFlat:FBModelShadingMode
+    """Flat shading."""
     kFBModelShadingHard:FBModelShadingMode
+    """Hard shading."""
     kFBModelShadingLight:FBModelShadingMode
+    """Lighted shading."""
     kFBModelShadingTexture:FBModelShadingMode
+    """Textured shading."""
     kFBModelShadingWire:FBModelShadingMode
+    """Wireframe shading."""
 class FBModelTemplateStyle(_Enum):
+    """Model template styles When creating model templates, this parameter will affect the actual model created (associated with the model template)."""
     kFBModelTemplateCamera:FBModelTemplateStyle
+    """Camera."""
     kFBModelTemplateCameraInterest:FBModelTemplateStyle
+    """Camera interest."""
     kFBModelTemplateGeometry:FBModelTemplateStyle
+    """Generic geometry."""
     kFBModelTemplateLight:FBModelTemplateStyle
+    """Light."""
     kFBModelTemplateMarker:FBModelTemplateStyle
+    """Marker."""
     kFBModelTemplateNone:FBModelTemplateStyle
+    """No style."""
     kFBModelTemplateNull:FBModelTemplateStyle
+    """Null."""
     kFBModelTemplateOptical:FBModelTemplateStyle
+    """Optical model (not supported yet)."""
     kFBModelTemplateRoot:FBModelTemplateStyle
+    """Root (3 axes)."""
     kFBModelTemplateSensor:FBModelTemplateStyle
+    """Yellow magnetic sensor."""
     kFBModelTemplateSkeleton:FBModelTemplateStyle
+    """Skeleton limb."""
 class FBModelTransformationType(_Enum):
+    """Types of transformation vector/matrices possible."""
     kModelInverse_Rotation:FBModelTransformationType
+    """Inverse rotation."""
     kModelInverse_Scaling:FBModelTransformationType
+    """Inverse scaling."""
     kModelInverse_Transformation:FBModelTransformationType
+    """Inverse transformation."""
     kModelInverse_Transformation_Geometry:FBModelTransformationType
+    """Inverse of transformation plus geometry offset."""
     kModelInverse_Translation:FBModelTransformationType
+    """Inverse translation."""
     kModelRotation:FBModelTransformationType
+    """Rotation."""
     kModelScaling:FBModelTransformationType
+    """Scaling."""
     kModelTransformation:FBModelTransformationType
+    """Transformation."""
     kModelTransformation_Geometry:FBModelTransformationType
+    """Transformation plus geometry offset"""
     kModelTranslation:FBModelTransformationType
+    """Translation."""
 class FBNamespaceAction(_Enum):
+    """Namespace flags."""
     kFBConcatNamespace:FBNamespaceAction
+    """Use to add a namespace name to object."""
     kFBRemoveAllNamespace:FBNamespaceAction
+    """Remove all the namespace name."""
     kFBReplaceNamespace:FBNamespaceAction
+    """Use to replace a define namespace."""
 class FBNewKeyInterpolationType(_Enum):
+    """Key Interpolation Type to use when creating new keys."""
     kFBNewKeyInterpolation_Auto:FBNewKeyInterpolationType
+    """Auto interpolation type."""
     kFBNewKeyInterpolation_Custom0:FBNewKeyInterpolationType
+    """Custom 0 interpolation type."""
     kFBNewKeyInterpolation_Custom1:FBNewKeyInterpolationType
+    """Custom 1 interpolation type."""
     kFBNewKeyInterpolation_Custom2:FBNewKeyInterpolationType
+    """Custom 2 interpolation type."""
     kFBNewKeyInterpolation_Fixed:FBNewKeyInterpolationType
+    """Fixed interpolation type."""
     kFBNewKeyInterpolation_Linear:FBNewKeyInterpolationType
+    """Linear interpolation type."""
     kFBNewKeyInterpolation_None:FBNewKeyInterpolationType
+    """Invalid interpolation type, could be returned by the system if it is in an uninitialized state. Don't use this mode."""
     kFBNewKeyInterpolation_Smooth:FBNewKeyInterpolationType
+    """Smooth interpolation type."""
     kFBNewKeyInterpolation_SmoothClamp:FBNewKeyInterpolationType
+    """Smooth Clamp interpolation type."""
     kFBNewKeyInterpolation_Spline:FBNewKeyInterpolationType
+    """Spline interpolation type."""
     kFBNewKeyInterpolation_SplineClamp:FBNewKeyInterpolationType
+    """Spline Clamp interpolation type."""
     kFBNewKeyInterpolation_Step:FBNewKeyInterpolationType
+    """Step interpolation type."""
     kFBNewKeyInterpolation_TCB:FBNewKeyInterpolationType
+    """TCB interpolation type."""
 class FBNurbType(_Enum):
+    """Surface types."""
     kFBNurbTypeClosed:FBNurbType
+    """Closed Type Nurb."""
     kFBNurbTypeOpen:FBNurbType
+    """Open Type Nurb."""
     kFBNurbTypePeriodic:FBNurbType
+    """Periodic Type Nurb."""
 class FBObjectFlag(_Enum):
+    """Available flags for any component."""
     kFBFlagAllocated:FBObjectFlag
+    """Object is allocated, so it must call 'delete this' on destroy."""
     kFBFlagBrowsable:FBObjectFlag
+    """Visible in the Scene Navigator/Schematic View/Property View/Model View. If disabled, the object representation in the navigator will not be visible. In the Schematic View, system object are not shown and other objects will still be visible, but a red X will be drawn on them. It is not possible to select the object in the Schematic View. After disabling that flag of a selected object, it will still be selected to allow a script based on selection to work. It will then be possible for a user to deselect the object, but it will not be possible to select it."""
     kFBFlagClonable:FBObjectFlag
+    """Can be cloned. If disabled, the "Duplicate" option will be removed in the contextual menu."""
     kFBFlagDeletable:FBObjectFlag
+    """Can be deleted."""
     kFBFlagDetachable:FBObjectFlag
+    """Object can be "detached". Used by the apply manager contextual menu."""
     kFBFlagKeyable:FBObjectFlag
+    """Object can Key his property. (System Camera can't)"""
     kFBFlagMergeable:FBObjectFlag
+    """Can be merged."""
     kFBFlagNamespaceEditable:FBObjectFlag
+    """Allow editing on the namespace objects. If disabled, the "Add/Remove Namespace..." option is removed from the contextual menu."""
     kFBFlagNewable:FBObjectFlag
+    """Deleted on File->New."""
     kFBFlagParentable:FBObjectFlag
+    """Object (model) can be "parented". Used by the apply manager contextual menu."""
     kFBFlagRenamable:FBObjectFlag
+    """Can be renamed."""
     kFBFlagSavable:FBObjectFlag
+    """Can be saved."""
     kFBFlagSelectable:FBObjectFlag
+    """Can be selected. If disabled, representation of the object, like in the navigator, can still be selected and can still affect the original object."""
     kFBFlagStorable6:FBObjectFlag
+    """System/Obsolete."""
     kFBFlagStorableData6:FBObjectFlag
+    """System/Obsolete."""
     kFBFlagStory:FBObjectFlag
+    """Object created/used by the Story tool. Useful flag for filtering Story objects."""
     kFBFlagSystem:FBObjectFlag
+    """Created from System (not from user)"""
     kFBFlagUndoable:FBObjectFlag
+    """Object can undo its actions and states, in a global Undo Stack."""
     kFBFlagUndoableSeparately:FBObjectFlag
+    """Object which has kFlagUndoableSeparately flag turned on will have a separate Undo Stack."""
     kFBFlagUniqueName:FBObjectFlag
+    """< Used in FBX SDK native IO, force bindary format for the bindary data."""
     kFBFlagVisible:FBObjectFlag
+    """Can be visible. If disabled, the object will still be available in the navigator, it is only hidden in the viewer."""
 class FBObjectPoseMirrorOptionsFlag(_Enum):
+    """ObjectPoseMirrorOptions flags."""
     kFBObjectPoseMirrorOptionsNoFlag:FBObjectPoseMirrorOptionsFlag
     kFBObjectPoseMirrorOptionsUpdateLocal:FBObjectPoseMirrorOptionsFlag
     kFBObjectPoseMirrorOptionsUpdateLocalMirrorParent:FBObjectPoseMirrorOptionsFlag
     kFBObjectPoseMirrorOptionsUpdateLocalRef:FBObjectPoseMirrorOptionsFlag
     kFBObjectPoseMirrorOptionsUpdateLocalRefMirrorRef:FBObjectPoseMirrorOptionsFlag
 class FBObjectPoseOptionsFlag(_Enum):
+    """ObjectPoseOptions flags."""
     kFBObjectPoseOptionsNoFlag:FBObjectPoseOptionsFlag
     kFBObjectPoseOptionsRotation:FBObjectPoseOptionsFlag
     kFBObjectPoseOptionsScaling:FBObjectPoseOptionsFlag
@@ -1247,55 +1981,105 @@ class FBObjectPoseOptionsFlag(_Enum):
     kFBObjectPoseOptionsTranslationY:FBObjectPoseOptionsFlag
     kFBObjectPoseOptionsTranslationZ:FBObjectPoseOptionsFlag
 class FBObjectStatus(_Enum):
+    """Available lifetime status for any component."""
     kFBStatusClearing:FBObjectStatus
+    """Object is in clearing operations (File new)."""
     kFBStatusCreating:FBObjectStatus
+    """Object is in creation operations."""
     kFBStatusDestroying:FBObjectStatus
+    """Object is in destruction operations."""
     kFBStatusMerging:FBObjectStatus
+    """Object is in Merging operations."""
     kFBStatusRetrieving:FBObjectStatus
+    """Object is in retrieving operations."""
     kFBStatusStoring:FBObjectStatus
+    """Object is in storing operations."""
 class FBOneClickApplication(_Enum):
+    """Possible application for One-Click interop with MotionBuilder."""
     kFBOneClick3dsMax:FBOneClickApplication
+    """3ds Max."""
     kFBOneClickMaya:FBOneClickApplication
+    """Maya."""
     kFBOneClickNone:FBOneClickApplication
+    """No application."""
     kFBOneClickSoftimage:FBOneClickApplication
+    """Softimage."""
 class FBOrientation(_Enum):
+    """General directions for UI components."""
     kFBHorizontal:FBOrientation
+    """Horizontal."""
     kFBVertical:FBOrientation
+    """Vertical"""
 class FBParallelScheduleType(_Enum):
+    """DEPRICATED use ParallelEvaluation on FBEvaluateManager instead Available DAG parallel schedule algorithm"""
     kFBParallelScheduleAdvanced:FBParallelScheduleType
+    """Advanced parallel schedule, task dependency analyzation will be able to across ative constraint, and plus motion hierarchy."""
     kFBParallelScheduleSerial:FBParallelScheduleType
+    """No parallel schedule, use sequential evaluation order instead."""
     kFBParallelScheduleSimple:FBParallelScheduleType
+    """Simple parallel schedule, mainly analyze the task dependency based on Motion Hierarchy (scene graph), but don't across active constraint."""
 class FBParity(_Enum):
+    """Parity modes."""
     kFBParityEven:FBParity
+    """Even parity."""
     kFBParityNone:FBParity
+    """No parity."""
     kFBParityOdd:FBParity
+    """Odd parity."""
 class FBPickingMode(_Enum):
+    """3D picking mode."""
     kFBPickingModeCount:FBPickingMode
+    """End of enum, this valued indicates the number of picking modes available."""
     kFBPickingModeModelsOnly:FBPickingMode
+    """Models-only mode (no nulls or skeletons are displayed)."""
     kFBPickingModeStandard:FBPickingMode
+    """Standard picking mode."""
     kFBPickingModeXRay:FBPickingMode
+    """X-Ray picking mode (obstructed models are displayed in overlay)."""
 class FBPlayMode(_Enum):
+    """Play modes."""
     kFBPlayModeLoop:FBPlayMode
+    """Loop clip."""
     kFBPlayModeNoPlay:FBPlayMode
+    """No play (most common)."""
     kFBPlayModePlay:FBPlayMode
+    """Play clip."""
     kFBPlayModePlayToEnd:FBPlayMode
+    """Play clip to end."""
     kFBPlayModePreviewToEnd:FBPlayMode
+    """Preview clip until end."""
 class FBPlayerControlChangeType(_Enum):
+    """Types of player control change events."""
     kFBPlayerControlGoto:FBPlayerControlChangeType
+    """Goto."""
     kFBPlayerControlNone:FBPlayerControlChangeType
+    """None."""
     kFBPlayerControlPlay:FBPlayerControlChangeType
+    """Play."""
     kFBPlayerControlPlayReverse:FBPlayerControlChangeType
+    """Play reverse."""
     kFBPlayerControlRecordModeOff:FBPlayerControlChangeType
+    """Record mode off."""
     kFBPlayerControlRecordModeOn:FBPlayerControlChangeType
+    """Record mode on."""
     kFBPlayerControlStepBackward:FBPlayerControlChangeType
+    """Step backward."""
     kFBPlayerControlStepForward:FBPlayerControlChangeType
+    """Step forward."""
     kFBPlayerControlStop:FBPlayerControlChangeType
+    """Stop."""
 class FBPlotAllowed(_Enum):
+    """FBPlotAllowed"""
     kFBPlotAllowed_Both:FBPlotAllowed
+    """kFBPlotAllowed_Both"""
     kFBPlotAllowed_ControlRig:FBPlotAllowed
+    """kFBPlotAllowed_ControlRig"""
     kFBPlotAllowed_None:FBPlotAllowed
+    """kFBPlotAllowed_None."""
     kFBPlotAllowed_Skeleton:FBPlotAllowed
+    """kFBPlotAllowed_Skeleton"""
 class FBPlotTangentMode(_Enum):
+    """The tangent mode for plotted curve."""
     kFBPlotTangentModeAuto:FBPlotTangentMode
     kFBPlotTangentModeSmooth:FBPlotTangentMode
     kFBPlotTangentModeSmoothClamp:FBPlotTangentMode
@@ -1310,42 +2094,70 @@ class FBPlugModificationFlag(_Enum):
     kFBAllStateModified:FBPlugModificationFlag
     kFBContentAllModifiedMask:FBPlugModificationFlag
     kFBContentConnectionModified:FBPlugModificationFlag
+    """Owner object/namespace has connection modified property/objects."""
     kFBContentCustomPropertyModified:FBPlugModificationFlag
+    """Owner object/Namespace has dirty property/objects."""
     kFBContentDataModified:FBPlugModificationFlag
+    """Owner object/Namespace has data dirty property/objects."""
     kFBContentKeyingModified:FBPlugModificationFlag
+    """Owner object/Namespace has data dirty property/objects."""
     kFBContentStateModified:FBPlugModificationFlag
+    """Owner object/Namespace has state dirty property/objects."""
     kFBPlugAllContent:FBPlugModificationFlag
+    """None Modified."""
     kFBSelfAllModifiedMask:FBPlugModificationFlag
     kFBSelfConnectionDstObjectModified:FBPlugModificationFlag
+    """The dst object of this plug has been modified."""
     kFBSelfConnectionDstPropertyModified:FBPlugModificationFlag
+    """The dst property of this plug has been modified."""
     kFBSelfConnectionModifiedMask:FBPlugModificationFlag
     kFBSelfConnectionSrcObjectModified:FBPlugModificationFlag
+    """The src object of this plug has been modified."""
     kFBSelfConnectionSrcPropertyModified:FBPlugModificationFlag
+    """The src property of this plug has been modified."""
     kFBSelfCustomPropertyModified:FBPlugModificationFlag
+    """Object custom property change."""
     kFBSelfDataModified:FBPlugModificationFlag
+    """Object/Property itself has been dirty, in case of property get dirty, its owner object will be set dirty as well."""
     kFBSelfKeyingModified:FBPlugModificationFlag
+    """Object/Property itself has been dirty, in case of property get dirty, its owner object will be set dirty as well."""
     kFBSelfStateModified:FBPlugModificationFlag
+    """Object/Property naming change."""
 class FBPlugStatusFlag(_Enum):
     kFBOwnedByUndo:FBPlugStatusFlag
+    """Plug is owned by undo framework."""
     kFBPlugStatusFlagNone:FBPlugStatusFlag
+    """Plug has no status set."""
     kFBStatusMask:FBPlugStatusFlag
 class FBPopupInputType(_Enum):
+    """User input types for a popup."""
     kFBPopupBool:FBPopupInputType
+    """Boolean input."""
     kFBPopupChar:FBPopupInputType
+    """Character input."""
     kFBPopupDouble:FBPopupInputType
+    """Double input."""
     kFBPopupFloat:FBPopupInputType
+    """Float input."""
     kFBPopupInt:FBPopupInputType
+    """Integer input."""
     kFBPopupPassword:FBPopupInputType
+    """Password input (String with '*'s)."""
     kFBPopupString:FBPopupInputType
+    """String input."""
 class FBPoseTransformType(_Enum):
+    """Transform mode of pose."""
     kFBPoseTransformGlobal:FBPoseTransformType
     kFBPoseTransformInvalid:FBPoseTransformType
     kFBPoseTransformLocal:FBPoseTransformType
     kFBPoseTransformLocalRef:FBPoseTransformType
     kFBPoseTransformTypeCount:FBPoseTransformType
 class FBPoseType(_Enum):
+    """Types of pose."""
     kFBBindPose:FBPoseType
+    """Bind pose."""
     kFBRestPose:FBPoseType
+    """Rest pose."""
 class FBProfilingMode(_Enum):
     kFBProfilingModeAllHi:FBProfilingMode
     kFBProfilingModeAllLow:FBProfilingMode
@@ -1355,79 +2167,150 @@ class FBProfilingMode(_Enum):
     kFBProfilingModeRendering:FBProfilingMode
     kFBProfilingModeSDK:FBProfilingMode
 class FBPropertyComponents(_Enum):
+    """Property Components Bit Field (XYZ, RGB, RGBA, UV, XYZW, etc.)."""
     kFBPropertyComponent0:FBPropertyComponents
+    """First component (e.g.: X, Red, etc.)."""
     kFBPropertyComponent1:FBPropertyComponents
+    """Second component (e.g.: Y, Green, etc.)."""
     kFBPropertyComponent2:FBPropertyComponents
+    """Third component (e.g.: Z, Blue, etc.)."""
     kFBPropertyComponent3:FBPropertyComponents
+    """Fourth component (e.g.: W, Alpha, etc.)."""
     kFBPropertyComponentAll:FBPropertyComponents
+    """All components."""
 class FBPropertyFlag(_Enum):
+    """Available flags for  FBProperty  objects.
+    # Note
+    Property flags are not saved into FBX files."""
     kFBDrivenSetByMain:FBPropertyFlag
+    """Driven property can be modified, valid only when the main property is modified."""
     kFBDynamicHidden:FBPropertyFlag
+    """This flag is used to show/hide the property in the propertiview. When turn on/ff DynamicHidden flag, this property will show/hide. The nodes hidden by this flag still exist in UI."""
     kFBLoadedUserProperty:FBPropertyFlag
+    """This property is loaded from file."""
     kFBPropertyFlagAnimated:FBPropertyFlag
     kFBPropertyFlagDisableProperty:FBPropertyFlag
     kFBPropertyFlagDrivenProperty:FBPropertyFlag
+    """This is property is connected and driven by other same type of main property, and it always ask value from its main property."""
     kFBPropertyFlagForceStaticProperty:FBPropertyFlag
     kFBPropertyFlagHideProperty:FBPropertyFlag
+    """This flag is used to show/hide the property in the propertiview. However, when turn on/off HidePropertry flag, this property won't show/hide unless you reload the UI. The nodes hidden by this flag are removed from UI."""
     kFBPropertyFlagNotSavable:FBPropertyFlag
+    """Should not be saved to or loaded from an FBX file."""
     kFBPropertyFlagNotSet:FBPropertyFlag
     kFBPropertyFlagNotUserDeletable:FBPropertyFlag
     kFBPropertyFlagReadOnly:FBPropertyFlag
     kFBSlaveSetByMaster:FBPropertyFlag
+    """K_DEPRECATED_2021, use kFBDrivenSetByMain."""
     kFBValueAllocated:FBPropertyFlag
+    """The value has been allocated and must be delete in destructor."""
 class FBPropertyStateEventType(_Enum):
+    """This enum indicates what modification was made to the animation of a tracked property."""
     kFBPropertyStateEventTypeAttached:FBPropertyStateEventType
+    """Property connector was added (can happen when undoing a delete operation, which set back the property active in the scene)"""
     kFBPropertyStateEventTypeDestroyed:FBPropertyStateEventType
+    """Property connector was destroyed (property animation was deleted)"""
     kFBPropertyStateEventTypeDetached:FBPropertyStateEventType
+    """Property connector was detached (property animation was delete from the scene, but it still keep in case an undo operation is done)"""
     kFBPropertyStateEventTypeMassOperation:FBPropertyStateEventType
+    """Property was heavily modified (switching to story tool, story clip deleted...)"""
     kFBPropertyStateEventTypeUnknownOperation:FBPropertyStateEventType
+    """Invalid event."""
 class FBPropertyType(_Enum):
+    """Property types."""
     kFBPT_Action:FBPropertyType
+    """action."""
     kFBPT_ColorRGB:FBPropertyType
+    """colorrgb."""
     kFBPT_ColorRGBA:FBPropertyType
+    """colorrgba."""
     kFBPT_Reference:FBPropertyType
+    """reference."""
     kFBPT_Time:FBPropertyType
+    """time."""
     kFBPT_TimeCode:FBPropertyType
+    """timecode."""
     kFBPT_TimeSpan:FBPropertyType
+    """timespan."""
     kFBPT_Vector2D:FBPropertyType
+    """vector2d."""
     kFBPT_Vector3D:FBPropertyType
+    """vector3d."""
     kFBPT_Vector4D:FBPropertyType
+    """vector4d."""
     kFBPT_bool:FBPropertyType
+    """bool."""
     kFBPT_charptr:FBPropertyType
+    """charptr."""
     kFBPT_double:FBPropertyType
+    """double."""
     kFBPT_enum:FBPropertyType
+    """enum."""
     kFBPT_event:FBPropertyType
+    """event."""
     kFBPT_float:FBPropertyType
+    """float."""
     kFBPT_int:FBPropertyType
+    """int."""
     kFBPT_kReference:FBPropertyType
+    """kReference."""
     kFBPT_object:FBPropertyType
+    """object."""
     kFBPT_stringlist:FBPropertyType
+    """stringlist."""
     kFBPT_unknown:FBPropertyType
+    """unknow."""
 class FBPropertyViewType(_Enum):
+    """Property view set type."""
     kFBViewByObject:FBPropertyViewType
+    """Object property view."""
     kFBViewByObjectType:FBPropertyViewType
+    """Class type property view."""
     kFBViewGlobal:FBPropertyViewType
+    """Global property view."""
 class FBRSType(_Enum):
+    """RS type for serial port."""
     kFBRS232:FBRSType
+    """RS-232 serial protocol."""
     kFBRS422:FBRSType
+    """RS-422 serial protocol."""
 class FBRecalcMarkerSetOffset(_Enum):
+    """Recalculate MarkerSet offset for?"""
     kFBRecalcMarkerSetOffsetROnly:FBRecalcMarkerSetOffset
+    """Recalculate MarkerSet offset for R Only."""
     kFBRecalcMarkerSetOffsetTR:FBRecalcMarkerSetOffset
+    """Recalculate MarkerSet offset for TR."""
 class FBRenderingPass(_Enum):
+    """Rendering Pass.
+    Use with  FBShader::RenderingPass  properties to make the shader be called at any pass. Passes will be called in the order of the enum."""
     kFBPassAddColor:FBRenderingPass
+    """Models are blended additively."""
     kFBPassFlat:FBRenderingPass
+    """Lighting off."""
     kFBPassInvalid:FBRenderingPass
+    """No pass selected."""
     kFBPassLighted:FBRenderingPass
+    """Lighting on."""
     kFBPassMatte:FBRenderingPass
+    """Alpha > 0.5 will show up."""
     kFBPassPostRender:FBRenderingPass
+    """After everything."""
     kFBPassPreRender:FBRenderingPass
+    """Before anything."""
     kFBPassTranslucent:FBRenderingPass
+    """Models are blended."""
     kFBPassTranslucentZSort:FBRenderingPass
+    """Models are sorted and blended."""
     kFBPassZTranslucent:FBRenderingPass
+    """Writes to depth buffer."""
     kFBPassZTranslucentAlphaTest:FBRenderingPass
+    """Writes to depth buffer where Alpha > 0.5."""
 class FBRigidBodyMode(_Enum):
+    """Rigid body modes."""
     kFBRigidBodyBest:FBRigidBodyMode
+    """Best rigid body mode."""
     kFBRigidBodyFast:FBRigidBodyMode
+    """Fast rigid body mode."""
 class FBRootHMode(_Enum):
     kFBRootHAbsoluteDifference:FBRootHMode
     kFBRootHRelativeDifference:FBRootHMode
@@ -1441,82 +2324,157 @@ class FBRootXZMode(_Enum):
     kFBRootXZAbsoluteDifference:FBRootXZMode
     kFBRootXZRelativeDifference:FBRootXZMode
 class FBRotationFilter(_Enum):
+    """Rotation filters."""
     kFBRotationFilterGimbleKiller:FBRotationFilter
     kFBRotationFilterNone:FBRotationFilter
     kFBRotationFilterUnroll:FBRotationFilter
 class FBRotationOrder(_Enum):
+    """Specify the Euler rotation order."""
     kFBXYZ:FBRotationOrder
+    """XYZ"""
     kFBXZY:FBRotationOrder
+    """XZY."""
     kFBYXZ:FBRotationOrder
+    """YXZ."""
     kFBYZX:FBRotationOrder
+    """YZX"""
     kFBZXY:FBRotationOrder
+    """ZXY"""
     kFBZYX:FBRotationOrder
+    """ZYX."""
 class FBSceneChangeType(_Enum):
+    """Types of model selection events."""
     kFBSceneChangeActivate:FBSceneChangeType
+    """Activate."""
     kFBSceneChangeAddChild:FBSceneChangeType
+    """Child added."""
     kFBSceneChangeAttach:FBSceneChangeType
+    """Object attached."""
     kFBSceneChangeChangeName:FBSceneChangeType
+    """Object change name."""
     kFBSceneChangeChangedName:FBSceneChangeType
+    """Object changed name."""
     kFBSceneChangeChangedParent:FBSceneChangeType
+    """Object changed parent."""
     kFBSceneChangeClearBegin:FBSceneChangeType
+    """Begin clearing file (file new)"""
     kFBSceneChangeClearEnd:FBSceneChangeType
+    """End clearing file (file new)"""
     kFBSceneChangeDeactivate:FBSceneChangeType
+    """Deactivate."""
     kFBSceneChangeDestroy:FBSceneChangeType
+    """Object destroyed."""
     kFBSceneChangeDetach:FBSceneChangeType
+    """Object detached."""
     kFBSceneChangeFocus:FBSceneChangeType
+    """Object have focus."""
     kFBSceneChangeHardSelect:FBSceneChangeType
+    """Hard selection."""
     kFBSceneChangeLoadBegin:FBSceneChangeType
+    """Begin loading file."""
     kFBSceneChangeLoadEnd:FBSceneChangeType
+    """End loading file."""
     kFBSceneChangeMergeTransactionBegin:FBSceneChangeType
+    """Begin merge transaction."""
     kFBSceneChangeMergeTransactionEnd:FBSceneChangeType
+    """End merge transaction."""
     kFBSceneChangeNone:FBSceneChangeType
+    """Unknown event."""
     kFBSceneChangePreParent:FBSceneChangeType
+    """Before object parenting."""
     kFBSceneChangePreUnparent:FBSceneChangeType
+    """Before object unparenting."""
     kFBSceneChangeReSelect:FBSceneChangeType
+    """Re-selection."""
     kFBSceneChangeRemoveChild:FBSceneChangeType
+    """Child removed."""
     kFBSceneChangeRename:FBSceneChangeType
+    """Before object rename."""
     kFBSceneChangeRenamePrefix:FBSceneChangeType
+    """Before object rename prefix."""
     kFBSceneChangeRenameUnique:FBSceneChangeType
+    """Before object rename unique."""
     kFBSceneChangeRenameUniquePrefix:FBSceneChangeType
+    """Before object rename unique prefix."""
     kFBSceneChangeRenamed:FBSceneChangeType
+    """After object rename."""
     kFBSceneChangeRenamedPrefix:FBSceneChangeType
+    """After object rename prefix."""
     kFBSceneChangeRenamedUnique:FBSceneChangeType
+    """After object rename unique."""
     kFBSceneChangeRenamedUniquePrefix:FBSceneChangeType
+    """After object rename unique prefix."""
     kFBSceneChangeReorder:FBSceneChangeType
+    """Object reorder."""
     kFBSceneChangeReordered:FBSceneChangeType
+    """Object reordered."""
     kFBSceneChangeSelect:FBSceneChangeType
+    """Object selection."""
     kFBSceneChangeSoftSelect:FBSceneChangeType
+    """Soft selection."""
     kFBSceneChangeSoftUnselect:FBSceneChangeType
+    """Soft deselection."""
     kFBSceneChangeTransactionBegin:FBSceneChangeType
+    """Begin transaction."""
     kFBSceneChangeTransactionEnd:FBSceneChangeType
+    """End transaction."""
     kFBSceneChangeUnselect:FBSceneChangeType
+    """Object deselection."""
 class FBSegmentMode(_Enum):
+    """Segment modes."""
     kFBSegmentAll:FBSegmentMode
+    """Use all."""
     kFBSegmentMarker:FBSegmentMode
+    """Use marker."""
     kFBSegmentRigidBody:FBSegmentMode
+    """Use rigid body."""
 class FBShadowFrameType(_Enum):
+    """Shadow calculation methods."""
     kFBShadowFrameTypeShadowCaster:FBShadowFrameType
+    """Bases the shadow calculation on the shadow of the caster."""
     kFBShadowFrameTypeShadowCubeMap:FBShadowFrameType
+    """Undocumented or unsupported."""
     kFBShadowFrameTypeShadowReceiver:FBShadowFrameType
+    """Bases the shadow calculation on the shadow of the receiver."""
 class FBShadowType(_Enum):
+    """Shadow types.
+    The different types of shadow mapping."""
     kFBShadowTypeLightMapProjectiveTexture:FBShadowType
+    """Uses a texture projection as a shadow."""
     kFBShadowTypeShadowOpaquePlanar:FBShadowType
+    """Similar to the Planar Shadow, except that it treats all objects as opaque."""
     kFBShadowTypeShadowProjectiveTexture:FBShadowType
+    """Uses a texture projection to create a shadow."""
     kFBShadowTypeShadowTranslucentPlanar:FBShadowType
+    """Use this shadow type to create darkened shadow areas only on planar surfaces."""
     kFBShadowTypeZLightMapProjectiveTexture:FBShadowType
+    """Similar to the Projective Light Map except that it uses a boolean algorithm to create a self-shadow."""
     kFBShadowTypeZShadowProjectiveTexture:FBShadowType
+    """Similar to the Projective Shadow, except that it uses a boolean algorithm to create a self-shadow."""
 class FBSkeletonLook(_Enum):
+    """Look of the skeleton."""
     kFBSkeletonLookBone:FBSkeletonLook
+    """Bone."""
     kFBSkeletonLookBox:FBSkeletonLook
+    """Box."""
     kFBSkeletonLookCapsule:FBSkeletonLook
+    """Capsule."""
     kFBSkeletonLookCircle:FBSkeletonLook
+    """Circle."""
     kFBSkeletonLookCube:FBSkeletonLook
+    """Cube."""
     kFBSkeletonLookHardCross:FBSkeletonLook
+    """Thick cross."""
     kFBSkeletonLookLightCross:FBSkeletonLook
+    """Wireframe cross."""
     kFBSkeletonLookSphere:FBSkeletonLook
+    """Sphere."""
     kFBSkeletonLookSquare:FBSkeletonLook
+    """Square."""
     kFBSkeletonLookStick:FBSkeletonLook
+    """Box with a sphere on one end."""
 class FBSkeletonNodeId(_Enum):
+    """All Skeleton nodes"""
     kFBSkeletonChestIndex:FBSkeletonNodeId
     kFBSkeletonHeadIndex:FBSkeletonNodeId
     kFBSkeletonHipsIndex:FBSkeletonNodeId
@@ -1572,9 +2530,13 @@ class FBSkeletonNodeId(_Enum):
     kFBSkeletonRightWristIndex:FBSkeletonNodeId
     kFBSkeletonWaistIndex:FBSkeletonNodeId
 class FBSkeletonResolutionLevel(_Enum):
+    """Resolution of skeleton sphere, capsule and stick (Quality)."""
     kFBSkeletonHighResolution:FBSkeletonResolutionLevel
+    """Highest resolution."""
     kFBSkeletonLowResolution:FBSkeletonResolutionLevel
+    """Lowest resolution."""
     kFBSkeletonMediumResolution:FBSkeletonResolutionLevel
+    """Medium resolution."""
 class FBSplitStyle(_Enum):
     kFBHSplit:FBSplitStyle
     kFBHVSplit:FBSplitStyle
@@ -1582,92 +2544,179 @@ class FBSplitStyle(_Enum):
     kFBVSplit:FBSplitStyle
 class FBStereoDisplayMode(_Enum):
     kFBStereoDisplayActive:FBStereoDisplayMode
+    """Display in active mode. User must enable OpenGL quad stereo buffer, and choose approriate stereo mode in video card hardware's config app."""
     kFBStereoDisplayAnaglyph:FBStereoDisplayMode
+    """Display in Analygh stereo mode."""
     kFBStereoDisplayAnaglyphLuminance:FBStereoDisplayMode
+    """Display in Luminance Analygh stereo mode."""
     kFBStereoDisplayCenterEye:FBStereoDisplayMode
+    """Display in Center Eye Camera, No Stereo effect."""
     kFBStereoDisplayCheckerboard:FBStereoDisplayMode
+    """Display in Checkboard Interlace stereo mode."""
     kFBStereoDisplayFreeviewCrossed:FBStereoDisplayMode
+    """Display in crossed free view stereo mode."""
     kFBStereoDisplayFreeviewParallel:FBStereoDisplayMode
+    """Display in parallel free view stereo mode."""
     kFBStereoDisplayHorizontalInterlace:FBStereoDisplayMode
+    """Display in Horizontal Interlace stereo mode."""
     kFBStereoDisplayLeftEye:FBStereoDisplayMode
+    """Display in Left Eye Caerma, No Stereo effect."""
     kFBStereoDisplayModeCount:FBStereoDisplayMode
+    """update this count value when add new mode"""
     kFBStereoDisplayRightEye:FBStereoDisplayMode
+    """Display in Right Eye Caerma, No Stereo effect."""
 class FBStoryClipAlignmentType(_Enum):
+    """Alignment Types when aligning clips."""
     kFBStoryClipAlignmentBeginningNext:FBStoryClipAlignmentType
+    """Align selected clips to the beginning of the next clip."""
     kFBStoryClipAlignmentBeginningNextAllAligned:FBStoryClipAlignmentType
+    """Align selected clips to the beginning of the next clip, all clips will be align to the selected clip position."""
     kFBStoryClipAlignmentBeginningNextWithOffset:FBStoryClipAlignmentType
+    """Align selected clips to the beginning of the next clip, while keeping the relative offset."""
     kFBStoryClipAlignmentCurrentTimeline:FBStoryClipAlignmentType
+    """Align all selected clips with the current time."""
     kFBStoryClipAlignmentCurrentTimelineWithOffset:FBStoryClipAlignmentType
+    """Align all selected clips with the current time, while keeping the relative offset."""
     kFBStoryClipAlignmentEndPrevious:FBStoryClipAlignmentType
+    """Align selected clips to the end of the previous clip."""
     kFBStoryClipAlignmentEndPreviousAllAligned:FBStoryClipAlignmentType
+    """Align selected clips to the end of the previous clip, all clips will be align to the selected clip position."""
     kFBStoryClipAlignmentEndPreviousWithOffset:FBStoryClipAlignmentType
+    """Align selected clips to the end of the previous clip, while keeping the relative offset."""
 class FBStoryClipChangeType(_Enum):
+    """Types of clip change events, matching KEventClip.eType Expose only kFBStoryClipMoveClip and kFBStoryClipRemoved for now."""
     kFBStoryClipMoveBlend:FBStoryClipChangeType
+    """Clip move blend."""
     kFBStoryClipMoveClip:FBStoryClipChangeType
+    """Clip moved."""
     kFBStoryClipMoveData:FBStoryClipChangeType
+    """Clip data moved."""
     kFBStoryClipNotSet:FBStoryClipChangeType
+    """Clip none."""
     kFBStoryClipRemoved:FBStoryClipChangeType
+    """Clip removed."""
     kFBStoryClipUpdateUI:FBStoryClipChangeType
+    """Clip UI update."""
 class FBStoryClipCompMode(_Enum):
+    """Compensation Modes for story character clips."""
     kFBStoryClipAuto:FBStoryClipCompMode
+    """Automatic compensation."""
     kFBStoryClipOff:FBStoryClipCompMode
+    """No compensation."""
     kFBStoryClipUser:FBStoryClipCompMode
+    """User defined compensation."""
 class FBStoryClipGhostTimeMode(_Enum):
+    """Time mode to display ghost."""
     kFBStoryClipGhostCurrent:FBStoryClipGhostTimeMode
+    """Show the ghost at current time of the clip."""
     kFBStoryClipGhostCustom:FBStoryClipGhostTimeMode
+    """Show the ghost at custom time of the clip. See GhostManipulatorCustomTime property."""
     kFBStoryClipGhostStart:FBStoryClipGhostTimeMode
+    """Show the ghost at start time of the clip."""
     kFBStoryClipGhostStop:FBStoryClipGhostTimeMode
+    """Show the ghost at stop time of the clip."""
 class FBStoryClipMatchingRotationType(_Enum):
+    """Matching Rotation Types, when matching clips to each other."""
     kFBStoryClipMatchingRotationDefault:FBStoryClipMatchingRotationType
+    """Uses the matching translation type stored in the Application configuration file: [Story] > MatchRotation. This value, in the configuration file, is update each time a matching is done, with the selected value."""
     kFBStoryClipMatchingRotationGravityXZ:FBStoryClipMatchingRotationType
+    """Rotates a selected clip's match object around the global Y axis."""
     kFBStoryClipMatchingRotationNone:FBStoryClipMatchingRotationType
+    """The clip's match object is not rotated to match another clip's animation."""
     kFBStoryClipMatchingRotationXYZ:FBStoryClipMatchingRotationType
+    """Rotates a selected clip's match object to the same orientation as the previous clip's match object."""
 class FBStoryClipMatchingTimeType(_Enum):
+    """Matching Time Types, when matching clips to each other."""
     kFBStoryClipMatchingTimeBetweenPreviousAndSelectedClip:FBStoryClipMatchingTimeType
+    """Matches the selected clip and the previous clip at the middle of the blend."""
     kFBStoryClipMatchingTimeBetweenSelectedAndNextClip:FBStoryClipMatchingTimeType
+    """Matches the selected clip and the next clip at the middle of the blend."""
     kFBStoryClipMatchingTimeCurrentTime:FBStoryClipMatchingTimeType
+    """Matches the start of the selected clip to the previous/next clip at the current time."""
     kFBStoryClipMatchingTimeDefault:FBStoryClipMatchingTimeType
+    """Uses the matching time type stored in the Application configuration file: [Story] > MatchWhen. This value, in the configuration file, is update each time a matching is done, with the selected value."""
     kFBStoryClipMatchingTimeEndOfPreviousClip:FBStoryClipMatchingTimeType
+    """Matches the end of the blend with the selected clip to the end of the previous clip."""
     kFBStoryClipMatchingTimeEndOfSelectedClip:FBStoryClipMatchingTimeType
+    """Matches the end of the selected clip to the end of the blend with the previous clip."""
     kFBStoryClipMatchingTimeStartOfNextClip:FBStoryClipMatchingTimeType
+    """Matches the start of the blend with the selected clip to the start of the next clip."""
     kFBStoryClipMatchingTimeStartOfSelectedClip:FBStoryClipMatchingTimeType
+    """Matches the start of the selected clip to the start of the blend with the previous clip."""
 class FBStoryClipMatchingTranslationType(_Enum):
+    """Matching Translation, Types when matching clips to each other."""
     kFBStoryClipMatchingTranslationDefault:FBStoryClipMatchingTranslationType
+    """Uses the matching translation type stored in the Application configuration file: [Story] > MatchTranslation. This value, in the configuration file, is update each time a matching is done, with the selected value."""
     kFBStoryClipMatchingTranslationGravityXZ:FBStoryClipMatchingTranslationType
+    """Translates a selected clip's match object along the global X and Z axes."""
     kFBStoryClipMatchingTranslationNone:FBStoryClipMatchingTranslationType
+    """The clip's match object is not translated to match another clip's animation."""
     kFBStoryClipMatchingTranslationXYZ:FBStoryClipMatchingTranslationType
+    """Translates a selected clip's match object to the same location as the previous clip's match object."""
 class FBStoryClipMirrorPlane(_Enum):
+    """Several mirror planes to mirror animation."""
     kFBStoryClipMirrorPlaneXY:FBStoryClipMirrorPlane
+    """X-Y plane."""
     kFBStoryClipMirrorPlaneXZ:FBStoryClipMirrorPlane
+    """X-Z plane."""
     kFBStoryClipMirrorPlaneZY:FBStoryClipMirrorPlane
+    """Z-Y plane."""
 class FBStoryClipNodeFunction(_Enum):
+    """Node function."""
     kFBStoryClipNodeAverage:FBStoryClipNodeFunction
+    """Average."""
     kFBStoryClipNodeFloorProjection:FBStoryClipNodeFunction
+    """Project on XZ plane."""
     kFBStoryClipNodeNone:FBStoryClipNodeFunction
+    """None."""
 class FBStoryClipShowGhostMode(_Enum):
+    """Show Ghost Modes for story animation clips."""
     kFBStoryClipAlways:FBStoryClipShowGhostMode
+    """Always show the ghost."""
     kFBStoryClipTimeCursor:FBStoryClipShowGhostMode
+    """Show the ghost only on time cursor."""
     kFBStoryClipTimeCustom:FBStoryClipShowGhostMode
+    """Show the ghost for custom time frame."""
 class FBStoryClipSolveMode(_Enum):
+    """Solve Modes for story character clips."""
     kFBStoryClipAnimFkIk:FBStoryClipSolveMode
+    """Solve forward and inverse kinematic animation."""
     kFBStoryClipAnimSkeleton:FBStoryClipSolveMode
+    """Solve skeleton animation."""
     kFBStoryClipAnimSkeletonIk:FBStoryClipSolveMode
+    """Solve skeleton inverse kinematic animation."""
     kFBStoryClipRetargetSkeleton:FBStoryClipSolveMode
+    """Solve retarget skeleton."""
 class FBStoryClipTimeWarpInterpolatorType(_Enum):
+    """Types of TimeWrap Interpolator for Story Clips."""
     kFBStoryClipTimeWarpInterpolatorCustom:FBStoryClipTimeWarpInterpolatorType
+    """'Custom' TimeWarp Interpolation"""
     kFBStoryClipTimeWarpInterpolatorGoingFaster:FBStoryClipTimeWarpInterpolatorType
+    """'Going Faster' TimeWarp Interpolation"""
     kFBStoryClipTimeWarpInterpolatorGoingFasterReversed:FBStoryClipTimeWarpInterpolatorType
+    """'Reversed, Going Faster' TimeWarp Interpolation"""
     kFBStoryClipTimeWarpInterpolatorLinear:FBStoryClipTimeWarpInterpolatorType
+    """'Normal' TimeWarp Interpolation"""
     kFBStoryClipTimeWarpInterpolatorLinearReversed:FBStoryClipTimeWarpInterpolatorType
+    """'Reversed' TimeWarp Interpolation"""
     kFBStoryClipTimeWarpInterpolatorSlowingDown:FBStoryClipTimeWarpInterpolatorType
+    """'Slowing Down' TimeWarp Interpolation"""
     kFBStoryClipTimeWarpInterpolatorSlowingDownReversed:FBStoryClipTimeWarpInterpolatorType
+    """'Reversed, Slowing Down' TimeWarp Interpolation"""
     kFBStoryClipTimeWarpInterpolatorSmoothedEnds:FBStoryClipTimeWarpInterpolatorType
+    """'Smoothed Ends' TimeWarp Interpolation"""
     kFBStoryClipTimeWarpInterpolatorSmoothedEndsReversed:FBStoryClipTimeWarpInterpolatorType
+    """'Reversed, Smoothed Ends' TimeWarp Interpolation"""
 class FBStoryGroupClipAlignmentType(_Enum):
+    """Alignment Types when aligning groups."""
     kFBStoryGroupClipAlignmentBeginningNextWithOffset:FBStoryGroupClipAlignmentType
+    """Align the clips contained in the group clip to the beginning of the next clip, while keeping the relative offset."""
     kFBStoryGroupClipAlignmentCurrentTimeline:FBStoryGroupClipAlignmentType
+    """Align the clips contained in the group clip with the current time."""
     kFBStoryGroupClipAlignmentEndPreviousWithOffset:FBStoryGroupClipAlignmentType
+    """Align the clips contained in the group clip to the end of the previous clip, while keeping the relative offset."""
 class FBStoryTrackBodyPart(_Enum):
+    """Body Parts for story track character."""
     kFBStoryTrackBodyPartAll:FBStoryTrackBodyPart
     kFBStoryTrackBodyPartExtensions:FBStoryTrackBodyPart
     kFBStoryTrackBodyPartHead:FBStoryTrackBodyPart
@@ -1687,41 +2736,77 @@ class FBStoryTrackBodyPart(_Enum):
     kFBStoryTrackBodyPartSpine:FBStoryTrackBodyPart
     kFBStoryTrackBodyPartUpperBody:FBStoryTrackBodyPart
 class FBStoryTrackGhostShowMode(_Enum):
+    """Ghost Show Modes for story animation tracks."""
     kFBStoryTrackShowAllClips:FBStoryTrackGhostShowMode
+    """Show the ghosts for all the clips on the track."""
     kFBStoryTrackShowCurrentTimeAdjacentClips:FBStoryTrackGhostShowMode
+    """Show the ghosts only for the previous clip, current clip, and next clip relative to current time."""
 class FBStoryTrackRefMode(_Enum):
+    """References Modes for story animation tracks."""
     kFBStoryTrackAdditive:FBStoryTrackRefMode
+    """Additive track."""
     kFBStoryTrackOverride:FBStoryTrackRefMode
+    """Override track."""
 class FBStoryTrackType(_Enum):
+    """Types for new story tracks."""
     kFBStoryTrackAnimation:FBStoryTrackType
+    """Animation track."""
     kFBStoryTrackAudio:FBStoryTrackType
+    """Audio track."""
     kFBStoryTrackCamera:FBStoryTrackType
+    """Camera animation track."""
     kFBStoryTrackCharacter:FBStoryTrackType
+    """Character animation track."""
     kFBStoryTrackCommand:FBStoryTrackType
+    """Command track."""
     kFBStoryTrackConstraint:FBStoryTrackType
+    """Constraint track."""
     kFBStoryTrackShot:FBStoryTrackType
+    """Shot track."""
     kFBStoryTrackVideo:FBStoryTrackType
+    """Video track."""
 class FBSurfaceMode(_Enum):
+    """Surface modes."""
     kFBSurfaceModeHigh:FBSurfaceMode
+    """High quality."""
     kFBSurfaceModeHighNoNormals:FBSurfaceMode
+    """High quality, no normals."""
     kFBSurfaceModeLow:FBSurfaceMode
+    """Low quality."""
     kFBSurfaceModeLowNoNormals:FBSurfaceMode
+    """Low quality, no normals."""
     kFBSurfaceModeRaw:FBSurfaceMode
+    """Raw data."""
 class FBSurfaceType(_Enum):
+    """Surface types."""
     kFBSurfaceTypeBezier:FBSurfaceType
+    """Bezier surface."""
     kFBSurfaceTypeBezierQuadric:FBSurfaceType
+    """Bezier Quadric surface."""
     kFBSurfaceTypeBspline:FBSurfaceType
+    """BSpline surface."""
     kFBSurfaceTypeCardinal:FBSurfaceType
+    """Cardinal surface."""
     kFBSurfaceTypeLinear:FBSurfaceType
+    """Linear surface."""
 class FBSyncActivationAndVisibilityMode(_Enum):
+    """Sync mode for Constraints' Activeness and Models' visibility belonging to the Character Extension."""
     kFBSyncMode_None:FBSyncActivationAndVisibilityMode
+    """No particular sync activity. Default mode."""
     kFBSyncMode_WithContolRig:FBSyncActivationAndVisibilityMode
+    """Enable Constraints' Activeness and Models' visibility when the attached character is driven by its control rig, otherwise disable/hide them."""
     kFBSyncMode_WithOthersThanControlRig:FBSyncActivationAndVisibilityMode
+    """Enable Constraints' Activeness and Models' visibility when the attached character is driven by something else than its control rig, otherwise disable/hide them."""
 class FBTCPIPSocketType(_Enum):
+    """Types of TCP/IP Sockets."""
     kFBTCPIP_DGRAM:FBTCPIPSocketType
+    """Datagrams (UDP)."""
     kFBTCPIP_RAW:FBTCPIPSocketType
+    """Raw data (TCP)."""
     kFBTCPIP_Stream:FBTCPIPSocketType
+    """Streaming data (TCP)."""
 class FBTakeChangeType(_Enum):
+    """Types of take change events."""
     kFBTakeChangeAdded:FBTakeChangeType
     kFBTakeChangeClosed:FBTakeChangeType
     kFBTakeChangeMoved:FBTakeChangeType
@@ -1735,36 +2820,69 @@ class FBTakeSpanOnLoad(_Enum):
     kFBImportFromFile:FBTakeSpanOnLoad
     kFBLeaveAsIs:FBTakeSpanOnLoad
 class FBTangentClampMode(_Enum):
+    """Different clamping modes for the tangents."""
     kFBTangentClampModeClamped:FBTangentClampMode
+    """The tangent will be flattened when the key is placed at the same value as an adjacent key."""
     kFBTangentClampModeNone:FBTangentClampMode
+    """The tangent will act normally."""
 class FBTangentConstantMode(_Enum):
+    """Different constant modes for the tangents."""
     kFBTangentConstantModeNext:FBTangentConstantMode
+    """The tangent will contain the value of the next keyframe."""
     kFBTangentConstantModeNormal:FBTangentConstantMode
+    """The tangent will contain the value of the current keyframe until the next keyframe."""
 class FBTangentCustomIndex(_Enum):
+    """Custom tangent index for the tangents."""
     kFBTangentCustomIndex0:FBTangentCustomIndex
+    """First custom tangent type registered in the system."""
     kFBTangentCustomIndex1:FBTangentCustomIndex
+    """Second custom tangent type registered in the system."""
     kFBTangentCustomIndex2:FBTangentCustomIndex
+    """Third custom tangent type registered in the system."""
 class FBTangentMode(_Enum):
+    """Methods of tangent calculation.
+    This is only relevant when interpolation is CUBIC."""
     kFBTangentModeAuto:FBTangentMode
+    """This is the equivalent to a cardinal spline with no parametrization. In the UI, it is identified as Smooth."""
     kFBTangentModeBreak:FBTangentMode
+    """Like USER but left slope may differ from right."""
     kFBTangentModeClampProgressive:FBTangentMode
+    """Time independent, will flatten the tangent handles when the key value goes over or under the previous and next key values. In the UI, it is identified as Auto."""
     kFBTangentModeTCB:FBTangentMode
+    """TCB spline (3 parameters: TENSION, CONTINUITY, BIAS)"""
     kFBTangentModeTimeIndependent:FBTangentMode
+    """Time independent, is calculated based upon the slope between the previous and next key values. In the UI, it is identified as Spline."""
     kFBTangentModeUser:FBTangentMode
+    """Used to represent all splines with no lost data (HERMITE, BEZIER, CATMUL, etc.)"""
 class FBTangentWeightMode(_Enum):
+    """Active tangent weight, no/one/both side are active on a key.
+    Please note, the left value is for the next key, as the current key contains the tangent weight information for the next key. To disable the weight on the left side of a key at index "i", you need to disable "kFBTangentWeightModeNextLeft" the "i-1" key."""
     kFBTangentWeightModeBoth:FBTangentWeightMode
+    """Right tangent and next key left tangent weight are active."""
     kFBTangentWeightModeNextLeft:FBTangentWeightMode
+    """Next key left tangent weight active."""
     kFBTangentWeightModeNone:FBTangentWeightMode
+    """Tangent weight disabled."""
     kFBTangentWeightModeRight:FBTangentWeightMode
+    """Right tangent weight active."""
 class FBTextJustify(_Enum):
+    """Text justification styles."""
     kFBTextJustifyCenter:FBTextJustify
+    """Center alignment."""
     kFBTextJustifyLeft:FBTextJustify
+    """Left justify."""
     kFBTextJustifyRight:FBTextJustify
+    """Right justify."""
 class FBTextStyle(_Enum):
+    """Text appearance styles."""
     kFBTextStyleBold:FBTextStyle
+    """Bold."""
     kFBTextStyleItalic:FBTextStyle
+    """Italic."""
     kFBTextStyleNone:FBTextStyle
+    """Normal."""
     kFBTextStyleUnderlined:FBTextStyle
+    """Underlined."""
 class FBTextureBlendMode(_Enum):
     kFBTextureBlendAdditive:FBTextureBlendMode
     kFBTextureBlendModulate:FBTextureBlendMode
@@ -1789,32 +2907,59 @@ class FBTextureUseType(_Enum):
     kFBTextureUseSphereReflexionMap:FBTextureUseType
     kFBTextureUseSphericalReflexionMap:FBTextureUseType
 class FBTimeMarkAction(_Enum):
+    """Time (Global & Take) Mark assigned action."""
     kFBTimeMarkAction_Loop:FBTimeMarkAction
+    """When reaching the mark, the playback loops to previous global mark (or start frame if any)."""
     kFBTimeMarkAction_None:FBTimeMarkAction
+    """No action. The mark is just visual hint."""
     kFBTimeMarkAction_Stop:FBTimeMarkAction
+    """When reaching the mark, the playback stops."""
 class FBTimeMode(_Enum):
+    """Different time modes available."""
     kFBTimeMode1000Frames:FBTimeMode
+    """1000 : 1 millisecond"""
     kFBTimeMode100Frames:FBTimeMode
+    """100"""
     kFBTimeMode11988Frames:FBTimeMode
+    """~119.88"""
     kFBTimeMode120Frames:FBTimeMode
+    """120"""
     kFBTimeMode23976Frames:FBTimeMode
+    """~23.976"""
     kFBTimeMode24Frames:FBTimeMode
+    """24"""
     kFBTimeMode25Frames:FBTimeMode
+    """25"""
     kFBTimeMode2997Frames:FBTimeMode
+    """~29.97 full"""
     kFBTimeMode2997Frames_Drop:FBTimeMode
+    """~29.97 drop"""
     kFBTimeMode30Frames:FBTimeMode
+    """30"""
     kFBTimeMode48Frames:FBTimeMode
+    """48"""
     kFBTimeMode50Frames:FBTimeMode
+    """50"""
     kFBTimeMode5994Frames:FBTimeMode
+    """~59.94"""
     kFBTimeMode60Frames:FBTimeMode
+    """60"""
     kFBTimeMode72Frames:FBTimeMode
+    """72"""
     kFBTimeMode96Frames:FBTimeMode
+    """96"""
     kFBTimeModeCustom:FBTimeMode
+    """Custom framerate."""
     kFBTimeModeDefault:FBTimeMode
+    """Default Time Mode."""
 class FBTimeReferential(_Enum):
+    """FBCommandState."""
     kFBTimeReferentialAction:FBTimeReferential
+    """Action."""
     kFBTimeReferentialEdit:FBTimeReferential
+    """Edit."""
     kFBTimeReferentialShot:FBTimeReferential
+    """Shot."""
 class FBToolPossibleDockPosition(_Enum):
     kFBToolPossibleDockPosBottom:FBToolPossibleDockPosition
     kFBToolPossibleDockPosLeft:FBToolPossibleDockPosition
@@ -1822,72 +2967,120 @@ class FBToolPossibleDockPosition(_Enum):
     kFBToolPossibleDockPosRight:FBToolPossibleDockPosition
     kFBToolPossibleDockPosTop:FBToolPossibleDockPosition
 class FBTransportLoopMode(_Enum):
+    """Available loop modes for the transport control."""
     kFBTransportLoopCurrentTake:FBTransportLoopMode
+    """Playback looping the current take."""
     kFBTransportLoopThroughAllTakes:FBTransportLoopMode
+    """Playback from the current take through all takes in order then stops."""
     kFBTransportNoLoop:FBTransportLoopMode
+    """Playback not looping."""
 class FBTransportMode(_Enum):
+    """Transport modes."""
     kFBTransportGoto:FBTransportMode
     kFBTransportGotoPrepare:FBTransportMode
+    """!< Goto."""
     kFBTransportGotoReady:FBTransportMode
     kFBTransportJog:FBTransportMode
     kFBTransportJogPrepare:FBTransportMode
+    """!< Jog."""
     kFBTransportJogReady:FBTransportMode
     kFBTransportPlay:FBTransportMode
     kFBTransportPlayPrepare:FBTransportMode
+    """!< Play mode"""
     kFBTransportPlayReady:FBTransportMode
     kFBTransportPlayReverse:FBTransportMode
     kFBTransportPlayReversePrepare:FBTransportMode
+    """!< Play reverse."""
     kFBTransportPlayReverseReady:FBTransportMode
     kFBTransportShuttle:FBTransportMode
     kFBTransportShuttlePrepare:FBTransportMode
+    """!< Shuttle mode"""
     kFBTransportShuttleReady:FBTransportMode
     kFBTransportStepBackward:FBTransportMode
     kFBTransportStepBackwardPrepare:FBTransportMode
+    """!< Step backward."""
     kFBTransportStepBackwardReady:FBTransportMode
     kFBTransportStepForward:FBTransportMode
     kFBTransportStepForwardPrepare:FBTransportMode
+    """!< Step forward"""
     kFBTransportStepForwardReady:FBTransportMode
     kFBTransportStop:FBTransportMode
     kFBTransportStopPost:FBTransportMode
+    """!< Stop mode"""
     kFBTransportStopReady:FBTransportMode
 class FBTransportPlaySpeed(_Enum):
+    """Available transport control play speed."""
     kFBSpeed_10x:FBTransportPlaySpeed
+    """10x"""
     kFBSpeed_1_10x:FBTransportPlaySpeed
+    """0.10x"""
     kFBSpeed_1_2x:FBTransportPlaySpeed
+    """0.50x"""
     kFBSpeed_1_3x:FBTransportPlaySpeed
+    """0.33x"""
     kFBSpeed_1_4x:FBTransportPlaySpeed
+    """0.25x"""
     kFBSpeed_1_5x:FBTransportPlaySpeed
+    """0.20x"""
     kFBSpeed_1x:FBTransportPlaySpeed
+    """1x"""
     kFBSpeed_2x:FBTransportPlaySpeed
+    """2x"""
     kFBSpeed_3x:FBTransportPlaySpeed
+    """3x"""
     kFBSpeed_4x:FBTransportPlaySpeed
+    """4x"""
     kFBSpeed_5x:FBTransportPlaySpeed
+    """5x"""
     kFBSpeed_ALL_FR:FBTransportPlaySpeed
+    """All frames."""
     kFBSpeed_Custom:FBTransportPlaySpeed
+    """Custom speed."""
 class FBTransportSnapMode(_Enum):
+    """Available snap methods for the transport control."""
     kFBTransportSnapModeNoSnap:FBTransportSnapMode
+    """No snapping is applied."""
     kFBTransportSnapModePlayOnFrames:FBTransportSnapMode
+    """When playing, plays to exact frames."""
     kFBTransportSnapModeSnapAndPlayOnFrames:FBTransportSnapMode
+    """Combines both Snap and Play on frames modes."""
     kFBTransportSnapModeSnapOnFrames:FBTransportSnapMode
+    """Snaps to an exact frame when modifying the current time."""
 class FBTransportTimeFormat(_Enum):
+    """Available transport control time display."""
     kFBTimeFormatFrame:FBTransportTimeFormat
+    """Frame time display mode."""
     kFBTimeFormatTimecode:FBTransportTimeFormat
+    """Timecode time display mode."""
 class FBTriggerStyle(_Enum):
+    """Audio clips' trigger styles."""
     kFBTriggerStyleContinue:FBTriggerStyle
+    """Previously triggered clips that are still playing won't be stopped and mixing will occur."""
     kFBTriggerStyleCut:FBTriggerStyle
+    """Previously triggered clips that are still playing will be stopped."""
     kFBTriggerStyleToggle:FBTriggerStyle
+    """If a previously triggered clip is playing, it will only be stopped, otherwise a new starts playing. No mixing and no loop."""
 class FBUpAxis(_Enum):
     kFBUpAxisY:FBUpAxis
     kFBUpAxisZ:FBUpAxis
 class FBUseChnMode(_Enum):
+    """Use Channel modes."""
     kFBUseChannelBoth:FBUseChnMode
+    """Default mode, where each channel play in its respective speaker."""
     kFBUseChannelLeftOnly:FBUseChnMode
+    """Left channel will be played in both speakers."""
     kFBUseChannelRightOnly:FBUseChnMode
+    """Right channel will be played in both speakers."""
 class FBVideoCodecMode(_Enum):
+    """Enum FBVideoRenderDepth."""
     FBVideoCodecAsk:FBVideoCodecMode
+    """Pop codec selection dialog each render."""
     FBVideoCodecStored:FBVideoCodecMode
+    """Pop dialog and stored its value"""
     FBVideoCodecUncompressed:FBVideoCodecMode
+    """Assume uncompressed codec."""
 class FBVideoFormat(_Enum):
+    """Video color modes."""
     kFBVideoFormat_422:FBVideoFormat
     kFBVideoFormat_ABGR_32:FBVideoFormat
     kFBVideoFormat_ARGB_32:FBVideoFormat
@@ -1899,36 +3092,67 @@ class FBVideoFormat(_Enum):
     kFBVideoFormat_RGBA_32:FBVideoFormat
     kFBVideoFormat_RGB_24:FBVideoFormat
 class FBVideoInterlaceMode(_Enum):
+    """Video interlace modes."""
     kFBVideoInterlaceFullFrameEven:FBVideoInterlaceMode
+    """Full frame (even field)."""
     kFBVideoInterlaceFullFrameOdd:FBVideoInterlaceMode
+    """Full frame (odd field)."""
     kFBVideoInterlaceHalfFrameEven:FBVideoInterlaceMode
+    """Half frame (even field)."""
     kFBVideoInterlaceHalfFrameOdd:FBVideoInterlaceMode
+    """Half frame (odd field)."""
     kFBVideoInterlaceNone:FBVideoInterlaceMode
+    """No interacling."""
 class FBVideoLiveType(_Enum):
+    """Video Live type."""
     kFBVideoLiveBasic:FBVideoLiveType
+    """Basic video input, like webcam and dv camera."""
     kFBVideoLiveDefault:FBVideoLiveType
+    """Generic video input, type not specified."""
 class FBVideoProxyMode(_Enum):
+    """Video proxy modes."""
     kFBVideoProxyAlways:FBVideoProxyMode
+    """Always video proxy."""
     kFBVideoProxyNone:FBVideoProxyMode
+    """No video proxy."""
     kFBVideoProxyOnPlay:FBVideoProxyMode
+    """Video proxy on play."""
 class FBVideoRenderDepth(_Enum):
+    """Enum FBVideoRenderDepth."""
     FBVideoRender24Bits:FBVideoRenderDepth
+    """24 bits"""
     FBVideoRender32Bits:FBVideoRenderDepth
+    """32 bits"""
     FBVideoRenderDepthCount:FBVideoRenderDepth
+    """Depth Count."""
 class FBVideoRenderFieldMode(_Enum):
+    """Enum FBVideoRenderFieldMode."""
     FBFieldModeCount:FBVideoRenderFieldMode
+    """Count."""
     FBFieldModeField0:FBVideoRenderFieldMode
+    """Field 0."""
     FBFieldModeField1:FBVideoRenderFieldMode
+    """Field 1."""
     FBFieldModeHalfField0:FBVideoRenderFieldMode
+    """Half Field 0."""
     FBFieldModeHalfField1:FBVideoRenderFieldMode
+    """Half Field 1."""
     FBFieldModeNoField:FBVideoRenderFieldMode
+    """No Field."""
 class FBVideoRenderViewingMode(_Enum):
+    """Enum FBVideoRenderViewingMode."""
     FBViewingModeCount:FBVideoRenderViewingMode
+    """Count."""
     FBViewingModeCurrent:FBVideoRenderViewingMode
+    """Current."""
     FBViewingModeModelsOnly:FBVideoRenderViewingMode
+    """Model Only."""
     FBViewingModeStandard:FBVideoRenderViewingMode
+    """Standard."""
     FBViewingModeXRay:FBVideoRenderViewingMode
+    """X-Ray."""
 class FBVideoResolution(_Enum):
+    """Video Resolution (1D)"""
     kFBVideo_RES_1:FBVideoResolution
     kFBVideo_RES_128:FBVideoResolution
     kFBVideo_RES_16:FBVideoResolution
@@ -1945,20 +3169,35 @@ class FBVideoResolution(_Enum):
     kFBVideo_RES_8K:FBVideoResolution
     kFBVideo_RES_FULL:FBVideoResolution
 class FBVideoStorageMode(_Enum):
+    """Video storage modes."""
     kFBVideoStorageDisk:FBVideoStorageMode
+    """Storage on disk."""
     kFBVideoStorageDiskAsync:FBVideoStorageMode
+    """Storage on disk async access."""
     kFBVideoStorageMemory:FBVideoStorageMode
+    """Storage in memory."""
 class FBViewerMode(_Enum):
+    """Different viewer modes for the 3D viewer."""
     kFBViewerModeFourWindow:FBViewerMode
+    """View four panes."""
     kFBViewerModeOneWindow:FBViewerMode
+    """View one pane."""
     kFBViewerModeSchematic:FBViewerMode
+    """Schematic view."""
     kFBViewerModeThreeWindow:FBViewerMode
+    """View three panes."""
     kFBViewerModeTwoWindow:FBViewerMode
+    """View two panes."""
 class FBVisibilityState(_Enum):
+    """Visibility state."""
     kFBVisibilityAll:FBVisibilityState
+    """All objects requested are visible."""
     kFBVisibilityAny:FBVisibilityState
+    """Any object requested is visible."""
     kFBVisibilityInvalid:FBVisibilityState
+    """Invalid visibility request."""
     kFBVisibilitySome:FBVisibilityState
+    """Some objects (at least one, but not all) requested are visible."""
 class kDeviceIOs(_Enum):
     kIOPlayModeRead:kDeviceIOs
     kIOPlayModeWrite:kDeviceIOs
@@ -2514,13 +3753,13 @@ class FBEventTreeSelect(FBEvent):
 class FBEventVideoFrameRendering(FBEvent):
     EState:type
     """video rendering state
-    Enumerator
-    eBeginRendering
-    State before video renderer renders all the frames.
-    eRendering
-    State before video renderer renders each frame.
-    eEndRendering
-    State after video renderer renders all the frames."""
+    @TABLE
+    
+    # Enumerator
+    eBeginRendering: State before video renderer renders all the frames.
+    eRendering: State before video renderer renders each frame.
+    eEndRendering: State after video renderer renders all the frames.
+    @ENDTABLE"""
     FrameCount:property
     FrameNumber:property
     State:property
@@ -2760,6 +3999,7 @@ class FBNormal():
     def IsEqual(self,arg2:FBNormal)->bool:...
     def Length(self)->float:
         """Get the length of a vector.
+        
         ### Returns:
         Length of vector pV ."""
         ...
@@ -4010,6 +5250,7 @@ class FBPropertyAnimatable(FBProperty):
         ...
     def GetAnimationNode(self)->FBAnimationNode:
         """Get the animation node for the property.
+        
         ### Returns:
         Animation node for property. `None` is returned if property is not animated."""
         ...
@@ -4354,6 +5595,7 @@ class FBRenderer(FBComponent):
         """Returns the bounding box (top, left, bottom, right) used by all the Schematic View nodes.
         ### Parameters:
         - bConsiderCollapsedNodes: True to also consider nodes which are not visible because collapsed, false otherwise.
+        
         ### Returns:
         True if the operation is successful, false otherwise (e.g. the Schematic View has any node in it, etc.)."""
         ...
@@ -4362,6 +5604,7 @@ class FBRenderer(FBComponent):
         ### Parameters:
         - Model: The starting node from which the bounding box tree is requested.
         - bConsiderCollapsedNodes: True to also consider nodes which are not visible because collapsed, false otherwise.
+        
         ### Returns:
         True if the operation is successful, false otherwise (e.g. the starting node is not in the Schematic View, etc.)."""
         ...
@@ -6240,6 +7483,7 @@ class FBCharacter(FBConstraint):
         ...
     def GetCurrentControlSet(self)->FBControlSet:
         """Obtain Input ControlSet.
+        
         ### Returns:
         Return current Active ControlSet, `None` if none."""
         ...
@@ -6901,6 +8145,7 @@ class FBConstraintRelation(FBConstraint):
         Get the position of a box within the constraint layout view.
         ### Parameters:
         - Box: Box from which the information will be queried.
+        
         ### Returns:
         A boolean value indicating success (True) or failure (False).
         
@@ -7499,10 +8744,12 @@ class FBModel(FBBox):
         ### Parameters:
         - MatricesArray: The matrix array (memory already allocated) to fill in with the hierarchy world matrix of all the model's children models
         - MatricesArrayCount: The size of the matrix array
+        
         ### Return values:
         - HiercharyTraverserType: The hierarchy traverser type
         
         ### Parameters:
+        
         ### Return values:
         - Number: of matrices filled in the array. The value may be different than MatricesArrayCount if the number of children models is less than the size of the matrix array."""
         ...
@@ -7708,11 +8955,12 @@ class FBLight(FBModel):
     """Read Write Property: Draw volumetric light with gobo?"""
     EAreaLightShapes:type
     """Area light shapes.
-    Enumerator
-    eRectangle
-    Rectangle.
-    eSphere
-    Sphere."""
+    @TABLE
+    
+    # Enumerator
+    eRectangle: Rectangle.
+    eSphere: Sphere.
+    @ENDTABLE"""
     EnableBarnDoor:bool
     """Read Write Property: Whether or not enable barn door."""
     FogIntensity:float
@@ -8178,11 +9426,12 @@ class FBModelPath3D(FBModel):
     """Read Write Property: Path display color in viewport."""
     EKeyPropertyBehavior:type
     """Key property behavior.
-    Enumerator
-    eLegacyVector4
-    2014, 2015, 2016. Key property type is Vector4.
-    eVector
-    Introduced after 2016. Key property type is Vector, has improved control node behavior and support for auto control node."""
+    @TABLE
+    
+    # Enumerator
+    eLegacyVector4: 2014, 2015, 2016. Key property type is Vector4.
+    eVector: Introduced after 2016. Key property type is Vector, has improved control node behavior and support for auto control node.
+    @ENDTABLE"""
     ELengthUnitType:type
     """Path Length Unit enum."""
     EPathEndCapStyle:type
@@ -9162,6 +10411,7 @@ class FBApplication(FBComponent):
         - Buffer: the memory buffer for the file. Raw memory address is expected in pyfbsdk.
         - BufferLength: the memory buffer size.
         - FrameCount: out parameter to hold max frame count. this parameter is not needed in pyfbsdk.
+        
         ### Returns:
         true if file opened successfully. In pyfbsdk, a tuple (bool, kLong) will return instead, the first one is ORSDK function return value, the second is for max frame count."""
         ...
@@ -10336,6 +11586,7 @@ class FBGeometry(FBComponent):
         ### See also:
         GeometryBegin() /GeometryEnd()
         
+        
         ### Returns:
         Pointer to direct array of binormals, or `None` if the array hasn't been allocated yet."""
         ...
@@ -10344,6 +11595,7 @@ class FBGeometry(FBComponent):
         Modify array value will be only effective when geometry editing is enabled.
         ### See also:
         GeometryBegin() /GeometryEnd()
+        
         
         ### Returns:
         Pointer to index array of binormals, or `None` if the array hasn't been allocated yet."""
@@ -10354,6 +11606,7 @@ class FBGeometry(FBComponent):
         ### See also:
         GeometryBegin() /GeometryEnd()
         
+        
         ### Returns:
         Pointer to index array of Material, or `None` if the array hasn't been allocated yet."""
         ...
@@ -10362,6 +11615,7 @@ class FBGeometry(FBComponent):
         Modify array value will be only effective when geometry editing is enabled.
         ### See also:
         GeometryBegin() /GeometryEnd()
+        
         
         ### Returns:
         Pointer to direct array of normals, or `None` if the array hasn't been allocated yet."""
@@ -10372,6 +11626,7 @@ class FBGeometry(FBComponent):
         ### See also:
         GeometryBegin() /GeometryEnd()
         
+        
         ### Returns:
         Pointer to index array of normals, or `None` if the array hasn't been allocated yet."""
         ...
@@ -10380,6 +11635,7 @@ class FBGeometry(FBComponent):
         Modify array value will be only effective when geometry editing is enabled.
         ### See also:
         GeometryBegin() /GeometryEnd()
+        
         
         ### Returns:
         Pointer to index array of normals, or `None` if the array hasn't been allocated yet."""
@@ -10390,6 +11646,7 @@ class FBGeometry(FBComponent):
         ### See also:
         GeometryBegin() /GeometryEnd()
         
+        
         ### Returns:
         Pointer to direct array of tangents, or `None` if the array hasn't been allocated yet."""
         ...
@@ -10398,6 +11655,7 @@ class FBGeometry(FBComponent):
         Modify array value will be only effective when geometry editing is enabled.
         ### See also:
         GeometryBegin() /GeometryEnd()
+        
         
         ### Returns:
         Pointer to index array of tangents, or `None` if the array hasn't been allocated yet."""
@@ -10409,6 +11667,7 @@ class FBGeometry(FBComponent):
         
         ### Parameters:
         - OutArrayCount: To return the length the array.
+        
         ### Returns:
         pointer to the array of UV, or `None` is the array hasn't been allocated yet."""
         ...
@@ -10420,6 +11679,7 @@ class FBGeometry(FBComponent):
         
         ### Parameters:
         - OutArrayCount: To return the length the array.
+        
         ### Returns:
         Pointer to index array of UVSet, or `None` if the array hasn't been allocated yet."""
         ...
@@ -10450,6 +11710,7 @@ class FBGeometry(FBComponent):
         ### See also:
         GeometryBegin() /GeometryEnd()
         
+        
         ### Returns:
         Pointer to direct array of vertex colors, or `None` if the array hasn't been allocated yet."""
         ...
@@ -10458,6 +11719,7 @@ class FBGeometry(FBComponent):
         Modify array value will be only effective when geometry editing is enabled.
         ### See also:
         GeometryBegin() /GeometryEnd()
+        
         
         ### Returns:
         Pointer to index array of vertex color, or `None` if the array hasn't been allocated yet."""
@@ -10802,6 +12064,7 @@ class FBMesh(FBGeometry):
     def PolygonVertexArrayGet(self)->list:
         """Get the array of polygon vertex (i.e.
         index to control points). This array is a concatenation of the list of polygon vertices of all the polygons. Example: a mesh made of 2 triangles [1,2,3] and [2,3,4] results in [1,2,3,2,3,4]. The first polygon starts at position 0 and the second at position 3.
+        
         ### Returns:
         Readonly polygon vertex array."""
         ...
@@ -11974,6 +13237,7 @@ class FBPlayerControl(FBComponent):
         It doesn't allow creating a time mark at the same time of another time mark. Note: Internally, the global time marks are stored in time order. Adding a time mark before other existing time marks will modify the index of these other time marks.
         ### Parameters:
         - Time: Time where to add the time mark.
+        
         ### Returns:
         The index of the time mark added if the operation is successful, -1 otherwise."""
         ...
@@ -12326,6 +13590,7 @@ class FBSVector():
     def IsEqual(self,arg2:FBSVector)->bool:...
     def Length(self)->float:
         """Get the length of a vector.
+        
         ### Returns:
         Length of vector pV ."""
         ...
@@ -13181,6 +14446,7 @@ class FBStoryFolder(FBComponent):
     def __init__(self,ParentFolder:FBStoryFolder=None):
         """### Parameters:
         - ParentFolder: If NULL, parent will be the global root folder, according to its type.
+        
         ### Remarks:
         You can't create a folder with the RootEditFolder as parent."""
         ...
@@ -13491,13 +14757,13 @@ class FBSystem(FBComponent):
     Devices:property
     EPluginItemInfo:type
     """Array index of each plug-in item information (see the GetLoadedPluginItemInfo() member function).
-    Enumerator
-    ePluginItemDescription
-    Plug-in item's description.
-    ePluginItemFileName
-    Plug-in item's filename.
-    ePluginItemIconName
-    Plug-in item's icon name."""
+    @TABLE
+    
+    # Enumerator
+    ePluginItemDescription: Plug-in item's description.
+    ePluginItemFileName: Plug-in item's filename.
+    ePluginItemIconName: Plug-in item's icon name.
+    @ENDTABLE"""
     FrameRate:float
     """Read Only Property: The frame rate of the viewer."""
     FullScreenViewer:bool
@@ -13563,9 +14829,9 @@ class FBSystem(FBComponent):
         ...
     def GetCommandLineArgs(self)->FBStringList:
         """Returns the command line arguments for SDK.
-        This function returns portion of the command line arguments within a pair of delimiters (–sdk-begin & –sdk-end). Example:
-        motionbuilder -console -G500,500 -suspendMessages –sdk-begin –department mocap –usage on-stage –sdk-end C:/temp/sample.fbx
-        Note that '-console', '-G500,500', '-suspendMessages' and 'C:/temp/sample.fbx' are for MotionBuilder itself hence are consumed accordingly. Only those arguments between –sdk-begin and –sdk-end are accessible with this function. In this example, they will be '--department mocap --usage on-stage'
+        This function returns portion of the command line arguments within a pair of delimiters (--sdk-begin & --sdk-end). Example:
+        motionbuilder -console -G500,500 -suspendMessages --sdk-begin --department mocap --usage on-stage --sdk-end C:/temp/sample.fbx
+        Note that '-console', '-G500,500', '-suspendMessages' and 'C:/temp/sample.fbx' are for MotionBuilder itself hence are consumed accordingly. Only those arguments between --sdk-begin and --sdk-end are accessible with this function. In this example, they will be '--department mocap --usage on-stage'
         This SDK command line argument is useful for plugin deployment and management in large production facility, where different department or different workflow may require a different set of plugins or functionality/behavior dynamically.
         Python users also have access to this through official built-in module sys.argv which could be parsed easily via argparse module.
         ### Returns:
@@ -13710,13 +14976,13 @@ class FBLayeredTexture(FBTexture):
 class FBTime():
     ETimeFormats:type
     """Different time format available.
-    Enumerator
-    eSMPTE
-    format as SMPTE
-    eFrame
-    format as numeric frame
-    eDefaultFormat
-    Default Time format."""
+    @TABLE
+    
+    # Enumerator
+    eSMPTE: format as SMPTE
+    eFrame: format as numeric frame
+    eDefaultFormat: Default Time format.
+    @ENDTABLE"""
     Infinity:FBTime
     """Time constant: Infinity, the largest time value."""
     MinusInfinity:FBTime
@@ -13926,6 +15192,7 @@ class FBTake(FBComponent):
         It doesn't allow creating a time mark at the same time of another time mark. Note: Internally, the time marks are stored in time order. Adding a time mark before other existing time marks will modify the index of these other time marks.
         ### Parameters:
         - Time: Time where to add the time mark on the take.
+        
         ### Returns:
         The index of the time mark added if the operation is successful, -1 otherwise."""
         ...
@@ -14331,6 +15598,7 @@ class FBFCurve(FBComponent):
         ### Parameters:
         - Time: Time at which to insert the key.
         - Value: Value of the key.
+        
         ### Returns:
         The position of the new key in the list of FCurve keys.
         
@@ -15285,6 +16553,7 @@ class FBVector3d():
     def IsEqual(self,arg2:FBVector3d)->bool:...
     def Length(self)->float:
         """Get the length of a vector.
+        
         ### Returns:
         Length of vector pV ."""
         ...
@@ -15359,6 +16628,7 @@ class FBVector4d():
     def IsEqual(self,arg2:FBVector4d)->bool:...
     def Length(self)->float:
         """Get the length of a vector.
+        
         ### Returns:
         Length of vector pV ."""
         ...
@@ -15434,6 +16704,7 @@ class FBVertex():
     def IsEqual(self,arg2:FBVertex)->bool:...
     def Length(self)->float:
         """Get the length of a vector.
+        
         ### Returns:
         Length of vector pV ."""
         ...
@@ -15495,6 +16766,7 @@ class FBVideo(FBBox):
     def __init__(self,Name:str):
         """### Parameters:
         - Name: Name of video media.
+        
         ### Warning:
         The Name parameter must point to a valid media file, otherwise the object will not be valid. Use the method 'IsValid()' to confirm the object status."""
         ...
@@ -16060,6 +17332,7 @@ class FBSpread(FBVisualComponent):
         ### Parameters:
         - Ref: Row of cell.
         - Column: Column of cell.
+        
         ### Return values:
         - pView: Handle of view."""
         ...
@@ -16208,6 +17481,7 @@ class FBLayout(FBVisualComponent):
         - XType: X: Type of attachment.
         - XRelative: X: Item to attach to.
         - MultX: X: Multiplier of relative value.
+        
         ### Returns:
         Operation was successful ( true or false )."""
         ...
@@ -16910,6 +18184,7 @@ def FBFindModelByUniqueColorId(Color:FBColor)->FBModel:
     A model could have a single unique ColorID, but SDK plugin user could request additional ColorID per model to support multi sub items picking. see FBModel::SetAdditionalUniqueColorIDCount() .
     ### Parameters:
     - Color: Color channel values are in range of [0,1] with precision 1.0/255
+    
     ### Returns:
     A handle onto the model with unique color id matching, returns `None` if no model was found by the search. In pyfbsdk return tuple [model, subItemIndex]"""
     ...

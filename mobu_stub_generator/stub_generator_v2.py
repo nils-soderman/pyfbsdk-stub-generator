@@ -31,7 +31,7 @@ TAB_CHARACTER = "    "
 # Support URLs in the doc strings
 # FBAudioFmt_AppendFormat - code example
 # FBStoryClip -> GetAffectedAnimationNodes & FBModel::GetHierarchyWorldMatrices()
-# GetCommandLineArgs (unknown char in docstring)
+# GetCommandLineArgs - Turn blockquotes into: ```
 
 # -------------------------------------------------------------
 #                         Translations
@@ -597,6 +597,9 @@ class PyfbsdkStubGenerator():
 
             if not bParsingCode:
                 Line = Line.strip()
+    
+                # if Line.startswith("Definition at line"):
+                #     continue
 
             if Line == "@CODE":
                 bParsingCode = True
@@ -664,7 +667,7 @@ class PyfbsdkStubGenerator():
                         continue
 
                 elif bInParamsList:
-                    if Line.lstrip("- ").partition(":")[0] not in ParameterNiceNames:
+                    if Line.strip() and Line.lstrip("- ").partition(":")[0] not in ParameterNiceNames:
                         continue
 
                 NewDocStringAfterParamFix += "%s\n" % Line
@@ -691,7 +694,7 @@ class PyfbsdkStubGenerator():
         NewDocString = NewDocString.replace("\"", "'")
 
         return NewDocString.strip()
-
+    
     def _PatchParameter(self, StubParameterInstance: StubParameter):
         # Patch type
         if StubParameterInstance.Type in VariableTypeTranslations:
@@ -788,6 +791,51 @@ class PyfbsdkStubGenerator():
 
             StubFunctionInstance.DocString = self._PatchFunctionDocstring(Documentation.DocString, StubFunctionInstance)
 
+    def _PatchEnumFromDocumentation(self, Enum: StubClass):
+        Documentation = self.DocumentationParser.GetSDKClassPagesByName(Enum.Name)
+        if not Documentation:
+            return
+        DocumentationMembers = Documentation.GetMembersByName(Enum.Name)
+        if not DocumentationMembers:
+            return
+        
+        # Doc String
+        DocumentationMember = DocumentationMembers[0]
+        DocString = DocumentationMember.DocString
+        
+        bParsingEnum = False
+        ClassDocString = ""
+        for Line in DocString.split("\n"):
+            Line = Line.strip()
+            if not Line or Line.startswith("Definition at line"):
+                continue
+            
+            if Line == "@TABLE":
+                bParsingEnum = True
+                continue
+            elif Line == "@ENDTABLE":
+                bParsingEnum = False
+                continue
+            
+            if bParsingEnum:
+                if Line.startswith("#"):
+                    continue
+                
+                PropertyName, _, PropertyDesc = Line.partition(":")
+                MatchingProperties = [x for x in Enum.GetStubProperties() if x.Name == PropertyName]
+                if MatchingProperties:
+                    MatchingProperty = MatchingProperties[0]
+                    if "Definition at line" in PropertyDesc:
+                        PropertyDesc = PropertyDesc.partition("Definition at line")[0]
+                    MatchingProperty.DocString = PropertyDesc.strip()
+                continue
+            
+            ClassDocString += "%s\n" % Line
+        
+        Enum.DocString = ClassDocString.strip()
+        
+
+
     def _PatchClassFromDocumentation(self, Classes: List[StubClass]):
         for StubClassInstance in Classes:
             DocumentationClassName = TranslationDocumentationClassNames.get(StubClassInstance.Name, StubClassInstance.Name)
@@ -841,6 +889,9 @@ class PyfbsdkStubGenerator():
         # Sort classes so that if there is if a class has a parent class, that parent comes before the child
         for Function in Functions:
             self.Functions.extend(self._GenerateFunctionInstances(Function))
+
+        for Enum in self.Enums:
+            self._PatchEnumFromDocumentation(Enum)
 
         # Use the online documentation to try and create better param names, values etc.
         if bUseOnlineDocumentation:
