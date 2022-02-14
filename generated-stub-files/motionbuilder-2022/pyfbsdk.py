@@ -3518,11 +3518,11 @@ class FBConstructionOperation():
         ### Parameters:
         - commandId: Command Id. Defaults to -1."""
         ...
-    def SetExecuteAsLocalOperation(self,bbIsLocal:bool):
+    def SetExecuteAsLocalOperation(self,bIsLocal:bool):
         """SetExecuteAsLocalOperation Whether to execute this operation as local or remote.
         If this is set to false (remote) and an operation is sent to the construction history, it will also execute locally on this motionbuilder.
         ### Parameters:
-        - bbIsLocal: Defaults to true (local)."""
+        - bIsLocal: Defaults to true (local)."""
         ...
     def SetLanguage(self,language:str):
         """SetLanguage Set the script language for this operation.

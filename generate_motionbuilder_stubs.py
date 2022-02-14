@@ -21,8 +21,11 @@ def GetMotionBuilderVersion():
 
 
 def GeneratePyfbsdkStub(OutputDir = ""):
-    MotionBuilderVersion = GetMotionBuilderVersion()
-    Filepath = os.path.join(OUTPUT_DIRECTORY, "motionbuilder-%s" % MotionBuilderVersion, "pyfbsdk.py")
+    if not OutputDir:
+        OutputDir = os.path.join(OUTPUT_DIRECTORY, "motionbuilder-%s" % GetMotionBuilderVersion())
+    
+    Filepath = os.path.join(OutputDir, "pyfbsdk.py")
+    
     StubGenerator.GeneratePYFBSDKStub(Filepath)
 
 

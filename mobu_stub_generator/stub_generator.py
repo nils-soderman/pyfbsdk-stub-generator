@@ -17,7 +17,7 @@ import motionbuilder_documentation_parser as docParser
 
 reload(docParser)
 
-DEFAULT_OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "generated-stub-files")
+
 ADDITIONS_FILEPATH = os.path.join(os.path.dirname(__file__), "additions_pyfbsdk.py")
 TAB_CHARACTER = "    "
 
@@ -424,7 +424,7 @@ class StubParameter(StubBaseClass):
         ReturnValue = self.Name
         if ReturnValue.startswith("p") and not (ReturnValue[1].isnumeric()):
             ReturnValue = ReturnValue.lstrip("p")
-        if self.Type == "bool":
+        if self.Type == "bool" and not ReturnValue.startswith("b"):
             ReturnValue = "b%s" % ReturnValue
         return ReturnValue
 
@@ -956,11 +956,6 @@ def GeneratePYFBSDKStub(Filepath):
     print("Generating pyfbsdk stub file took: %ss." % round(GenerationTime, 2))
 
 
-def main():
-    MotionBuilderVersion = GetMotionBuilderVersion()
-    Filepath = os.path.join(DEFAULT_OUTPUT_DIR, "motionbuilder-%s" % MotionBuilderVersion, "pyfbsdk.py")
-    GeneratePYFBSDKStub(Filepath)
-
-
-if "builtins" in __name__:
-    main()
+# DEFAULT_OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "generated-stub-files")
+# Filepath = os.path.join(DEFAULT_OUTPUT_DIR, "motionbuilder-%s" % GetMotionBuilderVersion(), "pyfbsdk.py")
+# GeneratePYFBSDKStub(Filepath)
