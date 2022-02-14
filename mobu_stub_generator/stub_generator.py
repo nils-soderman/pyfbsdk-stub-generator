@@ -943,6 +943,8 @@ class PyfbsdkStubGenerator():
 
 
 def GeneratePYFBSDKStub(Filepath):
+    StartTime = time.time()
+    
     Generator = PyfbsdkStubGenerator()
 
     FileContent = Generator.GenerateString()
@@ -950,16 +952,15 @@ def GeneratePYFBSDKStub(Filepath):
     with open(Filepath, "w+") as File:
         File.write(FileContent)
 
-
-def main():
-    StartTime = time.time()
-
-    MotionBuilderVersion = GetMotionBuilderVersion()
-    Filepath = os.path.join(DEFAULT_OUTPUT_DIR, "motionbuilder-%s" % MotionBuilderVersion, "pyfbsdk.py")
-    GeneratePYFBSDKStub(Filepath)
-
     GenerationTime = time.time() - StartTime
     print("Generating pyfbsdk stub file took: %ss." % round(GenerationTime, 2))
 
 
-main()
+def main():
+    MotionBuilderVersion = GetMotionBuilderVersion()
+    Filepath = os.path.join(DEFAULT_OUTPUT_DIR, "motionbuilder-%s" % MotionBuilderVersion, "pyfbsdk.py")
+    GeneratePYFBSDKStub(Filepath)
+
+
+if "builtins" in __name__:
+    main()
