@@ -2,17 +2,13 @@ from __future__ import annotations
 
 import pyfbsdk
 
-import importlib
 import inspect
-import typing
-import pydoc
 import time
 import sys
 import os
-import re
 
 from importlib import reload
-from typing import List, overload
+from typing import List
 
 sys.path.append(os.path.dirname(__file__))
 
@@ -26,8 +22,8 @@ ADDITIONS_FILEPATH = os.path.join(os.path.dirname(__file__), "additions_pyfbsdk.
 TAB_CHARACTER = "    "
 
 # TODO: Broken stuff:
-# * FBModel.GetHierarchyWorldMatrices() - First param in the docs doesn't exists in the python version
-# * FBInterpolateRotation() - Both of them use the same documentation :/
+# FBModel.GetHierarchyWorldMatrices() - First param in the docs doesn't exists in the python version
+# FBInterpolateRotation() - Both of them use the same documentation :/
 # Support URLs in the doc strings
 # FBAudioFmt_AppendFormat - code example
 # FBStoryClip -> GetAffectedAnimationNodes & FBModel::GetHierarchyWorldMatrices()
