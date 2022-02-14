@@ -615,4 +615,4 @@ def GetDocsMainTableOfContent(Version) -> list:
     TableOfContent = json.loads(RawContent)
     return TableOfContent.get("books", {})
 
-print(MotionBuilderDocumentation(2022, True).GetSDKFunctionByName("FBAdd")[0].DocString)
+# print(MotionBuilderDocumentation(2022, True).GetSDKFunctionByName("FBAdd")[0].DocString)

@@ -491,7 +491,7 @@ class PyfbsdkStubGenerator():
         return EnumClassInstance
 
     def _GenerateClassInstance(self, Class) -> StubClass:
-        """ 
+        """
         Generate a StubClass instance from a class reference
 
         Args:
@@ -597,7 +597,7 @@ class PyfbsdkStubGenerator():
 
             if not bParsingCode:
                 Line = Line.strip()
-    
+
                 if Line.startswith("Definition at line"):
                     continue
 
@@ -677,15 +677,46 @@ class PyfbsdkStubGenerator():
 
         return NewDocString.strip()
 
-    def _PatchPropertyDocString(self, Docstring: str):
+    def _PatchDocStringGeneric(self, Docstring: str):
         NewDocString = ""
-
+        CodeLines = 0
+        UnderTitle = None
+        bParsingCode = False
+        
+        
         for Line in Docstring.split("\n"):
             Line = Line.strip()
 
             # Remove all 'Definition at line x' lines.
             if Line.startswith("Definition at line"):
                 continue
+            
+            # Check if we're entering a codeblock
+            if Line == "@CODE":
+                bParsingCode = True
+                CodeLines = 0
+                continue
+            
+            # Check if we're exiting a code block
+            elif bParsingCode and Line == "@ENDCODE":
+                bParsingCode = False
+                Line = ""
+
+            if bParsingCode:
+                Line = Line.replace("\\n", "\\\\n")
+                if CodeLines == 0:
+                    Line = "\n>>> %s" % Line
+                else:
+                    # Switch to 4 spaces as tabs, instead of 2 spaces.
+                    NumberOfTabs = int((len(Line) - len(Line.lstrip())) / 2)
+                    Line = (TAB_CHARACTER * NumberOfTabs) + Line.lstrip()
+                CodeLines += 1
+                
+            else:
+                if Line.startswith("#"):
+                    Line = Line.partition(" ")[2]
+                    UnderTitle = Line.lower()
+                    Line = "### %s:" % Line
 
             NewDocString += "%s\n" % Line
 
@@ -694,7 +725,7 @@ class PyfbsdkStubGenerator():
         NewDocString = NewDocString.replace("\"", "'")
 
         return NewDocString.strip()
-    
+
     def _PatchParameter(self, StubParameterInstance: StubParameter):
         # Patch type
         if StubParameterInstance.Type in VariableTypeTranslations:
@@ -791,6 +822,36 @@ class PyfbsdkStubGenerator():
 
             StubFunctionInstance.DocString = self._PatchFunctionDocstring(Documentation.DocString, StubFunctionInstance)
 
+    def _PatchTableDocString(self, Class: StubClass, DocString: str):
+        bParsingEnum = False
+        NewDocString = ""
+        for Line in DocString.split("\n"):
+            Line = Line.strip()
+
+            if Line == "@TABLE":
+                bParsingEnum = True
+                continue
+            elif Line == "@ENDTABLE":
+                bParsingEnum = False
+                continue
+
+            if bParsingEnum:
+                if Line.startswith("#"):
+                    continue
+
+                PropertyName, _, PropertyDesc = Line.partition(":")
+                MatchingProperties = [x for x in Class.GetStubProperties() if x.Name == PropertyName]
+                if MatchingProperties:
+                    MatchingProperty = MatchingProperties[0]
+                    if "Definition at line" in PropertyDesc:
+                        PropertyDesc = PropertyDesc.partition("Definition at line")[0]
+                    MatchingProperty.DocString = self._PatchDocStringGeneric(PropertyDesc)
+                continue
+
+            NewDocString += "%s\n" % Line
+            
+        return self._PatchDocStringGeneric(NewDocString)
+
     def _PatchEnumFromDocumentation(self, Enum: StubClass):
         Documentation = self.DocumentationParser.GetSDKClassPagesByName(Enum.Name)
         if not Documentation:
@@ -798,43 +859,12 @@ class PyfbsdkStubGenerator():
         DocumentationMembers = Documentation.GetMembersByName(Enum.Name)
         if not DocumentationMembers:
             return
-        
+
         # Doc String
         DocumentationMember = DocumentationMembers[0]
         DocString = DocumentationMember.DocString
-        
-        bParsingEnum = False
-        ClassDocString = ""
-        for Line in DocString.split("\n"):
-            Line = Line.strip()
-            if not Line or Line.startswith("Definition at line"):
-                continue
-            
-            if Line == "@TABLE":
-                bParsingEnum = True
-                continue
-            elif Line == "@ENDTABLE":
-                bParsingEnum = False
-                continue
-            
-            if bParsingEnum:
-                if Line.startswith("#"):
-                    continue
-                
-                PropertyName, _, PropertyDesc = Line.partition(":")
-                MatchingProperties = [x for x in Enum.GetStubProperties() if x.Name == PropertyName]
-                if MatchingProperties:
-                    MatchingProperty = MatchingProperties[0]
-                    if "Definition at line" in PropertyDesc:
-                        PropertyDesc = PropertyDesc.partition("Definition at line")[0]
-                    MatchingProperty.DocString = PropertyDesc.strip()
-                continue
-            
-            ClassDocString += "%s\n" % Line
-        
-        Enum.DocString = ClassDocString.strip()
-        
 
+        Enum.DocString = self._PatchTableDocString(Enum, DocString)
 
     def _PatchClassFromDocumentation(self, Classes: List[StubClass]):
         for StubClassInstance in Classes:
@@ -872,7 +902,9 @@ class PyfbsdkStubGenerator():
                     NewType = self._EnsurePropertyTypeIsValid(NewType)
                     StubPropertyInstance.Type = NewType
 
-                StubPropertyInstance.DocString = self._PatchPropertyDocString(PropertyDocumentation.DocString)
+                StubPropertyInstance.DocString = self._PatchDocStringGeneric(PropertyDocumentation.DocString)
+                if "@TABLE" in StubPropertyInstance.DocString:
+                    StubPropertyInstance.DocString = self._PatchTableDocString(StubClassInstance, StubPropertyInstance.DocString)
 
             # TODO: Add Class Docstring
 

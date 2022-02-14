@@ -611,7 +611,7 @@ class FBButtonState(_Enum):
     """State is 1, usually meaning active."""
 class FBButtonStyle(_Enum):
     """Style of buttons.
-    # Warning
+    ### Warning:
     Not all button styles are completely functional."""
     kFB2States:FBButtonStyle
     """2 state button (2 colors)."""
@@ -715,7 +715,7 @@ class FBCellStyle(_Enum):
     kFBCellStyleTime:FBCellStyle
     """Time."""
     kFBCellStyleView:FBCellStyle
-    """View (user definable, you need to specify the view using  FBSpread::SetCellView() )."""
+    """View (user definable, you need to specify the view using FBSpread::SetCellView() )."""
     kFBCellStyleVoid:FBCellStyle
     """Void (no value)."""
 class FBCharacterContactBehaviour(_Enum):
@@ -1014,7 +1014,7 @@ class FBDeckTransportMode(_Enum):
     kFBDeckTransportSync:FBDeckTransportMode
     """Sync to transport controls."""
 class FBDeformerType(_Enum):
-    """Determine the deformer type.  kFBDeformerSkeleton  Skeleton (Bone) driven skinning deformer. kFBDeformerPointCache  Pre-recorded point cache deformer. kFBGeometryMapping_BY_POLYGON_VERTEX  There will be one mapping coordinate for each vertex, for each polygon/strip it is part of. This means that a vertex will have as many mapping coordinates as polygons it is part of. kFBGeometryMapping_BY_POLYGON  There can be only one mapping coordinate for the whole polygon/strip. kFBGeometryMapping_BY_EDGE  There will be one mapping coordinate for each unique edge in the mesh. This is meant to be used with smoothing layer elements. kFBGeometryMapping_ALL_SAME  There can be only one mapping coordinate for the whole surface."""
+    """Determine the deformer type. kFBDeformerSkeleton Skeleton (Bone) driven skinning deformer. kFBDeformerPointCache Pre-recorded point cache deformer. kFBGeometryMapping_BY_POLYGON_VERTEX There will be one mapping coordinate for each vertex, for each polygon/strip it is part of. This means that a vertex will have as many mapping coordinates as polygons it is part of. kFBGeometryMapping_BY_POLYGON There can be only one mapping coordinate for the whole polygon/strip. kFBGeometryMapping_BY_EDGE There will be one mapping coordinate for each unique edge in the mesh. This is meant to be used with smoothing layer elements. kFBGeometryMapping_ALL_SAME There can be only one mapping coordinate for the whole surface."""
     kFBDeformerPointCache:FBDeformerType
     kFBDeformerSkeleton:FBDeformerType
     kFBDeformerUnkown:FBDeformerType
@@ -1412,7 +1412,7 @@ class FBGeometryArrayID(_Enum):
     kFBGeometryArrayID_Tangent:FBGeometryArrayID
     """ID to the Tangent array."""
 class FBGeometryMappingMode(_Enum):
-    """Determine how the element is mapped on a surface.  kFBGeometryMapping_NONE  The mapping is undetermined. kFBGeometryMapping_BY_CONTROL_POINT  There will be one mapping coordinate for each surface control point/vertex. kFBGeometryMapping_BY_POLYGON_VERTEX  There will be one mapping coordinate for each vertex, for each polygon/strip it is part of. This means that a vertex will have as many mapping coordinates as polygons it is part of. kFBGeometryMapping_BY_POLYGON  There can be only one mapping coordinate for the whole polygon/strip. kFBGeometryMapping_BY_EDGE  There will be one mapping coordinate for each unique edge in the mesh. This is meant to be used with smoothing layer elements. kFBGeometryMapping_ALL_SAME  There can be only one mapping coordinate for the whole surface."""
+    """Determine how the element is mapped on a surface. kFBGeometryMapping_NONE The mapping is undetermined. kFBGeometryMapping_BY_CONTROL_POINT There will be one mapping coordinate for each surface control point/vertex. kFBGeometryMapping_BY_POLYGON_VERTEX There will be one mapping coordinate for each vertex, for each polygon/strip it is part of. This means that a vertex will have as many mapping coordinates as polygons it is part of. kFBGeometryMapping_BY_POLYGON There can be only one mapping coordinate for the whole polygon/strip. kFBGeometryMapping_BY_EDGE There will be one mapping coordinate for each unique edge in the mesh. This is meant to be used with smoothing layer elements. kFBGeometryMapping_ALL_SAME There can be only one mapping coordinate for the whole surface."""
     kFBGeometryMapping_ALL_SAME:FBGeometryMappingMode
     kFBGeometryMapping_BY_CONTROL_POINT:FBGeometryMappingMode
     kFBGeometryMapping_BY_EDGE:FBGeometryMappingMode
@@ -1431,7 +1431,7 @@ class FBGeometryPrimitiveType(_Enum):
     kFBGeometry_TRIANGLE_FAN:FBGeometryPrimitiveType
     kFBGeometry_TRIANGLE_STRIP:FBGeometryPrimitiveType
 class FBGeometryReferenceMode(_Enum):
-    """Determine how the mapping information is stored in the array of coordinate.  kFBGeometryReference_DIRECT  This indicates that the mapping information for the n'th element is found in the n'th place of DirectArray. kFBGeometryReference_INDEX , This indicates that the mapping information for the n'th element is found in the n'th place of IndexArray. kFBGeometryReference_INDEX_TO_DIRECT  This indicates that the KLayerElementTemplate::mIndexArray contains, for the n'th element, an index in the KLayerElementTemplate::mDirectArray array of mapping elements. eINDEX_TO_DIRECT is usually useful to store coordinates for eBY_POLYGON_VERTEX mapping mode elements. Since the same coordinates are usually repeated a large number of times, it saves spaces to store the coordinate only one time and refer to them with an index. Materials and Textures are also referenced with this mode and the actual Material/Texture can be accessed via the KLayerElementTemplate::mDirectArray"""
+    """Determine how the mapping information is stored in the array of coordinate. kFBGeometryReference_DIRECT This indicates that the mapping information for the n'th element is found in the n'th place of DirectArray. kFBGeometryReference_INDEX , This indicates that the mapping information for the n'th element is found in the n'th place of IndexArray. kFBGeometryReference_INDEX_TO_DIRECT This indicates that the KLayerElementTemplate::mIndexArray contains, for the n'th element, an index in the KLayerElementTemplate::mDirectArray array of mapping elements. eINDEX_TO_DIRECT is usually useful to store coordinates for eBY_POLYGON_VERTEX mapping mode elements. Since the same coordinates are usually repeated a large number of times, it saves spaces to store the coordinate only one time and refer to them with an index. Materials and Textures are also referenced with this mode and the actual Material/Texture can be accessed via the KLayerElementTemplate::mDirectArray"""
     kFBGeometryReference_DIRECT:FBGeometryReferenceMode
     kFBGeometryReference_INDEX:FBGeometryReferenceMode
     kFBGeometryReference_INDEX_TO_DIRECT:FBGeometryReferenceMode
@@ -1928,21 +1928,21 @@ class FBObjectFlag(_Enum):
     kFBFlagBrowsable:FBObjectFlag
     """Visible in the Scene Navigator/Schematic View/Property View/Model View. If disabled, the object representation in the navigator will not be visible. In the Schematic View, system object are not shown and other objects will still be visible, but a red X will be drawn on them. It is not possible to select the object in the Schematic View. After disabling that flag of a selected object, it will still be selected to allow a script based on selection to work. It will then be possible for a user to deselect the object, but it will not be possible to select it."""
     kFBFlagClonable:FBObjectFlag
-    """Can be cloned. If disabled, the "Duplicate" option will be removed in the contextual menu."""
+    """Can be cloned. If disabled, the 'Duplicate' option will be removed in the contextual menu."""
     kFBFlagDeletable:FBObjectFlag
     """Can be deleted."""
     kFBFlagDetachable:FBObjectFlag
-    """Object can be "detached". Used by the apply manager contextual menu."""
+    """Object can be 'detached'. Used by the apply manager contextual menu."""
     kFBFlagKeyable:FBObjectFlag
     """Object can Key his property. (System Camera can't)"""
     kFBFlagMergeable:FBObjectFlag
     """Can be merged."""
     kFBFlagNamespaceEditable:FBObjectFlag
-    """Allow editing on the namespace objects. If disabled, the "Add/Remove Namespace..." option is removed from the contextual menu."""
+    """Allow editing on the namespace objects. If disabled, the 'Add/Remove Namespace...' option is removed from the contextual menu."""
     kFBFlagNewable:FBObjectFlag
     """Deleted on File->New."""
     kFBFlagParentable:FBObjectFlag
-    """Object (model) can be "parented". Used by the apply manager contextual menu."""
+    """Object (model) can be 'parented'. Used by the apply manager contextual menu."""
     kFBFlagRenamable:FBObjectFlag
     """Can be renamed."""
     kFBFlagSavable:FBObjectFlag
@@ -2179,8 +2179,8 @@ class FBPropertyComponents(_Enum):
     kFBPropertyComponentAll:FBPropertyComponents
     """All components."""
 class FBPropertyFlag(_Enum):
-    """Available flags for  FBProperty  objects.
-    # Note
+    """Available flags for FBProperty objects.
+    ### Note:
     Property flags are not saved into FBX files."""
     kFBDrivenSetByMain:FBPropertyFlag
     """Driven property can be modified, valid only when the main property is modified."""
@@ -2282,7 +2282,7 @@ class FBRecalcMarkerSetOffset(_Enum):
     """Recalculate MarkerSet offset for TR."""
 class FBRenderingPass(_Enum):
     """Rendering Pass.
-    Use with  FBShader::RenderingPass  properties to make the shader be called at any pass. Passes will be called in the order of the enum."""
+    Use with FBShader::RenderingPass properties to make the shader be called at any pass. Passes will be called in the order of the enum."""
     kFBPassAddColor:FBRenderingPass
     """Models are blended additively."""
     kFBPassFlat:FBRenderingPass
@@ -2856,7 +2856,7 @@ class FBTangentMode(_Enum):
     """Used to represent all splines with no lost data (HERMITE, BEZIER, CATMUL, etc.)"""
 class FBTangentWeightMode(_Enum):
     """Active tangent weight, no/one/both side are active on a key.
-    Please note, the left value is for the next key, as the current key contains the tangent weight information for the next key. To disable the weight on the left side of a key at index "i", you need to disable "kFBTangentWeightModeNextLeft" the "i-1" key."""
+    Please note, the left value is for the next key, as the current key contains the tangent weight information for the next key. To disable the weight on the left side of a key at index 'i', you need to disable 'kFBTangentWeightModeNextLeft' the 'i-1' key."""
     kFBTangentWeightModeBoth:FBTangentWeightMode
     """Right tangent and next key left tangent weight are active."""
     kFBTangentWeightModeNextLeft:FBTangentWeightMode
@@ -3751,20 +3751,16 @@ class FBEventTreeSelect(FBEvent):
     def __init__(self):...
 class FBEventVideoFrameRendering(FBEvent):
     EState:type
-    """video rendering state
-    @TABLE
-    
-    # Enumerator
-    eBeginRendering: State before video renderer renders all the frames.
-    eRendering: State before video renderer renders each frame.
-    eEndRendering: State after video renderer renders all the frames.
-    @ENDTABLE"""
+    """video rendering state"""
     FrameCount:property
     FrameNumber:property
     State:property
     eBeginRendering:EState
+    """State before video renderer renders all the frames."""
     eEndRendering:EState
+    """State after video renderer renders all the frames."""
     eRendering:EState
+    """State before video renderer renders each frame."""
     def __init__(self):...
 class FBFCurveEvent(FBEvent):
     Curve:FBFCurve
@@ -3850,7 +3846,7 @@ class FBFilterManager():
     FilterTypeNames:FBStringList
     """List of available filters.
     This list does provide the complete list of available filters, both system defined and user defined.
-    # Warning
+    ### Warning:
     This list should not be modified. Changes to its value will not affect the shaders supported."""
     def CreateFilter(self,FilterTypeName:str)->FBFilter:
         """Create a filter instance according to the filter type requested.
@@ -3964,7 +3960,7 @@ class FBModelList():
 class FBMultiLangManager():
     Languages:FBStringList
     """List of available languages.
-    # Warning
+    ### Warning:
     This list should not be modified. Changes to its value will not affect the languages supported."""
     def GetCurrentLanguage(self)->str:
         """Obtain the current language.
@@ -5429,14 +5425,14 @@ class FBRenderer(FBComponent):
     it's equivalent to the config item 'AdvancedLightingUISetting' at [Rendering] section'"""
     AdvancedMaterialMode:bool
     """Read write Property: Turn on/off advanced material setting UI widgets.
-    # Note
+    ### Note:
     MoBu default render won't utilize those advanced material properties, they're provided for pipeline interop and custom plugin development purpose."""
     AutoEvaluate:bool
     """Read Write Property: Indicate if a call to RenderBegin will also cause a re-evaluation of the scene."""
     Background:bool
     """Read Write Property: The renderer."""
     CurrentCamera:FBCamera
-    """# Deprecated:
+    """### Deprecated::
     Use SetCameraInPane/GetCameraInPane methods instead."""
     CurrentPaneCallbackIndex:int
     """Read Write Property: Current Pane's Renderer Callback Index."""
@@ -5483,7 +5479,7 @@ class FBRenderer(FBComponent):
     ShowStats:bool
     """Read Write Property: Show the stats about FPS, Evaluation rate ... like when using Shift-F in main viewer."""
     UseCameraSwitcher:bool
-    """# Deprecated:
+    """### Deprecated::
     Use SetCameraSwitcherInPane/IsCameraSwitcherInPane methods instead."""
     def ArrangeAllInSchematic(self,Mode:FBArrangeMode):
         """Request to arrange all objects in schematic view .
@@ -8394,7 +8390,7 @@ class FBHUDElement(FBBox):
     VerticalDock:FBHUDElementVAlignment
     """Read Write Property: Specifies if the HUD element will be vertically docked to the Bottom, Top, or Center."""
     Visibility:bool
-    """# Deprecated:
+    """### Deprecated::
     Read Write Property: Specifies if the HUD element will be displayed or not."""
     Width:float
     """Read Write Property: Specifies the width of HUD element on the screen. It's in pixel when ScaleByPercent is false and percentage when ScaleByPercent is true."""
@@ -8596,9 +8592,9 @@ class FBModel(FBBox):
     IsVisible:bool
     """If the model is visible.
     Note. this query will consider self Visibility property, plus parent node/set Visibility. The visibility of a model is affected by 4 parameters: The model's own visibility The model's parent's visibility (if any) The visibility of the set to which model belongs (if any) VisibilityInheritance of the model
-    # Parameters
+    ### Parameters:
     pEvaluateInfo evaluate info,
-    # Returns
+    ### Returns:
     true if visible for the given evaluate info."""
     LookAt:FBModel
     """Read Write Property: Look at model (interest point)."""
@@ -8947,13 +8943,7 @@ class FBLight(FBModel):
     DrawVolumetricLight:bool
     """Read Write Property: Draw volumetric light with gobo?"""
     EAreaLightShapes:type
-    """Area light shapes.
-    @TABLE
-    
-    # Enumerator
-    eRectangle: Rectangle.
-    eSphere: Sphere.
-    @ENDTABLE"""
+    """Area light shapes."""
     EnableBarnDoor:bool
     """Read Write Property: Whether or not enable barn door."""
     FogIntensity:float
@@ -8969,7 +8959,7 @@ class FBLight(FBModel):
     LightType:FBLightType
     """Read Write Property: Type of light.
     MoBu default renderer don't support Area Light, it's useful for pipeline interop with other DCC tools, and custom renderer (or shader) plugin development.
-    # Note
+    ### Note:
     To use Area Light, please set FBRenderer::AdvancedLightingMode property, or modify config 'AdvancedLightingUISetting' at [Rendering] section."""
     OuterAngle:float
     """Read Write Property: Outer Cone angle for light."""
@@ -8978,7 +8968,9 @@ class FBLight(FBModel):
     TopBarnDoor:float
     """Read Write Property: Angle of top barn door."""
     eRectangle:EAreaLightShapes
+    """Rectangle."""
     eSphere:EAreaLightShapes
+    """Sphere."""
     def __init__(self,Name:str):
         """### Parameters:
         - Name: Name of light."""
@@ -9027,7 +9019,7 @@ class FBCamera(FBModel):
     BackGroundImageScaleY:float
     """Read Write Property: Ignored if BackGroundImageFit and/or BackGroundImageKeepRatio is true. Y scale, in term of percentage of the fit background image height, applied on the background image. The X scale property is considered instead of this Y scale property if BackGroundImageKeepRatio is set to true."""
     BackGroundMedia:FBVideo
-    """# Deprecated:
+    """### Deprecated::
     Read Write Property: BackGround Image"""
     BackGroundPlaneDistance:float
     """Read Write Property: Set the distance for the background plane."""
@@ -9094,7 +9086,7 @@ class FBCamera(FBModel):
     ForeGroundMaterialThreshold:float
     """Read Write Property: Material threshold for a transparent foreground."""
     ForeGroundMedia:FBVideo
-    """# Deprecated:
+    """### Deprecated::
     Read Write Property: ForeGround Image"""
     ForeGroundPlaneDistance:float
     """Read Write Property: Set the distance for the foreground plane."""
@@ -9143,8 +9135,8 @@ class FBCamera(FBModel):
     This value changes when the orthographic camera is zoomed in or out.
     
     Refer to the following code if you wish to compute the left, right, top, and bottom view planes of the camera.
-    @CODE
-    double lW = mCam.CameraViewportWidth;
+    
+    >>> double lW = mCam.CameraViewportWidth;
     double lH = mCam.CameraViewportHeight;
     double lPixelRatio = mCam.PixelAspectRatio;
     const double lFactor = mCam.OrthoZoom * FBCamera::OrthoFactor ;
@@ -9162,8 +9154,7 @@ class FBCamera(FBModel):
     mRightPlane = (lFactor * lW) / lH;
     mBottomPlane = -lFactor;
     mTopPlane  =  lFactor;
-    }
-    @ENDCODE"""
+    }"""
     PixelAspectRatio:float
     """Read Write Property: Pixel aspect ratio."""
     ResolutionHeight:float
@@ -9418,13 +9409,7 @@ class FBModelPath3D(FBModel):
     Color:FBColor
     """Read Write Property: Path display color in viewport."""
     EKeyPropertyBehavior:type
-    """Key property behavior.
-    @TABLE
-    
-    # Enumerator
-    eLegacyVector4: 2014, 2015, 2016. Key property type is Vector4.
-    eVector: Introduced after 2016. Key property type is Vector, has improved control node behavior and support for auto control node.
-    @ENDTABLE"""
+    """Key property behavior."""
     ELengthUnitType:type
     """Path Length Unit enum."""
     EPathEndCapStyle:type
@@ -9452,10 +9437,12 @@ class FBModelPath3D(FBModel):
     eCM:ELengthUnitType
     eKM:ELengthUnitType
     eLegacyVector4:EKeyPropertyBehavior
+    """2014, 2015, 2016. Key property type is Vector4."""
     eM:ELengthUnitType
     eMI:ELengthUnitType
     eNone:EPathEndCapStyle
     eVector:EKeyPropertyBehavior
+    """Introduced after 2016. Key property type is Vector, has improved control node behavior and support for auto control node."""
     def ConvertSegmentPercentToTotalPercent(self,Percent:float,EvaluateInfo:FBEvaluateInfo=None)->float:
         """Converting one key type Segment (time) to Total (percent).
         ### Parameters:
@@ -14023,14 +14010,14 @@ class FBShaderManager():
     ShaderTypeNames:FBStringList
     """List of available shaders.
     This list does provide the complete list of available shaders, both system defined and user defined.
-    # Warning
+    ### Warning:
     This list should not be modified. Changes to its value will not affect the shaders supported."""
     ShaderTypeNamesLocalized:FBStringList
     """List of available shaders.
     This list also provides the complete list of available shaders, but uses the localized named, as they can be seen in the GUI.
     The names in this list are a direct match to the items in the list ShaderTypeNames for a given index.
     This list is provided as a convenience, to avoid having to use the localization mechanism to match internal and GUI name.
-    # Warning
+    ### Warning:
     Using localized names is potentially non portable as the name lookup is not done across all the supported languages. It is only done for the current language. In other words, using the English name to create a shader when the current language is not English will probably not succeed.
     
     
@@ -14749,14 +14736,7 @@ class FBSystem(FBComponent):
     """Read Only Property: The width and height of the desktop."""
     Devices:property
     EPluginItemInfo:type
-    """Array index of each plug-in item information (see the GetLoadedPluginItemInfo() member function).
-    @TABLE
-    
-    # Enumerator
-    ePluginItemDescription: Plug-in item's description.
-    ePluginItemFileName: Plug-in item's filename.
-    ePluginItemIconName: Plug-in item's icon name.
-    @ENDTABLE"""
+    """Array index of each plug-in item information (see the GetLoadedPluginItemInfo() member function)."""
     FrameRate:float
     """Read Only Property: The frame rate of the viewer."""
     FullScreenViewer:bool
@@ -14813,8 +14793,11 @@ class FBSystem(FBComponent):
     VideoOutputs:FBPropertyListVideoOut
     """List: Available video outputs."""
     ePluginItemDescription:EPluginItemInfo
+    """Plug-in item's description."""
     ePluginItemFileName:EPluginItemInfo
+    """Plug-in item's filename."""
     ePluginItemIconName:EPluginItemInfo
+    """Plug-in item's icon name."""
     def CurrentDirectory(self)->str:
         """Get current work directory.
         ### Returns:
@@ -14968,14 +14951,7 @@ class FBLayeredTexture(FBTexture):
         ...
 class FBTime():
     ETimeFormats:type
-    """Different time format available.
-    @TABLE
-    
-    # Enumerator
-    eSMPTE: format as SMPTE
-    eFrame: format as numeric frame
-    eDefaultFormat: Default Time format.
-    @ENDTABLE"""
+    """Different time format available."""
     Infinity:FBTime
     """Time constant: Infinity, the largest time value."""
     MinusInfinity:FBTime
@@ -14989,8 +14965,11 @@ class FBTime():
     Zero:FBTime
     """Time constant: Zero."""
     eDefaultFormat:ETimeFormats
+    """Default Time format."""
     eFrame:ETimeFormats
+    """format as numeric frame"""
     eSMPTE:ETimeFormats
+    """format as SMPTE"""
     def Get(self)->int:
         """Get time value (long)
         ### Returns:
@@ -16980,15 +16959,15 @@ class FBViewingOptions():
     DisplayMode:property
     DisplayWhat:int
     """Get a reference to the display mask.
-    # Returns
+    ### Returns:
     Reference to the current display mask."""
     PaneIndex:int
     """Current Viewer Pane being rendered.
-    # Returns
+    ### Returns:
     Index of the pane being rendered."""
     PickingMode:FBPickingMode
     """Get a reference to the picking mode.
-    # Returns
+    ### Returns:
     Reference to the current picking mode."""
     ShowCameraLabel:bool
     """Show Camera Label when rendering."""
@@ -16998,7 +16977,7 @@ class FBViewingOptions():
     """Show Time Code when rendering."""
     StereoDisplayMode:FBStereoDisplayMode
     """Get a reference to the stereo display mode.
-    # Returns
+    ### Returns:
     Reference to the current stereo display mode."""
     def InPicking(self)->bool:...
     def IsInColorBufferPicking(self)->bool:
