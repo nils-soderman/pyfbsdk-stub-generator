@@ -576,6 +576,9 @@ class PyfbsdkStubGenerator():
             " null ": " `None` ",
             " NULL ": " `None` "
         }
+        
+        # Titles where all of the contents under it should be in list form
+        TitlesWithLists = ["parameters", "return values"]
 
         # Prevent some functions from having a docstring.
         # These functions doesn't need a docstring and will only increase filesize
@@ -586,51 +589,26 @@ class PyfbsdkStubGenerator():
         UnderTitle = None
         NumberOfParameters = 0
         bParsingCode = False
-        CodeLines = 0
-        for i, Line in enumerate(DocString.split("\n")):
-            if not Line.strip():
-                continue
-
-            if not bParsingCode:
-                Line = Line.strip()
-
-                if Line.startswith("Definition at line"):
-                    continue
-
-            if Line == "@CODE":
+        for i, Line in enumerate(self._PatchDocStringGeneric(DocString).split("\n")):
+            
+            if Line.startswith(">>>"):
                 bParsingCode = True
-                CodeLines = 0
-                continue
-            elif bParsingCode and Line == "@ENDCODE":
+            elif bParsingCode and not Line:
                 bParsingCode = False
-                Line = ""
 
-            if bParsingCode:
-                Line = Line.replace("\\n", "\\\\n")
-                if CodeLines == 0:
-                    Line = "\n>>> %s" % Line
-                else:
-                    NumberOfTabs = int((len(Line) - len(Line.lstrip())) / 2)
-                    Line = (TAB_CHARACTER * NumberOfTabs) + Line.lstrip()
-                CodeLines += 1
-            else:
-                if i == 0 and (Line.strip(".") == Function.Name or Line.lower().endswith("constructor.")):
+            elif not bParsingCode:
+                if i == 0 and (Line.strip(". \\") == Function.Name or Line.strip("\\ ").lower().endswith("constructor.")):
                     continue
 
                 bIsLineATitle = Line.startswith("#")
                 if bIsLineATitle:
                     bAddExtraLine = bool(UnderTitle)
-                    Line = Line.partition(" ")[2]
-                    UnderTitle = Line.lower()
-                    Line = "### %s:" % Line
+                    UnderTitle = Line.strip("# :").lower()
                     if bAddExtraLine:
                         Line = "\n%s" % Line
 
-                if Line in ["C++ sample code:", "Python sample code:"]:
-                    Line = "### %s" % Line
-
                 if UnderTitle and not bIsLineATitle:
-                    if UnderTitle in ["parameters", "return values"]:
+                    if UnderTitle in TitlesWithLists:
                         ParameterName, _, Description = Line.partition(" ")
                         NumberOfParameters += 1
                         Line = "- %s: %s" % (ParameterName, Description)
@@ -641,8 +619,6 @@ class PyfbsdkStubGenerator():
                         if Key.lower().strip() == "null" and "null pointer" in Line.lower():
                             continue
                         Line = Line.replace(Key, Item)
-
-                Line = Line.replace("\"", "'")
 
             NewDocString += "%s\n" % Line
 
@@ -674,14 +650,26 @@ class PyfbsdkStubGenerator():
         return NewDocString.strip()
 
     def _PatchDocStringGeneric(self, Docstring: str):
+        # TODO: This is now defined in 2 locations
+        TitlesWithLists = ["parameters", "return values"]
+        
         NewDocString = ""
         CodeLines = 0
         UnderTitle = None
         bParsingCode = False
+
+        PreviousLine = ""
         
-        
-        for Line in Docstring.split("\n"):
-            Line = Line.strip()
+        for i, Line in enumerate(Docstring.split("\n")):
+            Line = Line
+            if not Line.strip():
+                continue
+            
+            NumberOfNewLines = 1
+            PreviousLineSuffix = ""
+            
+            if not bParsingCode:
+                Line = Line.strip()
 
             # Remove all 'Definition at line x' lines.
             if Line.startswith("Definition at line"):
@@ -700,6 +688,7 @@ class PyfbsdkStubGenerator():
 
             if bParsingCode:
                 Line = Line.replace("\\n", "\\\\n")
+                Line = Line.replace("//", "# //")
                 if CodeLines == 0:
                     Line = "\n>>> %s" % Line
                 else:
@@ -709,18 +698,33 @@ class PyfbsdkStubGenerator():
                 CodeLines += 1
                 
             else:
-                if Line.startswith("#"):
+                # Check if line is a title
+                bIsLineATitle = Line.startswith("#")
+                if bIsLineATitle:
                     Line = Line.partition(" ")[2]
                     UnderTitle = Line.lower()
                     Line = "### %s:" % Line
+                    
+                if Line in ["C++ sample code:", "Python sample code:"]:
+                    Line = "### %s" % Line
+                    bIsLineATitle = True
+                    
+                # Add a 'LineBreak'
+                if UnderTitle not in TitlesWithLists and not PreviousLine.startswith("#") and i > 0 and not bIsLineATitle and Line.strip():
+                    PreviousLineSuffix = r" \\"
+                    
+                
+                    
+                Line = Line.replace("  ", " ")
 
-            NewDocString += "%s\n" % Line
+            PreviousLine = Line
+            NewDocString += PreviousLineSuffix + ("\n" * NumberOfNewLines) + Line
+            
 
         # Remove double spaces
-        NewDocString = NewDocString.replace("  ", " ")
         NewDocString = NewDocString.replace("\"", "'")
 
-        return NewDocString.strip()
+        return NewDocString.strip(" \n\\")
 
     def _PatchParameter(self, StubParameterInstance: StubParameter):
         # Patch type
@@ -956,6 +960,6 @@ def GeneratePYFBSDKStub(Filepath):
     print("Generating pyfbsdk stub file took: %ss." % round(GenerationTime, 2))
 
 
-# DEFAULT_OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "generated-stub-files")
-# Filepath = os.path.join(DEFAULT_OUTPUT_DIR, "motionbuilder-%s" % GetMotionBuilderVersion(), "pyfbsdk.py")
-# GeneratePYFBSDKStub(Filepath)
+DEFAULT_OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "generated-stub-files")
+Filepath = os.path.join(DEFAULT_OUTPUT_DIR, "motionbuilder-%s" % GetMotionBuilderVersion(), "pyfbsdk.py")
+GeneratePYFBSDKStub(Filepath)
