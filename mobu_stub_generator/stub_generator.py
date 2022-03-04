@@ -8,7 +8,6 @@ import sys
 import os
 
 from importlib import reload
-from typing import List
 
 sys.path.append(os.path.dirname(__file__))
 
@@ -275,7 +274,7 @@ class StubBaseClass():
 class StubFunction(StubBaseClass):
     def __init__(self, Name = "", Parameters = [], ReturnType = None):
         super().__init__(Name = Name)
-        self._Params: List[StubParameter] = Parameters
+        self._Params: list[StubParameter] = Parameters
         self.ReturnType = ReturnType
         self.bIsMethod = False
         self.bIsStatic = False
@@ -287,7 +286,7 @@ class StubFunction(StubBaseClass):
     def AddParameter(self, Parameter):
         self._Params.append(Parameter)
 
-    def GetParameters(self) -> List[StubParameter]:
+    def GetParameters(self) -> list[StubParameter]:
         return self._Params
 
     def SetParameter(self, Index, Paramter):
@@ -339,7 +338,7 @@ class StubClass(StubBaseClass):
         super().__init__(Name = Name)
         self.Parents = []
         self.StubProperties = []
-        self.StubFunctions: List[StubProperty] = []
+        self.StubFunctions: list[StubProperty] = []
 
     def AddFunction(self, Function: StubFunction):
         Function.bIsMethod = True  # Make function a method
@@ -351,7 +350,7 @@ class StubClass(StubBaseClass):
     def AddParent(self, Parent: str):
         self.Parents.append(Parent)
 
-    def GetStubProperties(self) -> List[StubProperty]:
+    def GetStubProperties(self) -> list[StubProperty]:
         return self.StubProperties
 
     def GetRequirements(self) -> list:
@@ -446,9 +445,9 @@ class StubParameter(StubBaseClass):
 
 class PyfbsdkStubGenerator():
     def __init__(self):
-        self.Functions: List[StubFunction] = []
-        self.Classes: List[StubClass] = []
-        self.Enums: List[StubClass] = []
+        self.Functions: list[StubFunction] = []
+        self.Classes: list[StubClass] = []
+        self.Enums: list[StubClass] = []
         self.Version = GetMotionBuilderVersion()
         self.DocumentationParser = docParser.MotionBuilderDocumentation(self.Version, bCache = True)
 
@@ -516,7 +515,7 @@ class PyfbsdkStubGenerator():
 
         return ClassInstance
 
-    def _GenerateFunctionInstances(self, Function) -> List[StubFunction]:
+    def _GenerateFunctionInstances(self, Function) -> list[StubFunction]:
         """ 
         Generate StubFunction instances from a function reference.
 
@@ -732,10 +731,10 @@ class PyfbsdkStubGenerator():
             StubParameterInstance.Type = VariableTypeTranslations[StubParameterInstance.Type]
         elif StubParameterInstance.Type.startswith("FB") and StubParameterInstance.Type not in self.GetAllClassNames():
             StubParameterInstance.Type = None
-        elif StubParameterInstance.Type.startswith("List"):
-            ClassType = StubParameterInstance.Type.replace("List[", "", 1)[:-1]
+        elif StubParameterInstance.Type.startswith("list["):
+            ClassType = StubParameterInstance.Type.replace("list[", "", 1)[:-1]
             ClassType = VariableTypeTranslations.get(ClassType, ClassType)
-            StubParameterInstance.Type = "List[%s]" % ClassType
+            StubParameterInstance.Type = "list[%s]" % ClassType
 
         # Patch default value
         if StubParameterInstance.DefaultValue:
@@ -752,7 +751,7 @@ class PyfbsdkStubGenerator():
             return "object"
         return ReturnValue
 
-    def _PatchFunctionsFromDocumentation(self, Functions: List[StubFunction], DocumentationMembers = None):
+    def _PatchFunctionsFromDocumentation(self, Functions: list[StubFunction], DocumentationMembers = None):
         UsedDocumentations = []
         for StubFunctionInstance in Functions:
             Documentations = []
@@ -866,7 +865,7 @@ class PyfbsdkStubGenerator():
 
         Enum.DocString = self._PatchTableDocString(Enum, DocString)
 
-    def _PatchClassFromDocumentation(self, Classes: List[StubClass]):
+    def _PatchClassFromDocumentation(self, Classes: list[StubClass]):
         for StubClassInstance in Classes:
             DocumentationClassName = TranslationDocumentationClassNames.get(StubClassInstance.Name, StubClassInstance.Name)
             Documentation = self.DocumentationParser.GetSDKClassPagesByName(DocumentationClassName)
@@ -959,7 +958,7 @@ def GeneratePYFBSDKStub(Filepath):
     GenerationTime = time.time() - StartTime
     print("Generating pyfbsdk stub file took: %ss." % round(GenerationTime, 2))
 
-
-DEFAULT_OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "generated-stub-files")
-Filepath = os.path.join(DEFAULT_OUTPUT_DIR, "motionbuilder-%s" % GetMotionBuilderVersion(), "pyfbsdk.py")
-GeneratePYFBSDKStub(Filepath)
+if "builtin" in __name__:
+    DEFAULT_OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "generated-stub-files")
+    Filepath = os.path.join(DEFAULT_OUTPUT_DIR, "motionbuilder-%s" % GetMotionBuilderVersion(), "pyfbsdk.py")
+    GeneratePYFBSDKStub(Filepath)

@@ -115,7 +115,7 @@ def ConvertVariableTypeToPython(Type: str):
     # Arrays, in the pyfbsdk there are two FBVector4<dobule> arrays. convert these into FBVector4
     if "<" in Type:
         if not Type.startswith("FBVector"):
-            return "List[%s]" % Type.partition("<")[2].partition(">")[0].strip()
+            return "list[%s]" % Type.partition("<")[2].partition(">")[0].strip()
         Type = Type.partition("<")[0].strip()
 
     if " " in Type:
