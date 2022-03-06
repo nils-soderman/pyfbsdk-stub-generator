@@ -118,8 +118,12 @@ def IsMethodStatic(Class, MethodName: str):
 # -------------------------------------------------------------
 
 def GetCustomAdditions():
-    with open(ADDITIONS_FILEPATH, 'r') as File:
-        return File.read().strip() + "\n"
+    Content = ""
+    if os.path.isfile(ADDITIONS_FILEPATH):
+        with open(ADDITIONS_FILEPATH, 'r') as File:
+            Content = File.read().strip() + "\n"
+    Content = Content.replace("{MOTIONBUILDER_VERSION}", str(GetMotionBuilderVersion()))
+    return Content
 
 
 def GetPyfbsdkContent():

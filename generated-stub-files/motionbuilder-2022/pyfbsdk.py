@@ -1,3 +1,7 @@
+"""
+Stub file generated for MotionBuilder 2022 using:
+https://github.com/nils-soderman/pyfbsdk-stub-generator
+"""
 from __future__ import annotations
 from typing import overload
 class _Enum:
