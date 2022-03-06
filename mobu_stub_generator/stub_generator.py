@@ -497,7 +497,7 @@ class PyfbsdkStubGenerator():
         ClassInstance = StubClass(ClassName)
 
         # Get all members and generate stub properties of them
-        ClassMemebers = GetUniqueClassMembers(Class, Ignore = ["__instance_size__"], AllowedOverrides = ["__init__"])
+        ClassMemebers = GetUniqueClassMembers(Class, Ignore = ["__instance_size__"], AllowedOverrides = ["__init__", "__getitem__"])
         for MemberName, MemberReference in ClassMemebers:
             Type = GetObjectType(MemberReference)
             if Type == FObjectType.Function:
