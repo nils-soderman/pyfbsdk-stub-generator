@@ -895,7 +895,10 @@ class PyfbsdkStubGenerator():
             for StubPropertyInstance in StubClassInstance.GetStubProperties():
                 DocumentationMembers = Documentation.GetMembersByName(StubPropertyInstance.Name)
                 if not DocumentationMembers:
-                    continue
+                    # Check if the property is a GetX function in C++
+                    DocumentationMembers = Documentation.GetMembersByName("Get%s" % StubPropertyInstance.Name)
+                    if not DocumentationMembers:
+                        continue
 
                 # Properties doesn't have overloads, so we can get the first result
                 PropertyDocumentation = DocumentationMembers[0]
@@ -961,6 +964,7 @@ def GeneratePYFBSDKStub(Filepath):
 
     GenerationTime = time.time() - StartTime
     print("Generating pyfbsdk stub file took: %ss." % round(GenerationTime, 2))
+
 
 if "builtin" in __name__:
     DEFAULT_OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "generated-stub-files")
