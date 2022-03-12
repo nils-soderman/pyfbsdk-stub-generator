@@ -156,7 +156,7 @@ def GetFullURL(Version, Path, bGetSource = False):
 
 
 def GetUrlContent(Url: str):
-    print("Url: %s" %(Url))
+    print("Getting url contents: %s" %(Url))
     Response = request.urlopen(Url)
     return Response.read().decode('utf-8')
 
