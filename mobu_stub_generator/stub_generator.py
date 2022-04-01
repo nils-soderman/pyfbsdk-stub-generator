@@ -959,6 +959,10 @@ def GeneratePYFBSDKStub(Filepath):
 
     FileContent = Generator.GenerateString()
 
+    # Make sure directory exists
+    if not os.path.isdir(os.path.dirname(Filepath)):
+        os.makedirs(os.path.dirname(Filepath))
+        
     with open(Filepath, "w+") as File:
         File.write(FileContent)
 
