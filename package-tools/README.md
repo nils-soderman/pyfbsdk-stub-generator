@@ -1,0 +1,1 @@
+This folder includes batch files for building & publishing the source code as a pip installable module.

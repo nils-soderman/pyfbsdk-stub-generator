@@ -453,7 +453,7 @@ class PyfbsdkStubGenerator():
         self.Classes: list[StubClass] = []
         self.Enums: list[StubClass] = []
         self.Version = GetMotionBuilderVersion()
-        self.DocumentationParser = docParser.MotionBuilderDocumentation(self.Version, bCache = True)
+        self.DocumentationParser = docParser.MotionBuilderDocumentation(self.Version, bCache = False)
 
         self._AllClassNames = []
 
@@ -952,7 +952,7 @@ class PyfbsdkStubGenerator():
         return StubString
 
 
-def GeneratePYFBSDKStub(Filepath):
+def GeneratePYFBSDKStub(Filepath) -> str:
     StartTime = time.time()
     
     Generator = PyfbsdkStubGenerator()
@@ -968,6 +968,8 @@ def GeneratePYFBSDKStub(Filepath):
 
     GenerationTime = time.time() - StartTime
     print("Generating pyfbsdk stub file took: %ss." % round(GenerationTime, 2))
+    
+    return Filepath
 
 
 if "builtin" in __name__:

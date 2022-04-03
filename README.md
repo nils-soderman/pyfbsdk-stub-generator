@@ -7,7 +7,7 @@ Script for generating more complete python stub files for Autodesk MotionBuilder
 # Usage
 
 ## Pre-generated files
-This repository already contains some pre-generated stub files that are ready to be used, simply get them from the [generated-stub-files](https://github.com/nils-soderman/pyfbsdk-stub-generator/tree/main/generated-stub-files) folder:
+The GitHub repository already contains some pre-generated stub files that are ready to be used, simply get them from the [generated-stub-files](https://github.com/nils-soderman/pyfbsdk-stub-generator/tree/main/generated-stub-files) folder:
 * [MotionBuilder 2023](https://github.com/nils-soderman/pyfbsdk-stub-generator/tree/main/generated-stub-files/motionbuilder-2023)
 * [MotionBuilder 2022](https://github.com/nils-soderman/pyfbsdk-stub-generator/tree/main/generated-stub-files/motionbuilder-2022)
 
@@ -15,11 +15,14 @@ This repository already contains some pre-generated stub files that are ready to
 
 ## Generate stub files
 If you want to generate your own stub files for your MotionBuilder version:
-```python
-import pyfbsdk_stub_generator as stubGenerator
+```cmd
+python -m pip install pyfbsdk-stub-generator
+```
 
-outputDirectory = "C:/Temp/"
-stubGenerator.GenerateMotionBuilderStubFiles(outputDirectory)
+```python
+import pyfbsdk_stub_generator
+
+pyfbsdk_stub_generator.Generate(Directory = "C:/Temp/")
 ```
 
 <br>

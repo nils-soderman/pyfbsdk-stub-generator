@@ -8,7 +8,8 @@ from importlib import reload
 # Append to directory
 sys.path.append(os.path.dirname(__file__))
 
-import mobu_stub_generator.stub_generator as StubGenerator
+import pyfbsdk_stub_generator as StubGenerator
+
 reload(StubGenerator)
 
 
@@ -24,9 +25,7 @@ def GeneratePyfbsdkStub(OutputDir = ""):
     if not OutputDir:
         OutputDir = os.path.join(OUTPUT_DIRECTORY, "motionbuilder-%s" % GetMotionBuilderVersion())
     
-    Filepath = os.path.join(OutputDir, "pyfbsdk.py")
-    
-    StubGenerator.GeneratePYFBSDKStub(Filepath)
+    StubGenerator.Generate(OutputDir)
 
 
 if "builtin" in __name__:
