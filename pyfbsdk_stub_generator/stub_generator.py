@@ -38,25 +38,27 @@ TranslationDocumentationClassNames = {
     "FBVector4d": "FBVector4"
 }
 
+
 TranslationDocumentationMethodNames = {
     "__sub__": "operator-",
     "__getitem__": "operator[]",
 }
+
 
 PropertyTypeTranslation = {
     "FBPropertyString": "str",
     "FBPropertyInt": "int",
     "FBPropertyFloat": "float",
     "FBPropertyDouble": "float",
-    "FBPropertyAnimatableDouble": "float",
     "FBPropertyBool": "bool",
-    "FBPropertyAnimatableBool": "bool",
 }
+
 
 VariableTypeTranslations = {
     "FBColorF": "FBColor",
     "tType": "float"  # This is probably incorrect, but gives the desired results for 2022 at least :)
 }
+
 
 # List of known enum values that doesn't start with a 'k' (should only be FBEffectorSetID)
 KnownEnumValuesNotStartingWithK = [
@@ -247,6 +249,42 @@ def SortClasses(Classes: list):
     return Classes
 
 
+def GetDataTypeFromPropertyClassName(ClassName: str, AllClassNames: list[str]):
+    """
+    Get the `Data` property type for a class that inherits from `FBProperty`
+    This is done by removing e.g. `FBProperty` from the class name. Example: `FBPropertyVector3d` -> `Vector3d`
+    """
+    # Value to return use if a valid class could not be found for the given ClassName
+    DefaultValue = "property"
+
+    ConvertTypeDict = {
+        "Bool": "bool",
+        "String": "str",
+        "Int": "int",
+        "Int64": "int",
+        "UInt64": "int",
+        "Float": "float",
+        "Double": "float"
+    }
+    
+    DataType = ClassName
+    for x in ("FBProperty", "Animatable", "List"):
+        DataType = DataType.replace(x, "")
+    
+    if DataType in ConvertTypeDict:
+        return ConvertTypeDict[DataType]
+
+    # For the base classes e.g. FBProperty
+    if not DataType:
+        return DefaultValue
+
+    # TODO: Validate that the class actually exists
+    DataType = f"FB{DataType}"
+    if DataType not in AllClassNames:
+        return DefaultValue
+
+    return DataType
+
 # -------------------------------------------------------------
 #                       Classes
 # -------------------------------------------------------------
@@ -376,7 +414,8 @@ class StubClass(StubBaseClass):
         for StubObject in ClassMembers:
             ClassAsString += "%s\n" % Indent(StubObject.GetAsString())
 
-        # If class doesn't have any members, add a ...
+        # If class doesn't have any members, add a '...'
+        
         if not len(ClassMembers):
             ClassAsString += Indent("...")
 
@@ -448,12 +487,12 @@ class StubParameter(StubBaseClass):
 
 
 class PyfbsdkStubGenerator():
-    def __init__(self):
+    def __init__(self, bCacheDocumentation = False):
         self.Functions: list[StubFunction] = []
         self.Classes: list[StubClass] = []
         self.Enums: list[StubClass] = []
         self.Version = GetMotionBuilderVersion()
-        self.DocumentationParser = docParser.MotionBuilderDocumentation(self.Version, bCache = False)
+        self.DocumentationParser = docParser.MotionBuilderDocumentation(self.Version, bCache = bCacheDocumentation)
 
         self._AllClassNames = []
 
@@ -463,8 +502,10 @@ class PyfbsdkStubGenerator():
     #                      Internal
     # --------------------------------------------------
     def GetAllClassNames(self):
+        """ Get the names of all classes avaliable in the pyfbsdk module """
         if not self._AllClassNames:
-            self._AllClassNames = [x.Name for x in self.Classes + self.Enums]
+            Functions, Classes, Enums = GetPyfbsdkContent()
+            self._AllClassNames = [x.__name__ for x in Classes + Enums]
         return self._AllClassNames
 
     def _GenerateEnumInstance(self, Class):
@@ -501,7 +542,7 @@ class PyfbsdkStubGenerator():
         ClassInstance = StubClass(ClassName)
 
         # Get all members and generate stub properties of them
-        ClassMemebers = GetUniqueClassMembers(Class, Ignore = ["__instance_size__"], AllowedOverrides = ["__init__", "__getitem__"])
+        ClassMemebers = GetUniqueClassMembers(Class, Ignore = ["__instance_size__"], AllowedOverrides = ["__init__", "__getitem__", "Data"])
         for MemberName, MemberReference in ClassMemebers:
             Type = GetObjectType(MemberReference)
             if Type == FObjectType.Function:
@@ -511,6 +552,8 @@ class PyfbsdkStubGenerator():
             elif MemberName not in ["__init__"]:
                 Property = StubProperty(MemberName)
                 Property.Type = GetObjectType(MemberReference)
+                if MemberName == "Data" and "FBProperty" in ClassName and Property.Type == FObjectType.Property:
+                    Property.Type = GetDataTypeFromPropertyClassName(ClassName, self.GetAllClassNames())
                 ClassInstance.AddProperty(Property)
 
         # Set the parent classes
@@ -559,11 +602,10 @@ class PyfbsdkStubGenerator():
         # Check if PropertyType exists as a known type to be translated into something else
         if PropertyType in PropertyTypeTranslation:
             return PropertyTypeTranslation[PropertyType]
-
-        # Remove FBProperty / FBPropertyAnimatable
-        if PropertyType.startswith("FBProperty") and not PropertyType.startswith("FBPropertyList"):
-            StrPartToRemove = "PropertyAnimatable" if PropertyType.startswith("FBPropertyAnimatable") else "Property"
-            NewPropertyType = PropertyType.replace(StrPartToRemove, "", 1)
+        
+        # Remove FBProperty, only do this for properties that are not list's or animatable
+        if PropertyType.startswith("FBProperty") and not any(x for x in PropertyType if x in ["List", "Animatable"]):
+            NewPropertyType = PropertyType.replace("Property", "", 1)
             if NewPropertyType in self.GetAllClassNames():
                 return NewPropertyType
 
@@ -952,10 +994,10 @@ class PyfbsdkStubGenerator():
         return StubString
 
 
-def GeneratePYFBSDKStub(Filepath) -> str:
+def GeneratePYFBSDKStub(Filepath, bCacheDocumentation = False) -> str:
     StartTime = time.time()
     
-    Generator = PyfbsdkStubGenerator()
+    Generator = PyfbsdkStubGenerator(bCacheDocumentation)
 
     FileContent = Generator.GenerateString()
 
@@ -974,5 +1016,5 @@ def GeneratePYFBSDKStub(Filepath) -> str:
 
 if "builtin" in __name__:
     DEFAULT_OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "generated-stub-files")
-    Filepath = os.path.join(DEFAULT_OUTPUT_DIR, "motionbuilder-%s" % GetMotionBuilderVersion(), "pyfbsdk.py")
-    GeneratePYFBSDKStub(Filepath)
+    Filepath = os.path.join(DEFAULT_OUTPUT_DIR, f"motionbuilder-{GetMotionBuilderVersion()}", "pyfbsdk.pyi")
+    GeneratePYFBSDKStub(Filepath, bCacheDocumentation = True)

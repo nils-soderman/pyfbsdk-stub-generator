@@ -4950,6 +4950,7 @@ class FBComponent(FBPlug):
         - bValue: Value to change the status to."""
         ...
 class FBPropertyVector4d(FBProperty):
+    Data:FBVector4d
     def __getitem__(self,arg2)->float:...
     def __len__(self)->int:...
     def __setitem__(self,arg2,arg3):...
@@ -5073,18 +5074,21 @@ class FBPropertyViewManager(FBComponent):
         ...
     def __init__(self):...
 class FBPropertyVector3d(FBProperty):
+    Data:FBVector3d
     def __getitem__(self,arg2)->float:...
     def __len__(self)->int:...
     def __setitem__(self,arg2,arg3):...
 class FBPropertyVector2d(FBProperty):
+    Data:FBVector2d
     def __getitem__(self,arg2)->float:...
     def __len__(self)->int:...
     def __setitem__(self,arg2,arg3):...
 class FBPropertyTimeCode(FBProperty):
-    ...
+    Data:FBTimeCode
 class FBPropertyTime(FBProperty):
-    ...
+    Data:FBTime
 class FBPropertyStringList(FBProperty):
+    Data:str
     def __contains__(self,arg2)->bool:...
     def __delitem__(self,arg2:int):...
     def __getitem__(self,Index:int)->str:...
@@ -5103,8 +5107,9 @@ class FBPropertyStringList(FBProperty):
     def removeAll(self):...
     def setReferenceAt(self,arg2,arg3):...
 class FBPropertyString(FBProperty):
-    ...
+    Data:str
 class FBPropertyListTreeNode(FBProperty):
+    Data:FBTreeNode
     def __contains__(self,arg2)->bool:...
     def __delitem__(self,arg2:int):...
     def __getitem__(self,Index:int)->FBTreeNode:...
@@ -5120,6 +5125,7 @@ class FBPropertyListTreeNode(FBProperty):
     def remove(self,arg2):...
     def removeAll(self):...
 class FBPropertyListComponent(FBProperty):
+    Data:FBComponent
     def __contains__(self,arg2)->bool:...
     def __delitem__(self,arg2:int):...
     def __getitem__(self,arg2)->object:...
@@ -5135,6 +5141,7 @@ class FBPropertyListComponent(FBProperty):
     def remove(self,arg2):...
     def removeAll(self):...
 class FBPropertyList(FBProperty):
+    Data:property
     def __contains__(self,arg2)->bool:...
     def __delitem__(self,arg2:int):...
     def __getitem__(self,arg2)->object:...
@@ -5150,42 +5157,61 @@ class FBPropertyList(FBProperty):
     def remove(self,arg2):...
     def removeAll(self):...
 class FBPropertyListVideoOut(FBPropertyListComponent):
+    Data:FBVideoOut
     def __getitem__(self,Index:int)->FBVideoOut:...
 class FBPropertyListVideoIn(FBPropertyListComponent):
+    Data:FBVideoIn
     def __getitem__(self,Index:int)->FBVideoIn:...
 class FBPropertyListVideoClip(FBPropertyListComponent):
+    Data:FBVideoClip
     def __getitem__(self,Index:int)->FBVideoClip:...
 class FBPropertyListUserObject(FBPropertyListComponent):
+    Data:FBUserObject
     def __getitem__(self,Index:int)->FBUserObject:...
 class FBPropertyListTexture(FBPropertyListComponent):
+    Data:FBTexture
     def __getitem__(self,Index:int)->FBTexture:...
 class FBPropertyListTake(FBPropertyListComponent):
+    Data:FBTake
     def __getitem__(self,Index:int)->FBTake:...
 class FBPropertyListStoryTrack(FBPropertyListComponent):
+    Data:FBStoryTrack
     def __getitem__(self,Index:int)->FBStoryTrack:...
 class FBPropertyListStorySubTrack(FBPropertyListComponent):
+    Data:property
     def __getitem__(self,Index:int)->FBStoryTrack:...
 class FBPropertyListStoryFolder(FBPropertyListComponent):
+    Data:FBStoryFolder
     def __getitem__(self,Index:int)->FBStoryFolder:...
 class FBPropertyListStoryDetails(FBPropertyListComponent):
+    Data:property
     def __getitem__(self,Index:int)->FBComponent:...
 class FBPropertyListStoryClip(FBPropertyListComponent):
+    Data:FBStoryClip
     def __getitem__(self,Index:int)->FBStoryClip:...
 class FBPropertyListShader(FBPropertyListComponent):
+    Data:FBShader
     def __getitem__(self,Index:int)->FBShader:...
 class FBPropertyListSet(FBPropertyListComponent):
+    Data:FBSet
     def __getitem__(self,Index:int)->FBSet:...
 class FBPropertyListRendererCallback(FBPropertyListComponent):
+    Data:FBRendererCallback
     def __getitem__(self,Index:int)->FBRendererCallback:...
 class FBPropertyListPose(FBPropertyListComponent):
+    Data:FBPose
     def __getitem__(self,Index:int)->FBPose:...
 class FBPropertyListPivot(FBPropertyListComponent):
+    Data:property
     def __getitem__(self,Index:int)->FBModel:...
 class FBPropertyListPhysicalProperties(FBPropertyListComponent):
+    Data:FBPhysicalProperties
     def __getitem__(self,Index:int)->FBPhysicalProperties:...
 class FBPropertyListObjectPose(FBPropertyListComponent):
+    Data:FBObjectPose
     def __getitem__(self,Index:int)->FBObjectPose:...
 class FBPropertyListObject(FBPropertyListComponent):
+    Data:property
     def GetSingleConnect(self)->bool:
         """Get if the connection support only one connection.
         ### Returns:
@@ -5198,94 +5224,135 @@ class FBPropertyListObject(FBPropertyListComponent):
         ...
     def __getitem__(self,Index:int)->FBComponent:...
 class FBPropertyListNote(FBPropertyListComponent):
+    Data:FBNote
     def __getitem__(self,Index:int)->FBNote:...
 class FBPropertyListNamespace(FBPropertyListComponent):
+    Data:FBNamespace
     def __getitem__(self,Index:int)->FBNamespace:...
 class FBPropertyListMotionClip(FBPropertyListComponent):
+    Data:FBMotionClip
     def __getitem__(self,Index:int)->FBMotionClip:...
 class FBPropertyListModelSkeleton(FBPropertyListComponent):
+    Data:FBModelSkeleton
     def __getitem__(self,Index:int)->FBModelSkeleton:...
 class FBPropertyListModelOptical(FBPropertyListComponent):
+    Data:FBModelOptical
     def __getitem__(self,Index:int)->FBModelOptical:...
 class FBPropertyListModel(FBPropertyListComponent):
+    Data:FBModel
     def __getitem__(self,Index:int)->FBModel:...
 class FBPropertyListMaterial(FBPropertyListComponent):
+    Data:FBMaterial
     def __getitem__(self,Index:int)->FBMaterial:...
 class FBPropertyListMarkerSet(FBPropertyListComponent):
+    Data:FBMarkerSet
     def __getitem__(self,Index:int)->FBMarkerSet:...
 class FBPropertyListLight(FBPropertyListComponent):
+    Data:FBLight
     def __getitem__(self,Index:int)->FBLight:...
 class FBPropertyListKeyingGroup(FBPropertyListComponent):
+    Data:FBKeyingGroup
     def __getitem__(self,Index:int)->FBKeyingGroup:...
 class FBPropertyListHandle(FBPropertyListComponent):
+    Data:FBHandle
     def __getitem__(self,Index:int)->FBHandle:...
 class FBPropertyListHUDElement(FBPropertyListComponent):
+    Data:FBHUDElement
     def __getitem__(self,Index:int)->FBHUDElement:...
 class FBPropertyListHUD(FBPropertyListComponent):
+    Data:FBHUD
     def __getitem__(self,Index:int)->FBHUD:...
 class FBPropertyListGroup(FBPropertyListComponent):
+    Data:FBGroup
     def __getitem__(self,Index:int)->FBGroup:...
 class FBPropertyListFolder(FBPropertyListComponent):
+    Data:FBFolder
     def __getitem__(self,Index:int)->FBFolder:...
 class FBPropertyListFileReference(FBPropertyListComponent):
+    Data:FBFileReference
     def __getitem__(self,Index:int)->FBFileReference:...
 class FBPropertyListDevice(FBPropertyListComponent):
+    Data:FBDevice
     def __getitem__(self,Index:int)->FBDevice:...
 class FBPropertyListDeformer(FBPropertyListComponent):
+    Data:FBDeformer
     def __getitem__(self,arg2)->object:...
 class FBPropertyListDeck(FBPropertyListComponent):
+    Data:FBDeck
     def __getitem__(self,Index:int)->FBDeck:...
 class FBPropertyListControlSet(FBPropertyListComponent):
+    Data:FBControlSet
     def __getitem__(self,Index:int)->FBControlSet:...
 class FBPropertyListConstraintSolver(FBPropertyListComponent):
+    Data:FBConstraintSolver
     def __getitem__(self,Index:int)->FBConstraint:...
 class FBPropertyListActor(FBPropertyListComponent):
+    Data:FBActor
     def __getitem__(self,Index:int)->FBActor:...
 class FBPropertyListActorFace(FBPropertyListComponent):
+    Data:FBActorFace
     def __getitem__(self,Index:int)->FBActorFace:...
 class FBPropertyListAudioClip(FBPropertyListComponent):
+    Data:FBAudioClip
     def __getitem__(self,Index:int)->FBAudioClip:...
 class FBPropertyListAudioIn(FBPropertyListComponent):
+    Data:FBAudioIn
     def __getitem__(self,Index:int)->FBAudioIn:...
 class FBPropertyListAudioOut(FBPropertyListComponent):
+    Data:FBAudioOut
     def __getitem__(self,Index:int)->FBAudioOut:...
 class FBPropertyListBox(FBPropertyListComponent):
+    Data:FBBox
     def __getitem__(self,Index:int)->FBBox:...
 class FBPropertyListCamera(FBPropertyListComponent):
+    Data:FBCamera
     def __getitem__(self,Index:int)->FBCamera:...
 class FBPropertyListCharacter(FBPropertyListComponent):
+    Data:FBCharacter
     def __getitem__(self,Index:int)->FBCharacter:...
 class FBPropertyListCharacterExtension(FBPropertyListComponent):
+    Data:FBCharacterExtension
     def __getitem__(self,Index:int)->FBCharacterExtension:...
 class FBPropertyListCharacterFace(FBPropertyListComponent):
+    Data:FBCharacterFace
     def __getitem__(self,Index:int)->FBCharacterFace:...
 class FBPropertyListCharacterMarkerSet(FBPropertyListComponent):
+    Data:FBCharacterMarkerSet
     def __getitem__(self,Index:int)->FBCharacterMarkerSet:...
 class FBPropertyListCharacterPose(FBPropertyListComponent):
+    Data:FBCharacterPose
     def __getitem__(self,Index:int)->FBCharacterPose:...
 class FBPropertyListConstraint(FBPropertyListComponent):
+    Data:FBConstraint
     def __getitem__(self,Index:int)->FBConstraint:...
 class FBPropertyInt(FBProperty):
-    ...
+    Data:int
 class FBPropertyFloat(FBProperty):
-    ...
+    Data:float
 class FBPropertyEnum(FBProperty):
-    ...
+    Data:property
 class FBPropertyDouble(FBProperty):
-    ...
+    Data:float
 class FBPropertyComponent(FBProperty):
-    ...
+    Data:FBComponent
 class FBPropertyColorAndAlpha(FBProperty):
+    Data:FBColorAndAlpha
     def __getitem__(self,arg2)->float:...
     def __len__(self)->int:...
     def __setitem__(self,arg2,arg3):...
 class FBPropertyColor(FBProperty):
+    Data:FBColor
     def __getitem__(self,arg2)->float:...
     def __len__(self)->int:...
     def __setitem__(self,arg2,arg3):...
 class FBPropertyBool(FBProperty):
-    ...
+    Data:bool
 class FBPropertyAnimatable(FBProperty):
+    Data:property
+    """Get the value of a property.
+    ### Return values:
+    pValue Value to fill with property's current value.
+    Reimplemented from FBProperty ."""
     def AllowsMuting(self)->bool:
         """### Returns:
         true if property can be muted"""
@@ -5409,32 +5476,36 @@ class FBPropertyAnimatable(FBProperty):
         - bMuted: True if the property is to be muted, false if it is to be unmuted."""
         ...
 class FBPropertyAction(FBProperty):
-    ...
+    Data:property
 class FBPropertyAnimatableVector4d(FBPropertyAnimatable):
+    Data:FBVector4d
     def __getitem__(self,arg2)->float:...
     def __len__(self)->int:...
     def __setitem__(self,arg2,arg3):...
 class FBPropertyAnimatableVector3d(FBPropertyAnimatable):
+    Data:FBVector3d
     def __getitem__(self,arg2)->float:...
     def __len__(self)->int:...
     def __setitem__(self,arg2,arg3):...
 class FBPropertyAnimatableVector2d(FBPropertyAnimatable):
+    Data:FBVector2d
     def __getitem__(self,arg2)->float:...
     def __len__(self)->int:...
     def __setitem__(self,arg2,arg3):...
 class FBPropertyAnimatableUInt64(FBPropertyAnimatable):
-    ...
+    Data:int
 class FBPropertyAnimatableTimeCode(FBPropertyAnimatable):
-    ...
+    Data:FBTimeCode
 class FBPropertyAnimatableTime(FBPropertyAnimatable):
-    ...
+    Data:FBTime
 class FBPropertyAnimatableInt64(FBPropertyAnimatable):
-    ...
+    Data:int
 class FBPropertyAnimatableInt(FBPropertyAnimatable):
-    ...
+    Data:int
 class FBPropertyAnimatableEnum(FBPropertyAnimatable):
-    ...
+    Data:property
 class FBPropertyAnimatableDouble(FBPropertyAnimatable):
+    Data:float
     @overload
     def __add__(self,arg2:FBPropertyAnimatableDouble)->object:...
     @overload
@@ -5457,17 +5528,19 @@ class FBPropertyAnimatableDouble(FBPropertyAnimatable):
     @overload
     def __truediv__(self,arg2)->object:...
 class FBPropertyAnimatableColorAndAlpha(FBPropertyAnimatable):
+    Data:FBColorAndAlpha
     def __getitem__(self,arg2)->float:...
     def __len__(self)->int:...
     def __setitem__(self,arg2,arg3):...
 class FBPropertyAnimatableColor(FBPropertyAnimatable):
+    Data:FBColor
     def __getitem__(self,arg2)->float:...
     def __len__(self)->int:...
     def __setitem__(self,arg2,arg3):...
 class FBPropertyAnimatableBool(FBPropertyAnimatable):
-    ...
+    Data:bool
 class FBPropertyAnimatableAction(FBPropertyAnimatable):
-    ...
+    Data:property
 class FBRenderer(FBComponent):
     AdvancedLightingMode:bool
     """Read write Property: Turn on/off advanced lighting setting UI widgets. \\
@@ -6865,7 +6938,7 @@ class FBConstraint(FBBox):
     """Read Write Property: Does the constraint have a layout?"""
     Lock:bool
     """Read Write Property: Lock state."""
-    Weight:float
+    Weight:FBPropertyAnimatableDouble
     """Read Write Property: Weight of constraint."""
     def AnimationNodeInCreate(self,UserId,Property:FBModel,arg4:str)->FBAnimationNode:
         """Animation Node Creations (IN). \\
@@ -7342,15 +7415,15 @@ class FBCharacter(FBConstraint):
     """List: Character Extensions in the character."""
     ContactBehaviour:FBCharacterContactBehaviour
     """Read Write Property: Contact Behavior selection."""
-    FKFingerMultiplier:float
+    FKFingerMultiplier:FBPropertyAnimatableDouble
     """Read Write Property: Used to augment the amount of FK propagation for unmarkered intermediate finger phalanges."""
-    FKFingerTipMultiplier:float
+    FKFingerTipMultiplier:FBPropertyAnimatableDouble
     """Read Write Property: Used to augment the amount of FK propagation for unmarkered finger tip phalanges."""
-    FKThumbTipMultiplier:float
+    FKThumbTipMultiplier:FBPropertyAnimatableDouble
     """Read Write Property: Used to augment the amount of FK propagation for unmarkered thumb tip phalanges."""
     HipsTranslationMode:FBCharacterHipsTranslationMode
     """Read Write Property: Hips Translation Mode."""
-    HumanFingerLimits:bool
+    HumanFingerLimits:FBPropertyAnimatableBool
     """Read Write Property: Enables/Disables human finger limits during actor solve."""
     InputActor:FBActor
     """Read Write Property: The index of the actor used for the input."""
@@ -7370,37 +7443,37 @@ class FBCharacter(FBConstraint):
     """Read Write Property: The current keying mode."""
     LeftElbowKillPitch:bool
     """Read Write Property: is Pitch used for Left elbow."""
-    LeftHandIndexIndex:float
+    LeftHandIndexIndex:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandIndexMiddle:float
+    LeftHandIndexMiddle:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandIndexPinky:float
+    LeftHandIndexPinky:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandIndexRing:float
+    LeftHandIndexRing:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandMiddleIndex:float
+    LeftHandMiddleIndex:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandMiddleMiddle:float
+    LeftHandMiddleMiddle:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandMiddlePinky:float
+    LeftHandMiddlePinky:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandMiddleRing:float
+    LeftHandMiddleRing:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandPinkyIndex:float
+    LeftHandPinkyIndex:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandPinkyMiddle:float
+    LeftHandPinkyMiddle:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandPinkyPinky:float
+    LeftHandPinkyPinky:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandPinkyRing:float
+    LeftHandPinkyRing:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandRingIndex:float
+    LeftHandRingIndex:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandRingMiddle:float
+    LeftHandRingMiddle:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandRingPinky:float
+    LeftHandRingPinky:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandRingRing:float
+    LeftHandRingRing:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     LeftKneeKillPitch:bool
     """Read Write Property: is Pitch used for Left knee."""
@@ -7414,43 +7487,43 @@ class FBCharacter(FBConstraint):
     """Read Write Property: is in mirror mode."""
     RightElbowKillPitch:bool
     """Read Write Property: is Pitch used for Right elbow."""
-    RightHandIndexIndex:float
+    RightHandIndexIndex:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandIndexMiddle:float
+    RightHandIndexMiddle:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandIndexPinky:float
+    RightHandIndexPinky:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandIndexRing:float
+    RightHandIndexRing:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandMiddleIndex:float
+    RightHandMiddleIndex:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandMiddleMiddle:float
+    RightHandMiddleMiddle:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandMiddlePinky:float
+    RightHandMiddlePinky:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandMiddleRing:float
+    RightHandMiddleRing:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandPinkyIndex:float
+    RightHandPinkyIndex:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandPinkyMiddle:float
+    RightHandPinkyMiddle:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandPinkyPinky:float
+    RightHandPinkyPinky:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandPinkyRing:float
+    RightHandPinkyRing:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandRingIndex:float
+    RightHandRingIndex:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandRingMiddle:float
+    RightHandRingMiddle:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandRingPinky:float
+    RightHandRingPinky:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandRingRing:float
+    RightHandRingRing:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     RightKneeKillPitch:bool
     """Read Write Property: is Pitch used for Right knee."""
     RollSolver:FBCharacterRollSolver
     """Read Write Property: Roll Solver selection."""
-    ShoulderCorrection:float
+    ShoulderCorrection:FBPropertyAnimatableDouble
     """Read Write Property: shoulder correction values."""
     SyncMode:bool
     """Read Write Property: is character in sync mode."""
@@ -7737,171 +7810,171 @@ class FBCharacter(FBConstraint):
 class FBActor(FBConstraint):
     BodyColor:FBColor
     """Read Write Property: The color of the body of the actor."""
-    ChestOffsetR:FBVector3d
+    ChestOffsetR:FBPropertyAnimatableVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    ChestOffsetT:FBVector3d
+    ChestOffsetT:FBPropertyAnimatableVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
     ChestPosition:FBVector3d
     """Read Write Property: Body part pivot of the actor."""
-    FKFingerMultiplier:float
+    FKFingerMultiplier:FBPropertyAnimatableDouble
     """Read Write Property: Used to augment the amount of FK propagation for unmarkered intermediate finger phalanges."""
-    FKFingerTipMultiplier:float
+    FKFingerTipMultiplier:FBPropertyAnimatableDouble
     """Read Write Property: Used to augment the amount of FK propagation for unmarkered finger tip phalanges."""
-    FKThumbTipMultiplier:float
+    FKThumbTipMultiplier:FBPropertyAnimatableDouble
     """Read Write Property: Used to augment the amount of FK propagation for unmarkered thumb tip phalanges."""
-    HeadOffsetR:FBVector3d
+    HeadOffsetR:FBPropertyAnimatableVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    HeadOffsetT:FBVector3d
+    HeadOffsetT:FBPropertyAnimatableVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
     HeadPosition:FBVector3d
     """Read Write Property: Body part pivot of the actor."""
-    HipsOffsetR:FBVector3d
+    HipsOffsetR:FBPropertyAnimatableVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    HipsOffsetT:FBVector3d
+    HipsOffsetT:FBPropertyAnimatableVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
     HipsPosition:FBVector3d
     """Read Write Property: Body part pivot of the actor."""
-    HumanFingerLimits:bool
+    HumanFingerLimits:FBPropertyAnimatableBool
     """Read Write Property: Enables/Disables human finger limits during actor solve."""
     IKManip:bool
     """Read Write Property: Access to the IK Manip mode. This property is shared for all actors."""
-    LeftAnkleOffsetR:FBVector3d
+    LeftAnkleOffsetR:FBPropertyAnimatableVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    LeftAnkleOffsetT:FBVector3d
+    LeftAnkleOffsetT:FBPropertyAnimatableVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
     LeftAnklePosition:FBVector3d
     """Read Write Property: Body part pivot of the actor."""
-    LeftCollarOffsetR:FBVector3d
+    LeftCollarOffsetR:FBPropertyAnimatableVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    LeftCollarOffsetT:FBVector3d
+    LeftCollarOffsetT:FBPropertyAnimatableVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
     LeftCollarPosition:FBVector3d
     """Read Write Property: Body part pivot of the actor."""
-    LeftElbowOffsetR:FBVector3d
+    LeftElbowOffsetR:FBPropertyAnimatableVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    LeftElbowOffsetT:FBVector3d
+    LeftElbowOffsetT:FBPropertyAnimatableVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
     LeftElbowPosition:FBVector3d
     """Read Write Property: Body part pivot of the actor."""
-    LeftFootOffsetR:FBVector3d
+    LeftFootOffsetR:FBPropertyAnimatableVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    LeftFootOffsetT:FBVector3d
+    LeftFootOffsetT:FBPropertyAnimatableVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
     LeftFootPosition:FBVector3d
     """Read Write Property: Body part pivot of the actor."""
-    LeftHandIndexIndex:float
+    LeftHandIndexIndex:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandIndexMiddle:float
+    LeftHandIndexMiddle:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandIndexPinky:float
+    LeftHandIndexPinky:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandIndexRing:float
+    LeftHandIndexRing:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandMiddleIndex:float
+    LeftHandMiddleIndex:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandMiddleMiddle:float
+    LeftHandMiddleMiddle:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandMiddlePinky:float
+    LeftHandMiddlePinky:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandMiddleRing:float
+    LeftHandMiddleRing:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandPinkyIndex:float
+    LeftHandPinkyIndex:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandPinkyMiddle:float
+    LeftHandPinkyMiddle:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandPinkyPinky:float
+    LeftHandPinkyPinky:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandPinkyRing:float
+    LeftHandPinkyRing:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandRingIndex:float
+    LeftHandRingIndex:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandRingMiddle:float
+    LeftHandRingMiddle:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandRingPinky:float
+    LeftHandRingPinky:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHandRingRing:float
+    LeftHandRingRing:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    LeftHipOffsetR:FBVector3d
+    LeftHipOffsetR:FBPropertyAnimatableVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    LeftHipOffsetT:FBVector3d
+    LeftHipOffsetT:FBPropertyAnimatableVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
     LeftHipPosition:FBVector3d
     """Read Write Property: Body part pivot of the actor."""
-    LeftIndexAOffsetR:FBVector3d
+    LeftIndexAOffsetR:FBPropertyAnimatableVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    LeftIndexAOffsetT:FBVector3d
+    LeftIndexAOffsetT:FBPropertyAnimatableVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    LeftIndexBOffsetR:FBVector3d
+    LeftIndexBOffsetR:FBPropertyAnimatableVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    LeftIndexBOffsetT:FBVector3d
+    LeftIndexBOffsetT:FBPropertyAnimatableVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    LeftIndexCOffsetR:FBVector3d
+    LeftIndexCOffsetR:FBPropertyAnimatableVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    LeftIndexCOffsetT:FBVector3d
+    LeftIndexCOffsetT:FBPropertyAnimatableVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    LeftKneeOffsetR:FBVector3d
+    LeftKneeOffsetR:FBPropertyAnimatableVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    LeftKneeOffsetT:FBVector3d
+    LeftKneeOffsetT:FBPropertyAnimatableVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
     LeftKneePosition:FBVector3d
     """Read Write Property: Body part pivot of the actor."""
-    LeftMiddleAOffsetR:FBVector3d
+    LeftMiddleAOffsetR:FBPropertyAnimatableVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    LeftMiddleAOffsetT:FBVector3d
+    LeftMiddleAOffsetT:FBPropertyAnimatableVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    LeftMiddleBOffsetR:FBVector3d
+    LeftMiddleBOffsetR:FBPropertyAnimatableVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    LeftMiddleBOffsetT:FBVector3d
+    LeftMiddleBOffsetT:FBPropertyAnimatableVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    LeftMiddleCOffsetR:FBVector3d
+    LeftMiddleCOffsetR:FBPropertyAnimatableVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    LeftMiddleCOffsetT:FBVector3d
+    LeftMiddleCOffsetT:FBPropertyAnimatableVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    LeftPinkyAOffsetR:FBVector3d
+    LeftPinkyAOffsetR:FBPropertyAnimatableVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    LeftPinkyAOffsetT:FBVector3d
+    LeftPinkyAOffsetT:FBPropertyAnimatableVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    LeftPinkyBOffsetR:FBVector3d
+    LeftPinkyBOffsetR:FBPropertyAnimatableVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    LeftPinkyBOffsetT:FBVector3d
+    LeftPinkyBOffsetT:FBPropertyAnimatableVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    LeftPinkyCOffsetR:FBVector3d
+    LeftPinkyCOffsetR:FBPropertyAnimatableVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    LeftPinkyCOffsetT:FBVector3d
+    LeftPinkyCOffsetT:FBPropertyAnimatableVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    LeftRingAOffsetR:FBVector3d
+    LeftRingAOffsetR:FBPropertyAnimatableVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    LeftRingAOffsetT:FBVector3d
+    LeftRingAOffsetT:FBPropertyAnimatableVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    LeftRingBOffsetR:FBVector3d
+    LeftRingBOffsetR:FBPropertyAnimatableVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    LeftRingBOffsetT:FBVector3d
+    LeftRingBOffsetT:FBPropertyAnimatableVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    LeftRingCOffsetR:FBVector3d
+    LeftRingCOffsetR:FBPropertyAnimatableVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    LeftRingCOffsetT:FBVector3d
+    LeftRingCOffsetT:FBPropertyAnimatableVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    LeftShoulderOffsetR:FBVector3d
+    LeftShoulderOffsetR:FBPropertyAnimatableVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    LeftShoulderOffsetT:FBVector3d
+    LeftShoulderOffsetT:FBPropertyAnimatableVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
     LeftShoulderPosition:FBVector3d
     """Read Write Property: Body part pivot of the actor."""
-    LeftThumbAOffsetR:FBVector3d
+    LeftThumbAOffsetR:FBPropertyAnimatableVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    LeftThumbAOffsetT:FBVector3d
+    LeftThumbAOffsetT:FBPropertyAnimatableVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    LeftThumbBOffsetR:FBVector3d
+    LeftThumbBOffsetR:FBPropertyAnimatableVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    LeftThumbBOffsetT:FBVector3d
+    LeftThumbBOffsetT:FBPropertyAnimatableVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    LeftThumbCOffsetR:FBVector3d
+    LeftThumbCOffsetR:FBPropertyAnimatableVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    LeftThumbCOffsetT:FBVector3d
+    LeftThumbCOffsetT:FBPropertyAnimatableVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    LeftWristOffsetR:FBVector3d
+    LeftWristOffsetR:FBPropertyAnimatableVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    LeftWristOffsetT:FBVector3d
+    LeftWristOffsetT:FBPropertyAnimatableVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
     LeftWristPosition:FBVector3d
     """Read Write Property: Body part pivot of the actor."""
@@ -7911,9 +7984,9 @@ class FBActor(FBConstraint):
     """Read Write Property: Associated marker set."""
     MarkerSetSize:float
     """Read Write Property: The size of the markers of the actor."""
-    NeckOffsetR:FBVector3d
+    NeckOffsetR:FBPropertyAnimatableVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    NeckOffsetT:FBVector3d
+    NeckOffsetT:FBPropertyAnimatableVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
     NeckPosition:FBVector3d
     """Read Write Property: Body part pivot of the actor."""
@@ -7925,143 +7998,143 @@ class FBActor(FBConstraint):
     """Read Write Property: Show or Hide the Pivot Points."""
     PivotSize:float
     """Read Write Property: The size of the pivot points of the actor."""
-    RightAnkleOffsetR:FBVector3d
+    RightAnkleOffsetR:FBPropertyAnimatableVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    RightAnkleOffsetT:FBVector3d
+    RightAnkleOffsetT:FBPropertyAnimatableVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
     RightAnklePosition:FBVector3d
     """Read Write Property: Body part pivot of the actor."""
-    RightCollarOffsetR:FBVector3d
+    RightCollarOffsetR:FBPropertyAnimatableVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    RightCollarOffsetT:FBVector3d
+    RightCollarOffsetT:FBPropertyAnimatableVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
     RightCollarPosition:FBVector3d
     """Read Write Property: Body part pivot of the actor."""
-    RightElbowOffsetR:FBVector3d
+    RightElbowOffsetR:FBPropertyAnimatableVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    RightElbowOffsetT:FBVector3d
+    RightElbowOffsetT:FBPropertyAnimatableVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
     RightElbowPosition:FBVector3d
     """Read Write Property: Body part pivot of the actor."""
-    RightFootOffsetR:FBVector3d
+    RightFootOffsetR:FBPropertyAnimatableVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    RightFootOffsetT:FBVector3d
+    RightFootOffsetT:FBPropertyAnimatableVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
     RightFootPosition:FBVector3d
     """Read Write Property: Body part pivot of the actor."""
-    RightHandIndexIndex:float
+    RightHandIndexIndex:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandIndexMiddle:float
+    RightHandIndexMiddle:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandIndexPinky:float
+    RightHandIndexPinky:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandIndexRing:float
+    RightHandIndexRing:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandMiddleIndex:float
+    RightHandMiddleIndex:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandMiddleMiddle:float
+    RightHandMiddleMiddle:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandMiddlePinky:float
+    RightHandMiddlePinky:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandMiddleRing:float
+    RightHandMiddleRing:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandPinkyIndex:float
+    RightHandPinkyIndex:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandPinkyMiddle:float
+    RightHandPinkyMiddle:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandPinkyPinky:float
+    RightHandPinkyPinky:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandPinkyRing:float
+    RightHandPinkyRing:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandRingIndex:float
+    RightHandRingIndex:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandRingMiddle:float
+    RightHandRingMiddle:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandRingPinky:float
+    RightHandRingPinky:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHandRingRing:float
+    RightHandRingRing:FBPropertyAnimatableDouble
     """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
-    RightHipOffsetR:FBVector3d
+    RightHipOffsetR:FBPropertyAnimatableVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    RightHipOffsetT:FBVector3d
+    RightHipOffsetT:FBPropertyAnimatableVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
     RightHipPosition:FBVector3d
     """Read Write Property: Body part pivot of the actor."""
-    RightIndexAOffsetR:FBVector3d
+    RightIndexAOffsetR:FBPropertyAnimatableVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    RightIndexAOffsetT:FBVector3d
+    RightIndexAOffsetT:FBPropertyAnimatableVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    RightIndexBOffsetR:FBVector3d
+    RightIndexBOffsetR:FBPropertyAnimatableVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    RightIndexBOffsetT:FBVector3d
+    RightIndexBOffsetT:FBPropertyAnimatableVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    RightIndexCOffsetR:FBVector3d
+    RightIndexCOffsetR:FBPropertyAnimatableVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    RightIndexCOffsetT:FBVector3d
+    RightIndexCOffsetT:FBPropertyAnimatableVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    RightKneeOffsetR:FBVector3d
+    RightKneeOffsetR:FBPropertyAnimatableVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    RightKneeOffsetT:FBVector3d
+    RightKneeOffsetT:FBPropertyAnimatableVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
     RightKneePosition:FBVector3d
     """Read Write Property: Body part pivot of the actor."""
-    RightMiddleAOffsetR:FBVector3d
+    RightMiddleAOffsetR:FBPropertyAnimatableVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    RightMiddleAOffsetT:FBVector3d
+    RightMiddleAOffsetT:FBPropertyAnimatableVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    RightMiddleBOffsetR:FBVector3d
+    RightMiddleBOffsetR:FBPropertyAnimatableVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    RightMiddleBOffsetT:FBVector3d
+    RightMiddleBOffsetT:FBPropertyAnimatableVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    RightMiddleCOffsetR:FBVector3d
+    RightMiddleCOffsetR:FBPropertyAnimatableVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    RightMiddleCOffsetT:FBVector3d
+    RightMiddleCOffsetT:FBPropertyAnimatableVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    RightPinkyAOffsetR:FBVector3d
+    RightPinkyAOffsetR:FBPropertyAnimatableVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    RightPinkyAOffsetT:FBVector3d
+    RightPinkyAOffsetT:FBPropertyAnimatableVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    RightPinkyBOffsetR:FBVector3d
+    RightPinkyBOffsetR:FBPropertyAnimatableVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    RightPinkyBOffsetT:FBVector3d
+    RightPinkyBOffsetT:FBPropertyAnimatableVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    RightPinkyCOffsetR:FBVector3d
+    RightPinkyCOffsetR:FBPropertyAnimatableVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    RightPinkyCOffsetT:FBVector3d
+    RightPinkyCOffsetT:FBPropertyAnimatableVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    RightRingAOffsetR:FBVector3d
+    RightRingAOffsetR:FBPropertyAnimatableVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    RightRingAOffsetT:FBVector3d
+    RightRingAOffsetT:FBPropertyAnimatableVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    RightRingBOffsetR:FBVector3d
+    RightRingBOffsetR:FBPropertyAnimatableVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    RightRingBOffsetT:FBVector3d
+    RightRingBOffsetT:FBPropertyAnimatableVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    RightRingCOffsetR:FBVector3d
+    RightRingCOffsetR:FBPropertyAnimatableVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    RightRingCOffsetT:FBVector3d
+    RightRingCOffsetT:FBPropertyAnimatableVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    RightShoulderOffsetR:FBVector3d
+    RightShoulderOffsetR:FBPropertyAnimatableVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    RightShoulderOffsetT:FBVector3d
+    RightShoulderOffsetT:FBPropertyAnimatableVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
     RightShoulderPosition:FBVector3d
     """Read Write Property: Body part pivot of the actor."""
-    RightThumbAOffsetR:FBVector3d
+    RightThumbAOffsetR:FBPropertyAnimatableVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    RightThumbAOffsetT:FBVector3d
+    RightThumbAOffsetT:FBPropertyAnimatableVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    RightThumbBOffsetR:FBVector3d
+    RightThumbBOffsetR:FBPropertyAnimatableVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    RightThumbBOffsetT:FBVector3d
+    RightThumbBOffsetT:FBPropertyAnimatableVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    RightThumbCOffsetR:FBVector3d
+    RightThumbCOffsetR:FBPropertyAnimatableVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    RightThumbCOffsetT:FBVector3d
+    RightThumbCOffsetT:FBPropertyAnimatableVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
-    RightWristOffsetR:FBVector3d
+    RightWristOffsetR:FBPropertyAnimatableVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    RightWristOffsetT:FBVector3d
+    RightWristOffsetT:FBPropertyAnimatableVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
     RightWristPosition:FBVector3d
     """Read Write Property: Body part pivot of the actor."""
@@ -8077,9 +8150,9 @@ class FBActor(FBConstraint):
     """Read Write Property: Symmetry Edit (Translation) mode state. Only effective when IKManip property is set to false. This property is shared for all actors."""
     Visibility:bool
     """Read Write Property: Show or Hide the Actor Body."""
-    WaistOffsetR:FBVector3d
+    WaistOffsetR:FBPropertyAnimatableVector3d
     """Read Write Property: Local rotation offset that is applied after the actor solve"""
-    WaistOffsetT:FBVector3d
+    WaistOffsetT:FBPropertyAnimatableVector3d
     """Read Write Property: Local translation offset that is applied after the actor solve"""
     WaistPosition:FBVector3d
     """Read Write Property: Body part pivot of the actor."""
@@ -8315,17 +8388,17 @@ class FBDevice(FBBox):
         - AnimationNode: Animation node to read information from."""
         ...
 class FBGlobalLight(FBBox):
-    AmbientColor:FBColor
+    AmbientColor:FBPropertyAnimatableColor
     """Read Write Property: Ambient light color."""
-    FogBegin:float
+    FogBegin:FBPropertyAnimatableDouble
     """Read Write Property: Begin fog distance."""
-    FogColor:FBColor
+    FogColor:FBPropertyAnimatableColor
     """Read Write Property: Fog color."""
-    FogDensity:float
+    FogDensity:FBPropertyAnimatableDouble
     """Read Write Property: Fog density."""
     FogEnable:bool
     """Read Write Property: Enable fog?"""
-    FogEnd:float
+    FogEnd:FBPropertyAnimatableDouble
     """Read Write Property: End fog distance."""
     FogMode:FBFogMode
     """Read Write Property: Fog falloff mode."""
@@ -8563,41 +8636,41 @@ class FBHUDTextureElement(FBHUDElement):
         - Name: Name of new HUD texture element."""
         ...
 class FBMaterial(FBBox):
-    Ambient:FBColor
+    Ambient:FBPropertyAnimatableColor
     """Read Write Property: Ambient color."""
-    AmbientFactor:float
+    AmbientFactor:FBPropertyAnimatableDouble
     """Read Write Property: Ambient Factor value."""
-    Bump:FBColor
+    Bump:FBPropertyAnimatableColor
     """Read Write Property: Bump."""
-    BumpFactor:float
+    BumpFactor:FBPropertyAnimatableDouble
     """Read Write Property: Bump Factor value."""
-    Diffuse:FBColor
+    Diffuse:FBPropertyAnimatableColor
     """Read Write Property: Diffuse color."""
-    DiffuseFactor:float
+    DiffuseFactor:FBPropertyAnimatableDouble
     """Read Write Property: Diffuse Factor value."""
-    DisplacementColor:FBColor
+    DisplacementColor:FBPropertyAnimatableColor
     """Read Write Property: Displacement color."""
-    DisplacementFactor:float
+    DisplacementFactor:FBPropertyAnimatableDouble
     """Read Write Property: Displacement Factor value."""
-    Emissive:FBColor
+    Emissive:FBPropertyAnimatableColor
     """Read Write Property: Emissive color."""
-    EmissiveFactor:float
+    EmissiveFactor:FBPropertyAnimatableDouble
     """Read Write Property: Emissive Factor value."""
-    NormalMap:FBColor
+    NormalMap:FBPropertyAnimatableColor
     """Read Write Property: Normal Map."""
-    Reflection:FBColor
+    Reflection:FBPropertyAnimatableColor
     """Read Write Property: Reflection color."""
-    ReflectionFactor:float
+    ReflectionFactor:FBPropertyAnimatableDouble
     """Read Write Property: Reflection Factor value."""
-    Shininess:float
+    Shininess:FBPropertyAnimatableDouble
     """Read Write Property: Shininess value."""
-    Specular:FBColor
+    Specular:FBPropertyAnimatableColor
     """Read Write Property: Specular color."""
-    SpecularFactor:float
+    SpecularFactor:FBPropertyAnimatableDouble
     """Read Write Property: Specular Factor value."""
-    TransparencyFactor:float
+    TransparencyFactor:FBPropertyAnimatableDouble
     """Read Write Property: Transparency Factor value."""
-    TransparentColor:FBColor
+    TransparentColor:FBPropertyAnimatableColor
     """Read Write Property: Transparent color."""
     def Clone(self)->FBMaterial:
         """Clone the material. \\
@@ -8688,7 +8761,7 @@ class FBModel(FBBox):
     """Read Write Property: Use quaternion interpolation."""
     ReceiveShadows:bool
     """Read Write Property: If true, the geometry will receive shadows."""
-    Rotation:FBVector3d
+    Rotation:FBPropertyAnimatableVector3d
     """Read Write Property: Lcl rotation."""
     RotationActive:bool
     """Read Write Property: Is model using Rotation Limits?"""
@@ -8712,7 +8785,7 @@ class FBModel(FBBox):
     """Read Write Property: Rotation order."""
     RotationSpaceForLimitOnly:bool
     """Read Write Property: Apply Post Rotation Matrix only for Limits?"""
-    Scaling:FBVector3d
+    Scaling:FBPropertyAnimatableVector3d
     """Read Write Property: Lcl scaling."""
     Scene:FBScene
     """Read Only Property: Scene containing the model."""
@@ -8730,13 +8803,13 @@ class FBModel(FBBox):
     """List: Textures with Special UseType (Other than 'Color' which should connect to materials)."""
     Transformable:bool
     """Read Write Property: Indicate if a model can be transformable in the viewer. This has a default value of 'true'."""
-    Translation:FBVector3d
+    Translation:FBPropertyAnimatableVector3d
     """Read Write Property: Lcl translation."""
     UniqueColorId:FBColor
     """Read Only Property: Unique Color Id for color based viewer picking. Color channel values are in the range [0, 1] with 1.0/255 precision."""
     UpVector:FBModel
     """Read Write Property: UpVector model."""
-    Visibility:bool
+    Visibility:FBPropertyAnimatableBool
     """Read Write Property: Visibility of model. This can be overridden by the 'Show' property."""
     VisibilityInheritance:bool
     """Read Write Property: //!< When this value is set to True the Visibility of this model is also applied to all its descendants"""
@@ -8990,9 +9063,9 @@ class FBLight(FBModel):
     """Read Write Property: Cast light on object?"""
     CastShadows:bool
     """Read Write Property: Cast shadows on object?"""
-    ConeAngle:float
+    ConeAngle:FBPropertyAnimatableDouble
     """DEPRECATED  Equivalent to OuterAngle."""
-    DiffuseColor:FBColor
+    DiffuseColor:FBPropertyAnimatableColor
     """Read Write Property: Color: Diffuse color."""
     DrawFrontFacingVolumetric:bool
     """Read Write Property: Draw front facing volumetric light?"""
@@ -9004,13 +9077,13 @@ class FBLight(FBModel):
     """Area light shapes."""
     EnableBarnDoor:bool
     """Read Write Property: Whether or not enable barn door."""
-    FogIntensity:float
+    FogIntensity:FBPropertyAnimatableDouble
     """Read Write Property: Intensity of the fog (spot light)."""
     GoboMedia:FBVideo
     """Read Write Property: Media to use as a Gobo with the light."""
-    InnerAngle:float
+    InnerAngle:FBPropertyAnimatableDouble
     """Read Write Property: Inner Cone angle for light."""
-    Intensity:float
+    Intensity:FBPropertyAnimatableDouble
     """Read Write Property: Light intensity."""
     LeftBarnDoor:float
     """Read Write Property: Angle of left barn door."""
@@ -9019,7 +9092,7 @@ class FBLight(FBModel):
     MoBu default renderer don't support Area Light, it's useful for pipeline interop with other DCC tools, and custom renderer (or shader) plugin development.
     ### Note:
     To use Area Light, please set FBRenderer::AdvancedLightingMode property, or modify config 'AdvancedLightingUISetting' at [Rendering] section."""
-    OuterAngle:float
+    OuterAngle:FBPropertyAnimatableDouble
     """Read Write Property: Outer Cone angle for light."""
     RightBarnDoor:float
     """Read Write Property: Angle of right barn door."""
@@ -9058,7 +9131,7 @@ class FBCamera(FBModel):
     """Read Write Property: Anti-aliasing method."""
     ApertureMode:FBCameraApertureMode
     """Read Write Property: Aperture mode."""
-    BackGroundColor:FBColor
+    BackGroundColor:FBPropertyAnimatableColor
     """Read Write Property: Background color for camera."""
     BackGroundImageCenter:bool
     """Read Write Property: Center the background image"""
@@ -9068,13 +9141,13 @@ class FBCamera(FBModel):
     """Read Write Property: Fit the background image"""
     BackGroundImageKeepRatio:bool
     """Read Write Property: Keep the background image's ratio"""
-    BackGroundImageOffsetX:float
+    BackGroundImageOffsetX:FBPropertyAnimatableDouble
     """Read Write Property: Ignored if BackGroundImageFit is true. X offset, in term of percentage of the fit background image width, applied on the background image."""
-    BackGroundImageOffsetY:float
+    BackGroundImageOffsetY:FBPropertyAnimatableDouble
     """Read Write Property: Ignored if BackGroundImageFit is true. Y offset, in term of percentage of the fit background image height, applied on the background image."""
-    BackGroundImageScaleX:float
+    BackGroundImageScaleX:FBPropertyAnimatableDouble
     """Read Write Property: Ignored if BackGroundImageFit is true. X scale, in term of percentage of the fit background image width, applied on the background image."""
-    BackGroundImageScaleY:float
+    BackGroundImageScaleY:FBPropertyAnimatableDouble
     """Read Write Property: Ignored if BackGroundImageFit and/or BackGroundImageKeepRatio is true. Y scale, in term of percentage of the fit background image height, applied on the background image. The X scale property is considered instead of this Y scale property if BackGroundImageKeepRatio is set to true."""
     BackGroundMedia:FBVideo
     """### Deprecated::
@@ -9099,11 +9172,11 @@ class FBCamera(FBModel):
     """Read Write Property: Enable/Disable the drawing of the Turn Table icon."""
     FarPlaneDistance:float
     """Read Write Property: Far plane distance."""
-    FieldOfView:float
+    FieldOfView:FBPropertyAnimatableDouble
     """Read Write Property: Field of View (used when in horizontal or vertical aperture modes)."""
-    FieldOfViewX:float
+    FieldOfViewX:FBPropertyAnimatableDouble
     """Read Write Property: Field of View X angle (used in horizontal and vertical aperture mode)."""
-    FieldOfViewY:float
+    FieldOfViewY:FBPropertyAnimatableDouble
     """Read Write Property: Field of View Y angle (used in horizontal and vertical aperture mode)."""
     FilmAspectRatio:float
     """Read Write Property: Film aspect ratio."""
@@ -9113,17 +9186,17 @@ class FBCamera(FBModel):
     """Read Write Property: Height of the film."""
     FilmSizeWidth:float
     """Read Write Property: Width of the film."""
-    FocalLength:float
+    FocalLength:FBPropertyAnimatableDouble
     """Read Write Property: Focal Length."""
-    FocusAngle:float
+    FocusAngle:FBPropertyAnimatableDouble
     """Read Write Property: Focus Angle (rendering dof)."""
     FocusDistanceSource:FBCameraFocusDistanceSource
     """Read Write Property: Select source for focusing."""
     FocusModel:FBModel
     """Read Write Property: Another model that determines the focus distance."""
-    FocusSpecificDistance:float
+    FocusSpecificDistance:FBPropertyAnimatableDouble
     """Read Write Property: Specfic distance for focusing."""
-    ForeGroundAlpha:float
+    ForeGroundAlpha:FBPropertyAnimatableDouble
     """Read Write Property: Opacity of foreground."""
     ForeGroundImageCenter:bool
     """Read Write Property: Center the foreground image"""
@@ -9133,13 +9206,13 @@ class FBCamera(FBModel):
     """Read Write Property: Fit the foreground image"""
     ForeGroundImageKeepRatio:bool
     """Read Write Property: Keep the foreground image's ratio?"""
-    ForeGroundImageOffsetX:float
+    ForeGroundImageOffsetX:FBPropertyAnimatableDouble
     """Read Write Property: Ignored if ForeGroundImageFit is true. X offset, in term of percentage of the fit foreground image width, applied on the foreground image."""
-    ForeGroundImageOffsetY:float
+    ForeGroundImageOffsetY:FBPropertyAnimatableDouble
     """Read Write Property: Ignored if ForeGroundImageFit is true. Y offset, in term of percentage of the fit foreground image height, applied on the foreground image."""
-    ForeGroundImageScaleX:float
+    ForeGroundImageScaleX:FBPropertyAnimatableDouble
     """Read Write Property: Ignored if ForeGroundImageFit is true. X scale, in term of percentage of the fit foreground image width, applied on the foreground image."""
-    ForeGroundImageScaleY:float
+    ForeGroundImageScaleY:FBPropertyAnimatableDouble
     """Read Write Property: Ignored if ForeGroundImageFit and/or ForeGroundImageKeepRatio is true. Y scale, in term of percentage of the fit foreground image height, applied on the foreground image. The X scale property is considered instead of this Y scale property if ForeGroundImageKeepRatio is set to true."""
     ForeGroundMaterialThreshold:float
     """Read Write Property: Material threshold for a transparent foreground."""
@@ -9164,13 +9237,13 @@ class FBCamera(FBModel):
     """Read Write Property: Interactive mode?"""
     Interest:FBModel
     """Read Write Property: Direct camera's interest."""
-    MagnifierPosX:float
+    MagnifierPosX:FBPropertyAnimatableDouble
     """Read Write Property: 2D Magnifier X Position."""
-    MagnifierPosY:float
+    MagnifierPosY:FBPropertyAnimatableDouble
     """Read Write Property: 2D Magnifier Y Position."""
-    MagnifierZoom:float
+    MagnifierZoom:FBPropertyAnimatableDouble
     """Read Write Property: 2D Magnifier Zoom value."""
-    MotionBlurIntensity:float
+    MotionBlurIntensity:FBPropertyAnimatableDouble
     """Read Write Property: Motion Blur Intensity."""
     MouseLockCamera:bool
     """Read Write Property: Mouse lock for camera?"""
@@ -9178,9 +9251,9 @@ class FBCamera(FBModel):
     """Read Write Property: Near plane distance."""
     NumberOfSamples:int
     """Read Write Property: Number of samples to oversample with."""
-    OpticalCenterX:float
+    OpticalCenterX:FBPropertyAnimatableDouble
     """Read Write Property: Optical Center X (mm)."""
-    OpticalCenterY:float
+    OpticalCenterY:FBPropertyAnimatableDouble
     """Read Write Property: Optical Center Y (mm)."""
     OrthoFactor:float
     """Constant scale factor to be used with OrthoZoom for orthographic cameras."""
@@ -9217,7 +9290,7 @@ class FBCamera(FBModel):
     """Read Write Property: Resolution standard mode."""
     ResolutionWidth:float
     """Read Write Property: Resolution width."""
-    Roll:float
+    Roll:FBPropertyAnimatableDouble
     """Read Write Property: Camera's roll on it's Z axis."""
     SafeAreaMode:FBCameraSafeAreaMode
     """Read Write Property: Select mode for safe area."""
@@ -9227,7 +9300,7 @@ class FBCamera(FBModel):
     """Read Write Property: Squeeze ratio."""
     SystemCamera:bool
     """Read Only Property: Indicate if this a producer (default or system) camera or a custom (user-created) camera."""
-    TurnTable:float
+    TurnTable:FBPropertyAnimatableDouble
     """Read Write Property: Camera's rotation around its interest."""
     Type:FBCameraType
     """Read Write Property: Type of camera"""
@@ -9237,7 +9310,7 @@ class FBCamera(FBModel):
     """Read Write Property: Use accumulation buffer?"""
     UseAntiAliasing:bool
     """Read Write Property: Use anti-aliasing?"""
-    UseDepthOfField:bool
+    UseDepthOfField:FBPropertyAnimatableBool
     """Read Write Property: Use depth of field calculations?"""
     UseFrameColor:bool
     """Read Write Property: Use frame color?"""
@@ -9461,7 +9534,7 @@ class FBModelOptical(FBModel):
 class FBModelPath3D(FBModel):
     AutoControlNode:bool
     """Read Write Property: Automatically create key control nodes."""
-    Color:FBColor
+    Color:FBPropertyAnimatableColor
     """Read Write Property: Path display color in viewport."""
     EKeyPropertyBehavior:type
     """Key property behavior."""
@@ -10702,7 +10775,7 @@ class FBAnimationLayer(FBComponent):
     """Read Write Property: If true, the layer is muted. A muted layer is not included in the result animation. Cannot be applied to the BaseAnimation Layer."""
     Solo:bool
     """Read Write Property: If true, the layer is soloed. When you solo a layer, you mute other layers that are at the same level in the hierarchy, as well as the children of those layers. Cannot be applied to the BaseAnimation Layer."""
-    Weight:float
+    Weight:FBPropertyAnimatableDouble
     """Read Write Property: The weight value of a layer determines how much it is present in the result animation. Takes a value from 0 (the layer is not present) to 100. The weighting of a parent layer is factored into the weighting of its child layers, if any. BaseAnimation Layer always has a Weight of 100."""
     def AddChildLayer(self,AnimationLayer:FBAnimationLayer):
         """Add a child to the layer. \\
@@ -14040,7 +14113,7 @@ class FBSet(FBBox):
     """Read Write Property: Controls if objects in the set are pickable."""
     Transformable:bool
     """Read Write Property: Controls if objects in the set are transformable."""
-    Visibility:bool
+    Visibility:FBPropertyAnimatableBool
     """Read Write Property: Visibility of set (animatable)."""
     def Contains(self,Component:FBComponent)->int:
         """### Parameters:
@@ -14090,7 +14163,7 @@ class FBShader(FBBox):
         Re-implement this function and return true if you need it. This method is called once per shader on each render pass."""
         ...
 class FBShaderLighted(FBShader):
-    Alpha:float
+    Alpha:FBPropertyAnimatableDouble
     """Read Write Property: Controls the actual effect of the shader on the object. At 0.0 it does nothing, and at 1.0 it fully affects the object."""
     Contrast:float
     """Read Write Property: Changes the contrast of the object when it reflects light."""
@@ -14147,7 +14220,7 @@ class FBShaderShadowLive(FBShader):
     """List: List of object which when lighted will cast a shadow."""
     ShadowFrameType:FBShadowFrameType
     """Read Write Property: Used to select the shadow calculation method."""
-    ShadowIntensity:float
+    ShadowIntensity:FBPropertyAnimatableDouble
     """Read Write Property: Controls the darkness of shadows cast by a selected object."""
     ShadowType:FBShadowType
     """Read Write Property: Indicate which shadow type is desired."""
@@ -15046,7 +15119,7 @@ class FBTexture(FBBox):
     def __copy__(self)->object:...
     def __init__(self,arg2:str):...
 class FBLayeredTexture(FBTexture):
-    BackgroundColor:FBColorAndAlpha
+    BackgroundColor:FBPropertyAnimatableColorAndAlpha
     """Read/Write Property: Animatable Background color which is used to clear color buffer before composition."""
     Layers:FBPropertyListTexture
     """Read/Write Property: Textures Layers."""
@@ -17549,7 +17622,7 @@ class FBList(FBVisualComponent):
     """Event: List changed."""
     OnDragAndDrop:FBEvent
     """Event: Drag and drop event."""
-    Style:property
+    Style:FBListStyle
     """Read Write Property: Style or direction of list."""
     def IsSelected(self,Index:int)->bool:
         """Returns whether or not the item Index is currently selected.
