@@ -1,8 +1,10 @@
 from __future__ import annotations
+from types import FunctionType
 
 import pyfbsdk
 
 import inspect
+import typing
 import time
 import sys
 import os
@@ -12,9 +14,11 @@ from importlib import reload
 sys.path.append(os.path.dirname(__file__))
 
 import motionbuilder_documentation_parser as docParser
+import manual_documentation as manualDoc
 
 
 reload(docParser)
+reload(manualDoc)
 
 
 ADDITIONS_FILEPATH = os.path.join(os.path.dirname(__file__), "additions_pyfbsdk.py")
@@ -24,7 +28,7 @@ TAB_CHARACTER = "    "
 # FBModel.GetHierarchyWorldMatrices() - First param in the docs doesn't exists in the python version
 # FBInterpolateRotation() - Both of them use the same documentation :/
 # Support URLs in the doc strings
-# FBAudioFmt_AppendFormat - code example
+# FBAudioFmt_AppendFormat - code example, convert to Py3 ?
 # FBStoryClip -> GetAffectedAnimationNodes & FBModel::GetHierarchyWorldMatrices()
 # GetCommandLineArgs - Turn blockquotes into: ```
 
@@ -379,8 +383,16 @@ class StubClass(StubBaseClass):
     def __init__(self, Name = ""):
         super().__init__(Name = Name)
         self.Parents = []
-        self.StubProperties = []
-        self.StubFunctions: list[StubProperty] = []
+        self.StubProperties: list[StubProperty] = []
+        self.StubFunctions: list[StubFunction] = []
+
+    def GetFunctionsByName(self, Name: str):
+        return [x for x in self.StubFunctions if x.Name == Name]
+    
+    def GetPropertyByName(self, Name: str):
+        for x in self.StubProperties:
+            if x.Name == Name:
+                return x
 
     def AddFunction(self, Function: StubFunction):
         Function.bIsMethod = True  # Make function a method
@@ -956,6 +968,74 @@ class PyfbsdkStubGenerator():
 
             # TODO: Add Class Docstring
 
+    def GetClassByName(self, Name: str):
+        for x in self.Classes:
+            if x.Name == Name:
+                return x
+        for x in self.Enums:
+            if x.Name == Name:
+                return x
+
+    def GetFunctionByName(self, Name: str):
+        [x for x in self.Functions if x.Name == Name]
+
+
+    def _PatchFromManualDocumentation(self):
+        """ 
+        Patch the StubClasses & StubFunctions based on the 'manual_documentation.py' file.
+        """
+        def _GetTypeHintString(TypeHint):
+            if inspect.isclass(TypeHint):
+                return TypeHint.__name__
+            return str(TypeHint)
+            
+        def _PatchFunction(Function: StubFunction, DocumentedFunction: FunctionType):
+            if DocumentedFunction.__doc__:
+                Function.DocString = DocumentedFunction.__doc__
+            TypeHints = typing.get_type_hints(DocumentedFunction)
+            Parameters = Function.GetParameters()
+            Arguments = inspect.signature(DocumentedFunction)
+            print(Arguments.return_annotation)
+
+
+
+            if "return" in TypeHints:
+                Function.ReturnType = TypeHints["return"]
+            
+        # Patch classes
+        for Name, Object in inspect.getmembers(manualDoc, inspect.isclass):
+            TypeHints = typing.get_type_hints(Object, localns = locals())
+            StubClassRef = self.GetClassByName(Name)
+            ClassMembers = dict(inspect.getmembers(Object))
+            if StubClassRef:
+                if Object.__doc__:
+                    StubClassRef.DocString = Object.__doc__
+                
+                # Patch properties
+                for ClassMemberName, TypeHint in TypeHints.items():
+                    StubPropertyRef = StubClassRef.GetPropertyByName(ClassMemberName)
+                    if StubPropertyRef:
+                        # Set type hint & doc string
+                        StubPropertyRef.Type = _GetTypeHintString(TypeHint)
+                        DocString = ClassMembers.get(f"{ClassMemberName}__doc__")
+                        if DocString:
+                            StubPropertyRef.DocString = DocString
+
+                for FunctionName, Function in inspect.getmembers(Object, inspect.isfunction):  
+                    StubFunctionReferences = StubClassRef.GetFunctionsByName(FunctionName)
+                    if StubFunctionReferences:
+                        if len(StubFunctionReferences) > 1:
+                            print("TODO: Add support for overloaded functions")
+                        else:
+                            _PatchFunction(StubFunctionReferences[0], Function)
+
+        # Patch functions
+        for Name, Object in inspect.getmembers(manualDoc, inspect.isfunction):
+            StubFunctionRef = self.GetFunctionByName(Name)
+            if StubFunctionRef:
+                _PatchFunction(StubFunctionRef, Object)
+
+
     def GenerateString(self, bUseOnlineDocumentation = True):
         """ 
         Returns: The stub file as a string
@@ -970,6 +1050,7 @@ class PyfbsdkStubGenerator():
         for Function in Functions:
             self.Functions.extend(self._GenerateFunctionInstances(Function))
 
+        """
         for Enum in self.Enums:
             self._PatchEnumFromDocumentation(Enum)
 
@@ -979,6 +1060,10 @@ class PyfbsdkStubGenerator():
             self._PatchClassFromDocumentation(self.Classes)
             # c = [x for x in self.Classes if x.Name == "FBVector3d"]
             # self._PatchClassFromDocumentation(c)
+        """
+
+        # Patch from the manual documentation
+        self._PatchFromManualDocumentation()
 
         # Sort classes after all patches are done and we know their requirements
         self.Classes = SortClasses(self.Classes)
