@@ -1,5 +1,4 @@
 from __future__ import annotations
-from typing import overload
 import pyfbsdk
 
 """
@@ -10,7 +9,4 @@ If a class / function is missing from the official pyfbsdk documentation it can 
 
 class FBAnimationNode():
     FCurve: pyfbsdk.FBFCurve
-    FCurve__doc__ = "Cool"
-    def ConvertGlobalToNodeTime(self,arg2:pyfbsdk.FBTime)->pyfbsdk.FBTime:
-        """ Hello World """
-        ...
+    FCurve__doc__ = "FCurve"

@@ -993,14 +993,27 @@ class PyfbsdkStubGenerator():
             if DocumentedFunction.__doc__:
                 Function.DocString = DocumentedFunction.__doc__
             TypeHints = typing.get_type_hints(DocumentedFunction)
-            Parameters = Function.GetParameters()
-            Arguments = inspect.signature(DocumentedFunction)
-            print(Arguments.return_annotation)
-
-
+            StubParameters = Function.GetParameters()
+            DocumentedSignature = inspect.signature(DocumentedFunction)
+            
+            for i, ParameterName in enumerate(DocumentedSignature.parameters):
+                StubParameter = StubParameters[i]
+                Parameter = DocumentedSignature.parameters[ParameterName]
+                StubParameter.Name = ParameterName
+                
+                TypeHint = TypeHints.get(ParameterName)
+                if TypeHint:
+                    StubParameter.Type = TypeHint.__name__
+                
+                # Default values
+                if Parameter.default is not inspect._empty:
+                    if "pyfbsdk" in str(type(Parameter.default)):
+                        StubParameter.DefaultValue = f"{type(Parameter.default).__name__}.{Parameter.default}"
+                    else:
+                        StubParameter.DefaultValue = str(Parameter.default)
 
             if "return" in TypeHints:
-                Function.ReturnType = TypeHints["return"]
+                Function.ReturnType = _GetTypeHintString(TypeHints["return"])
             
         # Patch classes
         for Name, Object in inspect.getmembers(manualDoc, inspect.isclass):
@@ -1050,7 +1063,7 @@ class PyfbsdkStubGenerator():
         for Function in Functions:
             self.Functions.extend(self._GenerateFunctionInstances(Function))
 
-        """
+        
         for Enum in self.Enums:
             self._PatchEnumFromDocumentation(Enum)
 
@@ -1060,7 +1073,7 @@ class PyfbsdkStubGenerator():
             self._PatchClassFromDocumentation(self.Classes)
             # c = [x for x in self.Classes if x.Name == "FBVector3d"]
             # self._PatchClassFromDocumentation(c)
-        """
+        
 
         # Patch from the manual documentation
         self._PatchFromManualDocumentation()
