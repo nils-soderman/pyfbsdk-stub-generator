@@ -1,6 +1,9 @@
 echo off
 REM Build a package of the current source files
 
+REM Set current working directory
+cd /d %~dp0
+
 REM Start a virtual environment
 python -m venv env
 call .\env\Scripts\activate.bat
