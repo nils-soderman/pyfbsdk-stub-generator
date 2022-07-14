@@ -4134,18 +4134,26 @@ class FBPickInfosList():
     def __len__(self)->int:...
     def count(self)->int:...
 class FBPlotOptions():
-    ConstantKeyReducerKeepOneKey:property
-    EvaluateDeformation:property
-    PlotAllTakes:property
+    ConstantKeyReducerKeepOneKey:bool
+    """Read Write Property: Should the constant key reducer keep at least one key?"""
+    EvaluateDeformation:bool
+    PlotAllTakes:bool
+    """Read Write Property: Should we plot all takes?"""
     PlotAuxEffectors:property
-    PlotLockedProperties:property
-    PlotOnFrame:property
-    PlotPeriod:property
-    PlotTangentMode:property
-    PlotTranslationOnRootOnly:property
-    PreciseTimeDiscontinuities:property
-    RotationFilterToApply:property
-    UseConstantKeyReducer:property
+    PlotLockedProperties:bool
+    PlotOnFrame:bool
+    """Read Write Property: Should we plot on frame?"""
+    PlotPeriod:FBTime
+    """Read Write Property: The plot period (1/fps)."""
+    PlotTangentMode:FBPlotTangentMode
+    PlotTranslationOnRootOnly:bool
+    """Read Write Property: Should we plot the translation on root only?"""
+    PreciseTimeDiscontinuities:bool
+    """Read Write Property: Should we plot the translation on root only?"""
+    RotationFilterToApply:FBRotationFilter
+    """Read Write Property: The rotation filter to apply."""
+    UseConstantKeyReducer:bool
+    """Read Write Property: Should we use a constant key reducer with the filter?"""
     def __init__(self):...
 class FBPlugList():
     def GetCount(self)->int:...
@@ -11211,17 +11219,17 @@ class FBDeviceOpticalMarker(FBComponent):
         - Name: Name of optical marker."""
         ...
 class FBEvaluateManager(FBComponent):
-    DeviceCount:property
-    DualQuaternionSkinning:property
-    FrameSkipOptimization:property
-    NodeCount:property
-    OnRenderingPipelineEvent:property
-    OnSynchronizationEvent:property
-    ParallelDeformation:property
-    ParallelEvaluation:property
-    ParallelPipeline:property
-    ParallelScheduleType:property
-    UseGPUDeformation:property
+    DeviceCount:int
+    DualQuaternionSkinning:bool
+    FrameSkipOptimization:bool
+    NodeCount:int
+    OnRenderingPipelineEvent:object
+    OnSynchronizationEvent:object
+    ParallelDeformation:bool
+    ParallelEvaluation:bool
+    ParallelPipeline:bool
+    ParallelScheduleType:FBParallelScheduleType
+    UseGPUDeformation:bool
     def InvalidateDAG(self):...
     def IsInteractiveMode(self)->bool:...
     def __init__(self):...
@@ -15159,19 +15167,19 @@ class FBNurbs(FBSurface):
         - Name: Name of Nurbs."""
         ...
 class FBTexture(FBBox):
-    Alpha:property
-    BlendMode:property
-    Height:property
-    Mapping:property
-    Rotation:property
-    Scaling:property
-    SwapUV:property
-    TextureOGLId:property
-    Translation:property
-    UseType:property
-    Video:property
-    Width:property
-    def Clone(self)->object:...
+    Alpha:float
+    BlendMode:FBTextureBlendMode
+    Height:int
+    Mapping:FBTextureMapping
+    Rotation:FBPropertyAnimatableVector3d
+    Scaling:FBPropertyAnimatableVector3d
+    SwapUV:bool
+    TextureOGLId:int
+    Translation:FBPropertyAnimatableVector3d
+    UseType:FBTextureUseType
+    Video:FBVideo
+    Width:int
+    def Clone(self)->FBTexture:...
     def OGLInit(self):...
     def __copy__(self)->object:...
     def __init__(self,arg2:str):...
@@ -16994,34 +17002,72 @@ class FBVideo(FBBox):
         The Name parameter must point to a valid media file, otherwise the object will not be valid. Use the method 'IsValid()' to confirm the object status."""
         ...
 class FBVideoClip(FBVideo):
-    CurrentFrame:property
-    CurrentFrameTime:property
+    CurrentFrame:int
+    """Read Write Property: Current frame."""
+    CurrentFrameTime:FBTime
+    """Read Write Property: Current time in clip."""
     CurrentFrameTimeCode:property
-    Filename:property
-    Format:property
+    Filename:str
+    """Read Write Property: Filename of media."""
+    Format:FBVideoFormat
+    """Read Only Property: Video format."""
     FrameRate:property
-    FrameTime:property
-    FreeRunning:property
-    Height:property
-    InterlaceMode:property
-    LastFrame:property
-    LastFrameTime:property
-    Loop:property
-    PlaySpeed:property
-    PowerOfTwoHeight:property
-    PowerOfTwoWidth:property
-    ProxyMode:property
-    RelativePath:property
-    StartFrame:property
-    StopFrame:property
-    StorageMode:property
-    TimeOffset:property
-    Width:property
-    def DrawImage(self,arg2=None,arg3=None,arg4=None,arg5=None,arg6=None):...
+    FrameTime:FBTime
+    FreeRunning:bool
+    """Read Write Property: Is free Running on?"""
+    Height:int
+    """Read Only Property: Height of image."""
+    InterlaceMode:FBVideoInterlaceMode
+    """Read Write Property: Interlace mode."""
+    LastFrame:int
+    """Read Only Property: Last frame in clip."""
+    LastFrameTime:FBTime
+    """Read Only Property: Time of last frame"""
+    Loop:bool
+    """Read Write Property: Loop video clip?"""
+    PlaySpeed:float
+    """Read Write Property: Playback speed."""
+    PowerOfTwoHeight:int
+    """Read Only Property: Closest power of two value superior to height of image."""
+    PowerOfTwoWidth:int
+    """Read Only Property: Closest power of two value superior to width of image."""
+    ProxyMode:FBVideoProxyMode
+    """Read Write Property: Proxy mode."""
+    RelativePath:str
+    """Read Only Property: Relative path of media."""
+    StartFrame:int
+    """Read Write Property: Frame to begin video playback from."""
+    StopFrame:int
+    """Read Write Property: Frame to end video playback at."""
+    StorageMode:FBVideoStorageMode
+    """Read Write Property: Storage mode."""
+    TimeOffset:FBTime
+    """Read Write Property: Temporal offset for beginning of video."""
+    Width:int
+    """Read Only Property: Width of image."""
+    def DrawImage(self,X=0,Y=0,W=-1,H=-1,Frame=-1):
+        """Draw a frame of the image to the current view.
+        ### Parameters:
+            - X: X position of image (default=0).
+            - Y: Y position of image (default=0).
+            - W: Width of image (default=-1).
+            - H: Height of image (default=-1).
+            - Frame: Frame to draw (default=-1)."""
+        ...
     def GetEmbeddedTimecode(self,arg2)->FBTimeCode:...
     def GetTextureID(self)->int:...
-    def IsValid(self)->bool:...
-    def __init__(self,arg2:str):...
+    def IsValid(self)->bool:
+        """Verifies the validity of the FBVideo object.
+        ### Returns:
+        true if data is valid."""
+        ...
+    def __init__(self,Name:str):
+        """### Parameters:
+            - pName: Name of video media.
+        
+        ### Warning:
+        The Name parameter must point to a valid media file, otherwise the object will not be valid. Use the method `IsValid()` to confirm the object status."""
+        ...
 class FBVideoClipImage(FBVideoClip):
     ImageSequence:property
     MaxMipMapResolution:property
@@ -17064,26 +17110,40 @@ class FBVideoCodecManager():
         ...
     def __init__(self):...
 class FBVideoGrabOptions():
-    AntiAliasing:property
+    AntiAliasing:bool
+    """Read Write Property: If true, video frames will be anti-aliased."""
     AudioCustomStandaloneFileName:property
     AudioOutputLocation:property
     AudioRenderFormat:property
+    """Read Write roperty: Audio render format."""
     AudioUseCustomStandaloneFileName:property
-    BitsPerPixel:property
-    CameraResolution:property
-    FieldMode:property
-    OutputFileName:property
-    RenderAudio:property
+    BitsPerPixel:FBVideoRenderDepth
+    """Read Write Property: Video grab color depth."""
+    CameraResolution:FBCameraResolutionMode
+    """Read Write Property: Camera Resolution."""
+    FieldMode:FBVideoRenderFieldMode
+    """Read Write Property: Video grab field mode."""
+    OutputFileName:str
+    """Read Write Property: Grabbing destination file."""
+    RenderAudio:bool
+    """Read Write Property: If true and there's audio in the scene, add audio to the output file."""
     RendererCallbackIndex:property
     RendererCallbackPrefIndex:property
-    ShowCameraLabel:property
-    ShowSafeArea:property
-    ShowTimeCode:property
+    ShowCameraLabel:bool
+    """Read Write Property: If true, display camera label information."""
+    ShowSafeArea:bool
+    """Read Write Property: If true, display safe area."""
+    ShowTimeCode:bool
+    """Read Write Property: If true, display time code information."""
     StereoDisplayMode:property
-    StillImageCompression:property
-    TimeSpan:property
-    TimeSteps:property
-    ViewingMode:property
+    StillImageCompression:int
+    """Property: Compression ratio for image(jpg) 0-100 where 0=Greatest compression, 100=Least Compression."""
+    TimeSpan:FBTimeSpan
+    """Read Write Property: Start and stop selection time to grab."""
+    TimeSteps:FBTime
+    """Read Write Property: Time step length between each grab."""
+    ViewingMode:FBVideoRenderViewingMode
+    """Read Write Property: Video grab viewing mode."""
     def __init__(self):...
 class FBVideoGrabber(FBComponent):
     def BeginGrab(self)->bool:

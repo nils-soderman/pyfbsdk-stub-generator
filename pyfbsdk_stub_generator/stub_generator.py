@@ -29,7 +29,6 @@ TAB_CHARACTER = "    "
 # FBModel.GetHierarchyWorldMatrices() - First param in the docs doesn't exists in the python version
 # FBInterpolateRotation() - Both of them use the same documentation :/
 # Support URLs in the doc strings
-# FBAudioFmt_AppendFormat - code example, convert to Py3 ?
 # FBStoryClip -> GetAffectedAnimationNodes & FBModel::GetHierarchyWorldMatrices()
 # GetCommandLineArgs - Turn blockquotes into: ```
 
@@ -994,7 +993,7 @@ class PyfbsdkStubGenerator():
                 Num = min(x.count(TAB_CHARACTER, 0, len(x) - len(x.lstrip())) for x in Lines[1:] if x)
                 NewDoc = ""
                 for Line in Lines:
-                    if Line.startswith(TAB_CHARACTER*Num):
+                    if Num and Line.startswith(TAB_CHARACTER*Num):
                         Line = Line.partition(TAB_CHARACTER*Num)[2]
                     NewDoc += f"{Line}\n"
                 Doc = NewDoc
@@ -1098,10 +1097,7 @@ class PyfbsdkStubGenerator():
         # Use the online documentation to try and create better param names, values etc.
         if bUseOnlineDocumentation:
             self._PatchFunctionsFromDocumentation(self.Functions)
-            self._PatchClassFromDocumentation(self.Classes)
-            # c = [x for x in self.Classes if x.Name == "FBVector3d"]
-            # self._PatchClassFromDocumentation(c)
-        
+            self._PatchClassFromDocumentation(self.Classes)        
 
         # Patch from the manual documentation
         self._PatchFromManualDocumentation()
