@@ -7,6 +7,7 @@ import inspect
 import typing
 import time
 import sys
+import re
 import os
 
 from importlib import reload
@@ -307,7 +308,7 @@ class StubBaseClass():
 
     def GetDocString(self):
         if self.DocString:
-            return '"""%s"""' % self.DocString
+            return '"""%s"""' % self.DocString.strip()
         return ""
 
     def GetRequirements(self) -> list:
@@ -984,14 +985,32 @@ class PyfbsdkStubGenerator():
         """ 
         Patch the StubClasses & StubFunctions based on the 'manual_documentation.py' file.
         """
+        def _ParseManualDocumentation(Doc: str):
+            # Remove tabs
+            if "\n" in Doc:
+                Doc = Doc.replace("\t", TAB_CHARACTER)
+                Doc = Doc.replace("    ", TAB_CHARACTER)
+                Lines = Doc.split("\n")
+                Num = min(x.count(TAB_CHARACTER, 0, len(x) - len(x.lstrip())) for x in Lines[1:] if x)
+                NewDoc = ""
+                for Line in Lines:
+                    if Line.startswith(TAB_CHARACTER*Num):
+                        Line = Line.partition(TAB_CHARACTER*Num)[2]
+                    NewDoc += f"{Line}\n"
+                Doc = NewDoc
+            
+            return Doc
+        
         def _GetTypeHintString(TypeHint):
+            if isinstance(TypeHint, typing._UnionGenericAlias):
+                return typing.get_args(TypeHint)[0].__name__
             if inspect.isclass(TypeHint):
                 return TypeHint.__name__
             return str(TypeHint)
             
         def _PatchFunction(Function: StubFunction, DocumentedFunction: FunctionType):
             if DocumentedFunction.__doc__:
-                Function.DocString = DocumentedFunction.__doc__
+                Function.DocString = _ParseManualDocumentation(DocumentedFunction.__doc__)
             TypeHints = typing.get_type_hints(DocumentedFunction)
             StubParameters = Function.GetParameters()
             DocumentedSignature = inspect.signature(DocumentedFunction)
@@ -1003,7 +1022,7 @@ class PyfbsdkStubGenerator():
                 
                 TypeHint = TypeHints.get(ParameterName)
                 if TypeHint:
-                    StubParameter.Type = TypeHint.__name__
+                    StubParameter.Type = _GetTypeHintString(TypeHint)
                 
                 # Default values
                 if Parameter.default is not inspect._empty:
@@ -1022,7 +1041,7 @@ class PyfbsdkStubGenerator():
             ClassMembers = dict(inspect.getmembers(Object))
             if StubClassRef:
                 if Object.__doc__:
-                    StubClassRef.DocString = Object.__doc__
+                    StubClassRef.DocString = _ParseManualDocumentation(Object.__doc__)
                 
                 # Patch properties
                 for ClassMemberName, TypeHint in TypeHints.items():
@@ -1032,16 +1051,25 @@ class PyfbsdkStubGenerator():
                         StubPropertyRef.Type = _GetTypeHintString(TypeHint)
                         DocString = ClassMembers.get(f"{ClassMemberName}__doc__")
                         if DocString:
-                            StubPropertyRef.DocString = DocString
+                            StubPropertyRef.DocString = _ParseManualDocumentation(DocString)
 
+                PatchedStubFunctions = []
                 for FunctionName, Function in inspect.getmembers(Object, inspect.isfunction):  
+                    bOverloadedFunction = re.search("_\d+$", Function.__name__)
+                    if bOverloadedFunction:
+                        FunctionName = FunctionName.rpartition("_")[0]
                     StubFunctionReferences = StubClassRef.GetFunctionsByName(FunctionName)
                     if StubFunctionReferences:
+                        StubFunction = StubFunctionReferences[0]
                         if len(StubFunctionReferences) > 1:
-                            print("TODO: Add support for overloaded functions")
-                        else:
-                            _PatchFunction(StubFunctionReferences[0], Function)
-
+                            Matches = [x for x in StubFunctionReferences if x not in PatchedStubFunctions and len(x.GetParameters()) == len(inspect.signature(Function).parameters)]
+                            if not Matches:
+                                continue
+                            StubFunction = Matches[0]
+                        _PatchFunction(StubFunction, Function)
+                        
+                        PatchedStubFunctions.append(StubFunction)
+        
         # Patch functions
         for Name, Object in inspect.getmembers(manualDoc, inspect.isfunction):
             StubFunctionRef = self.GetFunctionByName(Name)
