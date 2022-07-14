@@ -161,16 +161,16 @@ def GetUrlContent(Url: str):
     return Response.read().decode('utf-8')
 
 
-def GetCacheFolder():
-    return os.path.join(tempfile.gettempdir(), "mobu-docs-cache")
+def GetCacheFolder(Version):
+    return os.path.join(tempfile.gettempdir(), f"mobu-docs-cache-{Version}")
 
 
-def GetCacheFilepath(RelativeUrl):
-    return os.path.join(GetCacheFolder(), *RelativeUrl.split("/"))
+def GetCacheFilepath(RelativeUrl, Version):
+    return os.path.join(GetCacheFolder(Version), *RelativeUrl.split("/"))
 
 
-def ClearCache():
-    shutil.rmtree(GetCacheFolder())
+def ClearCache(Version):
+    shutil.rmtree(GetCacheFolder(Version))
 
 
 def ReadFile(Filepath):
@@ -439,7 +439,7 @@ class DocumentationPage():
     def LoadPage(self, bCache = False):
         if self.bIsLoaded:
             return
-        CacheFilepath = GetCacheFilepath(self.RelativeURL)
+        CacheFilepath = GetCacheFilepath(self.RelativeURL, self.Version)
         if "#" in CacheFilepath:
             CacheFilepath = CacheFilepath.partition("#")[0]
         RawHTML = ""
@@ -574,7 +574,7 @@ def GetDocsSDKContent(Version, Path, bCache = False):
     Get SDK table of contents
     """
     Content = None
-    CacheFilepath = GetCacheFilepath(Path)
+    CacheFilepath = GetCacheFilepath(Path, Version)
     bCacheFileExists = os.path.isfile(CacheFilepath)
 
     if bCache and bCacheFileExists:

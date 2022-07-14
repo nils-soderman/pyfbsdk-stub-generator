@@ -19,7 +19,7 @@ def HelloWorld_2(arg1: str): ...
 """
 
 
-class FBAnimationNodeF:
+class FBAnimationNode:
     ConnectorType: pyfbsdk.FBAnimationNodeConnectorType
     DefaultInterpolation: pyfbsdk.FBInterpolation
     DefaultInterpolation__doc__ = "Read Write Property: Default type of interpolation."

@@ -21,7 +21,7 @@ import manual_documentation as manualDoc
 reload(docParser)
 reload(manualDoc)
 
-
+IS_PYTHON_39 = sys.version_info.major == 3 and sys.version_info.minor == 9
 ADDITIONS_FILEPATH = os.path.join(os.path.dirname(__file__), "additions_pyfbsdk.py")
 TAB_CHARACTER = "    "
 
@@ -1001,7 +1001,7 @@ class PyfbsdkStubGenerator():
             return Doc
         
         def _GetTypeHintString(TypeHint):
-            if isinstance(TypeHint, typing._UnionGenericAlias):
+            if IS_PYTHON_39 and isinstance(TypeHint, typing._UnionGenericAlias):
                 return typing.get_args(TypeHint)[0].__name__
             if inspect.isclass(TypeHint):
                 return TypeHint.__name__
