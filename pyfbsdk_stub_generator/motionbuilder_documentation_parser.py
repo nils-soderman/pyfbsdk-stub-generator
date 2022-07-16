@@ -213,7 +213,7 @@ class MotionBuilderDocumentationHtmlPageParser(HTMLParser):
         
         self.IgnoreLevel = 0
         self.FieldTableLevel = 0
-
+        
     def handle_starttag(self, tag, attrs):
         Attributes = dict(attrs)
         ClassName = Attributes.get("class")
@@ -244,7 +244,7 @@ class MotionBuilderDocumentationHtmlPageParser(HTMLParser):
                 if self.CurrentItem:
                     self.TotalItems.append(self.CurrentItem)
                 self.CurrentItem = {}
-
+                
             elif ClassName == FMoBuDocsParserItem.Doc:
                 self.CurrentItemDataTag = FMoBuDocsParserItem.Doc
                 self.CurrentItemDataCollector = ""
@@ -317,7 +317,7 @@ class MotionBuilderDocumentationHtmlPageParser(HTMLParser):
 
         elif tag == "body" and self.CurrentItem:
             self.TotalItems.append(self.CurrentItem)
-
+            
     #
     #   Custom Functions
     #
@@ -501,37 +501,46 @@ class MotionBuilderDocumentation():
         self.Version = Version
         self.bCache = bCache
         self._TableOfContents = []
-        self._SDKClasses = {}
         self._PythonExamples = {}
         self._PythonSDKToc = {}
         self._SDKContent = {}
 
-    def GetSDKClasses(self):
-        if self._SDKClasses:
-            return self._SDKClasses
-        ClassesContent = GetDocsSDKContent(self.Version, SDK_CLASSES_PATH, self.bCache)
-        self._SDKClasses = {x[0]: DocumentationPage(self.Version, x[0], SDK_CPP_PATH + x[1]) for x in ClassesContent}
-        return self._SDKClasses
-
-    def GetSDKTableOfContents(self):
+    def GetSDKTableOfContents(self, bTopLevelOnly = False):
         if not self._SDKContent:
             Content = []
             for FileName, PageUrl, Id in GetDocsSDKContent(self.Version, SDK_FILES_PATH, self.bCache):
                 if Id:
                     Content += GetDocsSDKContent(self.Version, "%s%s.js" % (SDK_CPP_PATH, Id), self.bCache)
-            # TODO: Clean up
-            self._SDKContent = self.GetSDKClasses()
-            self._SDKContent.update({x[0]: DocumentationPage(self.Version, x[0], SDK_CPP_PATH + x[1]) for x in Content})
+            
+            for FileName, PageUrl, Id in GetDocsSDKContent(self.Version, SDK_CLASSES_PATH, self.bCache):
+                Chilren = []
+                if Id and not bTopLevelOnly:
+                    Chilren = GetDocsSDKContent(self.Version, "%s%s.js" % (SDK_CPP_PATH, Id), self.bCache)
+                Content.append([FileName, PageUrl, Chilren])
+            
+            def _ConvertToDocPage(PageData):
+                Page = DocumentationPage(self.Version, PageData[0], SDK_CPP_PATH + PageData[1])
+                Children = []
+                if PageData[2] and isinstance(PageData[2], list):
+                    Children = [_ConvertToDocPage(x) for x in PageData[2]]
+                return (Page, Children)
+            self._SDKContent = [_ConvertToDocPage(x) for x in Content]
+            # self._SDKContent.update({x[0]: DocumentationPage(self.Version, x[0], SDK_CPP_PATH + x[1]) for x in Content})
         return self._SDKContent
 
+    def FindSDKTopLevelItemByName(self, Name):
+        for Page, ChildPages in self.GetSDKTableOfContents(bTopLevelOnly = True):
+            if Page.Title == Name:
+                return Page
+
     def GetSDKClassPagesByName(self, ClassName, bLoadPage = True):
-        Page = self.GetSDKTableOfContents().get(ClassName)
+        Page =  self.FindSDKTopLevelItemByName(ClassName)
         if Page and bLoadPage:
             Page.LoadPage(self.bCache)
         return Page
 
     def GetSDKFunctionByName(self, FunctionName):
-        Page = self.GetSDKTableOfContents().get(FunctionName)
+        Page = self.FindSDKTopLevelItemByName(FunctionName)
         if Page:
             Page.LoadPage(self.bCache)
             return Page.GetMembersByName(FunctionName)
@@ -546,7 +555,15 @@ class MotionBuilderDocumentation():
             PyfbsdkContent = GetDocsSDKContent(self.Version, PYFBSDK_PATH, self.bCache)
             PyfbsdkAdditionsContent = GetDocsSDKContent(self.Version, PYFBSDK_ADDITIONS_PATH, self.bCache)
             AllPythonSDKContent = PyfbsdkContent + PyfbsdkAdditionsContent
-            self._PythonSDKToc = {x[0]: DocumentationPage(self.Version, x[0], PY_REF_PATH + x[1]) for x in AllPythonSDKContent}
+            
+            def _ConvertToDocPage(PageData):
+                Page = DocumentationPage(self.Version, PageData[0], PY_REF_PATH + PageData[1])
+                Children = []
+                if PageData[2]:
+                    Children = [_ConvertToDocPage(x) for x in PageData[2]]
+                return (Page, Children)
+            
+            self._PythonSDKToc = [_ConvertToDocPage(x) for x in AllPythonSDKContent]
         return self._PythonSDKToc
 
     def FindPage(self, PageName, PageType = EPageType.Unspecified, bLoadPage = True) -> DocumentationPage:
@@ -614,5 +631,3 @@ def GetDocsMainTableOfContent(Version) -> list:
     RawContent = GetUrlContent(GetFullURL(Version, DOC_GUIDE_CONTENTS_PATH))
     TableOfContent = json.loads(RawContent)
     return TableOfContent.get("books", {})
-
-# print(MotionBuilderDocumentation(2022, True).GetSDKFunctionByName("FBAdd")[0].DocString)
