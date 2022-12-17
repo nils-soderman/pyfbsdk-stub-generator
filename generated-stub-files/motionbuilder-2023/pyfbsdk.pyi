@@ -57,9 +57,13 @@ class FBAnimationNodeConnectorType(_Enum):
     kFBAnimationNodeConnectorTypeNone:FBAnimationNodeConnectorType
     """The animation node connector is not connected and doesn't have a constant value set to it."""
 class FBApplicationState(_Enum):
+    """Application state the MotionBuilder application has been started in."""
     kFBBatch:FBApplicationState
+    """Running in a batch mode, without the UI, i.e.: when starting MotionBuilder from the command line with the -batch command flag."""
     kFBInteractive:FBApplicationState
+    """Running in an interactive mode with the UI. Default mode."""
     kFBMobuPy:FBApplicationState
+    """Running via the mobupy executable."""
 class FBArrangeMode(_Enum):
     """Modes for arranging objects in schematic view."""
     kHorizontalMode:FBArrangeMode
@@ -1014,11 +1018,11 @@ class FBDeckTransportMode(_Enum):
     kFBDeckTransportMain:FBDeckTransportMode
     """Transport main."""
     kFBDeckTransportMaster:FBDeckTransportMode
-    """K_DEPRECATED_2021, use kFBDeckTransportMain."""
+    """K_DEPRECATED_2022, use kFBDeckTransportMain."""
     kFBDeckTransportNone:FBDeckTransportMode
     """No transport interaction."""
     kFBDeckTransportSlave:FBDeckTransportMode
-    """K_DEPRECATED_2021, use kFBDeckTransportSync."""
+    """K_DEPRECATED_2022, use kFBDeckTransportSync."""
     kFBDeckTransportSync:FBDeckTransportMode
     """Sync to transport controls."""
 class FBDeformerType(_Enum):
@@ -2209,7 +2213,7 @@ class FBPropertyFlag(_Enum):
     kFBPropertyFlagNotUserDeletable:FBPropertyFlag
     kFBPropertyFlagReadOnly:FBPropertyFlag
     kFBSlaveSetByMaster:FBPropertyFlag
-    """K_DEPRECATED_2021, use kFBDrivenSetByMain."""
+    """K_DEPRECATED_2022, use kFBDrivenSetByMain."""
     kFBValueAllocated:FBPropertyFlag
     """The value has been allocated and must be delete in destructor."""
 class FBPropertyStateEventType(_Enum):
@@ -4856,7 +4860,7 @@ class FBComponent(FBPlug):
     def FBDelete(self):
         """Open Reality deletion function. \\
         Reimplemented from FBPlug . \\
-        Reimplemented in FBLayeredTexture , FBStoryGroupClip , FBStoryClip , FBStoryTrack , FBStoryFolder , FBScene , FBMotionClip , FBModel , FBKeyingGroup , FBImage , FBSet , FBGroup , FBFolder , FBTake , FBAnimationLayer , FBAnimationStack , FBFCurveCustomTangent , FBFCurve , FBCharacterFace , FBActorFace , FBCharacterExtension , FBCharacter , FBActor , FBAudioClip , and FBGenericMenu ."""
+        Reimplemented in FBVideoClip , FBLayeredTexture , FBStoryGroupClip , FBStoryClip , FBStoryTrack , FBStoryFolder , FBScene , FBMotionBlendEdit , FBMotionClip , FBModel , FBKeyingGroup , FBImage , FBSet , FBGroup , FBFolder , FBTake , FBAnimationLayer , FBAnimationStack , FBFCurveCustomTangent , FBFCurve , FBCharacterFace , FBActorFace , FBCharacterExtension , FBCharacter , FBActor , FBAudioClip , and FBGenericMenu ."""
         ...
     def FBDestroy(self):
         """Open Reality destruction function. \\
@@ -4969,7 +4973,8 @@ class FBReferenceTime(FBComponent):
     """Read Write Property: Current reference time ID"""
     ItemIndex:int
     """Read Write Property: Current reference time index. Deprecated, use CurrentTimeReferenceID instead."""
-    UseRelativeLocalTime:property
+    UseRelativeLocalTime:bool
+    """Read Write Property: True to show the relative local time, false otherwise. This will only be effective when displaying the Local Time, but the state can be changed even if not currently displaying the Local Time."""
     def Add(self,Name:str)->int:
         """Add a reference time to list.
         ### Parameters:
@@ -6893,11 +6898,15 @@ class FBBox(FBComponent):
         ...
     def AnimationNodeOutGet(self)->object:...
     def FbxGetObjectSubType(self)->str:
-        """returns UniqueName if not overloaded. \\
+        """Returns the class sub type inherited by the class of an object, for example: 'Relations', 'Parent-Child', 'Number to Vector', 'Shot'.
+        ### Returns:
+        The class sub type inherited by the class of an object. \\
         Reimplemented in FBModelMarker , FBModelNull , FBModel , and FBMaterial ."""
         ...
     def FbxGetObjectType(self)->str:
-        """Object Type 'Box'. \\
+        """Returns the class type inherited by the class of an object, for example: 'Box', 'Constraint', 'TimelineXTrack'.
+        ### Returns:
+        The class type inherited by the class of an object. \\
         Reimplemented in FBModelMarker , FBModelNull , FBModel , FBMaterial , and FBDevice ."""
         ...
     def GetInConnector(self,Index:int)->FBAnimationNode:
@@ -8366,8 +8375,7 @@ class FBDevice(FBBox):
         - Operation: Operation to have device perform.
         
         ### Returns:
-        Current state : <b true if online. \\
-        Reimplemented in FBDeviceOptical ."""
+        Current state : <b true if online."""
         ...
     def DeviceSendCommand(self,Operation:kDeviceOperations):
         """Send a command to the device. \\
@@ -9342,7 +9350,8 @@ class FBCamera(FBModel):
     """Read Write Property: Show axis?"""
     ViewShowGrid:bool
     """Read Write Property: Show grid?"""
-    ViewShowManipulators:property
+    ViewShowManipulators:bool
+    """Read Write Property: Show manipulators?"""
     ViewShowName:bool
     """Read Write Property: Show name?"""
     ViewShowTimeCode:bool
@@ -10289,7 +10298,8 @@ class FBAssetItem(FBComponent):
         A boolean indicating if the operation was successful."""
         ...
 class FBApplication(FBComponent):
-    ApplicationState:property
+    ApplicationState:FBApplicationState
+    """Read Only Property: State the MotionBuilder application has been started in."""
     CurrentActor:FBActor
     """Read Write Property: Indicate the current actor, as used by the character tool. Can be NULL. If not null, CurrentCharacter must be null, as the character tool works on only one item at a time."""
     CurrentCharacter:FBCharacter
@@ -10501,7 +10511,7 @@ class FBApplication(FBComponent):
         this is advanced & not supported function, use with caution.
         
         ### Parameters:
-        - Buffer: the memory buffer for the file. Raw memory address is expected in pyfbsdk.
+        - Buffer: the memory buffer for the file. Raw memory address is expected in Python.
         - BufferLength: the memory buffer size.
         
         ### Returns:
@@ -10542,12 +10552,12 @@ class FBApplication(FBComponent):
         this is advanced & not supported function, use with caution.
         
         ### Parameters:
-        - Buffer: the memory buffer for the file. Raw memory address is expected in pyfbsdk.
+        - Buffer: the memory buffer for the file. Raw memory address is expected in Python.
         - BufferLength: the memory buffer size.
-        - FrameCount: out parameter to hold max frame count. this parameter is not needed in pyfbsdk.
+        - FrameCount: (C++ only) out parameter to hold max frame count.
         
         ### Returns:
-        true if file opened successfully. In pyfbsdk, a tuple (bool, kLong) will return instead, the first one is ORSDK function return value, the second is for max frame count."""
+        (C++ only) True if file opened successfully. (Python only) A tuple with 2 values: (bool return value, FrameCount)."""
         ...
     def GetSceneAuthor(self)->str:
         """Return the scene author from the scene properties."""
@@ -10829,7 +10839,8 @@ class FBAnimationNode(FBComponent):
             - Name: name of animation node (default is NULL)."""
         ...
 class FBAnimationLayer(FBComponent):
-    Color:property
+    Color:FBColor
+    """Read Write Property: The animation layer color."""
     LayerMode:FBLayerMode
     """Read Write Property: Layer mode. By default, the layer is in kFBLayerModeAdditive mode. Cannot be applied to the BaseAnimation Layer."""
     LayerRotationMode:FBLayerRotationMode
@@ -10917,8 +10928,16 @@ class FBActionManager(FBComponent):
     """Returns the current selected interaction mode.
     ### Returns:
     the current selected interaction mode in string"""
-    def RescanCurrentInteractionModeShortcuts(self)->bool:...
-    def RescanPythonShortcuts(self)->bool:...
+    def RescanCurrentInteractionModeShortcuts(self)->bool:
+        """Rescan the current interaction mode, in case some shortcuts have changed in the config file.
+        ### Returns:
+        True if the operation is successful, false otherwise."""
+        ...
+    def RescanPythonShortcuts(self)->bool:
+        """Rescan the Python actions shortcuts, in case some shortcuts have changed in the config file.
+        ### Returns:
+        True if the operation is successful, false otherwise."""
+        ...
     def __init__(self):...
 class FBConstraintManager(FBComponent):
     @overload
@@ -13055,36 +13074,184 @@ class FBModelVertexData(FBComponent):
     def VertexArrayMappingRelease(self):...
     def VertexArrayMappingRequest(self):...
 class FBModuleManager(FBComponent):
-    def GetLoadedModuleNames(self)->FBStringList:...
-    def GetModuleModFilePath(self,arg2:str)->str:...
-    def GetModulePath(self,arg2:str)->str:...
-    def GetModuleSearchPaths(self)->FBStringList:...
-    def GetModuleVersion(self,arg2:str)->str:...
-    def __init__(self):...
+    def GetLoadedModuleNames(self)->FBStringList:
+        """Returns the loaded module names found in the *.mod files parsed.
+        ### Returns:
+        The loaded module names."""
+        ...
+    def GetModuleModFilePath(self,ModuleName:str)->str:
+        """Returns the *.mod file path containing the definition of the provided loaded module name.
+        ### Parameters:
+        - ModuleName: The loaded module name to query.
+        
+        ### Returns:
+        The *.mod file path."""
+        ...
+    def GetModulePath(self,ModuleName:str)->str:
+        """Returns the module path associated with the provided loaded module name.
+        ### Parameters:
+        - ModuleName: The loaded module name to query.
+        
+        ### Returns:
+        The module path."""
+        ...
+    def GetModuleSearchPaths(self)->FBStringList:
+        """Returns the module search paths where *.mod files can be parsed. \\
+        By default, there are two module search paths: /config/Modules /../../Modules Users can prepend additional module search paths by setting the 'MOTIONBUILDER_MODULE_PATH' environment variable before launching the application.
+        ### Returns:
+        The module search paths."""
+        ...
+    def GetModuleVersion(self,ModuleName:str)->str:
+        """Returns the module version associated with the provided loaded module name.
+        ### Parameters:
+        - ModuleName: The loaded module name to query.
+        
+        ### Returns:
+        The module version."""
+        ...
+    def __init__(self):
+        """Protected constructor, use TheOne() access instead."""
+        ...
 class FBMotionBlend(FBComponent):
-    def AddEdit(self,arg2:str=None,arg3=None)->object:...
-    def GetCurrentEdit(self)->object:...
-    def GetEdit(self,arg2)->object:...
-    def GetEditCount(self)->int:...
-    def GetForceTime(self)->bool:...
-    def GetSnapOnFrame(self)->bool:...
-    def GetSyncTakeEditStartEnd(self)->bool:...
-    def RemoveAllEdits(self)->bool:...
-    def RemoveEdit(self,arg2:FBMotionBlendEdit)->bool:...
-    def SetCurrentEdit(self,arg2:FBMotionBlendEdit)->bool:...
-    def SetForceTime(self,arg2)->bool:...
-    def SetSnapOnFrame(self,arg2)->bool:...
-    def SetSyncTakeEditStartEnd(self,arg2)->bool:...
+    def AddEdit(self,Name:str=nullptr,bSetAsCurrent:bool=True)->FBMotionBlendEdit:
+        """Add a new Edit in the Motion Blend.
+        ### Parameters:
+        - Name: The new Edit name. If unset, the name 'Edit' will be set.
+        - bSetAsCurrent: True (default) to set the new Edit as the current Edit to be used in the Motion Blend.
+        
+        ### Returns:
+        The new FBMotionBlendEdit object if successful, nullptr (C++) or None (Python) otherwise."""
+        ...
+    def GetCurrentEdit(self)->FBMotionBlendEdit:
+        """Get the current Edit used in the Motion Blend.
+        ### Returns:
+        The current FBMotionBlendEdit object if successful, nullptr (C++) or None (Python) otherwise."""
+        ...
+    def GetEdit(self,Index:int)->FBMotionBlendEdit:
+        """Get the Edit associated to the input index.
+        ### Parameters:
+        - Index: The index of the Edit to get.
+        
+        ### Returns:
+        The FBMotionBlendEdit object if successful, nullptr (C++) or None (Python) otherwise."""
+        ...
+    def GetEditCount(self)->int:
+        """Get the number of Edits in the Motion Blend.
+        ### Returns:
+        The number of Edits in the Motion Blend, or -1 in case of an error."""
+        ...
+    def GetForceTime(self)->bool:
+        """Get the 'Force Time' state.
+        ### Returns:
+        True if the Motion Blend snaps the Timeline indicator in place so that it cannot be moved by dragging, false otherwise."""
+        ...
+    def GetSnapOnFrame(self)->bool:
+        """Get the 'Snap On Frame' state.
+        ### Returns:
+        True if the Motion Blend forces the start and end times of all cuts and poses to snap to the nearest frame, false otherwise."""
+        ...
+    def GetSyncTakeEditStartEnd(self)->bool:
+        """Get the 'Sync Take/Edit Start & End' state.
+        ### Returns:
+        True if the Take start/end times sync with the Take start/end times stored in the Motion Blend Edit selected, false otherwise."""
+        ...
+    def RemoveAllEdits(self)->bool:
+        """Remove all Edits from the Motion Blend. \\
+        A default empty Edit is then created.
+        ### Returns:
+        True if the operation is successful, false otherwise."""
+        ...
+    def RemoveEdit(self,Edit:FBMotionBlendEdit)->bool:
+        """Remove an Edit from the Motion Blend.
+        ### Parameters:
+        - Edit: The FBMotionBlendEdit object to remove.
+        
+        ### Returns:
+        True if the operation is successful, false otherwise."""
+        ...
+    def SetCurrentEdit(self,Edit:FBMotionBlendEdit)->bool:
+        """Set the current Edit to be used in the Motion Blend.
+        ### Parameters:
+        - Edit: The FBMotionBlendEdit object to set as the current Edit.
+        
+        ### Returns:
+        True if the operation is successful, false otherwise."""
+        ...
+    def SetForceTime(self,bForceTime:bool)->bool:
+        """Set the 'Force Time' state.
+        ### Parameters:
+        - bForceTime: True to snap the Timeline indicator in place so that it cannot be moved by dragging, false otherwise.
+        
+        ### Returns:
+        True if the operation is successful, false otherwise."""
+        ...
+    def SetSnapOnFrame(self,bSnap:bool)->bool:
+        """Set the 'Snap On Frame' state.
+        ### Parameters:
+        - bSnap: True to force the start and end times of all cuts and poses to snap to the nearest frame, false otherwise.
+        
+        ### Returns:
+        True if the operation is successful, false otherwise."""
+        ...
+    def SetSyncTakeEditStartEnd(self,bSync:bool)->bool:
+        """Set the 'Sync Take/Edit Start & End' state.
+        ### Parameters:
+        - bSync: True to sync the Take start/end times with the Take start/end times stored in the Motion Blend Edit selected, false otherwise.
+        
+        ### Returns:
+        True if the operation is successful, false otherwise."""
+        ...
     def __init__(self):...
 class FBMotionBlendEdit(FBComponent):
-    def Clear(self)->bool:...
-    def GetKeepActive(self)->bool:...
-    def GetName(self)->str:...
-    def GetShowAllGhosts(self)->bool:...
-    def SetKeepActive(self,arg2)->bool:...
-    def SetName(self,arg2:str)->bool:...
-    def SetShowAllGhosts(self,arg2)->bool:...
-    def __init__(self,arg2:str=None,arg3=None):...
+    def Clear(self)->bool:
+        """Clear the Edit.
+        ### Returns:
+        True if the operation is successful, false otherwise."""
+        ...
+    def GetKeepActive(self)->bool:
+        """Get the 'Keep Edit Active' state.
+        ### Returns:
+        True if the result of the Edit is shown while working on other Edits, false otherwise."""
+        ...
+    def GetName(self)->str:
+        """Get the Edit name.
+        ### Returns:
+        The Edit name."""
+        ...
+    def GetShowAllGhosts(self)->bool:
+        """Get the 'Show All Ghosts' state.
+        ### Returns:
+        True if all Edit ghosts are displayed in the Viewer window, false otherwise."""
+        ...
+    def SetKeepActive(self,bKeepActive:bool)->bool:
+        """Set the 'Keep Edit Active' state.
+        ### Parameters:
+        - bKeepActive: True to allow the result of the Edit to be shown while working on other Edits, false otherwise.
+        
+        ### Returns:
+        True if the operation is successful, false otherwise."""
+        ...
+    def SetName(self,Name:str)->bool:
+        """Set the Edit name.
+        ### Parameters:
+        - Name: The new name.
+        
+        ### Returns:
+        True if the operation is successful, false otherwise."""
+        ...
+    def SetShowAllGhosts(self,bShow:bool)->bool:
+        """Set the 'Show All Ghosts' state.
+        ### Parameters:
+        - bShow: True to display all of the Edit ghosts in the Viewer window, false to hide them all.
+        
+        ### Returns:
+        True if the operation is successful, false otherwise."""
+        ...
+    def __init__(self,Name:str=nullptr,bSetAsCurrent:bool=True):
+        """### Parameters:
+        - Name: The new Edit name. If unset, the name 'Edit' will be set.
+        - bSetAsCurrent: True (default) to set the new Edit as the current Edit to be used in the Motion Blend."""
+        ...
 class FBMotionClip(FBComponent):
     Filename:str
     """Read Write Property: Filename and path of motion file. \\
@@ -14319,7 +14486,8 @@ class FBSpreadRow(FBSpreadPart):
     """Read Write Property: Parent of row (reference)."""
     RowSelected:bool
     """Read Write Property: Is row selected?"""
-    RowVisible:property
+    RowVisible:bool
+    """Read Write Property: Is row visible? Set to true to show the row, false to hide the row."""
     def EditCaption(self)->bool:
         """Edit the row caption. \\
         This will initiate the UI edit of a row caption.
@@ -14516,7 +14684,10 @@ class FBStoryClip(FBComponent):
         The function takes no parameter and returns a Python list. ex : lArray = lClip.GetAffectedObjects()"""
         ...
     def GetAssignSourcesToDestinationsInfo(self)->tuple:
-        """Returns the information about the current state of Sources to Destinations assignment. The pSrcList, pDefaultDstList & pEffectiveDstList parameters will all be of same size, each index being related to the same index in the other lists. The pAvailableDstList parameter can contains more item than the other lists."""
+        """Returns the information about the current state of Sources to Destinations assignment. The pSrcList, pValidAnimatedSrc, pDefaultDstList & pEffectiveDstList parameters will all be of the same size, each index being related to the same index in the other lists/array. The pAvailableDstList & pValidAnimatedDst parameters can contain more items than the other lists. Both will all be of the same size, each index being related to the same index in the other list/array.
+        
+        ### Returns:
+        (Python only) A tuple with 6 values: (pSrcList, pValidAnimatedSrc, pAvailableDstList, pValidAnimatedDst, pDefaultDstList, pEffectiveDstList)."""
         ...
     def GetAssignSourcesToDestinationsInfoEx(self)->tuple:...
     def GetReadOnly(self)->bool:
@@ -14524,7 +14695,17 @@ class FBStoryClip(FBComponent):
         ### Returns:
         Returns the clip read-only status."""
         ...
-    def GetSourceTimeFromDestinationTime(self,arg2:FBTime)->tuple:...
+    def GetSourceTimeFromDestinationTime(self,DestinationTime:FBTime)->FBTime:
+        """Get the clip source time (internal time) from a destination time (local time).
+        ### Python:
+        The function takes only one parameter (DestinationTime) and returns a Python tuple: (sourceTime, loopNumber). ex : lTuple = lClip.GetSourceTimeFromDestinationTime(lDestinationTime)
+        
+        ### Parameters:
+        - DestinationTime: The destination time to convert.
+        
+        ### Returns:
+        The clip source time matching the input destination time."""
+        ...
     def MakeWritable(self)->bool:
         """Imports FCurves from story clip scene making them accessible for the user.
         ### Returns:
@@ -14775,7 +14956,8 @@ class FBStoryTrack(FBConstraint):
         ...
     @overload
     def CopyTakeIntoTrack(self,TimeSpan:FBTimeSpan,Take:FBTake,OutputOffset:FBTime=0,bMakeUndoable:bool=False)->FBStoryClip:
-        """CopyTakeIntoTrack Copy animation from the specified take for affected objects of the track.
+        """CopyTakeIntoTrack Copy animation from the specified take for affected objects of the track. \\
+        This method will always connect the created clip to the current take.
         ### Parameters:
         - TimeSpan: Time span for the clip to create.
         - Take: Take to get the animation from.
@@ -14783,10 +14965,21 @@ class FBStoryTrack(FBConstraint):
         - bMakeUndoable: If the operation should be undoable.
         
         ### Returns:
-        Created story clip if the operation succeeded otherwize NULL."""
+        Created story clip if the operation succeeded, `None` otherwise."""
         ...
     @overload
-    def CopyTakeIntoTrack(self,arg2:FBTimeSpan,arg3:FBTake,arg4,arg5:FBTime=None,arg6=None)->object:...
+    def CopyTakeIntoTrack(self,TimeSpan:FBTimeSpan,Take:FBTake,bConnectToCurrentTake:bool,OutputOffset:FBTime=None,bMakeUndoable:bool=False)->FBStoryClip:
+        """CopyTakeIntoTrack Copy animation from the specified take for affected objects of the track.
+        ### Parameters:
+        - TimeSpan: Time span for the clip to create.
+        - Take: Take to get the animation from.
+        - bConnectToCurrentTake: True to connect the created clip to the current take, false otherwise.
+        - OutputOffset: Time offset for the clip if necessary.
+        - bMakeUndoable: If the operation should be undoable.
+        
+        ### Returns:
+        Created story clip if the operation succeeded, `None` otherwise."""
+        ...
     def CreateSubTrack(self,TrackType:FBStoryTrackType,RefMode:FBStoryTrackRefMode)->FBStoryTrack:
         """Create a sub track, Only Character and Animation tracks can have sub-tracks.
         ### Parameters:
@@ -15076,14 +15269,16 @@ class FBSystem(FBComponent):
         the names of all the loaded plug-in."""
         ...
     def GetPluginPath(self)->FBStringList:
-        """Returns the plugin path. \\
-        By default, MotionBuilder searches C++ plug-ins and load them at start-up. Users could provide additional plugin paths by setting environment variable 'MOTIONBUILDER_PLUGIN_PATH' before running MotionBuilder.
+        """Returns the plugin paths. \\
+        By default, MotionBuilder searches C++ plug-ins and load them at start-up. Users could provide additional plugin paths by setting environment variable 'MOTIONBUILDER_PLUGIN_PATH' before running MotionBuilder or by adding new paths in the SDK section of the Preferences. \\
+        Note: It is also possible to load C++ plug-ins at startup using the Module functionality. See the documentation around the Modules and the FBModuleManager SDK class.
         ### Returns:
-        the plugin path"""
+        the plugin paths"""
         ...
     def GetPythonStartupPath(self)->FBStringList:
         """Returns the python startup path. \\
-        User could put python script in the startup folders, and MotionBuilder will search scripts from those folders and run them at startup. By default, there are two startup folders: /config/PythonStartup and /bin/config/PythonStartup. Users could append additional paths by setting environment variable 'MOTIONBUILDER_PYTHON_STARTUP' before launching application.
+        User could put python script in the startup folders, and MotionBuilder will search scripts from those folders and run them at startup. By default, there are two startup folders: /config/PythonStartup and /bin/config/PythonStartup. Users could append additional paths by setting environment variable 'MOTIONBUILDER_PYTHON_STARTUP' before launching application. \\
+        Note: It is also possible to run python scripts at startup using the Module functionality. See the documentation around the Modules and the FBModuleManager SDK class.
         ### Returns:
         the python startup path"""
         ...
@@ -15827,10 +16022,7 @@ class FBFCurve(FBComponent):
         - TangentMode: Tangent calculation method of the inserted key, default value is Auto (Smooth).
         
         ### Returns:
-        The position of the new key in the list of FCurve keys.
-        
-        ### Warning:
-        Since there are no parameter to indicate the interpolation and tangent mode, the neighbor keys may be affected by the newly inserted key."""
+        The position of the new key in the list of FCurve keys."""
         ...
     @overload
     def KeyDelete(self,StartIndex:int,StopIndex:int)->bool:
@@ -16185,8 +16377,36 @@ class FBFCurve(FBComponent):
         - Index: Index of the key to set.
         - Value: Value of the key."""
         ...
-    def KeysAdd(self,arg2:list,arg3:list,arg4:list=None,arg5:list=None)->bool:...
-    def KeysSetValues(self,arg2:list,arg3:list,arg4:list=None,arg5:list=None)->bool:...
+    def KeysAdd(self,Times:list,Values:list,Interpolations:list=list[FBInterpolation],TangentModes:list=list[FBTangentMode])->bool:
+        """Add at once multiple keys at different specified times. \\
+        The array size of Times and Values must match. If Interpolations and TangentModes parameters are specified, their array sizes must also match the array size of Times. The value of each index of each input array will be used together to form a key data to add.
+        ### Python:
+        Each parameter of KeysAdd is a Python list. ex : KeysAdd( [time1, time2], [value1, value2] )
+        
+        ### Parameters:
+        - Times: Times at which to insert the keys.
+        - Values: Values of the keys.
+        - Interpolations: Interpolation types of the inserted keys, default value is Cubic interpolation for all the keys if this parameter is omitted.
+        - TangentModes: Tangent calculation methods of the inserted keys, default value is Auto (Smooth) for all the keys if this parameter is omitted.
+        
+        ### Returns:
+        True if the operation is successful, false otherwise."""
+        ...
+    def KeysSetValues(self,Indices:list,Values:list,Interpolations:list=list[FBInterpolation],TangentModes:list=list[FBTangentMode])->bool:
+        """Set at once multiple existing keys values. \\
+        The array size of Indices and Values must match. If Interpolations and TangentModes parameters are specified, their array sizes must also match the array size of Indices. The value of each index of each input array (except for Indices) will be used together to modify the key data of the key specified by the key index of Indices.
+        ### Python:
+        Each parameter of KeysSetValues is a Python list. ex : KeysSetValues( [index1, index2], [value1, value2] )
+        
+        ### Parameters:
+        - Indices: Indices of existing keys to modify.
+        - Values: New values of the keys to modify.
+        - Interpolations: New interpolation types of the keys to modify if specified, otherwise the interpolation types are untouched.
+        - TangentModes: New tangent calculation methods of the keys to modify if specified, otherwise the tangent calculation methods are untouched.
+        
+        ### Returns:
+        True if the operation is successful (at least one key is modified), false otherwise."""
+        ...
     def SetPostExtrapolationCount(self,Count:int):
         """Set count for post extrapolation."""
         ...
@@ -16246,7 +16466,8 @@ class FBTimeWarpManager(FBComponent):
         True if apply successfully."""
         ...
     def DestroyTimeWarpFromTake(self,Take:FBTake,TimeWarp:FBAnimationNode):
-        """Destroy the TimeWarp in a Take, and removed from the DataSet.
+        """Destroy the TimeWarp in a Take, and removed from the DataSet. \\
+        Deprecated, use the RemoveTimeWarpFromScene method (the one with two parameters) instead. This one should be called after calling the RemoveTimeWarpFromScene method (the one with one parameter).
         ### Parameters:
         - Take: The Take where the TimeWarp in.
         - TimeWarp: The TimeWarp to be Destroyed."""
@@ -16311,12 +16532,19 @@ class FBTimeWarpManager(FBComponent):
         ...
     @overload
     def RemoveTimeWarpFromScene(self,TimeWarp:FBAnimationNode):
-        """Remove a TimeWarp from Scene.
+        """Remove a TimeWarp from Scene. \\
+        Deprecated, use the RemoveTimeWarpFromScene method (the one with two parameters) instead. Any locked properties affected by this TimeWarp will be modified as well.
         ### Parameters:
         - TimeWarp: The TimeWarp to be Removed."""
         ...
     @overload
-    def RemoveTimeWarpFromScene(self,arg2:FBTake,arg3:FBAnimationNode):...
+    def RemoveTimeWarpFromScene(self,Take:FBTake,TimeWarp:FBAnimationNode):
+        """Remove the given TimeWarp from scene and delete it from the given Take. \\
+        Any locked properties affected by this TimeWarp will be modified as well.
+        ### Parameters:
+        - Take: The Take where the TimeWarp is in.
+        - TimeWarp: The TimeWarp to be removed and deleted."""
+        ...
     def SetTimeWarpNickNumber(self,Take:FBTake,TimeWarp:FBAnimationNode,Number:int)->bool:
         """Set the Nick Number of one TimeWarp in a Take.
         ### Parameters:
@@ -16346,7 +16574,7 @@ class FBTimeWarpManager(FBComponent):
         - SrcTake: Copy all TimeWarp from."""
         ...
     def TimeWarpCreateNew(self,Name:str)->FBAnimationNode:
-        """Create a TimeWarp with a specific name
+        """Create a TimeWarp with a specific name on the current Take.
         ### Parameters:
         - Name: The name for the TimeWarp.
         
@@ -16442,7 +16670,12 @@ class FBToolLayoutManager(FBComponent):
         ### Returns:
         The layout name if the operation is successful, nullptr (C++) or None (Python) otherwise."""
         ...
-    def GetPreventDocking(self)->bool:...
+    def GetPreventDocking(self)->bool:
+        """Get the 'Prevent Docking' state value. \\
+        Note: When 'Prevent Docking' state is true, it is possible to temporary allow docking a window by holding the SHIFT key before moving it. When 'Prevent Docking' state is false, it is possible to temporary prevent docking a window by holding the CTRL key before moving it.
+        ### Returns:
+        The 'Prevent Docking' state value."""
+        ...
     def RenameLayout(self,OldLayoutName:str,NewLayoutName:str)->str:
         """Rename a layout. \\
         Renaming a factory layout is not permitted.
@@ -16479,7 +16712,15 @@ class FBToolLayoutManager(FBComponent):
         ### Returns:
         True if the operation is successful, false otherwise."""
         ...
-    def SetPreventDocking(self,arg2)->bool:...
+    def SetPreventDocking(self,bPreventDocking:bool)->bool:
+        """Set the 'Prevent Docking' state value. \\
+        Note: When 'Prevent Docking' state is true, it is possible to temporary allow docking a window by holding the SHIFT key before moving it. When 'Prevent Docking' state is false, it is possible to temporary prevent docking a window by holding the CTRL key before moving it.
+        ### Parameters:
+        - bPreventDocking: The 'Prevent Docking' state value.
+        
+        ### Returns:
+        True if the operation is successful, false otherwise."""
+        ...
     def UpdateCurrentLayout(self)->bool:
         """Update the current layout from the current layout state. \\
         Updating a factory layout is not permitted.
@@ -17007,12 +17248,15 @@ class FBVideoClip(FBVideo):
     CurrentFrameTime:FBTime
     """Read Write Property: Current time in clip."""
     CurrentFrameTimeCode:property
+    """Read Only Property: Embedded timecode from current frame in clip. Use the method GetEmbeddedTimecode to get the timecode of a different frame than the current frame."""
     Filename:str
     """Read Write Property: Filename of media."""
     Format:FBVideoFormat
     """Read Only Property: Video format."""
-    FrameRate:property
+    FrameRate:float
+    """Read Write Property: Frame rate."""
     FrameTime:FBTime
+    """Read Only Property: Inverse of FPS, time per frame"""
     FreeRunning:bool
     """Read Write Property: Is free Running on?"""
     Height:int
@@ -17045,7 +17289,7 @@ class FBVideoClip(FBVideo):
     """Read Write Property: Temporal offset for beginning of video."""
     Width:int
     """Read Only Property: Width of image."""
-    def DrawImage(self,X=0,Y=0,W=-1,H=-1,Frame=-1):
+    def DrawImage(self,X:int=0,Y:int=0,W:int=-1,H:int=-1,Frame:int=-1):
         """Draw a frame of the image to the current view.
         ### Parameters:
             - X: X position of image (default=0).
@@ -17054,8 +17298,19 @@ class FBVideoClip(FBVideo):
             - H: Height of image (default=-1).
             - Frame: Frame to draw (default=-1)."""
         ...
-    def GetEmbeddedTimecode(self,arg2)->FBTimeCode:...
-    def GetTextureID(self)->int:...
+    def GetEmbeddedTimecode(self,Frame:int)->FBTimeCode:
+        """Get the embedded timecode associated to a video clip frame.
+        ### Parameters:
+        - Frame: Video clip frame to get timecode for.
+        
+        ### Returns:
+        True if an embedded timecode is retrieved from the video clip, false otherwise. (Python: If no embedded timecode is retrieved, returns an FBTimeCode object with its time set to FBTime::Infinity )."""
+        ...
+    def GetTextureID(self)->int:
+        """Get the texture ID.
+        ### Returns:
+        ID of the texture"""
+        ...
     def IsValid(self)->bool:
         """Verifies the validity of the FBVideo object.
         ### Returns:
@@ -17069,12 +17324,23 @@ class FBVideoClip(FBVideo):
         The Name parameter must point to a valid media file, otherwise the object will not be valid. Use the method `IsValid()` to confirm the object status."""
         ...
 class FBVideoClipImage(FBVideoClip):
-    ImageSequence:property
-    MaxMipMapResolution:property
-    UseSystemFrameRate:property
-    def __init__(self,arg2:str):...
+    ImageSequence:bool
+    """Read Write Property: Clip is an image sequence?
+    ### Remarks:
+    When enable the image sequence property, the sequence pattern will be parsed from the filename of image file specified. A printf format will be generated from the first digits sequence by reverse searching the filename, ex: 'seq01.%04da.jpg' from 'seq01.0000a.jpg'. All images in the same folder matching this printf pattern will be added to the image sequences. If one of the image sequences is not presenting, when playing, it will show as question marks."""
+    MaxMipMapResolution:FBVideoResolution
+    """Read Write Property: Maximum MipMap resolution will be loaded into GPU."""
+    UseSystemFrameRate:bool
+    """Read Write Property: Clip is using system frame rate?"""
+    def __init__(self,Name:str):
+        """### Parameters:
+        - Name: Name of image file."""
+        ...
 class FBVideoClipImageDDS(FBVideoClipImage):
-    def __init__(self,arg2:str):...
+    def __init__(self,Name:str):
+        """### Parameters:
+        - Name: Name of DDS image file."""
+        ...
 class FBVideoCodecManager():
     VideoCodecMode:FBVideoCodecMode
     """GetVideoCodecMode. \\
@@ -17645,7 +17911,9 @@ class FBSpread(FBVisualComponent):
         A copy of the row."""
         ...
     def GetSpreadCell(self,arg2,arg3)->object:...
-    def Home(self):...
+    def Home(self):
+        """Position the vertical scrollbar of the spreadsheet to the top."""
+        ...
     def RowAdd(self,String:str,Ref=0):
         """Add a row.
         ### Parameters:
@@ -17974,7 +18242,8 @@ class FBImageContainer(FBVisualComponent):
     """Read Write Property: Filename for image."""
     OnDragAndDrop:FBEvent
     """Event: Drag and drop."""
-    UseTransparentBackground:property
+    UseTransparentBackground:bool
+    """Read Write Property: True to specify that the image is using a transparent background, false otherwise."""
     def __init__(self):...
 class FBFCurveEditor(FBVisualComponent):
     def AddAnimationNode(self,Node:FBAnimationNode):
@@ -18479,7 +18748,7 @@ def FBFindModelByUniqueColorId(Color:FBColor)->FBModel:
     - Color: Color channel values are in range of [0,1] with precision 1.0/255
     
     ### Returns:
-    A handle onto the model with unique color id matching, returns `None` if no model was found by the search. In pyfbsdk return tuple [model, subItemIndex]"""
+    (C++ only) A handle onto the model with unique color id matching, returns `None` if no model was found by the search. (Python only) A tuple with 2 values: ( FBModel return value, pSubItemIndex)."""
     ...
 def FBFindObjectByFullName(ObjectFullName:str)->FBComponent:
     """This function will query the system for an object with its FullName matching. Full name is 'GroupName::NameSpaceName:ObjectName'. Label name is 'NameSpaceName:ObjectName'. also known as 'PrefixName::ObjectName'
@@ -18506,7 +18775,12 @@ def FBGetActorMarkerSetVisibility()->bool:
     ### Returns:
     True if the marker set of the current actor are visible, or false if it is hidden."""
     ...
-def FBGetCharacterComparisonThresholdValue()->float:...
+def FBGetCharacterComparisonThresholdValue()->float:
+    """Return the Character comparison threshold value used when comparing two characters (e.g. \\
+    : when applying a Character Clip using the 'Control Rig' Solving Mode).
+    ### Returns:
+    The threshold value."""
+    ...
 def FBGetCharacterExternalSolverCount()->int:...
 def FBGetCharacterExternalSolverIndex(arg1:str)->int:...
 def FBGetCharacterExternalSolverName(arg1)->str:...
@@ -19260,7 +19534,12 @@ def FBSetActorMarkerSetVisibility(bShow:bool)->bool:
     ### Returns:
     True if the operation is successful, false otherwise."""
     ...
-def FBSetCharacterComparisonThresholdValue(arg1):...
+def FBSetCharacterComparisonThresholdValue(Value:float):
+    """Set the Character threshold value used when comparing two characters (e.g. \\
+    : when applying a Character Clip using the 'Control Rig' Solving Mode).
+    ### Parameters:
+    - Value: The new threshold value to set."""
+    ...
 def FBSetCharacterFingerTipsVisibility(bShow:bool):
     """Sets visibility of the finger-tips of the current character.
     ### Parameters:
