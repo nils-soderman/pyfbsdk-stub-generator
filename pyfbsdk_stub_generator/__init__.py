@@ -15,8 +15,8 @@ def Generate(Directory: str, FileExtension = "pyi") -> str:
     # Make sure code is running in a motionbuilder python interpreter with access to the pyfbsdk module
     try:
         import pyfbsdk
-    except:
-        raise RuntimeError("pyfbsdk_stub_generator.Generate can only be executed within MotionBuilder.")
+    except ModuleNotFoundError as e:
+        raise ImportError(f"{Generate.__name__} can only be called upon from within MotionBuilder.") from e
     
     from .stub_generator import GeneratePYFBSDKStub
 

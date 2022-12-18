@@ -1,7 +1,3 @@
-from __future__ import annotations
-
-import pyfbsdk
-
 """
 This module containts manually written documentation.
 If a class / function is missing from the official pyfbsdk documentation it can be documented here.
@@ -17,6 +13,10 @@ Example:
 def HelloWorld_1(arg1: int): ...
 def HelloWorld_2(arg1: str): ...
 """
+
+from __future__ import annotations
+
+import pyfbsdk
 
 
 class FBAnimationNode:

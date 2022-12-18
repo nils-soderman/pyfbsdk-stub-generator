@@ -39,8 +39,8 @@ SDK_FILES_PATH = SDK_CPP_PATH + "files_dup.js"
 # ------------------------------------------
 
 CToPythonVariableTranslation = {
-    "FBQuaternion" : "FBVector4d",
-    "FBRVector" : "FBVector3d",
+    "FBQuaternion": "FBVector4d",
+    "FBRVector": "FBVector3d",
     "FBVector4": "FBVector4d",
     "FBTVector": "FBVector4d",
     "double": "float",
@@ -73,8 +73,9 @@ class FDictTags:
     Children = "children"
     Ic = "ic"
 
-    def Values(*args):
-        Values = [getattr(FDictTags, x) for x in dir(FDictTags) if not x.startswith("_")]
+    @classmethod
+    def Values(cls):
+        Values = [getattr(cls, x) for x in dir(cls) if not x.startswith("_")]
         return [x for x in Values if isinstance(x, str)]
 
 
@@ -85,8 +86,9 @@ class FMoBuDocsParserItem():
     ParameterNames = "paramname"
     ParameterTypes = "paramtype"
 
-    def GetValues(*args):
-        Values = [getattr(FMoBuDocsParserItem, x) for x in dir(FMoBuDocsParserItem) if not x.startswith("_")]
+    @classmethod
+    def GetValues(cls):
+        Values = [getattr(cls, x) for x in dir(cls) if not x.startswith("_")]
         return [x for x in Values if isinstance(x, str)]
 
 
@@ -115,7 +117,7 @@ def ConvertVariableTypeToPython(Type: str):
     # Arrays, in the pyfbsdk there are two FBVector4<dobule> arrays. convert these into FBVector4
     if "<" in Type:
         if not Type.startswith("FBVector"):
-            return "list[%s]" % Type.partition("<")[2].partition(">")[0].strip()
+            return f"list[{Type.partition('<')[2].partition('>')[0].strip()}]"
         Type = Type.partition("<")[0].strip()
 
     if " " in Type:
@@ -152,11 +154,11 @@ def GetClosestSupportedMotionBuilderVersion(Version: int):
 
 def GetFullURL(Version, Path, bGetSource = False):
     BaseURL = MOBU_DOCS_COULDHELP_URL if bGetSource else MOBU_DOCS_VIEW_URL
-    return "%s%s/%s%s" % (BaseURL, Version, ENU_FOLDER, Path)
+    return f"{BaseURL}{Version}/{ENU_FOLDER}{Path}"
 
 
 def GetUrlContent(Url: str):
-    print("Getting url contents: %s" %(Url))
+    print(f"Getting url contents: {Url}")
     Response = request.urlopen(Url)
     return Response.read().decode('utf-8')
 
@@ -174,7 +176,7 @@ def ClearCache(Version):
 
 
 def ReadFile(Filepath):
-    with open(Filepath, "r") as File:
+    with open(Filepath, "r", encoding="utf-8") as File:
         return File.read()
 
 
@@ -196,7 +198,6 @@ class MotionBuilderDocumentationHtmlPageParser(HTMLParser):
     """
     HTML parser to fetch interesting content from a MotionBuilder SDK documentation page
     """
-    
 
     def __init__(self):
         super().__init__(convert_charrefs=True)
@@ -210,32 +211,29 @@ class MotionBuilderDocumentationHtmlPageParser(HTMLParser):
         self.CurrentRawClassName = None
         self.DocAdditionalChar = ""
         self.CodeExampleLevel = 0
-        
+
         self.IgnoreLevel = 0
         self.FieldTableLevel = 0
-        
+
     def handle_starttag(self, tag, attrs):
         Attributes = dict(attrs)
         ClassName = Attributes.get("class")
         self.CurrentRawClassName = ClassName
         self.CurrentRawTag = tag
-        
+
         if ClassName == "fieldtable" or self.FieldTableLevel > 0:
             if ClassName == "fieldtable":
                 self.DocAdditionalChar = "\n@TABLE\n"
             self.FieldTableLevel += 1
-        
+
         if self.IgnoreLevel > 0:
             self.IgnoreLevel += 1
             return
-        
-        IGNORE_DATA_CLASS_NAMES = ["ttc"]
-        if ClassName in IGNORE_DATA_CLASS_NAMES:
+
+        if ClassName in ["ttc"]:
             self.IgnoreLevel = 1
             return
-        
-        
-        
+
         if self.CodeExampleLevel > 0:
             self.CodeExampleLevel += 1
 
@@ -244,11 +242,11 @@ class MotionBuilderDocumentationHtmlPageParser(HTMLParser):
                 if self.CurrentItem:
                     self.TotalItems.append(self.CurrentItem)
                 self.CurrentItem = {}
-                
+
             elif ClassName == FMoBuDocsParserItem.Doc:
                 self.CurrentItemDataTag = FMoBuDocsParserItem.Doc
                 self.CurrentItemDataCollector = ""
-                
+
             elif ClassName == "fragment" and self.CurrentItemDataTag == FMoBuDocsParserItem.Doc:
                 self.CodeExampleLevel = 1
                 self.DocAdditionalChar = "\n@CODE\n"
@@ -257,7 +255,7 @@ class MotionBuilderDocumentationHtmlPageParser(HTMLParser):
             if ClassName in FMoBuDocsParserItem.GetValues():
                 self.CurrentItemDataTag = ClassName
                 self.CurrentItemDataCollector = ""
-        
+
         if self.CurrentItemDataTag == FMoBuDocsParserItem.Doc and not self.DocAdditionalChar.strip():
             if self.FieldTableLevel > 0 and ClassName in ["fieldname", "fielddoc"]:
                 if ClassName in ["fieldname"]:
@@ -272,39 +270,39 @@ class MotionBuilderDocumentationHtmlPageParser(HTMLParser):
         elif self.CurrentItemDataTag == FMoBuDocsParserItem.Doc and self.FieldTableLevel and tag == "th":
             self.DocAdditionalChar += "\n# "
 
-    def handle_data(self, Data):
+    def handle_data(self, data):
         if self.IgnoreLevel > 0:
             return
-        
-        if self.CurrentItemDataTag and self.CurrentItem != None and Data.strip():
+
+        if self.CurrentItemDataTag and self.CurrentItem is not None and data.strip():
             if self.CurrentItemDataTag == FMoBuDocsParserItem.Doc:
                 self.CurrentItemDataCollector += self.DocAdditionalChar
                 self.DocAdditionalChar = " "
-            self.CurrentItemDataCollector += Data
+            self.CurrentItemDataCollector += data
 
     def handle_endtag(self, tag):
         if self.FieldTableLevel > 0:
             self.FieldTableLevel -= 1
             if self.FieldTableLevel == 0:
                 self.CurrentItemDataCollector += "\n@ENDTABLE"
-            
+
         if self.IgnoreLevel > 0:
             self.IgnoreLevel -= 1
             return
-        
+
         if self.CodeExampleLevel > 0:
             self.CodeExampleLevel -= 1
             if self.CodeExampleLevel == 0 and self.CurrentItemDataTag == FMoBuDocsParserItem.Doc:
                 self.CurrentItemDataCollector += "\n@ENDCODE"
             return
-        
+
         if self.CurrentItemDataTag == FMoBuDocsParserItem.Doc:
             if tag == "div":
                 self.CurrentItem[self.CurrentItemDataTag] = self.CurrentItemDataCollector
                 self.CurrentItemDataTag = None
 
         elif tag == "td":
-            if self.CurrentItem != None and self.CurrentItemDataTag:
+            if self.CurrentItem is not None and self.CurrentItemDataTag:
                 self.CurrentItemDataCollector = self.CurrentItemDataCollector.strip()
 
                 CurrentList = self.CurrentItem.get(self.CurrentItemDataTag, [])
@@ -317,7 +315,7 @@ class MotionBuilderDocumentationHtmlPageParser(HTMLParser):
 
         elif tag == "body" and self.CurrentItem:
             self.TotalItems.append(self.CurrentItem)
-            
+
     #
     #   Custom Functions
     #
@@ -395,14 +393,14 @@ class DocMemberParameter():
         return self.Default
 
     def __repr__(self):
-        return '<object %s: %s:%s = %s>' % (type(self).__name__, self.Name, self.Type, self.Default)
+        return f'<object {type(self).__name__}: {self.Name}:{self.Type} = {self.Default}>'
 
 
 class DocPageMember():
-    def __init__(self, Name, Type = None, Params = [], DocString = ""):
+    def __init__(self, Name, Type = None, Params = None, DocString = ""):
         self.Name = Name
         self.Type = Type
-        self.Params = Params
+        self.Params = Params if Params else []
         self.DocString = DocString
 
     def GetType(self, bConvertToPython = False):
@@ -411,7 +409,7 @@ class DocPageMember():
         return self.Type
 
     def __repr__(self):
-        return '<object DocPageMember: %s>' % (self.Name)
+        return f'<object DocPageMember: {self.Name}>'
 
 
 class DocumentationPage():
@@ -426,7 +424,7 @@ class DocumentationPage():
             self.LoadPage()
 
     def __repr__(self):
-        return '<object %s, "%s">' % (type(self).__name__, self.Title)
+        return f'<object {type(self).__name__}, "{self.Title}">'
 
     def GetURL(self):
         return GetFullURL(self.Version, self.RelativeURL, bGetSource = True)
@@ -450,15 +448,15 @@ class DocumentationPage():
             if bCache:
                 SaveFile(CacheFilepath, RawHTML)
         Parser = MotionBuilderDocumentationHtmlPageParser()
-        
+
         RawHTML = RawHTML.replace("&#160;", "")
         RawHTML = RawHTML.replace("&ndash;", "--")
-        
+
         Parser.feed(RawHTML)
 
         self.Members = Parser.GetMembers()
 
-    def GetMembersByName(self, Name):  
+    def GetMembersByName(self, Name):
         return [x for x in self.Members if x.Name == Name]
 
 
@@ -510,14 +508,14 @@ class MotionBuilderDocumentation():
             Content = []
             for FileName, PageUrl, Id in GetDocsSDKContent(self.Version, SDK_FILES_PATH, self.bCache):
                 if Id:
-                    Content += GetDocsSDKContent(self.Version, "%s%s.js" % (SDK_CPP_PATH, Id), self.bCache)
-            
+                    Content += GetDocsSDKContent(self.Version, f"{SDK_CPP_PATH}{Id}.js", self.bCache)
+
             for FileName, PageUrl, Id in GetDocsSDKContent(self.Version, SDK_CLASSES_PATH, self.bCache):
                 Chilren = []
                 if Id and not bTopLevelOnly:
-                    Chilren = GetDocsSDKContent(self.Version, "%s%s.js" % (SDK_CPP_PATH, Id), self.bCache)
+                    Chilren = GetDocsSDKContent(self.Version, f"{SDK_CPP_PATH}{Id}.js", self.bCache)
                 Content.append([FileName, PageUrl, Chilren])
-            
+
             def _ConvertToDocPage(PageData):
                 Page = DocumentationPage(self.Version, PageData[0], SDK_CPP_PATH + PageData[1])
                 Children = []
@@ -534,7 +532,7 @@ class MotionBuilderDocumentation():
                 return Page
 
     def GetSDKClassPagesByName(self, ClassName, bLoadPage = True):
-        Page =  self.FindSDKTopLevelItemByName(ClassName)
+        Page = self.FindSDKTopLevelItemByName(ClassName)
         if Page and bLoadPage:
             Page.LoadPage(self.bCache)
         return Page
@@ -555,14 +553,14 @@ class MotionBuilderDocumentation():
             PyfbsdkContent = GetDocsSDKContent(self.Version, PYFBSDK_PATH, self.bCache)
             PyfbsdkAdditionsContent = GetDocsSDKContent(self.Version, PYFBSDK_ADDITIONS_PATH, self.bCache)
             AllPythonSDKContent = PyfbsdkContent + PyfbsdkAdditionsContent
-            
+
             def _ConvertToDocPage(PageData):
                 Page = DocumentationPage(self.Version, PageData[0], PY_REF_PATH + PageData[1])
                 Children = []
                 if PageData[2]:
                     Children = [_ConvertToDocPage(x) for x in PageData[2]]
                 return (Page, Children)
-            
+
             self._PythonSDKToc = [_ConvertToDocPage(x) for x in AllPythonSDKContent]
         return self._PythonSDKToc
 
@@ -620,7 +618,7 @@ def ParseSDKTableOfContent(RawJavascriptString):
         Text = Text[:-1]
 
     # Evaluate the string to convert it into a python list
-    return eval(Text)
+    return eval(Text)  # pylint: disable=eval-used
 
 
 def GetDocsMainTableOfContent(Version) -> list:

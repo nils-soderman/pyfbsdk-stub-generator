@@ -1,7 +1,4 @@
 from __future__ import annotations
-from types import FunctionType
-
-import pyfbsdk
 
 import inspect
 import typing
@@ -11,11 +8,17 @@ import re
 import os
 
 from importlib import reload
+from types import FunctionType
 
-sys.path.append(os.path.dirname(__file__))
+import pyfbsdk
 
-import motionbuilder_documentation_parser as docParser
-import manual_documentation as manualDoc
+bTest = "builtin" in __name__
+if bTest:
+    sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+    __name__ = "pyfbsdk_stub_generator.stub_generator"  # pylint: disable=redefined-builtin
+
+from . import motionbuilder_documentation_parser as docParser
+from . import manual_documentation as manualDoc
 
 
 reload(docParser)
@@ -24,6 +27,7 @@ reload(manualDoc)
 IS_PYTHON_39 = sys.version_info.major == 3 and sys.version_info.minor == 9
 ADDITIONS_FILEPATH = os.path.join(os.path.dirname(__file__), "additions_pyfbsdk.py")
 TAB_CHARACTER = "    "
+
 
 # TODO: Broken stuff:
 # FBModel.GetHierarchyWorldMatrices() - First param in the docs doesn't exists in the python version
@@ -106,7 +110,7 @@ def IsPrivate(Object):
 
 
 def Indent(Text: str):
-    return TAB_CHARACTER + ("\n%s" % TAB_CHARACTER).join(Text.split("\n"))
+    return TAB_CHARACTER + f"\n{TAB_CHARACTER}".join(Text.split("\n"))
 
 
 def IsMethodStatic(Class, MethodName: str):
@@ -126,7 +130,7 @@ def IsMethodStatic(Class, MethodName: str):
 def GetCustomAdditions():
     Content = ""
     if os.path.isfile(ADDITIONS_FILEPATH):
-        with open(ADDITIONS_FILEPATH, 'r') as File:
+        with open(ADDITIONS_FILEPATH, 'r', encoding="utf-8") as File:
             Content = File.read().strip() + "\n"
     Content = Content.replace("{MOTIONBUILDER_VERSION}", str(GetMotionBuilderVersion()))
     return Content
@@ -148,7 +152,7 @@ def GetClassParents(Class):
     return Class.__bases__
 
 
-def GetUniqueClassMembers(Class, Ignore = [], AllowedOverrides = []):
+def GetUniqueClassMembers(Class, Ignore = (), AllowedOverrides = ()):
     """ 
     Args:
         - Class {object}: reference to the class
@@ -234,7 +238,7 @@ def SortClasses(Classes: list):
     ClassNames = [x.Name for x in Classes]
 
     i = 0
-    while (i < len(Classes)):
+    while i < len(Classes):
         # Check if class has any required classes that needs to be defined before it (aka. parent classes)
         Requirements = Classes[i].GetRequirements()
         if Requirements:
@@ -270,11 +274,11 @@ def GetDataTypeFromPropertyClassName(ClassName: str, AllClassNames: list[str]):
         "Float": "float",
         "Double": "float"
     }
-    
+
     DataType = ClassName
     for x in ("FBProperty", "Animatable", "List"):
         DataType = DataType.replace(x, "")
-    
+
     if DataType in ConvertTypeDict:
         return ConvertTypeDict[DataType]
 
@@ -307,7 +311,7 @@ class StubBaseClass():
 
     def GetDocString(self):
         if self.DocString:
-            return '"""%s"""' % self.DocString.strip()
+            return f'""\"{self.DocString.strip()}"""'
         return ""
 
     def GetRequirements(self) -> list:
@@ -318,16 +322,16 @@ class StubBaseClass():
 
 
 class StubFunction(StubBaseClass):
-    def __init__(self, Name = "", Parameters = [], ReturnType = None):
+    def __init__(self, Name = "", Parameters = None, ReturnType = None):
         super().__init__(Name = Name)
-        self._Params: list[StubParameter] = Parameters
+        self._Params: list[StubParameter] = Parameters if Parameters else []
         self.ReturnType = ReturnType
         self.bIsMethod = False
         self.bIsStatic = False
         self.bIsOverload = False
 
     def __repr__(self):
-        return "<%s: %s>" % (self.__class__.__name__, self.Name)
+        return f"<{self.__class__.__name__}: {self.Name}>"
 
     def AddParameter(self, Parameter):
         self._Params.append(Parameter)
@@ -363,16 +367,16 @@ class StubFunction(StubBaseClass):
         elif self.bIsStatic:
             FunctionAsString += "@staticmethod\n"
 
-        FunctionAsString += 'def %s(%s)' % (self.Name, self.GetParamsAsString())
+        FunctionAsString += f'def {self.Name}({self.GetParamsAsString()})'
 
         if self.ReturnType and self.ReturnType != "None":
-            FunctionAsString += '->%s' % self.ReturnType
+            FunctionAsString += f'->{self.ReturnType}'
 
         FunctionAsString += ":"
 
         DocString = self.GetDocString()
         if DocString:
-            FunctionAsString += "\n%s\n%s" % (Indent(DocString), Indent("..."))
+            FunctionAsString += f"\n{Indent(DocString)}\n{Indent('...')}"
         else:
             FunctionAsString += "..."
 
@@ -388,7 +392,7 @@ class StubClass(StubBaseClass):
 
     def GetFunctionsByName(self, Name: str):
         return [x for x in self.StubFunctions if x.Name == Name]
-    
+
     def GetPropertyByName(self, Name: str):
         for x in self.StubProperties:
             if x.Name == Name:
@@ -417,18 +421,18 @@ class StubClass(StubBaseClass):
     def GetAsString(self):
         ParentClassesAsString = ','.join(self.Parents)
 
-        ClassAsString = "class %s(%s):\n" % (self.Name, ParentClassesAsString)
+        ClassAsString = f"class {self.Name}({ParentClassesAsString}):\n"
 
         if self.GetDocString():
-            ClassAsString += "%s\n" % Indent(self.GetDocString())
+            ClassAsString += f"{Indent(self.GetDocString())}\n"
 
         ClassMembers = self.StubProperties + self.StubFunctions
         for StubObject in ClassMembers:
-            ClassAsString += "%s\n" % Indent(StubObject.GetAsString())
+            ClassAsString += f"{Indent(StubObject.GetAsString())}\n"
 
         # If class doesn't have any members, add a '...'
-        
-        if not len(ClassMembers):
+
+        if not ClassMembers:
             ClassAsString += Indent("...")
 
         return ClassAsString.strip()
@@ -450,7 +454,7 @@ class StubProperty(StubBaseClass):
         self._Type = Value
 
     def GetAsString(self):
-        PropertyAsString = "%s:%s" % (self.Name, self.Type)
+        PropertyAsString = f"{self.Name}:{self.Type}"
 
         # Add docstring
         if self.GetDocString():
@@ -476,19 +480,19 @@ class StubParameter(StubBaseClass):
 
     def GetNiceName(self):
         ReturnValue = self.Name
-        if ReturnValue.startswith("p") and not (ReturnValue[1].isnumeric()):
+        if ReturnValue.startswith("p") and not ReturnValue[1].isnumeric():
             ReturnValue = ReturnValue.lstrip("p")
         if self.Type == "bool" and not ReturnValue.startswith("b"):
-            ReturnValue = "b%s" % ReturnValue
+            ReturnValue = f"b{ReturnValue}"
         return ReturnValue
 
     def GetAsString(self):
         ParamString = self.GetNiceName()  # PatchParameterName(self.Name)
         if self.Type and self.Type != "object":
-            ParamString += ":%s" % self.Type
+            ParamString += f":{self.Type}"
 
         if self.DefaultValue is not None:
-            ParamString += "=%s" % self.DefaultValue
+            ParamString += f"={self.DefaultValue}"
 
         return ParamString
 
@@ -521,7 +525,7 @@ class PyfbsdkStubGenerator():
         return self._AllClassNames
 
     def _GenerateEnumInstance(self, Class):
-        """ 
+        """
         Generate a StubClass instance from a class (enum) reference
 
         Args:
@@ -575,7 +579,7 @@ class PyfbsdkStubGenerator():
         return ClassInstance
 
     def _GenerateFunctionInstances(self, Function) -> list[StubFunction]:
-        """ 
+        """
         Generate StubFunction instances from a function reference.
 
         Args:
@@ -604,7 +608,7 @@ class PyfbsdkStubGenerator():
     # --------------------------------------------------
 
     def _EnsurePropertyTypeIsValid(self, PropertyType: str):
-        """ 
+        """
         Patch a class property type, e.g. turning 'FBPropertyCamera' -> 'FBCamera'
         """
         # Default property types to always accept as valid
@@ -614,7 +618,7 @@ class PyfbsdkStubGenerator():
         # Check if PropertyType exists as a known type to be translated into something else
         if PropertyType in PropertyTypeTranslation:
             return PropertyTypeTranslation[PropertyType]
-        
+
         # Remove FBProperty, only do this for properties that are not list's or animatable
         if PropertyType.startswith("FBProperty") and not any(x for x in PropertyType if x in ["List", "Animatable"]):
             NewPropertyType = PropertyType.replace("Property", "", 1)
@@ -633,7 +637,7 @@ class PyfbsdkStubGenerator():
             " null ": " `None` ",
             " NULL ": " `None` "
         }
-        
+
         # Titles where all of the contents under it should be in list form
         TitlesWithLists = ["parameters", "return values"]
 
@@ -647,7 +651,7 @@ class PyfbsdkStubGenerator():
         NumberOfParameters = 0
         bParsingCode = False
         for i, Line in enumerate(self._PatchDocStringGeneric(DocString).split("\n")):
-            
+
             if Line.startswith(">>>"):
                 bParsingCode = True
             elif bParsingCode and not Line:
@@ -662,13 +666,13 @@ class PyfbsdkStubGenerator():
                     bAddExtraLine = bool(UnderTitle)
                     UnderTitle = Line.strip("# :").lower()
                     if bAddExtraLine:
-                        Line = "\n%s" % Line
+                        Line = f"\n{Line}"
 
                 if UnderTitle and not bIsLineATitle:
                     if UnderTitle in TitlesWithLists:
                         ParameterName, _, Description = Line.partition(" ")
                         NumberOfParameters += 1
-                        Line = "- %s: %s" % (ParameterName, Description)
+                        Line = f"- {ParameterName}: {Description}"
 
                 # Null -> None translation
                 for Key, Item in Translations.items():
@@ -677,7 +681,7 @@ class PyfbsdkStubGenerator():
                             continue
                         Line = Line.replace(Key, Item)
 
-            NewDocString += "%s\n" % Line
+            NewDocString += f"{Line}\n"
 
         # Replace parameter names with their Nice Names. 'pMyParam' -> 'MyParam'
         for Parameter in Function.GetParameters():
@@ -699,7 +703,7 @@ class PyfbsdkStubGenerator():
                     if Line.strip() and Line.lstrip("- ").partition(":")[0] not in ParameterNiceNames:
                         continue
 
-                NewDocStringAfterParamFix += "%s\n" % Line
+                NewDocStringAfterParamFix += f"{Line}\n"
             NewDocString = NewDocStringAfterParamFix
 
         NewDocString = NewDocString.replace("  ", " ")
@@ -709,35 +713,34 @@ class PyfbsdkStubGenerator():
     def _PatchDocStringGeneric(self, Docstring: str):
         # TODO: This is now defined in 2 locations
         TitlesWithLists = ["parameters", "return values"]
-        
+
         NewDocString = ""
         CodeLines = 0
         UnderTitle = None
         bParsingCode = False
 
         PreviousLine = ""
-        
+
         for i, Line in enumerate(Docstring.split("\n")):
-            Line = Line
             if not Line.strip():
                 continue
-            
+
             NumberOfNewLines = 1
             PreviousLineSuffix = ""
-            
+
             if not bParsingCode:
                 Line = Line.strip()
 
             # Remove all 'Definition at line x' lines.
             if Line.startswith("Definition at line"):
                 continue
-            
+
             # Check if we're entering a codeblock
             if Line == "@CODE":
                 bParsingCode = True
                 CodeLines = 0
                 continue
-            
+
             # Check if we're exiting a code block
             elif bParsingCode and Line == "@ENDCODE":
                 bParsingCode = False
@@ -747,36 +750,33 @@ class PyfbsdkStubGenerator():
                 Line = Line.replace("\\n", "\\\\n")
                 Line = Line.replace("//", "# //")
                 if CodeLines == 0:
-                    Line = "\n>>> %s" % Line
+                    Line = f"\n>>> {Line}"
                 else:
                     # Switch to 4 spaces as tabs, instead of 2 spaces.
                     NumberOfTabs = int((len(Line) - len(Line.lstrip())) / 2)
                     Line = (TAB_CHARACTER * NumberOfTabs) + Line.lstrip()
                 CodeLines += 1
-                
+
             else:
                 # Check if line is a title
                 bIsLineATitle = Line.startswith("#")
                 if bIsLineATitle:
                     Line = Line.partition(" ")[2]
                     UnderTitle = Line.lower()
-                    Line = "### %s:" % Line
-                    
+                    Line = f"### {Line}:"
+
                 if Line in ["C++ sample code:", "Python sample code:"]:
-                    Line = "### %s" % Line
+                    Line = f"### {Line}"
                     bIsLineATitle = True
-                    
+
                 # Add a 'LineBreak'
                 if UnderTitle not in TitlesWithLists and not PreviousLine.startswith("#") and i > 0 and not bIsLineATitle and Line.strip():
                     PreviousLineSuffix = r" \\"
-                    
-                
-                    
+
                 Line = Line.replace("  ", " ")
 
             PreviousLine = Line
             NewDocString += PreviousLineSuffix + ("\n" * NumberOfNewLines) + Line
-            
 
         # Remove double spaces
         NewDocString = NewDocString.replace("\"", "'")
@@ -792,12 +792,12 @@ class PyfbsdkStubGenerator():
         elif StubParameterInstance.Type.startswith("list["):
             ClassType = StubParameterInstance.Type.replace("list[", "", 1)[:-1]
             ClassType = VariableTypeTranslations.get(ClassType, ClassType)
-            StubParameterInstance.Type = "list[%s]" % ClassType
+            StubParameterInstance.Type = f"list[{ClassType}]"
 
         # Patch default value
         if StubParameterInstance.DefaultValue:
             if StubParameterInstance.DefaultValue.startswith("k") or StubParameterInstance.DefaultValue in KnownEnumValuesNotStartingWithK:
-                StubParameterInstance.DefaultValue = "%s.%s" % (StubParameterInstance.Type, StubParameterInstance.DefaultValue)
+                StubParameterInstance.DefaultValue = f"{StubParameterInstance.Type}.{StubParameterInstance.DefaultValue}"
 
             elif StubParameterInstance.DefaultValue.startswith("FB") and StubParameterInstance.DefaultValue not in self.GetAllClassNames():
                 if "." not in StubParameterInstance.DefaultValue:
@@ -819,7 +819,7 @@ class PyfbsdkStubGenerator():
                 Documentations = self.DocumentationParser.GetSDKFunctionByName(StubFunctionInstance.Name)
                 if not Documentations:
                     # Try adding FB
-                    Documentations = self.DocumentationParser.GetSDKFunctionByName("FB%s" % StubFunctionInstance.Name)
+                    Documentations = self.DocumentationParser.GetSDKFunctionByName(f"FB{StubFunctionInstance.Name}")
                     if not Documentations:
                         continue
 
@@ -905,8 +905,8 @@ class PyfbsdkStubGenerator():
                     MatchingProperty.DocString = self._PatchDocStringGeneric(PropertyDesc)
                 continue
 
-            NewDocString += "%s\n" % Line
-            
+            NewDocString += f"{Line}\n"
+
         return self._PatchDocStringGeneric(NewDocString)
 
     def _PatchEnumFromDocumentation(self, Enum: StubClass):
@@ -950,7 +950,7 @@ class PyfbsdkStubGenerator():
                 DocumentationMembers = Documentation.GetMembersByName(StubPropertyInstance.Name)
                 if not DocumentationMembers:
                     # Check if the property is a GetX function in C++
-                    DocumentationMembers = Documentation.GetMembersByName("Get%s" % StubPropertyInstance.Name)
+                    DocumentationMembers = Documentation.GetMembersByName(f"Get{StubPropertyInstance.Name}")
                     if not DocumentationMembers:
                         continue
 
@@ -976,12 +976,11 @@ class PyfbsdkStubGenerator():
             if x.Name == Name:
                 return x
 
-    def GetFunctionByName(self, Name: str):
-        [x for x in self.Functions if x.Name == Name]
-
+    def GetFunctionsByName(self, Name: str):
+        return [x for x in self.Functions if x.Name == Name]
 
     def _PatchFromManualDocumentation(self):
-        """ 
+        """
         Patch the StubClasses & StubFunctions based on the 'manual_documentation.py' file.
         """
         def _ParseManualDocumentation(Doc: str):
@@ -993,46 +992,46 @@ class PyfbsdkStubGenerator():
                 Num = min(x.count(TAB_CHARACTER, 0, len(x) - len(x.lstrip())) for x in Lines[1:] if x)
                 NewDoc = ""
                 for Line in Lines:
-                    if Num and Line.startswith(TAB_CHARACTER*Num):
-                        Line = Line.partition(TAB_CHARACTER*Num)[2]
+                    if Num and Line.startswith(TAB_CHARACTER * Num):
+                        Line = Line.partition(TAB_CHARACTER * Num)[2]
                     NewDoc += f"{Line}\n"
                 Doc = NewDoc
-            
+
             return Doc
-        
+
         def _GetTypeHintString(TypeHint):
-            if IS_PYTHON_39 and isinstance(TypeHint, typing._UnionGenericAlias):
+            if IS_PYTHON_39 and isinstance(TypeHint, typing._UnionGenericAlias):  # pylint: disable=protected-access
                 return typing.get_args(TypeHint)[0].__name__
             if inspect.isclass(TypeHint):
                 return TypeHint.__name__
             return str(TypeHint)
-            
+
         def _PatchFunction(Function: StubFunction, DocumentedFunction: FunctionType):
             if DocumentedFunction.__doc__:
                 Function.DocString = _ParseManualDocumentation(DocumentedFunction.__doc__)
             TypeHints = typing.get_type_hints(DocumentedFunction)
             StubParameters = Function.GetParameters()
             DocumentedSignature = inspect.signature(DocumentedFunction)
-            
+
             for i, ParameterName in enumerate(DocumentedSignature.parameters):
-                StubParameter = StubParameters[i]
+                StubParam = StubParameters[i]
                 Parameter = DocumentedSignature.parameters[ParameterName]
-                StubParameter.Name = ParameterName
-                
+                StubParam.Name = ParameterName
+
                 TypeHint = TypeHints.get(ParameterName)
                 if TypeHint:
-                    StubParameter.Type = _GetTypeHintString(TypeHint)
-                
+                    StubParam.Type = _GetTypeHintString(TypeHint)
+
                 # Default values
-                if Parameter.default is not inspect._empty:
+                if Parameter.default is not inspect._empty:  # pylint: disable=protected-access
                     if "pyfbsdk" in str(type(Parameter.default)):
-                        StubParameter.DefaultValue = f"{type(Parameter.default).__name__}.{Parameter.default}"
+                        StubParam.DefaultValue = f"{type(Parameter.default).__name__}.{Parameter.default}"
                     else:
-                        StubParameter.DefaultValue = str(Parameter.default)
+                        StubParam.DefaultValue = str(Parameter.default)
 
             if "return" in TypeHints:
                 Function.ReturnType = _GetTypeHintString(TypeHints["return"])
-            
+
         # Patch classes
         for Name, Object in inspect.getmembers(manualDoc, inspect.isclass):
             TypeHints = typing.get_type_hints(Object, localns = locals())
@@ -1041,7 +1040,7 @@ class PyfbsdkStubGenerator():
             if StubClassRef:
                 if Object.__doc__:
                     StubClassRef.DocString = _ParseManualDocumentation(Object.__doc__)
-                
+
                 # Patch properties
                 for ClassMemberName, TypeHint in TypeHints.items():
                     StubPropertyRef = StubClassRef.GetPropertyByName(ClassMemberName)
@@ -1053,31 +1052,30 @@ class PyfbsdkStubGenerator():
                             StubPropertyRef.DocString = _ParseManualDocumentation(DocString)
 
                 PatchedStubFunctions = []
-                for FunctionName, Function in inspect.getmembers(Object, inspect.isfunction):  
-                    bOverloadedFunction = re.search("_\d+$", Function.__name__)
+                for FunctionName, Function in inspect.getmembers(Object, inspect.isfunction):
+                    bOverloadedFunction = re.search(r"_\d+$", Function.__name__)
                     if bOverloadedFunction:
                         FunctionName = FunctionName.rpartition("_")[0]
                     StubFunctionReferences = StubClassRef.GetFunctionsByName(FunctionName)
                     if StubFunctionReferences:
-                        StubFunction = StubFunctionReferences[0]
+                        StubFunc = StubFunctionReferences[0]
                         if len(StubFunctionReferences) > 1:
                             Matches = [x for x in StubFunctionReferences if x not in PatchedStubFunctions and len(x.GetParameters()) == len(inspect.signature(Function).parameters)]
                             if not Matches:
                                 continue
-                            StubFunction = Matches[0]
-                        _PatchFunction(StubFunction, Function)
-                        
-                        PatchedStubFunctions.append(StubFunction)
-        
+                            StubFunc = Matches[0]
+                        _PatchFunction(StubFunc, Function)
+
+                        PatchedStubFunctions.append(StubFunc)
+
         # Patch functions
         for Name, Object in inspect.getmembers(manualDoc, inspect.isfunction):
-            StubFunctionRef = self.GetFunctionByName(Name)
+            StubFunctionRef = self.GetFunctionsByName(Name)
             if StubFunctionRef:
-                _PatchFunction(StubFunctionRef, Object)
-
+                _PatchFunction(StubFunctionRef[0], Object)
 
     def GenerateString(self, bUseOnlineDocumentation = True):
-        """ 
+        """
         Returns: The stub file as a string
         """
         # Get the content
@@ -1090,14 +1088,13 @@ class PyfbsdkStubGenerator():
         for Function in Functions:
             self.Functions.extend(self._GenerateFunctionInstances(Function))
 
-        
         for Enum in self.Enums:
             self._PatchEnumFromDocumentation(Enum)
 
         # Use the online documentation to try and create better param names, values etc.
         if bUseOnlineDocumentation:
             self._PatchFunctionsFromDocumentation(self.Functions)
-            self._PatchClassFromDocumentation(self.Classes)        
+            self._PatchClassFromDocumentation(self.Classes)
 
         # Patch from the manual documentation
         self._PatchFromManualDocumentation()
@@ -1118,7 +1115,7 @@ class PyfbsdkStubGenerator():
 
 def GeneratePYFBSDKStub(Filepath, bCacheDocumentation = False) -> str:
     StartTime = time.time()
-    
+
     Generator = PyfbsdkStubGenerator(bCacheDocumentation)
 
     FileContent = Generator.GenerateString()
@@ -1126,17 +1123,17 @@ def GeneratePYFBSDKStub(Filepath, bCacheDocumentation = False) -> str:
     # Make sure directory exists
     if not os.path.isdir(os.path.dirname(Filepath)):
         os.makedirs(os.path.dirname(Filepath))
-        
-    with open(Filepath, "w+") as File:
+
+    with open(Filepath, "w+", encoding="utf-8") as File:
         File.write(FileContent)
 
     GenerationTime = time.time() - StartTime
-    print("Generating pyfbsdk stub file took: %ss." % round(GenerationTime, 2))
-    
+    print(f"Generating pyfbsdk stub file took: {round(GenerationTime, 2)}s.")
+
     return Filepath
 
 
-if "builtin" in __name__:
+if bTest:
     DEFAULT_OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "generated-stub-files")
-    Filepath = os.path.join(DEFAULT_OUTPUT_DIR, f"motionbuilder-{GetMotionBuilderVersion()}", "pyfbsdk.pyi")
-    GeneratePYFBSDKStub(Filepath, bCacheDocumentation = True)
+    OutFilepath = os.path.join(DEFAULT_OUTPUT_DIR, f"motionbuilder-{GetMotionBuilderVersion()}", "pyfbsdk.pyi")
+    GeneratePYFBSDKStub(OutFilepath, bCacheDocumentation = True)
