@@ -264,7 +264,7 @@ def GetDataTypeFromPropertyClassName(ClassName: str, AllClassNames: list[str]):
     This is done by removing e.g. `FBProperty` from the class name. Example: `FBPropertyVector3d` -> `Vector3d`
     """
     # Value to return use if a valid class could not be found for the given ClassName
-    DefaultValue = "property"
+    DefaultValue = "Any"
 
     ConvertTypeDict = {
         "Bool": "bool",
@@ -491,10 +491,14 @@ class StubParameter(StubBaseClass):
 
     def GetAsString(self):
         ParamString = self.GetNiceName()  # PatchParameterName(self.Name)
+        # Some parameters have a 0 instead of 'None'
+        if self.DefaultValue == "0" and self.Type not in (None, "float", "int"):
+            self.DefaultValue = "None"
+
         if self.Type and self.Type != "object":
             TypeStr = self.Type
             if self.DefaultValue == "None":
-                TypeStr = f"Union[{TypeStr},None]"
+                TypeStr = f"Optional[{TypeStr}]"
             ParamString += f":{TypeStr}"
 
         if self.DefaultValue is not None:
@@ -565,6 +569,7 @@ class PyfbsdkStubGenerator():
 
         # Get all members and generate stub properties of them
         ClassMemebers = GetUniqueClassMembers(Class, Ignore = ["__instance_size__"], AllowedOverrides = ["__init__", "__getitem__", "Data"])
+        ClassMemberNames = [x for x, y in ClassMemebers]
         for MemberName, MemberReference in ClassMemebers:
             Type = GetObjectType(MemberReference)
             if Type == FObjectType.Function:
@@ -574,6 +579,8 @@ class PyfbsdkStubGenerator():
             elif MemberName not in ["__init__"]:
                 Property = StubProperty(MemberName)
                 Property.Type = GetObjectType(MemberReference)
+                if Property.Type in ClassMemberNames:
+                    Property.Type = FObjectType.Enum
                 if MemberName == "Data" and "FBProperty" in ClassName and Property.Type == FObjectType.Property:
                     Property.Type = GetDataTypeFromPropertyClassName(ClassName, self.GetAllClassNames())
                 ClassInstance.AddProperty(Property)
