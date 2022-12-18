@@ -492,7 +492,10 @@ class StubParameter(StubBaseClass):
     def GetAsString(self):
         ParamString = self.GetNiceName()  # PatchParameterName(self.Name)
         if self.Type and self.Type != "object":
-            ParamString += f":{self.Type}"
+            TypeStr = self.Type
+            if self.DefaultValue == "None":
+                TypeStr = f"Union[{TypeStr},None]"
+            ParamString += f":{TypeStr}"
 
         if self.DefaultValue is not None:
             ParamString += f"={self.DefaultValue}"

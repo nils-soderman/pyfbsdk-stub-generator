@@ -3,7 +3,7 @@ Stub file generated for MotionBuilder 2023 using:
 https://github.com/nils-soderman/pyfbsdk-stub-generator
 """
 from __future__ import annotations
-from typing import overload
+from typing import overload, Union
 class _Enum:
     __slots__:tuple
     names:dict
@@ -3227,7 +3227,7 @@ class FBAddRegionParam():
     mPos:property
     mRelative:property
     mType:property
-    def __init__(self,arg2,arg3:FBAttachType,arg4:str,arg5:float=None):...
+    def __init__(self,arg2,arg3:FBAttachType,arg4:str,arg5:Union[float,None]=None):...
 class FBAudioRenderOptions():
     BitDepthMode:FBAudioBitDepthMode
     """Property: Bit depth for one sample of audio. 8, 16 and 24 bits available for audio render, 16 bits default."""
@@ -3534,7 +3534,7 @@ class FBConstructionOperation():
         """SetScript Set the script content for this operation.
         ### Parameters:
         - script: Script content as a string. Defaults to empty."""
-    def __init__(self,arg2:str=None):...
+    def __init__(self,arg2:Union[str,None]=None):...
 class FBDeviceNotifyInfo():
     def GetLocalTime(self)->FBTime:
         """Get local time.
@@ -4725,7 +4725,7 @@ class FBComponent(FBPlug):
         
         ### Returns:
         True if all flags in Flags are enabled."""
-    def ProcessNamespaceHierarchy(self,NamespaceAction:FBNamespaceAction,NamespaceName:str,ReplaceTo:str=None,bAddRight:bool=True)->bool:
+    def ProcessNamespaceHierarchy(self,NamespaceAction:FBNamespaceAction,NamespaceName:str,ReplaceTo:Union[str,None]=None,bAddRight:bool=True)->bool:
         """New Namespace name should only contains alphabet, digit and '_', Can't start with digit. This recursive function goes through the whole hierarchy (children) to add/replace the prefix. If you need to work on a single object, use the ProcessObjectPrefix function.
         ### Parameters:
         - NamespaceAction: Which operation to do on the hierarchy (children).
@@ -4735,7 +4735,7 @@ class FBComponent(FBPlug):
         
         ### Returns:
         return true if process successful."""
-    def ProcessObjectNamespace(self,NamespaceAction:FBNamespaceAction,NamespaceName:str,ReplaceTo:str=None,bAddRight:bool=True)->bool:
+    def ProcessObjectNamespace(self,NamespaceAction:FBNamespaceAction,NamespaceName:str,ReplaceTo:Union[str,None]=None,bAddRight:bool=True)->bool:
         """New Namespace name should only contains alphabet, digit and '_', Can't start with digit. This function is the same as ProcessNamespaceHierarchy except that it applies only on the current object and not to the object's children.
         ### Parameters:
         - NamespaceAction: Which operation to do on the hierarchy (children).
@@ -5560,7 +5560,7 @@ class FBRenderer(FBComponent):
         
         ### Returns:
         true if successful."""
-    def MouseInputNormalized(self,X:float,Y:float,InputType:FBInputType,ButtonKey:int,Modifier:FBInputModifier,WheelDeltaValue:int=None,Layer:int=-1,PaneId:int=-1)->bool:
+    def MouseInputNormalized(self,X:float,Y:float,InputType:FBInputType,ButtonKey:int,Modifier:FBInputModifier,WheelDeltaValue:Union[int,None]=None,Layer:int=-1,PaneId:int=-1)->bool:
         """Mouse input.
         ### Parameters:
         - X: X position, normalized to the range of [0, 1] in the view port dimension.
@@ -5794,7 +5794,7 @@ class FBProfiler(FBComponent):
 class FBPose(FBComponent):
     Type:FBPoseType
     """Read Only Property: Type of the pose (bind pose or rest pose)"""
-    def AddNode(self,Object:FBModel,Matrix:FBMatrix=None,bIsLocalMatrix:bool=False)->int:
+    def AddNode(self,Object:FBModel,Matrix:Union[FBMatrix,None]=None,bIsLocalMatrix:bool=False)->int:
         """Add a new pose node.
         ### Parameters:
         - Object: The object for which we are creating the pose information.
@@ -7799,7 +7799,7 @@ class FBConstraintRelation(FBConstraint):
         
         ### Returns:
         A boolean value indicating success (True) or failure (False)."""
-    def __init__(self,Name:str=None):
+    def __init__(self,Name:Union[str,None]=None):
         """### Parameters:
         - Name: Name of constraint."""
 class FBCycleAnalysisNode(FBBox):
@@ -7822,7 +7822,7 @@ class FBCycleAnalysisNode(FBBox):
         """### Parameters:
         - Name: Name of new cycle analysis node."""
 class FBConstraintSolver(FBConstraint):
-    def __init__(self,arg2:str=None):...
+    def __init__(self,arg2:Union[str,None]=None):...
 class FBDevice(FBBox):
     CommType:int
     """Read Write Property: Type of communications."""
@@ -8319,7 +8319,7 @@ class FBModel(FBBox):
         ### Parameters:
         - Min: Output parameter. Minimum value of the bounding box.
         - Max: Output parameter. Maximum value of the bounding box."""
-    def GetHierarchyWorldMatrices(self,MatricesArray:int,MatricesArrayCount:FBModelHiercharyTraverserType,HiercharyTraverserType:FBEvaluateInfo=None)->list:
+    def GetHierarchyWorldMatrices(self,MatricesArray:int,MatricesArrayCount:FBModelHiercharyTraverserType,HiercharyTraverserType:Union[FBEvaluateInfo,None]=None)->list:
         """Computes the global transform matrices between this model and all its children (all levels). \\
         The hierarchy world matrix for a model is represented as a global transform matrix applied on an arbitrary root hierarchy node (this model for instance), considered as the world reference.
         ### Parameters:
@@ -8333,14 +8333,14 @@ class FBModel(FBBox):
         
         ### Return values:
         - Number: of matrices filled in the array. The value may be different than MatricesArrayCount if the number of children models is less than the size of the matrix array."""
-    def GetLocalTransformationMatrixWithGlobalRotationDoF(self,Matrix:FBMatrix,bInverse:bool=False,EvaluateInfo:FBEvaluateInfo=None):
+    def GetLocalTransformationMatrixWithGlobalRotationDoF(self,Matrix:FBMatrix,bInverse:bool=False,EvaluateInfo:Union[FBEvaluateInfo,None]=None):
         """Get the local transformation (or local inverse transformation) matrix with the global Rotation DoF values from the model. \\
         The GetMatrix method was previously wrongly returning the local transformation (and local inverse transformation) matrices with global Rotation DoF values. The GetMatrix method implementation has been updated to not include the global Rotation DoF values. This method returns the same matrix values returned by the legacy GetMatrix implementation when retrieving the local transformation (and local inverse transformation) matrices.
         ### Parameters:
         - Matrix: Matrix to fill with requested information.
         - bInverse: False for the transformation matrix, true for the inverse transformation matrix.
         - EvaluateInfo: EvaluateInfo, Take Display if none specified."""
-    def GetMatrix(self,Matrix:FBMatrix,What:FBModelTransformationType=FBModelTransformationType.kModelTransformation,bGlobalInfo:bool=True,EvaluateInfo:FBEvaluateInfo=None):
+    def GetMatrix(self,Matrix:FBMatrix,What:FBModelTransformationType=FBModelTransformationType.kModelTransformation,bGlobalInfo:bool=True,EvaluateInfo:Union[FBEvaluateInfo,None]=None):
         """Get a matrix from the model.
         ### Parameters:
         - Matrix: Matrix to fill with requested information.
@@ -8355,7 +8355,7 @@ class FBModel(FBBox):
         """Get the number of selected points in the model.
         ### Returns:
         Number of selected points."""
-    def GetVector(self,Vector:FBVector3d,What:FBModelTransformationType=FBModelTransformationType.kModelTranslation,bGlobalInfo:bool=True,EvaluateInfo:FBEvaluateInfo=None):
+    def GetVector(self,Vector:FBVector3d,What:FBModelTransformationType=FBModelTransformationType.kModelTranslation,bGlobalInfo:bool=True,EvaluateInfo:Union[FBEvaluateInfo,None]=None):
         """Get a vector from the model.
         ### Parameters:
         - Vector: Vector to fill with requested values.
@@ -8366,7 +8366,7 @@ class FBModel(FBBox):
         """Returns if the model is collapsed or not (expanded) in the schematic view.
         ### Returns:
         true if the model is collapsed in the schematic view, false if it is expanded."""
-    def IsEvaluationReady(self,What:FBModelEvaluationTaskType,EvaluateInfo:FBEvaluateInfo=None)->bool:
+    def IsEvaluationReady(self,What:FBModelEvaluationTaskType,EvaluateInfo:Union[FBEvaluateInfo,None]=None)->bool:
         """Is the model's evaluation task result ready.
         ### Parameters:
         - What: Type of evaluation task.
@@ -8426,7 +8426,7 @@ class FBModel(FBBox):
         - What: Type of matrix to set (default=transformation).
         - bGlobalInfo: true if it is GlobalInfo, false if Local (default=true).
         - PushUndo: true if this operation is undoable, don't push undo in non UI thread."""
-    def SetMatrixWithPrecision(self,Matrix:FBMatrix,What:FBModelTransformationType=FBModelTransformationType.kModelTransformation,bGlobalInfo:bool=True,PushUndo:FBEvaluateInfo=False,EvaluateInfo:FBEvaluateInfo=None):
+    def SetMatrixWithPrecision(self,Matrix:FBMatrix,What:FBModelTransformationType=FBModelTransformationType.kModelTransformation,bGlobalInfo:bool=True,PushUndo:FBEvaluateInfo=False,EvaluateInfo:Union[FBEvaluateInfo,None]=None):
         """Set a matrix for the model.
         ### Parameters:
         - Matrix: Information to use to set the model's matrix.
@@ -8463,7 +8463,7 @@ class FBModel(FBBox):
 class FBNote(FBBox):
     StaticComment:str
     """Read Write Property: Comment associated to this note."""
-    def Attach(self,Comp:FBComponent=None)->bool:
+    def Attach(self,Comp:Union[FBComponent,None]=None)->bool:
         """Attach the note to a component. \\
         Will attach the note to the component. If Comp is NULL, the note will only be added to the scene.
         ### Parameters:
@@ -8471,7 +8471,7 @@ class FBNote(FBBox):
         
         ### Returns:
         A boolean indicating if the operation was successful or not."""
-    def Detach(self,Comp:FBComponent=None)->bool:
+    def Detach(self,Comp:Union[FBComponent,None]=None)->bool:
         """Detach the note from a component. \\
         Will detach the note from the component. If Comp is NULL, the note will be removed from the scene and detached from all components.
         ### Parameters:
@@ -8776,7 +8776,7 @@ class FBCamera(FBModel):
     """Read Only Property: Window height."""
     WindowWidth:float
     """Read Only Property: Window width."""
-    def GetCameraMatrix(self,Matrix:FBMatrix,Type:FBCameraMatrixType,EvalInfo:FBEvaluateInfo=None):
+    def GetCameraMatrix(self,Matrix:FBMatrix,Type:FBCameraMatrixType,EvalInfo:Union[FBEvaluateInfo,None]=None):
         """Obtains the camera's matrix.
         ### Parameters:
         - Matrix: Matrix to fill with requested information.
@@ -8858,7 +8858,7 @@ class FBModelMarkerOptical(FBModelMarker):
         """End exportation from optical model.
         ### Returns:
         true if successful."""
-    def ExportKey(self,X:float,Y:float,Z:float=None,Occlusion:float=None)->bool:
+    def ExportKey(self,X:float,Y:float,Z:Union[float,None]=None,Occlusion:Union[float,None]=None)->bool:
         """Export a key of optical data.
         ### Return values:
         - X.: X position.
@@ -8984,7 +8984,7 @@ class FBModelPath3D(FBModel):
     eNone:EPathEndCapStyle
     eVector:EKeyPropertyBehavior
     """Introduced after 2016. Key property type is Vector, has improved control node behavior and support for auto control node."""
-    def ConvertSegmentPercentToTotalPercent(self,Percent:float,EvaluateInfo:FBEvaluateInfo=None)->float:
+    def ConvertSegmentPercentToTotalPercent(self,Percent:float,EvaluateInfo:Union[FBEvaluateInfo,None]=None)->float:
         """Converting one key type Segment (time) to Total (percent).
         ### Parameters:
         - Percent: Double value (as time)
@@ -8999,7 +8999,7 @@ class FBModelPath3D(FBModel):
         """Get factor for multiplying the derivative of a key for total mode.
         ### Returns:
         Returns the time factor"""
-    def ConvertTotalPercentToSegmentPercent(self,Percent:float,EvaluateInfo:FBEvaluateInfo=None)->float:
+    def ConvertTotalPercentToSegmentPercent(self,Percent:float,EvaluateInfo:Union[FBEvaluateInfo,None]=None)->float:
         """Converting one key type Total (percent) to Segment (time).
         ### Parameters:
         - Percent: Double value (as percentage)
@@ -9177,35 +9177,35 @@ class FBModelPath3D(FBModel):
         
         ### Returns:
         Returns 0 since the new key becomes the first key. If path is invalid, returns 0."""
-    def Segment_GlobalPathEvaluate(self,SegmentPercent:float,EvaluateInfo:FBEvaluateInfo=None)->FBVector4d:
+    def Segment_GlobalPathEvaluate(self,SegmentPercent:float,EvaluateInfo:Union[FBEvaluateInfo,None]=None)->FBVector4d:
         """Get the path's vector at a particular point within the curve, in global coordinates.
         ### Parameters:
         - SegmentPercent: Double value (as time) at which the path vector would be computed
         
         ### Returns:
         Vector value at the required point in the path"""
-    def Segment_GlobalPathEvaluateDerivative(self,SegmentPercent:float,EvaluateInfo:FBEvaluateInfo=None)->FBVector4d:
+    def Segment_GlobalPathEvaluateDerivative(self,SegmentPercent:float,EvaluateInfo:Union[FBEvaluateInfo,None]=None)->FBVector4d:
         """Get the path's derivative at a particular point within the curve, in global coordinates.
         ### Parameters:
         - SegmentPercent: Double value (as time) at which the path derivative would be computed
         
         ### Returns:
         Vector value at the required point in the path"""
-    def Segment_IsPathKey(self,SegmentPercent:float,EvaluateInfo:FBEvaluateInfo=None)->int:
+    def Segment_IsPathKey(self,SegmentPercent:float,EvaluateInfo:Union[FBEvaluateInfo,None]=None)->int:
         """Query whether a percentage value has a key associated at that point in the path.
         ### Parameters:
         - SegmentPercent: Double value (as time) at which the path would be queried for existence of key
         
         ### Returns:
         A valid key index in integer if key is present, otherwise -1"""
-    def Segment_LocalPathEvaluate(self,SegmentPercent:float,EvaluateInfo:FBEvaluateInfo=None)->FBVector4d:
+    def Segment_LocalPathEvaluate(self,SegmentPercent:float,EvaluateInfo:Union[FBEvaluateInfo,None]=None)->FBVector4d:
         """Get the path's vector at a particular point within the curve, in local coordinates.
         ### Parameters:
         - SegmentPercent: Double value (as time) at which the path vector would be computed
         
         ### Returns:
         Vector value at the required point in the path"""
-    def Segment_LocalPathEvaluateDerivative(self,SegmentPercent:float,EvaluateInfo:FBEvaluateInfo=None)->FBVector4d:
+    def Segment_LocalPathEvaluateDerivative(self,SegmentPercent:float,EvaluateInfo:Union[FBEvaluateInfo,None]=None)->FBVector4d:
         """Get the path's derivative at a particular point within the curve, in local coordinates.
         ### Parameters:
         - SegmentPercent: Double value (as time) at which the path derivative would be computed
@@ -9220,35 +9220,35 @@ class FBModelPath3D(FBModel):
         """Enable or disable displaying Curve Points for the 3D model path.
         ### Parameters:
         - bShow: true if curve points are to be displayed false if not required"""
-    def Total_GlobalPathEvaluate(self,TotalPercent:float,EvaluateInfo:FBEvaluateInfo=None)->FBVector4d:
+    def Total_GlobalPathEvaluate(self,TotalPercent:float,EvaluateInfo:Union[FBEvaluateInfo,None]=None)->FBVector4d:
         """Get the path's vector at a particular point within the curve, in global coordinates.
         ### Parameters:
         - TotalPercent: Double value (as percentage) at which the path vector would be computed
         
         ### Returns:
         Vector value at the required point in the path"""
-    def Total_GlobalPathEvaluateDerivative(self,TotalPercent:float,EvaluateInfo:FBEvaluateInfo=None)->FBVector4d:
+    def Total_GlobalPathEvaluateDerivative(self,TotalPercent:float,EvaluateInfo:Union[FBEvaluateInfo,None]=None)->FBVector4d:
         """Get the path's derivative at a particular point within the curve, in global coordinates.
         ### Parameters:
         - TotalPercent: Double value (as percentage) at which the path derivative would be computed
         
         ### Returns:
         Derivative value at the required point in the path"""
-    def Total_IsPathKey(self,TotalPercent:float,EvaluateInfo:FBEvaluateInfo=None)->int:
+    def Total_IsPathKey(self,TotalPercent:float,EvaluateInfo:Union[FBEvaluateInfo,None]=None)->int:
         """Query whether a percentage value has a key associated at that point in the path.
         ### Parameters:
         - TotalPercent: Double value (as percentage) at which the path would be queried for existence of key
         
         ### Returns:
         A valid key index in integer if key is present, otherwise -1"""
-    def Total_LocalPathEvaluate(self,TotalPercent:float,EvaluateInfo:FBEvaluateInfo=None)->FBVector4d:
+    def Total_LocalPathEvaluate(self,TotalPercent:float,EvaluateInfo:Union[FBEvaluateInfo,None]=None)->FBVector4d:
         """Get the path's vector at a particular point within the curve, in local coordinates.
         ### Parameters:
         - TotalPercent: Double value (as percentage) at which the path vector would be computed
         
         ### Returns:
         Vector value at the required point in the path"""
-    def Total_LocalPathEvaluateDerivative(self,TotalPercent:float,EvaluateInfo:FBEvaluateInfo=None)->FBVector4d:
+    def Total_LocalPathEvaluateDerivative(self,TotalPercent:float,EvaluateInfo:Union[FBEvaluateInfo,None]=None)->FBVector4d:
         """Get the path's derivative at a particular point within the curve, in local coordinates.
         ### Parameters:
         - TotalPercent: Double value (as percentage) at which the path derivative would be computed
@@ -9310,7 +9310,7 @@ class FBModelSkeleton(FBModel):
         """### Parameters:
         - Name: Name of skeleton."""
 class FBPhysicalProperties(FBBox):
-    def __init__(self,arg2:str=None):...
+    def __init__(self,arg2:Union[str,None]=None):...
 class FBAudioIn(FBComponent):
     def GetDelay(self)->FBTime:
         """Returns the delay currently set. \\
@@ -9447,7 +9447,7 @@ class FBAudioClip(FBComponent):
         """Check if the audio clip constructed properly.
         ### Returns:
         true if the audio clip was constructed properly."""
-    def Play(self,Style:FBTriggerStyle=FBTriggerStyle.kFBTriggerStyleContinue,Destination:FBAudioOut=None)->bool:
+    def Play(self,Style:FBTriggerStyle=FBTriggerStyle.kFBTriggerStyleContinue,Destination:Union[FBAudioOut,None]=None)->bool:
         """Play audio clip now.
         ### Parameters:
         - Style: How the audio clip should be triggered.
@@ -9455,7 +9455,7 @@ class FBAudioClip(FBComponent):
         
         ### Returns:
         Return true if the buffer for the audio clip was successfully allocated so that you can hear the sound."""
-    def Stop(self,Destination:FBAudioOut=None):
+    def Stop(self,Destination:Union[FBAudioOut,None]=None):
         """Stop any playing triggered audio clip on a specified destination.
         ### Parameters:
         - Destination: Where the audio clip is playing. If NULL, the default destination will be used."""
@@ -9631,7 +9631,7 @@ class FBApplication(FBComponent):
     """Event: A File Save has been completed."""
     OnOverrideFileOpen:FBEventOverrideFileOpen
     """Event: Called when a file is about to be opened/merged. The user can override the process with his own file import system."""
-    def AudioRender(self,AudioRenderOptions:FBAudioRenderOptions=None)->bool:
+    def AudioRender(self,AudioRenderOptions:Union[FBAudioRenderOptions,None]=None)->bool:
         """Render audio of current scene to media file, currently WAV file only.
         ### Parameters:
         - AudioRenderOptions: The options used when rendering audio of the scene. Default value: 2 channels, 16 bits, 44100 hz, the begin and end time span for current time referential, Default file name is 'Output.wav' in the last audio output path, ro the default document path if the last path doesn't exist.
@@ -9651,7 +9651,7 @@ class FBApplication(FBComponent):
         
         ### Remarks:
         This function can only be used in the UI thread."""
-    def FileAppend(self,Filename:str,bShowUIMsg:bool=False,Options:FBFbxOptions=None)->bool:
+    def FileAppend(self,Filename:str,bShowUIMsg:bool=False,Options:Union[FBFbxOptions,None]=None)->bool:
         """Append one or multiple files to the current scene. \\
         Same as File->Merge in the menus with all options set to append. In earlier versions of MotionBuilder, a namespace could be specified with a parameter in this function, or FBFbxOptions::CustomImportNamespace, Now this is now done with FBFbxOptions::NamespaceList .
         ### Parameters:
@@ -9661,7 +9661,7 @@ class FBApplication(FBComponent):
         
         ### Returns:
         true if successful."""
-    def FileBatch(self,BatchOptions:FBBatchOptions,PlotOptions:FBPlotOptions=None)->FBBatchStatus:
+    def FileBatch(self,BatchOptions:FBBatchOptions,PlotOptions:Union[FBPlotOptions,None]=None)->FBBatchStatus:
         """Start a batch. \\
         Command File->Batch... in the menus.
         ### Parameters:
@@ -9757,7 +9757,7 @@ class FBApplication(FBComponent):
         For now, you cannot import custom file types. \\
         Not all options can be applied to a particular motion file type, please use the Motion File Import UI as a reference."""
     @overload
-    def FileMerge(self,Pathlist:str,bShowUIMsg:bool=False,Options:FBFbxOptions=None)->bool:
+    def FileMerge(self,Pathlist:str,bShowUIMsg:bool=False,Options:Union[FBFbxOptions,None]=None)->bool:
         """Merge multiple files with the current scene. \\
         Command File->Merge in the menus.
         ### Parameters:
@@ -9768,7 +9768,7 @@ class FBApplication(FBComponent):
         ### Returns:
         true if successful."""
     @overload
-    def FileMerge(self,Filename:FBStringList,bShowUIMsg:bool=False,Options:FBFbxOptions=None)->bool:
+    def FileMerge(self,Filename:FBStringList,bShowUIMsg:bool=False,Options:Union[FBFbxOptions,None]=None)->bool:
         """Merge one or multiple files with the current scene. \\
         Command File->Merge in the menus.
         ### Parameters:
@@ -9787,7 +9787,7 @@ class FBApplication(FBComponent):
         ### Returns:
         true if successful."""
     @overload
-    def FileOpen(self,Filename:str,bShowUIMsg:bool=False,Options:FBFbxOptions=None)->bool:
+    def FileOpen(self,Filename:str,bShowUIMsg:bool=False,Options:Union[FBFbxOptions,None]=None)->bool:
         """Open a file, replacing the current scene. \\
         Command File->Open in the menus.
         ### Parameters:
@@ -9809,7 +9809,7 @@ class FBApplication(FBComponent):
         
         ### Returns:
         true if file opened successfully."""
-    def FileRender(self,RenderOptions:FBVideoGrabOptions=None)->bool:
+    def FileRender(self,RenderOptions:Union[FBVideoGrabOptions,None]=None)->bool:
         """Render current scene to media file. \\
         Command File->Render in the menus.
         ### Parameters:
@@ -9823,7 +9823,7 @@ class FBApplication(FBComponent):
         
         ### Warning:
         If the destination media file exist, it will be overwritten by default."""
-    def FileSave(self,Filename:str=None,Options:FBFbxOptions=None)->bool:
+    def FileSave(self,Filename:Union[str,None]=None,Options:Union[FBFbxOptions,None]=None)->bool:
         """Save the file under another name. \\
         Command File->SaveAs in the menus.
         ### Parameters:
@@ -10056,13 +10056,13 @@ class FBAnimationNode(FBComponent):
     def KeyAdd(self,Time:FBTime,Data:list,Interpolation:FBInterpolation=FBInterpolation.kFBInterpolationCubic,TangentMode:FBTangentMode=FBTangentMode.kFBTangentModeAuto):...
     @overload
     def KeyAdd(self,Data:list,Interpolation:FBInterpolation=FBInterpolation.kFBInterpolationCubic,TangentMode:FBTangentMode=FBTangentMode.kFBTangentModeAuto):...
-    def KeyCandidate(self,Time:FBTime=None):...
+    def KeyCandidate(self,Time:Union[FBTime,None]=None):...
     def KeyRemove(self):
         """Remove key at current time."""
     def KeyRemoveAt(self,Time:FBTime):
         """Remove key at a given time."""
     @overload
-    def ReadData(self,EvaluateInfo:FBEvaluateInfo=None,bConvertGlobalToLocal:bool=False)->list:...
+    def ReadData(self,EvaluateInfo:Union[FBEvaluateInfo,None]=None,bConvertGlobalToLocal:bool=False)->list:...
     @overload
     def ReadData(self,Time:FBTime,bConvertGlobalToLocal=None)->list:...
     def ReadLastEvalData(self)->list:...
@@ -10071,7 +10071,7 @@ class FBAnimationNode(FBComponent):
         ### Parameters:
             - bGlobal: Is buffer local or global."""
     def SetCandidate(self,Data:list,bCheckLocked:bool=False)->bool:...
-    def WriteData(self,Data:list,EvaluateInfo:FBEvaluateInfo=None)->int:
+    def WriteData(self,Data:list,EvaluateInfo:Union[FBEvaluateInfo,None]=None)->int:
         """Write data to animation node.
         ### Parameters:
             - Data: Data to write to animation node.
@@ -10296,7 +10296,7 @@ class FBControlSet(FBComponent):
         """### Parameters:
         - Name: Name of new control set."""
 class FBCycleCreator(FBComponent):
-    def CreateCycle(self,arg2:FBTime,arg3:FBTime,arg4:FBCharacter=None,arg5=None,arg6=None,arg7:str=None,arg8:FBModel=None,arg9=None,arg10=None,arg11=None,arg12=None,arg13=None)->bool:...
+    def CreateCycle(self,arg2:FBTime,arg3:FBTime,arg4:Union[FBCharacter,None]=None,arg5=None,arg6=None,arg7:Union[str,None]=None,arg8:Union[FBModel,None]=None,arg9=None,arg10=None,arg11=None,arg12=None,arg13=None)->bool:...
     def __init__(self):...
 class FBDeck(FBComponent):
     CassetteInside:bool
@@ -10445,7 +10445,7 @@ class FBEvaluateManager(FBComponent):
     def IsInteractiveMode(self)->bool:...
     def __init__(self):...
 class FBFCurveEditorUtility(FBComponent):
-    def Frame(self,bSelectedKeysOnly:bool,Editor:FBFCurveEditor=None)->bool:
+    def Frame(self,bSelectedKeysOnly:bool,Editor:Union[FBFCurveEditor,None]=None)->bool:
         """Frame keys in the FCurve Editor interface.
         ### Parameters:
         - bSelectedKeysOnly: If true, only the selected keys will be framed, otherwise all keys will be framed.
@@ -10463,7 +10463,7 @@ class FBFCurveEditorUtility(FBComponent):
         
         ### Returns:
         True if successful, false otherwise."""
-    def GetProperties(self,Properties:list,bSelectedOnly:bool,Editor:FBFCurveEditor=None)->bool:
+    def GetProperties(self,Properties:list,bSelectedOnly:bool,Editor:Union[FBFCurveEditor,None]=None)->bool:
         """Get the displayed properties.
         ### Parameters:
         - pPropertyList: Array that will contain the properties displayed.
@@ -10472,14 +10472,14 @@ class FBFCurveEditorUtility(FBComponent):
         
         ### Returns:
         True if successful, false otherwise."""
-    def GetTimeSpan(self,Editor:FBFCurveEditor=None)->FBTimeSpan:
+    def GetTimeSpan(self,Editor:Union[FBFCurveEditor,None]=None)->FBTimeSpan:
         """Get the displayed time range of the FCurve Editor.
         ### Parameters:
         - Editor: Pointer to a FBFCurveEditor where the time span will be get, `None` to get the time span from the default editor.
         
         ### Returns:
         FCurve Editor time span, default FBTimeSpan if not successful."""
-    def SetTimeSpan(self,TimeSpan:FBTimeSpan,Editor:FBFCurveEditor=None)->bool:
+    def SetTimeSpan(self,TimeSpan:FBTimeSpan,Editor:Union[FBFCurveEditor,None]=None)->bool:
         """Set the displayed time range of the FCurve Editor.
         ### Parameters:
         - TimeSpan: The time span that will be set.
@@ -10866,7 +10866,7 @@ class FBGenericMenu(FBComponent):
         
         ### Returns:
         Will return the item BEFORE Item. `None` if Item is the first item."""
-    def InsertAfter(self,BeforeItem:FBGenericMenuItem,ItemName:str,ItemId:int,Menu:FBGenericMenu=None)->FBGenericMenuItem:
+    def InsertAfter(self,BeforeItem:FBGenericMenuItem,ItemName:str,ItemId:int,Menu:Union[FBGenericMenu,None]=None)->FBGenericMenuItem:
         """Inserts a new menu Item AFTER another item.
         ### Parameters:
         - BeforeItem: The reference item. We will create a new item AFTER this one.
@@ -10876,7 +10876,7 @@ class FBGenericMenu(FBComponent):
         
         ### Returns:
         Will return the menu item created from this insertion."""
-    def InsertBefore(self,AfterItem:FBGenericMenuItem,ItemName:str,ItemId:int,Menu:FBGenericMenu=None)->FBGenericMenuItem:
+    def InsertBefore(self,AfterItem:FBGenericMenuItem,ItemName:str,ItemId:int,Menu:Union[FBGenericMenu,None]=None)->FBGenericMenuItem:
         """Inserts a new menu Item BEFORE another item.
         ### Parameters:
         - AfterItem: The reference item. We will create a new item BEFORE this one.
@@ -10886,7 +10886,7 @@ class FBGenericMenu(FBComponent):
         
         ### Returns:
         Will return the menu item created from this insertion."""
-    def InsertFirst(self,ItemName:str,ItemId:int,Menu:FBGenericMenu=None)->FBGenericMenuItem:
+    def InsertFirst(self,ItemName:str,ItemId:int,Menu:Union[FBGenericMenu,None]=None)->FBGenericMenuItem:
         """Inserts a new menu Item at the first position in the menu list.
         ### Parameters:
         - ItemName: Caption of the newly added item.
@@ -10895,7 +10895,7 @@ class FBGenericMenu(FBComponent):
         
         ### Returns:
         Will return the menu item created from this insertion."""
-    def InsertLast(self,ItemName:str,ItemId:int,Menu:FBGenericMenu=None)->FBGenericMenuItem:
+    def InsertLast(self,ItemName:str,ItemId:int,Menu:Union[FBGenericMenu,None]=None)->FBGenericMenuItem:
         """Inserts a new menu Item at the last position in the menu list.
         ### Parameters:
         - ItemName: Caption of the newly added item.
@@ -11014,7 +11014,7 @@ class FBGeometry(FBComponent):
         
         ### Returns:
         Pointer to index array of tangents, or `None` if the array hasn't been allocated yet."""
-    def GetUVSetDirectArray(self,OutArrayCount:str=None)->list:
+    def GetUVSetDirectArray(self,OutArrayCount:Union[str,None]=None)->list:
         """Get a pointer to the direct array of UVset Modify array value will be only effective when geometry editing is enabled.
         ### See also:
         GeometryBegin() /GeometryEnd()
@@ -11024,7 +11024,7 @@ class FBGeometry(FBComponent):
         
         ### Returns:
         pointer to the array of UV, or `None` is the array hasn't been allocated yet."""
-    def GetUVSetIndexArray(self,OutArrayCount:str=None)->list:
+    def GetUVSetIndexArray(self,OutArrayCount:Union[str,None]=None)->list:
         """Get a pointer to the index array of UVset. \\
         Modify array value will be only effective when geometry editing is enabled.
         ### See also:
@@ -11035,14 +11035,14 @@ class FBGeometry(FBComponent):
         
         ### Returns:
         Pointer to index array of UVSet, or `None` if the array hasn't been allocated yet."""
-    def GetUVSetMappingMode(self,UVSetName:str=None)->FBGeometryMappingMode:
+    def GetUVSetMappingMode(self,UVSetName:Union[str,None]=None)->FBGeometryMappingMode:
         """Get UVSet mapping mode.
         ### Parameters:
         - UVSetName: The name of UVset, `None` for the first UVset.
         
         ### Returns:
         Mapping mode of the UVset."""
-    def GetUVSetReferenceMode(self,UVSetName:str=None)->FBGeometryReferenceMode:
+    def GetUVSetReferenceMode(self,UVSetName:Union[str,None]=None)->FBGeometryReferenceMode:
         """Get UVSet reference mode.
         ### Parameters:
         - UVSetName: The name of UVset, `None` for the first UVset.
@@ -11079,8 +11079,8 @@ class FBGeometry(FBComponent):
     def SetPositionsArray(self,arg2:list)->bool:...
     def SetTangentsDirectArray(self,arg2:list)->bool:...
     def SetTangentsIndexArray(self,arg2:list)->bool:...
-    def SetUVSetDirectArray(self,arg2:list,arg3:str=None)->bool:...
-    def SetUVSetIndexArray(self,arg2:list,arg3:str=None)->bool:...
+    def SetUVSetDirectArray(self,arg2:list,arg3:Union[str,None]=None)->bool:...
+    def SetUVSetIndexArray(self,arg2:list,arg3:Union[str,None]=None)->bool:...
     def SetVertexColorsDirectArray(self,arg2:list)->bool:...
     def SetVertexColorsIndexArray(self,arg2:list)->bool:...
     def ShapeAdd(self,Name:str)->int:
@@ -11103,7 +11103,7 @@ class FBGeometry(FBComponent):
         - ShapeIdx: The index of the shape to be initialized
         - DiffSize: Total number of different point (pos or normal) compared to base geometry.
         - bWithNormal: Currently normal won't be considered during shape blending."""
-    def ShapeSetDiffPoint(self,ShapeIdx:int,DiffIndex:int,OriIndex:int,PosDiff:FBVertex,arg6:FBNormal=None)->bool:
+    def ShapeSetDiffPoint(self,ShapeIdx:int,DiffIndex:int,OriIndex:int,PosDiff:FBVertex,arg6:Union[FBNormal,None]=None)->bool:
         """Set the differentiate point.
         ### Parameters:
         - ShapeIdx: The index of the shape
@@ -11470,7 +11470,7 @@ class FBKeyControl(FBComponent):
     """Read Write Property: Enable/Disable Auto Key feature (key when moving 3D objects)."""
     NewKeyInterpolationType:FBNewKeyInterpolationType
     """Read Write Property: Current key interpolation type that will be used for new keys."""
-    def MoveKeys(self,TimeSpan:FBTimeSpan,Pivot:FBModel,T:FBVector3d,R:FBVector3d,S:FBVector3d,Time:FBTime,ModelList:FBModelList=None):
+    def MoveKeys(self,TimeSpan:FBTimeSpan,Pivot:FBModel,T:FBVector3d,R:FBVector3d,S:FBVector3d,Time:FBTime,ModelList:Union[FBModelList,None]=None):
         """Move animation keys in space, with respect to a pivot object. \\
         Equivalent to using the 'Move Keys' button in the Key Controls panel. Only keys that are part of the current animation layer will get affected.
         ### Parameters:
@@ -11758,7 +11758,7 @@ class FBManipulator(FBComponent):
     Visible:bool
     """Read Write Property: Is manipulator visible?"""
 class FBMarkerSet(FBComponent):
-    def AddMarker(self,NodeId:FBSkeletonNodeId,Model:FBModel=None,bIsOriented:bool=False)->int:
+    def AddMarker(self,NodeId:FBSkeletonNodeId,Model:Union[FBModel,None]=None,bIsOriented:bool=False)->int:
         """Add a marker to the marker set.
         ### Parameters:
         - NodeId: Id of Actor skeleton node. For hand, use the 'C' index (ex:kFBSkeletonLeftThumbCIndex, kFBSkeletonLeftMiddleCIndex...)
@@ -12030,7 +12030,7 @@ class FBModelVertexData(FBComponent):
     def DisableOGLVertexData(self):...
     def DrawSubPatch(self,arg2,arg3=None):...
     def DrawSubRegion(self,arg2,arg3=None):...
-    def EnableOGLUVSet(self,arg2:FBTextureMapping=None,arg3:str=None):...
+    def EnableOGLUVSet(self,arg2:Union[FBTextureMapping,None]=None,arg3:Union[str,None]=None):...
     def EnableOGLVertexData(self,arg2=None):...
     def GetIndexArray(self)->list:...
     def GetIndexArraySize(self)->int:...
@@ -12043,11 +12043,11 @@ class FBModelVertexData(FBComponent):
     def GetSubPatchPrimitiveType(self,arg2)->tuple:...
     def GetSubRegionCount(self)->int:...
     def GetSubRegionMaterial(self,arg2)->object:...
-    def GetUVSetArray(self,arg2:FBTextureMapping=None,arg3:str=None)->list:...
-    def GetUVSetArrayFormat(self,arg2:FBTextureMapping=None,arg3:str=None)->FBGeometryArrayElementType:...
-    def GetUVSetUVCount(self,arg2:FBTextureMapping=None,arg3:str=None)->int:...
-    def GetUVSetVBOId(self,arg2:FBTextureMapping=None,arg3:str=None)->int:...
-    def GetUVSetVBOOffset(self,arg2:FBTextureMapping=None,arg3:str=None)->int:...
+    def GetUVSetArray(self,arg2:Union[FBTextureMapping,None]=None,arg3:Union[str,None]=None)->list:...
+    def GetUVSetArrayFormat(self,arg2:Union[FBTextureMapping,None]=None,arg3:Union[str,None]=None)->FBGeometryArrayElementType:...
+    def GetUVSetUVCount(self,arg2:Union[FBTextureMapping,None]=None,arg3:Union[str,None]=None)->int:...
+    def GetUVSetVBOId(self,arg2:Union[FBTextureMapping,None]=None,arg3:Union[str,None]=None)->int:...
+    def GetUVSetVBOOffset(self,arg2:Union[FBTextureMapping,None]=None,arg3:Union[str,None]=None)->int:...
     def GetVertexArray(self,arg2:FBGeometryArrayID,arg3=None)->list:...
     def GetVertexArrayDuplicationMap(self)->list:...
     def GetVertexArrayType(self,arg2:FBGeometryArrayID,arg3=None)->FBGeometryArrayElementType:...
@@ -12094,7 +12094,7 @@ class FBModuleManager(FBComponent):
     def __init__(self):
         """Protected constructor, use TheOne() access instead."""
 class FBMotionBlend(FBComponent):
-    def AddEdit(self,Name:str=None,bSetAsCurrent:bool=True)->FBMotionBlendEdit:
+    def AddEdit(self,Name:Union[str,None]=None,bSetAsCurrent:bool=True)->FBMotionBlendEdit:
         """Add a new Edit in the Motion Blend.
         ### Parameters:
         - Name: The new Edit name. If unset, the name 'Edit' will be set.
@@ -12208,7 +12208,7 @@ class FBMotionBlendEdit(FBComponent):
         
         ### Returns:
         True if the operation is successful, false otherwise."""
-    def __init__(self,Name:str=None,bSetAsCurrent:bool=True):
+    def __init__(self,Name:Union[str,None]=None,bSetAsCurrent:bool=True):
         """### Parameters:
         - Name: The new Edit name. If unset, the name 'Edit' will be set.
         - bSetAsCurrent: True (default) to set the new Edit as the current Edit to be used in the Motion Blend."""
@@ -12454,7 +12454,7 @@ class FBFileReference(FBNamespace):
         
         ### Returns:
         true if successful, false is fail."""
-    def GetRefEdit(self,FilePath:str=None)->str:
+    def GetRefEdit(self,FilePath:Union[str,None]=None)->str:
         """Return the RefEdit for given RefFile Path.
         ### Parameters:
         - FilePath: The Ref File Path to query against, default to be current Ref File.
@@ -12465,7 +12465,7 @@ class FBFileReference(FBNamespace):
         """Return a list of ref file path which has cached Ref Edit.
         ### Parameters:
         - RefFileList: the output parameter to collect the Ref File Path."""
-    def RevertRefEdit(self,Plug:FBPlug=None,ModificationFlag:FBPlugModificationFlag=FBPlugModificationFlag.kFBAllModifiedMask):
+    def RevertRefEdit(self,Plug:Union[FBPlug,None]=None,ModificationFlag:FBPlugModificationFlag=FBPlugModificationFlag.kFBAllModifiedMask):
         """Revert the modification on the referenced object/property to original state.
         ### Parameters:
         - Plug: the plug to revert, revert all if NULL.
@@ -12652,14 +12652,14 @@ class FBPlayerControl(FBComponent):
         """Get Transport Mode.
         ### Returns:
         Current mode of the transport controls."""
-    def Goto(self,Time:FBTime,arg3:FBTimeReferential=None)->bool:
+    def Goto(self,Time:FBTime,arg3:Union[FBTimeReferential,None]=None)->bool:
         """Goto a time specified by Time .
         ### Parameters:
         - Time: Time to jump to.
         
         ### Returns:
         true if successful."""
-    def GotoEnd(self,arg2:FBTimeReferential=None)->bool:
+    def GotoEnd(self,arg2:Union[FBTimeReferential,None]=None)->bool:
         """GotoEnd button (FastForward).
         ### Returns:
         true if successful."""
@@ -12667,7 +12667,7 @@ class FBPlayerControl(FBComponent):
         """Go to the next key."""
     def GotoPreviousKey(self):
         """Go to the previous key."""
-    def GotoStart(self,arg2:FBTimeReferential=None)->bool:
+    def GotoStart(self,arg2:Union[FBTimeReferential,None]=None)->bool:
         """GotoStart button (Rewind).
         ### Returns:
         true if successful."""
@@ -12768,11 +12768,11 @@ class FBPlayerControl(FBComponent):
         ### Parameters:
         - TimeMode: Indicate the frame rate value to use base on the FBTimeMode values enum.(kFBTimeModeDefault will be stored in fps)
         - Custom: Should the time mode be kFBTimeModeCustom, this is used to specify the custom framerate."""
-    def StepBackward(self,arg2:FBTimeReferential=None)->bool:
+    def StepBackward(self,arg2:Union[FBTimeReferential,None]=None)->bool:
         """Step one frame backward.
         ### Returns:
         true if successful."""
-    def StepForward(self,arg2:FBTimeReferential=None)->bool:
+    def StepForward(self,arg2:Union[FBTimeReferential,None]=None)->bool:
         """Step one frame ahead.
         ### Returns:
         true if successful."""
@@ -13105,7 +13105,7 @@ class FBScene(FBComponent):
         
         ### Returns:
         Namespace with exact name matching"""
-    def NamespaceGetChildrenList(self,NamespaceList:FBStringList,Namespace:str=None,bRecursive:bool=True)->int:
+    def NamespaceGetChildrenList(self,NamespaceList:FBStringList,Namespace:Union[str,None]=None,bRecursive:bool=True)->int:
         """Get list of children namespaces in the given namespace.
         ### Parameters:
         - NamespaceList: the list of namespace to return.
@@ -13240,7 +13240,7 @@ class FBShaderLighted(FBShader):
     """Read Write Property: Activate the Luminosity option."""
     UseSpecular:bool
     """Read Write Property: Activate the Specularity option."""
-    def __init__(self,Name:str=None):
+    def __init__(self,Name:Union[str,None]=None):
         """### Parameters:
         - Name: Name of shader."""
 class FBShaderManager():
@@ -13287,7 +13287,7 @@ class FBShaderShadowLive(FBShader):
     """Read Write Property: Specifies the offset of the Live Shadow shader's plane from the original selected plane."""
     UseGobo:bool
     """Read Write Property: Includes the gobo in the shadow map calculation."""
-    def __init__(self,Name:str=None):
+    def __init__(self,Name:Union[str,None]=None):
         """### Parameters:
         - Name: Name of shader."""
 class FBSkeletonState():
@@ -13565,7 +13565,7 @@ class FBStoryClip(FBComponent):
         
         ### Returns:
         Returns true if the assign succeeded, false otherwise."""
-    def SetReadOnly(self,bMakeClipReadOnly:bool,OutputFile:str=None)->bool:
+    def SetReadOnly(self,bMakeClipReadOnly:bool,OutputFile:Union[str,None]=None)->bool:
         """SetReadOnly Assigns the clip read-only status.
         ### Parameters:
         - bMakeClipReadOnly: New read-only status
@@ -13644,7 +13644,7 @@ class FBStoryFolder(FBComponent):
         """Allow to load/unload all story clips under this folder.
         ### Remarks:
         Currently only animation clips are supported."""
-    def __init__(self,ParentFolder:FBStoryFolder=None):
+    def __init__(self,ParentFolder:Union[FBStoryFolder,None]=None):
         """### Parameters:
         - ParentFolder: If NULL, parent will be the global root folder, according to its type.
         
@@ -13756,7 +13756,7 @@ class FBStoryTrack(FBConstraint):
         ### Returns:
         Created story clip if the operation succeeded, `None` otherwise."""
     @overload
-    def CopyTakeIntoTrack(self,TimeSpan:FBTimeSpan,Take:FBTake,bConnectToCurrentTake:bool,OutputOffset:FBTime=None,bMakeUndoable:bool=False)->FBStoryClip:
+    def CopyTakeIntoTrack(self,TimeSpan:FBTimeSpan,Take:FBTake,bConnectToCurrentTake:bool,OutputOffset:Union[FBTime,None]=None,bMakeUndoable:bool=False)->FBStoryClip:
         """CopyTakeIntoTrack Copy animation from the specified take for affected objects of the track.
         ### Parameters:
         - TimeSpan: Time span for the clip to create.
@@ -13786,9 +13786,9 @@ class FBStoryTrack(FBConstraint):
         ### Remarks:
         Currently only animation clips are supported."""
     @overload
-    def __init__(self,arg2:FBStoryTrackType,arg3:FBStoryFolder=None):...
+    def __init__(self,arg2:FBStoryTrackType,arg3:Union[FBStoryFolder,None]=None):...
     @overload
-    def __init__(self,arg2:FBComponent,arg3:FBStoryFolder=None):...
+    def __init__(self,arg2:FBComponent,arg3:Union[FBStoryFolder,None]=None):...
 class FBStringList():
     def Add(self,S:str,Ref=0)->int:
         """Add a string to the list.
@@ -16530,7 +16530,7 @@ class FBLayout(FBVisualComponent):
         
         ### Returns:
         Operation was successful (true or false)."""
-    def GetRegionPositions(self,Name:str,bComputed:bool,X:int,Y:int,W:int=None,H:int=None)->bool:
+    def GetRegionPositions(self,Name:str,bComputed:bool,X:int,Y:int,W:Union[int,None]=None,H:Union[int,None]=None)->bool:
         """Get region Name information (position and size)
         ### Parameters:
         - Name: Name of region.
@@ -16676,7 +16676,7 @@ class FBPopup(FBLayout):
         """Close popup.
         ### Parameters:
         - bOk: Equivalent of OK button clicked if true (default = false )."""
-    def Show(self,Parent:FBVisualComponent=None):
+    def Show(self,Parent:Union[FBVisualComponent,None]=None):
         """Show popup.
         ### Parameters:
         - Parent: Parent object for popup
@@ -17071,7 +17071,7 @@ def FBConstraintSolver_TypeInfo()->int:...
 def FBConstraint_TypeInfo()->int:...
 def FBConstructionHistory_TypeInfo()->int:...
 def FBControlSet_TypeInfo()->int:...
-def FBCreateObject(GroupName:str,EntryName:str,Name:str,Data:None=None)->FBComponent:
+def FBCreateObject(GroupName:str,EntryName:str,Name:str,Data:Union[None,None]=None)->FBComponent:
     """### Parameters:
     - EntryName: Set the name of the Entry.
     - Name: Set the name of the Object to create.
@@ -17088,7 +17088,7 @@ def FBDeleteCharacterPinningPreset(PresetName:str)->bool:
     
     ### Returns:
     True if the operation is successful, false otherwise."""
-def FBDeleteObjectsByName(NamePattern:str,NameSpace:str=None,GroupName:str=None)->int:
+def FBDeleteObjectsByName(NamePattern:str,NameSpace:Union[str,None]=None,GroupName:Union[str,None]=None)->int:
     """This function will query the system for objects fulfilling a particular name pattern and delete them. specify a namespace preferred, delete all objects with the group name without specified a namespace specified may lead to inconsistent in scene. Wrap multiple calls to FBDeleteObjectsByName() inside pair of FBPreventUIUpdateBegin() / FBPreventUIUpdateEnd() could improve application's performance.
     ### Parameters:
     - NamePattern: if not NULL, indicate the name pattern to search. This pattern can contain any amount of *. (ex: *tr*mod*scene ). if is `None` or Empty string, * will be used for match all.
@@ -17364,7 +17364,7 @@ def FBGetMultiLangText(Context:str,Key:str,bFlagReturnKey:bool=False)->str:
         }
     }"""
 def FBGetRenderingTaskCycle()->FBProfileTaskCycle:...
-def FBGetSelectedModels(List:FBModelList,Parent:FBModel=None,bSelected:bool=True,bSortBySelectOrder:bool=False):
+def FBGetSelectedModels(List:FBModelList,Parent:Union[FBModel,None]=None,bSelected:bool=True,bSortBySelectOrder:bool=False):
     """Find all models that are selected (if bSelected is true) Searches recursively from a root model for models that are selected, and adds them to a list of models.
     ### Return values:
     - List: List to add found models to.
@@ -17564,7 +17564,7 @@ def FBMergeTransactionFileRefEditIsOn()->bool:
 def FBMergeTransactionIsOn()->bool:
     """Call to tell if system is during Merge transaction."""
 def FBMesh_TypeInfo()->int:...
-def FBMessageBox(BoxTitle:str,Message:str,Button1Str:str,Button2Str:str=None,Button3Str:str=None,DefaultButton:int=0,ScrolledMessage:int=0)->int:
+def FBMessageBox(BoxTitle:str,Message:str,Button1Str:str,Button2Str:Union[str,None]=None,Button3Str:Union[str,None]=None,DefaultButton:int=0,ScrolledMessage:int=0)->int:
     """Dialog popup box. \\
     Opens a message box containing a message and up to three buttons. Waits for the user to click a button.
     ### Parameters:
@@ -17578,7 +17578,7 @@ def FBMessageBox(BoxTitle:str,Message:str,Button1Str:str,Button2Str:str=None,But
     
     ### Returns:
     The number of the button selected."""
-def FBMessageBoxGetUserValue(BoxTitle:str,Message:str,Value:None,ValueType:FBPopupInputType,Button1Str:str,Button2Str:str=None,Button3Str:str=None,DefaultButton:int=0,bLastButtonCancel:bool=True)->int:
+def FBMessageBoxGetUserValue(BoxTitle:str,Message:str,Value:None,ValueType:FBPopupInputType,Button1Str:str,Button2Str:Union[str,None]=None,Button3Str:Union[str,None]=None,DefaultButton:int=0,bLastButtonCancel:bool=True)->int:
     """Dialog popup box to get user input. \\
     Opens a message box, with up to three buttons, asking the user to enter data. The type of data to be entered is specified by the Value and ValueType parameters.
     ### Parameters:
