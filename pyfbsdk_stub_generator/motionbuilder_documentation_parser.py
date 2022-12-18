@@ -58,7 +58,8 @@ CToPythonVariableTranslation = {
     "kLong": "int",
     "kULong": "int",
     "kLongLong": "float",
-    "kReference": ""
+    "kReference": "",
+    "nullptr": "None"
 }
 
 

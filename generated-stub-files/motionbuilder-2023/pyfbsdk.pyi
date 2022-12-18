@@ -13113,7 +13113,7 @@ class FBModuleManager(FBComponent):
         """Protected constructor, use TheOne() access instead."""
         ...
 class FBMotionBlend(FBComponent):
-    def AddEdit(self,Name:str=nullptr,bSetAsCurrent:bool=True)->FBMotionBlendEdit:
+    def AddEdit(self,Name:str=None,bSetAsCurrent:bool=True)->FBMotionBlendEdit:
         """Add a new Edit in the Motion Blend.
         ### Parameters:
         - Name: The new Edit name. If unset, the name 'Edit' will be set.
@@ -13247,7 +13247,7 @@ class FBMotionBlendEdit(FBComponent):
         ### Returns:
         True if the operation is successful, false otherwise."""
         ...
-    def __init__(self,Name:str=nullptr,bSetAsCurrent:bool=True):
+    def __init__(self,Name:str=None,bSetAsCurrent:bool=True):
         """### Parameters:
         - Name: The new Edit name. If unset, the name 'Edit' will be set.
         - bSetAsCurrent: True (default) to set the new Edit as the current Edit to be used in the Motion Blend."""
