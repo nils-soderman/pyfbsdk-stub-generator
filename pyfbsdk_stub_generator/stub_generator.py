@@ -27,6 +27,7 @@ reload(manualDoc)
 IS_PYTHON_39 = sys.version_info.major == 3 and sys.version_info.minor == 9
 ADDITIONS_FILEPATH = os.path.join(os.path.dirname(__file__), "additions_pyfbsdk.py")
 TAB_CHARACTER = "    "
+ALWAYS_CREATE_ELLIPSIS = False
 
 
 # TODO: Broken stuff:
@@ -376,7 +377,9 @@ class StubFunction(StubBaseClass):
 
         DocString = self.GetDocString()
         if DocString:
-            FunctionAsString += f"\n{Indent(DocString)}\n{Indent('...')}"
+            FunctionAsString += f"\n{Indent(DocString)}"
+            if ALWAYS_CREATE_ELLIPSIS:
+                FunctionAsString += f"\n{Indent('...')}"
         else:
             FunctionAsString += "..."
 
@@ -1109,6 +1112,7 @@ class PyfbsdkStubGenerator():
         StubString += "\n".join([x.GetAsString() for x in self.Classes])
         StubString += "\n"
         StubString += "\n".join([x.GetAsString() for x in self.Functions])
+        StubString += "\n"
 
         return StubString
 
