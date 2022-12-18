@@ -102,7 +102,9 @@ disable=raw-checker-failed,
         too-few-public-methods,
         too-many-arguments,
         abstract-method,
-        import-outside-toplevel
+        import-outside-toplevel,
+        too-many-locals,
+        too-many-branches
         
 
 # Enable the message, report, category or checker with the given id(s). You can
