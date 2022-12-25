@@ -9,7 +9,8 @@
         "**/__pycache__/**": true,
         "dist": true,
         "**/env": true,
-        "*.egg-info": true
+        "*.egg-info": true,
+        "**/.mypy_cache": true
     },
 
     "python.formatting.provider": "autopep8",
