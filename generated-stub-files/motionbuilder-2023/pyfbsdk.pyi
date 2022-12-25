@@ -8,7 +8,6 @@ class _Enum:
     __slots__:tuple
     names:dict
     values:dict
-class ETimeFormats:...
 class FBAccessMode(_Enum):
     """Data access modes."""
     kFBAccessModeDisk:FBAccessMode
@@ -3726,8 +3725,10 @@ class FBEventTreeSelect(FBEvent):
     """Read Write Property: Selected tree node."""
     def __init__(self):...
 class FBEventVideoFrameRendering(FBEvent):
-    EState:type
-    """video rendering state"""
+    class EState(_Enum):
+        eBeginRendering:FBEventVideoFrameRendering.EState
+        eEndRendering:FBEventVideoFrameRendering.EState
+        eRendering:FBEventVideoFrameRendering.EState
     FrameCount:int
     """returns the total number of frames the video renderer is rendering.
     ### Returns:
@@ -3740,12 +3741,9 @@ class FBEventVideoFrameRendering(FBEvent):
     """returns the current state of the video renderer.
     ### Returns:
     the current state."""
-    eBeginRendering:type
-    """State before video renderer renders all the frames."""
-    eEndRendering:type
-    """State after video renderer renders all the frames."""
-    eRendering:type
-    """State before video renderer renders each frame."""
+    eBeginRendering:FBEventVideoFrameRendering.EState
+    eEndRendering:FBEventVideoFrameRendering.EState
+    eRendering:FBEventVideoFrameRendering.EState
     def __init__(self):...
 class FBFCurveEvent(FBEvent):
     Curve:FBFCurve
@@ -7958,7 +7956,14 @@ class FBGroup(FBBox):
         """### Parameters:
         - Name: Group name."""
 class FBHUD(FBBox):
-    EStockElement:type
+    class EStockElement(_Enum):
+        eBloopSlate:FBHUD.EStockElement
+        eFlashElement:FBHUD.EStockElement
+        eRecordLight:FBHUD.EStockElement
+        eRectElement:FBHUD.EStockElement
+        eTextElement:FBHUD.EStockElement
+        eTextureElement:FBHUD.EStockElement
+        eTimeline:FBHUD.EStockElement
     Elements:FBPropertyListHUDElement
     """List: Elements present in the HUD."""
     HUDs:FBPropertyListHUD
@@ -7967,13 +7972,13 @@ class FBHUD(FBBox):
     """Event: Callback just before HUD is displayed to update custom values"""
     Visibility:bool
     """Read Write Property: Indicate if the information will be displayed or not."""
-    eBloopSlate:type
-    eFlashElement:type
-    eRecordLight:type
-    eRectElement:type
-    eTextElement:type
-    eTextureElement:type
-    eTimeline:type
+    eBloopSlate:FBHUD.EStockElement
+    eFlashElement:FBHUD.EStockElement
+    eRecordLight:FBHUD.EStockElement
+    eRectElement:FBHUD.EStockElement
+    eTextElement:FBHUD.EStockElement
+    eTextureElement:FBHUD.EStockElement
+    eTimeline:FBHUD.EStockElement
     def CreateCustomElement(self,HUDElementClassName:str,Name:str)->FBHUDElement:
         """Creates a custom HUD Element.
         ### Parameters:
@@ -7982,7 +7987,7 @@ class FBHUD(FBBox):
         
         ### Returns:
         The created custom HUD Element."""
-    def CreateElement(self,Type:EStockElement,Name:str)->FBHUDElement:
+    def CreateElement(self,Type:FBHUD.EStockElement,Name:str)->FBHUDElement:
         """Creates a stock HUD Element.
         ### Parameters:
         - Type: View to be called for expose.
@@ -8487,6 +8492,9 @@ class FBModelCube(FBModel):
         """### Parameters:
         - Name: Name of cube."""
 class FBLight(FBModel):
+    class EAreaLightShapes(_Enum):
+        eRectangle:FBLight.EAreaLightShapes
+        eSphere:FBLight.EAreaLightShapes
     AreaLightShape:property
     """Read Write Property: Area light shape."""
     AttenuationType:FBAttenuationType
@@ -8507,8 +8515,6 @@ class FBLight(FBModel):
     """Read Write Property: Draw ground projection of gobo?"""
     DrawVolumetricLight:bool
     """Read Write Property: Draw volumetric light with gobo?"""
-    EAreaLightShapes:type
-    """Area light shapes."""
     EnableBarnDoor:bool
     """Read Write Property: Whether or not enable barn door."""
     FogIntensity:FBPropertyAnimatableDouble
@@ -8532,10 +8538,8 @@ class FBLight(FBModel):
     """Read Write Property: Angle of right barn door."""
     TopBarnDoor:float
     """Read Write Property: Angle of top barn door."""
-    eRectangle:type
-    """Rectangle."""
-    eSphere:type
-    """Sphere."""
+    eRectangle:FBLight.EAreaLightShapes
+    eSphere:FBLight.EAreaLightShapes
     def __init__(self,Name:str):
         """### Parameters:
         - Name: Name of light."""
@@ -8945,16 +8949,22 @@ class FBModelOptical(FBModel):
         """### Parameters:
         - Name: Name of optical model."""
 class FBModelPath3D(FBModel):
+    class EKeyPropertyBehavior(_Enum):
+        eLegacyVector4:FBModelPath3D.EKeyPropertyBehavior
+        eVector:FBModelPath3D.EKeyPropertyBehavior
+    class ELengthUnitType(_Enum):
+        eArchitectural:FBModelPath3D.ELengthUnitType
+        eCM:FBModelPath3D.ELengthUnitType
+        eKM:FBModelPath3D.ELengthUnitType
+        eM:FBModelPath3D.ELengthUnitType
+        eMI:FBModelPath3D.ELengthUnitType
+    class EPathEndCapStyle(_Enum):
+        eArrow:FBModelPath3D.EPathEndCapStyle
+        eNone:FBModelPath3D.EPathEndCapStyle
     AutoControlNode:bool
     """Read Write Property: Automatically create key control nodes."""
     Color:FBPropertyAnimatableColor
     """Read Write Property: Path display color in viewport."""
-    EKeyPropertyBehavior:type
-    """Key property behavior."""
-    ELengthUnitType:type
-    """Path Length Unit enum."""
-    EPathEndCapStyle:type
-    """Path end cap style enum."""
     KeyPropertyBehavior:property
     """Read Only Property: Key property behavior."""
     PathEndCapScale:float
@@ -8973,17 +8983,15 @@ class FBModelPath3D(FBModel):
     """Read Write Property: Path Length label display background color."""
     TextScale:float
     """Read Write Property: Path Length label display scale."""
-    eArchitectural:type
-    eArrow:type
-    eCM:type
-    eKM:type
-    eLegacyVector4:type
-    """2014, 2015, 2016. Key property type is Vector4."""
-    eM:type
-    eMI:type
-    eNone:type
-    eVector:type
-    """Introduced after 2016. Key property type is Vector, has improved control node behavior and support for auto control node."""
+    eArchitectural:FBModelPath3D.ELengthUnitType
+    eArrow:FBModelPath3D.EPathEndCapStyle
+    eCM:FBModelPath3D.ELengthUnitType
+    eKM:FBModelPath3D.ELengthUnitType
+    eLegacyVector4:FBModelPath3D.EKeyPropertyBehavior
+    eM:FBModelPath3D.ELengthUnitType
+    eMI:FBModelPath3D.ELengthUnitType
+    eNone:FBModelPath3D.EPathEndCapStyle
+    eVector:FBModelPath3D.EKeyPropertyBehavior
     def ConvertSegmentPercentToTotalPercent(self,Percent:float,EvaluateInfo:Optional[FBEvaluateInfo]=None)->float:
         """Converting one key type Segment (time) to Total (percent).
         ### Parameters:
@@ -13915,6 +13923,10 @@ class FBSurface(FBGeometry):
     def SurfaceEditEnd(self):...
     def SurfaceEnd(self):...
 class FBSystem(FBComponent):
+    class EPluginItemInfo(_Enum):
+        ePluginItemDescription:FBSystem.EPluginItemInfo
+        ePluginItemFileName:FBSystem.EPluginItemInfo
+        ePluginItemIconName:FBSystem.EPluginItemInfo
     ApplicationPath:str
     """Read Only Property: Location where the application is installed."""
     AreMessageBoxesSuspended:bool
@@ -13941,8 +13953,6 @@ class FBSystem(FBComponent):
     DesktopSize:FBVector2d
     """Read Only Property: The width and height of the desktop."""
     Devices:property
-    EPluginItemInfo:type
-    """Array index of each plug-in item information (see the GetLoadedPluginItemInfo() member function)."""
     FrameRate:float
     """Read Only Property: The frame rate of the viewer."""
     FullScreenViewer:bool
@@ -13998,12 +14008,9 @@ class FBSystem(FBComponent):
     """List: Available video inputs."""
     VideoOutputs:FBPropertyListVideoOut
     """List: Available video outputs."""
-    ePluginItemDescription:type
-    """Plug-in item's description."""
-    ePluginItemFileName:type
-    """Plug-in item's filename."""
-    ePluginItemIconName:type
-    """Plug-in item's icon name."""
+    ePluginItemDescription:FBSystem.EPluginItemInfo
+    ePluginItemFileName:FBSystem.EPluginItemInfo
+    ePluginItemIconName:FBSystem.EPluginItemInfo
     def CurrentDirectory(self)->str:
         """Get current work directory.
         ### Returns:
@@ -14139,8 +14146,10 @@ class FBLayeredTexture(FBTexture):
         """### Parameters:
         - Name: Name of texture media. Can be a NULL pointer. If set, this will create a FBVideo object used as the Video property."""
 class FBTime():
-    ETimeFormats:type
-    """Different time format available."""
+    class ETimeFormats(_Enum):
+        eDefaultFormat:FBTime.ETimeFormats
+        eFrame:FBTime.ETimeFormats
+        eSMPTE:FBTime.ETimeFormats
     Infinity:FBTime
     """Time constant: Infinity, the largest time value."""
     MinusInfinity:FBTime
@@ -14153,12 +14162,9 @@ class FBTime():
     """Time constant: One Second."""
     Zero:FBTime
     """Time constant: Zero."""
-    eDefaultFormat:type
-    """Default Time format."""
-    eFrame:type
-    """format as numeric frame"""
-    eSMPTE:type
-    """format as SMPTE"""
+    eDefaultFormat:FBTime.ETimeFormats
+    eFrame:FBTime.ETimeFormats
+    eSMPTE:FBTime.ETimeFormats
     def Get(self)->int:
         """Get time value (long)
         ### Returns:
@@ -14179,7 +14185,7 @@ class FBTime():
         """Get seconds as double.
         ### Returns:
         Seconds in double form."""
-    def GetTimeString(self,Mode:FBTimeMode=FBTimeMode.kFBTimeModeDefault,Format:ETimeFormats=eDefaultFormat)->str:
+    def GetTimeString(self,Mode:FBTimeMode=FBTimeMode.kFBTimeModeDefault,Format:FBTime.ETimeFormats=FBTime.ETimeFormats.eDefaultFormat)->str:
         """Get time as a string.
         ### Parameters:
         - Mode: Time mode (default=kFBTimeModeDefault) to use (call FBSystem() .GetTransportFps() to the the current UI displayed mode).
@@ -14294,7 +14300,7 @@ class FBTimeCode():
         raw value for the second."""
     def GetTime(self)->FBTime:
         """Return a Time corresponding to the timecode."""
-    def GetTimeCodeString(self,Format:ETimeFormats=FBTime.eDefaultFormat)->str:
+    def GetTimeCodeString(self,Format:FBTime.ETimeFormats=FBTime.eDefaultFormat)->str:
         """Get time as a string.
         ### Parameters:
         - Format: Format to use for the returned string(default= FBTime::eDefaultFormat ).
@@ -14312,7 +14318,7 @@ class FBTimeCode():
         - Minute: Minute value.
         - Second: Second value.
         - Frame: Frame value."""
-    def SetTimeCodeString(self,Time:str,Format:ETimeFormats=FBTime.eDefaultFormat):
+    def SetTimeCodeString(self,Time:str,Format:FBTime.ETimeFormats=FBTime.eDefaultFormat):
         """Set time from string.
         ### Parameters:
         - Time: String to set time from.

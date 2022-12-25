@@ -8,4 +8,3 @@ class _Enum:
     __slots__:tuple
     names:dict
     values:dict
-class ETimeFormats:...

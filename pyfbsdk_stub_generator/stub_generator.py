@@ -184,13 +184,13 @@ def GetClassParentNames(Class):
     return ParentClassNames
 
 
-def GetFunctionInfoFromDocString(Function):
+def GetFunctionInfoFromDocString(Function) -> list[tuple[list[StubParameter], str]]:
     """
     Get Parameters & Return type from the docstring, can return multiple results if overload functions exists.
 
     Returns: a list of tuple([Parameters], ReturnType)
     """
-    def _GenerateParams(ParamsString, DefaultValue = None):
+    def _GenerateParams(ParamsString, DefaultValue = None) -> list[StubParameter]:
         """ 
         Parse a param string that looks something like this:
         "(FBVector4d)arg1, (FBVector4d)arg2, (FBVector4d)arg3"
@@ -200,7 +200,7 @@ def GetFunctionInfoFromDocString(Function):
         for Param in ParamsString.split(","):
             # Param will now look something like this: '(str)arg1'
             ParamType, _, ParamName = Param.strip().partition(")")
-            ParameterInstance = StubParameter(ParamName, ParamType[1:], DefaultValue = DefaultValue)
+            ParameterInstance = StubParameter(Function, ParamName, ParamType[1:], DefaultValue = DefaultValue)
             Params.append(ParameterInstance)
         return Params
 
@@ -263,6 +263,7 @@ def GetDataTypeFromPropertyClassName(ClassName: str, AllClassNames: list[str]):
     Get the `Data` property type for a class that inherits from `FBProperty`
     This is done by removing e.g. `FBProperty` from the class name. Example: `FBPropertyVector3d` -> `Vector3d`
     """
+
     # Value to return use if a valid class could not be found for the given ClassName
     DefaultValue = "Any"
 
@@ -299,8 +300,9 @@ def GetDataTypeFromPropertyClassName(ClassName: str, AllClassNames: list[str]):
 # -------------------------------------------------------------
 
 
-class StubBaseClass():
-    def __init__(self, Name = "") -> None:
+class StubBase():
+    def __init__(self, Ref, Name = "") -> None:
+        self.Ref = Ref
         self.Name: str = Name
         self.DocString = ""
 
@@ -322,9 +324,9 @@ class StubBaseClass():
         raise NotImplementedError("GetRequirements() has not yet been implemented")
 
 
-class StubFunction(StubBaseClass):
-    def __init__(self, Name = "", Parameters = None, ReturnType = None):
-        super().__init__(Name = Name)
+class StubFunction(StubBase):
+    def __init__(self, Ref, Name = "", Parameters = None, ReturnType = None):
+        super().__init__(Ref, Name = Name)
         self._Params: list[StubParameter] = Parameters if Parameters else []
         self.ReturnType = ReturnType
         self.bIsMethod = False
@@ -386,11 +388,12 @@ class StubFunction(StubBaseClass):
         return FunctionAsString
 
 
-class StubClass(StubBaseClass):
-    def __init__(self, Name = ""):
-        super().__init__(Name = Name)
+class StubClass(StubBase):
+    def __init__(self, Ref, Name = ""):
+        super().__init__(Ref, Name = Name)
         self.Parents = []
         self.StubProperties: list[StubProperty] = []
+        self.StubEnums: list[StubClass] = []
         self.StubFunctions: list[StubFunction] = []
 
     def GetFunctionsByName(self, Name: str):
@@ -400,6 +403,9 @@ class StubClass(StubBaseClass):
         for x in self.StubProperties:
             if x.Name == Name:
                 return x
+
+    def AddEnum(self, Enum: StubClass):
+        self.StubEnums.append(Enum)
 
     def AddFunction(self, Function: StubFunction):
         Function.bIsMethod = True  # Make function a method
@@ -429,7 +435,7 @@ class StubClass(StubBaseClass):
         if self.GetDocString():
             ClassAsString += f"{Indent(self.GetDocString())}\n"
 
-        ClassMembers = self.StubProperties + self.StubFunctions
+        ClassMembers = self.StubEnums + self.StubProperties + self.StubFunctions
         for StubObject in ClassMembers:
             ClassAsString += f"{Indent(StubObject.GetAsString())}\n"
 
@@ -441,9 +447,9 @@ class StubClass(StubBaseClass):
         return ClassAsString.strip()
 
 
-class StubProperty(StubBaseClass):
-    def __init__(self, Name = ""):
-        super().__init__(Name = Name)
+class StubProperty(StubBase):
+    def __init__(self, Ref, Name = ""):
+        super().__init__(Ref, Name = Name)
         self._Type = None
 
     @property
@@ -467,9 +473,9 @@ class StubProperty(StubBaseClass):
         return PropertyAsString
 
 
-class StubParameter(StubBaseClass):
-    def __init__(self, Name = "", Type = "", DefaultValue = None):
-        super().__init__(Name = Name)
+class StubParameter(StubBase):
+    def __init__(self, Ref, Name = "", Type = "", DefaultValue = None):
+        super().__init__(Ref, Name = Name)
         self.Type = Type
         self.DefaultValue = DefaultValue
 
@@ -534,22 +540,26 @@ class PyfbsdkStubGenerator():
             self._AllClassNames = [x.__name__ for x in Classes + Enums]
         return self._AllClassNames
 
-    def _GenerateEnumInstance(self, Class):
+    def _GenerateEnumInstance(self, Class, ParentClass = None):
         """
         Generate a StubClass instance from a class (enum) reference
 
         Args:
-            - Class {class}: reference to the class
+            - Class: reference to the class
+            - ParentClass: If this class is a subclass, the parent class should be passed along
         """
         # Create the stub instance
         ClassName = GetObjectName(Class)
-        EnumClassInstance = StubClass(ClassName)
+        EnumClassInstance = StubClass(Class, ClassName)
 
         # Get all members and generate stub properties of them
         ClassMemebers = GetUniqueClassMembers(Class, Ignore = ["__init__", "__slots__", "names", "values"])
         for PropertyName, PropertyReference in ClassMemebers:
-            PropertyInstance = StubProperty(PropertyName)
-            PropertyInstance.Type = ClassName
+            PropertyInstance = StubProperty(PropertyReference, PropertyName)
+            if ParentClass:
+                PropertyInstance.Type = f"{GetObjectName(ParentClass)}.{ClassName}"
+            else:
+                PropertyInstance.Type = ClassName
             EnumClassInstance.AddProperty(PropertyInstance)
 
         EnumClassInstance.AddParent("_Enum")
@@ -565,7 +575,7 @@ class PyfbsdkStubGenerator():
         """
         # Create the stub instance
         ClassName = GetObjectName(Class)
-        ClassInstance = StubClass(ClassName)
+        ClassInstance = StubClass(Class, ClassName)
 
         # Get all members and generate stub properties of them
         ClassMemebers = GetUniqueClassMembers(Class, Ignore = ["__instance_size__"], AllowedOverrides = ["__init__", "__getitem__", "Data"])
@@ -576,13 +586,18 @@ class PyfbsdkStubGenerator():
                 for StubMethod in self._GenerateFunctionInstances(MemberReference):
                     StubMethod.bIsStatic = IsMethodStatic(Class, MemberName)
                     ClassInstance.AddFunction(StubMethod)
+            elif Type == FObjectType.Enum:
+                StubEnum = self._GenerateEnumInstance(MemberReference, ParentClass = Class)
+                ClassInstance.AddEnum(StubEnum)
             elif MemberName not in ["__init__"]:
-                Property = StubProperty(MemberName)
-                Property.Type = GetObjectType(MemberReference)
-                if Property.Type in ClassMemberNames:
-                    Property.Type = FObjectType.Enum
-                if MemberName == "Data" and "FBProperty" in ClassName and Property.Type == FObjectType.Property:
+                Property = StubProperty(MemberReference, MemberName)
+                if Type in ClassMemberNames:
+                    Property.Type = f"{ClassName}.{Type}"
+                elif MemberName == "Data" and "FBProperty" in ClassName and Type == FObjectType.Property:
                     Property.Type = GetDataTypeFromPropertyClassName(ClassName, self.GetAllClassNames())
+                else:
+                    Property.Type = Type
+
                 ClassInstance.AddProperty(Property)
 
         # Set the parent classes
@@ -607,7 +622,7 @@ class PyfbsdkStubGenerator():
         # Get param & returntype info from the docstring
         FunctionInfo = GetFunctionInfoFromDocString(Function)
         for Parameters, ReturnType in FunctionInfo:
-            StubFunctionInstance = StubFunction(FunctionName, Parameters, ReturnType)
+            StubFunctionInstance = StubFunction(Function, FunctionName, Parameters, ReturnType)
 
             # If multiple versions of this function exists, set the functions to be overloads
             StubFunctionInstance.bIsOverload = len(FunctionInfo) > 1
@@ -755,7 +770,7 @@ class PyfbsdkStubGenerator():
                 continue
 
             # Check if we're exiting a code block
-            elif bParsingCode and Line == "@ENDCODE":
+            if bParsingCode and Line == "@ENDCODE":
                 bParsingCode = False
                 Line = ""
 
@@ -886,6 +901,7 @@ class PyfbsdkStubGenerator():
                     if NewDefaultValue:
                         Parameter.DefaultValue = NewDefaultValue
 
+                # TODO: THIS  or Parameter.Type == "list"
                 if not Parameter.Type or Parameter.Type == "object":
                     Parameter.Type = DocumentationParam.GetType(bConvertToPython = True)
                 self._PatchParameter(Parameter)
@@ -901,7 +917,7 @@ class PyfbsdkStubGenerator():
             if Line == "@TABLE":
                 bParsingEnum = True
                 continue
-            elif Line == "@ENDTABLE":
+            if Line == "@ENDTABLE":
                 bParsingEnum = False
                 continue
 
@@ -1087,6 +1103,26 @@ class PyfbsdkStubGenerator():
             if StubFunctionRef:
                 _PatchFunction(StubFunctionRef[0], Object)
 
+    def FinalPatchClass(self, Class: StubClass):
+        for Function in Class.StubFunctions:
+            self.FinalPatchFunction(Function)
+
+    def FinalPatchFunction(self, Function: StubFunction):
+        for Parameter in Function.GetParameters():
+            self.FinalPatchParameter(Parameter)
+
+    def FinalPatchParameter(self, Parameter: StubParameter):
+        # Patch the type if it's an enum that lives as a subclass
+        if Parameter.Type and Parameter.Type.startswith("E"):
+            if Parameter.Type not in self.GetAllClassNames():
+                # Find the class that the enum is a part of
+                for Class in self.Classes:
+                    if hasattr(Class.Ref, Parameter.Type):
+                        Parameter.Type = f"{Class.Name}.{Parameter.Type}"
+                        if Parameter.DefaultValue and "." not in Parameter.DefaultValue:
+                            Parameter.DefaultValue = f"{Parameter.Type}.{Parameter.DefaultValue}"
+                        break
+
     def GenerateString(self, bUseOnlineDocumentation = True):
         """
         Returns: The stub file as a string
@@ -1101,16 +1137,21 @@ class PyfbsdkStubGenerator():
         for Function in Functions:
             self.Functions.extend(self._GenerateFunctionInstances(Function))
 
-        for Enum in self.Enums:
-            self._PatchEnumFromDocumentation(Enum)
-
         # Use the online documentation to try and create better param names, values etc.
         if bUseOnlineDocumentation:
+            for Enum in self.Enums:
+                self._PatchEnumFromDocumentation(Enum)
             self._PatchFunctionsFromDocumentation(self.Functions)
             self._PatchClassFromDocumentation(self.Classes)
 
         # Patch from the manual documentation
         self._PatchFromManualDocumentation()
+
+        # Do a final patch before generating the docstring
+        for StubClassInstance in self.Classes:
+            self.FinalPatchClass(StubClassInstance)
+        for StubFunctionInstance in self.Functions:
+            self.FinalPatchFunction(StubFunctionInstance)
 
         # Sort classes after all patches are done and we know their requirements
         self.Classes = SortClasses(self.Classes)
