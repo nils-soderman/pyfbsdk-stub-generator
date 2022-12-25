@@ -59,7 +59,9 @@ CToPythonVariableTranslation = {
     "kULong": "int",
     "kLongLong": "float",
     "kReference": "",
-    "nullptr": "None"
+    "nullptr": "None",
+    "FBArrayDouble": "list[float]",
+    "FBArrayUInt": "list[int]"
 }
 
 
@@ -110,24 +112,35 @@ def ConvertVariableTypeToPython(Type: str):
     Convert a C++ variable type to a python variable
     Example: 'double' -> 'float'
     """
+    def _Translate(InType: str):
+        for Key, Value in CToPythonVariableTranslation.items():
+            if InType.lower() == Key.lower():
+                return Value
+    
     # Remove type defenitions that doesn't carry any meaning when converted to python
-    for Char in ["(void *)", "*", "&"]:
+    for Char in ["(void *)", "*", "&", "const "]:
         if Char in Type:
             Type = Type.replace(Char, "").strip()
 
     # Arrays, in the pyfbsdk there are two FBVector4<dobule> arrays. convert these into FBVector4
-    if "<" in Type:
+    if "<" in Type or "Array" in Type:
+        TranslatedType = _Translate(Type) # Do a lookup in the translation dict first
+        if TranslatedType is not None:
+            return TranslatedType
+        
         if not Type.startswith("FBVector"):
             return f"list[{Type.partition('<')[2].partition('>')[0].strip()}]"
-        Type = Type.partition("<")[0].strip()
+        
+        if "<" in Type:
+            Type = Type.partition("<")[0].strip()
 
     if " " in Type:
         Type = Type.rpartition(" ")[2]
 
     # Check if variable needs to be translated into python, e.g. double -> float
-    for Key, Value in CToPythonVariableTranslation.items():
-        if Type.lower() == Key.lower():
-            return Value
+    TranslatedType = _Translate(Type) # Do a lookup in the translation dict first
+    if TranslatedType is not None:
+        return TranslatedType
 
     # Remove f suffix from floats e.g. 0.0f -> 0.0
     if Type.endswith("f") and Type.replace(".", "").replace("f", "").isnumeric():

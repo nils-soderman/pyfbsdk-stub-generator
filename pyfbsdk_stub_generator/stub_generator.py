@@ -899,11 +899,17 @@ class PyfbsdkStubGenerator():
                 if Parameter.DefaultValue is not None:
                     NewDefaultValue = DocumentationParam.GetDefaultValue(bConvertToPython = True)
                     if NewDefaultValue:
+                        if NewDefaultValue.startswith("list["):
+                            NewDefaultValue = "[]"
                         Parameter.DefaultValue = NewDefaultValue
 
-                # TODO: THIS  or Parameter.Type == "list"
                 if not Parameter.Type or Parameter.Type == "object":
                     Parameter.Type = DocumentationParam.GetType(bConvertToPython = True)
+                elif Parameter.Type == "list":
+                    NewType = DocumentationParam.GetType(bConvertToPython = True)
+                    # Make sure new type is actually a list, and it's not an empty type: []
+                    if "list" in NewType.lower() and "[]" not in NewType:
+                        Parameter.Type = NewType
                 self._PatchParameter(Parameter)
 
             StubFunctionInstance.DocString = self._PatchFunctionDocstring(Documentation.DocString, StubFunctionInstance)
