@@ -14326,7 +14326,7 @@ class FBTimeCode():
     @overload
     def __init__(self):...
     @overload
-    def __init__(self,Rate:float=FRAMES_30):
+    def __init__(self,Rate:float=FBTimeCode.FRAMES_30):
         """### Parameters:
         - Rate: Framerate value."""
     @overload

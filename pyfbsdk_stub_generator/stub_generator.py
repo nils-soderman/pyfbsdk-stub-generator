@@ -62,6 +62,9 @@ PropertyTypeTranslation = {
     "FBPropertyBool": "bool",
 }
 
+TranslationDefaultValues = {
+    "FRAMES_30": "FBTimeCode.FRAMES_30"
+}
 
 VariableTypeTranslations = {
     "FBColorF": "FBColor",
@@ -1128,6 +1131,9 @@ class PyfbsdkStubGenerator():
                         if Parameter.DefaultValue and "." not in Parameter.DefaultValue:
                             Parameter.DefaultValue = f"{Parameter.Type}.{Parameter.DefaultValue}"
                         break
+                    
+        if Parameter.DefaultValue in TranslationDefaultValues:
+            Parameter.DefaultValue = TranslationDefaultValues[Parameter.DefaultValue]
 
     def GenerateString(self, bUseOnlineDocumentation = True):
         """
