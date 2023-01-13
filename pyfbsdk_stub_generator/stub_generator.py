@@ -309,6 +309,9 @@ class StubBase():
         self.Name: str = Name
         self.DocString = ""
 
+    def __repr__(self):
+        return f"<{self.__class__.__name__}: {self.Name}>"
+
     def GetAsString(self) -> str:
         """
         Get instance as python code (in string format)
@@ -335,9 +338,6 @@ class StubFunction(StubBase):
         self.bIsMethod = False
         self.bIsStatic = False
         self.bIsOverload = False
-
-    def __repr__(self):
-        return f"<{self.__class__.__name__}: {self.Name}>"
 
     def AddParameter(self, Parameter):
         self._Params.append(Parameter)
@@ -897,7 +897,19 @@ class PyfbsdkStubGenerator():
 
             # Patch the parameters
             DocumentationParam: docParser.DocMemberParameter
-            for Parameter, DocumentationParam in zip(StubParameterInstances, Documentation.Params):
+            bNumberOfParamMatches = len(StubParameterInstances) == len(Documentation.Params)
+            if StubFunctionInstance.Name == "SetMatrix":
+                print("ok")
+            i = 0
+            for DocumentationParam in Documentation.Params:
+                if i >= len(StubParameterInstances):
+                    break
+                DocType = DocumentationParam.GetType(bConvertToPython = True)
+                Parameter = StubParameterInstances[i]
+                if not bNumberOfParamMatches and Parameter.Type != "object" and Parameter.Type not in DocType:
+                    print(f"{StubFunctionInstance.Name} - {Parameter.Type} != {DocType}")
+                    continue
+                i+=1
                 Parameter.Name = DocumentationParam.Name
                 if Parameter.DefaultValue is not None:
                     NewDefaultValue = DocumentationParam.GetDefaultValue(bConvertToPython = True)
@@ -907,9 +919,9 @@ class PyfbsdkStubGenerator():
                         Parameter.DefaultValue = NewDefaultValue
 
                 if not Parameter.Type or Parameter.Type == "object":
-                    Parameter.Type = DocumentationParam.GetType(bConvertToPython = True)
+                    Parameter.Type = DocType
                 elif Parameter.Type == "list":
-                    NewType = DocumentationParam.GetType(bConvertToPython = True)
+                    NewType = DocType
                     # Make sure new type is actually a list, and it's not an empty type: []
                     if "list" in NewType.lower() and "[]" not in NewType:
                         Parameter.Type = NewType

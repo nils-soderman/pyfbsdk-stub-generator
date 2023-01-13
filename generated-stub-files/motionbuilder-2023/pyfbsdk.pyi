@@ -3425,10 +3425,10 @@ class FBColorAndAlpha():
     @overload
     def __truediv__(self,arg2)->object:...
 class FBComponentList():
-    def Add(self,Result:FBComponent):
-        """Add two vectors together ( Result = pV1 + pV2 )
+    def Add(self,arg2:FBComponent):
+        """Add two vectors together ( pResult = pV1 + pV2 )
         ### Return values:
-        - Result: Resulting vector.
+        - pResult: Resulting vector.
         
         ### Parameters:"""
     def Clear(self):...
@@ -3918,10 +3918,10 @@ class FBMatrix():
         ### Returns:
         this matrix as a const."""
 class FBModelList():
-    def Add(self,Result:FBModel):
-        """Add two vectors together ( Result = pV1 + pV2 )
+    def Add(self,arg2:FBModel):
+        """Add two vectors together ( pResult = pV1 + pV2 )
         ### Return values:
-        - Result: Resulting vector.
+        - pResult: Resulting vector.
         
         ### Parameters:"""
     def Clear(self):...
@@ -4766,10 +4766,10 @@ class FBComponent(FBPlug):
         - bAnimatable: To specify if the property can be animated.
         - bIsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
         - ReferenceSource: Specifies the property that a reference refers to."""
-    def PropertyGetModifiedList(self,PropList:FBPlugModificationFlag)->FBPropertyList:
+    def PropertyGetModifiedList(self,ModificationFlags:FBPlugModificationFlag)->FBPropertyList:
         """Get list of properties which have been modified since last loading.
         ### Parameters:
-        - PropList: property list to hold the modified properties."""
+        - ModificationFlags: type of modification to query."""
     def PropertyRemove(self,Property:FBProperty):
         """Remove a Property from the component's Property manager. \\
         If the property was dynamically allocated, it is deleted.
@@ -6563,12 +6563,12 @@ class FBConstraint(FBBox):
     """Read Write Property: Lock state."""
     Weight:FBPropertyAnimatableDouble
     """Read Write Property: Weight of constraint."""
-    def AnimationNodeInCreate(self,UserId,Property:FBModel,arg4:str)->FBAnimationNode:
+    def AnimationNodeInCreate(self,UserId,arg3:FBModel,arg4:str)->FBAnimationNode:
         """Animation Node Creations (IN). \\
-        Used to create the In connectors on an animation node. This function will return a newly created animation node, connected to the model specified by Property .
+        Used to create the In connectors on an animation node. This function will return a newly created animation node, connected to the model specified by pProperty .
         ### Parameters:
         - UserId: User specified reference number.
-        - Property: Property of model to animate (must be animatable)
+        - pProperty: Property of model to animate (must be animatable)
         
         ### Returns:
         Newly created IN animation node."""
@@ -6702,11 +6702,10 @@ class FBCharacterSolver(FBConstraint):
     ExtraFK:property
     Source:FBComponent
     """Read Write Property: Source character when doing a character retarget."""
-    def GetParentRotationOffset(self,R:FBModel)->FBVector3d:
+    def GetParentRotationOffset(self,arg2:FBModel)->FBVector3d:
         """Get the Parent Rotation Offset of the Given Extra Bone Index. \\
         The rotation Offset if extracted at Characterisation (in Stance Pose). You don't need this value if the parent of the bone is characterized too.
-        ### Parameters:
-        - R: Offset Rotation between the Bone and is parent at Stance Pose."""
+        ### Parameters:"""
     @staticmethod
     def GetRegisteredSolverNames()->list:...
     def GetTarget(self)->object:...
@@ -6718,10 +6717,10 @@ class FBCharacterSolver(FBConstraint):
         - R: Offset Rotation between the Bone and is parent at Stance Pose.
         - Index: Index of extra Bone to get."""
     def SetTransformationOffset(self,arg2:FBModel,arg3:FBVector3d,arg4:FBVector3d,arg5:FBVector3d):...
-    def __init__(self,Name:str,Object:FBCharacter,arg4:str):
+    def __init__(self,Name:str,arg3:FBCharacter,arg4:str):
         """### Parameters:
         - Name: Name of constraint.
-        - Object: For internal use only (default is NULL)."""
+        - pObject: For internal use only (default is NULL)."""
 class FBCharacterFace(FBConstraint):
     ActiveInput:bool
     """Read Write Property: Is the character input active?"""
@@ -8324,17 +8323,17 @@ class FBModel(FBBox):
         ### Parameters:
         - Min: Output parameter. Minimum value of the bounding box.
         - Max: Output parameter. Maximum value of the bounding box."""
-    def GetHierarchyWorldMatrices(self,MatricesArray:int,MatricesArrayCount:FBModelHiercharyTraverserType,HiercharyTraverserType:Optional[FBEvaluateInfo]=None)->list:
+    def GetHierarchyWorldMatrices(self,MatricesArrayCount:int,HiercharyTraverserType:FBModelHiercharyTraverserType,EvaluateInfo:Optional[FBEvaluateInfo]=None)->list:
         """Computes the global transform matrices between this model and all its children (all levels). \\
         The hierarchy world matrix for a model is represented as a global transform matrix applied on an arbitrary root hierarchy node (this model for instance), considered as the world reference.
         ### Parameters:
-        - MatricesArray: The matrix array (memory already allocated) to fill in with the hierarchy world matrix of all the model's children models
         - MatricesArrayCount: The size of the matrix array
         
         ### Return values:
         - HiercharyTraverserType: The hierarchy traverser type
         
         ### Parameters:
+        - EvaluateInfo: EvaluateInfo, Take Display if none specified.
         
         ### Return values:
         - Number: of matrices filled in the array. The value may be different than MatricesArrayCount if the number of children models is less than the size of the matrix array."""
@@ -8424,21 +8423,21 @@ class FBModel(FBBox):
         
         ### Returns:
         True if Unique ColorId resource is available."""
-    def SetMatrix(self,Matrix:FBMatrix,What:FBModelTransformationType=FBModelTransformationType.kModelTransformation,bGlobalInfo:bool=True,PushUndo:FBEvaluateInfo=False):
+    def SetMatrix(self,Matrix:FBMatrix,What:FBModelTransformationType=FBModelTransformationType.kModelTransformation,bGlobalInfo:bool=True,EvaluateInfo:Optional[FBEvaluateInfo]=None):
         """Set a matrix for the model.
         ### Parameters:
         - Matrix: Information to use to set the model's matrix.
         - What: Type of matrix to set (default=transformation).
         - bGlobalInfo: true if it is GlobalInfo, false if Local (default=true).
-        - PushUndo: true if this operation is undoable, don't push undo in non UI thread."""
-    def SetMatrixWithPrecision(self,Matrix:FBMatrix,What:FBModelTransformationType=FBModelTransformationType.kModelTransformation,bGlobalInfo:bool=True,PushUndo:FBEvaluateInfo=False,EvaluateInfo:Optional[FBEvaluateInfo]=None):
-        """Set a matrix for the model.
-        ### Parameters:
-        - Matrix: Information to use to set the model's matrix.
-        - What: Type of matrix to set (default=transformation).
-        - bGlobalInfo: true if it is GlobalInfo, false if Local (default=true).
-        - PushUndo: true if this operation is undoable, don't push undo in non UI thread.
         - EvaluateInfo: EvaluateInfo, Take Display if none specified"""
+    def SetMatrixWithPrecision(self,Matrix:FBMatrix,What:FBModelTransformationType=FBModelTransformationType.kModelTransformation,bGlobalInfo:bool=True,EvaluateInfo:Optional[FBEvaluateInfo]=None,Precision:Optional[float]=None):
+        """Set a matrix for the model.
+        ### Parameters:
+        - Matrix: Information to use to set the model's matrix.
+        - What: Type of matrix to set (default=transformation).
+        - bGlobalInfo: true if it is GlobalInfo, false if Local (default=true).
+        - EvaluateInfo: EvaluateInfo, Take Display if none specified
+        - Precision: Indicate the precision level, used when calculating the threshold value for gimble lock. 16 * pow(10.0, -10)) is the new default value since Mobu 2016, 16 * pow(10.0, -6)) is old default value before then."""
     @overload
     def SetSchematicPosition(self,X:int,Y:int):
         """Set the position in the schematic view for the model.
@@ -8450,13 +8449,13 @@ class FBModel(FBBox):
         """Set the position in the schematic view for the model.
         ### Parameters:
         - Vector2d: Position to set."""
-    def SetVector(self,Vector:FBVector3d,What:FBModelTransformationType=FBModelTransformationType.kModelTranslation,bGlobalInfo:bool=True,PushUndo:FBEvaluateInfo=False):
+    def SetVector(self,Vector:FBVector3d,What:FBModelTransformationType=FBModelTransformationType.kModelTranslation,bGlobalInfo:bool=True,EvaluateInfo:Optional[FBEvaluateInfo]=None):
         """Set a vector for the model.
         ### Parameters:
         - Vector: Vector to use to set values.
         - What: Type of information to set (default=translation, inverses not supported).
         - bGlobalInfo: true if it is GlobalInfo, false if Local (default=true).
-        - PushUndo: true if this operation is undoable, don't push undo in non UI thread."""
+        - EvaluateInfo: EvaluateInfo, Take Display if none specified"""
     def SetupPropertiesForShapes(self):
         """Setup Shape Properties. \\
         Normally this function is called automatically at the next global synchronization point after the geometry has been updated. However you must call it explicitly to access the shape properties immediately after shapes adding/removing before next global synchronization point."""
@@ -11022,24 +11021,24 @@ class FBGeometry(FBComponent):
         
         ### Returns:
         Pointer to index array of tangents, or `None` if the array hasn't been allocated yet."""
-    def GetUVSetDirectArray(self,OutArrayCount:Optional[str]=None)->list:
+    def GetUVSetDirectArray(self,UVSetName:Optional[str]=None)->list:
         """Get a pointer to the direct array of UVset Modify array value will be only effective when geometry editing is enabled.
         ### See also:
         GeometryBegin() /GeometryEnd()
         
         ### Parameters:
-        - OutArrayCount: To return the length the array.
+        - UVSetName: The name of UVset, `None` for the first UVset.
         
         ### Returns:
         pointer to the array of UV, or `None` is the array hasn't been allocated yet."""
-    def GetUVSetIndexArray(self,OutArrayCount:Optional[str]=None)->list:
+    def GetUVSetIndexArray(self,UVSetName:Optional[str]=None)->list:
         """Get a pointer to the index array of UVset. \\
         Modify array value will be only effective when geometry editing is enabled.
         ### See also:
         GeometryBegin() /GeometryEnd()
         
         ### Parameters:
-        - OutArrayCount: To return the length the array.
+        - UVSetName: The name of UVset, `None` for the first UVset.
         
         ### Returns:
         Pointer to index array of UVSet, or `None` if the array hasn't been allocated yet."""
@@ -11658,11 +11657,11 @@ class FBCharacterExtension(FBKeyingGroup):
         
         ### Returns:
         The extension object."""
-    def GetLabelNameWithExtensionObject(self,LabelName:FBComponent,Obj:FBComponent)->str:
+    def GetLabelNameWithExtensionObject(self,Obj:FBComponent,bReturnObjectNameIfNotFound:bool)->str:
         """Find the label name that was used to store object pose.
         ### Parameters:
-        - LabelName: The label name that was used to store object pose.
-        - Obj: The extension object."""
+        - Obj: The extension object.
+        - bReturnObjectNameIfNotFound: If the value is true, if the object is not found, pLabelName will be set to the object name; otherwise pLabelName will be set to empty string. By default the value is false."""
     def GetMirrorExtension(self)->FBCharacterExtension:
         """Return the character extension determined by MirrorLabel.
         ### Returns:
@@ -13497,13 +13496,13 @@ class FBStoryClip(FBComponent):
         
         ### Returns:
         Returns true if successful."""
-    def GetAffectedAnimationNodes(self,AffectedAnimationNodes:FBComponent)->list:
+    def GetAffectedAnimationNodes(self,ClipObject:FBComponent)->list:
         """Get the list of animation nodes affected by this story clip, for a specific object.
         ### Python:
-        The function takes only one parameter (pClipObject) and returns a Python list. ex : lArray = lClip.GetAffectedAnimationNodes(lObject)
+        The function takes only one parameter (ClipObject) and returns a Python list. ex : lArray = lClip.GetAffectedAnimationNodes(lObject)
         
         ### Parameters:
-        - AffectedAnimationNodes: Array of affected animation nodes, will be filled by the function."""
+        - ClipObject: The object for which we search for affected animation nodes."""
     def GetAffectedObjects(self)->list:
         """Get the list of objects affected by this story clip.
         ### Python:
@@ -16506,15 +16505,11 @@ class FBLayout(FBVisualComponent):
     """Event: Resize layout."""
     OnShow:FBEvent
     """Event: Show layout."""
-    def AddRegion(self,Name:str,Title:str,X:FBAddRegionParam,XType:FBAddRegionParam,XRelative:FBAddRegionParam,MultX:FBAddRegionParam)->bool:
+    def AddRegion(self,Name:str,Title:str,arg4:FBAddRegionParam,arg5:FBAddRegionParam,arg6:FBAddRegionParam,arg7:FBAddRegionParam)->bool:
         """Add a region to the layout.
         ### Parameters:
         - Name: Name of region.
         - Title: Title to display.
-        - X: X: Position.
-        - XType: X: Type of attachment.
-        - XRelative: X: Item to attach to.
-        - MultX: X: Multiplier of relative value.
         
         ### Returns:
         Operation was successful ( true or false )."""
