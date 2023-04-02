@@ -31,18 +31,26 @@ class Parameter:
 @dataclass
 class MemberItem:
     Name: str
-    Documentation: str
+    Type: str
+    DocString: str
     Parameters: list[Parameter]
 
 
 class DocumentationParsedPage():
-    def __init__(self, Name: str, Documentation: str, Members: list[MemberItem]):
+    def __init__(self, Name: str, DocString: str, Members: list[MemberItem]):
         self.Name = Name
-        self.Documentation = Documentation
+        self.DocString = DocString
         self.Members = Members
-        
+
     def __repr__(self) -> str:
         return f"{self.__class__.__name__}<{self.Name}>"
+
+    def GetMemberByName(self, Name: str) -> MemberItem:
+        for Member in self.Members:
+            if Member.Name == Name:
+                return Member
+
+        return None
 
 
 def ParsePage(PageName: str, PageHtmlContent: str, ) -> DocumentationParsedPage:
@@ -54,6 +62,7 @@ def ParsePage(PageName: str, PageHtmlContent: str, ) -> DocumentationParsedPage:
     MemberItems = []
     for Item in Parser.find_all("div", class_ = ClassNames.Items):
         ItemName = ""
+        ItemType = ""
         ItemDocumentation = ""
 
         DocumentationHtml = Item.find("div", class_ = ClassNames.Doc)
@@ -65,6 +74,10 @@ def ParsePage(PageName: str, PageHtmlContent: str, ) -> DocumentationParsedPage:
             NameHtml = NameTable.find("td", class_ = ClassNames.ItemName)
             if NameHtml:
                 ItemName: str = NameHtml.get_text().strip()
+                if " " in ItemName:
+                    ItemType, _, ItemName = ItemName.partition(" ")
+                    ItemName = ItemName.strip()
+                    ItemType = ItemType.strip()
 
             # Find all parameters
             Parameters = []
@@ -82,6 +95,6 @@ def ParsePage(PageName: str, PageHtmlContent: str, ) -> DocumentationParsedPage:
 
                     Parameters.append(Parameter(ParameterName.strip(), ParameterType.strip(), ParamDefaultValue))
 
-        MemberItems.append(MemberItem(ItemName, ItemDocumentation, Parameters))
+        MemberItems.append(MemberItem(ItemName, ItemType, ItemDocumentation, Parameters))
 
     return DocumentationParsedPage(PageName, Description.strip(), MemberItems)

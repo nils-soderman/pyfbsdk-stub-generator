@@ -58,7 +58,7 @@ class Documentation():
             if Page.Name == Name:
                 return Page.ParsePage()
 
-        raise ValueError(f"Page with name {Name} not found in {self.Namespace} {self.Version}")
+        return None
 
 
 def GetPythonTableOfContents(Namespace: str, Version: int, bUseCache: bool = False) -> list[TableOfContentItem]:
@@ -70,4 +70,4 @@ def GetPythonTableOfContents(Namespace: str, Version: int, bUseCache: bool = Fal
 
     ParsedResponse = js2py.eval_js(Response)
 
-    return [TableOfContentItem(Data, Version) for Data in ParsedResponse]
+    return [TableOfContentItem(Data, Version, bUseCache) for Data in ParsedResponse]

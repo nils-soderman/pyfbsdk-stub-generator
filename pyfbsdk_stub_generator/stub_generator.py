@@ -11,8 +11,14 @@ import pyfbsdk
 
 bTest = "builtin" in __name__
 if bTest:
-    sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+    for Path in (
+        os.path.dirname(os.path.dirname(__file__)),
+        f"C:/Python{sys.version_info.major}{sys.version_info.minor}/lib/site-packages"
+    ):
+        if Path not in sys.path:
+            sys.path.append(Path)
     __name__ = "pyfbsdk_stub_generator.stub_generator"  # pylint: disable=redefined-builtin
+    os.environ["PYFBSDK_DEVMODE"] = "True"
 
 from . import plugins
 from .module_types import StubClass, StubFunction, StubParameter, StubProperty
@@ -119,7 +125,6 @@ class StubGenerator():
 
         self._AllClassNames = []
 
-
     # ---------------------------------------------------
     #                      Internal
     # ---------------------------------------------------
@@ -131,10 +136,10 @@ class StubGenerator():
             self._AllClassNames = [x.__name__ for x in Classes + Enums]
         return self._AllClassNames
 
-
     # ---------------------------------------------------
     #                   Final Patch
     # ---------------------------------------------------
+
     def FinalPatchClass(self, Class: StubClass, Classes: list[StubClass]):
         for Function in Class.StubFunctions:
             self.FinalPatchFunction(Function, Classes)
