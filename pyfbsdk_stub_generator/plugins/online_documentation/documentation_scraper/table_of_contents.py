@@ -21,7 +21,7 @@ class ENamespaces:
 
 
 class TableOfContentItem:
-    def __init__(self, Data: list, Version: int, bUseCache: bool = True):
+    def __init__(self, Data: list, Version: int, bUseCache: bool = False):
         if len(Data) != 3:
             raise ValueError(f"Data must be a list of 3 items. Got {len(Data)} items instead: {Data}")
 
@@ -47,7 +47,21 @@ class TableOfContentItem:
         return page_parser.ParsePage(self.Name, PageContent)
 
 
-def GetPythonTableOfContents(Namespace: str, Version: int, bUseCache: bool = True) -> list[TableOfContentItem]:
+class Documentation():
+    def __init__(self, Namespace: str, Version: int, bUseCache = False) -> None:
+        self.Namespace = Namespace
+        self.Version = Version
+        self.TableOfContents = GetPythonTableOfContents(Namespace, Version, bUseCache)
+
+    def GetParsedPage(self, Name: str):
+        for Page in self.TableOfContents:
+            if Page.Name == Name:
+                return Page.ParsePage()
+
+        raise ValueError(f"Page with name {Name} not found in {self.Namespace} {self.Version}")
+
+
+def GetPythonTableOfContents(Namespace: str, Version: int, bUseCache: bool = False) -> list[TableOfContentItem]:
     Url = urls.GetPythonTableOfContentsUrl(Namespace, Version)
     if bUseCache:
         Response = cache.CachedGetRequest(Url)
