@@ -1,10 +1,7 @@
 from __future__ import annotations
 
-import inspect
-import typing
 import time
 import sys
-import re
 import os
 
 from importlib import reload
@@ -166,7 +163,7 @@ class StubGenerator():
         Returns: The stub file as a string
         """
         # Get the content
-        Functions, Classes, Enums = native_generator.GenerateModuleSubs(self.Module)
+        Enums, Classes, Functions = native_generator.GenerateModuleSubs(self.Module)
 
         # Run all of the plugins
         for PluginInstance in self.Plugins:
