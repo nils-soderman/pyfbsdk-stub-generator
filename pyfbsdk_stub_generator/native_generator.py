@@ -221,15 +221,21 @@ def GenerateClassInstance(Class, AllClassNames: list[str]) -> StubClass:
     # Get all members and generate stub properties of them
     ClassMemebers = GetUniqueClassMembers(Class, Ignore = ["__instance_size__"], AllowedOverrides = ["__init__", "__getitem__", "Data"])
     ClassMemberNames = [x for x, y in ClassMemebers]
+
     for MemberName, MemberReference in ClassMemebers:
         Type = GetObjectType(MemberReference)
+
         if Type == FObjectType.Function:
+            Methods = []
             for StubMethod in GenerateFunctionInstances(MemberReference):
                 StubMethod.bIsStatic = IsMethodStatic(Class, MemberName)
-                ClassInstance.AddFunction(StubMethod)
+                Methods.append(StubMethod)
+            ClassInstance.AddFunctions(Methods)
+
         elif Type == FObjectType.Enum:
             StubEnum = GenerateEnumInstance(MemberReference, ParentClass = Class)
             ClassInstance.AddEnum(StubEnum)
+
         elif MemberName not in ["__init__"]:
             Property = StubProperty(MemberReference, MemberName)
             if Type in ClassMemberNames:
@@ -280,14 +286,14 @@ def GenerateFunctionInstances(Function) -> list[StubFunction]:
 
 def GenerateModuleSubs(Module: ModuleType):
     Functions, Classes, Enums = GetModuleContent(Module)
-    
+
     AllClassNames = [x.__name__ for x in Classes + Enums]
-    
+
     EnumStubs = [GenerateEnumInstance(Enum) for Enum in Enums]
     ClassStubs = [GenerateClassInstance(Class, AllClassNames) for Class in Classes]
-    
-    FunctionStubs: list[StubFunction] = []
+
+    FunctionStubs: list[list[StubFunction]] = []
     for Function in Functions:
-        FunctionStubs.extend(GenerateFunctionInstances(Function))
+        FunctionStubs.append(GenerateFunctionInstances(Function))
 
     return EnumStubs, ClassStubs, FunctionStubs

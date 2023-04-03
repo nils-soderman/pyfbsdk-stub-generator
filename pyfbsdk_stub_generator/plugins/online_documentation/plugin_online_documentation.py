@@ -11,7 +11,10 @@ from ...module_types import StubClass, StubFunction, StubParameter, StubProperty
 
 reload(table_of_contents)
 
+
 class PluginOnlineDocumentation(PluginBaseClass):
+    Threading = False
+    
     def __init__(self, Version: str, Module: ModuleType):
         super().__init__(Version, Module)
 
@@ -25,17 +28,22 @@ class PluginOnlineDocumentation(PluginBaseClass):
 
         Class.DocString = ParsedPage.DocString
 
-        for Function in Class.StubFunctions:
-            Member = ParsedPage.GetMemberByName(Function.Name)
-            if Member:
-                PatchFunction(Function, Member)
-                
+        for FunctionGroup in Class.StubFunctions:
+            FirstFunction = FunctionGroup[0]
+            FunctionName = FirstFunction.Name
+            Members = ParsedPage.GetMembersByName(FunctionName)
+            if Members:
+                PatchFunction(FunctionGroup, Members)
+
         for Property in Class.StubProperties:
-            Member = ParsedPage.GetMemberByName(Property.Name)
-            if Member:
-                Property.DocString = Member.DocString
-                Property.Type = Member.Type
+            Members = ParsedPage.GetFirstMemberByName(Property.Name)
+            if Members:
+                Property.DocString = Members.DocString
+                Property.Type = Members.Type
 
 
-def PatchFunction(Function: StubFunction, Member: MemberItem):
-    Function.DocString = Member.DocString
+def PatchFunction(Function: list[StubFunction], Members: list[MemberItem]):
+    if len(Members) > 1:
+        print(f"Found multiple members for {Function[0].Name}")
+    # for Function in Function.Functions:
+    #     Function.DocString = Member.DocString

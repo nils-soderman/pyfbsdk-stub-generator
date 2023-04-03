@@ -45,12 +45,15 @@ class DocumentationParsedPage():
     def __repr__(self) -> str:
         return f"{self.__class__.__name__}<{self.Name}>"
 
-    def GetMemberByName(self, Name: str) -> MemberItem:
+    def GetFirstMemberByName(self, Name: str) -> MemberItem:
         for Member in self.Members:
             if Member.Name == Name:
                 return Member
 
         return None
+    
+    def GetMembersByName(self, Name: str):
+        return [x for x in self.Members if x.Name == Name]
 
 
 def ParsePage(PageName: str, PageHtmlContent: str, ) -> DocumentationParsedPage:

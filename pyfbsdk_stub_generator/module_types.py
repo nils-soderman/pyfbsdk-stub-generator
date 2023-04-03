@@ -101,7 +101,7 @@ class StubClass(StubBase):
         self.Parents = []
         self.StubProperties: list[StubProperty] = []
         self.StubEnums: list[StubClass] = []
-        self.StubFunctions: list[StubFunction] = []
+        self.StubFunctions: list[list[StubFunction]] = []
 
     def GetFunctionsByName(self, Name: str):
         return [x for x in self.StubFunctions if x.Name == Name]
@@ -114,9 +114,14 @@ class StubClass(StubBase):
     def AddEnum(self, Enum: StubClass):
         self.StubEnums.append(Enum)
 
-    def AddFunction(self, Function: StubFunction):
-        Function.bIsMethod = True  # Make function a method
-        self.StubFunctions.append(Function)
+    def AddFunctions(self, Functions: list[StubFunction]):
+        for Function in Functions:
+            Function.bIsMethod = True  # Make function a method
+        self.StubFunctions.append(Functions)
+        
+    def GetFunctionsFlat(self) -> list[StubFunction]:
+        """ Get a flat list of functions """
+        return [x for FunctionGroup in self.StubFunctions for x in FunctionGroup]
 
     def AddProperty(self, Property: StubProperty):
         self.StubProperties.append(Property)
@@ -130,7 +135,7 @@ class StubClass(StubBase):
     def GetRequirements(self) -> list:
         # The class parent's needs to be declared before the class
         FunctionRequirements = []
-        for Function in self.StubFunctions:
+        for Function in self.GetFunctionsFlat():
             FunctionRequirements += Function.GetRequirements()
         return self.Parents + FunctionRequirements
 
@@ -142,7 +147,7 @@ class StubClass(StubBase):
         if self.GetDocString():
             ClassAsString += f"{Indent(self.GetDocString())}\n"
 
-        ClassMembers = self.StubEnums + self.StubProperties + self.StubFunctions
+        ClassMembers = self.StubEnums + self.StubProperties + self.GetFunctionsFlat()
         for StubObject in ClassMembers:
             ClassAsString += f"{Indent(StubObject.GetAsString())}\n"
 

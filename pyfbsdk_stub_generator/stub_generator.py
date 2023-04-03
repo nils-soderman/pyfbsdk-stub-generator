@@ -168,13 +168,13 @@ class StubGenerator():
         Returns: The stub file as a string
         """
         # Get the content
-        Enums, Classes, Functions = native_generator.GenerateModuleSubs(self.Module)
+        Enums, Classes, FunctionGroupList = native_generator.GenerateModuleSubs(self.Module)
 
         # Run all of the plugins
         for PluginInstance in self.Plugins:
             PluginInstance.PatchEnums(Enums)
             PluginInstance.PatchClasses(Classes)
-            PluginInstance.PatchFunctions(Functions)
+            PluginInstance.PatchFunctions(FunctionGroupList)
 
         # Do a final patch before generating the docstring
         # for StubClassInstance in Classes:
@@ -184,6 +184,9 @@ class StubGenerator():
 
         # Sort classes after all patches are done and we know their requirements
         Classes = SortClasses(Classes)
+        
+        # Flatten the functions list
+        FlatFunctionList = [x for y in FunctionGroupList for x in y]
 
         # Generate a string
         StubString = GetBaseContent(self.Module)  # Read the custom additions file first
@@ -191,7 +194,7 @@ class StubGenerator():
         StubString += "\n"
         StubString += "\n".join([x.GetAsString() for x in Classes])
         StubString += "\n"
-        StubString += "\n".join([x.GetAsString() for x in Functions])
+        StubString += "\n".join([x.GetAsString() for x in FlatFunctionList])
         StubString += "\n"
 
         return StubString
