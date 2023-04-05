@@ -33,7 +33,7 @@ class PluginOnlineDocumentation(PluginBaseClass):
 
         # Initialize the documentation
         self.Documentation = table_of_contents.Documentation(self.ModuleName, Version, self.bDevMode)
-        
+
         # Parse the first documentation page to get the list of all pages
         for FunctionGroup in FunctionGroupList:
             Function = FunctionGroup[0]
@@ -59,15 +59,14 @@ class PluginOnlineDocumentation(PluginBaseClass):
         for FunctionGroup in Class.StubFunctions:
             FirstFunction = FunctionGroup[0]
             FunctionName = FirstFunction.Name
-            
+
             # In the documentation, the constructor is called the same as the class
             if FunctionName == "__init__":
                 FunctionName = Class.Name
-                
+
             Members = ParsedPage.GetMembersByName(FunctionName)
             if Members:
                 _PatchFunctions(FunctionGroup, Members)
-
 
     def PatchFunctionGroup(self, FunctionGroup: list[StubFunction]):
         if not FunctionGroup:
@@ -92,9 +91,6 @@ def PatchFunction(Function: StubFunction, DocMember: MemberItem):
     if not IsTypeDefined(Function.ReturnType):
         Function.ReturnType = DocMember.Type
 
-    if Function.Name == "FBGetLastSelectedModel":
-        print("Breal")
-
     FunctionParameters = Function.GetParameters()
     DocumentationParameters = DocMember.Parameters
     # Documentation does not include the self parameter for methods
@@ -105,11 +101,19 @@ def PatchFunction(Function: StubFunction, DocMember: MemberItem):
     elif len(DocumentationParameters) - 1 == len(FunctionParameters):
         DocumentationParameters = DocumentationParameters[:-1]
 
-    if not len(FunctionParameters) == len(DocumentationParameters):
-        print(f"ERROR: {Function.Name} has a different number of parameters than the documentation")
-        return
+    if not FunctionParameters:
+        return  # If there are no parameters, we don't need to do anything else
+
+    # Function that has different number of parameters than the documentation requires a more careful patch to avoid patching the wrong parameter
+    # It's better to not patch the parameters than patching it incorrectly, which could cause a lot of confusion
+    bSafePatch = len(FunctionParameters) != len(DocumentationParameters)
 
     for FunctionParameter, DocParameter in zip(FunctionParameters, DocumentationParameters):
+        if bSafePatch:
+            # Variable Types must match when doing a safe patch, otherwise we might be patching the wrong parameter
+            if FunctionParameter.Type != DocParameter.Type:
+                continue
+
         # Name
         if FunctionParameter.Name.startswith("arg"):
             NewName = DocParameter.Name
