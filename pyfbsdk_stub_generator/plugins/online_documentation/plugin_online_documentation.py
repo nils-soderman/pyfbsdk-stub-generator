@@ -48,23 +48,31 @@ class PluginOnlineDocumentation(PluginBaseClass):
 
         Class.DocString = ParsedPage.DocString
 
-        for FunctionGroup in Class.StubFunctions:
-            FirstFunction = FunctionGroup[0]
-            FunctionName = FirstFunction.Name
-            Members = ParsedPage.GetMembersByName(FunctionName)
-            if Members:
-                _PatchFunctions(FunctionGroup, Members)
-
+        # Properties
         for Property in Class.StubProperties:
             Members = ParsedPage.GetFirstMemberByName(Property.Name)
             if Members:
                 Property.DocString = Members.DocString
                 Property.Type = Members.Type
 
+        # Methods
+        for FunctionGroup in Class.StubFunctions:
+            FirstFunction = FunctionGroup[0]
+            FunctionName = FirstFunction.Name
+            
+            # In the documentation, the constructor is called the same as the class
+            if FunctionName == "__init__":
+                FunctionName = Class.Name
+                
+            Members = ParsedPage.GetMembersByName(FunctionName)
+            if Members:
+                _PatchFunctions(FunctionGroup, Members)
+
+
     def PatchFunctionGroup(self, FunctionGroup: list[StubFunction]):
         if not FunctionGroup:
             return  # TODO: This should never happen, look into it
-        # Page = self.Documentation.GetParsedPage(FunctionGroup[0].Name)
+
         if self.FunctionPage:
             Members = self.FunctionPage.GetMembersByName(FunctionGroup[0].Name)
             if Members:
