@@ -10,10 +10,13 @@ from ..module_types import StubClass, StubFunction, StubParameter, StubProperty
 class PluginBaseClass():
     Threading = True
 
-    def __init__(self, Version: int, Module: ModuleType) -> None:
+    def __init__(self, Version: int, Module: ModuleType, EnumList: list[StubClass], ClassList: list[StubClass], FunctionGroupList: list[list[StubFunction]]) -> None:
         self.Version = Version
-        # self.Module = Module
         self.ModuleName = Module.__name__
+
+        self.EnumList = EnumList
+        self.ClassList = ClassList
+        self.FunctionGroupList = FunctionGroupList
 
         self.bDevMode = os.environ.get("PYFBSDK_DEVMODE") == "True"
         self.Exceptions = []
@@ -21,20 +24,25 @@ class PluginBaseClass():
     def PatchClass(self, Class: StubClass):
         ...
 
-    def PatchFunction(self, Function: StubFunction):
+    def PatchFunctionGroup(self, FunctionGroup: list[StubFunction]):
         ...
 
     def PatchEnum(self, Enum: StubClass):
         ...
 
-    def PatchEnums(self, ClassList: list[StubClass]):
+    def Run(self):
+        self._PatchEnums(self.EnumList)
+        self._PatchClasses(self.ClassList)
+        self._PatchFunctions(self.FunctionGroupList)
+
+    def _PatchEnums(self, ClassList: list[StubClass]):
         self._RunPatcher(self.PatchEnum, ClassList)
 
-    def PatchClasses(self, ClassList: list[StubClass]):
+    def _PatchClasses(self, ClassList: list[StubClass]):
         self._RunPatcher(self.PatchClass, ClassList)
 
-    def PatchFunctions(self, FunctionGroupList: list[list[StubFunction]]):
-        self._RunPatcher(self.PatchFunction, FunctionGroupList)
+    def _PatchFunctions(self, FunctionGroupList: list[list[StubFunction]]):
+        self._RunPatcher(self.PatchFunctionGroup, FunctionGroupList)
 
     def _RunPatcher(self, PatchFunction: FunctionType, StubList: list):
         StopEvent = threading.Event()

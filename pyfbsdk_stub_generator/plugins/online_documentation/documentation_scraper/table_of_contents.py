@@ -39,6 +39,11 @@ class TableOfContentItem:
 
     def ParsePage(self):
         Url = self.GetPageUrl()
+        
+        # Strip the hash from the url, to avoid caching the same page multiple times
+        if "#" in Url:
+            Url = Url.partition("#")[0]
+        
         if self.bUseCache:
             PageContent = cache.CachedGetRequest(Url)
         else:

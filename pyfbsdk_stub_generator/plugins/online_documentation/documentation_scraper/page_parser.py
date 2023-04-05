@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import string
+
 from dataclasses import dataclass
 from importlib   import reload
 
@@ -25,7 +27,7 @@ class ClassNames:
 class Parameter:
     Name: str
     Type: str
-    DefaultValue: str = None
+    DefaultValue: str | None = None
 
 
 @dataclass
@@ -60,7 +62,7 @@ def ParsePage(PageName: str, PageHtmlContent: str, ) -> DocumentationParsedPage:
     Parser = BeautifulSoup(PageHtmlContent, "html.parser")
 
     DescriptionHtml = Parser.find("div", class_ = ClassNames.TextBlockDescription)
-    Description = DescriptionHtml.get_text() if DescriptionHtml else ""
+    Description = GetSafeText(DescriptionHtml.get_text()) if DescriptionHtml else ""
 
     MemberItems = []
     for Item in Parser.find_all("div", class_ = ClassNames.Items):
@@ -70,13 +72,13 @@ def ParsePage(PageName: str, PageHtmlContent: str, ) -> DocumentationParsedPage:
 
         DocumentationHtml = Item.find("div", class_ = ClassNames.Doc)
         if DocumentationHtml:
-            ItemDocumentation: str = DocumentationHtml.get_text().strip()
+            ItemDocumentation: str = GetSafeText(DocumentationHtml.get_text())
 
         NameTable = Item.find("table", class_ = ClassNames.ItemName)
         if NameTable:
             NameHtml = NameTable.find("td", class_ = ClassNames.ItemName)
             if NameHtml:
-                ItemName: str = NameHtml.get_text().strip()
+                ItemName: str = GetSafeText(NameHtml.get_text())
                 if " " in ItemName:
                     ItemType, _, ItemName = ItemName.partition(" ")
                     ItemName = ItemName.strip()
@@ -88,16 +90,21 @@ def ParsePage(PageName: str, PageHtmlContent: str, ) -> DocumentationParsedPage:
                 ParameterNameHtml = Row.find("td", class_ = ClassNames.ParameterName)
                 ParameterTypeHtml = Row.find("td", class_ = ClassNames.ParameterType)
                 if ParameterNameHtml and ParameterTypeHtml:
-                    ParameterName: str = ParameterNameHtml.get_text()
-                    ParameterType: str = ParameterTypeHtml.get_text()
+                    ParameterName: str = GetSafeText(ParameterNameHtml.get_text())
+                    ParameterType: str = GetSafeText(ParameterTypeHtml.get_text())
 
                     ParamDefaultValue = None
                     if "=" in ParameterName:
                         ParameterName, _, ParamDefaultValue = ParameterName.partition("=")
                         ParamDefaultValue = ParamDefaultValue.strip()
 
-                    Parameters.append(Parameter(ParameterName.strip(), ParameterType.strip(), ParamDefaultValue))
+                    Parameters.append(Parameter(ParameterName.strip(), ParameterType, ParamDefaultValue))
 
         MemberItems.append(MemberItem(ItemName, ItemType, ItemDocumentation, Parameters))
 
     return DocumentationParsedPage(PageName, Description.strip(), MemberItems)
+
+
+def GetSafeText(Text: str):
+    # Remove any non-breaking spaces and strip the text of whitespace and commas
+    return Text.replace('\xa0', ' ').strip(string.whitespace + ",")

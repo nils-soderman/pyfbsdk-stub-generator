@@ -117,13 +117,9 @@ class StubGenerator():
         self.Module = Module
         self.Version = GetMotionBuilderVersion()
 
-        self.Plugins: list[plugins.PluginBaseClass] = []
-        if Plugins:
-            for PluginClass in Plugins:
-                PluginInstance = PluginClass(self.Version, Module)
-                self.Plugins.append(PluginInstance)
-
         self._AllClassNames = []
+        
+        self.Plugins: list[type[plugins.PluginBaseClass]] = Plugins if Plugins else []
 
     # ---------------------------------------------------
     #                      Internal
@@ -171,10 +167,9 @@ class StubGenerator():
         Enums, Classes, FunctionGroupList = native_generator.GenerateModuleSubs(self.Module)
 
         # Run all of the plugins
-        for PluginInstance in self.Plugins:
-            PluginInstance.PatchEnums(Enums)
-            PluginInstance.PatchClasses(Classes)
-            PluginInstance.PatchFunctions(FunctionGroupList)
+        for PluginType in self.Plugins:
+            Plugin = PluginType(self.Version, self.Module, Enums, Classes, FunctionGroupList)
+            Plugin.Run()
 
         # Do a final patch before generating the docstring
         # for StubClassInstance in Classes:
