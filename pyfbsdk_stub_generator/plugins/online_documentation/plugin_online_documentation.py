@@ -33,6 +33,13 @@ class PluginOnlineDocumentation(PluginBaseClass):
 
         # Initialize the documentation
         self.Documentation = table_of_contents.Documentation(self.ModuleName, Version, self.bDevMode)
+        
+        # Parse the first documentation page to get the list of all pages
+        for FunctionGroup in FunctionGroupList:
+            Function = FunctionGroup[0]
+            self.FunctionPage = self.Documentation.GetParsedPage(Function.Name)
+            if self.FunctionPage:
+                break
 
     def PatchClass(self, Class: StubClass):
         ParsedPage = self.Documentation.GetParsedPage(Class.Name)
@@ -54,14 +61,14 @@ class PluginOnlineDocumentation(PluginBaseClass):
                 Property.DocString = Members.DocString
                 Property.Type = Members.Type
 
-    def PatchFunction(self, Functions: list[StubFunction]):
-        if not Functions:
+    def PatchFunctionGroup(self, FunctionGroup: list[StubFunction]):
+        if not FunctionGroup:
             return  # TODO: This should never happen, look into it
-        Page = self.Documentation.GetParsedPage(Functions[0].Name)
-        if Page:
-            Members = Page.GetMembersByName(Functions[0].Name)
+        # Page = self.Documentation.GetParsedPage(FunctionGroup[0].Name)
+        if self.FunctionPage:
+            Members = self.FunctionPage.GetMembersByName(FunctionGroup[0].Name)
             if Members:
-                _PatchFunctions(Functions, Members)
+                _PatchFunctions(FunctionGroup, Members)
 
 
 def _PatchFunctions(Functions: list[StubFunction], Members: list[MemberItem]):
