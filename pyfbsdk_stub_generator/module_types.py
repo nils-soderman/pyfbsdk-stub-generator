@@ -46,7 +46,15 @@ class StubFunction(StubBase):
     def AddParameter(self, Parameter):
         self._Params.append(Parameter)
 
-    def GetParameters(self) -> list[StubParameter]:
+    def GetParameters(self, bExcludeSelf = False) -> list[StubParameter]:
+        """
+        Get a list of the parameters
+        
+        ### Parameters:
+            - bExcludeSelf: If the function is a method, exclude the first parameter (self)
+        """
+        if bExcludeSelf and self.bIsMethod:
+            return self._Params[1:]
         return self._Params
 
     def SetParameter(self, Index, Paramter):
@@ -214,7 +222,7 @@ class StubParameter(StubBase):
         if self.Type and self.Type != "object":
             TypeStr = self.Type
             if self.DefaultValue == "None":
-                TypeStr = f"Optional[{TypeStr}]"
+                TypeStr = f"{TypeStr}|None"
             ParamString += f":{TypeStr}"
 
         if self.DefaultValue is not None:
