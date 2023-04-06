@@ -41,6 +41,18 @@ class PluginOnlineDocumentation(PluginBaseClass):
             if self.FunctionPage:
                 break
 
+    def PatchEnum(self, Enum: StubClass):
+        ParsedPage = self.Documentation.GetParsedPage(Enum.Name)
+        if not ParsedPage:
+            return
+
+        Enum.DocString = ParsedPage.DocString
+
+        for Property in Enum.StubProperties:
+            Members = ParsedPage.GetFirstMemberByName(Property.Name)
+            if Members:
+                Property.DocString = Members.DocString
+
     def PatchClass(self, Class: StubClass):
         ParsedPage = self.Documentation.GetParsedPage(Class.Name)
         if not ParsedPage:
@@ -83,8 +95,50 @@ def _PatchFunctions(Functions: list[StubFunction], Members: list[MemberItem]):
     if len(Functions) == 1 and len(Members) == 1:
         PatchFunction(Functions[0], Members[0])
         return
+    
+    # If we have multiple functions and multiple members, we need to figure out which ones to match
+    
+    # Make copies of the lists so we can modify them without affecting the original lists
+    FunctionsCopy = Functions.copy()
+    MembersCopy = Members.copy()
+    
+    # Find all of the functions that has a perfect match with a member, by the parameter types
+    PerfectMatches: list[tuple[StubFunction, MemberItem]] = []
+    MatchedFunctions: list[StubFunction] = []
+    MatchedDocMembers: list[MemberItem] = []
+    for Function in FunctionsCopy:
+        for Member in MembersCopy:
+            if len(Function.GetParameters()) != len(Member.Parameters):
+                continue
+            
+            for FunctionParameter, MemberParameter in zip(Function.GetParameters(), Member.Parameters):
+                if FunctionParameter.Type != MemberParameter.Type:
+                    break
+            else:
+                # Make sure neither the function or the member has already been matched with another function or member
+                if Function in MatchedFunctions or Member in MatchedDocMembers:
+                    continue
+                PerfectMatches.append((Function, Member))
+                
+                MatchedFunctions.append(Function)
+                MatchedDocMembers.append(Member)
+      
+    for Function, Member in PerfectMatches:
+        print(f"Perfect match: {Function.Name}")
+        PatchFunction(Function, Member)
+        
+        # Remove them from the lists so we don't try to match them again
+        FunctionsCopy.remove(Function)
+        MembersCopy.remove(Member)
 
+    # TODO: Match based on most similar parameter types
 
+    # Lastly, if there is only one remaining function and one remaining member, we can match them
+    if len(FunctionsCopy) == 1 and len(MembersCopy) == 1:
+        print(f"Leftover Match: {FunctionsCopy[0].Name}")
+        PatchFunction(FunctionsCopy[0], MembersCopy[0])
+    
+    
 def PatchFunction(Function: StubFunction, DocMember: MemberItem):
     Function.DocString = DocMember.DocString
 

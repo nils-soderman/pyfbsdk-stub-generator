@@ -4,6 +4,7 @@ from types import ModuleType
 
 from .module_types import StubClass, StubFunction, StubParameter, StubProperty
 
+ENUMERATION_NAME = "Enumeration"
 
 class FObjectType:
     Function = 'function'
@@ -80,7 +81,7 @@ def GetClassParentNames(Class):
             ParentClassName = ""
 
         elif ParentClassName == "enum":
-            ParentClassName = "_Enum"
+            ParentClassName = ENUMERATION_NAME
 
         ParentClassNames.append(ParentClassName)
 
@@ -202,7 +203,7 @@ def GenerateEnumInstance(Class, ParentClass = None):
             PropertyInstance.Type = ClassName
         EnumClassInstance.AddProperty(PropertyInstance)
 
-    EnumClassInstance.AddParent("_Enum")
+    EnumClassInstance.AddParent(ENUMERATION_NAME)
 
     return EnumClassInstance
 

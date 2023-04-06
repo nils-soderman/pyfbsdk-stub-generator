@@ -25,6 +25,7 @@ from .module_types import StubClass, StubFunction, StubParameter, StubProperty
 from . import native_generator
 
 reload(plugins)
+reload(native_generator)
 
 DEFAULT_PLUGINS = plugins.GetDefaultPlugins()
 
