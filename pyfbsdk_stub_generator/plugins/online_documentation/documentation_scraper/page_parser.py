@@ -25,8 +25,8 @@ class ClassNames:
 
 @dataclass
 class Parameter:
-    Name: str
-    Type: str
+    Name: str | None
+    Type: str | None
     DefaultValue: str | None = None
 
 
@@ -97,8 +97,16 @@ def ParsePage(PageName: str, PageHtmlContent: str, ) -> DocumentationParsedPage:
                     if "=" in ParameterName:
                         ParameterName, _, ParamDefaultValue = ParameterName.partition("=")
                         ParamDefaultValue = ParamDefaultValue.strip()
+                        
+                    ParameterName = ParameterName.strip()
+                    if not ParameterName:
+                        if ParameterType.startswith("p"):
+                            ParameterName = ParameterType
+                            ParameterType = ""
+                        else:
+                            ParameterName = None
 
-                    Parameters.append(Parameter(ParameterName.strip(), ParameterType, ParamDefaultValue))
+                    Parameters.append(Parameter(ParameterName, ParameterType, ParamDefaultValue))
 
         MemberItems.append(MemberItem(ItemName, ItemType, ItemDocumentation, Parameters))
 

@@ -18,6 +18,15 @@ TRANSLATION_TYPE = {
     "long": "float",
     "double": "float",
     "kInt64": "int",
+    "kULong": "int",
+    
+    "kReference": "int",
+    "FBkReference": "int",
+    
+    "FBTVector": "FBVector4d",
+    "FBQuaternion": "FBVector4d",
+    "FBRVector": "FBVector3d",
+    "FBColorF": "FBColor",
 }
 
 TRANSLATION_VALUES = {
@@ -65,7 +74,7 @@ class PluginOnlineDocumentation(PluginBaseClass):
             Members = ParsedPage.GetFirstMemberByName(Property.Name)
             if Members:
                 Property.DocString = Members.DocString
-                Property.Type = Members.Type
+                Property.Type = EnsureValidType(Members.Type)
 
         # Methods
         for FunctionGroup in Class.StubFunctions:
@@ -95,23 +104,25 @@ def _PatchFunctions(Functions: list[StubFunction], Members: list[MemberItem]):
     if len(Functions) == 1 and len(Members) == 1:
         PatchFunction(Functions[0], Members[0])
         return
-    
+
     # If we have multiple functions and multiple members, we need to figure out which ones to match
-    
+
     # Make copies of the lists so we can modify them without affecting the original lists
     FunctionsCopy = Functions.copy()
     MembersCopy = Members.copy()
-    
+
     # Find all of the functions that has a perfect match with a member, by the parameter types
     PerfectMatches: list[tuple[StubFunction, MemberItem]] = []
     MatchedFunctions: list[StubFunction] = []
     MatchedDocMembers: list[MemberItem] = []
     for Function in FunctionsCopy:
+        FunctionParameters = Function.GetParameters(bExcludeSelf = True)
+
         for Member in MembersCopy:
-            if len(Function.GetParameters()) != len(Member.Parameters):
+            if len(FunctionParameters) != len(Member.Parameters):
                 continue
-            
-            for FunctionParameter, MemberParameter in zip(Function.GetParameters(), Member.Parameters):
+
+            for FunctionParameter, MemberParameter in zip(FunctionParameters, Member.Parameters):
                 if FunctionParameter.Type != MemberParameter.Type:
                     break
             else:
@@ -119,40 +130,67 @@ def _PatchFunctions(Functions: list[StubFunction], Members: list[MemberItem]):
                 if Function in MatchedFunctions or Member in MatchedDocMembers:
                     continue
                 PerfectMatches.append((Function, Member))
-                
+
                 MatchedFunctions.append(Function)
                 MatchedDocMembers.append(Member)
-      
+
     for Function, Member in PerfectMatches:
-        print(f"Perfect match: {Function.Name}")
         PatchFunction(Function, Member)
-        
+
         # Remove them from the lists so we don't try to match them again
         FunctionsCopy.remove(Function)
         MembersCopy.remove(Member)
 
     # TODO: Match based on most similar parameter types
+    Scores: list[tuple[StubFunction, MemberItem, int]] = []
+    for Function in FunctionsCopy:
+        FunctionParameters = Function.GetParameters(bExcludeSelf = True)
+        for Member in MembersCopy:
+            Score = 0
+            if len(FunctionParameters) == len(Member.Parameters):
+                Score += 1
 
-    # Lastly, if there is only one remaining function and one remaining member, we can match them
-    if len(FunctionsCopy) == 1 and len(MembersCopy) == 1:
-        print(f"Leftover Match: {FunctionsCopy[0].Name}")
-        PatchFunction(FunctionsCopy[0], MembersCopy[0])
-    
-    
+            for FunctionParameter, MemberParameter in zip(FunctionParameters, Member.Parameters):
+                MemberParameterType = EnsureValidType(MemberParameter.Type)
+                if FunctionParameter.Type == MemberParameterType:
+                    Score += 1
+                elif IsTypeDefined(FunctionParameter.Type):
+                    # Member description is not compatible with current function
+                    print(f"Member {Member.Name} is not compatible because of parameter {FunctionParameter.Type} != {MemberParameterType}")
+                    Score = -1
+                    break
+
+            if Score > 0:
+                Scores.append((Function, Member, Score))
+
+    # Sort the scores from highest to lowest
+    Scores.sort(key = lambda Score: Score[2], reverse = True)
+    while Scores:
+        Function, Member, Score = Scores.pop(0)
+        if Function in MatchedFunctions or Member in MatchedDocMembers:
+            continue
+
+        PatchFunction(Function, Member)
+
+        MatchedDocMembers.append(Member)
+        MatchedFunctions.append(Function)
+
+        # Remove them from the lists so we don't try to match them again
+        FunctionsCopy.remove(Function)
+        MembersCopy.remove(Member)
+
+
 def PatchFunction(Function: StubFunction, DocMember: MemberItem):
     Function.DocString = DocMember.DocString
 
     if not IsTypeDefined(Function.ReturnType):
         Function.ReturnType = DocMember.Type
 
-    FunctionParameters = Function.GetParameters()
+    FunctionParameters = Function.GetParameters(bExcludeSelf = True)
     DocumentationParameters = DocMember.Parameters
-    # Documentation does not include the self parameter for methods
-    if Function.bIsMethod:
-        FunctionParameters = FunctionParameters[1:]
 
     # The documentation includes an additional empty parameter for functions directly in the module
-    elif len(DocumentationParameters) - 1 == len(FunctionParameters):
+    if not Function.bIsMethod and len(DocumentationParameters) - 1 == len(FunctionParameters):
         DocumentationParameters = DocumentationParameters[:-1]
 
     if not FunctionParameters:
@@ -169,7 +207,7 @@ def PatchFunction(Function: StubFunction, DocMember: MemberItem):
                 continue
 
         # Name
-        if FunctionParameter.Name.startswith("arg"):
+        if DocParameter.Name and FunctionParameter.Name.startswith("arg"):
             NewName = DocParameter.Name
 
             # Remove the "p" prefix from the parameter name, since arguments cannot be referenced as keywords
@@ -189,10 +227,7 @@ def PatchParameterType(Parameter: StubParameter, Type: str) -> str:
     if IsTypeDefined(Parameter.Type):
         return
 
-    if Type in TRANSLATION_TYPE:
-        Type = TRANSLATION_TYPE[Type]
-
-    Parameter.Type = Type
+    Parameter.Type = EnsureValidType(Type)
 
 
 def PatchPropertyDefaultValue(Parameter: StubParameter, DefaultValue: str | None):
@@ -203,10 +238,18 @@ def PatchPropertyDefaultValue(Parameter: StubParameter, DefaultValue: str | None
     if "::" in DefaultValue:
         DefaultValue = DefaultValue.replace("::", ".")
 
-    if DefaultValue in TRANSLATION_VALUES:
-        DefaultValue = TRANSLATION_VALUES[DefaultValue]
+    DefaultValue = TRANSLATION_VALUES.get(DefaultValue, DefaultValue)
+
+    # Remove the "f" suffix from float literals, e.g. '1.0f' -> '1.0'
+    if DefaultValue.endswith("f") and DefaultValue[:-1].replace(".", "").isnumeric():
+        DefaultValue = DefaultValue[:-1]
 
     Parameter.DefaultValue = DefaultValue
+
+
+def EnsureValidType(Type: str) -> str:
+    Type = TRANSLATION_TYPE.get(Type, Type)
+    return Type
 
 
 def IsTypeDefined(Type: str | None) -> bool:
