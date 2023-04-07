@@ -38,6 +38,7 @@ TRANSLATION_VALUES = {
 
 class PluginOnlineDocumentation(PluginBaseClass):
     Threading = False
+    Priority = 5  # We preferably want this to run directly after the native generator
 
     def __init__(self, Version: int, Module: ModuleType, EnumList: list[StubClass], ClassList: list[StubClass], FunctionGroupList: list[list[StubFunction]]):
         super().__init__(Version, Module, EnumList, ClassList, FunctionGroupList)
@@ -51,7 +52,14 @@ class PluginOnlineDocumentation(PluginBaseClass):
             self.FunctionPage = self.Documentation.GetParsedPage(Function.Name)
             if self.FunctionPage:
                 break
+        
+        # Make a map of all class names and their class object that can be used for patching types etc.
+        self.AllClassesMap = {Class.Name: Class for Class in ClassList + EnumList}
 
+    # ---------------------------------------------------------------------------------------------
+    #                                       Patch Methods
+    # ---------------------------------------------------------------------------------------------
+    
     def PatchEnum(self, Enum: StubClass):
         ParsedPage = self.Documentation.GetParsedPage(Enum.Name)
         if not ParsedPage:
@@ -73,10 +81,10 @@ class PluginOnlineDocumentation(PluginBaseClass):
 
         # Properties
         for Property in Class.StubProperties:
-            Members = ParsedPage.GetFirstMemberByName(Property.Name)
-            if Members:
-                Property.DocString = Members.DocString
-                Property.Type = EnsureValidType(Members.Type)
+            Member = ParsedPage.GetFirstMemberByName(Property.Name)
+            if Member:
+                Property.DocString = Member.DocString
+                Property.Type = self.EnsureValidPropertyType(Member.Type)
 
         # Methods
         for FunctionGroup in Class.StubFunctions:
@@ -100,6 +108,22 @@ class PluginOnlineDocumentation(PluginBaseClass):
             if Members:
                 _PatchFunctions(FunctionGroup, Members)
 
+    # ---------------------------------------------------------------------------------------------
+    #                                    Validate Types
+    # ---------------------------------------------------------------------------------------------
+    
+    def EnsureValidPropertyType(self, Type: str) -> str:
+        Type = EnsureValidType(Type)
+
+        # If it's a class, make sure it's a valid class        
+        if Type.startswith("FB") and Type not in self.AllClassesMap:
+            # In the documentation the "Property" part is missing from the class name
+            PropertyType = f"FBProperty{Type[2:]}"
+            if PropertyType in self.AllClassesMap:
+                Type = PropertyType
+        
+        
+        return Type
 
 def _PatchFunctions(Functions: list[StubFunction], Members: list[MemberItem]):
     # If we only have one function and one member, we don't need to figure out which one is the correct one
@@ -160,7 +184,6 @@ def _PatchFunctions(Functions: list[StubFunction], Members: list[MemberItem]):
                     Score += 1
                 elif IsTypeDefined(FunctionParameter.Type):
                     # Member description is not compatible with current function
-                    print(f"Member {Member.Name} is not compatible because of parameter {FunctionParameter.Type} != {MemberParameterType}")
                     Score = -1
                     break
 
@@ -247,6 +270,9 @@ def PatchPropertyDefaultValue(Parameter: StubParameter, DefaultValue: str | None
     # Remove the "f" suffix from float literals, e.g. '1.0f' -> '1.0'
     if DefaultValue.endswith("f") and DefaultValue[:-1].replace(".", "").isnumeric():
         DefaultValue = DefaultValue[:-1]
+        
+    if DefaultValue.startswith("FBArrayTemplate"):
+        DefaultValue = "[]"
 
     Parameter.DefaultValue = DefaultValue
 
