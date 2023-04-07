@@ -174,6 +174,8 @@ class PluginOnlineDocumentation(PluginBaseClass):
 
                 for FunctionParameter, MemberParameter in zip(FunctionParameters, Member.Parameters):
                     MemberParameterType = self.EnsureValidType(MemberParameter.Type)
+                    if not MemberParameterType or not FunctionParameter.Type:
+                        continue
                     if FunctionParameter.Type == MemberParameterType:
                         Score += 1
                     elif MemberParameterType.startswith("list") and FunctionParameter.Type == "list":
@@ -206,7 +208,9 @@ class PluginOnlineDocumentation(PluginBaseClass):
         Function.DocString = DocMember.DocString
 
         if self.ShouldPatchType(Function.ReturnType, DocMember.Type):
-            Function.ReturnType = self.EnsureValidType(DocMember.Type)
+            NewType = self.EnsureValidType(DocMember.Type)
+            if NewType:
+                Function.ReturnType = NewType
 
         FunctionParameters = Function.GetParameters(bExcludeSelf = True)
         DocumentationParameters = DocMember.Parameters
@@ -259,18 +263,19 @@ class PluginOnlineDocumentation(PluginBaseClass):
         #                 Parameter.Type = f"{ParentClass.Name}.{Enum.Name}"
         #                 print(f"Patched parameter type: {Parameter.Type}")
         #                 return
-                        
+        if Parameter.Type == "ETimeFormats":
+            print("Break")
+
         if not self.ShouldPatchType(Parameter.Type, Type):
             return
 
         Parameter.Type = self.EnsureValidType(Type)
 
     def EnsureValidPropertyType(self, Property: StubProperty, Type: str) -> str:
-        Type = self.EnsureValidType(Type)
 
         # If it's a class, make sure it's a valid class
-        bClassIsValid = Type in self.AllClassesMap
-        if not bClassIsValid:
+        bIsValidFBClass = Type in self.AllClassesMap
+        if not bIsValidFBClass:
             if Type.startswith("FB"):
                 # In the documentation the "Property" part is missing from the class name
                 PropertyType = f"FBProperty{Type[2:]}"
@@ -280,10 +285,10 @@ class PluginOnlineDocumentation(PluginBaseClass):
         # Convert all Events to EventSource
         # The documentation says otherwise, but is wrong.
         if ((Type.startswith("FBEvent") or Property.Name.endswith("Event")) and Property.Name.startswith("On") and Property.DocString.startswith("Event")) or \
-                (not bClassIsValid and Type.startswith("FBEvent")):
+                (not bIsValidFBClass and Type.startswith("FBEvent")):
             Type = EVENT_SOURCE_TYPE
 
-        return Type
+        return self.EnsureValidType(Type)
 
     def PatchPropertyDefaultValue(self, Parameter: StubParameter, DefaultValue: str | None):
         if Parameter.DefaultValue is None or DefaultValue is None:
@@ -312,37 +317,59 @@ class PluginOnlineDocumentation(PluginBaseClass):
 
         Parameter.DefaultValue = DefaultValue
 
-
     def ShouldPatchType(self, CurrentType: str, NewType: str) -> bool:
         if not IsTypeDefined(CurrentType):
             return True
         
-        if CurrentType == "list" and self.EnsureValidType(NewType).startswith("list"):
+        ValidatedType = self.EnsureValidType(NewType)
+        if not ValidatedType:
+            return False
+
+        if CurrentType == "list" and ValidatedType.startswith("list"):
             return True
-        
+
         # TODO: Must check if type is valid as well
         if CurrentType.startswith(("E", "FB")) and CurrentType not in self.AllClassesMap:
             return True
-        
+
         return False
 
-    def EnsureValidType(self, Type: str) -> str:
+    def EnsureValidType(self, Type: str) -> str | None:
         Type = TRANSLATION_TYPE.get(Type, Type)
 
         if "<" in Type:
             Type = Type.replace("<", "[").replace(">", "]").replace(" ", "")
             Type = Type.replace("FBArrayTemplate", "list")
-        
+
+            # Get content between brackets
+            ListTypes = Type[Type.find("[") + 1:Type.find("]")]
+            if ListTypes:
+                ValidatedTypes = []
+                for ListType in ListTypes.split(","):
+                    ListType = self.EnsureValidType(ListType)
+                    if ListType:
+                        ValidatedTypes.append(ListType)
+                TypeBefore = Type
+                Type = Type.replace(ListTypes, ",".join(ValidatedTypes))
+                if Type.endswith("[]"):
+                    Type = Type[:-2]
+
         # Replace namespace C++ syntax with Python
         if "::" in Type:
             Type = Type.replace("::", ".")
-
+        
+        if Type.startswith("FB"):
+            ClassName = Type
+            if "." in Type:
+                ClassName = Type.partition(".")[0]
+            if ClassName not in self.AllClassesMap:
+                print(f"Type not found: {Type}")
+                return None
+            
         return Type
 
 
-
-
 def IsTypeDefined(Type: str | None) -> bool:
-    if not Type:  # TODO: Hmmm ?
-        return True
+    if not Type:
+        return False
     return Type != "object"

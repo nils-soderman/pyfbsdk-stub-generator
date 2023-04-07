@@ -4262,7 +4262,7 @@ class FBEventTree(FBEvent):
     """FBTree node event."""
     TreeNode:FBTreeNode
     """Read Write Property: Tree node."""
-    Why:property
+    Why:callbackframework.FBEventSource
     """Read Write Property: Reason of the event."""
 class FBEventTreeSelect(FBEvent):
     """FBTree selection event.b>Event: Video Frame offline Rendering Event."""
@@ -5009,7 +5009,7 @@ class FBPropertyManager():
         
         ReturnsHandle to property found."""
         ...
-    def FindPropertiesByName(self,PropertyNamePattern:str,PropList:list[FB],bMultilangLookup:bool=True):
+    def FindPropertiesByName(self,PropertyNamePattern:str,PropList:list,bMultilangLookup:bool=True):
         """This function will query the property list for properties fulfilling a particular name pattern. 
         Parameters
         
@@ -7317,7 +7317,14 @@ class FBCharacterPose(FBPose):
         pIndexIndex of the extra bone to get."""
         ...
     def GetExtraBones(self)->list:...
-    def GetMirrorPlaneEquation(self,arg2:FBVector4d,arg3:FBCharacter,arg4:FBCharacterPoseOptions):...
+    def GetMirrorPlaneEquation(self,MirrorPlaneEquation:FBVector4d,Character:FBCharacter,CharacterPoseOptions:FBCharacterPoseOptions):
+        """Get the mirror plane equation that would be used to mirror according to the CharacterPoseOptions. 
+        Parameters
+        
+        pMirrorPlaneEquationOut: Mirror plane equation. 
+        pCharacterCharacter to receive the pose. 
+        pCharacterPoseOptionsOptions used to paste the pose."""
+        ...
     def GetOrCreateCharacterExtensionPose(self,CharacterExtensionName:str)->FBObjectPose:
         """Get the pose of a character extension and create it if necessary. 
         Parameters
@@ -9874,7 +9881,7 @@ class FBHUD(FBBox):
         
         ReturnsThe created custom HUD Element."""
         ...
-    def CreateElement(self,Type:FBHUD.EStockElement,Name:str)->FBHUDElement:
+    def CreateElement(self,Type:EStockElement,Name:str)->FBHUDElement:
         """Creates a stock HUD Element. 
         Parameters
         
@@ -12985,7 +12992,7 @@ class FBFCurveEditorUtility(FBComponent):
         
         ReturnsTrue if successful, false otherwise."""
         ...
-    def GetProperties(self,Properties:list[FB],bSelectedOnly:bool,Editor:FBFCurveEditor|None=None)->bool:
+    def GetProperties(self,Properties:list,bSelectedOnly:bool,Editor:FBFCurveEditor|None=None)->bool:
         """Get the displayed properties. 
         Parameters
         
@@ -18414,7 +18421,7 @@ class FBTime():
         """Get seconds as double. 
         ReturnsSeconds in double form."""
         ...
-    def GetTimeString(self,Mode:FBTimeMode=FBTimeMode.kFBTimeModeDefault,Format:FBTime.ETimeFormats=eDefaultFormat)->str:
+    def GetTimeString(self,Mode:FBTimeMode=FBTimeMode.kFBTimeModeDefault,Format:ETimeFormats=eDefaultFormat)->str:
         """Get time as a string. 
         Parameters
         
@@ -18671,7 +18678,7 @@ class FBTake(FBComponent):
         
         ReturnsTrue if the delete operation is successful (at least one FCurve has been modified), false otherwise (e.g. no keys found within the time range, invalid layer ID, etc.)."""
         ...
-    def DeleteAnimationOnProperties(self,Properties:list[FB],StartTime:FBTime=FBTime.MinusInfinity,StopTime:FBTime=FBTime.Infinity,bInclusive:bool=True,LayerID:int=-1,bOnLockedProperties:bool=False,PropertyComponents:FBPropertyComponents=FBPropertyComponents.kFBPropertyComponentAll)->bool:
+    def DeleteAnimationOnProperties(self,Properties:list,StartTime:FBTime=FBTime.MinusInfinity,StopTime:FBTime=FBTime.Infinity,bInclusive:bool=True,LayerID:int=-1,bOnLockedProperties:bool=False,PropertyComponents:FBPropertyComponents=FBPropertyComponents.kFBPropertyComponentAll)->bool:
         """Delete animation (FCurve keys) of this take object on given properties within a time range. 
         Parameters
         
@@ -18833,7 +18840,7 @@ class FBTake(FBComponent):
         
         ReturnsTrue if the offset operation is successful (at least one FCurve has been modified), false otherwise (e.g. no keys found within the time range, invalid layer ID, etc.)."""
         ...
-    def OffsetAnimationOnProperties(self,Properties:list[FB],OffsetTime:FBTime,StartTime:FBTime=FBTime.MinusInfinity,StopTime:FBTime=FBTime.Infinity,bInclusive:bool=True,LayerID:int=-1,bOnLockedProperties:bool=False,PropertyComponents:FBPropertyComponents=FBPropertyComponents.kFBPropertyComponentAll)->bool:
+    def OffsetAnimationOnProperties(self,Properties:list,OffsetTime:FBTime,StartTime:FBTime=FBTime.MinusInfinity,StopTime:FBTime=FBTime.Infinity,bInclusive:bool=True,LayerID:int=-1,bOnLockedProperties:bool=False,PropertyComponents:FBPropertyComponents=FBPropertyComponents.kFBPropertyComponentAll)->bool:
         """Offset the animation (FCurve keys) of this take object on given properties within a time range by a given offset time. 
         Non-moving FCurve keys that are situated in the target range are deleted automatically, to preserve the animation being offset. Parameters
         
@@ -18857,7 +18864,7 @@ class FBTake(FBComponent):
         pPlotPeriodPeriod for the plot. 
         pObjectsToPlotObjects to plot."""
         ...
-    def PlotAllTakesOnProperties(self,PlotPeriod:FBTime,PropertiesToPlot:list[FB]):
+    def PlotAllTakesOnProperties(self,PlotPeriod:FBTime,PropertiesToPlot:list):
         """Plot the animation on given properties for all takes. 
         Will plot the animation for all takes on the given properties in the scene. Parameters
         
@@ -18893,7 +18900,7 @@ class FBTake(FBComponent):
         pObjectsToPlotObjects to plot."""
         ...
     @overload
-    def PlotTakeOnProperties(self,PlotPeriod:FBTime,PropertiesToPlot:list[FB]):
+    def PlotTakeOnProperties(self,PlotPeriod:FBTime,PropertiesToPlot:list):
         """Plot the animation on given properties. 
         Will plot the animation of the take in question on the given properties in the scene. Parameters
         
@@ -18901,7 +18908,7 @@ class FBTake(FBComponent):
         pPropertiesToPlotProperties to plot."""
         ...
     @overload
-    def PlotTakeOnProperties(self,PlotOptions:FBPlotOptions,PropertiesToPlot:list[FB]):
+    def PlotTakeOnProperties(self,PlotOptions:FBPlotOptions,PropertiesToPlot:list):
         """Plot the animation on given properties. 
         Will plot the animation of the take in question on the given properties in the scene. Parameters
         
@@ -20901,7 +20908,7 @@ class FBVideoGrabber(FBComponent):
         ReturnsStruct that contain all grabbing options.
         See sample: JpegRender.py."""
         ...
-    def GetStatistics(self)->FBVideoGrabStats:
+    def GetStatistics(self)->object:
         """GetStatistics. 
         ReturnsStruct that contain all grabbing statistics."""
         ...
@@ -21451,7 +21458,7 @@ class FBSpread(FBVisualComponent):
         
         objectValue of the cell (can be str, int, float or FBTime)"""
         ...
-    def GetCellView(self,arg2,arg3):
+    def GetCellView(self,arg2,arg3)->object:
         """Get a cell's internal toolkit view. 
         Parameters
         
@@ -21572,7 +21579,7 @@ class FBScrollBox(FBVisualComponent):
         ...
 class FBPropertyConnectionEditor(FBVisualComponent):
     """Property Connection Editor."""
-    Property:FBReference
+    Property:property
     """Read Write Property: Property to edit connections. Set to NULL to disable."""
     def PopupList(self):
         """Launch a list of connected objects."""
@@ -22022,7 +22029,7 @@ class FBEditPropertyModern(FBVisualComponent):
     """Read Write Property: Indicate the large increment applied when click-draging on the property value (usually left-click-dragging)"""
     Precision:float
     """Read Write Property: Used to specify the width and precision of the value shown. A value of 7.2 indicates to show at minimum 7 numbers, with 2 decimals."""
-    Property:FBReference
+    Property:property
     """Read Write Property: Property to edit. Set to NULL to disable."""
     SliderMax:float
     """Read Write Property: Should the property be editable using a slider, set the maximum value atainable with the slider."""
@@ -22030,7 +22037,7 @@ class FBEditPropertyModern(FBVisualComponent):
     """Read Write Property: Should the property be editable using a slider, set the minimum value atainable with the slider."""
     SmallInc:float
     """Read Write Property: Indicate the small increment applied when click-draging on the property value (usually right-click-dragging)"""
-    def SetBackgroundColorIndex(self,Index:FBColorIndex):
+    def SetBackgroundColorIndex(self,Index):
         """Set the background color index. 
         Use the system-defined color palette to set the backgound color. By default the color used is kFBColorIndexStdListBg1"""
         ...
@@ -22069,7 +22076,7 @@ class FBEditProperty(FBVisualComponent):
     """Read Write Property: Indicate the large increment applied when click-draging on the property value (usually left-click-dragging)"""
     Precision:float
     """Read Write Property: Used to specify the width and precision of the value shown. A value of 7.2 indicates to show at minimum 7 numbers, with 2 decimals."""
-    Property:FBReference
+    Property:property
     """Read Write Property: Property to edit. Set to NULL to disable."""
     SliderMax:float
     """Read Write Property: Should the property be editable using a slider, set the maximum value atainable with the slider."""

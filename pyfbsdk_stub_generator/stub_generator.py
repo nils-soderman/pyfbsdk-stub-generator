@@ -119,7 +119,7 @@ class StubGenerator():
         self.Version = GetMotionBuilderVersion()
 
         self._AllClassNames = []
-        
+
         self.Plugins: list[type[plugins.PluginBaseClass]] = list(Plugins) if Plugins else []
         self.Plugins.sort(key=lambda x: x.Priority)
 
@@ -181,7 +181,7 @@ class StubGenerator():
 
         # Sort classes after all patches are done and we know their requirements
         Classes = SortClasses(Classes)
-        
+
         # Flatten the functions list
         FlatFunctionList = [x for y in FunctionGroupList for x in y]
 
