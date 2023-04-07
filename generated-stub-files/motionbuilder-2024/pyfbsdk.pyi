@@ -19494,7 +19494,7 @@ class FBFCurve(FBComponent):
         pIndexIndex of the key to set. 
         pValueValue of the key."""
         ...
-    def KeysAdd(self,Times:list[FBTime],Values:list,Interpolations:list[FBInterpolation]=[],TangentModes:list[FBTangentMode]=[])->bool:
+    def KeysAdd(self,Times:list[FBTime],Values:list[float],Interpolations:list[FBInterpolation]=[],TangentModes:list[FBTangentMode]=[])->bool:
         """Add at once multiple keys at different specified times. 
         The array size of pTimes and pValues must match. If pInterpolations and pTangentModes parameters are specified, their array sizes must also match the array size of pTimes. The value of each index of each input array will be used together to form a key data to add. Parameters
         
@@ -19508,7 +19508,7 @@ class FBFCurve(FBComponent):
         ReturnsTrue if the operation is successful, false otherwise. 
         PythonEach parameter of KeysAdd is a Python list. ex : KeysAdd( [time1, time2], [value1, value2] )"""
         ...
-    def KeysSetValues(self,Indices:list,Values:list,Interpolations:list[FBInterpolation]=[],TangentModes:list[FBTangentMode]=[])->bool:
+    def KeysSetValues(self,Indices:list[int],Values:list[float],Interpolations:list[FBInterpolation]=[],TangentModes:list[FBTangentMode]=[])->bool:
         """Set at once multiple existing keys values. 
         The array size of pIndices and pValues must match. If pInterpolations and pTangentModes parameters are specified, their array sizes must also match the array size of pIndices. The value of each index of each input array (except for pIndices) will be used together to modify the key data of the key specified by the key index of pIndices. Parameters
         

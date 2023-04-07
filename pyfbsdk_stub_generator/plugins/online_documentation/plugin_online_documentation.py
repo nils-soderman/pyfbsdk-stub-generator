@@ -25,7 +25,11 @@ TRANSLATION_TYPE = {
     "FBkReference": "int",
 
     "FBAudioFmt": "int",
+    
+    "FBArrayDouble": "list[float]",
+    "FBArrayUInt": "list[int]",
 
+    "FBVector4[float]": "FBVector4d",
     "FBTVector": "FBVector4d",
     "FBQuaternion": "FBVector4d",
     "FBRVector": "FBVector3d",
@@ -263,9 +267,6 @@ class PluginOnlineDocumentation(PluginBaseClass):
         #                 Parameter.Type = f"{ParentClass.Name}.{Enum.Name}"
         #                 print(f"Patched parameter type: {Parameter.Type}")
         #                 return
-        if Parameter.Type == "ETimeFormats":
-            print("Break")
-
         if not self.ShouldPatchType(Parameter.Type, Type):
             return
 
@@ -335,8 +336,6 @@ class PluginOnlineDocumentation(PluginBaseClass):
         return False
 
     def EnsureValidType(self, Type: str) -> str | None:
-        Type = TRANSLATION_TYPE.get(Type, Type)
-
         if "<" in Type:
             Type = Type.replace("<", "[").replace(">", "]").replace(" ", "")
             Type = Type.replace("FBArrayTemplate", "list")
@@ -353,6 +352,8 @@ class PluginOnlineDocumentation(PluginBaseClass):
                 Type = Type.replace(ListTypes, ",".join(ValidatedTypes))
                 if Type.endswith("[]"):
                     Type = Type[:-2]
+                    
+        Type = TRANSLATION_TYPE.get(Type, Type)
 
         # Replace namespace C++ syntax with Python
         if "::" in Type:
