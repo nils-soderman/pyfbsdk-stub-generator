@@ -154,6 +154,8 @@ def _PatchFunctions(Functions: list[StubFunction], Members: list[MemberItem]):
                 MemberParameterType = EnsureValidType(MemberParameter.Type)
                 if FunctionParameter.Type == MemberParameterType:
                     Score += 1
+                elif MemberParameterType.startswith("list") and FunctionParameter.Type == "list":
+                    Score += 1
                 elif IsTypeDefined(FunctionParameter.Type):
                     # Member description is not compatible with current function
                     print(f"Member {Member.Name} is not compatible because of parameter {FunctionParameter.Type} != {MemberParameterType}")
@@ -183,7 +185,7 @@ def _PatchFunctions(Functions: list[StubFunction], Members: list[MemberItem]):
 def PatchFunction(Function: StubFunction, DocMember: MemberItem):
     Function.DocString = DocMember.DocString
 
-    if not IsTypeDefined(Function.ReturnType):
+    if ShouldPatchType(Function.ReturnType, DocMember.Type):
         Function.ReturnType = DocMember.Type
 
     FunctionParameters = Function.GetParameters(bExcludeSelf = True)
@@ -224,7 +226,7 @@ def PatchFunction(Function: StubFunction, DocMember: MemberItem):
 
 
 def PatchParameterType(Parameter: StubParameter, Type: str) -> str:
-    if IsTypeDefined(Parameter.Type):
+    if not ShouldPatchType(Parameter.Type, Type):
         return
 
     Parameter.Type = EnsureValidType(Type)
@@ -249,8 +251,22 @@ def PatchPropertyDefaultValue(Parameter: StubParameter, DefaultValue: str | None
 
 def EnsureValidType(Type: str) -> str:
     Type = TRANSLATION_TYPE.get(Type, Type)
+    
+    if "<" in Type:
+        Type = Type.replace("<", "[").replace(">", "]").replace(" ", "")
+        Type = Type.replace("FBArrayTemplate", "list")
+    
     return Type
 
+
+def ShouldPatchType(CurrentType: str, NewType: str) -> bool:
+    if not IsTypeDefined(CurrentType):
+        return True
+
+    if CurrentType == "list" and EnsureValidType(NewType).startswith("list"):
+        return True
+
+    return False
 
 def IsTypeDefined(Type: str | None) -> bool:
     if not Type:  # TODO: Hmmm ?
