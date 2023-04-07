@@ -5916,7 +5916,7 @@ class FBPropertyList(FBProperty):
     Data:Any
     def __contains__(self,arg2)->bool:...
     def __delitem__(self,arg2:int):...
-    def __getitem__(self,Index:int)->Element:
+    def __getitem__(self,Index:int)->object:
         """Returns the ith component Corresponds to python: print l[1]. 
         Parameters
         

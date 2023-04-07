@@ -39,6 +39,7 @@ TRANSLATION_TYPE = {
     "AreaLightShapes": "FBLight.EAreaLightShapes",
     "KeyBehavior": "FBModelPath3D.EKeyPropertyBehavior",
     "UnitType": "FBModelPath3D.ELengthUnitType",
+    "Element": "object",
 
     # These are unknown, revert them back to properties
     "FBEventTreeWhy": "property",
