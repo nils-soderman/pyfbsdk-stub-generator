@@ -5,6 +5,7 @@ https://github.com/nils-soderman/pyfbsdk-stub-generator
 # pylint: disable=all
 from __future__ import annotations
 from typing import overload, Any
+import callbackframework
 class Enumeration:
     __slots__:tuple
     names:dict

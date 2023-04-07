@@ -13,10 +13,11 @@ from ...module_types import StubClass, StubFunction, StubParameter, StubProperty
 
 reload(table_of_contents)
 
+EVENT_SOURCE_TYPE = "callbackframework.FBEventSource"
 
 TRANSLATION_TYPE = {
-    "long": "float",
     "double": "float",
+    "long": "int",
     "kInt64": "int",
     "kULong": "int",
 
@@ -28,7 +29,15 @@ TRANSLATION_TYPE = {
     "FBTVector": "FBVector4d",
     "FBQuaternion": "FBVector4d",
     "FBRVector": "FBVector3d",
-    "FBColorF": "FBColor"
+    "FBColorF": "FBColor",
+
+    # These are a bit more spesific, and may need to be changed in the future
+    "AreaLightShapes": "FBLight.EAreaLightShapes",
+    "KeyBehavior": "FBModelPath3D.EKeyPropertyBehavior",
+    "UnitType": "FBModelPath3D.ELengthUnitType",
+
+    # These are unknown, revert them back to properties
+    "FBEventTreeWhy": "property",
 }
 
 TRANSLATION_VALUES = {
@@ -84,7 +93,7 @@ class PluginOnlineDocumentation(PluginBaseClass):
             Member = ParsedPage.GetFirstMemberByName(Property.Name)
             if Member:
                 Property.DocString = Member.DocString
-                Property.Type = self.EnsureValidPropertyType(Member.Type)
+                Property.Type = self.EnsureValidPropertyType(Property, Member.Type)
 
         # Methods
         for FunctionGroup in Class.StubFunctions:
@@ -197,7 +206,7 @@ class PluginOnlineDocumentation(PluginBaseClass):
         Function.DocString = DocMember.DocString
 
         if ShouldPatchType(Function.ReturnType, DocMember.Type):
-            Function.ReturnType = DocMember.Type
+            Function.ReturnType = EnsureValidType(DocMember.Type)
 
         FunctionParameters = Function.GetParameters(bExcludeSelf = True)
         DocumentationParameters = DocMember.Parameters
@@ -245,18 +254,25 @@ class PluginOnlineDocumentation(PluginBaseClass):
 
         Parameter.Type = EnsureValidType(Type)
 
-    def EnsureValidPropertyType(self, Type: str) -> str:
+    def EnsureValidPropertyType(self, Property: StubProperty, Type: str) -> str:
         Type = EnsureValidType(Type)
 
         # If it's a class, make sure it's a valid class
-        if Type.startswith("FB") and Type not in self.AllClassesMap:
-            # In the documentation the "Property" part is missing from the class name
-            PropertyType = f"FBProperty{Type[2:]}"
-            if PropertyType in self.AllClassesMap:
-                Type = PropertyType
+        bClassIsValid = Type in self.AllClassesMap
+        if not bClassIsValid:
+            if Type.startswith("FB"):
+                # In the documentation the "Property" part is missing from the class name
+                PropertyType = f"FBProperty{Type[2:]}"
+                if PropertyType in self.AllClassesMap:
+                    Type = PropertyType
+
+        # Convert all Events to EventSource
+        # The documentation says otherwise, but is wrong.
+        if ((Type.startswith("FBEvent") or Property.Name.endswith("Event")) and Property.Name.startswith("On") and Property.DocString.startswith("Event")) or \
+                (not bClassIsValid and Type.startswith("FBEvent")):
+            Type = EVENT_SOURCE_TYPE
 
         return Type
-
 
     def PatchPropertyDefaultValue(self, Parameter: StubParameter, DefaultValue: str | None):
         if Parameter.DefaultValue is None or DefaultValue is None:
@@ -274,7 +290,7 @@ class PluginOnlineDocumentation(PluginBaseClass):
 
         if DefaultValue.startswith("FBArrayTemplate"):
             DefaultValue = "[]"
-            
+
         if DefaultValue.startswith(("FB", "k")) and DefaultValue not in self.AllClassesMap:
             EnumClass = self.AllClassesMap.get(Parameter.Type)
             if EnumClass:
@@ -297,10 +313,12 @@ def EnsureValidType(Type: str) -> str:
 def ShouldPatchType(CurrentType: str, NewType: str) -> bool:
     if not IsTypeDefined(CurrentType):
         return True
-
+    
     if CurrentType == "list" and EnsureValidType(NewType).startswith("list"):
         return True
-
+    
+    # TODO: Must check if type is valid as well
+    
     return False
 
 
