@@ -23,10 +23,12 @@ TRANSLATION_TYPE = {
     "kReference": "int",
     "FBkReference": "int",
     
+    "FBAudioFmt": "int",
+    
     "FBTVector": "FBVector4d",
     "FBQuaternion": "FBVector4d",
     "FBRVector": "FBVector3d",
-    "FBColorF": "FBColor",
+    "FBColorF": "FBColor"
 }
 
 TRANSLATION_VALUES = {
