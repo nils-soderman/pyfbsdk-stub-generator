@@ -9,6 +9,7 @@ from ..module_types import StubClass, StubFunction, StubParameter, StubProperty
 
 class PluginBaseClass():
     Threading = True
+    Priority = 100
 
     def __init__(self, Version: int, Module: ModuleType, EnumList: list[StubClass], ClassList: list[StubClass], FunctionGroupList: list[list[StubFunction]]) -> None:
         self.Version = Version

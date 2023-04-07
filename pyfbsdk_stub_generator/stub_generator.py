@@ -120,7 +120,8 @@ class StubGenerator():
 
         self._AllClassNames = []
         
-        self.Plugins: list[type[plugins.PluginBaseClass]] = Plugins if Plugins else []
+        self.Plugins: list[type[plugins.PluginBaseClass]] = list(Plugins) if Plugins else []
+        self.Plugins.sort(key=lambda x: x.Priority)
 
     # ---------------------------------------------------
     #                      Internal
