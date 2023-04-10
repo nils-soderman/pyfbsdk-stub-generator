@@ -29,13 +29,6 @@ reload(native_generator)
 
 DEFAULT_PLUGINS = plugins.GetDefaultPlugins()
 
-# TODO: Broken stuff:
-# FBModel.GetHierarchyWorldMatrices() - First param in the docs doesn't exists in the python version
-# FBInterpolateRotation() - Both of them use the same documentation :/
-# Support URLs in the doc strings
-# FBStoryClip -> GetAffectedAnimationNodes & FBModel::GetHierarchyWorldMatrices()
-# GetCommandLineArgs - Turn blockquotes into: ```
-
 
 TranslationDefaultValues = {
     "FRAMES_30": "FBTimeCode.FRAMES_30"

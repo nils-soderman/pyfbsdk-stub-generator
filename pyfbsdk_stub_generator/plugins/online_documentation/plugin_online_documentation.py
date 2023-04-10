@@ -365,7 +365,7 @@ class PluginOnlineDocumentation(PluginBaseClass):
             if "." in Type:
                 ClassName = Type.partition(".")[0]
             if ClassName not in self.AllClassesMap:
-                print(f"Type not found: {Type}")
+                # print(f"Type not found: {Type}")
                 return None
             
         return Type

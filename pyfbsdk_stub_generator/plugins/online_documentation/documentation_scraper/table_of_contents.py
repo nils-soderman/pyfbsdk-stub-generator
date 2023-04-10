@@ -49,7 +49,9 @@ class TableOfContentItem:
         else:
             PageContent = requests.get(Url, timeout=10).text
 
-        return page_parser.ParsePage(self.Name, PageContent)
+        BaseURL = urls.GetPythonPageContentsUrl("", self.Version)
+
+        return page_parser.ParsePage(self.Name, PageContent, BaseURL)
 
 
 class Documentation():
