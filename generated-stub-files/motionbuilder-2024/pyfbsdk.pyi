@@ -4263,16 +4263,12 @@ class FBAddRegionParam():
         """Initialize a region params. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pPos | Offset in pixel according depending on the use of [FBAddRegionParam](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_add_region_param.html "This class provide a placeholder to put values necessary to create a Region with FBLayout....") (X, Y, W or H)  |
-        | pType | Type of Attachment.  |
-        | pRelative | Name of Region to attach relative to.  |
-        | pMult | Multiplier of relative value.  |"""
+            - pPos: Offset in pixel according depending on the use of [FBAddRegionParam](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_add_region_param.html "This class provide a placeholder to put values necessary to create a Region with FBLayout....") (X, Y, W or H)
+            - pType: Type of Attachment.
+            - pRelative: Name of Region to attach relative to.
+            - pMult: Multiplier of relative value."""
         ...
 class FBAudioRenderOptions():
     """Audio Render Options structure. 
@@ -4380,32 +4376,22 @@ class FBCharacterPoseOptions():
         """Get a flag value. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pFlag: Flag to get.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pFlag | Flag to get.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Value of the flag."""
         ...
     def SetFlag(self,Flag:FBCharacterPoseFlag,bValue:bool):
         """Set a flag value. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pFlag | Flag to set.  |
-        | pValue | Value to set.  |"""
+            - pFlag: Flag to set.
+            - pValue: Value to set."""
         ...
     def __init__(self):
         """Constructor."""
@@ -4425,7 +4411,7 @@ class FBColor():
     print color[0]
     color[0] = 1.0
     [pyfbsdk::FBColor::FBColor](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_color.html#a33f8c77ae0fca2dc5dd593ccfe08c472)FBColor()Constructor.
-     ## Warning:
+     ### Warning:
     Slicing is not supported by this object.
       
     
@@ -4449,18 +4435,12 @@ class FBColor():
         """Returns the ith component Corresponds to python: print color[1]. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the components to get (0:Red, 1:Green, 2:Blue)
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the components to get (0:Red, 1:Green, 2:Blue)  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Color component value."""
         ...
     @overload
@@ -4524,14 +4504,10 @@ class FBColor():
         """Sets the ith components Corresponds to python: color[1] = 0.5. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the components to set (0:Red, 1:Green, 2:Blue)  |
-        | pComponentValue | Value of component to set  |"""
+            - pIndex: Index of the components to set (0:Red, 1:Green, 2:Blue)
+            - pComponentValue: Value of component to set"""
         ...
     @overload
     def __sub__(self,arg2:FBColor)->object:...
@@ -4556,7 +4532,7 @@ class FBColorAndAlpha():
     print color[0]
     color[0] = 1.0
     [pyfbsdk::FBColorAndAlpha::FBColorAndAlpha](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_color_and_alpha.html#aaad7acc210094df2f0f3d18f1b678e76)FBColorAndAlpha()Constructor.
-     ## Warning:
+     ### Warning:
     Slicing is not supported by this object."""
     @overload
     def CopyFrom(self,arg2:FBColorAndAlpha)->FBColorAndAlpha:...
@@ -4574,18 +4550,12 @@ class FBColorAndAlpha():
         """Returns the ith component Corresponds to python: print color[1]. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the components to get (0:Red, 1:Green, 2:Blue)
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the components to get (0:Red, 1:Green, 2:Blue)  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Color component value."""
         ...
     @overload
@@ -4646,14 +4616,10 @@ class FBColorAndAlpha():
         """Sets the ith components Corresponds to python: color[1] = 0.5. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the components to set (0:Red, 1:Green, 2:Blue)  |
-        | pComponentValue | Value of component to set  |"""
+            - pIndex: Index of the components to set (0:Red, 1:Green, 2:Blue)
+            - pComponentValue: Value of component to set"""
         ...
     @overload
     def __sub__(self,arg2:FBColorAndAlpha)->object:...
@@ -4681,18 +4647,12 @@ class FBComponentList():
         """Returns the ith component Corresponds to python: print l[1]. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the components to get
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the components to get  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         [FBComponent](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html "MotionBuilder SDK base class.") element value"""
         ...
     def __init__(self):
@@ -4729,41 +4689,29 @@ class FBConfigFile():
         
         Get an item's value by looking inside a specific section of the config file. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pSectionName: Name of the section.
+            - pItemName: Name of the item.
+            - pDefaultValue: Default value that will be returned if the item is not found.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pSectionName | Name of the section.  |
-        | pItemName | Name of the item.  |
-        | pDefaultValue | Default value that will be returned if the item is not found.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The value assigned to the item in the specified section of the config file, or the default value if not found."""
         ...
     def GetOrSet(self,SectionName:str,ItemName:str,Value:str,Comment:str|None=None)->tuple:
         """Get a value from the config file and set it if it was not found. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pSectionName: Name of the section.
+            - pItemName: Name of the item.
+            - pValue: Reference the the string that will contain the value of the item. If the item is not found in the file, it will be added with the initial value in this string.
+            - pComment: Optional parameter that can be used to add a comment.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pSectionName | Name of the section.  |
-        | pItemName | Name of the item.  |
-        | pValue | Reference the the string that will contain the value of the item. If the item is not found in the file, it will be added with the initial value in this string.  |
-        | pComment | Optional parameter that can be used to add a comment.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **true** if the value was found or added, or false if the item was not found and could not be added to the file."""
         ...
     def Set(self,SectionName:str,ItemName:str,Value:str,Comment:str|None=None)->bool:
@@ -4772,21 +4720,15 @@ class FBConfigFile():
         
         Assign a value to an item in the config file. If the item does not exist, it will be created. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pSectionName: Name of the section.
+            - pItemName: Name of the item.
+            - pValue: Value assigned to the item.
+            - pComment: Optional parameter that can be used to add a comment.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pSectionName | Name of the section.  |
-        | pItemName | Name of the item.  |
-        | pValue | Value assigned to the item.  |
-        | pComment | Optional parameter that can be used to add a comment.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **true** if the item was written to the config file, **false** otherwise."""
         ...
     @overload
@@ -4796,15 +4738,11 @@ class FBConfigFile():
         
         This will open the desired config file from the [APPLICATION]/bin/config folder. The file will be created if it does not exists. By prefixing the character '@' to the file name, this will automatically prepend the current machine name to the config file, the way it is done for the other config files of the application. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pConfigFileName | Name the config file to use.  |
-        | pVirtualMode | Enable this to limit disk access, file will only be read at construction and written at destruction.  |
-        | pClearFile | Remove all existing content from the config file.  |"""
+            - pConfigFileName: Name the config file to use.
+            - pVirtualMode: Enable this to limit disk access, file will only be read at construction and written at destruction.
+            - pClearFile: Remove all existing content from the config file."""
         ...
     @overload
     def __init__(self,ConfigFileName:str,ConfigFilePath:str,bVirtualMode:bool=False,bClearFile:bool=False):
@@ -4813,16 +4751,12 @@ class FBConfigFile():
         
         This will open the desired config file in the designed folder. The file will be created if it does not exists. By prefixing the character '@' to the file name, this will automatically prepend the current machine name to the config file, the way it is done for the other config files of the application. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pConfigFileName | Name the config file to use.  |
-        | pConfigFilePath | Location where the file should reside. Missing directories will not be created.  |
-        | pVirtualMode | Enable this to limit disk access, file will only be read at construction and written at destruction.  |
-        | pClearFile | Remove all existing content from the config file.  |"""
+            - pConfigFileName: Name the config file to use.
+            - pConfigFilePath: Location where the file should reside. Missing directories will not be created.
+            - pVirtualMode: Enable this to limit disk access, file will only be read at construction and written at destruction.
+            - pClearFile: Remove all existing content from the config file."""
         ...
 class FBConstraintInfo():
     """Constraint information class. 
@@ -4836,14 +4770,14 @@ class FBConstraintInfo():
         """Was a 'snap' requested? 
         
         
-        ## Returns:
+        ### Returns:
         **true** if 'snap' was requeststed."""
         ...
     def GetZeroRequested(self)->bool:
         """Was a 'zero' requested? 
         
         
-        ## Returns:
+        ### Returns:
         **true** if 'zero' was requeststed."""
         ...
 class FBConstructionOperation():
@@ -4878,13 +4812,9 @@ class FBConstructionOperation():
         
         Set this to -1 for new operations. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | commandId | Command Id. Defaults to -1.  |"""
+            - commandId: Command Id. Defaults to -1."""
         ...
     def SetExecuteAsLocalOperation(self,bIsLocal:bool):
         """SetExecuteAsLocalOperation Whether to execute this operation as local or remote. 
@@ -4892,13 +4822,9 @@ class FBConstructionOperation():
         
         If this is set to false (remote) and an operation is sent to the construction history, it will also execute locally on this motionbuilder. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | bIsLocal | Defaults to true (local).  |"""
+            - bIsLocal: Defaults to true (local)."""
         ...
     def SetLanguage(self,language:str):
         """SetLanguage Set the script language for this operation. 
@@ -4906,25 +4832,17 @@ class FBConstructionOperation():
         
         Currently only "python" is supported. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | language | Langugage string. Default to construction history's code generator's language (Currently "python").  |"""
+            - language: Langugage string. Default to construction history's code generator's language (Currently "python")."""
         ...
     def SetLanguageVersion(self,version:int):
         """SetLanguageVersion Set the script language interpreter's version that this operation should be interpreted with. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | version | Version number. Defaults to construction history's code generator's version (Currently 1).  |"""
+            - version: Version number. Defaults to construction history's code generator's version (Currently 1)."""
         ...
     def SetOrigin(self,origin:str):
         """SetOrigin Set operation's original creator. 
@@ -4932,25 +4850,17 @@ class FBConstructionOperation():
         
         For instance "localhost" or . Should mostly be "localhost" for new operations. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | origin | Operation's Origin. Defaults to "localhost".  |"""
+            - origin: Operation's Origin. Defaults to "localhost"."""
         ...
     def SetScript(self,script:str):
         """SetScript Set the script content for this operation. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | script | Script content as a string. Defaults to empty.  |"""
+            - script: Script content as a string. Defaults to empty."""
         ...
     def __init__(self,arg2:str|None=None):...
 class FBDeviceNotifyInfo():
@@ -4965,21 +4875,21 @@ class FBDeviceNotifyInfo():
         """Get local time. 
         
         
-        ## Returns:
+        ### Returns:
         Current local time."""
         ...
     def GetSyncCount(self)->int:
         """Return the wanted timer sync count (internal or external) 
         
         
-        ## Returns:
+        ### Returns:
         sync count or **-1** if no sync is present"""
         ...
     def GetSystemTime(self)->FBTime:
         """Get system time. 
         
         
-        ## Returns:
+        ### Returns:
         Current system time."""
         ...
 class FBDirMap():
@@ -5007,13 +4917,9 @@ class FBDirMap():
         
         If one of the mapped directory's source is found in the given path, that part of the path will be replaced by the mapped directory's target. Only the first occurrence is processed. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pPath | The path to process  |"""
+            - pPath: The path to process"""
         ...
     def __init__(self):...
 class FBEvaluateInfo():
@@ -5028,35 +4934,35 @@ class FBEvaluateInfo():
         """Return the wanted timer sync count (internal or external). 
         
         
-        ## Returns:
+        ### Returns:
         sync count or **-1** if no sync is present"""
         ...
     def GetLocalTime(self)->FBTime:
         """Return local (scene) time. 
         
         
-        ## Returns:
+        ### Returns:
         Local time."""
         ...
     def GetSyncCount(self)->int:
         """Return the wanted timer sync count (internal or external). 
         
         
-        ## Returns:
+        ### Returns:
         sync count or **-1** if no sync is present"""
         ...
     def GetSystemTime(self)->FBTime:
         """Return system time. 
         
         
-        ## Returns:
+        ### Returns:
         System time."""
         ...
     def IsStop(self)->bool:
         """Is local time stopped? (ie: no animation). 
         
         
-        ## Returns:
+        ### Returns:
         **true** if local time is stopped."""
         ...
 class FBEvent():
@@ -5072,13 +4978,9 @@ class FBEventClipChange(FBEvent):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pEvent | Base event (internal) to obtain information from.  |"""
+            - pEvent: Base event (internal) to obtain information from."""
         ...
 class FBEventConnectionDataNotify(FBEvent):
     """Connection notify event class."""
@@ -5090,13 +4992,9 @@ class FBEventConnectionDataNotify(FBEvent):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pEvent | Base event (internal) to obtain information from.  |"""
+            - pEvent: Base event (internal) to obtain information from."""
         ...
 class FBEventConnectionKeyingNotify(FBEvent):
     Action:property
@@ -5108,13 +5006,9 @@ class FBEventConnectionKeyingNotify(FBEvent):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pEvent | Base event (internal) to obtain information from.  |"""
+            - pEvent: Base event (internal) to obtain information from."""
         ...
 class FBEventConnectionNotify(FBEvent):
     """Connection notify event class."""
@@ -5134,13 +5028,9 @@ class FBEventConnectionNotify(FBEvent):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pEvent | Base event (internal) to obtain information from.  |"""
+            - pEvent: Base event (internal) to obtain information from."""
         ...
 class FBEventConnectionStateNotify(FBEvent):
     """Connection notify event class."""
@@ -5152,13 +5042,9 @@ class FBEventConnectionStateNotify(FBEvent):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pEvent | Base event (internal) to obtain information from.  |"""
+            - pEvent: Base event (internal) to obtain information from."""
         ...
 class FBEventDblClick(FBEvent):
     """Input event class."""
@@ -5168,13 +5054,9 @@ class FBEventDblClick(FBEvent):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pEvent | Base event (internal) to obtain information from.  |"""
+            - pEvent: Base event (internal) to obtain information from."""
         ...
 class FBEventDragAndDrop(FBEvent):
     """Drag and drop interface.b>Event: Global Evaluation pipeline critical timing callback event."""
@@ -5198,14 +5080,10 @@ class FBEventDragAndDrop(FBEvent):
         """Add an item to the drag and drop list. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pComponent | Item to add to the list.  |
-        | pId | User-defined reference for the item (default = 0 ).  |"""
+            - pComponent: Item to add to the list.
+            - pId: User-defined reference for the item (default = 0 )."""
         ...
     def Clear(self):
         """Clear drag and drop list."""
@@ -5214,25 +5092,19 @@ class FBEventDragAndDrop(FBEvent):
         """Get the [FBComponent](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html "MotionBuilder SDK base class.") specified by **pIndex** from the Drag and Drop list. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index in list where to get [FBComponent](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html "MotionBuilder SDK base class.").
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index in list where to get [FBComponent](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html "MotionBuilder SDK base class.").  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Handle to [FBComponent](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html "MotionBuilder SDK base class.") in list at **pIndex**."""
         ...
     def GetCount(self)->int:
         """Get the number of items in the DragAndDrop list. 
         
         
-        ## Returns:
+        ### Returns:
         Number of items in DragAndDrop list."""
         ...
 class FBEventEvalGlobalCallback(FBEvent):
@@ -5280,26 +5152,18 @@ class FBEventOverrideFileOpen(FBEvent):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pEvent | Base event (internal) to obtain information from.  |"""
+            - pEvent: Base event (internal) to obtain information from."""
         ...
 class FBEventPlayerControlChange(FBEvent):
     def __init__(self):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pEvent | Base event (internal) to obtain information from.  |"""
+            - pEvent: Base event (internal) to obtain information from."""
         ...
 class FBEventResize(FBEvent):
     """Event sent to a control that resizes."""
@@ -5311,13 +5175,9 @@ class FBEventResize(FBEvent):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pEvent | Base event (internal) to obtain information from.  |"""
+            - pEvent: Base event (internal) to obtain information from."""
         ...
 class FBEventSceneChange(FBEvent):
     """Select model event class. 
@@ -5335,13 +5195,9 @@ class FBEventSceneChange(FBEvent):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pEvent | Base event (internal) to obtain information from.  |"""
+            - pEvent: Base event (internal) to obtain information from."""
         ...
 class FBEventShow(FBEvent):
     """Show event class."""
@@ -5369,13 +5225,9 @@ class FBEventTakeChange(FBEvent):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pEvent | Base event (internal) to obtain information from.  |"""
+            - pEvent: Base event (internal) to obtain information from."""
         ...
 class FBEventTransaction(FBEvent):
     """Transaction event."""
@@ -5395,13 +5247,9 @@ class FBEventTreeSelect(FBEvent):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pEvent | Base event (internal) to obtain information from.  |"""
+            - pEvent: Base event (internal) to obtain information from."""
         ...
 class FBEventVideoFrameRendering(FBEvent):
     class EState(Enumeration):
@@ -5418,13 +5266,9 @@ class FBEventVideoFrameRendering(FBEvent):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pEvent | Base event (internal) to obtain information from.  |"""
+            - pEvent: Base event (internal) to obtain information from."""
         ...
 class FBFCurveEvent(FBEvent):
     """This class is used when a modification is made on a FCurve. 
@@ -5450,13 +5294,9 @@ class FBFCurveEvent(FBEvent):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pEvent | Base event (internal) to obtain information from.  |"""
+            - pEvent: Base event (internal) to obtain information from."""
         ...
 class FBFCurveKey():
     """KeyFrame for an FCurve. 
@@ -5537,7 +5377,7 @@ class FBFilePopup():
         """Execute file popup. 
         
         
-        ## Returns:
+        ### Returns:
         **true** if **OK** is clicked by user."""
         ...
     def __init__(self):
@@ -5606,18 +5446,12 @@ class FBFilterManager():
         """Create a filter instance according to the filter type requested. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pFilterTypeName: String describing the type of the desired filter, as obtained from list FilterTypeNames.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pFilterTypeName | String describing the type of the desired filter, as obtained from list FilterTypeNames.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         A pointer to a filter instance, or a NULL if the type name was invalid."""
         ...
     def __init__(self):
@@ -5641,7 +5475,7 @@ class FBFolderPopup():
         """Execute folder popup. 
         
         
-        ## Returns:
+        ### Returns:
         **true** if **OK** is clicked by user."""
         ...
     def __init__(self):
@@ -5662,7 +5496,7 @@ class FBMatrix():
     print mat[13]
     mat[12] = 1.0
     [pyfbsdk::FBMatrix::FBMatrix](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_matrix.html#acf55562b55ce4135325519646995f0a2)FBMatrix()Constructor Initializes matrix to identity.
-     ## Warning:
+     ### Warning:
     The implementation of this 4x4 matrix uses a simple list of 16 elements, not a list of 4 vectors of 4 elements.\* 
     
     
@@ -5682,25 +5516,19 @@ class FBMatrix():
         """Get Inversed matrix. 
         
         
-        ## Returns:
+        ### Returns:
         the matrix Inversed."""
         ...
     def InverseProduct(self,Matrix:FBMatrix):
         """InverseProduct Matrix. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pMatrix: Matrix to Product.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pMatrix | Matrix to Product.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         result matrix."""
         ...
     def IsEqual(self,arg2:FBMatrix)->bool:...
@@ -5714,26 +5542,22 @@ class FBMatrix():
         
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pValue | Array to intialize matrix from.  |"""
+            - pValue: Array to intialize matrix from."""
         ...
     def Transpose(self):
         """Get Transposed matrix. 
         
         
-        ## Returns:
+        ### Returns:
         the matrix Transposed."""
         ...
     def Validate(self)->bool:
         """Validated matrix. 
         
         
-        ## Returns:
+        ### Returns:
         true if matrix Validated."""
         ...
     def __add__(self,arg2:FBMatrix)->object:...
@@ -5741,18 +5565,12 @@ class FBMatrix():
         """Returns the ith component Corresponds to python: print matrix[1]. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the components to get (0 to 15)
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the components to get (0 to 15)  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Matrix element value"""
         ...
     def __iadd__(self,arg2:FBMatrix)->object:...
@@ -5774,13 +5592,9 @@ class FBMatrix():
         
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pValue | Array to intialize matrix from.  |"""
+            - pValue: Array to intialize matrix from."""
         ...
     @overload
     def __init__(self,Matrix:FBMatrix):
@@ -5792,13 +5606,9 @@ class FBMatrix():
         
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pMatrix | Matrix to copy.  |"""
+            - pMatrix: Matrix to copy."""
         ...
     def __isub__(self,arg2:FBMatrix)->object:...
     def __len__(self)->int:
@@ -5816,14 +5626,10 @@ class FBMatrix():
         """Sets the ith components Corresponds to python: color[1] = 0.5. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the components to set (0 to 15)  |
-        | pComponentValue | Value of component to set  |"""
+            - pIndex: Index of the components to set (0 to 15)
+            - pComponentValue: Value of component to set"""
         ...
     def __sub__(self,arg2:FBMatrix)->object:...
 class FBModelList():
@@ -5841,13 +5647,9 @@ class FBModelList():
         """Append a new modle at the end of the list. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pModel | model to add to the list.  |"""
+            - pModel: model to add to the list."""
         ...
     def Clear(self):
         """Empty the list from all models."""
@@ -5859,36 +5661,24 @@ class FBModelList():
         """Get the ith model in list. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: index of modle to get (0 based).
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | index of modle to get (0 based).  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The pIndex model"""
         ...
     def __getitem__(self,Index:int)->FBModel:
         """Returns the ith component Corresponds to python: print l[1]. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the components to get
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the components to get  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Model element value"""
         ...
     def __init__(self):
@@ -5904,13 +5694,9 @@ class FBModelList():
         """Append a new modle at the end of the list. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pModel | model to add to the list.  |"""
+            - pModel: model to add to the list."""
         ...
     def count(self)->int:
         """Get number of models in list."""
@@ -5959,7 +5745,7 @@ class FBMultiLangManager():
         
         Query the current language used for the GUI. 
         
-        ## Returns:
+        ### Returns:
         Will return the string associated with the current language used."""
         ...
     def SetCurrentLanguage(self,Language:str)->bool:
@@ -5968,20 +5754,14 @@ class FBMultiLangManager():
         
         Change the current language to another available language. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pLanguage: The string corresponding to the desired language, as defined in property Languages.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pLanguage | The string corresponding to the desired language, as defined in property Languages.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Indicate if the change of language was successful. 
-        ## Warning:
+        ### Warning:
         Setting the current language will affect the lookup done with the functions FBGetMultiLangText, but will not have any effect on the GUI."""
         ...
     def __init__(self):
@@ -6063,32 +5843,22 @@ class FBObjectPoseMirrorOptions():
         """Get a flag value. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pFlag: Flag to get.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pFlag | Flag to get.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Value of the flag."""
         ...
     def SetFlag(self,Flag:FBObjectPoseMirrorOptionsFlag,bValue:bool):
         """Set a flag value. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pFlag | Flag to set.  |
-        | pValue | Value to set.  |"""
+            - pFlag: Flag to set.
+            - pValue: Value to set."""
         ...
     def __init__(self):
         """Constructor."""
@@ -6116,32 +5886,22 @@ class FBObjectPoseOptions():
         """Get a flag value. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pFlag: Flag to get.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pFlag | Flag to get.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Value of the flag."""
         ...
     def SetFlag(self,Flag:FBObjectPoseOptionsFlag,bValue:bool):
         """Set a flag value. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pFlag | Flag to set.  |
-        | pValue | Value to set.  |"""
+            - pFlag: Flag to set.
+            - pValue: Value to set."""
         ...
     def __init__(self):
         """Constructor."""
@@ -6231,15 +5991,11 @@ class FBProfileTaskCycle():
         
         Results will vary on buffer size. When profiling is disabled all values are set to 1. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pAvg | Average time spend for computation of task (in micro seconds).  |
-        | pMin | Minimum time spend for computation of task (in micro seconds).  |
-        | pMax | Maximum time spend for computation of task (in micro seconds).  |"""
+            - pAvg: Average time spend for computation of task (in micro seconds).
+            - pMin: Minimum time spend for computation of task (in micro seconds).
+            - pMax: Maximum time spend for computation of task (in micro seconds)."""
         ...
     def GetChild(self,Index:int)->FBProfileTaskCycle:
         """Get child task based on specific index. 
@@ -6247,18 +6003,12 @@ class FBProfileTaskCycle():
         
         Can return NULL if child index is not used. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Child index.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Child index.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Child at given index."""
         ...
     def GetChildCount(self)->int:
@@ -6267,7 +6017,7 @@ class FBProfileTaskCycle():
         
         Task cycles are organized in a hierarchy which is dependent on the scene. Samples can be cumulative in the parent task cycle, or independent. For example, all character evaluation samples will be cumulated in one evaluation cycle. 
         
-        ## Returns:
+        ### Returns:
         Number of child tasks."""
         ...
     def GetColor(self)->FBColor:
@@ -6323,18 +6073,12 @@ class FBPropertyListAnimationNode():
         """Returns the animation node from its label. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pNodeLabel: Label of the searched animation node.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pNodeLabel | Label of the searched animation node.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         AnimationNode found."""
         ...
     def __getitem__(self,arg2)->object:...
@@ -6405,39 +6149,27 @@ class FBPropertyManager():
         """Find a property, based on its name. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pPropertyName: Name of property to look for.
+            - pMultilangLookup: When searching, indicate if the name lookup should also be done on the property name as shown in the GUI. (default = true)
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pPropertyName | Name of property to look for.  |
-        | pMultilangLookup | When searching, indicate if the name lookup should also be done on the property name as shown in the GUI. (default = true)  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Handle to property found."""
         ...
     def FindPropertiesByName(self,PropertyNamePattern:str,PropList:list,bMultilangLookup:bool=True):
         """This function will query the property list for properties fulfilling a particular name pattern. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pPropertyNamePattern: Indicate the name pattern to search. This pattern can contain any amount of \*. (ex: \*tr\*mod\*scene )
+            - pPropList: List that contains the resulting properties matching the pattern
+            - pMultilangLookup: When searching, indicate if the name lookup should also be done on the property name as shown in the GUI. (default = true)
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pPropertyNamePattern | Indicate the name pattern to search. This pattern can contain any amount of \*. (ex: \*tr\*mod\*scene )  |
-        | pPropList | List that contains the resulting properties matching the pattern  |
-        | pMultilangLookup | When searching, indicate if the name lookup should also be done on the property name as shown in the GUI. (default = true)  |
-        
-        
-        
-        
-        ## Note:
+        ### Note:
         The script FindPropertiesWithWildcard.py shows how to use this function."""
         ...
     def __getitem__(self,arg2)->object:...
@@ -6452,13 +6184,9 @@ class FBPropertyStateEvent(FBEvent):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pEvent | Base event (internal) to obtain information from.  |"""
+            - pEvent: Base event (internal) to obtain information from."""
         ...
 class FBPropertyViewDefinition():
     """[FBProperty](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property.html "Generic application property.") View. 
@@ -6495,19 +6223,13 @@ class FBPropertyViewList():
         """Add property view. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pProperty: Property to add.
+            - pHierarchy: Hierarchy under which property view should be created, each level name is separated by dot (for example "Degrees of Freedom.Translation").
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pProperty | Property to add.  |
-        | pHierarchy | Hierarchy under which property view should be created, each level name is separated by dot (for example "Degrees of Freedom.Translation").  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         created object (should not be called on non editable view list)."""
         ...
     def FindPropertyView(self,PropertyName:str)->FBPropertyViewDefinition:
@@ -6520,18 +6242,12 @@ class FBPropertyViewList():
         """Remove property view from view list. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pPropertyViewDefinition: Property view definition to destroy.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pPropertyViewDefinition | Property view definition to destroy.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         true when pPropertyViewDefinition got removed and free (should not be called on non editable view list)."""
         ...
 class FBPythonWrapper():
@@ -6607,14 +6323,14 @@ class FBRenderOptions():
         """Get IDBuffer Picking Alpha threshold. 
         
         
-        ## Returns:
+        ### Returns:
         ID Buffer picking alpha threshold value."""
         ...
     def GetRenderFrameId(self)->int:
         """Get Render Frame ID. 
         
         
-        ## Returns:
+        ### Returns:
         This return a new ID each time a new frame is drawn."""
         ...
     def GetRenderingCamera(self)->FBCamera:
@@ -6628,14 +6344,14 @@ class FBRenderOptions():
         """Get IDBuffer Rendering request status (for display or picking) 
         
         
-        ## Returns:
+        ### Returns:
         true if need to render Model (or subitem)'s UniqueColorID into GL Color Buffer."""
         ...
     def IsOfflineRendering(self)->bool:
         """Check if the render request comes from offline render mode (as opposed to viewport refresh). 
         
         
-        ## Returns:
+        ### Returns:
         true if the render comes from offline render mode."""
         ...
 class FBProperty(FBPlug):
@@ -6679,144 +6395,120 @@ class FBProperty(FBPlug):
         """AllowsLocking. 
         
         
-        ## Returns:
+        ### Returns:
         **true** if property can be locked"""
         ...
     def AsString(self,Flag:FBDataAsStringFlag=FBDataAsStringFlag.kFBDataAsStringUI)->str:
         """Get the property value as a string. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pFlag: Indicates the returned string to be used for UI or storage. It defaults to kFBDataAsStringUI.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pFlag | Indicates the returned string to be used for UI or storage. It defaults to kFBDataAsStringUI.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The string version of the property."""
         ...
     def EnumList(self,Index:int)->str:
         """Return the string of an enum value. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Enum value to get string for.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Enum value to get string for.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         String value of enum specified by pIndex."""
         ...
     def GetEnumStringList(self,bCreateIt:bool=False)->FBStringList:
         """String list for enum properties. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pCreateIt: Create a new list if necessary.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pCreateIt | Create a new list if necessary.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         the pointer to the string list.."""
         ...
     def GetMax(self)->float:
         """GetMax. 
         
         
-        ## Returns:
+        ### Returns:
         Maximum value for the property."""
         ...
     def GetMin(self)->float:
         """GetMin. 
         
         
-        ## Returns:
+        ### Returns:
         Minimum value for the property."""
         ...
     def GetName(self)->str:
         """Get the property's name. 
         
         
-        ## Returns:
+        ### Returns:
         The property's name."""
         ...
     def GetPropertyFlag(self,Flag:FBPropertyFlag)->bool:
         """GetPropertyFlag. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pFlag: Flag to test if it is True or False.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pFlag | Flag to test if it is True or False.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         If the flag is True, the function returns True and vice-versa. 
-        ## Warning:
+        ### Warning:
         Flags are not saved into or read from a FBX file."""
         ...
     def GetPropertyFlags(self)->int:
         """GetPropertyFlags. 
         
         
-        ## Returns:
+        ### Returns:
         Return all flags at once."""
         ...
     def GetPropertyType(self)->FBPropertyType:
         """Get the property's type. 
         
         
-        ## Returns:
+        ### Returns:
         The property's type."""
         ...
     def GetPropertyTypeName(self)->str:
         """Get the property's type name. 
         
         
-        ## Returns:
+        ### Returns:
         The property's type name."""
         ...
     def GetReferencedProperty(self)->FBProperty:
         """Get the referenced property, in the case of this property is a reference property (see the [IsReferenceProperty()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property.html#ad452a44b96cabe2306c467b53d306635) method). 
         
         
-        ## Returns:
+        ### Returns:
         The referenced property, or a null pointer if this property is not a reference property."""
         ...
     def GetSubMemberCount(self)->int:
         """GetSubMemberCount. 
         
         
-        ## Returns:
+        ### Returns:
         Number of sub-members."""
         ...
     def HasSomethingLocked(self)->bool:
         """HasSomethingLocked. 
         
         
-        ## Returns:
+        ### Returns:
         **true** if property or any of its members is locked"""
         ...
     def IsAnimatable(self)->bool:
@@ -6829,60 +6521,54 @@ class FBProperty(FBPlug):
         """Verify if property is of this type. 
         
         
-        ## Returns:
+        ### Returns:
         **true** if property is of type."""
         ...
     def IsLocked(self)->bool:
         """IsLocked. 
         
         
-        ## Returns:
+        ### Returns:
         **true** if property is locked"""
         ...
     def IsMaxClamp(self)->bool:
         """Indicate if maximum value clamping will be applied on user input value. 
         
         
-        ## Returns:
+        ### Returns:
         **true** if property the value will be clamped to a maximum value."""
         ...
     def IsMemberLocked(self,Index:int)->bool:
         """IsMemberLocked. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the sub-member of the property to check.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the sub-member of the property to check.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **true** if property sub-member is locked"""
         ...
     def IsMinClamp(self)->bool:
         """Indicate if minimum value clamping will be applied on user input value. 
         
         
-        ## Returns:
+        ### Returns:
         **true** if property the value will be clamped to a minimum value."""
         ...
     def IsObjectList(self)->bool:
         """Indicate if is an instance of [FBPropertyListObject](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_list_object.html "List-like structure fo system elements."). 
         
         
-        ## Warning:
+        ### Warning:
         A [FBPropertyListObject](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_list_object.html "List-like structure fo system elements.") will also return true on a call to '[IsList()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property.html#a37da1d5c27b1223f6d1c30c5ebe6888f "Verify if property is of this type.")'."""
         ...
     def IsReadOnly(self)->bool:
         """Is property read-only? 
         
         
-        ## Returns:
+        ### Returns:
         **true** if property is read-only."""
         ...
     def IsReferenceProperty(self)->bool:
@@ -6898,19 +6584,13 @@ class FBProperty(FBPlug):
         """ModifyPropertyFlag. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pFlag: The flag to switch to True or False.
+            - pValue: The value to set about this flag.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pFlag | The flag to switch to True or False.  |
-        | pValue | The value to set about this flag.  |
-        
-        
-        
-        
-        ## Warning:
+        ### Warning:
         Flags are not saved into or read from a FBX file."""
         ...
     def NotifyEnumStringListChanged(self):
@@ -6920,88 +6600,62 @@ class FBProperty(FBPlug):
         """Get the property original value (before any modification) as string. 
         
         
-        ## Returns:
+        ### Returns:
         returns the original value of the property in string with format same as AsString(kDataAsStringPersistence)"""
         ...
     def SetLocked(self,bLocked:bool):
         """SetLocked. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pLocked | True if the property is to be locked, false if it is to be unlocked.  |"""
+            - pLocked: True if the property is to be locked, false if it is to be unlocked."""
         ...
     def SetMax(self,Max:float,bForceMaxClamp:bool=False):
         """SetMax. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pMax | Maximum value of the property.  |
-        | pForceMaxClamp | Force clamping to maximum value of the property.  |"""
+            - pMax: Maximum value of the property.
+            - pForceMaxClamp: Force clamping to maximum value of the property."""
         ...
     def SetMemberLocked(self,Index:int,bLocked:bool):
         """SetMemberLocked. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the sub-member of the property to lock or unlock.  |
-        | pLocked | True if the sub-member is to be locked, false if it is to be unlocked.  |"""
+            - pIndex: Index of the sub-member of the property to lock or unlock.
+            - pLocked: True if the sub-member is to be locked, false if it is to be unlocked."""
         ...
     def SetMin(self,Min:float,bForceMinClamp:bool=False):
         """SetMin. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pMin | Minimum value of the property.  |
-        | pForceMinClamp | Force clamping to minimum value of the property.  |"""
+            - pMin: Minimum value of the property.
+            - pForceMinClamp: Force clamping to minimum value of the property."""
         ...
     def SetName(self,Name:str):
         """Set the property's name. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | New name for the property.  |"""
+            - pName: New name for the property."""
         ...
     def SetString(self,String:str)->bool:
         """Set the property value from a string. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pString: String to set property value from, with format same as AsString(kFBDataAsStringPersistence)
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pString | String to set property value from, with format same as AsString(kFBDataAsStringPersistence)  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if it was possible."""
         ...
 class FBComponent(FBPlug):
@@ -7034,31 +6688,23 @@ class FBComponent(FBPlug):
         """Disable a specific Object Flags. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pFlags | Flags to disable.  |"""
+            - pFlags: Flags to disable."""
         ...
     def EnableObjectFlags(self,Flags:FBObjectFlag):
         """Enable a specific Object Flags. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pFlags | Flags to enable.  |"""
+            - pFlags: Flags to enable."""
         ...
     def FBCreate(self)->bool:
         """Open Reality Creation function. 
         
         
-        ## Returns:
+        ### Returns:
         Outcome of creation (true/false)."""
         ...
     def FBDelete(self):
@@ -7074,26 +6720,22 @@ class FBComponent(FBPlug):
         """Get all Object Flags (concatenated). 
         
         
-        ## Returns:
+        ### Returns:
         Get all object flags in one call. Flags can be concatenated."""
         ...
     def GetObjectStatus(self,Status:FBObjectStatus)->bool:
         """Check to see if an object status is enabled. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pStatus | Status to query.  |"""
+            - pStatus: Status to query."""
         ...
     def GetOwnerFileReference(self)->FBFileReference:
         """Get the owner FileReference object. 
         
         
-        ## Returns:
+        ### Returns:
         the owner FileReference object"""
         ...
     def HardSelect(self):
@@ -7106,18 +6748,12 @@ class FBComponent(FBPlug):
         """Check whether a specific object flag is enabled. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pFlags: Flags to check if they are present.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pFlags | Flags to check if they are present.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if all flags in pFlags are enabled."""
         ...
     def ProcessNamespaceHierarchy(self,NamespaceAction:FBNamespaceAction,NamespaceName:str,ReplaceTo:str|None=None,bAddRight:bool=True)->bool:
@@ -7126,21 +6762,15 @@ class FBComponent(FBPlug):
         
         New Namespace name should only contains alphabet, digit and '\_', Can't start with digit. This recursive function goes through the whole hierarchy (children) to add/replace the prefix. If you need to work on a single object, use the ProcessObjectPrefix function. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pNamespaceAction: Which operation to do on the hierarchy (children).
+            - pNamespaceName: The Namespace name on Add/Delete or the prefix to replace in case of replace.
+            - pReplaceTo: The new Namespace Name or NULL in case of add or delete.
+            - pAddRight: Whether to add the namespace on right-most or left-most side or other namespace.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pNamespaceAction | Which operation to do on the hierarchy (children).  |
-        | pNamespaceName | The Namespace name on Add/Delete or the prefix to replace in case of replace.  |
-        | pReplaceTo | The new Namespace Name or NULL in case of add or delete.  |
-        | pAddRight | Whether to add the namespace on right-most or left-most side or other namespace.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         return true if process successful."""
         ...
     def ProcessObjectNamespace(self,NamespaceAction:FBNamespaceAction,NamespaceName:str,ReplaceTo:str|None=None,bAddRight:bool=True)->bool:
@@ -7149,88 +6779,62 @@ class FBComponent(FBPlug):
         
         New Namespace name should only contains alphabet, digit and '\_', Can't start with digit. This function is the same as ProcessNamespaceHierarchy except that it applies only on the current object and not to the object's children. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pNamespaceAction: Which operation to do on the hierarchy (children).
+            - pNamespaceName: The Namespace name on Add/Delete or the prefix to replace in case of replace.
+            - pReplaceTo: The new Namespace Name or NULL in case of add or delete.
+            - pAddRight: Whether to add the namespace on right-most or left-most side or other namespace.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pNamespaceAction | Which operation to do on the hierarchy (children).  |
-        | pNamespaceName | The Namespace name on Add/Delete or the prefix to replace in case of replace.  |
-        | pReplaceTo | The new Namespace Name or NULL in case of add or delete.  |
-        | pAddRight | Whether to add the namespace on right-most or left-most side or other namespace.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         return true if process successful."""
         ...
     def PropertyAdd(self,Property:FBProperty)->int:
         """Add a property to the component's property manager. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pProperty: The property to add to the property manager.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pProperty | The property to add to the property manager.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Index in the property array where property was inserted."""
         ...
     def PropertyAddReferenceProperty(self,ReferenceProperty:FBProperty)->bool:
         """Add a reference property to the component's property manager. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pReferenceProperty: The property to from an other object to add a reference to (property cannot be a custom ORSDK property).
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pReferenceProperty | The property to from an other object to add a reference to (property cannot be a custom ORSDK property).  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the reference property could be added."""
         ...
     def PropertyCreate(self,Name:str,Type:FBPropertyType,DataType:str,bAnimatable:bool,bIsUser:bool,ReferenceSource:FBProperty)->FBProperty:
         """Create user or dynamic property. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | The name of the property.  |
-        | pType | Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_type.html "Property types.").  |
-        | pDataType | DataType of the property.  |
-        | pAnimatable | To specify if the property can be animated.  |
-        | pIsUser | To specify if the property is available as a custom property or dynamic and attached to the object.  |
-        | pReferenceSource | Specifies the property that a reference refers to.  |"""
+            - pName: The name of the property.
+            - pType: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+            - pDataType: DataType of the property.
+            - pAnimatable: To specify if the property can be animated.
+            - pIsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
+            - pReferenceSource: Specifies the property that a reference refers to."""
         ...
     def PropertyGetModifiedList(self,arg2:FBPlugModificationFlag)->FBPropertyList:
         """Get list of properties which have been modified since last loading. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pPropList | property list to hold the modified properties.  |
-        | pModificationFlags | type of modification to query.  |"""
+            - pPropList: property list to hold the modified properties.
+            - pModificationFlags: type of modification to query."""
         ...
     def PropertyRemove(self,Property:FBProperty):
         """Remove a Property from the component's Property manager. 
@@ -7238,38 +6842,26 @@ class FBComponent(FBPlug):
         
         If the property was dynamically allocated, it is deleted. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pProperty | The property to remove from the property manager.  |"""
+            - pProperty: The property to remove from the property manager."""
         ...
     def SetObjectFlags(self,Flags:FBObjectFlag):
         """SetObjectFlags. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pFlags | Set flag values. Note: this function overwrites all flags with those passed in parameter.  |"""
+            - pFlags: Set flag values. Note: this function overwrites all flags with those passed in parameter."""
         ...
     def SetObjectStatus(self,Status:FBObjectStatus,bValue:bool):
         """Enable/Disable a specific Object Status. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pStatus | Status to change.  |
-        | pValue | Value to change the status to.  |"""
+            - pStatus: Status to change.
+            - pValue: Value to change the status to."""
         ...
 class FBPropertyVector4d(FBProperty):
     Data:FBVector4d
@@ -7293,94 +6885,64 @@ class FBReferenceTime(FBComponent):
         """Add a reference time to list. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pName: Name of time to add the list.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of time to add the list.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Unique ID of the reference time, use this ID to access the reference time in the future."""
         ...
     def GetReferenceTimeName(self,ID:int)->str:
         """Get the name of a time reference. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pID: ID of the time reference whose name will be returned.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pID | ID of the time reference whose name will be returned.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Name of reference time with the pID."""
         ...
     def GetTime(self,ID:int,System:FBTime)->FBTime:
         """Get a reference time. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pID: ID of reference to get.
+            - pSystem: System time.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pID | ID of reference to get.  |
-        | pSystem | System time.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Reference time at pIndex."""
         ...
     def GetUniqueIDList(self)->list:
         """Get list of currently available IDs. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pIDArray | Array that will be filled with the requested IDs.  |"""
+            - pIDArray: Array that will be filled with the requested IDs."""
         ...
     def Remove(self,ID:int):
         """Remove a reference time from the list. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pID | ID of reference time to remove.  |"""
+            - pID: ID of reference time to remove."""
         ...
     def SetTime(self,ID:int,ReferenceTime:FBTime,System:FBTime):
         """Set a reference time. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pID | ID of reference time set.  |
-        | pReferenceTime | Time to use as reference time.  |
-        | pSystem | System time.  |"""
+            - pID: ID of reference time set.
+            - pReferenceTime: Time to use as reference time.
+            - pSystem: System time."""
         ...
     def __init__(self):
         """Constructor."""
@@ -7402,82 +6964,58 @@ class FBPropertyViewManager(FBComponent):
         """Add property view to global ('All') view set. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pClassName: Property owner class name (pClassName if won't be found, a new entry for this class is created).
+            - pPropertyName: Property name.
+            - pHierarchy: Hierarchy under which property view should be created, each level name is separated by dot (for example "Degrees of Freedom.Translation").
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pClassName | Property owner class name (pClassName if won't be found, a new entry for this class is created).  |
-        | pPropertyName | Property name.  |
-        | pHierarchy | Hierarchy under which property view should be created, each level name is separated by dot (for example "Degrees of Freedom.Translation").  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         created object. 
-        ## Note:
+        ### Note:
         This call should be used on library registration, doesn't cause tool refresh."""
         ...
     def CreatePropertyList(self,Object:FBComponent,ViewType:FBPropertyViewType,Name:str)->FBPropertyViewList:
         """Create new property view list. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pObject: Property view set attached to.
+            - pViewType: Property view set type.
+            - pName: Name for new view list.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pObject | Property view set attached to.  |
-        | pViewType | Property view set type.  |
-        | pName | Name for new view list.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         created object."""
         ...
     def FindPropertyList(self,Object:FBComponent,ViewType:FBPropertyViewType,Name:str)->FBPropertyViewList:
         """Find property view list. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pObject: Property view set attached to.
+            - pViewType: Property view set type.
+            - pName: Name of view set.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pObject | Property view set attached to.  |
-        | pViewType | Property view set type.  |
-        | pName | Name of view set.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Found property view set object or NULL."""
         ...
     def HidePropertyView(self,ClassName:str,PropertyName:str,bHide:bool):
         """Hide property view in global ('All') view set. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pClassName: Property owner class name.
+            - pPropertyName: Property name.
+            - pHide: Show/Hide.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pClassName | Property owner class name.  |
-        | pPropertyName | Property name.  |
-        | pHide | Show/Hide.  |
-        
-        
-        
-        
-        ## Note:
+        ### Note:
         This call should be used on library registration, doesn't cause tool refresh."""
         ...
     def RefreshPropertyViews(self):
@@ -7487,41 +7025,29 @@ class FBPropertyViewManager(FBComponent):
         """Remove property view list (only if editable). 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pObject: Property view set attached to.
+            - pViewType: Property view set type.
+            - pName: Name for property view list.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pObject | Property view set attached to.  |
-        | pViewType | Property view set type.  |
-        | pName | Name for property view list.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if successful."""
         ...
     def RemovePropertyView(self,ClassName:str,PropertyName:str)->bool:
         """Remove property view from global ('All') view set. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pClassName: Property owner class name.
+            - pPropertyName: Property name.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pClassName | Property owner class name.  |
-        | pPropertyName | Property name.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         true if succeed (should not be call on system views). 
-        ## Note:
+        ### Note:
         This call should be used on library registration, doesn't cause tool refresh."""
         ...
     def __init__(self):...
@@ -7557,18 +7083,12 @@ class FBPropertyStringList(FBProperty):
         """Check if a FCComponent is already in PropertyList Corresponds to python: if object in propertyList: 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pValue: Component to check for inclusion
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pValue | Component to check for inclusion  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Is the String contained or not?"""
         ...
     def __delitem__(self,arg2:int):...
@@ -7576,18 +7096,12 @@ class FBPropertyStringList(FBProperty):
         """Returns the ith component Corresponds to python: print v[1]. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the components to get (0 to 2)
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the components to get (0 to 2)  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         str component value."""
         ...
     def __len__(self)->int:
@@ -7596,33 +7110,25 @@ class FBPropertyStringList(FBProperty):
         
         Corresponds to python: len(object) 
         
-        ## Returns:
+        ### Returns:
         number of elements in list."""
         ...
     def __setitem__(self,Index:int,Value:str):
         """Sets the ith components Corresponds to python: v[1] = my\_component. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the components to set  |
-        | pValue | a str to set  |"""
+            - pIndex: Index of the components to set
+            - pValue: a str to set"""
         ...
     def append(self,Value:str):
         """Append new str at end of list. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pValue | to append  |"""
+            - pValue: to append"""
         ...
     def count(self,arg2)->int:
         """Returns the number of elements. 
@@ -7630,64 +7136,48 @@ class FBPropertyStringList(FBProperty):
         
         Corresponds to python: del propertyList[2] 
         
-        ## Returns:
+        ### Returns:
         number of elements in list."""
         ...
     def findFromReference(self,Reference:int)->int:
         """Find the index of an element from its attached reference. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pReference: Reference of searched object.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pReference | Reference of searched object.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Returns the index of the element corresponding to reference."""
         ...
     def getReferenceAt(self,Index:int)->int:
         """Retrieve the reference of an object at ith position. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the object to find reference.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the object to find reference.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Returns the reference of the object."""
         ...
     def insert(self,Index:int,Value:str):
         """Insert a new element in list. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index where to insert string  |
-        | pValue | String to append  |"""
+            - pIndex: Index where to insert string
+            - pValue: String to append"""
         ...
     @overload
     def pop(self)->str:
         """Remove last element of list. 
         
         
-        ## Returns:
+        ### Returns:
         Returns the element that was removed."""
         ...
     @overload
@@ -7695,31 +7185,21 @@ class FBPropertyStringList(FBProperty):
         """Remove an element in list. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index where to remove element.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index where to remove element.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Returns the element that was removed."""
         ...
     def remove(self,Index:int):
         """Remove an element in list. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index where to remove element.  |"""
+            - pIndex: Index where to remove element."""
         ...
     def removeAll(self):
         """Remove all elements of list"""
@@ -7728,13 +7208,9 @@ class FBPropertyStringList(FBProperty):
         """Sets the reference value of an object. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pReference | Reference of the object.  |"""
+            - pReference: Reference of the object."""
         ...
 class FBPropertyString(FBProperty):
     """b>Property: StringList"""
@@ -7784,18 +7260,12 @@ class FBPropertyListComponent(FBProperty):
         """Check if a FCComponent is already in PropertyList Corresponds to python: if object in propertyList: 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pComponent: Component to check for inclusion
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pComponent | Component to check for inclusion  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Is the Component contain or not?"""
         ...
     def __delitem__(self,arg2:int):...
@@ -7803,18 +7273,12 @@ class FBPropertyListComponent(FBProperty):
         """Returns the ith component Corresponds to python: print v[1]. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the components to get (0 to 2)
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the components to get (0 to 2)  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         [FBComponent](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html "MotionBuilder SDK base class.") component value."""
         ...
     def __len__(self)->int:
@@ -7823,33 +7287,25 @@ class FBPropertyListComponent(FBProperty):
         
         Corresponds to python: len(object) 
         
-        ## Returns:
+        ### Returns:
         number of elements in list."""
         ...
     def __setitem__(self,Index:int,ComponentValue:FBComponent):
         """Sets the ith components Corresponds to python: v[1] = my\_component. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the components to set  |
-        | pComponentValue | a [FBComponent](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html "MotionBuilder SDK base class.") to set  |"""
+            - pIndex: Index of the components to set
+            - pComponentValue: a [FBComponent](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html "MotionBuilder SDK base class.") to set"""
         ...
     def append(self,Comp:FBComponent):
         """Append new [FBComponent](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html "MotionBuilder SDK base class.") at end of list. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pComp | to append  |"""
+            - pComp: to append"""
         ...
     def count(self,arg2)->int:
         """Returns the number of elements. 
@@ -7857,28 +7313,24 @@ class FBPropertyListComponent(FBProperty):
         
         Corresponds to python: del propertyList[2] 
         
-        ## Returns:
+        ### Returns:
         number of elements in list."""
         ...
     def insert(self,Index:int,Comp:FBComponent):
         """Insert a new element in list. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index where to insert component  |
-        | pComp | Component to append  |"""
+            - pIndex: Index where to insert component
+            - pComp: Component to append"""
         ...
     @overload
     def pop(self)->FBComponent:
         """Remove last element of list. 
         
         
-        ## Returns:
+        ### Returns:
         Returns the element that was removed."""
         ...
     @overload
@@ -7886,31 +7338,21 @@ class FBPropertyListComponent(FBProperty):
         """Remove an element in list. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index where to remove element.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index where to remove element.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Returns the element that was removed."""
         ...
     def remove(self,Index:int):
         """Remove an element in list. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index where to remove element.  |"""
+            - pIndex: Index where to remove element."""
         ...
     def removeAll(self):
         """Remove all elements of list"""
@@ -7931,18 +7373,12 @@ class FBPropertyList(FBProperty):
         """Returns the ith component Corresponds to python: print l[1]. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the components to get
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the components to get  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Element contain in property list"""
         ...
     def __len__(self)->int:
@@ -8044,20 +7480,16 @@ class FBPropertyListObject(FBPropertyListComponent):
         """Get if the connection support only one connection. 
         
         
-        ## Returns:
+        ### Returns:
         true is the connection support only one connection."""
         ...
     def SetSingleConnect(self,bSingleConnect:bool):
         """Set if the connection is single or multiple. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pSingleConnect | set to true for only one connection allowed.  |"""
+            - pSingleConnect: set to true for only one connection allowed."""
         ...
     def __getitem__(self,arg2)->object:...
 class FBPropertyListNote(FBPropertyListComponent):
@@ -8260,7 +7692,7 @@ class FBPropertyColorAndAlpha(FBProperty):
     [pyfbsdk::FBColorAndAlpha](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_color_and_alpha.html)FBColorAndAlpha class.**Definition:** pyfbsdk.h:579
     [pyfbsdk::FBPropertyColorAndAlpha](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_color_and_alpha.html)FBPropertyColorAndAlpha class.**Definition:** pyfbsdk.h:1289
     [pyfbsdk::FBPropertyColorAndAlpha::Data](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_color_and_alpha.html#aba90e59b9fa58ef069604563dbf7384e)FBColorAndAlpha Data**Definition:** pyfbsdk.h:1310
-    ## Warning:
+    ### Warning:
     Slicing is not supported by this object."""
     Data:FBColorAndAlpha
     """"""
@@ -8268,18 +7700,12 @@ class FBPropertyColorAndAlpha(FBProperty):
         """Returns the ith component Corresponds to python: print c[1]. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the components to get (0 to 1)
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the components to get (0 to 1)  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Color component value."""
         ...
     def __len__(self)->int:
@@ -8292,14 +7718,10 @@ class FBPropertyColorAndAlpha(FBProperty):
         """Sets the ith components Corresponds to python: c[1] = 0.5. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the components to set (0 to 1)  |
-        | pComponentValue | Value of component to set  |"""
+            - pIndex: Index of the components to set (0 to 1)
+            - pComponentValue: Value of component to set"""
         ...
 class FBPropertyColor(FBProperty):
     """[FBPropertyColor](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_color.html "FBPropertyColor class.") class. 
@@ -8317,7 +7739,7 @@ class FBPropertyColor(FBProperty):
     [pyfbsdk::FBColor](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_color.html)FBColor class.**Definition:** pyfbsdk.h:516
     [pyfbsdk::FBPropertyColor](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_color.html)FBPropertyColor class.**Definition:** pyfbsdk.h:1250
     [pyfbsdk::FBPropertyColor::Data](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_color.html#a9f729bb31fcbc377bed4440c9ce5cfaf)FBColor Data**Definition:** pyfbsdk.h:1271
-    ## Warning:
+    ### Warning:
     Slicing is not supported by this object."""
     Data:FBColor
     """"""
@@ -8325,18 +7747,12 @@ class FBPropertyColor(FBProperty):
         """Returns the ith component Corresponds to python: print c[1]. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the components to get (0 to 1)
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the components to get (0 to 1)  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Color component value."""
         ...
     def __len__(self)->int:
@@ -8349,14 +7765,10 @@ class FBPropertyColor(FBProperty):
         """Sets the ith components Corresponds to python: c[1] = 0.5. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the components to set (0 to 1)  |
-        | pComponentValue | Value of component to set  |"""
+            - pIndex: Index of the components to set (0 to 1)
+            - pComponentValue: Value of component to set"""
         ...
 class FBPropertyBool(FBProperty):
     Data:bool
@@ -8369,53 +7781,47 @@ class FBPropertyAnimatable(FBProperty):
         """AllowsMuting. 
         
         
-        ## Returns:
+        ### Returns:
         **true** if property can be muted"""
         ...
     def GetAnimationNode(self)->FBAnimationNode:
         """Get the animation node for the property. 
         
         
-        ## Returns:
+        ### Returns:
         Animation node for property. None is returned if property is not animated."""
         ...
     def GetBox(self)->FBBox:
         """Get the owner box. 
         
         
-        ## Returns:
+        ### Returns:
         Handle to the owning box (i.e. model)."""
         ...
     def GetColor(self,Index:int)->FBColor:
         """Get the color of a particular FCurve of the property. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the FCurve to get the color.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the FCurve to get the color.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The color of the FCurve at the specified index, a default [FBColor](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_color.html "FBColor class.") object if the index is invalid."""
         ...
     def GetDataTypeName(self)->str:
         """Get the property datatype name. 
         
         
-        ## Returns:
+        ### Returns:
         Datatype of property as a character string."""
         ...
     def HasSomethingMuted(self)->bool:
         """HasSomethingMuted. 
         
         
-        ## Returns:
+        ### Returns:
         **true** if property or any of its members is muted"""
         ...
     def IsAnimated(self)->bool:
@@ -8424,57 +7830,45 @@ class FBPropertyAnimatable(FBProperty):
         
         This is true if the property has an FCurve associated to it. 
         
-        ## Returns:
+        ### Returns:
         **true** if animated, **false** if not animated."""
         ...
     def IsFocused(self)->bool:
         """Is the property focused (keyable). 
         
         
-        ## Returns:
+        ### Returns:
         Current focus (keyable) state for the property."""
         ...
     def IsFocusedChild(self,Index:int)->bool:
         """Get the focus (keyable) state of child component. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the child FCurve component.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the child FCurve component.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **true** if the component is in focus, false otherwise"""
         ...
     def IsMemberMuted(self,Index:int)->bool:
         """IsMemberMuted. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the sub-member of the property to check.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the sub-member of the property to check.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **true** if property sub-member is muted"""
         ...
     def IsMuted(self)->bool:
         """IsMuted. 
         
         
-        ## Returns:
+        ### Returns:
         **true** if property is muted"""
         ...
     def Key(self):
@@ -8484,132 +7878,90 @@ class FBPropertyAnimatable(FBProperty):
         """Key the property at time (t). 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pTime | Time at which to insert the key.  |"""
+            - pTime: Time at which to insert the key."""
         ...
     def KeyRemoveAt(self,Time:FBTime):
         """Remove the key at time (t). 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pTime | Time at which to insert the key.  |"""
+            - pTime: Time at which to insert the key."""
         ...
     def OriIsAnimated(self)->bool:...
     def ResetColor(self,Index:int)->bool:
         """Revert the FCurves to their default color. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the FCurve to reset the color, use -1 to reset the color for all FCurves of the property.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the FCurve to reset the color, use -1 to reset the color for all FCurves of the property.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **true** if the color was reverted to its default value, false otherwise"""
         ...
     def SetAnimated(self,bState:bool,bCheckLocked:bool=False):
         """Set the animation state of the property. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pState | State of animation for property, true to animate, false to remove curves.  |
-        | pCheckLocked | Decides whether to check the locked status.  |"""
+            - pState: State of animation for property, true to animate, false to remove curves.
+            - pCheckLocked: Decides whether to check the locked status."""
         ...
     def SetColor(self,Color:FBColor,Index:int)->bool:
         """Set the color of the FCurves for the property. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pColor: Color to set for the FCurve(s).
+            - pIndex: Index of the FCurve to set the new color, use -1 to set the color for all FCurves.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pColor | Color to set for the FCurve(s).  |
-        | pIndex | Index of the FCurve to set the new color, use -1 to set the color for all FCurves.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **true** if the color was changed, false otherwise"""
         ...
     def SetFocus(self,bState:bool):
         """Set the property's focus (keyable) state. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pState | Focus (keyable) state to set for the property.  |"""
+            - pState: Focus (keyable) state to set for the property."""
         ...
     def SetFocusChild(self,Index:int,bState:bool)->bool:
         """Set the focus (keyable) state of child component. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the child FCurve component.
+            - pState: Focus (keyable) state to set for the property component.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the child FCurve component.  |
-        | pState | Focus (keyable) state to set for the property component.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **true** if the operation was successful, false otherwise"""
         ...
     def SetMemberMuted(self,Index:int,bMuted:bool):
         """SetMemberMuted. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the sub-member of the property to mute or unmute.  |
-        | pMuted | True if the sub-member is to be muted, false if it is to be unmuted.  |"""
+            - pIndex: Index of the sub-member of the property to mute or unmute.
+            - pMuted: True if the sub-member is to be muted, false if it is to be unmuted."""
         ...
     def SetMuted(self,bMuted:bool):
         """SetMuted. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pMuted | True if the property is to be muted, false if it is to be unmuted.  |"""
+            - pMuted: True if the property is to be muted, false if it is to be unmuted."""
         ...
 class FBPropertyAction(FBProperty):
     Data:bool
@@ -8755,30 +8107,20 @@ class FBRenderer(FBComponent):
         """Request to arrange all objects in schematic view . 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pMode | Arrange mode.  |"""
+            - pMode: Arrange mode."""
         ...
     def ArrangeObjectsInSchematicFromModel(self,Model:FBModel)->bool:
         """Request to arrange a node's tree in the Schematic View, given a starting node. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pModel: The starting node from which the arrange operation is requested.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pModel | The starting node from which the arrange operation is requested.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise."""
         ...
     def ArrangeSelectedObjectsInSchematic(self):
@@ -8788,54 +8130,36 @@ class FBRenderer(FBComponent):
         """Create a new bookmark in the Schematic View. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pBookmarkName: The new bookmark name.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pBookmarkName | The new bookmark name.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise. False is returned if the bookmark name is empty or if a bookmark with the given name already exists."""
         ...
     def DeleteSchematicBookmark(self,BookmarkName:str)->bool:
         """Delete a bookmark from the Schematic View. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pBookmarkName: The bookmark name to delete.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pBookmarkName | The bookmark name to delete.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise. False is returned if the bookmark name is empty or if no bookmark exists with the given name."""
         ...
     def FrameCurrentCameraWithModels(self,bAll:bool)->bool:
         """Frame the current camera either with all models or with the currently selected models. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pAll: true to frame with all models.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pAll | true to frame with all models.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **true** if successful."""
         ...
     def GetCameraInPane(self,PaneIndex:int)->FBCamera:
@@ -8844,25 +8168,19 @@ class FBRenderer(FBComponent):
         
         If the Schematic View is displayed in the pane associated with the given pane index, the returned camera is the camera that would be displayed if the Schematic View was deactivated. If the Camera Switcher is on in the pane associated with the given pane index, the returned camera is the switcher's current camera.Note: To operate current camera in Camera Switcher, it is recommended to use [FBCameraSwitcher()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/class_f_b_camera_switcher.html "Camera switcher."). 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pPaneIndex: The pane index.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pPaneIndex | The pane index.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The camera used in the given pane index, NULL if the pane index is invalid."""
         ...
     def GetCurrentSchematicBookmarkName(self)->str:
         """Return the current bookmark name used by the Schematic View. 
         
         
-        ## Returns:
+        ### Returns:
         The current bookmark name used by the Schematic View. An empty string is returned if there is no current bookmark."""
         ...
     def GetDisplayableGeometry(self,Index:int)->FBModel:
@@ -8871,18 +8189,12 @@ class FBRenderer(FBComponent):
         
         Those geometry models which have Show property ON are considered as "displayable". 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: displayable geometry model index to query.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | displayable geometry model index to query.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         displayable geometry model."""
         ...
     def GetDisplayableGeometryInCameraFrustum(self,ModelList:FBModelList,Camera:FBCamera):
@@ -8891,19 +8203,13 @@ class FBRenderer(FBComponent):
         
         This function will return conservative result. It's possible for some geometry outside of the frustum will be considered to be visible, but it will not skip any real visible geometry. This function should only be called in the main rendering thread. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pModelList: ModelList holding the return models.
+            - pCamera: use current camera if NULL.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pModelList | ModelList holding the return models.  |
-        | pCamera | use current camera if NULL.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Reference to pModelList. if pModelList is NULL return a const reference to internal static [FBModelList](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_model_list.html "FBModelList class.") and consecutive call to this function will invalidate the result of previous call."""
         ...
     def GetDisplayableLight(self,Index:int)->FBLight:
@@ -8912,36 +8218,24 @@ class FBRenderer(FBComponent):
         
         Those light models which have Show property ON are considered as "displayable". 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: displayable light index to query.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | displayable light index to query.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         displayable light."""
         ...
     def GetLastPickInfoList(self,PickInfosList:FBPickInfosList)->int:
         """Return the last picking info list in the current view pane. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pPickInfosList: The list of pick infos.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pPickInfosList | The list of pick infos.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         number of item in the list."""
         ...
     def GetPaneCount(self)->int:...
@@ -8949,59 +8243,47 @@ class FBRenderer(FBComponent):
         """Return the bookmark names available in the Schematic View. 
         
         
-        ## Returns:
+        ### Returns:
         A string list containing the bookmark names available in the Schematic View. An empty list is returned if no bookmark is available."""
         ...
     def GetSchematicNodesBoundingBox(self,arg2)->tuple:
         """Returns the bounding box (top, left, bottom, right) used by all the Schematic View nodes. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pConsiderCollapsedNodes: True to also consider nodes which are not visible because collapsed, false otherwise.
+            - pTop: Top value of the bounding box. Will be filled once the method returns.
+            - pLeft: Left value of the bounding box. Will be filled once the method returns.
+            - pBottom: Bottom value of the bounding box. Will be filled once the method returns.
+            - pRight: Right value of the bounding box. Will be filled once the method returns.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pConsiderCollapsedNodes | True to also consider nodes which are not visible because collapsed, false otherwise.  |
-        | pTop | Top value of the bounding box. Will be filled once the method returns.  |
-        | pLeft | Left value of the bounding box. Will be filled once the method returns.  |
-        | pBottom | Bottom value of the bounding box. Will be filled once the method returns.  |
-        | pRight | Right value of the bounding box. Will be filled once the method returns.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise (e.g. the Schematic View has any node in it, etc.)."""
         ...
     def GetSchematicNodesBoundingBoxFromModel(self,Model:FBModel,arg3)->tuple:
         """Returns the bounding box (top, left, bottom, right) of a node's tree in the Schematic View, given a starting node. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pModel: The starting node from which the bounding box tree is requested.
+            - pConsiderCollapsedNodes: True to also consider nodes which are not visible because collapsed, false otherwise.
+            - pTop: Top value of the bounding box. Will be filled once the method returns.
+            - pLeft: Left value of the bounding box. Will be filled once the method returns.
+            - pBottom: Bottom value of the bounding box. Will be filled once the method returns.
+            - pRight: Right value of the bounding box. Will be filled once the method returns.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pModel | The starting node from which the bounding box tree is requested.  |
-        | pConsiderCollapsedNodes | True to also consider nodes which are not visible because collapsed, false otherwise.  |
-        | pTop | Top value of the bounding box. Will be filled once the method returns.  |
-        | pLeft | Left value of the bounding box. Will be filled once the method returns.  |
-        | pBottom | Bottom value of the bounding box. Will be filled once the method returns.  |
-        | pRight | Right value of the bounding box. Will be filled once the method returns.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise (e.g. the starting node is not in the Schematic View, etc.)."""
         ...
     def GetSchematicViewPaneIndex(self)->int:
         """Return the pane index of the pane displaying the Schematic View. 
         
         
-        ## Returns:
+        ### Returns:
         The pane index of the pane displaying the Schematic View, -1 if the Schematic View is currently not displayed in any pane."""
         ...
     def GetSelectedPaneIndex(self)->int:...
@@ -9009,7 +8291,7 @@ class FBRenderer(FBComponent):
         """Obtain the current viewing options. 
         
         
-        ## Returns:
+        ### Returns:
         A structure that can be queried and updated for a call to SetViewingOptions."""
         ...
     def IsCameraSwitcherInPane(self,PaneIndex:int)->bool:
@@ -9018,25 +8300,19 @@ class FBRenderer(FBComponent):
         
         If the Schematic View is displayed in the pane associated with the given pane index, the returned value is the value that would be returned if the Schematic View was deactivated. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pPaneIndex: The pane index.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pPaneIndex | The pane index.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the Camera Switcher is active in the pane associated with the given pane index, False otherwise."""
         ...
     def IsCurrentSchematicBookmarkDirty(self)->bool:
         """Return if the current bookmark used by the Schematic View is dirty or not. 
         
         
-        ## Returns:
+        ### Returns:
         True if the current bookmark is dirty, false otherwise. False is returned if there is no current bookmark."""
         ...
     def IsModelInsideCameraFrustum(self,Geometry:FBModel,Camera:FBCamera)->bool:
@@ -9045,82 +8321,60 @@ class FBRenderer(FBComponent):
         
         This function will return conservative result. It's possible for some geometry outside of the frustum will be considered to be visible, but it will not skip any real visible geometry. This function should only be called in the main rendering thread. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pGeometry: the geometry to be queried.
+            - pCamera: use current camera if NULL.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pGeometry | the geometry to be queried.  |
-        | pCamera | use current camera if NULL.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         true if Model is inside camera frustum."""
         ...
     def KeyboardInput(self,KeyIndex:FBDeviceKeyboardKey,bKeyState:bool,bIsTrigger:bool=False):
         """Keyboard input. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pKeyIndex | Key index. (See "enum FBDeviceKeyboardKey" above for supported keys)  |
-        | pKeyState | Key state. (True == key is down, False == key is up)  |
-        | pIsTrigger | When setting pKeyState to True, resets key state to False right after operation.  |"""
+            - pKeyIndex: Key index. (See "enum FBDeviceKeyboardKey" above for supported keys)
+            - pKeyState: Key state. (True == key is down, False == key is up)
+            - pIsTrigger: When setting pKeyState to True, resets key state to False right after operation."""
         ...
     def MouseInput(self,X:int,Y:int,InputType:FBInputType,ButtonKey:int,Modifier:FBInputModifier,WheelDeltaValue:int=0,Layer:int=-1)->bool:
         """Mouse input. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pX: X position.
+            - pY: Y position.
+            - pInputType: Type of input.
+            - pButtonKey: Button/Key pressed.
+            - pModifier: Modifier pressed (CTRL/ALT/SHIFT).
+            - pWheelDeltaValue: Mouse wheel delta value
+            - pLayer: Rendering layer ID(default=-1).
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pX | X position.  |
-        | pY | Y position.  |
-        | pInputType | Type of input.  |
-        | pButtonKey | Button/Key pressed.  |
-        | pModifier | Modifier pressed (CTRL/ALT/SHIFT).  |
-        | pWheelDeltaValue | Mouse wheel delta value  |
-        | pLayer | Rendering layer ID(default=-1).  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **true** if successful."""
         ...
     def MouseInputNormalized(self,X:float,Y:float,InputType:FBInputType,ButtonKey:int,Modifier:FBInputModifier,WheelDeltaValue:int|None=None,Layer:int=-1,PaneId:int=-1)->bool:
         """Mouse input. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pX: X position, normalized to the range of [0, 1] in the view port dimension.
+            - pY: Y position, normalized to the range of [0, 1] in the view port dimension.
+            - pInputType: Type of input.
+            - pButtonKey: Button/Key pressed.
+            - pModifier: Modifier pressed (CTRL/ALT/SHIFT).
+            - pWheelDeltaValue: Mouse wheel delta value
+            - pLayer: Rendering layer ID(default=-1).
+            - pPaneId: specify which pane's dimension used for normalization, default (-1) for the whole viewer.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pX | X position, normalized to the range of [0, 1] in the view port dimension.  |
-        | pY | Y position, normalized to the range of [0, 1] in the view port dimension.  |
-        | pInputType | Type of input.  |
-        | pButtonKey | Button/Key pressed.  |
-        | pModifier | Modifier pressed (CTRL/ALT/SHIFT).  |
-        | pWheelDeltaValue | Mouse wheel delta value  |
-        | pLayer | Rendering layer ID(default=-1).  |
-        | pPaneId | specify which pane's dimension used for normalization, default (-1) for the whole viewer.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **true** if successful."""
         ...
     def OGLModelDisplay(self,RenderOptions:FBRenderOptions,Model:FBModel):
@@ -9130,131 +8384,93 @@ class FBRenderer(FBComponent):
         """Setup the scene lights in OpenGL. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pRenderOptions | See [FBRenderOptions](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_render_options.html) for more detail.  |"""
+            - pRenderOptions: See [FBRenderOptions](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_render_options.html) for more detail."""
         ...
     def Pick(self,arg2,arg3,PickInfosList:FBPickInfosList)->bool:
         """Object picking selection. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pX | X position.  |
-        | pY | Y position.  |
-        | pPickInfosList | The list of pick infos.  |
-        | pNeedIntersectPosition | require valid intersection position if true, this will take more time to process, and not reliable with very dense mesh.  |"""
+            - pX: X position.
+            - pY: Y position.
+            - pPickInfosList: The list of pick infos.
+            - pNeedIntersectPosition: require valid intersection position if true, this will take more time to process, and not reliable with very dense mesh."""
         ...
     def PickNormalized(self,X:float,Y:float,PickInfosList:FBPickInfosList,arg5=None)->bool:
         """Object picking selection. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pX | X position, normalized to the range of [0, 1] in the view port dimension.  |
-        | pY | Y position, normalized to the range of [0, 1] in the view port dimension.  |
-        | pPickInfosList | The list of pick infos.  |
-        | pNeedIntersectPosition | require valid intersection position if true, this will take more time to process, and not reliable with very dense mesh.  |
-        | pPaneId | specify which pane's dimension used for normalization, default (-1) for the whole viewer.  |"""
+            - pX: X position, normalized to the range of [0, 1] in the view port dimension.
+            - pY: Y position, normalized to the range of [0, 1] in the view port dimension.
+            - pPickInfosList: The list of pick infos.
+            - pNeedIntersectPosition: require valid intersection position if true, this will take more time to process, and not reliable with very dense mesh.
+            - pPaneId: specify which pane's dimension used for normalization, default (-1) for the whole viewer."""
         ...
     def PreRender(self,Layer:int=-1)->bool:
         """PreRenders one frame (needed for some shaders) This functions destroys the frame buffer content and must be called every time a render is called the typical order of call must be Renderer->Prerender // at this point the frame buffer is garbage -Clear the ogl -Do your render functions Renderer->Render. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pLayer: Rendering layer ID(default=-1).
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pLayer | Rendering layer ID(default=-1).  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **true** if successful."""
         ...
     def RectPick(self,X1:int,Y1:int,X2:int,Y2:int,PickInfosList:FBPickInfosList)->bool:
         """Object rectangle selection. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pX1 | Left upper corner X position.  |
-        | pY1 | Left upper corner y position.  |
-        | pX2 | Right bottom corner X position.  |
-        | pY2 | Right bottom corner y position.  |
-        | pPickInfosList | The list of pick infos.  |"""
+            - pX1: Left upper corner X position.
+            - pY1: Left upper corner y position.
+            - pX2: Right bottom corner X position.
+            - pY2: Right bottom corner y position.
+            - pPickInfosList: The list of pick infos."""
         ...
     def RectPickNormalized(self,X1:float,Y1:float,X2:float,Y2:float,PickInfosList:FBPickInfosList,PaneId:int=-1)->bool:
         """Object rectangle selection. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pX1 | Left upper corner X position, normalized to the range of [0, 1] in the viewport dimension.  |
-        | pY1 | Left upper corner y position, normalized to the range of [0, 1] in the viewport dimension.  |
-        | pX2 | Right bottom corner X position, normalized to the range of [0, 1] in the viewport dimension.  |
-        | pY2 | Right bottom corner y position, normalized to the range of [0, 1] in the viewport dimension.  |
-        | pPickInfosList | The list of pick infos.  |
-        | pPaneId | specify which pane's dimension used for normalization, default (-1) for the whole viewer.  |"""
+            - pX1: Left upper corner X position, normalized to the range of [0, 1] in the viewport dimension.
+            - pY1: Left upper corner y position, normalized to the range of [0, 1] in the viewport dimension.
+            - pX2: Right bottom corner X position, normalized to the range of [0, 1] in the viewport dimension.
+            - pY2: Right bottom corner y position, normalized to the range of [0, 1] in the viewport dimension.
+            - pPickInfosList: The list of pick infos.
+            - pPaneId: specify which pane's dimension used for normalization, default (-1) for the whole viewer."""
         ...
     def RenameSchematicBookmark(self,OldBookmarkName:str,NewBookmarkName:str)->bool:
         """Rename a bookmark in the Schematic View. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pOldBookmarkName: The bookmark name to rename.
+            - pNewBookmarkName: The new bookmark name.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pOldBookmarkName | The bookmark name to rename.  |
-        | pNewBookmarkName | The new bookmark name.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise. False is returned if the old/new bookmark name is empty, if the old bookmark doesn't exist or if a bookmark with the new given name already exists."""
         ...
     def Render(self,Layer:int=-1)->bool:
         """Renders one frame. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pLayer: Rendering layer ID(default=-1).
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pLayer | Rendering layer ID(default=-1).  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **true** if successful."""
         ...
     def RenderBegin(self,X:int,Y:int,W:int,H:int)->bool:
@@ -9263,51 +8479,35 @@ class FBRenderer(FBComponent):
         
         must be called before rendering can happen 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pX | X position where to render.  |
-        | pY | Y position where to render.  |
-        | pW | Width of render area.  |
-        | pH | Hight of render area.  |"""
+            - pX: X position where to render.
+            - pY: Y position where to render.
+            - pW: Width of render area.
+            - pH: Hight of render area."""
         ...
     def RenderEnd(self)->bool:
         """RenderEnd. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pView: If you want the renderer to draw artifacts, such as TimeCode, CameraLabel or SafeArea, you must provide the [FBView](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_view.html "Generic view.") on which the renderer draws on.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pView | If you want the renderer to draw artifacts, such as TimeCode, CameraLabel or SafeArea, you must provide the [FBView](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_view.html "Generic view.") on which the renderer draws on.  |
-        
-        
-        
-        
-        ## Remarks:
+        ### Remarks:
         Must be called at the end of rendering."""
         ...
     def SelectSchematicBookmark(self,BookmarkName:str)->bool:
         """Select an existing bookmark in the Schematic View and use it as the current bookmark. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pBookmarkName: The bookmark name to select.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pBookmarkName | The bookmark name to select.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise. False is returned if the bookmark name is empty or if no bookmark exists with the given name."""
         ...
     def SetCameraInPane(self,Camera:FBCamera,PaneIndex:int):
@@ -9316,14 +8516,10 @@ class FBRenderer(FBComponent):
         
         If the Schematic View is displayed in the pane associated with the given pane index, the camera will be displayed when the Schematic View will be deactivated from this pane.Note: If current pane uses Camera Switcher, it will be set to use Camera, rather than old behavior that still uses Camera Switcher and sets Camera to be Camera Switcher's current camera, which introduce a Zombie Camera Switcher problem. By using Camera, the problem is gone.Note: To operate current camera in Camera Switcher, it is recommended to use [FBCameraSwitcher()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/class_f_b_camera_switcher.html "Camera switcher."). 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pCamera | The camera to set.  |
-        | pPaneIndex | The pane index.  |"""
+            - pCamera: The camera to set.
+            - pPaneIndex: The pane index."""
         ...
     def SetCameraSwitcherInPane(self,PaneIndex:int,bActive:bool):
         """Set/Remove the Camera Switcher in the given pane index. 
@@ -9331,26 +8527,18 @@ class FBRenderer(FBComponent):
         
         To specify which camera the Camera Switcher should be displaying, use the SetCameraInPane method. If the Schematic View is displayed in the pane associated with the given pane index, the camera switcher will be displayed (if activated) when the Schematic View will be deactivated from this pane. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pPaneIndex | The pane index.  |
-        | pActive | True to activate the Camera Switcher in the given pane, False to remove it.  |"""
+            - pPaneIndex: The pane index.
+            - pActive: True to activate the Camera Switcher in the given pane, False to remove it."""
         ...
     def SetPaneCount(self,PaneCount:int):
         """Set the number of panes to display in the viewer's layout. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pPaneCount | The number of panes to display.  |"""
+            - pPaneCount: The number of panes to display."""
         ...
     def SetSchematicViewInPane(self,PaneIndex:int,bActive:bool):
         """Set/Remove the Schematic View in the given pane index. 
@@ -9358,65 +8546,47 @@ class FBRenderer(FBComponent):
         
         When activating the Schematic View in the pane, if the Schematic View is already activated in another pane, the Schematic View will be removed from latter before being activated into the new pane. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pPaneIndex | The pane index.  |
-        | pActive | True to activate the Schematic View in the given pane, False to remove it.  |"""
+            - pPaneIndex: The pane index.
+            - pActive: True to activate the Schematic View in the given pane, False to remove it."""
         ...
     def SetSelectedPaneIndex(self,PaneIndex:int)->bool:
         """Select the pane associated with the given pane index in the active viewer's layout. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pPaneIndex: The pane index.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pPaneIndex | The pane index.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation is successful, False otherwise."""
         ...
     def SetViewingOptions(self,Options:FBViewingOptions)->bool:
         """Set the viewing options. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pOptions | See [FBViewingOptions](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_viewing_options.html "Viewing options for rendering.") for more detail.  |"""
+            - pOptions: See [FBViewingOptions](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_viewing_options.html "Viewing options for rendering.") for more detail."""
         ...
     def SetViewport(self,X:int,Y:int,W:int,H:int):
         """Must be called before inputing if the same renderer is used on multiple views/cameras in the same application. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pX | X position where to render.  |
-        | pY | Y position where to render.  |
-        | pW | Width of render area.  |
-        | pH | Hight of render area.  |"""
+            - pX: X position where to render.
+            - pY: Y position where to render.
+            - pW: Width of render area.
+            - pH: Hight of render area."""
         ...
     def UpdateCurrentSchematicBookmark(self)->bool:
         """Update the current bookmark in the Schematic View. 
         
         
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise. False is returned if there is no current bookmark."""
         ...
 class FBProgress(FBComponent):
@@ -9491,43 +8661,31 @@ class FBProfiler(FBComponent):
         
         This function and [FBProfileTimeEvent.IsSingleEvent](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_profile_time_event.html#ade7a7e9faef91891c22be75fcc97a0cc "Three types of events exits: single, start and end.") are useful to identify duration of event action. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Sample index.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Sample index.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Sample object if sample at given index is start sample."""
         ...
     def GetEventSample(self,Index:int)->FBProfileTimeEvent:
         """Only possible way to query collected [FBProfileTimeEvent](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_profile_time_event.html "FBProfileTimeEvent."). 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Sample index.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Sample index.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Sample object."""
         ...
     def GetEventSampleCount(self)->int:
         """Get number of time event samples collected during last sampling. 
         
         
-        ## Returns:
+        ### Returns:
         Number of [FBProfileTimeEvent](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_profile_time_event.html "FBProfileTimeEvent.") samples gathered during sampling."""
         ...
     def GetProfilingCost(self)->float:
@@ -9536,25 +8694,19 @@ class FBProfiler(FBComponent):
         
         This function return how costly is profiling. 
         
-        ## Returns:
+        ### Returns:
         Cost of profiling the scene. (in mini seconds)"""
         ...
     def GetStatComment(self,Index:int)->str:
         """Get aditional information about what action is stat refering to. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of stat.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of stat.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Stat comment."""
         ...
     def GetStatCount(self)->int:
@@ -9563,97 +8715,67 @@ class FBProfiler(FBComponent):
         
         They are used for actions that doesn't appear frequently, like file IO. 
         
-        ## Returns:
+        ### Returns:
         Stats count. They are created when stat occurs, so open or save action needs to be done first to get any information stored in stats."""
         ...
     def GetStatDuration(self,Index:int)->float:
         """Get time that was spend on execution of action. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of stat.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of stat.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Stat duration (in seconds)."""
         ...
     def GetStatIndex(self,Name:str)->int:
         """Search for index of given stat name. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pName: Name of the sample that we are looking for.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of the sample that we are looking for.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Stat index if found, -1 if not in the list."""
         ...
     def GetStatName(self,Index:int)->str:
         """Get information about what action is stat refering to. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of stat.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of stat.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Stat name."""
         ...
     def GetStatStart(self,Index:int)->float:
         """Get start time of action. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of stat.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of stat.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Start time (in seconds)."""
         ...
     def GetStatStop(self,Index:int)->float:
         """Get stop time of action. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of stat.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of stat.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Stop time (in seconds)."""
         ...
     def __init__(self):
@@ -9667,15 +8789,11 @@ class FBPose(FBComponent):
         """Add a new pose node. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pObject | The object for which we are creating the pose information.  |
-        | pMatrix | The transformation of the object we want to save.  |
-        | pIsLocalMatrix | Is the matrix a local matrix?  |"""
+            - pObject: The object for which we are creating the pose information.
+            - pMatrix: The transformation of the object we want to save.
+            - pIsLocalMatrix: Is the matrix a local matrix?"""
         ...
     def CreatePoseThumbnail(self):
         """Create an image thumbnail for the current pose."""
@@ -9684,18 +8802,12 @@ class FBPose(FBComponent):
         """Look in this pose if the given node is present. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pNodeName: Name of the node we are looking for.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pNodeName | Name of the node we are looking for.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         -1 if the node is not in the list or it's position."""
         ...
     def GetNodeCount(self)->int:
@@ -9705,20 +8817,14 @@ class FBPose(FBComponent):
         """Get the pose node matrix. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the node.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the node.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         a reference to the node's Matrix. 
-        ## Remarks:
+        ### Remarks:
         if the index is invalid a reference to an identiy matrix is returned. 
         
         
@@ -9728,18 +8834,12 @@ class FBPose(FBComponent):
         """Get the pose node at specified index. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the node.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the node.  |
-        
-        
-        
-        
-        ## Remarks:
+        ### Remarks:
         if the index is invalid a reference to an empty string is returned. 
         
         
@@ -9749,104 +8849,72 @@ class FBPose(FBComponent):
         """Get the pose node object. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the node.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the node.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         a pointer to the node's Object. 
-        ## Remarks:
+        ### Remarks:
         if the index is invalid a null pointer is returned."""
         ...
     def IsNodeLocalMatrix(self,Index:int)->bool:
         """Get the type of the Matrix for a given node. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the node.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the node.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         true if the matrix is defined in Local coordinate space. 
-        ## Remarks:
+        ### Remarks:
         If this object is configured to hold BindPose data, this method will always return false."""
         ...
     def RemoveNode(self,Index:int):
         """Remove the pose node at specified index. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the node to be removed.  |"""
+            - pIndex: Index of the node to be removed."""
         ...
     def SetIsNodeLocalMatrix(self,Index:int,bIsNodeLocalMatrix:bool):
         """Set the type of the Matrix for a given node. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the node.  |
-        | pIsNodeLocalMatrix | True if the matrix of the node is a local matrix.  |"""
+            - pIndex: Index of the node.
+            - pIsNodeLocalMatrix: True if the matrix of the node is a local matrix."""
         ...
     def SetNodeMatrix(self,Index:int,Matrix:FBMatrix):
         """Set the pose node matrix. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the node.  |
-        | pMatrix | Matrix to set for this pose node.  |"""
+            - pIndex: Index of the node.
+            - pMatrix: Matrix to set for this pose node."""
         ...
     def SetNodeObject(self,Index:int,Object:FBModel):
         """Set the pose node object. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the node.  |
-        | pObject | Object to associate with this pose node.  |"""
+            - pIndex: Index of the node.
+            - pObject: Object to associate with this pose node."""
         ...
     def __init__(self,Name:str):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of pose.  |"""
+            - pName: Name of pose."""
         ...
 class FBPointCacheManager(FBComponent):
     """Point Cache Manager Interface to the point cache manager. 
@@ -9915,291 +8983,203 @@ class FBCharacterPose(FBPose):
         """Copy everything from a given object. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pFromPose: Pose from which to copy.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pFromPose | Pose from which to copy.  |
-        
-        
-        
-        
-        ## Remarks:
+        ### Remarks:
         Will copy everything, including the object name, properties, data etc. Objects will be identical."""
         ...
     def CopyPose(self,Character:FBCharacter):
         """Copy the pose of a character and its extensions. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pCharacter | Character to copy the pose from.  |"""
+            - pCharacter: Character to copy the pose from."""
         ...
     def CopyPoseCharacter(self,Character:FBCharacter):
         """Copy the pose of only the character (omit the extensions). 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pCharacter | Character to copy the pose from.  |"""
+            - pCharacter: Character to copy the pose from."""
         ...
     def CopyPoseCharacterExtension(self,CharacterExtension:FBCharacterExtension):
         """Copy the pose of a single character extension. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pCharacterExtension | Character extension to copy the pose from.  |"""
+            - pCharacterExtension: Character extension to copy the pose from."""
         ...
     def CopyPoseCharacterExtensions(self,Character:FBCharacter):
         """Copy the pose of only the character extensions (omit the character). 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pCharacter | Character to copy the pose of the extensions from.  |"""
+            - pCharacter: Character to copy the pose of the extensions from."""
         ...
     def CopyPoseCharacterExtensionsFrom(self,FromPose:FBCharacterPose):
         """Copy the pose data of only the character extensions from a given pose. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pFromPose | Pose from which to copy the data.  |"""
+            - pFromPose: Pose from which to copy the data."""
         ...
     def CopyPoseCharacterFrom(self,FromPose:FBCharacterPose):
         """Copy the pose data of only the character from a given pose. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pFromPose | Pose from which to copy the data.  |"""
+            - pFromPose: Pose from which to copy the data."""
         ...
     def CopyPoseDataFrom(self,FromPose:FBCharacterPose):
         """Copy all the pose data from a given pose. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pFromPose: Pose from which to copy the data.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pFromPose | Pose from which to copy the data.  |
-        
-        
-        
-        
-        ## Remarks:
+        ### Remarks:
         Will copy all the data of the pose."""
         ...
     def GetCharacterExtensionNameFromPose(self,CharacterExtensionPose:FBObjectPose)->str:
         """Get the name of the character extension for the specified pose. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pCharacterExtensionPose: Pose of a character extension to check its name.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pCharacterExtensionPose | Pose of a character extension to check its name.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The name of the character extension (It is the label name of the character extension)."""
         ...
     def GetCharacterExtensionPose(self,CharacterExtensionName:str)->FBObjectPose:
         """Get the pose of a character extension. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pCharacterExtensionName: Name of the character extension pose to get (It is the label name of the character extension).
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pCharacterExtensionName | Name of the character extension pose to get (It is the label name of the character extension).  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The pose of the character extension, NULL if not found."""
         ...
     def GetCharacterExtensionPoseAt(self,Index:int)->FBObjectPose:
         """Get the pose of a character extension. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the character extension pose to get.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the character extension pose to get.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The pose of the character extension."""
         ...
     def GetCharacterExtensionPoseCount(self)->int:
         """Get the number of character extension stored in the pose. 
         
         
-        ## Returns:
+        ### Returns:
         Number of character extension stored in the pose."""
         ...
     def GetExtraBoneParentRotationOffset(self,R:FBVector3d,Index:int):
         """Get the extra bone transformation offset. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pR | A vector that will contains the parent rotation offset value on return.  |
-        | pIndex | Index of the extra bone to get.  |"""
+            - pR: A vector that will contains the parent rotation offset value on return.
+            - pIndex: Index of the extra bone to get."""
         ...
     def GetExtraBoneTransform(self,T:FBVector3d,R:FBVector3d,S:FBVector3d,Index:int):
         """Get the extra bone transformation. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pT | A vector that will contains the translation value on return.  |
-        | pR | A vector that will contains the rotation value on return.  |
-        | pS | A vector that will contains the scale value on return.  |
-        | pIndex | Index of the extra bone to get.  |"""
+            - pT: A vector that will contains the translation value on return.
+            - pR: A vector that will contains the rotation value on return.
+            - pS: A vector that will contains the scale value on return.
+            - pIndex: Index of the extra bone to get."""
         ...
     def GetExtraBoneTransformOffset(self,T:FBVector3d,R:FBVector3d,S:FBVector3d,Index:int):
         """Get the extra bone transformation offset. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pT | A vector that will contains the translation offset value on return.  |
-        | pR | A vector that will contains the rotation offset value on return.  |
-        | pS | A vector that will contains the scale offset value on return.  |
-        | pIndex | Index of the extra bone to get.  |"""
+            - pT: A vector that will contains the translation offset value on return.
+            - pR: A vector that will contains the rotation offset value on return.
+            - pS: A vector that will contains the scale offset value on return.
+            - pIndex: Index of the extra bone to get."""
         ...
     def GetExtraBones(self)->list:...
     def GetMirrorPlaneEquation(self,MirrorPlaneEquation:FBVector4d,Character:FBCharacter,CharacterPoseOptions:FBCharacterPoseOptions):
         """Get the mirror plane equation that would be used to mirror according to the CharacterPoseOptions. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pMirrorPlaneEquation | Out: Mirror plane equation.  |
-        | pCharacter | Character to receive the pose.  |
-        | pCharacterPoseOptions | Options used to paste the pose.  |"""
+            - pMirrorPlaneEquation: Out: Mirror plane equation.
+            - pCharacter: Character to receive the pose.
+            - pCharacterPoseOptions: Options used to paste the pose."""
         ...
     def GetOrCreateCharacterExtensionPose(self,CharacterExtensionName:str)->FBObjectPose:
         """Get the pose of a character extension and create it if necessary. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pCharacterExtensionName: Name of the character extension pose to get (It is the label name of the character extension).
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pCharacterExtensionName | Name of the character extension pose to get (It is the label name of the character extension).  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The pose of the character extension. 
-        ## Remarks:
+        ### Remarks:
         Use this function to manually add a pose of a character extension."""
         ...
     def IsCharacterExtensionPoseStored(self,CharacterExtensionName:str)->bool:
         """Is the pose of the character extension stored in the pose? 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pCharacterExtensionName: Name of the character extension.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pCharacterExtensionName | Name of the character extension.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **true** if the pose of the character extension stored in the pose."""
         ...
     def IsCharacterPoseStored(self)->bool:
         """Is the pose of the character stored in the pose? 
         
         
-        ## Returns:
+        ### Returns:
         **true** if the pose of the character stored in the pose."""
         ...
     def PastePose(self,Character:FBCharacter,CharacterPoseOptions:FBCharacterPoseOptions):
         """Paste the pose of a character and its extensions. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pCharacter: Character to paste the pose to.
+            - pCharacterPoseOptions: Options used to specify how to paste.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pCharacter | Character to paste the pose to.  |
-        | pCharacterPoseOptions | Options used to specify how to paste.  |
-        
-        
-        
-        
-        ## Remarks:
+        ### Remarks:
         Supports the match and mirror options. 
         
         
@@ -10209,82 +9189,56 @@ class FBCharacterPose(FBPose):
         """Paste the pose of only the character (omit the extensions). 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pCharacter: Character to paste the pose to.
+            - pCharacterPoseOptions: Options used to specify how to paste.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pCharacter | Character to paste the pose to.  |
-        | pCharacterPoseOptions | Options used to specify how to paste.  |
-        
-        
-        
-        
-        ## Remarks:
+        ### Remarks:
         Does not support the match and mirror options."""
         ...
     def PastePoseCharacterExtension(self,CharacterExtension:FBCharacterExtension,CharacterPoseOptions:FBCharacterPoseOptions):
         """Paste the pose of a single character extension. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pCharacterExtension: Character extension to paste the pose to.
+            - pCharacterPoseOptions: Options used to specify how to paste.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pCharacterExtension | Character extension to paste the pose to.  |
-        | pCharacterPoseOptions | Options used to specify how to paste.  |
-        
-        
-        
-        
-        ## Remarks:
+        ### Remarks:
         Does not support the match and mirror options."""
         ...
     def PastePoseCharacterExtensions(self,Character:FBCharacter,CharacterPoseOptions:FBCharacterPoseOptions):
         """Paste the pose of only the character extensions (omit the character). 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pCharacter: Character to paste the pose of the extensions to.
+            - pCharacterPoseOptions: Options used to specify how to paste.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pCharacter | Character to paste the pose of the extensions to.  |
-        | pCharacterPoseOptions | Options used to specify how to paste.  |
-        
-        
-        
-        
-        ## Remarks:
+        ### Remarks:
         Does not support the match and mirror options."""
         ...
     def RemoveCharacterExtensionPose(self,CharacterExtensionName:str):
         """Remove the pose of a character extension. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pCharacterExtensionName | Name of the character extension pose to remove (It is the label name of the character extension).  |"""
+            - pCharacterExtensionName: Name of the character extension pose to remove (It is the label name of the character extension)."""
         ...
     def RemoveCharacterExtensionPoseAt(self,Index:int):
         """Remove the pose of a character extension. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the character extension pose to remove.  |"""
+            - pIndex: Index of the character extension pose to remove."""
         ...
     def __init__(self,Name:str):
         """Public constructor. 
@@ -10292,13 +9246,9 @@ class FBCharacterPose(FBPose):
         
         This constructor is used to create a new object. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Object name.  |"""
+            - pName: Object name."""
         ...
 class FBObjectPose(FBPose):
     """[FBObjectPose](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_object_pose.html "FBObjectPose class.") class. 
@@ -10312,20 +9262,14 @@ class FBObjectPose(FBPose):
         """Add the StanceOffset to an object in the pose. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pObjectName: Name of the object.
+            - pStancePose: Pose representing the stance of all objects.
+            - pPoseTransformType: Transform type in which to add the offset (Local, Global or LocalRef).
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pObjectName | Name of the object.  |
-        | pStancePose | Pose representing the stance of all objects.  |
-        | pPoseTransformType | Transform type in which to add the offset (Local, Global or LocalRef).  |
-        
-        
-        
-        
-        ## Remarks:
+        ### Remarks:
         Working with poses with their StanceOffset removed is usefull for retargetting. 
         
         
@@ -10335,19 +9279,13 @@ class FBObjectPose(FBPose):
         """Add the StanceOffset to all the objects in the pose. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pStancePose: Pose representing the stance of all objects.
+            - pPoseTransformType: Transform type in which to add the offset (Local, Global or LocalRef).
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pStancePose | Pose representing the stance of all objects.  |
-        | pPoseTransformType | Transform type in which to add the offset (Local, Global or LocalRef).  |
-        
-        
-        
-        
-        ## Remarks:
+        ### Remarks:
         Working with poses with their StanceOffset removed is usefull for retargetting. 
         
         
@@ -10360,297 +9298,211 @@ class FBObjectPose(FBPose):
         """Copy everything from a given object. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pFromPose: Pose from which to copy.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pFromPose | Pose from which to copy.  |
-        
-        
-        
-        
-        ## Remarks:
+        ### Remarks:
         Will copy everything, including the object name, properties, data etc. Objects will be identical."""
         ...
     def CopyObjectPose(self,ObjectName:str,Object:FBComponent):
         """Copy the pose of all the properties of an object. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pObjectName: Name of the object to store in the pose.
+            - pObject: Object from which we'll read all the property values to store in the pose.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pObjectName | Name of the object to store in the pose.  |
-        | pObject | Object from which we'll read all the property values to store in the pose.  |
-        
-        
-        
-        
-        ## Remarks:
+        ### Remarks:
         You can specify a pObjectName different from the name of pObject."""
         ...
     def CopyPoseAllObjectsTransformFrom(self,FromPose:FBObjectPose,PoseTransformType:FBPoseTransformType=FBPoseTransformType.kFBPoseTransformInvalid):
         """Copy all the transforms from a given pose. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pFromPose: Pose from which to copy the data.
+            - pPoseTransformType: Transform type from which to copy the transform (Local, Global or LocalRef).
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pFromPose | Pose from which to copy the data.  |
-        | pPoseTransformType | Transform type from which to copy the transform (Local, Global or LocalRef).  |
-        
-        
-        
-        
-        ## Remarks:
+        ### Remarks:
         If pPoseTransformType is set to kFBPoseTransformInvalid, copy all TransformTypes."""
         ...
     def CopyPoseDataFrom(self,FromPose:FBObjectPose):
         """Copy all the pose data from a given pose. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pFromPose: Pose from which to copy the data.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pFromPose | Pose from which to copy the data.  |
-        
-        
-        
-        
-        ## Remarks:
+        ### Remarks:
         Will copy all the data of the pose including the transforms."""
         ...
     def CopyPoseTransformFrom(self,FromPose:FBObjectPose,ObjectName:str,PoseTransformType:FBPoseTransformType=FBPoseTransformType.kFBPoseTransformInvalid):
         """Copy the transforms of an object from a given pose. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pFromPose: Pose from which to copy the data.
+            - pObjectName: Name of object to copy the transform from.
+            - pPoseTransformType: Transform type from which to copy the transform (Local, Global or LocalRef).
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pFromPose | Pose from which to copy the data.  |
-        | pObjectName | Name of object to copy the transform from.  |
-        | pPoseTransformType | Transform type from which to copy the transform (Local, Global or LocalRef).  |
-        
-        
-        
-        
-        ## Remarks:
+        ### Remarks:
         If pPoseTransformType is set to kFBPoseTransformInvalid, copy all TransformTypes."""
         ...
     def CopyPropertyPose(self,ObjectName:str,Property:FBProperty):
         """Copy the pose of a property of an object. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pObjectName: Name of the object to store in the pose.
+            - pProperty: Property from which we'll read the value to store in the pose.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pObjectName | Name of the object to store in the pose.  |
-        | pProperty | Property from which we'll read the value to store in the pose.  |
-        
-        
-        
-        
-        ## Remarks:
+        ### Remarks:
         You can specify a pObjectName different from the name of pObject."""
         ...
     def CopyTransform(self,ObjectName:str,Object:FBComponent,ObjectPoseOptions:FBObjectPoseOptions):
         """Copy the transform of an object. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pObjectName: Name of the object to store in the pose.
+            - pObject: Object from which we'll evaluate the transform values to store in the pose.
+            - pObjectPoseOptions: PoseOptions used to specify the transform of the reference object (Default: Identity).
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pObjectName | Name of the object to store in the pose.  |
-        | pObject | Object from which we'll evaluate the transform values to store in the pose.  |
-        | pObjectPoseOptions | PoseOptions used to specify the transform of the reference object (Default: Identity).  |
-        
-        
-        
-        
-        ## Remarks:
+        ### Remarks:
         This function will always copy all the TransformAttributes (T,R,S) in all TransformType (Local, Global, LocalRef)."""
         ...
     def GetPropertyValue(self,Value:list,Size:int,ObjectName:str,PropertyName:str):
         """Get the value of a property stored in the pose. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pValue | Value to get.  |
-        | pSize | Number of elements in pValue.  |
-        | pObjectName | Name of the object to get the value.  |
-        | pPropertyName | Name of the property to get the value.  |"""
+            - pValue: Value to get.
+            - pSize: Number of elements in pValue.
+            - pObjectName: Name of the object to get the value.
+            - pPropertyName: Name of the property to get the value."""
         ...
     def GetStoredObjectNames(self)->FBStringList:
         """Get all the object names currently stored in this pose. 
         
         
-        ## Returns:
+        ### Returns:
         All the object names currently stored in this pose."""
         ...
     def GetTransform(self,T:FBVector4d,RM:FBMatrix,SM:FBMatrix,ObjectName:str,PoseTransformType:FBPoseTransformType)->bool:
         """Get the transform of an object in the pose. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pT: Translation to get.
+            - pRM: Rotation to get.
+            - pSM: Scaling to get.
+            - pObjectName: Name of the object to get the transform.
+            - pPoseTransformType: Transform type in which to set the transform (Local, Global or LocalRef).
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pT | Translation to get.  |
-        | pRM | Rotation to get.  |
-        | pSM | Scaling to get.  |
-        | pObjectName | Name of the object to get the transform.  |
-        | pPoseTransformType | Transform type in which to set the transform (Local, Global or LocalRef).  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the transform was found in the pose."""
         ...
     def IsPropertyPoseable(self,Property:FBProperty)->bool:
         """Is the property poseable? 
         
         
-        ## Returns:
+        ### Returns:
         True if the value of this property can be stored in the pose."""
         ...
     def IsPropertyStored(self,ObjectName:str,PropertyName:str)->bool:
         """Is the property stored in the pose? 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pObjectName: Name of the object.
+            - pPropertyName: Name of the property.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pObjectName | Name of the object.  |
-        | pPropertyName | Name of the property.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the property is stored in the pose."""
         ...
     def IsTransformStored(self,ObjectName:str,PoseTransformType:FBPoseTransformType=FBPoseTransformType.kFBPoseTransformInvalid)->bool:
         """Is the transform of this object stored in the specified TransformType? 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pObjectName: Name of the object.
+            - pPoseTransformType: Transform type in which to check.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pObjectName | Name of the object.  |
-        | pPoseTransformType | Transform type in which to check.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the transform of this object is stored in the specified TransformType (Local, Global and LocalRef). 
-        ## Remarks:
+        ### Remarks:
         If pPoseTransformType is set to kFBPoseTransformInvalid, will check in all TransformTypes."""
         ...
     def MirrorPose(self,ObjectName:str,ObjectPoseMirrorOptions:FBObjectPoseMirrorOptions):
         """Mirror the transform of an object in the pose. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pObjectName | Name of the object to mirror.  |
-        | pObjectPoseMirrorOptions | MirrorOptions used to specify the mirror plane.  |"""
+            - pObjectName: Name of the object to mirror.
+            - pObjectPoseMirrorOptions: MirrorOptions used to specify the mirror plane."""
         ...
     def MirrorPoseAllObjects(self,ObjectPoseMirrorOptions:FBObjectPoseMirrorOptions):
         """Mirror the transform of all objects in the pose. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pObjectPoseMirrorOptions | MirrorOptions used to specify the mirror plane.  |"""
+            - pObjectPoseMirrorOptions: MirrorOptions used to specify the mirror plane."""
         ...
     def MultTransform(self,ObjectName:str,GX:FBMatrix,TransformAttribute:FBModelTransformationType,PoseTransformType:FBPoseTransformType):
         """Multiply the transform of an objects in the pose. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pObjectName | Name of the object.  |
-        | pGX | Transformation matrix to apply.  |
-        | pTransformAttribute | Transform attribute to affect. Supported: T,R,S and Transformation.  |
-        | pPoseTransformType | Transform type in which to mult the transform (Local, Global or LocalRef).  |"""
+            - pObjectName: Name of the object.
+            - pGX: Transformation matrix to apply.
+            - pTransformAttribute: Transform attribute to affect. Supported: T,R,S and Transformation.
+            - pPoseTransformType: Transform type in which to mult the transform (Local, Global or LocalRef)."""
         ...
     def MultTransformAllObjects(self,GX:FBMatrix,TransformAttribute:FBModelTransformationType,PoseTransformType:FBPoseTransformType):
         """Multiply the transform of all objects in the pose. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pGX | Transformation matrix to apply.  |
-        | pTransformAttribute | Transform attribute to affect. Supported: T,R,S and Transformation.  |
-        | pPoseTransformType | Transform type in which to mult the transform (Local, Global or LocalRef).  |"""
+            - pGX: Transformation matrix to apply.
+            - pTransformAttribute: Transform attribute to affect. Supported: T,R,S and Transformation.
+            - pPoseTransformType: Transform type in which to mult the transform (Local, Global or LocalRef)."""
         ...
     def PasteObjectPose(self,ObjectName:str,Object:FBComponent):
         """Paste the pose of all the properties of an object. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pObjectName: Name of the object stored in the pose.
+            - pObject: Object which will receive the values stored in the pose.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pObjectName | Name of the object stored in the pose.  |
-        | pObject | Object which will receive the values stored in the pose.  |
-        
-        
-        
-        
-        ## Remarks:
+        ### Remarks:
         You can specify a pObjectName different from the name of pObject. 
         
         
@@ -10660,19 +9512,13 @@ class FBObjectPose(FBPose):
         """Paste the pose of a property of an object. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pObjectName: Name of the object stored in the pose.
+            - pProperty: Property which will receive the value stored in the pose.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pObjectName | Name of the object stored in the pose.  |
-        | pProperty | Property which will receive the value stored in the pose.  |
-        
-        
-        
-        
-        ## Remarks:
+        ### Remarks:
         You can specify a pObjectName different from the name of pObject. 
         
         
@@ -10682,41 +9528,29 @@ class FBObjectPose(FBPose):
         """Paste the transform of an object. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pObjectName: Name of the object stored in the pose.
+            - pObject: Object which will receive the transform values stored in the pose.
+            - pObjectPoseOptions: PoseOptions used to specify the transform of the reference object, the TransformType and TransformAttributes to paste.
+            - pEvaluateInfo: Information concerning the evaluation of the animation (time, etc.)
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pObjectName | Name of the object stored in the pose.  |
-        | pObject | Object which will receive the transform values stored in the pose.  |
-        | pObjectPoseOptions | PoseOptions used to specify the transform of the reference object, the TransformType and TransformAttributes to paste.  |
-        | pEvaluateInfo | Information concerning the evaluation of the animation (time, etc.)  |
-        
-        
-        
-        
-        ## Remarks:
+        ### Remarks:
         Use the pObjectPoseOptions to specify which TransformType to use when pasting."""
         ...
     def RemoveStanceOffset(self,ObjectName:str,StancePose:FBObjectPose,PoseTransformType:FBPoseTransformType=FBPoseTransformType.kFBPoseTransformInvalid):
         """Remove the StanceOffset from an object in the pose. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pObjectName: Name of the object.
+            - pStancePose: Pose representing the stance of all objects.
+            - pPoseTransformType: Transform type in which to remove the offset (Local, Global or LocalRef).
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pObjectName | Name of the object.  |
-        | pStancePose | Pose representing the stance of all objects.  |
-        | pPoseTransformType | Transform type in which to remove the offset (Local, Global or LocalRef).  |
-        
-        
-        
-        
-        ## Remarks:
+        ### Remarks:
         Working with poses with their StanceOffset removed is usefull for retargetting. 
         
         
@@ -10726,19 +9560,13 @@ class FBObjectPose(FBPose):
         """Remove the StanceOffset from all the objects in the pose. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pStancePose: Pose representing the stance of all objects.
+            - pPoseTransformType: Transform type in which to remove the offset (Local, Global or LocalRef).
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pStancePose | Pose representing the stance of all objects.  |
-        | pPoseTransformType | Transform type in which to remove the offset (Local, Global or LocalRef).  |
-        
-        
-        
-        
-        ## Remarks:
+        ### Remarks:
         Working with poses with their StanceOffset removed is usefull for retargetting. 
         
         
@@ -10748,32 +9576,24 @@ class FBObjectPose(FBPose):
         """Set the value of a property in the pose. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pObjectName | Name of the object to set the value.  |
-        | pPropertyName | Name of the property to set the value.  |
-        | pValue | Value to set.  |
-        | pSize | Number of elements in pValue.  |"""
+            - pObjectName: Name of the object to set the value.
+            - pPropertyName: Name of the property to set the value.
+            - pValue: Value to set.
+            - pSize: Number of elements in pValue."""
         ...
     def SetTransform(self,T:FBVector4d,RM:FBMatrix,SM:FBMatrix,ObjectName:str,PoseTransformType:FBPoseTransformType):
         """Set the transform of an object in the pose. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pT | Translation to set.  |
-        | pRM | Rotation to set.  |
-        | pSM | Scaling to set.  |
-        | pObjectName | Name of the object to set the transform.  |
-        | pPoseTransformType | Transform type in which to set the transform (Local, Global or LocalRef).  |"""
+            - pT: Translation to set.
+            - pRM: Rotation to set.
+            - pSM: Scaling to set.
+            - pObjectName: Name of the object to set the transform.
+            - pPoseTransformType: Transform type in which to set the transform (Local, Global or LocalRef)."""
         ...
     def __init__(self,Name:str):
         """Public constructor. 
@@ -10781,13 +9601,9 @@ class FBObjectPose(FBPose):
         
         This constructor is used to create a new object. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Object name. If pObject is not NULL, pName will be ignored.  |"""
+            - pName: Object name. If pObject is not NULL, pName will be ignored."""
         ...
 class FBCluster(FBComponent):
     """Weighting interface for meshes. 
@@ -10810,180 +9626,126 @@ class FBCluster(FBComponent):
         """Begin cluster definition. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Link index.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Link index.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Index of last item(default=-1)."""
         ...
     def ClusterEnd(self)->int:
         """End cluster definition. 
         
         
-        ## Returns:
+        ### Returns:
         0, (Not implemented)."""
         ...
     def LinkClearUnused(self,Threshold:float=-1.0):
         """Remove all unused links. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pThreshold | Weight value under which links are considered unused (default=-1).  |"""
+            - pThreshold: Weight value under which links are considered unused (default=-1)."""
         ...
     def LinkGetAssociateModel(self,LinkNumber:int)->FBModel:
         """Get model associated with link. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pLinkNumber: Number value of link to get associated model from.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pLinkNumber | Number value of link to get associated model from.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Model associated to link number pLinkNumber."""
         ...
     def LinkGetCount(self)->int:
         """Get number of links. 
         
         
-        ## Returns:
+        ### Returns:
         Number of links."""
         ...
     def LinkGetModel(self,LinkNumber:int)->FBModel:
         """Get model from a link. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pLinkNumber: Number value of link to get model from.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pLinkNumber | Number value of link to get model from.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Model at link number pLinkNumber."""
         ...
     def LinkGetName(self,LinkNumber:int)->str:
         """Get the name of a link. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pLinkNumber: Number value of link to get name from.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pLinkNumber | Number value of link to get name from.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Name of link number pLinkNumber."""
         ...
     def LinkGetVertexIndex(self,Index:int)->int:
         """Get current vertex at link. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of link to get vertex from.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of link to get vertex from.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Index value of the current vertex associated to link at index number pIndex"""
         ...
     def LinkRemove(self,LinkNumber:int):
         """Remove a link. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pLinkNumber | Number value of link to rename.  |"""
+            - pLinkNumber: Number value of link to rename."""
         ...
     def LinkSetCurrentVertex(self,LinkIndex:int,PointIndex:int):
         """Link at current vertex. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pLinkIndex | Index of link to add vertex to.  |
-        | pPointIndex | Index of vertex to add.  |"""
+            - pLinkIndex: Index of link to add vertex to.
+            - pPointIndex: Index of vertex to add."""
         ...
     def LinkSetModel(self,Model:FBModel):
         """Set model to a link. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pModel | Model to set.  |"""
+            - pModel: Model to set."""
         ...
     def LinkSetName(self,Name:str,LinkNumber:int):
         """Set the name of a link. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of the link.  |
-        | pLinkNumber | Number value of link to name.  |"""
+            - pName: Name of the link.
+            - pLinkNumber: Number value of link to name."""
         ...
     def VertexAdd(self,VertexIndex:int,Weight:float):
         """Add a vertex to a cluster. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pVertexIndex | Index of vertex to add.  |
-        | pWeight | Weight to give to vertex.  |"""
+            - pVertexIndex: Index of vertex to add.
+            - pWeight: Weight to give to vertex."""
         ...
     def VertexClear(self):
         """Clear all linked vertices."""
@@ -10992,97 +9754,69 @@ class FBCluster(FBComponent):
         """Get the number of vertices. 
         
         
-        ## Returns:
+        ### Returns:
         Number of vertices in a cluster."""
         ...
     def VertexGetNumber(self,Index:int)->int:
         """Get vertex number. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of link to get vertex from.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of link to get vertex from.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Number value of vertex at link number pIndex"""
         ...
     def VertexGetTransform(self,Position:FBVector3d,Rotation:FBVector3d,Scaling:FBVector3d):
         """Get transform of a cluster set. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pPosition | Position transform.  |
-        | pRotation | Rotation transform.  |
-        | pScaling | Scaling transform.  |"""
+            - pPosition: Position transform.
+            - pRotation: Rotation transform.
+            - pScaling: Scaling transform."""
         ...
     def VertexGetWeight(self,Index:int)->float:
         """Get vertex weight. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of link to get vertex from.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of link to get vertex from.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Weight of vertex found at link number pIndex."""
         ...
     def VertexRemove(self,VertexIndex:int):
         """Remove a vertex from a cluster. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pVertexIndex | Index of vertex to remove.  |"""
+            - pVertexIndex: Index of vertex to remove."""
         ...
     def VertexSetTransform(self,Position:FBVector3d,Rotation:FBVector3d,Scaling:FBVector3d):
         """Set transform of a cluster set. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pPosition | Position transform.  |
-        | pRotation | Rotation transform.  |
-        | pScaling | Scaling transform.  |"""
+            - pPosition: Position transform.
+            - pRotation: Rotation transform.
+            - pScaling: Scaling transform."""
         ...
     def VertexSetWeight(self,Weight:float,Index:int):
         """Set vertex weight. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pWeight | Weight to give to vertex.  |
-        | pIndex | Index of link to get vertex from.  |"""
+            - pWeight: Weight to give to vertex.
+            - pIndex: Index of link to get vertex from."""
         ...
     def __init__(self,arg2:FBModel):...
 class FBCharacterMarkerSet(FBComponent):
@@ -11096,14 +9830,14 @@ class FBCharacterMarkerSet(FBComponent):
         """Get the extraction property associated with each body part of the character. 
         
         
-        ## Returns:
+        ### Returns:
         The property associated with given pNodeId."""
         ...
     def GetMarkersProperty(self,NodeId:FBBodyNodeId)->FBProperty:
         """Get the marker property associated with each body part of the character. 
         
         
-        ## Returns:
+        ### Returns:
         The property associated with given pNodeId."""
         ...
     def GetSnapProperty(self,NodeId:FBBodyNodeId,What:FBModelTransformationType)->FBProperty:
@@ -11112,20 +9846,16 @@ class FBCharacterMarkerSet(FBComponent):
         
         Current version snap only translation and rotation. 
         
-        ## Returns:
+        ### Returns:
         The property associated with given pNodeId and pWhat."""
         ...
     def __init__(self,Name:str):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of new character marker set.  |"""
+            - pName: Name of new character marker set."""
         ...
 class FBCameraSwitcherAudioManager(FBComponent):
     """Camera Switcher Audio Manager class. 
@@ -11138,157 +9868,121 @@ class FBCameraSwitcherAudioManager(FBComponent):
         """Get the Audio Clip displayed on the Camera Switcher. 
         
         
-        ## Returns:
+        ### Returns:
         The Audio Clip displayed, nullptr (C++) / None (Python) if any."""
         ...
     def GetAudioTrack(self)->FBStoryTrack:
         """Get the Audio Track displayed on the Camera Switcher. 
         
         
-        ## Returns:
+        ### Returns:
         The Audio Track displayed, nullptr (C++) / None (Python) if any."""
         ...
     def GetLockPitchToSpeed(self)->bool:
         """Get the 'Lock Pitch to Speed' state. 
         
         
-        ## Returns:
+        ### Returns:
         True if the 'Lock Pitch to Speed' state is set, false otherwise."""
         ...
     def GetShowAudio(self)->bool:
         """Get the 'Show Audio' state. 
         
         
-        ## Returns:
+        ### Returns:
         True if the 'Show Audio' state is set, false otherwise."""
         ...
     def GetShowLeftChannel(self)->bool:
         """Get the 'Show Left Channel' state. 
         
         
-        ## Returns:
+        ### Returns:
         True if the 'Show Left Channel' state is set, false otherwise."""
         ...
     def GetShowRightChannel(self)->bool:
         """Get the 'Show Right Channel' state. 
         
         
-        ## Returns:
+        ### Returns:
         True if the 'Show Right Channel' state is set, false otherwise."""
         ...
     def RemoveAudio(self)->bool:
         """Remove the audio clip or audio track currently displayed on the Camera Switcher. 
         
         
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise."""
         ...
     def SetAudioClip(self,AudioClip:FBAudioClip)->bool:
         """Set the Audio Clip to display on the Camera Switcher. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pAudioClip: The Audio Clip to display.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pAudioClip | The Audio Clip to display.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise."""
         ...
     def SetAudioTrack(self,AudioTrack:FBStoryTrack)->bool:
         """Set the Audio Track to display on the Camera Switcher. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pAudioTrack: The Audio Track to display.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pAudioTrack | The Audio Track to display.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise."""
         ...
     def SetLockPitchToSpeed(self,bLock:bool)->bool:
         """Set the 'Lock Pitch to Speed' state. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pLock: True to lock pitch to speed, false otherwise.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pLock | True to lock pitch to speed, false otherwise.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise."""
         ...
     def SetShowAudio(self,bShow:bool)->bool:
         """Set the 'Show Audio' state. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pShow: True to show the Audio waveform, false otherwise.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pShow | True to show the Audio waveform, false otherwise.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise."""
         ...
     def SetShowLeftChannel(self,bShow:bool)->bool:
         """Set the 'Show Left Channel' state. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pShow: True to show the left channel, false otherwise.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pShow | True to show the left channel, false otherwise.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise."""
         ...
     def SetShowRightChannel(self,bShow:bool)->bool:
         """Set the 'Show Right Channel' state. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pShow: True to show the right channel, false otherwise.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pShow | True to show the right channel, false otherwise.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise."""
         ...
     def __init__(self):...
@@ -11312,43 +10006,31 @@ class FBBox(FBComponent):
         """Destroy an animation node. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pAnimationNode: Handle to the animation node to be destroyed.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pAnimationNode | Handle to the animation node to be destroyed.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **true** if destruction was successful."""
         ...
     def AnimationNodeInGet(self)->FBAnimationNode:
         """Get the (IN/OUT) animation node for this box. 
         
         
-        ## Returns:
+        ### Returns:
         A handle to the animation node for this box."""
         ...
     def AnimationNodeIsUserData(self,AnimationNode:FBAnimationNode)->bool:
         """Is the animation node user data? 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pAnimationNode: Handle to the animation to be queried.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pAnimationNode | Handle to the animation to be queried.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **true** if node is user data."""
         ...
     def AnimationNodeOutGet(self)->FBAnimationNode:
@@ -11358,77 +10040,61 @@ class FBBox(FBComponent):
         """Returns the class sub type inherited by the class of an object, for example: 'Relations', 'Parent-Child', 'Number to Vector', 'Shot'. 
         
         
-        ## Returns:
+        ### Returns:
         The class sub type inherited by the class of an object."""
         ...
     def FbxGetObjectType(self)->str:
         """Returns the class type inherited by the class of an object, for example: 'Box', 'Constraint', 'TimelineXTrack'. 
         
         
-        ## Returns:
+        ### Returns:
         The class type inherited by the class of an object."""
         ...
     def GetInConnector(self,Index:int)->FBAnimationNode:
         """Get the animation node input associated with the given index. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: The animation node input associated with the given index.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | The animation node input associated with the given index.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The animation node input, or NULL if the pIndex value is invalid."""
         ...
     def GetInConnectorCount(self)->int:
         """Get the number of animation node inputs for this box. 
         
         
-        ## Returns:
+        ### Returns:
         The number of animation node inputs for this box."""
         ...
     def GetOutConnector(self,Index:int)->FBAnimationNode:
         """Get the animation node output associated with the given index. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: The animation node output associated with the given index.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | The animation node output associated with the given index.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The animation node output, or NULL if the pIndex value is invalid."""
         ...
     def GetOutConnectorCount(self)->int:
         """Get the number of animation node outputs for this box. 
         
         
-        ## Returns:
+        ### Returns:
         The number of animation node outputs for this box."""
         ...
     def __init__(self,Name:str):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Box name.  |"""
+            - pName: Box name."""
         ...
 class FBAudioOut(FBComponent):
     """Audio Out class. 
@@ -11474,27 +10140,21 @@ class FBConstraint(FBBox):
         
         Used to create the connectors (in or out) on an animation node. This function will return a newly created animation node, connected to the model specified by **pModel**. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pUserId: User specified reference number.
+            - pModel: Model to associate with animation node.
+            - pAttribute: Attribute of model to animate (i.e. Translation, Lcl Translation, etc.)
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pUserId | User specified reference number.  |
-        | pModel | Model to associate with animation node.  |
-        | pAttribute | Attribute of model to animate (i.e. Translation, Lcl Translation, etc.)  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Newly created IN/OUT animation node."""
         ...
     def Clone(self)->FBConstraint:
         """Clone the constraint. 
         
         
-        ## Returns:
+        ### Returns:
         Newly created (and copied) constraint."""
         ...
     def DeformerBind(self,Model:FBModel)->bool:
@@ -11503,18 +10163,12 @@ class FBConstraint(FBBox):
         
         These functions are used for adding/removing a deformation binding to/from **pModel** if the constraint is a deformation constraint. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pModel: Model to bind/unbind.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pModel | Model to bind/unbind.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **true** if successful."""
         ...
     def DeformerUnBind(self,Model:FBModel)->bool:
@@ -11524,34 +10178,24 @@ class FBConstraint(FBBox):
         """Disable constraint on **pModel**. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pModel: Model on which constraint should be disabled.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pModel | Model on which constraint should be disabled.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **true** if successful."""
         ...
     def FreezeSRT(self,Model:FBModel,bS:bool,bR:bool,bT:bool):
         """Freeze current model state. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pModel | Model to freeze constraint on.  |
-        | pS | Scaling freeze?  |
-        | pR | Rotation freeze?  |
-        | pT | Translation freeze?  |"""
+            - pModel: Model to freeze constraint on.
+            - pS: Scaling freeze?
+            - pR: Rotation freeze?
+            - pT: Translation freeze?"""
         ...
     def FreezeSuggested(self):
         """Suggest 'freeze'."""
@@ -11560,139 +10204,97 @@ class FBConstraint(FBBox):
         """Add a reference to a specified group. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pGroupIndex: Group to add reference to.
+            - pModel: Model to place at new reference.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pGroupIndex | Group to add reference to.  |
-        | pModel | Model to place at new reference.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **true** if successful. 
-        ## Warning:
+        ### Warning:
         If you try to add a model to a group that is already full, the success of the operation will be false and the reference will not be added."""
         ...
     def ReferenceGet(self,GroupIndex:int,ItemIndex:int=0)->FBModel:
         """Get a reference. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pGroupIndex: Index of reference group containing desired reference.
+            - pItemIndex: Index of reference in group to get (default is 0).
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pGroupIndex | Index of reference group containing desired reference.  |
-        | pItemIndex | Index of reference in group to get (default is 0).  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Model at specified reference."""
         ...
     def ReferenceGetCount(self,GroupIndex:int)->int:
         """Get number of references in a specified group. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pGroupIndex: Index of group to query the number of references.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pGroupIndex | Index of group to query the number of references.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Number of references in specified group."""
         ...
     def ReferenceGroupAdd(self,GroupName:str,MaxItemCount:int)->int:
         """Add a group of references. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pGroupName: Name of reference group to add.
+            - pMaxItemCount: Maximum number of items in **pGroupName**.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pGroupName | Name of reference group to add.  |
-        | pMaxItemCount | Maximum number of items in **pGroupName**.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Index of new reference group."""
         ...
     def ReferenceGroupGetCount(self)->int:
         """Return the number of reference groups. 
         
         
-        ## Returns:
+        ### Returns:
         Number of reference groups."""
         ...
     def ReferenceGroupGetMaxCount(self,GroupIndex:int)->int:
         """Get the maximum number of items that can exist in the reference group in question. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pGroupIndex: Index of reference group.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pGroupIndex | Index of reference group.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Maximum number of items that can be added to the reference group."""
         ...
     def ReferenceGroupGetName(self,GroupIndex:int)->str:
         """Get the name of the reference group. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pGroupIndex: Index of the reference group to get the name for.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pGroupIndex | Index of the reference group to get the name for.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The name of the reference group **pGroupIndex**."""
         ...
     def ReferenceRemove(self,GroupIndex:int,Model:FBModel)->bool:
         """Remove a reference to **pModel** from the group at **pGroupIndex**. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pGroupIndex: Index to remove reference from.
+            - pModel: Model to remove reference from.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pGroupIndex | Index to remove reference from.  |
-        | pModel | Model to remove reference from.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **true** if successful."""
         ...
     def RemoveAllAnimationNodes(self):
@@ -11702,28 +10304,20 @@ class FBConstraint(FBBox):
         """Restore the saved model state onto **pModel**. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pModel | Model to affect with previous state.  |"""
+            - pModel: Model to affect with previous state."""
         ...
     def SaveModelState(self,Model:FBModel,bS:bool,bR:bool,bT:bool):
         """Save current state of **pModel**. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pModel | Model to save.  |
-        | pS | Scaling information?  |
-        | pR | Rotation information?  |
-        | pT | Translation information?  |"""
+            - pModel: Model to save.
+            - pS: Scaling information?
+            - pR: Rotation information?
+            - pT: Translation information?"""
         ...
     def SetupAllAnimationNodes(self):
         """Setup animation nodes."""
@@ -11761,14 +10355,10 @@ class FBCharacterSolver(FBConstraint):
         
         The rotation Offset if extracted at Characterisation (in Stance Pose). You don't need this value if the parent of the bone is characterized too. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pR | Offset Rotation between the Bone and is parent at Stance Pose.  |
-        | pIndex | Index of extra Bone to get.  |"""
+            - pR: Offset Rotation between the Bone and is parent at Stance Pose.
+            - pIndex: Index of extra Bone to get."""
         ...
     @staticmethod
     def GetRegisteredSolverNames()->list:...
@@ -11780,27 +10370,19 @@ class FBCharacterSolver(FBConstraint):
         
         The rotation Offset if extracted at Characterisation (in Stance Pose). You don't need this value if the parent of the bone is characterized too. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pR | Offset Rotation between the Bone and is parent at Stance Pose.  |
-        | pIndex | Index of extra Bone to get.  |"""
+            - pR: Offset Rotation between the Bone and is parent at Stance Pose.
+            - pIndex: Index of extra Bone to get."""
         ...
     def SetTransformationOffset(self,arg2:FBModel,arg3:FBVector3d,arg4:FBVector3d,arg5:FBVector3d):...
     def __init__(self,Name:str,arg3:FBCharacter,arg4:str):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of constraint.  |"""
+            - pName: Name of constraint."""
         ...
 class FBCharacterFace(FBConstraint):
     """Animates a character face using an actor as input. 
@@ -11817,389 +10399,269 @@ class FBCharacterFace(FBConstraint):
         """Add a cluster group to the character face. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pList: List of clusters to add to this group.
+            - pName: Optional name to assign to this cluster group.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pList | List of clusters to add to this group.  |
-        | pName | Optional name to assign to this cluster group.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **Index** of the new cluster group **-1** if the operation failed to complete."""
         ...
     def ClusterGroupFindByName(self,Name:str)->int:
         """Find a cluster group by name. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pName: Name to search for on the face.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name to search for on the face.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **Index** of the matching cluster group. **-1** if not found."""
         ...
     def ClusterGroupGetCount(self)->int:
         """Retrieve the total number of cluster groups. 
         
         
-        ## Returns:
+        ### Returns:
         Number of cluster groups on the face."""
         ...
     def ClusterGroupGetName(self,ClusterGrpId:int)->str:
         """Retrieve the name of a cluster group. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pClusterGrpId: Index of the cluster group to query.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pClusterGrpId | Index of the cluster group to query.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Name of the specified cluster group."""
         ...
     def ClusterGroupRemove(self,ClusterGrpId:int)->bool:
         """Remove a cluster group from the character face. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pClusterGrpId: Index of the cluster group to remove.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pClusterGrpId | Index of the cluster group to remove.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation completed successfully."""
         ...
     def ClusterGroupSetName(self,ClusterGrpId:int,Name:str)->bool:
         """Set the name of a cluster group. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pClusterGrpId: Index of the cluster group to modify.
+            - pName: New name for the cluster group.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pClusterGrpId | Index of the cluster group to modify.  |
-        | pName | New name for the cluster group.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True of the operation completed successfully."""
         ...
     def ClusterGroupSnapRest(self,ClusterGrpId:int)->bool:
         """Set a cluster group's rest pose to the current pose. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pClusterGrpId: Index of the cluster group to modify.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pClusterGrpId | Index of the cluster group to modify.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation completed succesfully."""
         ...
     def ClusterShapeAdd(self,ClusterGrpId:int,Name:str)->int:
         """Add a cluster shape to a cluster group. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pClusterGrpId: Index of the cluster group to modify.
+            - pName: Optional name to assign to the shape.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pClusterGrpId | Index of the cluster group to modify.  |
-        | pName | Optional name to assign to the shape.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **Index** of the new shape. **-1** if the operation failed to complete."""
         ...
     def ClusterShapeFindByName(self,ClusterGrpId:int,Name:str)->int:
         """Find a cluster shape in a cluster group by name. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pClusterGrpId: Index of the cluster group to search.
+            - pName: Name to search for in the cluster group.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pClusterGrpId | Index of the cluster group to search.  |
-        | pName | Name to search for in the cluster group.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **Index** of the matching shape. **-1** if not found."""
         ...
     def ClusterShapeGetCount(self,ClusterGrpId:int)->int:
         """Retrieve the total number of shapes in a cluster group. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pClusterGrpId: Index of the cluster group to query.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pClusterGrpId | Index of the cluster group to query.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Number of shapes in the specified cluster group."""
         ...
     def ClusterShapeGetName(self,ClusterGrpId:int,ClusterShapeId:int)->str:
         """Retrieve the name of a shape in a cluster group. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pClusterGrpId: Index of the cluster group to query.
+            - pClusterShapeId: Index of the cluster shape to query.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pClusterGrpId | Index of the cluster group to query.  |
-        | pClusterShapeId | Index of the cluster shape to query.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Name of the specified shape."""
         ...
     def ClusterShapeRemove(self,ClusterGrpId:int,ClusterShapeId:int)->bool:
         """Remove a cluster shape from a cluster group. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pClusterGrpId: Index of the cluster group to modify.
+            - pClusterShapeId: Index of the shape in the cluster group to remove.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pClusterGrpId | Index of the cluster group to modify.  |
-        | pClusterShapeId | Index of the shape in the cluster group to remove.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True of the operation completed succesfully."""
         ...
     def ClusterShapeSetName(self,ClusterGrpId:int,ClusterShapeId:int,Name:str)->bool:
         """Set the name of a shape in a cluster group. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pClusterGrpId: Index of the cluster group to modify.
+            - pClusterShapeId: Index of the cluster shape to modify.
+            - pName: Name to assign to the cluster shape.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pClusterGrpId | Index of the cluster group to modify.  |
-        | pClusterShapeId | Index of the cluster shape to modify.  |
-        | pName | Name to assign to the cluster shape.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation completed successfully."""
         ...
     def ClusterShapeSnap(self,ClusterGrpId:int,ClusterShapeId:int)->bool:
         """Record the current pose of the cluster group to a cluster shape. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pClusterGrpId: Index of the cluster group to record.
+            - pClusterShapeId: Index of the cluster shape to record the pose.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pClusterGrpId | Index of the cluster group to record.  |
-        | pClusterShapeId | Index of the cluster shape to record the pose.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation completed successfully."""
         ...
     def ExpressionAdd(self,Name:str)->int:
         """Add an expression to the face. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pName: Optional name to assign to the new expression.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pName | Optional name to assign to the new expression.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **Index** of the new expression. **-1** if the operation failed to complete."""
         ...
     def ExpressionFindByName(self,Name:str)->int:
         """Find an expression on the face by name. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pName: Name of the expression to search for.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of the expression to search for.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **Index** of the matching expression. **-1** if not found."""
         ...
     def ExpressionGetCount(self)->int:
         """Retrieve the total number of expressions on the face. 
         
         
-        ## Returns:
+        ### Returns:
         Number of expressions on the face."""
         ...
     def ExpressionGetName(self,ExpressionId:int)->str:
         """Retrieve the name of an expression. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pExpressionId: Index of the expression to query.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pExpressionId | Index of the expression to query.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Name of the specified expression."""
         ...
     def ExpressionGetShapeWeight(self,ExpressionId:int,GrpId:int,ShapeId:int)->float:
         """Retrieve the weight of a shape to an expression. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pExpressionId: Index of the expression.
+            - pGrpId: Index of the blendshape or cluster group containing the shape of interest.
+            - pShapeId: Index of the blendshape or cluster shape.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pExpressionId | Index of the expression.  |
-        | pGrpId | Index of the blendshape or cluster group containing the shape of interest.  |
-        | pShapeId | Index of the blendshape or cluster shape.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Weight of the desired shape to an expression. A weight of 0.0 represents 0%, while a weight of 1.0 represents 100%. Returns 0.0 if the weight cannot be found."""
         ...
     def ExpressionRemove(self,ExpressionId:int)->bool:
         """Remove an expression from the face. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pExpressionId: Index of the expression to remove.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pExpressionId | Index of the expression to remove.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation completed successfully."""
         ...
     def ExpressionSetName(self,ExpressionId:int,Name:str)->bool:
         """Set the name of an expression. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pExpressionId: Index of the expression to modify.
+            - pName: Name to assign to the expression.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pExpressionId | Index of the expression to modify.  |
-        | pName | Name to assign to the expression.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation completed successfully."""
         ...
     def ExpressionSetShapeWeight(self,ExpressionId:int,GrpId:int,ShapeId:int,Value:float)->bool:
         """Assign the weight of a shape to an expression. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pExpressionId: Index of the expression to modify.
+            - pGrpId: Index of the blendshape or cluster group containing the shape of interest.
+            - pShapeId: Index of the blendshape or cluster shape to weight.
+            - pValue: Weight of the shape to assign to this expression. A weight of 0.0 represents 0%, while a weight of 1.5 represents 150%. The weight cannot be less than 0.0; if so, the weight will be clamped to 0.0.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pExpressionId | Index of the expression to modify.  |
-        | pGrpId | Index of the blendshape or cluster group containing the shape of interest.  |
-        | pShapeId | Index of the blendshape or cluster shape to weight.  |
-        | pValue | Weight of the shape to assign to this expression. A weight of 0.0 represents 0%, while a weight of 1.5 represents 150%. The weight cannot be less than 0.0; if so, the weight will be clamped to 0.0.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation completed successfully."""
         ...
     def GotoRest(self):
@@ -12209,195 +10671,137 @@ class FBCharacterFace(FBConstraint):
         """Plot the animation of the character face. 
         
         
-        ## Returns:
+        ### Returns:
         True if the operation completed successfully."""
         ...
     def ShapeFindByName(self,ShapeGrpId:int,Name:str)->int:
         """Find a shape in a blendshape group by name. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pShapeGrpId: Index of the blendshape group to search.
+            - pName: Name to search for.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pShapeGrpId | Index of the blendshape group to search.  |
-        | pName | Name to search for.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **Index** of the shape, **-1** if not found."""
         ...
     def ShapeGetCount(self,ShapeGrpId:int)->int:
         """Retrieve the total number of shapes in a blendshape group. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pShapeGrpId: Index of the blendshape group to query.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pShapeGrpId | Index of the blendshape group to query.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Number of shapes in the specified blendshape group."""
         ...
     def ShapeGetName(self,ShapeGrpId:int,ShapeId:int)->str:
         """Retrieve the name of the shape in a blendshape group. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pShapeGrpId: Index of the blendshape group to query.
+            - pShapeId: Index of the shape in the blendshape group to query.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pShapeGrpId | Index of the blendshape group to query.  |
-        | pShapeId | Index of the shape in the blendshape group to query.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Name of the specified shape."""
         ...
     def ShapeGroupAdd(self,List:FBModelList,Name:str)->bool:
         """Add a blendshape model group for each input model. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pList: List of models to create a blendshape model group.
+            - pName: Unused. Instead, use the ShapeGroupGetName member function to set the name of each added blendshape model group individually.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pList | List of models to create a blendshape model group.  |
-        | pName | Unused. Instead, use the ShapeGroupGetName member function to set the name of each added blendshape model group individually.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation completed successfully, false otherwise."""
         ...
     def ShapeGroupFindByName(self,Name:str)->int:
         """Find a blendshape group by name. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pName: Name to search for.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name to search for.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **Index** of the blendshape group, **-1** if not found."""
         ...
     def ShapeGroupGetCount(self)->int:
         """Retrieve the total number of blendshape groups on this character face. 
         
         
-        ## Returns:
+        ### Returns:
         Number of blendshape groups on this character face."""
         ...
     def ShapeGroupGetName(self,ShapeGrpId:int)->str:
         """Retrieve the name of a blendshape group. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pShapeGrpId: Index of the blendshape group to query.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pShapeGrpId | Index of the blendshape group to query.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Name of the blendshape group."""
         ...
     def ShapeGroupRemove(self,ShapeGrpId:int)->bool:
         """Remove a blendshape model group. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pShapeGrpId: Index of the blendshape group to remove.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pShapeGrpId | Index of the blendshape group to remove.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation completed successfully."""
         ...
     def ShapeGroupSetName(self,ShapeGrpId:int,Name:str)->bool:
         """Set the name of a blendshape group. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pShapeGrpId: Index of the blendshape group to modify.
+            - pName: Name to set on the blendshape group.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pShapeGrpId | Index of the blendshape group to modify.  |
-        | pName | Name to set on the blendshape group.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation completed successfully."""
         ...
     def ShapeSetName(self,ShapeGrpId:int,ShapeId:int,Name:str)->bool:
         """Set the name of the shape in a blendshape group. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pShapeGrpId: Index of the blendshape group to query.
+            - pShapeId: Index of the shape in the blendshape group to set.
+            - pName: Name to set on the shape.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pShapeGrpId | Index of the blendshape group to query.  |
-        | pShapeId | Index of the shape in the blendshape group to set.  |
-        | pName | Name to set on the shape.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation completed successfully."""
         ...
     def __init__(self,Name:str):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of new character.  |"""
+            - pName: Name of new character."""
         ...
 class FBCharacter(FBConstraint):
     """A character is the link between a motion source and a character model. 
@@ -12559,27 +10963,19 @@ class FBCharacter(FBConstraint):
         """AddCharacterExtension. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pExt | extension to be added to the character.  |"""
+            - pExt: extension to be added to the character."""
         ...
     def ConnectControlRig(self,ControlSet:FBControlSet,bUpdateLimit:bool,bResetHierarchy:bool):
         """Connect a Control-Rig to the character. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pControlSet | The control set to connect. NULL will disconnect the Control-Rig from the character.  |
-        | pUpdateLimit | Whether to update the models' limit for a character. E.g. the Pre rotation and post rotation.  |
-        | pResetHierarchy | Whether to reset hierarchy for a character.  |"""
+            - pControlSet: The control set to connect. NULL will disconnect the Control-Rig from the character.
+            - pUpdateLimit: Whether to update the models' limit for a character. E.g. the Pre rotation and post rotation.
+            - pResetHierarchy: Whether to reset hierarchy for a character."""
         ...
     def CopyAnimation(self):
         """Copy the animation from the input character to us."""
@@ -12588,57 +10984,39 @@ class FBCharacter(FBConstraint):
         """Create auxiliary on effector. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pEffectorId: The effector ID.
+            - pPivot: Create effector or pivot (pivot offset should be set on IKPivot property, at creation default values are set).
+            - pAuxReachT: Default auxiliary effector reach for translation (IK Blend T since MotionBuilder 2013).
+            - pAuxReachR: Default auxiliary effector reach for rotation (IK Blend R since MotionBuilder 2013).
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pEffectorId | The effector ID.  |
-        | pPivot | Create effector or pivot (pivot offset should be set on IKPivot property, at creation default values are set).  |
-        | pAuxReachT | Default auxiliary effector reach for translation (IK Blend T since MotionBuilder 2013).  |
-        | pAuxReachR | Default auxiliary effector reach for rotation (IK Blend R since MotionBuilder 2013).  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if auxiliary was created (can fail if FBLastEffectorSetIndex limit reached)."""
         ...
     def CreateCharacterMarkerSet(self,bSetActive:bool)->bool:
         """Create the Character Marker Set. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pSetActive: True when new input should be set and active.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pSetActive | True when new input should be set and active.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True when marker got created and connected to character."""
         ...
     def CreateControlRig(self,bSetFKIK:bool)->bool:
         """Create the Control-Rig. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pSetFKIK: true to use FK/IK or false to use IK only.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pSetFKIK | true to use FK/IK or false to use IK only.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         current state of the flag after the operation (true if it did succeed)."""
         ...
     def CycleAnalysisCurrentCharacter(self):
@@ -12651,155 +11029,127 @@ class FBCharacter(FBConstraint):
         """Get the active body part array. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pActivePart | A pointer to an array of bool. On return, the index with a "true" value are active part.  |"""
+            - pActivePart: A pointer to an array of bool. On return, the index with a "true" value are active part."""
         ...
     def GetCharacterMarkerSet(self,bForce:bool)->FBCharacterMarkerSet:
         """Obtain Input CharacterMarkerSet. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pForce: If True, will return the current CharacterMarkerSet even if the character is not in CharacterMarkerSet Input.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pForce | If True, will return the current CharacterMarkerSet even if the character is not in CharacterMarkerSet Input.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Return current Active CharacterMarkerSet, NULL if none."""
         ...
     def GetCharacterize(self)->bool:
         """Get Characterize flag. 
         
         
-        ## Returns:
+        ### Returns:
         Current state of the Characterize flag."""
         ...
     def GetCharacterizeError(self)->str:
         """Get error message for the previous SetCharacterizeOn operation. 
         
         
-        ## Returns:
+        ### Returns:
         The string containing all errors and warnings."""
         ...
     def GetCtrlRigModel(self,BodyNodeId:FBBodyNodeId)->FBModel:
         """Get the model associated with each body part in the Control Rig of the character. 
         
         
-        ## Returns:
+        ### Returns:
         The model in the Control Rig corresponding to the specified body part."""
         ...
     def GetCurrentControlSet(self)->FBControlSet:
         """Obtain Input ControlSet. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pForce: If True, will return the current ControlSet even if the character is not in ControlSet Input.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pForce | If True, will return the current ControlSet even if the character is not in ControlSet Input.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Return current Active ControlSet, NULL if none."""
         ...
     def GetCycleAnalysisNode(self)->FBCycleAnalysisNode:
         """Get the Cycle Analysis Node from the current character. 
         
         
-        ## Returns:
+        ### Returns:
         Cycle Analysis Node linked to the current character, or create a new node"""
         ...
     def GetEffectorModel(self,EffectorId:FBEffectorId,EffectorSetID:FBEffectorSetID=FBEffectorSetID.FBEffectorSetDefault)->FBModel:
         """Get the model associated with each effector in the Control Rig of the character. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pEffectorId: The effector ID.
+            - pEffectorSetID: Id of the ControlSet to obtain, if not specified the current one is taken.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pEffectorId | The effector ID.  |
-        | pEffectorSetID | Id of the ControlSet to obtain, if not specified the current one is taken.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The model in the Control Rig corresponding to the specified Effector."""
         ...
     def GetExternalSolver(self)->FBCharacterSolver:
         """Get a pointer to the external solver of a character, or NULL is no external solver is used on the character. 
         
         
-        ## Returns:
+        ### Returns:
         The pointer of the current External Solver, NULL if it's the internal solver."""
         ...
     def GetFKVisibility(self)->FBVisibilityState:
         """Get the FK visibility state. 
         
         
-        ## Returns:
+        ### Returns:
         The FK visibility state."""
         ...
     def GetFloorContactModel(self,MemberIndex:FBFloorContactID)->FBModel:
         """Get the model associated with the floor contact ID. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pMemberIndex: Id of the floor contact
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pMemberIndex | Id of the floor contact  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The model associated with the floor contact ID"""
         ...
     def GetGoalModel(self,BodyNodeId:FBBodyNodeId)->FBModel:
         """Get the goal model associated with each body part in the Character Marker Set of the character. 
         
         
-        ## Returns:
+        ### Returns:
         The model in the Character Marker Set corresponding to the specified body part."""
         ...
     def GetIKVisibility(self)->FBVisibilityState:
         """Get the IK visibility state. 
         
         
-        ## Returns:
+        ### Returns:
         The IK visibility state."""
         ...
     def GetIndexByModel(self,Model:FBModelSkeleton)->FBBodyNodeId:
         """Get the index associated with Given Model. 
         
         
-        ## Returns:
+        ### Returns:
         The model linked to the specified body part."""
         ...
     def GetModel(self,BodyNodeId:FBBodyNodeId)->FBModel:
         """Get the model associated with each body part of the character. 
         
         
-        ## Returns:
+        ### Returns:
         The model linked to the specified body part."""
         ...
     def GetParentROffset(self,BodyNodeId:FBBodyNodeId,RVector:FBVector3d):
@@ -12815,7 +11165,7 @@ class FBCharacter(FBConstraint):
         """Get the skeleton visibility state. 
         
         
-        ## Returns:
+        ### Returns:
         The skeleton visibility state."""
         ...
     def GetSkinModelList(self,SkinModelList:FBModelList):
@@ -12824,13 +11174,9 @@ class FBCharacter(FBConstraint):
         
         Could be deformable model connected to bone via cluster, or non deformable model parented directly under the bones. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pSkinModelList | List to be filled up. (will not be cleared)  |"""
+            - pSkinModelList: List to be filled up. (will not be cleared)"""
         ...
     def GetTOffset(self,BodyNodeId:FBBodyNodeId,TVector:FBVector4d):
         """"""
@@ -12842,67 +11188,45 @@ class FBCharacter(FBConstraint):
         """Set the character in stance pose. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pPushUndo | Should we push an undo transaction on the undo stack? Don't push undo in non UI thread.  |
-        | pIncludeCharacterExtensions | Should the character extensions go to stance pose too?  |"""
+            - pPushUndo: Should we push an undo transaction on the undo stack? Don't push undo in non UI thread.
+            - pIncludeCharacterExtensions: Should the character extensions go to stance pose too?"""
         ...
     def IsParentNodeOffset(self,NodeId:FBBodyNodeId)->bool:
         """Check if there is an offset on Parent. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pNodeId: Node Id to Check.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pNodeId | Node Id to Check.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if there is an offset on Parent."""
         ...
     def IsRotationPin(self,EffectorIndex:FBEffectorId)->bool:
         """Return true if the object is Pinned in Rotation (Manipulation). 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pEffectorIndex: Given Index to obtain Model
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pEffectorIndex | Given Index to obtain Model  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the effector is pinned in Rotation"""
         ...
     def IsTranslationPin(self,EffectorIndex:FBEffectorId)->bool:
         """Return true if the object is Pinned in Translation (Manipulation). 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pEffectorIndex: Given Index to obtain Model
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pEffectorIndex | Given Index to obtain Model  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the effector is pinned in Translation"""
         ...
     def PlotAnimation(self,PlotWhere:FBCharacterPlotWhere,PlotOptions:FBPlotOptions)->bool:
@@ -12911,78 +11235,56 @@ class FBCharacter(FBConstraint):
         
         When plotting onto Control Rig while the Control Rig being the source of the Character, only the selected properties, based on the active keying group, will be plotted. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pPlotWhere: Where to plot a character, control rig or Skeleton
+            - pPlotOptions: Option parameters for plotting
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pPlotWhere | Where to plot a character, control rig or Skeleton  |
-        | pPlotOptions | Option parameters for plotting  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation completed successfully."""
         ...
     def ReadyForRetarget(self)->bool:
         """Test if character is ready for the Retarget operation (basically, is it in character input ?). 
         
         
-        ## Returns:
+        ### Returns:
         True if the character is ready."""
         ...
     def RemoveCharacterExtension(self,Ext:FBCharacterExtension):
         """Get the model associated with each body part of the character. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pExt | extension to be removed to the character.  |"""
+            - pExt: extension to be removed to the character."""
         ...
     def ResetProperties(self,Type:FBCharacterResetProperties):
         """Reset the properties of the character. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pType | Speficy which properties will be reset.  |"""
+            - pType: Speficy which properties will be reset."""
         ...
     def Retarget(self,bOnBaseLayer:bool):
         """Retarget the animation from the input character to us. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pOnBaseLayer | if true, keys corrections will be made on base layer; else they will be made on another layer.  |"""
+            - pOnBaseLayer: if true, keys corrections will be made on base layer; else they will be made on another layer."""
         ...
     def SelectModels(self,bSelect:bool,bApplyToCharacter:bool,bApplyToRig:bool,bApplyToExtensions:bool):
         """Select the objects that make a character. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pSelect | True to select, false to deselect.  |
-        | pApplyToCharacter | Should the character constraint be selected ?  |
-        | pApplyToRig | should The rig (and its children) be selected ?  |
-        | pApplyToExtensions | Should the character extensions (and their children) be selected ?  |"""
+            - pSelect: True to select, false to deselect.
+            - pApplyToCharacter: Should the character constraint be selected ?
+            - pApplyToRig: should The rig (and its children) be selected ?
+            - pApplyToExtensions: Should the character extensions (and their children) be selected ?"""
         ...
     def SetCharacterizeOff(self):
         """Set Characterize flag off."""
@@ -12991,18 +11293,12 @@ class FBCharacter(FBConstraint):
         """Set the Characterize flag on. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pSetAsBiped: true to use biped characterization or false to use quadruped.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pSetAsBiped | true to use biped characterization or false to use quadruped.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         current state of the flag after the operation (true if it did succeed).
         [See sample: 3dsMaxBipedTemplate.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c3ds_max_biped_template_8py-example.html)"""
         ...
@@ -13010,118 +11306,80 @@ class FBCharacter(FBConstraint):
         """Set character solver. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pSolver | Character solver that will be used by the character.  |"""
+            - pSolver: Character solver that will be used by the character."""
         ...
     def SetExternalSolverWithIndex(self,arg2):...
     def SetFKVisibility(self,bState:bool)->bool:
         """Set the FK visibility state. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pState: The FK visibility state.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pState | The FK visibility state.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise."""
         ...
     def SetIKVisibility(self,bState:bool)->bool:
         """Set the IK visibility state. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pState: The IK visibility state.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pState | The IK visibility state.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise."""
         ...
     def SetRotationPin(self,EffectorIndex:FBEffectorId,bValue:bool)->bool:
         """Set the object Pinned in Rotation (Manipulation) status. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pEffectorIndex: Given Index to obtain Model.
+            - pValue: The object Pinned in Rotation status.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pEffectorIndex | Given Index to obtain Model.  |
-        | pValue | The object Pinned in Rotation status.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise."""
         ...
     def SetSkeletonVisibility(self,bState:bool)->bool:
         """Set the skeleton visibility state. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pState: The skeleton visibility state.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pState | The skeleton visibility state.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise."""
         ...
     def SetTranslationPin(self,EffectorIndex:FBEffectorId,bValue:bool)->bool:
         """Set the object Pinned in Translation (Manipulation) status. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pEffectorIndex: Given Index to obtain Model
+            - pValue: The object Pinned in Translation status.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pEffectorIndex | Given Index to obtain Model  |
-        | pValue | The object Pinned in Translation status.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise."""
         ...
     def __init__(self,Name:str):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of new character.  |"""
+            - pName: Name of new character."""
         ...
 class FBActor(FBConstraint):
     """[FBActor](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_actor.html "FBActor is used to link motion data to a character.") is used to link motion data to a character. 
@@ -13514,27 +11772,21 @@ class FBActor(FBConstraint):
         """Return the Current Skeleton State. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pResetOrientation: When set to true, all rotations in the state will be reset to characterization values.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pResetOrientation | When set to true, all rotations in the state will be reset to characterization values.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Current Skeleton State 
-        ## Note:
+        ### Note:
         Usage of this function can be found in script sample /bin/config/Scripts/Samples/Character/CharacterMarkerSetFromActor.py"""
         ...
     def GetDefaultSkeletonState(self)->FBSkeletonState:
         """Return the Default Skeleton State. 
         
         
-        ## Returns:
+        ### Returns:
         Default Skeleton State"""
         ...
     def GetDefinitionRotationVector(self,SkeletonId:FBSkeletonNodeId,RotationVector:FBVector3d):
@@ -13543,27 +11795,19 @@ class FBActor(FBConstraint):
         
         Only effective when IKManip property is set to false. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pSkeletonId | Skeleton Node Id  |
-        | pRotationVector | Actor Rotation Definition for the given ID  |"""
+            - pSkeletonId: Skeleton Node Id
+            - pRotationVector: Actor Rotation Definition for the given ID"""
         ...
     def GetDefinitionScaleVector(self,SkeletonId:FBSkeletonNodeId,ScaleVector:FBVector3d):
         """Get Actor Scaling Definition. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pSkeletonId | Skeleton Node Id  |
-        | pScaleVector | Actor Scaling Definition for the given ID  |"""
+            - pSkeletonId: Skeleton Node Id
+            - pScaleVector: Actor Scaling Definition for the given ID"""
         ...
     def GetDefinitionTranslationVector(self,SkeletonId:FBSkeletonNodeId,TranslationVector:FBVector3d):
         """Get Actor Translation Definition. 
@@ -13571,14 +11815,10 @@ class FBActor(FBConstraint):
         
         Only effective when IKManip property is set to false. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pSkeletonId | Skeleton Node Id  |
-        | pTranslationVector | Actor Translation Definition for the given ID  |"""
+            - pSkeletonId: Skeleton Node Id
+            - pTranslationVector: Actor Translation Definition for the given ID"""
         ...
     def SetActorTranslation(self,TranslationVector:FBVector3d):
         """Translate Actor, similar to moving the hips of the Actor in the UI. 
@@ -13586,13 +11826,9 @@ class FBActor(FBConstraint):
         
         Only effective when IKManip property is set to false. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pTranslationVector | Will move the entire Actor to pTranslationVector coordinate  |"""
+            - pTranslationVector: Will move the entire Actor to pTranslationVector coordinate"""
         ...
     def SetDefinitionRotationVector(self,SkeletonId:FBSkeletonNodeId,RotationVector:FBVector3d,bSymmetricUpdate:bool=True):
         """Set Actor Rotation Definition. 
@@ -13600,29 +11836,21 @@ class FBActor(FBConstraint):
         
         Only effective when IKManip property is set to false. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pSkeletonId | Skeleton Node Id  |
-        | pRotationVector | Actor Rotation value for the given ID  |
-        | pSymmetricUpdate | Update right and left part at the same time  |"""
+            - pSkeletonId: Skeleton Node Id
+            - pRotationVector: Actor Rotation value for the given ID
+            - pSymmetricUpdate: Update right and left part at the same time"""
         ...
     def SetDefinitionScaleVector(self,SkeletonId:FBSkeletonNodeId,ScaleVector:FBVector3d,bSymmetricUpdate:bool=True):
         """Set Actor Scaling Definition. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pSkeletonId | Skeleton Node Id  |
-        | pScaleVector | Actor Scaling value for the given ID  |
-        | pSymmetricUpdate | Update right and left part at the same time  |"""
+            - pSkeletonId: Skeleton Node Id
+            - pScaleVector: Actor Scaling value for the given ID
+            - pSymmetricUpdate: Update right and left part at the same time"""
         ...
     def SetDefinitionTranslationVector(self,SkeletonId:FBSkeletonNodeId,TranslationVector:FBVector3d,bSymmetricUpdate:bool=True):
         """Set Actor Translation Definition. 
@@ -13630,39 +11858,27 @@ class FBActor(FBConstraint):
         
         Only effective when IKManip property is set to false. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pSkeletonId | Skeleton Node Id  |
-        | pTranslationVector | Actor Translation value for the given ID  |
-        | pSymmetricUpdate | Update right and left part at the same time  |"""
+            - pSkeletonId: Skeleton Node Id
+            - pTranslationVector: Actor Translation value for the given ID
+            - pSymmetricUpdate: Update right and left part at the same time"""
         ...
     def UpdateValues(self,EvalInfo:FBEvaluateInfo):
         """Update Internal Values to be corresponding to the Given Evaluate Information. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pEvalInfo | Evaluate Info of the Values  |"""
+            - pEvalInfo: Evaluate Info of the Values"""
         ...
     def __init__(self,Name:str):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of new actor.  |"""
+            - pName: Name of new actor."""
         ...
 class FBConstraintRelation(FBConstraint):
     """ConstraintRelation class. 
@@ -13685,18 +11901,12 @@ class FBConstraintRelation(FBConstraint):
         
         Use an existing [FBBox](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_box.html "A box is a fundamental building block in the application architecture.") object to create a receiver in the relation. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pConstrainedObject: Destination box to insert in the constraint.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pConstrainedObject | Destination box to insert in the constraint.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         A place holder box for the object."""
         ...
     def CreateFunctionBox(self,Group:str,Name:str)->FBBox:
@@ -13705,19 +11915,13 @@ class FBConstraintRelation(FBConstraint):
         
         Ask the constraint to create new function box. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pGroup: Name of the group under which the function is located in the Constraint Relation GUI (case-sensitive!).
+            - pName: Name of the function, as seen in the GUI (case-sensitive!).
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pGroup | Name of the group under which the function is located in the Constraint Relation GUI (case-sensitive!).  |
-        | pName | Name of the function, as seen in the GUI (case-sensitive!).  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The newly created function box, or NULL if the name/group combination was invalid."""
         ...
     def GetBoxPosition(self,arg2:FBBox)->tuple:...
@@ -13727,18 +11931,12 @@ class FBConstraintRelation(FBConstraint):
         
         Use an existing [FBBox](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_box.html "A box is a fundamental building block in the application architecture.") object to create a sender in the relation. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pSource: Source box to insert in the constraint.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pSource | Source box to insert in the constraint.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         A place holder box for the object."""
         ...
     def SetBoxPosition(self,Box:FBBox,X:int,Y:int)->bool:
@@ -13747,33 +11945,23 @@ class FBConstraintRelation(FBConstraint):
         
         Set the position of a box within the constraint layout view. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pBox: Box which needs to be moved.
+            - pX: New X position.
+            - pY: New Y position.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pBox | Box which needs to be moved.  |
-        | pX | New X position.  |
-        | pY | New Y position.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         A boolean value indicating success (True) or failure (False)."""
         ...
     def __init__(self,Name:str|None=None):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of constraint.  |"""
+            - pName: Name of constraint."""
         ...
 class FBCycleAnalysisNode(FBBox):
     """Cycle Analysis class."""
@@ -13806,13 +11994,9 @@ class FBCycleAnalysisNode(FBBox):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of new cycle analysis node.  |"""
+            - pName: Name of new cycle analysis node."""
         ...
 class FBConstraintSolver(FBConstraint):
     """Base class for constraint solver."""
@@ -13885,18 +12069,12 @@ class FBDevice(FBBox):
         
         This is an operation such as Init, Start, Done, Reset, etc. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pOperation: Operation to have device perform.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pOperation | Operation to have device perform.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Current state : <b true if online."""
         ...
     def DeviceSendCommand(self,Operation:kDeviceOperations):
@@ -13905,56 +12083,40 @@ class FBDevice(FBBox):
         
         This function will send the Init, Start, etc. commands to the device. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pOperation | Operation for device to perform.  |"""
+            - pOperation: Operation for device to perform."""
         ...
     def ModelBindingCreate(self)->FBModel:
         """Create a new model binding. 
         
         
-        ## Returns:
+        ### Returns:
         **The** model root that has been created or NULL is an error occured."""
         ...
     def ModelBindingRootsList(self,List:FBModelList):
         """Get the list of all the possible root models for binding. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pList | List to add found models to.  |"""
+            - pList: List to add found models to."""
         ...
     def RecordingDoneAnimation(self,AnimationNode:FBAnimationNode):
         """When recording, finish animation. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pAnimationNode | Animation node to write information to.  |"""
+            - pAnimationNode: Animation node to write information to."""
         ...
     def RecordingInitAnimation(self,AnimationNode:FBAnimationNode):
         """When recording, initialize animation. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pAnimationNode | Animation node to read information from.  |"""
+            - pAnimationNode: Animation node to read information from."""
         ...
 class FBGlobalLight(FBBox):
     """Global light class."""
@@ -14007,26 +12169,18 @@ class FBDeviceOptical(FBDevice):
         
         Virtual function that derived class may overide 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pTime | Time of evaluation.  |
-        | pDeviceNotifyInfo | Notification information when thread was called.  |"""
+            - pTime: Time of evaluation.
+            - pDeviceNotifyInfo: Notification information when thread was called."""
         ...
     def __init__(self,Name:str):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Unique name of optical device.  |"""
+            - pName: Unique name of optical device."""
         ...
 class FBGroup(FBBox):
     """Objects Grouping class. 
@@ -14055,50 +12209,36 @@ class FBGroup(FBBox):
         
         This will duplicated the current group. 
         
-        ## Returns:
+        ### Returns:
         Newly created group."""
         ...
     def Contains(self,Component:FBComponent)->bool:
         """Contains. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pComponent: Component to verify if it is in the Group
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pComponent | Component to verify if it is in the Group  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the object is in the Group"""
         ...
     def Select(self,bSelect:bool):
         """Select. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pSelect | If **true**, group contents will be selected.  |"""
+            - pSelect: If **true**, group contents will be selected."""
         ...
     def __init__(self,Name:str):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Group name.  |"""
+            - pName: Group name."""
         ...
 class FBHUD(FBBox):
     """Heads Up display. 
@@ -14140,51 +12280,35 @@ class FBHUD(FBBox):
         """Creates a custom HUD Element. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pHUDElementClassName: The HUD Element class name (mainly, the ClassName parameter of the FBStorableCustomHUDElementImplementation macro).
+            - pName: Name for the custom HUD Element to create.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pHUDElementClassName | The HUD Element class name (mainly, the ClassName parameter of the FBStorableCustomHUDElementImplementation macro).  |
-        | pName | Name for the custom HUD Element to create.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The created custom HUD Element."""
         ...
     def CreateElement(self,Type:EStockElement,Name:str)->FBHUDElement:
         """Creates a stock HUD Element. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pType: View to be called for expose.
+            - pName: Name for the HUD Element to create.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pType | View to be called for expose.  |
-        | pName | Name for the HUD Element to create.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The created HUD Element."""
         ...
     def __init__(self,Name:str):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of new HUD.  |"""
+            - pName: Name of new HUD."""
         ...
 class FBHUDElement(FBBox):
     """Heads Up display. 
@@ -14249,13 +12373,9 @@ class FBHandle(FBBox):
         
         This constructor is used to create a new object. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Object name.  |"""
+            - pName: Object name."""
         ...
 class FBHUDFlashElement(FBHUDElement):
     """Heads Up display. 
@@ -14276,13 +12396,9 @@ class FBHUDFlashElement(FBHUDElement):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of new HUD flash element.  |"""
+            - pName: Name of new HUD flash element."""
         ...
 class FBHUDRectElement(FBHUDElement):
     """Heads Up display. 
@@ -14303,13 +12419,9 @@ class FBHUDRectElement(FBHUDElement):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of new HUD rectangle element.  |"""
+            - pName: Name of new HUD rectangle element."""
         ...
 class FBHUDBloopSlateElement(FBHUDFlashElement):
     """Heads Up display. 
@@ -14333,13 +12445,9 @@ class FBHUDBloopSlateElement(FBHUDFlashElement):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of new HUD flash element.  |"""
+            - pName: Name of new HUD flash element."""
         ...
 class FBHUDTimelineElement(FBHUDFlashElement):
     """Heads Up display. 
@@ -14374,13 +12482,9 @@ class FBHUDTimelineElement(FBHUDFlashElement):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of new HUD flash element.  |"""
+            - pName: Name of new HUD flash element."""
         ...
 class FBHUDTextElement(FBHUDElement):
     """Heads Up display. 
@@ -14414,13 +12518,9 @@ class FBHUDTextElement(FBHUDElement):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of new HUD text element.  |"""
+            - pName: Name of new HUD text element."""
         ...
 class FBHUDTextureElement(FBHUDElement):
     """Heads Up display. 
@@ -14441,13 +12541,9 @@ class FBHUDTextureElement(FBHUDElement):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of new HUD texture element.  |"""
+            - pName: Name of new HUD texture element."""
         ...
 class FBMaterial(FBBox):
     """Material class. 
@@ -14501,20 +12597,16 @@ class FBMaterial(FBBox):
         
         This will duplicated the current material. 
         
-        ## Returns:
+        ### Returns:
         Newly created material."""
         ...
     def GetTexture(self,Type:FBMaterialTextureType=FBMaterialTextureType.kFBMaterialTextureDiffuse)->FBTexture:
         """Retrieve associated texture. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pType | MaterialTextureType to get connected texture from (default is Diffuse is not specified).  |"""
+            - pType: MaterialTextureType to get connected texture from (default is Diffuse is not specified)."""
         ...
     def OGLInit(self):
         """Setup OpenGL fixed pipeline material settings."""
@@ -14523,27 +12615,19 @@ class FBMaterial(FBBox):
         """Set associated texture. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pTexture | texture to be connected.  |
-        | pType | MaterialTextureType to set connected texture to.  |"""
+            - pTexture: texture to be connected.
+            - pType: MaterialTextureType to set connected texture to."""
         ...
     def __copy__(self)->object:...
     def __init__(self,Name:str):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of material.  |"""
+            - pName: Name of material."""
         ...
 class FBModel(FBBox):
     """Model class. 
@@ -14606,18 +12690,12 @@ class FBModel(FBBox):
     
     Note. this query will consider self Visibility property, plus parent node/set Visibility. The visibility of a model is affected by 4 parameters: 
     
-    ## Parameters:
+    ### Parameters:
+    
+        - pEvaluateInfo: evaluate info,
     
     
-    
-    |  |  |
-    | --- | --- |
-    | pEvaluateInfo | evaluate info,  |
-    
-    
-    
-    
-    ## Returns:
+    ### Returns:
     true if visible for the given evaluate info."""
     LookAt:FBModel
     """**Read Write Property:** Look at model (interest point)."""
@@ -14701,7 +12779,7 @@ class FBModel(FBBox):
         
         This will duplicate the current model. 
         
-        ## Returns:
+        ### Returns:
         Newly created model."""
         ...
     def CollapseInSchematic(self):
@@ -14711,19 +12789,13 @@ class FBModel(FBBox):
         """Convert object space vector to local matrix. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pLM: Resulting local rotation matrix.
+            - pDof: Vector to convert
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pLM | Resulting local rotation matrix.  |
-        | pDof | Vector to convert  |
-        
-        
-        
-        
-        ## Note:
+        ### Note:
         Use this function when you want to convert euler to local rotation with proper pre/post transformation and rotation order applied from this model."""
         ...
     def ExpandInSchematic(self):
@@ -14739,18 +12811,12 @@ class FBModel(FBBox):
         """Get Additional Unique Color Id. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: the requested unique color id index, can't be larger than GetAdditionalColorIDCount()
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | the requested unique color id index, can't be larger than GetAdditionalColorIDCount()  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Additional Unique ColorId."""
         ...
     def GetAdditionalUniqueColorIDCount(self)->int:...
@@ -14760,14 +12826,10 @@ class FBModel(FBBox):
         
         Note. for deformable model, this function will provide the approximated (larger than the smallest) bounding box for performance consideration. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pMin | Output parameter. Minimum value of the bounding box.  |
-        | pMax | Output parameter. Maximum value of the bounding box.  |"""
+            - pMin: Output parameter. Minimum value of the bounding box.
+            - pMax: Output parameter. Maximum value of the bounding box."""
         ...
     def GetHierarchyWorldMatrices(self,arg2:int,arg3:FBModelHiercharyTraverserType,arg4:FBEvaluateInfo|None=None)->list:...
     def GetLocalTransformationMatrixWithGlobalRotationDoF(self,Matrix:FBMatrix,bInverse:bool=False,EvaluateInfo:FBEvaluateInfo|None=None):
@@ -14776,65 +12838,53 @@ class FBModel(FBBox):
         
         The GetMatrix method was previously wrongly returning the local transformation (and local inverse transformation) matrices with global Rotation DoF values. The GetMatrix method implementation has been updated to not include the global Rotation DoF values. This method returns the same matrix values returned by the legacy GetMatrix implementation when retrieving the local transformation (and local inverse transformation) matrices. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pMatrix | Matrix to fill with requested information.  |
-        | pInverse | False for the transformation matrix, true for the inverse transformation matrix.  |
-        | pEvaluateInfo | EvaluateInfo, Take Display if none specified.  |"""
+            - pMatrix: Matrix to fill with requested information.
+            - pInverse: False for the transformation matrix, true for the inverse transformation matrix.
+            - pEvaluateInfo: EvaluateInfo, Take Display if none specified."""
         ...
     def GetMatrix(self,Matrix:FBMatrix,What:FBModelTransformationType=FBModelTransformationType.kModelTransformation,bGlobalInfo:bool=True,EvaluateInfo:FBEvaluateInfo|None=None):
         """Get a matrix from the model. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pMatrix | Matrix to fill with requested information.  |
-        | pWhat | Type of information requested (default=transformation).  |
-        | pGlobalInfo | **true** if it is GlobalInfo, **false** if Local (default=true).  |
-        | pEvaluateInfo | EvaluateInfo, Take Display if none specified.  |"""
+            - pMatrix: Matrix to fill with requested information.
+            - pWhat: Type of information requested (default=transformation).
+            - pGlobalInfo: **true** if it is GlobalInfo, **false** if Local (default=true).
+            - pEvaluateInfo: EvaluateInfo, Take Display if none specified."""
         ...
     def GetSchematicPosition(self)->FBVector2d:
         """Get the position in the schematic view for the model. 
         
         
-        ## Returns:
+        ### Returns:
         Current position for the model."""
         ...
     def GetSelectedPointsCount(self)->int:
         """Get the number of selected points in the model. 
         
         
-        ## Returns:
+        ### Returns:
         Number of selected points."""
         ...
     def GetVector(self,Vector:FBVector3d,What:FBModelTransformationType=FBModelTransformationType.kModelTranslation,bGlobalInfo:bool=True,EvaluateInfo:FBEvaluateInfo|None=None):
         """Get a vector from the model. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pVector | Vector to fill with requested values.  |
-        | pWhat | Type of information requested (default=translation, inverses not supported).  |
-        | pGlobalInfo | **true** if it is GlobalInfo, **false** if Local (default=true).  |
-        | pEvaluateInfo | EvaluateInfo, Take Display if none specified  |"""
+            - pVector: Vector to fill with requested values.
+            - pWhat: Type of information requested (default=translation, inverses not supported).
+            - pGlobalInfo: **true** if it is GlobalInfo, **false** if Local (default=true).
+            - pEvaluateInfo: EvaluateInfo, Take Display if none specified"""
         ...
     def IsCollapsedInSchematic(self)->bool:
         """Returns if the model is collapsed or not (expanded) in the schematic view. 
         
         
-        ## Returns:
+        ### Returns:
         true if the model is collapsed in the schematic view, false if it is expanded."""
         ...
     def IsEvaluationReady(self,What:FBModelEvaluationTaskType,EvaluateInfo:FBEvaluateInfo|None=None)->bool:
@@ -14843,14 +12893,10 @@ class FBModel(FBBox):
         
         b true if the evaluation task result is ready in place. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pWhat | Type of evaluation task.  |
-        | pEvaluateInfo | EvaluateInfo, Take Display if none specified  |"""
+            - pWhat: Type of evaluation task.
+            - pEvaluateInfo: EvaluateInfo, Take Display if none specified"""
         ...
     def IsForceAlwaysEvaluate(self)->bool:
         """Return Force Always Evaluate status."""
@@ -14859,176 +12905,130 @@ class FBModel(FBBox):
         """Convert local matrix to object space vector. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pDof: Resulting object space vector.
+            - pLM: Local rotation matrix to convert
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pDof | Resulting object space vector.  |
-        | pLM | Local rotation matrix to convert  |
-        
-        
-        
-        
-        ## Note:
+        ### Note:
         Use this function when you want to convert local rotation to euler with proper pre/post transformation and rotation order applied from this model."""
         ...
     def MatrixToRotation(self,Rotation:FBVector3d,Matrix:FBMatrix):
         """Convert Rotation Matrix to Euler Vector based on model's rotation order. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pRotation | Resulting euler vector, whose angles are stored in [X,Y,Z] order.  |
-        | pMatrix | Matrix to convert.  |"""
+            - pRotation: Resulting euler vector, whose angles are stored in [X,Y,Z] order.
+            - pMatrix: Matrix to convert."""
         ...
     def NoFrustumCullingRelease(self)->int:
         """Release no frustum culling request. 
         
         
-        ## Returns:
+        ### Returns:
         Current no frustum culling request count after function call."""
         ...
     def NoFrustumCullingRequire(self)->int:
         """Acquire no frustum culling request. 
         
         
-        ## Returns:
+        ### Returns:
         Current no frustum culling request count after function call."""
         ...
     def RayCast(self,Camera:FBCamera,MouseX:int,MouseY:int,HitPosition:FBVector3d,HitNormal:FBVector3d)->bool:
         """Ray cast test. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pCamera: Camera to use for casting.
+            - pMouseX: Mouse X position.
+            - pMouseY: Mouse Y position.
+            - pHitPosition: Ray cast position on the object.
+            - pHitNormal: Normal at the ray cast position on the object.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pCamera | Camera to use for casting.  |
-        | pMouseX | Mouse X position.  |
-        | pMouseY | Mouse Y position.  |
-        | pHitPosition | Ray cast position on the object.  |
-        | pHitNormal | Normal at the ray cast position on the object.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         true if it hit the meshes, hit would contains the precise position & normal."""
         ...
     def RotationToMatrix(self,Matrix:FBMatrix,Rotation:FBVector3d):
         """Convert Euler Vector to Rotation Matrix based on model's rotation order. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pMatrix | Resulting rotation matrix.  |
-        | pRotation | Object space rotation vector to convert, whose angles are stored in [X,Y,Z] order.  |"""
+            - pMatrix: Resulting rotation matrix.
+            - pRotation: Object space rotation vector to convert, whose angles are stored in [X,Y,Z] order."""
         ...
     def SetAdditionalUniqueColorIDCount(self,Count:int)->bool:
         """Request additional Unique color IDs. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pCount: User should note that Unique Color ID resource is limited (only 24 bits), hence should avoid to use unnecessary large number.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pCount | User should note that Unique Color ID resource is limited (only 24 bits), hence should avoid to use unnecessary large number.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if Unique ColorId resource is available."""
         ...
     def SetMatrix(self,Matrix:FBMatrix,What:FBModelTransformationType=FBModelTransformationType.kModelTransformation,arg4=None,arg5:FBEvaluateInfo|None=None):
         """Set a matrix for the model. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pMatrix | Information to use to set the model's matrix.  |
-        | pWhat | Type of matrix to set (default=transformation).  |
-        | pGlobalInfo | **true** if it is GlobalInfo, **false** if Local (default=true).  |
-        | pPushUndo | **true** if this operation is undoable, don't push undo in non UI thread.  |
-        | pEvaluateInfo | EvaluateInfo, Take Display if none specified  |"""
+            - pMatrix: Information to use to set the model's matrix.
+            - pWhat: Type of matrix to set (default=transformation).
+            - pGlobalInfo: **true** if it is GlobalInfo, **false** if Local (default=true).
+            - pPushUndo: **true** if this operation is undoable, don't push undo in non UI thread.
+            - pEvaluateInfo: EvaluateInfo, Take Display if none specified"""
         ...
     def SetMatrixWithPrecision(self,Matrix:FBMatrix,What:FBModelTransformationType=FBModelTransformationType.kModelTransformation,arg4=None,arg5:FBEvaluateInfo|None=None,arg6=None):
         """Set a matrix for the model. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pMatrix | Information to use to set the model's matrix.  |
-        | pWhat | Type of matrix to set (default=transformation).  |
-        | pGlobalInfo | **true** if it is GlobalInfo, **false** if Local (default=true).  |
-        | pPushUndo | **true** if this operation is undoable, don't push undo in non UI thread.  |
-        | pEvaluateInfo | EvaluateInfo, Take Display if none specified  |
-        | pPrecision | Indicate the precision level, used when calculating the threshold value for gimble lock. 16 \* pow(10.0, -10)) is the new default value since Mobu 2016, 16 \* pow(10.0, -6)) is old default value before then.  |"""
+            - pMatrix: Information to use to set the model's matrix.
+            - pWhat: Type of matrix to set (default=transformation).
+            - pGlobalInfo: **true** if it is GlobalInfo, **false** if Local (default=true).
+            - pPushUndo: **true** if this operation is undoable, don't push undo in non UI thread.
+            - pEvaluateInfo: EvaluateInfo, Take Display if none specified
+            - pPrecision: Indicate the precision level, used when calculating the threshold value for gimble lock. 16 \* pow(10.0, -10)) is the new default value since Mobu 2016, 16 \* pow(10.0, -6)) is old default value before then."""
         ...
     @overload
     def SetSchematicPosition(self,X:int,Y:int):
         """Set the position in the schematic view for the model. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pX | X position to set.  |
-        | pY | Y position to set.  |"""
+            - pX: X position to set.
+            - pY: Y position to set."""
         ...
     @overload
     def SetSchematicPosition(self,Vector2d:FBVector2d):
         """Set the position in the schematic view for the model. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pVector2d | Position to set.  |"""
+            - pVector2d: Position to set."""
         ...
     def SetVector(self,Vector:FBVector3d,What:FBModelTransformationType=FBModelTransformationType.kModelTranslation,arg4=None,arg5:FBEvaluateInfo|None=None):
         """Set a vector for the model. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pVector | Vector to use to set values.  |
-        | pWhat | Type of information to set (default=translation, inverses not supported).  |
-        | pGlobalInfo | **true** if it is GlobalInfo, **false** if Local (default=true).  |
-        | pPushUndo | **true** if this operation is undoable, don't push undo in non UI thread.  |
-        | pEvaluateInfo | EvaluateInfo, Take Display if none specified  |"""
+            - pVector: Vector to use to set values.
+            - pWhat: Type of information to set (default=translation, inverses not supported).
+            - pGlobalInfo: **true** if it is GlobalInfo, **false** if Local (default=true).
+            - pPushUndo: **true** if this operation is undoable, don't push undo in non UI thread.
+            - pEvaluateInfo: EvaluateInfo, Take Display if none specified"""
         ...
     def SetupPropertiesForShapes(self):
         """Setup Shape Properties. 
@@ -15043,7 +13043,7 @@ class FBModel(FBBox):
         """Get the current Frustum Culling Status. 
         
         
-        ## Returns:
+        ### Returns:
         **True** if model don't use frustum culling currently."""
         ...
     def __copy__(self)->object:...
@@ -15057,18 +13057,12 @@ class FBNote(FBBox):
         
         Will attach the note to the component. If **pComp** is NULL, the note will only be added to the scene. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pComp: Component on which to attach note.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pComp | Component on which to attach note.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         A boolean indicating if the operation was successful or not."""
         ...
     def Detach(self,Comp:FBComponent|None=None)->bool:
@@ -15077,31 +13071,21 @@ class FBNote(FBBox):
         
         Will detach the note from the component. If **pComp** is NULL, the note will be removed from the scene and detached from all components. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pComp: Component from which to detach note.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pComp | Component from which to detach note.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         A boolean indicating if the operation was successful or not."""
         ...
     def __init__(self,Name:str):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of note.  |"""
+            - pName: Name of note."""
         ...
 class FBModelCube(FBModel):
     """Cube model class. 
@@ -15117,13 +13101,9 @@ class FBModelCube(FBModel):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of cube.  |"""
+            - pName: Name of cube."""
         ...
 class FBLight(FBModel):
     """Light class."""
@@ -15175,13 +13155,9 @@ class FBLight(FBModel):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of light.  |"""
+            - pName: Name of light."""
         ...
 class FBCameraSwitcher(FBModel):
     """Camera switcher. 
@@ -15206,18 +13182,12 @@ class FBCameraSwitcher(FBModel):
         
         The destination camera cannot be a system camera nor a camera currently used by the Camera Switcher. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pCamera: Destination camera to plot on.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pCamera | Destination camera to plot on.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the plot operation has been processed successfully, false otherwise."""
         ...
     def UseEvaluateSwitch(self):...
@@ -15433,15 +13403,11 @@ class FBCamera(FBModel):
         """Obtains the camera's matrix. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pMatrix | Matrix to fill with requested information.  |
-        | pType | Camera Matrix type to obtain.  |
-        | pEvalInfo | Take Display if none specified.  |"""
+            - pMatrix: Matrix to fill with requested information.
+            - pType: Camera Matrix type to obtain.
+            - pEvalInfo: Take Display if none specified."""
         ...
     @overload
     def InverseProjection(self,arg2,arg3,arg4)->FBVector4d:...
@@ -15450,34 +13416,24 @@ class FBCamera(FBModel):
         """Returns the world coordinates based on screen coordinates and input distance from the camera. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pX: Screen horizontal coordinate in pixel. When pRelativeToViewport is false, the range is between 0 and (WindowWidth - 1). When pRelativeToViewport is true, the range is between 0 to (CameraViewportWidth - 1). The coordinate starts at left of the region.
+            - pY: Screen vertical coordinate in pixel. When pRelativeToViewport is false, the range is between 0 and (WindowHeight - 1). When pRelativeToViewport is true, the range is between 0 to (CameraViewportHeight - 1). The coordinate starts at top of the region.
+            - pDistanceFromCamera: Distance from the camera to the resulting world coordinate position
+            - pRelativeToViewport: true indicates (pX,pY) is relative to the window; false indicates (pX,pY) is relative to the viewport of the camera.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pX | Screen horizontal coordinate in pixel. When pRelativeToViewport is false, the range is between 0 and (WindowWidth - 1). When pRelativeToViewport is true, the range is between 0 to (CameraViewportWidth - 1). The coordinate starts at left of the region.  |
-        | pY | Screen vertical coordinate in pixel. When pRelativeToViewport is false, the range is between 0 and (WindowHeight - 1). When pRelativeToViewport is true, the range is between 0 to (CameraViewportHeight - 1). The coordinate starts at top of the region.  |
-        | pDistanceFromCamera | Distance from the camera to the resulting world coordinate position  |
-        | pRelativeToViewport | true indicates (pX,pY) is relative to the window; false indicates (pX,pY) is relative to the viewport of the camera.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The world coordinates in 3D space"""
         ...
     def __init__(self,Name:str):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of camera.  |"""
+            - pName: Name of camera."""
         ...
 class FBModelMarker(FBModel):
     """Model marker class. 
@@ -15507,13 +13463,9 @@ class FBModelMarker(FBModel):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of model marker. If pObject is not NULL, pName will be ignored.  |"""
+            - pName: Name of model marker. If pObject is not NULL, pName will be ignored."""
         ...
 class FBCameraStereo(FBCamera):
     CenterCamera:FBCamera
@@ -15548,13 +13500,9 @@ class FBCameraStereo(FBCamera):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of stereo camera.  |"""
+            - pName: Name of stereo camera."""
         ...
 class FBModelNull(FBModel):
     """Null object class."""
@@ -15564,13 +13512,9 @@ class FBModelNull(FBModel):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of null.  |"""
+            - pName: Name of null."""
         ...
 class FBModelMarkerOptical(FBModelMarker):
     """Optical model marker class."""
@@ -15590,42 +13534,36 @@ class FBModelMarkerOptical(FBModelMarker):
         
         Sample communication with optical device and return the number of samples that were taken during the sampling period for statistical purposes. 
         
-        ## Returns:
+        ### Returns:
         Number of frames to export."""
         ...
     def ExportEnd(self)->bool:
         """End exportation from optical model. 
         
         
-        ## Returns:
+        ### Returns:
         **true** if successful."""
         ...
     def ExportKey(self,X:float,Y:float,Z:float|None=None,Occlusion:float|None=None)->bool:
         """Export a key of optical data. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pX: X position.
+            - pY: Y position.
+            - pZ: Z position(default=NULL).
+            - pOcclusion: Occlusion value(default=NULL).
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pX | X position.  |
-        | pY | Y position.  |
-        | pZ | Z position(default=NULL).  |
-        | pOcclusion | Occlusion value(default=NULL).  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **true** if successful."""
         ...
     def GetRigidBody(self)->FBRigidBody:
         """Get the rigid body for the marker. 
         
         
-        ## Returns:
+        ### Returns:
         Rigid body for marker (check IsValid())"""
         ...
     def ImportBegin(self)->int:
@@ -15634,7 +13572,7 @@ class FBModelMarkerOptical(FBModelMarker):
         
         Sample communication with optical device and return the number of samples that were taken during the sampling period for statistical purposes. 
         
-        ## Returns:
+        ### Returns:
         The number of samples taken."""
         ...
     def ImportEnd(self)->bool:
@@ -15643,54 +13581,40 @@ class FBModelMarkerOptical(FBModelMarker):
         
         Interpolates optical data to create a curve from the input key frams. 
         
-        ## Returns:
+        ### Returns:
         **true** if successful."""
         ...
     def ImportKey(self,X:float,Y:float,Z:float=0.0,Occlusion:float=0.0)->bool:
         """Import a key of optical data. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pX: X position.
+            - pY: Y position.
+            - pZ: Z position(default=0.0).
+            - pOcclusion: Occlusion value(default=0.0).
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pX | X position.  |
-        | pY | Y position.  |
-        | pZ | Z position(default=0.0).  |
-        | pOcclusion | Occlusion value(default=0.0).  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **true** if successful."""
         ...
     def InsertSegmentedData(self,TData:FBAnimationNode,OData:FBAnimationNode):
         """Insert segmented data. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pTData | Translation data.  |
-        | pOData | Occlusion data.  |"""
+            - pTData: Translation data.
+            - pOData: Occlusion data."""
         ...
     def SetModelOptical(self,Optical:FBModelOptical):
         """Set the current optical model. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pOptical | New optical model.  |"""
+            - pOptical: New optical model."""
         ...
     def __init__(self,Name:str,Optical:FBModelOptical):
         """Constructor. 
@@ -15698,14 +13622,10 @@ class FBModelMarkerOptical(FBModelMarker):
         
         If no optical model is given, be sure to add one before accessing the Segments and Gaps properties. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of optical marker(default=NULL).  |
-        | pOptical | Optical model(default=NULL).  |"""
+            - pName: Name of optical marker(default=NULL).
+            - pOptical: Optical model(default=NULL)."""
         ...
 class FBModelOptical(FBModel):
     """Optical model class."""
@@ -15727,58 +13647,44 @@ class FBModelOptical(FBModel):
         """Clear the segments (by default only the unused). 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pUnUsedOnly | Clear only the unused segments if **true**(default=true).  |"""
+            - pUnUsedOnly: Clear only the unused segments if **true**(default=true)."""
         ...
     def CreateRigidBody(self,RigidBodyName:str,Markers:list[FBModelMarkerOptical])->FBRigidBody:
         """Create a new rigid body from the given optical markers. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pRigidBodyName: The name for the new rigid body to create. If left empty, the default "Rigid Body" name will be used.
+            - pMarkers: The optical markers for creating the new rigid body.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pRigidBodyName | The name for the new rigid body to create. If left empty, the default "Rigid Body" name will be used.  |
-        | pMarkers | The optical markers for creating the new rigid body.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The created rigid body if successful, and invalid rigid body otherwise. You can use the [FBRigidBody.IsValid()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_rigid_body.html#a9dcb9b43a3d0fa9003d4c1c9d921f6b2 "Check if valid (if item exists).") method to test if the returned rigid body object is valid or not."""
         ...
     def ExportSetup(self)->bool:
         """Setup exportation from optical model. 
         
         
-        ## Returns:
+        ### Returns:
         **true** if successful."""
         ...
     def ImportSetup(self)->bool:
         """Setup importation for optical model. 
         
         
-        ## Returns:
+        ### Returns:
         **true** if successful."""
         ...
     def __init__(self,Name:str):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of optical model.  |"""
+            - pName: Name of optical model."""
         ...
 class FBModelPath3D(FBModel):
     """Path 3D model class."""
@@ -15829,71 +13735,59 @@ class FBModelPath3D(FBModel):
         """Converting one key type Segment (time) to Total (percent). 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pPercent: Double value (as time)
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pPercent | Double value (as time)  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Double value which represents the corresponding percentage"""
         ...
     def ConvertToSegmentPercentFactor(self)->float:
         """Get factor for multiplying the derivative of a key for segment mode. 
         
         
-        ## Returns:
+        ### Returns:
         Returns the derivative multiplication factor"""
         ...
     def ConvertToTotalPercentFactor(self)->float:
         """Get factor for multiplying the derivative of a key for total mode. 
         
         
-        ## Returns:
+        ### Returns:
         Returns the time factor"""
         ...
     def ConvertTotalPercentToSegmentPercent(self,Percent:float,EvaluateInfo:FBEvaluateInfo|None=None)->float:
         """Converting one key type Total (percent) to Segment (time). 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pPercent: Double value (as percentage)
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pPercent | Double value (as percentage)  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Double value which represents the corresponding time."""
         ...
     def GetSelectedPathKeyCount(self)->int:
         """Query the number of keys present in the selected path. 
         
         
-        ## Returns:
+        ### Returns:
         Returns the number of keys in the selected path"""
         ...
     def InsertNewEndKey(self)->int:
         """Insert a new key at the end of the path. 
         
         
-        ## Returns:
+        ### Returns:
         Returns (N) where (N+1) is the new total number of keys, and since the new key becomes the Nth key (index starts from 0). If path is invalid, returns 0."""
         ...
     def InsertNewStartKey(self)->int:
         """Insert a new key at the start of the path. 
         
         
-        ## Returns:
+        ### Returns:
         Returns 0 since the new key becomes the first key. If path is invalid, returns 0."""
         ...
     def PathKeyClear(self):
@@ -15905,36 +13799,24 @@ class FBModelPath3D(FBModel):
         
         The derivative value for the new key is copied from the left tangent of the last key. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTLocal: Vector value for the new added Key
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTLocal | Vector value for the new added Key  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Returns (N) where (N+1) is the new total number of keys, and since the new key becomes the Nth key (index starts from 0). If path is invalid, returns 0."""
         ...
     def PathKeyGet(self,KeyIndex:int)->FBVector4d:
         """Get path's key vector for at a particular key index. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pKeyIndex: Key ID to set with
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pKeyIndex | Key ID to set with  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Return the vector containing the value of the path key."""
         ...
     def PathKeyGetControlNode(self,KeyIndex:int)->FBModel:
@@ -15943,61 +13825,43 @@ class FBModelPath3D(FBModel):
         
         Only works when KeyPropertyBehavior is eVector. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pKeyIndex: Key ID to get
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pKeyIndex | Key ID to get  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Path key's corresponding control node if successful, otherwise NULL."""
         ...
     def PathKeyGetCount(self)->int:
         """Query the number of keys present in the path. 
         
         
-        ## Returns:
+        ### Returns:
         Number of keys present in the path"""
         ...
     def PathKeyGetLeftTangent(self,KeyIndex:int)->FBVector4d:
         """Get the path key left tangent's vector value for designated index. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pKeyIndex: Key ID at which left tangent value is required
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pKeyIndex | Key ID at which left tangent value is required  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Vector containing value of left tangent"""
         ...
     def PathKeyGetLeftTangentLength(self,KeyIndex:int)->float:
         """Query the length of the left tangent. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pKeyIndex: Key ID to set with
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pKeyIndex | Key ID to set with  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Double value of the length of left tangent"""
         ...
     def PathKeyGetProperty(self,KeyIndex:int)->FBProperty:
@@ -16006,54 +13870,36 @@ class FBModelPath3D(FBModel):
         
         Only works when KeyPropertyBehavior is eVector. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pKeyIndex: Key ID to get
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pKeyIndex | Key ID to get  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Path key's corresponding property if successful, otherwise NULL."""
         ...
     def PathKeyGetRightTangent(self,KeyIndex:int)->FBVector4d:
         """Get the path key right tangent's vector value for designated index. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pKeyIndex: Key ID to set with
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pKeyIndex | Key ID to set with  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Vector containing value of left tangent"""
         ...
     def PathKeyGetRightTangentLength(self,KeyIndex:int)->float:
         """Query the value of the right tangent. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pKeyIndex: Key ID to set with
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pKeyIndex | Key ID to set with  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Double value of the length of right tangent"""
         ...
     def PathKeyGetXYZDerivative(self,KeyIndex:int)->FBVector4d:
@@ -16062,18 +13908,12 @@ class FBModelPath3D(FBModel):
         
         This works only if key interpolation type is CUBIC and tangent mode is User, Break or Auto. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pKeyIndex: Key ID to set with
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pKeyIndex | Key ID to set with  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Vector with value for path's tangent XYZ derivatives"""
         ...
     def PathKeyInsertAfter(self,KeyIndex:int,TLocal:FBVector4d)->int:
@@ -16082,32 +13922,22 @@ class FBModelPath3D(FBModel):
         
         The following keys are all shifted by 1 sec. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pKeyIndex: Key ID to insert after. If key ID < 0 then the behavior is the same as PathKeyStartAdd. If key ID >= PathKeyGetCount-1 then the behavior is the same as PathKeyEndAdd.
+            - pTLocal: Vector value for the new added Key
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pKeyIndex | Key ID to insert after. If key ID < 0 then the behavior is the same as PathKeyStartAdd. If key ID >= PathKeyGetCount-1 then the behavior is the same as PathKeyEndAdd.  |
-        | pTLocal | Vector value for the new added Key  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Returns the newly inserted key ID."""
         ...
     def PathKeyRemove(self,KeyIndex:int):
         """Remove key at a particular index. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pKeyIndex | Key ID at which key is to be removed.  |"""
+            - pKeyIndex: Key ID at which key is to be removed."""
         ...
     def PathKeyRemoveSelected(self):
         """Remove the selected keys from the path."""
@@ -16116,15 +13946,11 @@ class FBModelPath3D(FBModel):
         """Set the local coordinate vector values for path at a particular key index. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pKeyIndex | Key ID to set with  |
-        | pTLocal | Vector to use to set values to Key  |
-        | pUpdate | **true** if geometry update is required, **false** if not required (default=true)  |"""
+            - pKeyIndex: Key ID to set with
+            - pTLocal: Vector to use to set values to Key
+            - pUpdate: **true** if geometry update is required, **false** if not required (default=true)"""
         ...
     def PathKeySetControlNode(self,KeyIndex:int,ControlNode:FBModel)->bool:
         """Set the path key's control node. 
@@ -16132,64 +13958,46 @@ class FBModelPath3D(FBModel):
         
         Only works when KeyPropertyBehavior is eVector and AutoControlNode is disabled. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pKeyIndex: Key ID to set
+            - pControlNode: Model to set as path key's control node.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pKeyIndex | Key ID to set  |
-        | pControlNode | Model to set as path key's control node.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if successful, otherwise false."""
         ...
     def PathKeySetLeftRightTangent(self,KeyIndex:int,KeyTLocal:FBVector4d,LeftTangentTLocal:FBVector4d,RightTangentTLocal:FBVector4d,bUpdate:bool=True):
         """Set path's vectors for key, left tangent and right tangent at a particular key index. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pKeyIndex | Key ID to set key for left and right tangents  |
-        | pKeyTLocal | Vector to use to set values to Key  |
-        | pLeftTangentTLocal | Vector to use to set values to Key Left Tangent  |
-        | pRightTangentTLocal | Vector to use to set values to Key Right Tangent  |
-        | pUpdate | **true** if geometry update is required, **false** if not required (default=true)  |"""
+            - pKeyIndex: Key ID to set key for left and right tangents
+            - pKeyTLocal: Vector to use to set values to Key
+            - pLeftTangentTLocal: Vector to use to set values to Key Left Tangent
+            - pRightTangentTLocal: Vector to use to set values to Key Right Tangent
+            - pUpdate: **true** if geometry update is required, **false** if not required (default=true)"""
         ...
     def PathKeySetLeftTangent(self,KeyIndex:int,TLocal:FBVector4d,bUpdate:bool=True):
         """Set path's key left tangent vector for designated index. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pKeyIndex | Key ID at which left tangent is to be set  |
-        | pTLocal | Vector to use to set values to Key  |
-        | pUpdate | **true** if geometry update is required, **false** if not required (default=true)  |"""
+            - pKeyIndex: Key ID at which left tangent is to be set
+            - pTLocal: Vector to use to set values to Key
+            - pUpdate: **true** if geometry update is required, **false** if not required (default=true)"""
         ...
     def PathKeySetRightTangent(self,KeyIndex:int,TLocal:FBVector4d,bUpdate:bool=True):
         """Set 3D path's key right tangent vector for designated index. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pKeyIndex | Key ID at which right tangent is to be set  |
-        | pTLocal | Vector to use to set values to Key  |
-        | pUpdate | **true** if geometry update is required, **false** if not required (default=true)  |"""
+            - pKeyIndex: Key ID at which right tangent is to be set
+            - pTLocal: Vector to use to set values to Key
+            - pUpdate: **true** if geometry update is required, **false** if not required (default=true)"""
         ...
     def PathKeySetXDerivative(self,KeyIndex:int,Derivative:float,bUpdate:bool):
         """Set derivative in X coordinate for a path tangent. 
@@ -16197,15 +14005,11 @@ class FBModelPath3D(FBModel):
         
         This works only if key interpolation type is CUBIC and tangent mode is User, Break or Auto. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pKeyIndex | Key ID to set with  |
-        | pDerivative | Value of the derivative to apply to tangent  |
-        | pUpdate | **true** if geometry update is required, **false** if not required (default=true)  |"""
+            - pKeyIndex: Key ID to set with
+            - pDerivative: Value of the derivative to apply to tangent
+            - pUpdate: **true** if geometry update is required, **false** if not required (default=true)"""
         ...
     def PathKeySetXYZDerivative(self,KeyIndex:int,Derivative:FBVector4d,bUpdate:bool):
         """Set derivative in XYZ coordinates for a path tangent. 
@@ -16213,15 +14017,11 @@ class FBModelPath3D(FBModel):
         
         This works only if key interpolation type is CUBIC and tangent mode is User, Break or Auto. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pKeyIndex | Key ID to set with  |
-        | pDerivative | Value of the derivative to apply to tangent  |
-        | pUpdate | **true** if geometry update is required, **false** if not required (default=true)  |"""
+            - pKeyIndex: Key ID to set with
+            - pDerivative: Value of the derivative to apply to tangent
+            - pUpdate: **true** if geometry update is required, **false** if not required (default=true)"""
         ...
     def PathKeySetYDerivative(self,KeyIndex:int,Derivative:float,bUpdate:bool):
         """Set derivative in Y coordinate for a path tangent. 
@@ -16229,15 +14029,11 @@ class FBModelPath3D(FBModel):
         
         This works only if key interpolation type is CUBIC and tangent mode is User, Break or Auto. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pKeyIndex | Key ID to set with  |
-        | pDerivative | Value of the derivative to apply to tangent  |
-        | pUpdate | **true** if geometry update is required, **false** if not required (default=true)  |"""
+            - pKeyIndex: Key ID to set with
+            - pDerivative: Value of the derivative to apply to tangent
+            - pUpdate: **true** if geometry update is required, **false** if not required (default=true)"""
         ...
     def PathKeySetZDerivative(self,KeyIndex:int,Derivative:float,bUpdate:bool):
         """Set derivative in Z coordinate for a path tangent. 
@@ -16245,15 +14041,11 @@ class FBModelPath3D(FBModel):
         
         This works only if key interpolation type is CUBIC and tangent mode is User, Break or Auto. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pKeyIndex | Key ID to set with  |
-        | pDerivative | Value of the derivative to apply to tangent  |
-        | pUpdate | **true** if geometry update is required, **false** if not required (default=true)  |"""
+            - pKeyIndex: Key ID to set with
+            - pDerivative: Value of the derivative to apply to tangent
+            - pUpdate: **true** if geometry update is required, **false** if not required (default=true)"""
         ...
     def PathKeyStartAdd(self,TLocal:FBVector4d)->int:
         """Adds a new key to the start of the path (with time gap of 1 sec). 
@@ -16261,222 +14053,148 @@ class FBModelPath3D(FBModel):
         
         The derivative value for the new key is copied from the right tangent of the first key. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTLocal: Vector value for the new added Key
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTLocal | Vector value for the new added Key  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Returns 0 since the new key becomes the first key. If path is invalid, returns 0."""
         ...
     def Segment_GlobalPathEvaluate(self,SegmentPercent:float,EvaluateInfo:FBEvaluateInfo|None=None)->FBVector4d:
         """Get the path's vector at a particular point within the curve, in global coordinates. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pSegmentPercent: Double value (as time) at which the path vector would be computed
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pSegmentPercent | Double value (as time) at which the path vector would be computed  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Vector value at the required point in the path"""
         ...
     def Segment_GlobalPathEvaluateDerivative(self,SegmentPercent:float,EvaluateInfo:FBEvaluateInfo|None=None)->FBVector4d:
         """Get the path's derivative at a particular point within the curve, in global coordinates. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pSegmentPercent: Double value (as time) at which the path derivative would be computed
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pSegmentPercent | Double value (as time) at which the path derivative would be computed  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Vector value at the required point in the path"""
         ...
     def Segment_IsPathKey(self,SegmentPercent:float,EvaluateInfo:FBEvaluateInfo|None=None)->int:
         """Query whether a percentage value has a key associated at that point in the path. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pSegmentPercent: Double value (as time) at which the path would be queried for existence of key
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pSegmentPercent | Double value (as time) at which the path would be queried for existence of key  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         A valid key index in integer if key is present, otherwise -1"""
         ...
     def Segment_LocalPathEvaluate(self,SegmentPercent:float,EvaluateInfo:FBEvaluateInfo|None=None)->FBVector4d:
         """Get the path's vector at a particular point within the curve, in local coordinates. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pSegmentPercent: Double value (as time) at which the path vector would be computed
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pSegmentPercent | Double value (as time) at which the path vector would be computed  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Vector value at the required point in the path"""
         ...
     def Segment_LocalPathEvaluateDerivative(self,SegmentPercent:float,EvaluateInfo:FBEvaluateInfo|None=None)->FBVector4d:
         """Get the path's derivative at a particular point within the curve, in local coordinates. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pSegmentPercent: Double value (as time) at which the path derivative would be computed
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pSegmentPercent | Double value (as time) at which the path derivative would be computed  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Vector value at the required point in the path"""
         ...
     def ShowCurveControls(self,bShow:bool):
         """Enable or disable displaying Curve Controls for the 3D model path. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pShow | **true** if curve controls are to be displayed **false** if not required  |"""
+            - pShow: **true** if curve controls are to be displayed **false** if not required"""
         ...
     def ShowCurvePoints(self,bShow:bool):
         """Enable or disable displaying Curve Points for the 3D model path. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pShow | **true** if curve points are to be displayed **false** if not required  |"""
+            - pShow: **true** if curve points are to be displayed **false** if not required"""
         ...
     def Total_GlobalPathEvaluate(self,TotalPercent:float,EvaluateInfo:FBEvaluateInfo|None=None)->FBVector4d:
         """Get the path's vector at a particular point within the curve, in global coordinates. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTotalPercent: Double value (as percentage) at which the path vector would be computed
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTotalPercent | Double value (as percentage) at which the path vector would be computed  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Vector value at the required point in the path"""
         ...
     def Total_GlobalPathEvaluateDerivative(self,TotalPercent:float,EvaluateInfo:FBEvaluateInfo|None=None)->FBVector4d:
         """Get the path's derivative at a particular point within the curve, in global coordinates. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTotalPercent: Double value (as percentage) at which the path derivative would be computed
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTotalPercent | Double value (as percentage) at which the path derivative would be computed  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Derivative value at the required point in the path"""
         ...
     def Total_IsPathKey(self,TotalPercent:float,EvaluateInfo:FBEvaluateInfo|None=None)->int:
         """Query whether a percentage value has a key associated at that point in the path. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTotalPercent: Double value (as percentage) at which the path would be queried for existence of key
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTotalPercent | Double value (as percentage) at which the path would be queried for existence of key  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         A valid key index in integer if key is present, otherwise -1"""
         ...
     def Total_LocalPathEvaluate(self,TotalPercent:float,EvaluateInfo:FBEvaluateInfo|None=None)->FBVector4d:
         """Get the path's vector at a particular point within the curve, in local coordinates. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTotalPercent: Double value (as percentage) at which the path vector would be computed
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTotalPercent | Double value (as percentage) at which the path vector would be computed  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Vector value at the required point in the path"""
         ...
     def Total_LocalPathEvaluateDerivative(self,TotalPercent:float,EvaluateInfo:FBEvaluateInfo|None=None)->FBVector4d:
         """Get the path's derivative at a particular point within the curve, in local coordinates. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTotalPercent: Double value (as percentage) at which the path derivative would be computed
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTotalPercent | Double value (as percentage) at which the path derivative would be computed  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Derivative value at the required point in the path"""
         ...
     def UpdateGeometry(self):
@@ -16506,13 +14224,9 @@ class FBModelPath3D(FBModel):
         [pyfbsdk::FBModelPath3D::FBModelPath3D](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_model_path3_d.html#a0e992ce21c0172171be472bf5f2d41c6)FBModelPath3D(str pName)Constructor.
         [pyfbsdk::FBVector4d](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_vector4d.html)Vector4d class.**Definition:** pyfbsdk.h:443
         [pyfbsdk](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/namespacepyfbsdk.html)Python module pyfbsk.**Definition:** pyfbsdk.h:90
-         ## Parameters:
+         ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of Path 3D.  |"""
+            - pName: Name of Path 3D."""
         ...
 class FBModelPlane(FBModel):
     """Plane model class."""
@@ -16520,13 +14234,9 @@ class FBModelPlane(FBModel):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of Plane.  |"""
+            - pName: Name of Plane."""
         ...
 class FBModelRoot(FBModel):
     """Root object class. 
@@ -16544,13 +14254,9 @@ class FBModelRoot(FBModel):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of root.  |"""
+            - pName: Name of root."""
         ...
 class FBModelSkeleton(FBModel):
     """Root object class."""
@@ -16572,25 +14278,17 @@ class FBModelSkeleton(FBModel):
         """Return the list of skin model associated with this Skeleton(Bone), which could be the deformable skins connected via cluster, or non deformable skins which are parented directly under this bone. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pSkinModelList | List to be appended with skin models (with no duplicated items).  |"""
+            - pSkinModelList: List to be appended with skin models (with no duplicated items)."""
         ...
     def __init__(self,Name:str):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of skeleton.  |"""
+            - pName: Name of skeleton."""
         ...
 class FBPhysicalProperties(FBBox):
     """Base class for physical properties attach to a model. 
@@ -16709,7 +14407,7 @@ class FBAudioIn(FBComponent):
         
         (Windows only). 
         
-        ## Returns:
+        ### Returns:
         The delay currently set."""
         ...
     def GetDestination(self)->FBAudioOut:
@@ -16718,7 +14416,7 @@ class FBAudioIn(FBComponent):
         
         (Windows only). 
         
-        ## Returns:
+        ### Returns:
         The Audio Out object currently used as the destination. Returns a NULL pointer (None in Python) if any Audio Out object is currently set."""
         ...
     def GetRecordingFormat(self)->int:
@@ -16727,7 +14425,7 @@ class FBAudioIn(FBComponent):
         
         Bit Depth, Rate and Channel(s)) currently set. 
         
-        ## Returns:
+        ### Returns:
         The audio format currently set for recording."""
         ...
     def GetSupportedFormats(self)->int:
@@ -16736,21 +14434,21 @@ class FBAudioIn(FBComponent):
         
         Bit Depths, Rates and Channels). 
         
-        ## Returns:
+        ### Returns:
         The Audio In supported formats."""
         ...
     def IsOnline(self)->bool:
         """Is the Audio In online? 
         
         
-        ## Returns:
+        ### Returns:
         True if the Audio In is online, false if it is offline."""
         ...
     def IsReadyToRecord(self)->bool:
         """Is the Audio In ready to record (has it been prepared properly)? 
         
         
-        ## Returns:
+        ### Returns:
         True if the audio is ready to record, false otherwise."""
         ...
     def PrepareToRecord(self,RecordingPath:str,ExistingClipAction:FBExistingClipAction=FBExistingClipAction.kFBExistingClipAskUser,ExistingFileAction:FBExistingFileAction=FBExistingFileAction.kFBExistingFileAskUser)->bool:
@@ -16759,20 +14457,14 @@ class FBAudioIn(FBComponent):
         
         If the Audio In is not already online, it will turn it online automatically. If the Audio In is already ready to record, it will turn it off first automatically. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pRecordingPath: The file path for the desired output wav file. The file must have the .wav extension.
+            - pExistingClipAction: The action to perform when the action clip associated to the recording path is already in the scene.
+            - pExistingFileAction: The action to perform when the file associated to the recording path already exists on disk and it not empty.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pRecordingPath | The file path for the desired output wav file. The file must have the .wav extension.  |
-        | pExistingClipAction | The action to perform when the action clip associated to the recording path is already in the scene.  |
-        | pExistingFileAction | The action to perform when the file associated to the recording path already exists on disk and it not empty.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if operation is successful, false otherwise. It could fail for different reasons (e.g. the specified file is not a WAV file or is invalid, the operation is abort by the user, etc.)."""
         ...
     def SetDelay(self,Delay:FBTime)->bool:
@@ -16781,18 +14473,12 @@ class FBAudioIn(FBComponent):
         
         The Audio In must be offline when this method is called. (Windows only). 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pDelay: The delay to use. To mimic the UI, the [FBTime](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_time.html "Time data structure.") should refer to a frame number.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pDelay | The delay to use. To mimic the UI, the [FBTime](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_time.html "Time data structure.") should refer to a frame number.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if operation is successful, false otherwise."""
         ...
     def SetDestination(self,AudioOut:FBAudioOut)->bool:
@@ -16801,36 +14487,24 @@ class FBAudioIn(FBComponent):
         
         The Audio In must be offline when this method is called. (Windows only). 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pAudioOut: The Audio Out object to be used as the destination. Use a NULL pointer (None in Python) to unset the destination.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pAudioOut | The Audio Out object to be used as the destination. Use a NULL pointer (None in Python) to unset the destination.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if operation is successful, false otherwise."""
         ...
     def SetOnline(self,bOnline:bool)->bool:
         """Turns Audio In online or offline. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pOnline: True to turn the Audio In online, false to turn it offline.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pOnline | True to turn the Audio In online, false to turn it offline.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if operation is successful, false otherwise."""
         ...
     def SetRecordingFormat(self,AudioFormat:int)->bool:
@@ -16839,25 +14513,19 @@ class FBAudioIn(FBComponent):
         
         Bit Depth, Rate and Channel(s)) to use. The Audio In must be offline when this method is called. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pAudioFormat: The audio format to use for recording. It must specify a unique Bit Depth, Rate and Channels.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pAudioFormat | The audio format to use for recording. It must specify a unique Bit Depth, Rate and Channels.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if operation is successful, false otherwise. It could fail for different reasons (e.g. the specified audio format is not supported, more than one Bit Depth is specified, etc.)."""
         ...
     def TurnOffRecording(self)->bool:
         """Turns off the Audio In recording (similar as un-checking the "Record" checkbox in the UI). 
         
         
-        ## Returns:
+        ### Returns:
         True if operation is successful, false otherwise."""
         ...
     def __init__(self):
@@ -16924,70 +14592,50 @@ class FBAudioClip(FBComponent):
         """Load an audio clip file. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pPath: The filesystem path of the audio clip file to load.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pPath | The filesystem path of the audio clip file to load.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         true if the audio clip loaded successfully."""
         ...
     def IsMediaReady(self)->bool:
         """Check if the audio clip constructed properly. 
         
         
-        ## Returns:
+        ### Returns:
         true if the audio clip was constructed properly."""
         ...
     def Play(self,Style:FBTriggerStyle=FBTriggerStyle.kFBTriggerStyleContinue,Destination:FBAudioOut|None=None)->bool:
         """Play audio clip now. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pStyle: How the audio clip should be triggered.
+            - pDestination: Where the audio clip should be played. If NULL, it will play on the default destination.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pStyle | How the audio clip should be triggered.  |
-        | pDestination | Where the audio clip should be played. If NULL, it will play on the default destination.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Return true if the buffer for the audio clip was successfully allocated so that you can hear the sound."""
         ...
     def Stop(self,Destination:FBAudioOut|None=None):
         """Stop any playing triggered audio clip on a specified destination. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pDestination | Where the audio clip is playing. If NULL, the default destination will be used.  |"""
+            - pDestination: Where the audio clip is playing. If NULL, the default destination will be used."""
         ...
     def __init__(self,FileName:str):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pFileName | The complete file path of the media file to access.  |
-        | pSetToDefaultDest | If true and the media file open successfully, it will automatically be connected to an output device.  |"""
+            - pFileName: The complete file path of the media file to access.
+            - pSetToDefaultDest: If true and the media file open successfully, it will automatically be connected to an output device."""
         ...
 class FBAssetMng(FBComponent):
     """Used to access asset manager functionity to get files locally or from a server."""
@@ -17001,14 +14649,14 @@ class FBAssetMng(FBComponent):
         """Let the user browse the asset database to select a file. 
         
         
-        ## Returns:
+        ### Returns:
         A file object representing the file that was selected, or NULL if none."""
         ...
     def BrowseForFolder(self)->FBAssetFolder:
         """Let the user browse the asset database to select a folder. 
         
         
-        ## Returns:
+        ### Returns:
         A FBAssetFolder\* object representing the folder that was selected, or NULL if none."""
         ...
     def CheckAvailability(self)->bool:
@@ -17018,18 +14666,12 @@ class FBAssetMng(FBComponent):
         """Create a folder path on the server side by adding each missing folders. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pServerPath: The path to create on the server side.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pServerPath | The path to create on the server side.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         A FBAssetFolder\* object representing the deepest folder of the path."""
         ...
     def FileIsManaged(self,Filename:str)->bool:
@@ -17038,90 +14680,60 @@ class FBAssetMng(FBComponent):
         
         also present in the database). 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pFilename: Path to the file on the local disk.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pFilename | Path to the file on the local disk.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         A boolean indicating if the file is managed or not."""
         ...
     def GetAssetFile(self,ServerFilename:str)->FBAssetFile:
         """Get a file object using it's server path. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pServerFilename: Path to the file on the server.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pServerFilename | Path to the file on the server.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         An FBAssetFile\* object, or NULL if the file was not found."""
         ...
     def GetAssetFileFromLocalPath(self,LocalFilename:str)->FBAssetFile:
         """Get a file object using it's local path. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pLocalFilename: Path to the file on the local disk.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pLocalFilename | Path to the file on the local disk.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         An FBAssetFile\* object, or NULL if the file was not found or no mapping could be done."""
         ...
     def GetAssetFolder(self,ServerPath:str)->FBAssetFolder:
         """Get a folder object using it's server path. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pServerPath: Path the the folder on the server.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pServerPath | Path the the folder on the server.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         An FBAssetFolder\* object, or NULL if the folder was not found."""
         ...
     def GetAssetFolderFromLocalPath(self,LocalPath:str)->FBAssetFolder:
         """Get a folder object using it's local path. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pLocalPath: Path to the folder on the local disk.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pLocalPath | Path to the folder on the local disk.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         An FBAssetFolder\* object, or NULL if the folder was not found or no mapping could be done."""
         ...
     def GetFileOptions(self)->int:
@@ -17130,32 +14742,26 @@ class FBAssetMng(FBComponent):
         
         what to do when loading, saving or closing managed files). 
         
-        ## Returns:
+        ### Returns:
         The options."""
         ...
     def Initialize(self)->bool:
         """Initialize the connection to the server. 
         
         
-        ## Returns:
+        ### Returns:
         **True** if the connection was established, **false** otherwise."""
         ...
     def MapLocalPathToServerPath(self,LocalPath:str)->str:
         """Convert the local path to a server path by using managed paths mapping. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pLocalPath: Local path to be mapped.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pLocalPath | Local path to be mapped.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         A string with the resulting server path, will be empty if the mapping fail."""
         ...
     def ShowSettings(self):
@@ -17165,18 +14771,12 @@ class FBAssetMng(FBComponent):
         """Is the specified local path below a managed path. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pLocalPath: Local path to be checked.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pLocalPath | Local path to be checked.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         A boolean indicating if the path is within a managed path or not."""
         ...
 class FBAssetItem(FBComponent):
@@ -17187,87 +14787,69 @@ class FBAssetItem(FBComponent):
         """Checks in this item and all its children (if this is a folder item). 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pComment: Comment to be applied for the check in.
+            - pKeepCheckedOut: Flag that indicates whether the item will be kept checked out.
+            - pSilent: If pSilent is set to true, no dialog will be displayed by this method.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pComment | Comment to be applied for the check in.  |
-        | pKeepCheckedOut | Flag that indicates whether the item will be kept checked out.  |
-        | pSilent | If pSilent is set to true, no dialog will be displayed by this method.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         A boolean indicating if the operation was successful."""
         ...
     def CheckOut(self,Comment:str="",bDontGetLocal:bool=False,bSilent:bool=False)->bool:
         """Checks out this item and it's childs (if this is a folder item) and makes them writeable on the local disk. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pComment: Comment to be applied for the check out.
+            - pDontGetLocal: Indicate if local copy should retrieved or not.
+            - pSilent: If pSilent is set to true, no dialog will be displayed by this method.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pComment | Comment to be applied for the check out.  |
-        | pDontGetLocal | Indicate if local copy should retrieved or not.  |
-        | pSilent | If pSilent is set to true, no dialog will be displayed by this method.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         A boolean indicating if the operation was successful."""
         ...
     def GetLatest(self,bReplaceCheckedOut:bool=False,bSilent:bool=False)->bool:
         """Obtain the latest version of the item from the server. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pReplaceCheckedOut: Whether to replace the checked out file or not.
+            - pSilent: If pSilent is set to true, no dialog will be displayed by this method.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pReplaceCheckedOut | Whether to replace the checked out file or not.  |
-        | pSilent | If pSilent is set to true, no dialog will be displayed by this method.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         A boolean indicating if the operation was successful."""
         ...
     def GetLocalPath(self)->str:
         """Get the path to this item on the local hard disk. 
         
         
-        ## Returns:
+        ### Returns:
         The path as an **FBString**."""
         ...
     def GetName(self)->str:
         """Get the name of this item (file name or folder name). 
         
         
-        ## Returns:
+        ### Returns:
         The name of the item, as an FBString."""
         ...
     def GetParent(self)->FBAssetFolder:
         """Get the parent folder of this item. 
         
         
-        ## Returns:
+        ### Returns:
         An **FBAssetFolder\*** if the parent was found, or NULL if this is the root item."""
         ...
     def GetServerPath(self)->str:
         """Get the path to this item on the database. 
         
         
-        ## Returns:
+        ### Returns:
         The server path as an **FBString**."""
         ...
     def ShowHistory(self):
@@ -17280,19 +14862,13 @@ class FBAssetItem(FBComponent):
         """Cancel the last check out operation. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pReplaceLocalFile: Flag indicating if the local item(s) should be replaced by the server version.
+            - pSilent: If pSilent is set to true, no dialog will be displayed by this method.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pReplaceLocalFile | Flag indicating if the local item(s) should be replaced by the server version.  |
-        | pSilent | If pSilent is set to true, no dialog will be displayed by this method.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         A boolean indicating if the operation was successful."""
         ...
 class FBApplication(FBComponent):
@@ -17338,20 +14914,14 @@ class FBApplication(FBComponent):
         """Render audio of current scene to media file, currently WAV file only. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pAudioRenderOptions: The options used when rendering audio of the scene. Default value: 2 channels, 16 bits, 44100 hz, the begin and end time span for current time referential, Default file name is "Output.wav" in the last audio output path, ro the default document path if the last path doesn't exist.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pAudioRenderOptions | The options used when rendering audio of the scene. Default value: 2 channels, 16 bits, 44100 hz, the begin and end time span for current time referential, Default file name is "Output.wav" in the last audio output path, ro the default document path if the last path doesn't exist.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the file was rendered successfully 
-        ## Warning:
+        ### Warning:
         If the destination media file exist, it will be overwritten by default. If the destination media file is opened by other application, the audio render process may not success because of not able to open it."""
         ...
     def ExecuteScript(self,Filename:str)->bool:
@@ -17360,20 +14930,14 @@ class FBApplication(FBComponent):
         
         See the FBPython class for advanced capabilities. Same as calling the FBPython.ExecuteScript method. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pFilename: The script file to execute.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pFilename | The script file to execute.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the script file was found and executed. 
-        ## Remarks:
+        ### Remarks:
         This function can be used in any thread."""
         ...
     def FileAppend(self,Filename:str,bShowUIMsg:bool=False,Options:FBFbxOptions|None=None)->bool:
@@ -17382,20 +14946,14 @@ class FBApplication(FBComponent):
         
         Same as File->Merge in the menus with all options set to append. In earlier versions of MotionBuilder, a namespace could be specified with a parameter in this function, or FBFbxOptions::CustomImportNamespace, Now this is now done with [FBFbxOptions::NamespaceList](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_fbx_options.html#a0a39e5fc1811f92fa35ed80c332bb75f "Read Write Property: A list of namespaces separated by '~'. On Load, duplicate the loaded objects int..."). 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pFilename: File(s) to merge. For multiple files, use a list of files separated by '~'.
+            - pShowUIMsg: Set false if don't want to popup any UI dialog or messages (default=false).
+            - pOptions: Provide finer control on file open options (default=NULL). if not null, Option dialog will only show if both option's ShowOptionsDialog property and pShowUIMsg are true. It is possible to append multiple scenes, each one within its own user specified namespace, by calling the [FBFbxOptions::SetMultiLoadNamespaceList](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_fbx_options.html#a3d8bb25ae4070d38ebaf3b96937dc9e2 "Sets the list of namespaces that will be used when merging multiple scenes (see FBApplication::FileMe...") method first. When doing so though, the FBFbxOption.NamespaceList property is then ignored.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pFilename | File(s) to merge. For multiple files, use a list of files separated by '~'.  |
-        | pShowUIMsg | Set false if don't want to popup any UI dialog or messages (default=false).  |
-        | pOptions | Provide finer control on file open options (default=NULL). if not null, Option dialog will only show if both option's ShowOptionsDialog property and pShowUIMsg are true. It is possible to append multiple scenes, each one within its own user specified namespace, by calling the [FBFbxOptions::SetMultiLoadNamespaceList](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_fbx_options.html#a3d8bb25ae4070d38ebaf3b96937dc9e2 "Sets the list of namespaces that will be used when merging multiple scenes (see FBApplication::FileMe...") method first. When doing so though, the FBFbxOption.NamespaceList property is then ignored.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         true if successful."""
         ...
     def FileBatch(self,BatchOptions:FBBatchOptions,PlotOptions:FBPlotOptions|None=None)->FBBatchStatus:
@@ -17404,19 +14962,13 @@ class FBApplication(FBComponent):
         
         Command File->Batch... in the menus. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pBatchOptions: The options for the batch process (same as in the batch UI).
+            - pPlotOptions: The options for plotting (same as in the plot UI)(default=NULL).
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pBatchOptions | The options for the batch process (same as in the batch UI).  |
-        | pPlotOptions | The options for plotting (same as in the plot UI)(default=NULL).  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The status of the operation."""
         ...
     def FileExit(self,bSave:bool=False,ExitCode:int=0):
@@ -17425,14 +14977,10 @@ class FBApplication(FBComponent):
         
         Command File->Exit in the menus. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pSave | true if file is saved on exit(default=false).  |
-        | pExitCode | Exit code of the application(default=0).  |"""
+            - pSave: true if file is saved on exit(default=false).
+            - pExitCode: Exit code of the application(default=0)."""
         ...
     def FileExport(self,Filename:str)->bool:
         """Export a motion file. 
@@ -17440,20 +14988,14 @@ class FBApplication(FBComponent):
         
         Command File->Motion File Export... in the menus. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pFilename: The file to create. To create two files at the same time (ex: .amc & .asf), separate the two files path with a comma ("Path1,Path2").
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pFilename | The file to create. To create two files at the same time (ex: .amc & .asf), separate the two files path with a comma ("Path1,Path2").  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the export succeeded. 
-        ## Remarks:
+        ### Remarks:
         If the file exists, it will be overwritten. 
         
         
@@ -17464,7 +15006,7 @@ class FBApplication(FBComponent):
         
         
         Currently, only the default export options are used. 
-        ## Warning:
+        ### Warning:
         The signature of this function might change in the future to support export options."""
         ...
     def FileExportBatch(self,Name:str,Take:FBTake,BatchOptions:FBBatchOptions,ExportModels:FBModelList)->bool:
@@ -17473,23 +15015,17 @@ class FBApplication(FBComponent):
         
         Export used for saving files in batch process. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pName: The name of the file without extension. Extension and path will be taken from batch options.
+            - pTake: Animation take to the export.
+            - pBatchOptions: The options for the export.
+            - pExportModels: Models to the export.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pName | The name of the file without extension. Extension and path will be taken from batch options.  |
-        | pTake | Animation take to the export.  |
-        | pBatchOptions | The options for the export.  |
-        | pExportModels | Models to the export.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the export succeeded. 
-        ## Remarks:
+        ### Remarks:
         Not all options have to be set, only those that belong to process."""
         ...
     def FileExportWithOptions(self,Options:FBMotionFileExportOptions)->bool:
@@ -17498,20 +15034,14 @@ class FBApplication(FBComponent):
         
         Command File->Motion File Export... in the menus. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pOptions: An [FBMotionFileExportOptions](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_motion_file_export_options.html "Customize motion file exporting.") object that contains the file path of the motion file(s) to export, as well as the options to export those motion files.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pOptions | An [FBMotionFileExportOptions](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_motion_file_export_options.html "Customize motion file exporting.") object that contains the file path of the motion file(s) to export, as well as the options to export those motion files.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the export succeeded. Returns false if some files were not written (file not overwritten, invalid path, etc.). Returns false if the given options object is not valid. See the [FBMotionFileExportOptions::IsValid](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_motion_file_export_options.html#a9dcb9b43a3d0fa9003d4c1c9d921f6b2 "Is this object valid?") method. 
-        ## Remarks:
+        ### Remarks:
         Based on the values of the various options, multiple motion files could be created with file paths based on the initial file path provided. See the documentation of [FBMotionFileExportOptions](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_motion_file_export_options.html "Customize motion file exporting.") for more details. 
         
         
@@ -17526,22 +15056,16 @@ class FBApplication(FBComponent):
         
         Command File->Motion File Import... in the menus. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pFilename: The file to import. To import two files at the same time (ex: .amc & .asf), separate the two files path with a comma ("Path1,Path2").
+            - pMatchModels: If there is already a model in the scene with the same name, the model will not be created and we replace the animation of the given model.
+            - pCreateUnmatchedModels: Whether unmatched models will be created. This flag matters only when pMatchModels is true. when pMatchModels is false, all the models are created.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pFilename | The file to import. To import two files at the same time (ex: .amc & .asf), separate the two files path with a comma ("Path1,Path2").  |
-        | pMatchModels | If there is already a model in the scene with the same name, the model will not be created and we replace the animation of the given model.  |
-        | pCreateUnmatchedModels | Whether unmatched models will be created. This flag matters only when pMatchModels is true. when pMatchModels is false, all the models are created.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the import succeeded. 
-        ## Remarks:
+        ### Remarks:
         No models selected, all the models in the scene will be checked for a potential name match. 
         
         
@@ -17561,7 +15085,7 @@ class FBApplication(FBComponent):
         
         
         Currently, only the default import options are used. 
-        ## Warning:
+        ### Warning:
         The signature of this function might change in the future to support import options."""
         ...
     def FileImportBatch(self,Name:str,BatchOptions:FBBatchOptions,Reference:FBModel)->bool:
@@ -17570,22 +15094,16 @@ class FBApplication(FBComponent):
         
         Import used for loading files in batch process. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pName: The name of the file without extension. Extension and path will be taken from batch options.
+            - pBatchOptions: The options for the import.
+            - pReference: Reference model for the import.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pName | The name of the file without extension. Extension and path will be taken from batch options.  |
-        | pBatchOptions | The options for the import.  |
-        | pReference | Reference model for the import.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the import succeeded. 
-        ## Remarks:
+        ### Remarks:
         Not all options have to be set, only those that belong to process."""
         ...
     def FileImportWithOptions(self,Options:FBMotionFileImportOptions)->bool:
@@ -17594,20 +15112,14 @@ class FBApplication(FBComponent):
         
         Command File->Motion File Import... in the menus. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pOptions: An [FBMotionFileImportOptions](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_motion_file_import_options.html "Customize motion file loading.") object that contains the path to the files, as well as the options to load those motion files.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pOptions | An [FBMotionFileImportOptions](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_motion_file_import_options.html "Customize motion file loading.") object that contains the path to the files, as well as the options to load those motion files.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the import succeeded. 
-        ## Remarks:
+        ### Remarks:
         The import will only work if you open files of the same type. 
         
         
@@ -17623,20 +15135,14 @@ class FBApplication(FBComponent):
         
         Command File->Merge in the menus. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pFilename: File(s) to merge. For multiple files, use a list of files separated by '~'.
+            - pShowUIMsg: Set false if don't want to popup any UI dialog or messages (default=false).
+            - pOptions: Provide finer control on file open options (default=NULL). if not null, Option dialog will only show if both option's ShowOptionsDialog property and pShowUIMsg are true. It is possible to merge multiple scenes, each one within its own user specified namespace, by calling the [FBFbxOptions::SetMultiLoadNamespaceList](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_fbx_options.html#a3d8bb25ae4070d38ebaf3b96937dc9e2 "Sets the list of namespaces that will be used when merging multiple scenes (see FBApplication::FileMe...") method first. When doing so though, the FBFbxOption.NamespaceList property is then ignored.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pFilename | File(s) to merge. For multiple files, use a list of files separated by '~'.  |
-        | pShowUIMsg | Set false if don't want to popup any UI dialog or messages (default=false).  |
-        | pOptions | Provide finer control on file open options (default=NULL). if not null, Option dialog will only show if both option's ShowOptionsDialog property and pShowUIMsg are true. It is possible to merge multiple scenes, each one within its own user specified namespace, by calling the [FBFbxOptions::SetMultiLoadNamespaceList](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_fbx_options.html#a3d8bb25ae4070d38ebaf3b96937dc9e2 "Sets the list of namespaces that will be used when merging multiple scenes (see FBApplication::FileMe...") method first. When doing so though, the FBFbxOption.NamespaceList property is then ignored.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         true if successful."""
         ...
     @overload
@@ -17646,39 +15152,27 @@ class FBApplication(FBComponent):
         
         Command File->Merge in the menus. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pPathlist: Files to merge.
+            - pShowUIMsg: Set false if don't want to popup any UI dialog or messages (default=false).
+            - pOptions: Provide finer control on file open options (default=NULL). if not null, Option dialog will only show if both option's ShowOptionsDialog property and pShowUIMsg are true. It is possible to merge multiple scenes, each one within its own user specified namespace, by calling the [FBFbxOptions::SetMultiLoadNamespaceList](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_fbx_options.html#a3d8bb25ae4070d38ebaf3b96937dc9e2 "Sets the list of namespaces that will be used when merging multiple scenes (see FBApplication::FileMe...") method first. When doing so though, the FBFbxOption.NamespaceList property is then ignored.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pPathlist | Files to merge.  |
-        | pShowUIMsg | Set false if don't want to popup any UI dialog or messages (default=false).  |
-        | pOptions | Provide finer control on file open options (default=NULL). if not null, Option dialog will only show if both option's ShowOptionsDialog property and pShowUIMsg are true. It is possible to merge multiple scenes, each one within its own user specified namespace, by calling the [FBFbxOptions::SetMultiLoadNamespaceList](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_fbx_options.html#a3d8bb25ae4070d38ebaf3b96937dc9e2 "Sets the list of namespaces that will be used when merging multiple scenes (see FBApplication::FileMe...") method first. When doing so though, the FBFbxOption.NamespaceList property is then ignored.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         true if successful."""
         ...
     def FileNew(self,bAskUser:bool=False,bClearSceneName:bool=True)->bool:
         """Command File->New in the menus. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pAskUser: Set to true to cause a save dialog to popup. Default is false.
+            - pClearSceneName: Set to true to clear the scene name, set to false to retain it. Default is true.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pAskUser | Set to true to cause a save dialog to popup. Default is false.  |
-        | pClearSceneName | Set to true to clear the scene name, set to false to retain it. Default is true.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         true if successful."""
         ...
     @overload
@@ -17688,20 +15182,14 @@ class FBApplication(FBComponent):
         
         Command File->Open in the menus. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pFilename: File to open.
+            - pShowUIMsg: Set false if don't want to popup any UI dialog or messages (default=false).
+            - pOptions: Provide finer control on file open options (default=NULL). if not null, Option dialog will only show if both option's ShowOptionsDialog property and pShowUIMsg are true.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pFilename | File to open.  |
-        | pShowUIMsg | Set false if don't want to popup any UI dialog or messages (default=false).  |
-        | pOptions | Provide finer control on file open options (default=NULL). if not null, Option dialog will only show if both option's ShowOptionsDialog property and pShowUIMsg are true.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         true if file open successfully.
         [See samples: BatchExportCharacterAnimationTool.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_batch_export_character_animation_tool_8py-example.html) [RenameFirstTakeOnMultipleFiles.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_rename_first_take_on_multiple_files_8py-example.html)"""
         ...
@@ -17710,21 +15198,15 @@ class FBApplication(FBComponent):
         """Open a file from memory. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pBuffer: the memory buffer for the file. Raw memory address is expected in Python.
+            - pBufferLength: the memory buffer size.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pBuffer | the memory buffer for the file. Raw memory address is expected in Python.  |
-        | pBufferLength | the memory buffer size.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         true if file opened successfully. 
-        ## Warning:
+        ### Warning:
         this is advanced & not supported function, use with caution."""
         ...
     def FileRender(self,RenderOptions:FBVideoGrabOptions|None=None)->bool:
@@ -17733,22 +15215,16 @@ class FBApplication(FBComponent):
         
         Command File->Render in the menus. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pRenderOptions: The options used when rendering the scene. If you don't specify them, current one are used.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pRenderOptions | The options used when rendering the scene. If you don't specify them, current one are used.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the file was rendered successfully otherwise False and [FBVideoGrabber.GetLastErrorMsg()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_video_grabber.html#af2af6435ec300fc0b187059a5d762b9c "GetLastErrorMsg.") contains the description of the error. 
-        ## Remarks:
+        ### Remarks:
         Render options can be changed if they are not valid. 
-        ## Warning:
+        ### Warning:
         If the destination media file exist, it will be overwritten by default."""
         ...
     def FileSave(self,Filename:str|None=None,Options:FBFbxOptions|None=None)->bool:
@@ -17757,19 +15233,13 @@ class FBApplication(FBComponent):
         
         Command File->SaveAs in the menus. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pFilename: Save file as pFilename. A value of NULL will use the current file name.
+            - pOptions: Provide finer control on file save options (default=NULL)
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pFilename | Save file as pFilename. A value of NULL will use the current file name.  |
-        | pOptions | Provide finer control on file save options (default=NULL)  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         true if successful.
         [See sample: SaveSelected.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_save_selected_8py-example.html)"""
         ...
@@ -17783,23 +15253,17 @@ class FBApplication(FBComponent):
         """Get max frame count from a scene file in memory. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pBuffer: the memory buffer for the file. Raw memory address is expected in Python.
+            - pBufferLength: the memory buffer size.
+            - pFrameCount: (C++ only) out parameter to hold max frame count.
+            - pTimeScale: Time scale.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pBuffer | the memory buffer for the file. Raw memory address is expected in Python.  |
-        | pBufferLength | the memory buffer size.  |
-        | pFrameCount | (C++ only) out parameter to hold max frame count.  |
-        | pTimeScale | Time scale.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         (C++ only) True if file opened successfully. (Python only) A tuple with 2 values: (bool return value, pFrameCount). 
-        ## Warning:
+        ### Warning:
         this is advanced & not supported function, use with caution."""
         ...
     def GetSceneAuthor(self)->str:
@@ -17824,85 +15288,67 @@ class FBApplication(FBComponent):
         """Is the scene modified since last save / new scene creation? 
         
         
-        ## Returns:
+        ### Returns:
         True if the scene is modified since last save / new scene creation, false otherwise."""
         ...
     def IsValidBatchFile(self,Filename:str)->bool:
         """Verify motion file readability. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pFilename: The file to test.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pFilename | The file to test.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if file was opened successfully (file is closed at the end)."""
         ...
     def LoadAnimationOnCharacter(self,FileName:str,Character:FBCharacter,FbxOptions:FBFbxOptions,PlotOptions:FBPlotOptions)->bool:
         """Load a rig and its animation from a file. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pFileName: File name.
+            - pCharacter: Target character.
+            - pFbxOptions: The options for the character rig and animation load
+            - pPlotOptions: If the animation should be plotted on the target rig, these plot options will be used. Set to NULL if animation will not be plotted.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pFileName | File name.  |
-        | pCharacter | Target character.  |
-        | pFbxOptions | The options for the character rig and animation load  |
-        | pPlotOptions | If the animation should be plotted on the target rig, these plot options will be used. Set to NULL if animation will not be plotted.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **true** if successful."""
         ...
     def Maximize(self)->bool:
         """Maximize window (minimized). 
         
         
-        ## Returns:
+        ### Returns:
         Operation was successful (true or false)."""
         ...
     def Minimize(self,bBlocking:bool=True)->bool:
         """Minimize window. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pBlocking: Is the minimization blocking operation (default = true).
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pBlocking | Is the minimization blocking operation (default = true).  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Operation was successful (true or false)."""
         ...
     def OneClickAddToCurrentScene(self)->bool:
         """Send the scene and add it to the current scene in the specified application. 
         
         
-        ## Returns:
+        ### Returns:
         True if transfer successful."""
         ...
     def OneClickIsConnectedTo(self)->FBOneClickApplication:
         """Return the other application that MotionBuilder is connected to. 
         
         
-        ## Returns:
+        ### Returns:
         The application that MotionBuilder is connected to."""
         ...
     def OneClickSelectPreviouslySentObject(self):
@@ -17912,118 +15358,82 @@ class FBApplication(FBComponent):
         """Send the current scene as a new scene in the specified application. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pApplication: The application that will receive the scene.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pApplication | The application that will receive the scene.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if transfer successful."""
         ...
     def OneClickUpdateCurrentScene(self)->bool:
         """Send the scene to update the current scene in the specified application. 
         
         
-        ## Returns:
+        ### Returns:
         True if transfer successful."""
         ...
     def SaveCharacterRigAndAnimation(self,FileName:str,Character:FBCharacter,FbxOptions:FBFbxOptions)->bool:
         """Save the rig and its animation in a file. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pFileName: File name.
+            - pCharacter: Character to save.
+            - pFbxOptions: The options for the character rig and animation export
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pFileName | File name.  |
-        | pCharacter | Character to save.  |
-        | pFbxOptions | The options for the character rig and animation export  |
-        
-        
-        
-        
-        ## Warning:
+        ### Warning:
         After save, the current scene selection will be reset."""
         ...
     def SetSceneAuthor(self,Author:str):
         """Set the scene author. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pAuthor | The author to set in the scene properties.  |"""
+            - pAuthor: The author to set in the scene properties."""
         ...
     def SetSceneComment(self,Comment:str):
         """Set the scene comment. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pComment | The comment to set in the scene properties.  |"""
+            - pComment: The comment to set in the scene properties."""
         ...
     def SetSceneKeywords(self,Keywords:str):
         """Set the scene keywords. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pKeywords | The keywords to set in the scene properties.  |"""
+            - pKeywords: The keywords to set in the scene properties."""
         ...
     def SetSceneRevisionNumber(self,RevNumber:str):
         """Set the scene revision number. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pRevNumber | The revision number to set in the scene properties.  |"""
+            - pRevNumber: The revision number to set in the scene properties."""
         ...
     def SetSceneSubject(self,Subject:str):
         """Set the scene subject. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pSubject | The subject to set in the scene properties.  |"""
+            - pSubject: The subject to set in the scene properties."""
         ...
     def SetSceneTitle(self,Title:str):
         """Set the scene title. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pTitle | The title to set in the scene properties.  |"""
+            - pTitle: The title to set in the scene properties."""
         ...
     def UpdateAllWidgets(self):
         """Request to refresh display of all UI widgets."""
@@ -18037,21 +15447,21 @@ class FBAssetFile(FBAssetItem):
         """Returns the name of the user who currently has this file checked out. 
         
         
-        ## Returns:
+        ### Returns:
         The user name if the file is checked out, or an empty string if it is not."""
         ...
     def IsCheckedOut(self)->bool:
         """Returns a boolean value indicating if this file is checked out by any user. 
         
         
-        ## Returns:
+        ### Returns:
         A boolean value indicating if this node is checked out."""
         ...
     def IsCheckedOutByMe(self)->bool:
         """Returns a boolean value indicating if this file is checked out by the current user. 
         
         
-        ## Returns:
+        ### Returns:
         A boolean value indicating if this node is checked out by the current user."""
         ...
 class FBAssetFolder(FBAssetItem):
@@ -18062,21 +15472,15 @@ class FBAssetFolder(FBAssetItem):
         
         It will be added in this folder. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pLocalPath: The full path to the file on the local disk.
+            - pComment: Comment to be applied for the operation.
+            - pCheckOut: Whether the file should be checked out or not.
+            - pSilent: If pSilent is set to true, no dialog will be displayed by this method.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pLocalPath | The full path to the file on the local disk.  |
-        | pComment | Comment to be applied for the operation.  |
-        | pCheckOut | Whether the file should be checked out or not.  |
-        | pSilent | If pSilent is set to true, no dialog will be displayed by this method.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         An FBAssetfile\* object representing the newly added file."""
         ...
     def AddFolder(self,Name:str,Comment:str,bSilent:bool)->FBAssetFolder:
@@ -18085,48 +15489,42 @@ class FBAssetFolder(FBAssetItem):
         
         It will be added in this folder. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pName: Name of the folder to be created.
+            - pComment: Comment to be applied for the operation.
+            - pSilent: If pSilent is set to true, no dialog will be displayed by this method.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of the folder to be created.  |
-        | pComment | Comment to be applied for the operation.  |
-        | pSilent | If pSilent is set to true, no dialog will be displayed by this method.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         An FBAssetFolder\* object representing the newly added folder."""
         ...
     def GetChild(self,Index:int)->FBAssetItem:
         """Get the child at index **pIndex**. 
         
         
-        ## Returns:
+        ### Returns:
         The child at **pIndex**, or NULL if the index was out of range."""
         ...
     def GetChildCount(self)->int:
         """Get the number of items in this folder. 
         
         
-        ## Returns:
+        ### Returns:
         The number of items in this folder."""
         ...
     def GetFile(self,Name:str)->FBAssetFile:
         """Get a file present in this folder by using it's name. 
         
         
-        ## Returns:
+        ### Returns:
         The file with the given name, or NULL if it was not found."""
         ...
     def GetFolder(self,Name:str)->FBAssetFolder:
         """Get a folder present in this folder by using it's name. 
         
         
-        ## Returns:
+        ### Returns:
         The folder with the given name, or NULL if it was not found."""
         ...
 class FBAnimationLayer(FBComponent):
@@ -18162,13 +15560,9 @@ class FBAnimationLayer(FBComponent):
         
         Layer ID of the new child layer might change after parenting depending where the child layer was originally located. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pAnimationLayer | Layer to set as a child.  |"""
+            - pAnimationLayer: Layer to set as a child."""
         ...
     def GetChildCount(self)->int:
         """Get the child layer count of this layer. 
@@ -18176,64 +15570,52 @@ class FBAnimationLayer(FBComponent):
         
         The count will only includes direct child of the layer. 
         
-        ## Returns:
+        ### Returns:
         Child layer count, or -1 if unsuccessful"""
         ...
     def GetChildLayer(self,Index:int)->FBAnimationLayer:
         """Get the nth child layer of this layer. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the child layer to get.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the child layer to get.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Child animation layer located at pIndex"""
         ...
     def GetCompleteChildHierarchy(self,ChildArray:FBComponent)->list:
         """Get the all the children hierarchy of the layer, including children not directly connected to this layer. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pChildArray: Array of child layers, will be filled by the function.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pChildArray | Array of child layers, will be filled by the function.  |
-        
-        
-        
-        
-        ## Python:
+        ### Python:
         The function takes no parameter and returns a Python list. ex : lArray = lAnimationLayer.GetCompleteChildHierarchy()"""
         ...
     def GetLayerIndex(self)->int:
         """Get the layer index. 
         
         
-        ## Returns:
+        ### Returns:
         The layer index in the current layer hierarchy. This value will change if the hierarchy is modified. Return -1 if unsuccessful."""
         ...
     def GetParentLayer(self)->FBAnimationLayer:
         """Get the parent layer. 
         
         
-        ## Returns:
+        ### Returns:
         A pointer to the parent layer or NULL if the layer doesn't have a parent."""
         ...
     def IsSelected(self)->bool:
         """Verify if the layer is selected. 
         
         
-        ## Returns:
+        ### Returns:
         True if the layer is selected, false otherwise."""
         ...
     def SelectLayer(self,bValue:bool,bExclusiveSelect:bool):
@@ -18242,39 +15624,27 @@ class FBAnimationLayer(FBComponent):
         
         This is the equivalent of selecting the layer in the UI in the Animation Layer Editor tool 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pValue | True if the layer will be selected, false otherwise.  |
-        | pExclusiveSelect | If pValue is true, passing true will deselect all the other layers, creating an exclusive selection, it will also set the layer as the current layer.  |"""
+            - pValue: True if the layer will be selected, false otherwise.
+            - pExclusiveSelect: If pValue is true, passing true will deselect all the other layers, creating an exclusive selection, it will also set the layer as the current layer."""
         ...
     def SetParentLayer(self,ParentLayer:FBAnimationLayer):
         """Set the parent layer. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pParentLayer | A pointer to the parent layer or NULL if you want to unparent the layer.  |"""
+            - pParentLayer: A pointer to the parent layer or NULL if you want to unparent the layer."""
         ...
     def __init__(self,Name:str,LayerID:int):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of the animation layer.  |
-        | pLayerID | ID to set for the new layer.  |"""
+            - pName: Name of the animation layer.
+            - pLayerID: ID to set for the new layer."""
         ...
 class FBActorFace(FBComponent):
     """Used to plot actor face animation. 
@@ -18287,20 +15657,16 @@ class FBActorFace(FBComponent):
         """Plot the animation of the actor face. 
         
         
-        ## Returns:
+        ### Returns:
         True if the operation completed successfully."""
         ...
     def __init__(self,Name:str):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of new actor face.  |"""
+            - pName: Name of new actor face."""
         ...
 class FBActionManager(FBComponent):
     """Action Manager class. 
@@ -18314,14 +15680,14 @@ class FBActionManager(FBComponent):
         """Rescan the current interaction mode, in case some shortcuts have changed in the config file. 
         
         
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise."""
         ...
     def RescanPythonShortcuts(self)->bool:
         """Rescan the Python actions shortcuts, in case some shortcuts have changed in the config file. 
         
         
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise."""
         ...
     def __init__(self):...
@@ -18342,18 +15708,12 @@ class FBConstraintManager(FBComponent):
         
         Given the index in the registry, this function create an instance of this constraint. The newly created constraint will be automatically added to the scene. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTypeIndex: Index of constraint type, must in range [0, [TypeGetCount()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_constraint_manager.html#aec594578e960089aa1e313e10404c668 "Get the number of registered constraint types.") ).
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTypeIndex | Index of constraint type, must in range [0, [TypeGetCount()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_constraint_manager.html#aec594578e960089aa1e313e10404c668 "Get the number of registered constraint types.") ).  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The newly created constraint, or NULL if pIndex is out of range."""
         ...
     @overload
@@ -18363,25 +15723,19 @@ class FBConstraintManager(FBComponent):
         
         Given the constraint type name in the registry, this function create an instance of this constraint. The newly created constraint will be automatically added to the scene. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pName: the name of the constraint to be created.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pName | the name of the constraint to be created.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The newly created constraint, or NULL if pName doesn't match any registered constraints."""
         ...
     def TypeGetCount(self)->int:
         """Get the number of registered constraint types. 
         
         
-        ## Returns:
+        ### Returns:
         Number of registered constraint types."""
         ...
     def TypeGetName(self,TypeIndex:int)->str:
@@ -18390,18 +15744,12 @@ class FBConstraintManager(FBComponent):
         
         This will search in the registry for a constraint at the index **pTypeIndex**. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTypeIndex: Index of a constraint type.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTypeIndex | Index of a constraint type.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Name of constraint type."""
         ...
     def __init__(self):...
@@ -18413,70 +15761,50 @@ class FBConstructionHistory(FBComponent):
         """GetDeltaOperations Get the list of delta operations in the construction history. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pOperations | Array of operations, will be filled by the function.  |"""
+            - pOperations: Array of operations, will be filled by the function."""
         ...
     def GetScriptOutput(self,script:list,errors:list):
         """GetScriptOutput Returns the output from the scripting engine. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | script | the script text  |
-        | errors | the error outputted from the scripting engine  |"""
+            - script: the script text
+            - errors: the error outputted from the scripting engine"""
         ...
     def GetState(self)->FBConstructionHistoryState:
         """GetState returns the current state of the construction history manager. 
         
         
-        ## Returns:
+        ### Returns:
         returns a [FBConstructionHistoryState](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_construction_history_state.html "Construction history manager state.") indicating the state"""
         ...
     def NetDelete(self,component:FBComponent,key:int):
         """NetDelete Network delete with support for Network Undo. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | key | A key that uniquely identifies the operation  |"""
+            - key: A key that uniquely identifies the operation"""
         ...
     def NetUndo(self,key:int):
         """NetUndo Perform network undo operation. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | key | The operation to undo  |"""
+            - key: The operation to undo"""
         ...
     def RunOperation(self,operation:FBConstructionOperation,out_errors:list)->int:
         """RunOperation Runs an operation. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | operation | The operation to run  |
-        | out\_errors | A string containing the text of errors generated by running the operations (if any)  |"""
+            - operation: The operation to run
+            - out_errors: A string containing the text of errors generated by running the operations (if any)"""
         ...
 class FBControlSet(FBComponent):
     """Control set class. 
@@ -18493,18 +15821,12 @@ class FBControlSet(FBComponent):
         """Return the index of the given FK model. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pModel: FK Model to obtain index.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pModel | FK Model to obtain index.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The index of the given FK model in the internal array or -1 if the model is not an FK model."""
         ...
     def GetFKModel(self,Index:int)->FBModel:
@@ -18513,18 +15835,12 @@ class FBControlSet(FBComponent):
         
         The index is from the internal array and is not guaranteed to be matching the [FBBodyNodeId](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_body_node_id.html "All body nodes.") enum values. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index associated to the FK model.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index associated to the FK model.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The FK model at the specified index or nullptr (None in Python) if no model is found."""
         ...
     def GetFKName(self,Index:int)->str:
@@ -18533,118 +15849,84 @@ class FBControlSet(FBComponent):
         
         The index is from the internal array and is not guaranteed to be matching the [FBBodyNodeId](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_body_node_id.html "All body nodes.") enum values. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index to obtain name.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index to obtain name.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The name of FK model or nullptr (Empty string in Python) if the index is invalid."""
         ...
     def GetIKEffectorIndex(self,Model:FBModel)->int:
         """Return the index of the given IK Effector model. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pModel: IK Effector model to obtain index.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pModel | IK Effector model to obtain index.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The index of the given IK Effector model (matches the [FBEffectorId](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_effector_id.html "All effector nodes.") enum values) or -1 if the model is not an IK Effector."""
         ...
     def GetIKEffectorModel(self,EffectorIndex:FBEffectorId,PivotIndex:int=0)->FBModel:
         """Return the IK Effector model associated to the given indices. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pEffectorIndex: Index of the IK Effector.
+            - pPivotIndex: Index of the IK Effector pivot.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pEffectorIndex | Index of the IK Effector.  |
-        | pPivotIndex | Index of the IK Effector pivot.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The IK Effector model at the specified indices or nullptr (None in Python) if no model is found."""
         ...
     def GetIKEffectorName(self,EffectorIndex:FBEffectorId)->str:
         """Return the name of the IK Effector. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pEffectorIndex: Index of the IK Effector.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pEffectorIndex | Index of the IK Effector.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The name of the IK Effector or nullptr (Empty string in Python) if the index is invalid."""
         ...
     def GetIKEffectorPivotCount(self,EffectorIndex:FBEffectorId)->int:
         """Return the number of IK Effector pivot. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pEffectorIndex: Index of the IK Effector.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pEffectorIndex | Index of the IK Effector.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The number of IK Effector pivot or 0 if the index is invalid."""
         ...
     def GetReferenceModel(self)->FBModel:
         """Get the reference model associated with this Control Set. 
         
         
-        ## Returns:
+        ### Returns:
         The reference model associated with the Control Set."""
         ...
     def GetReferenceName(self)->str:
         """Get the reference name associated with this Control Set. 
         
         
-        ## Returns:
+        ### Returns:
         The reference name associated with the Control Set."""
         ...
     def __init__(self,Name:str):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of new control set.  |"""
+            - pName: Name of new control set."""
         ...
 class FBCycleCreator(FBComponent):
     """[See sample: CycleCreator.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_cycle_analysis_0c_cycle_creator_8py-example.html)"""
@@ -18652,29 +15934,23 @@ class FBCycleCreator(FBComponent):
         """Create animation cycle for current character if pChar is NULL, else for the character assigned by pChar; during the time scope between pStartTime and pEndTime. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pStartTime: Start time of the cycle
+            - pEndTime: End time of the cycle
+            - pChar: Target character, if it is NULL, try to use current character
+            - pMoveStartToZero: Whether move start time to zero time
+            - pAddZeroKey: Whether add zero key
+            - pNewTakeName: The name used to create the new take.
+            - pReferencedIK: The IK that used as referenced object in pose pasting.
+            - pPasteTx: Whether consider Translation X on referenced IK when doing pose pasting
+            - pPasteTy: Whether consider Translation Y on referenced IK when doing pose pasting
+            - pPasteTz: Whether consider Translation Z on referenced IK when doing pose pasting
+            - pPasteR: Whether consider Rotation on referenced IK when doing pose pasting
+            - pPasteG: Whether respect Gravity when doing pose pasting (Translation = Global XZ / Rotation = Global Y). Note: if G is true then Ty will be forced changed to false.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pStartTime | Start time of the cycle  |
-        | pEndTime | End time of the cycle  |
-        | pChar | Target character, if it is NULL, try to use current character  |
-        | pMoveStartToZero | Whether move start time to zero time  |
-        | pAddZeroKey | Whether add zero key  |
-        | pNewTakeName | The name used to create the new take.  |
-        | pReferencedIK | The IK that used as referenced object in pose pasting.  |
-        | pPasteTx | Whether consider Translation X on referenced IK when doing pose pasting  |
-        | pPasteTy | Whether consider Translation Y on referenced IK when doing pose pasting  |
-        | pPasteTz | Whether consider Translation Z on referenced IK when doing pose pasting  |
-        | pPasteR | Whether consider Rotation on referenced IK when doing pose pasting  |
-        | pPasteG | Whether respect Gravity when doing pose pasting (Translation = Global XZ / Rotation = Global Y). Note: if G is true then Ty will be forced changed to false.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         true if successful."""
         ...
     def __init__(self):
@@ -18712,13 +15988,9 @@ class FBDeck(FBComponent):
         """Cue deck at a given time. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pTime | Time to cue deck at.  |"""
+            - pTime: Time to cue deck at."""
         ...
     def DeckAutoCommandsNotify(self):
         """Deck auto commands notification."""
@@ -18739,32 +16011,24 @@ class FBDeck(FBComponent):
         """Get the deck's time. 
         
         
-        ## Returns:
+        ### Returns:
         Time of deck."""
         ...
     def Play(self,Speed:float=1.0):
         """Play forwards. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pSpeed | Playback speed (default is 1.0).  |"""
+            - pSpeed: Playback speed (default is 1.0)."""
         ...
     def ReversePlay(self,Speed:float=1.0):
         """Play backwards. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pSpeed | Playback speed(default is 1.0).  |"""
+            - pSpeed: Playback speed(default is 1.0)."""
         ...
     def Rewind(self):
         """Rewind."""
@@ -18789,13 +16053,9 @@ class FBDeformer(FBComponent):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of deformer.  |"""
+            - pName: Name of deformer."""
         ...
 class FBDeviceInstrument(FBComponent):
     """Instrument abstraction layer."""
@@ -18809,14 +16069,10 @@ class FBDeviceInstrument(FBComponent):
         """Record the data to the function curves for the instrument. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pRecordTime | Time to record data at.  |
-        | pNotifyInfo | Device notification information structure.  |"""
+            - pRecordTime: Time to record data at.
+            - pNotifyInfo: Device notification information structure."""
         ...
     def InstrumentWriteData(self,EvaluateInfo:FBEvaluateInfo)->bool:
         """Write data to instrument's connectors. 
@@ -18824,31 +16080,21 @@ class FBDeviceInstrument(FBComponent):
         
         In the evaluation engine callback, this will take the data in the instrument's temporary data holders and write it to the connectors. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pEvaluateInfo: Evaluation information structure.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pEvaluateInfo | Evaluation information structure.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **true** if successful."""
         ...
     def __init__(self,Device:FBDevice):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pDevice | Parent device.  |"""
+            - pDevice: Parent device."""
         ...
 class FBDeformerPointCache(FBDeformer):
     """Base Model deformer class."""
@@ -18876,13 +16122,9 @@ class FBDeformerPointCache(FBDeformer):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of deformer.  |"""
+            - pName: Name of deformer."""
         ...
 class FBDeviceOpticalMarker(FBComponent):
     """Device optical marker. 
@@ -18903,28 +16145,20 @@ class FBDeviceOpticalMarker(FBComponent):
         """Set data for optical marker. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pX | X position for marker.  |
-        | pY | Y position for marker.  |
-        | pZ | Z position for marker(default=0.0).  |
-        | pOcclusion | Occulsion information for marker(default=0.0).  |"""
+            - pX: X position for marker.
+            - pY: Y position for marker.
+            - pZ: Z position for marker(default=0.0).
+            - pOcclusion: Occulsion information for marker(default=0.0)."""
         ...
     def __init__(self,Name:str):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of optical marker.  |"""
+            - pName: Name of optical marker."""
         ...
 class FBEvaluateManager(FBComponent):
     DeviceCount:int
@@ -18956,7 +16190,7 @@ class FBEvaluateManager(FBComponent):
         """Check if the application main loop is in interactive or offline render mode. 
         
         
-        ## Returns:
+        ### Returns:
         true if is application is is interactive mode."""
         ...
     def __init__(self):...
@@ -18966,96 +16200,66 @@ class FBFCurveEditorUtility(FBComponent):
         """Frame keys in the FCurve Editor interface. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pSelectedKeysOnly: If true, only the selected keys will be framed, otherwise all keys will be framed.
+            - pEditor: Pointer to a [FBFCurveEditor](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_f_curve_editor.html "FCurve editor.") for framing the keys in that custom editor, NULL to frame in the default editor.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pSelectedKeysOnly | If true, only the selected keys will be framed, otherwise all keys will be framed.  |
-        | pEditor | Pointer to a [FBFCurveEditor](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_f_curve_editor.html "FCurve editor.") for framing the keys in that custom editor, NULL to frame in the default editor.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if successful, false otherwise. 
-        ## Note:
+        ### Note:
         pEditor is currently not supported in this implementation, as the [FBFCurveEditor](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_f_curve_editor.html "FCurve editor.") is still in development."""
         ...
     def GetObjects(self,ObjectList:list[FBComponent])->bool:
         """Get all the objects displayed in the left pane of the FCurve Editor. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pObjectList: A list that will be filled with the objects displayed in the FCurve Editor.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pObjectList | A list that will be filled with the objects displayed in the FCurve Editor.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if successful, false otherwise."""
         ...
     def GetProperties(self,Properties:list,bSelectedOnly:bool,Editor:FBFCurveEditor|None=None)->bool:
         """Get the displayed properties. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pProperties: Array that will contain the properties displayed.
+            - pSelectedOnly: If true, only the selected properties will be returned.
+            - pEditor: Pointer to a [FBFCurveEditor](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_f_curve_editor.html "FCurve editor.") for getting the properties in that custom editor, NULL to frame in the default editor.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pProperties | Array that will contain the properties displayed.  |
-        | pSelectedOnly | If true, only the selected properties will be returned.  |
-        | pEditor | Pointer to a [FBFCurveEditor](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_f_curve_editor.html "FCurve editor.") for getting the properties in that custom editor, NULL to frame in the default editor.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if successful, false otherwise."""
         ...
     def GetTimeSpan(self,Editor:FBFCurveEditor|None=None)->FBTimeSpan:
         """Get the displayed time range of the FCurve Editor. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pEditor: Pointer to a [FBFCurveEditor](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_f_curve_editor.html "FCurve editor.") where the time span will be get, NULL to get the time span from the default editor.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pEditor | Pointer to a [FBFCurveEditor](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_f_curve_editor.html "FCurve editor.") where the time span will be get, NULL to get the time span from the default editor.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         FCurve Editor time span, default [FBTimeSpan](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_time_span.html "TimeSpan class.") if not successful."""
         ...
     def SetTimeSpan(self,TimeSpan:FBTimeSpan,Editor:FBFCurveEditor|None=None)->bool:
         """Set the displayed time range of the FCurve Editor. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTimeSpan: The time span that will be set.
+            - pEditor: Pointer to a [FBFCurveEditor](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_f_curve_editor.html "FCurve editor.") where the time span will be set, NULL to set the time span on the default editor.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTimeSpan | The time span that will be set.  |
-        | pEditor | Pointer to a [FBFCurveEditor](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_f_curve_editor.html "FCurve editor.") where the time span will be set, NULL to set the time span on the default editor.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if successful, false otherwise."""
         ...
     def __init__(self):...
@@ -19077,18 +16281,12 @@ class FBFCurveEventManager(FBComponent):
         
         Properties that are registered will receive events with the OnFCurveEvent/OnPropertyEvent properties when their FCurves are modified. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pProperty: The property to track.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pProperty | The property to track.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the registration was successful, False otherwise."""
         ...
     def UnregisterProperty(self,Property:FBPropertyAnimatable)->bool:
@@ -19097,18 +16295,12 @@ class FBFCurveEventManager(FBComponent):
         
         Those properties will not be tracked and no update will be sent with the OnFCurveEvent/OnPropertyEvent properties anymore. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pProperty: The property to stop tracking.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pProperty | The property to stop tracking.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the unregistration was successful, False otherwise."""
         ...
     def __init__(self):...
@@ -19282,96 +16474,70 @@ class FBFbxOptions(FBComponent):
         
         This list is affecting only the merge operation. When merging multiple scenes, if this list of namespaces is set, the [FBFbxOptions::NamespaceList](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_fbx_options.html#a0a39e5fc1811f92fa35ed80c332bb75f "Read Write Property: A list of namespaces separated by '~'. On Load, duplicate the loaded objects int...") property value is ignored. 
         
-        ## Returns:
+        ### Returns:
         The multi load namespace list currently set."""
         ...
     def GetTakeCount(self)->int:
         """Return the count of takes in the scene to saved or the file to loaded. 
         
         
-        ## Warning:
+        ### Warning:
         You need to use appropriate constructor to be able to take infos."""
         ...
     def GetTakeDescription(self,TakeIndex:int)->str:
         """Take Description. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pTakeIndex | index of take to get.  |"""
+            - pTakeIndex: index of take to get."""
         ...
     def GetTakeDestinationName(self,TakeIndex:int)->str:
         """Take Destination Name upon save or load. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pTakeIndex | index of take to get.  |"""
+            - pTakeIndex: index of take to get."""
         ...
     def GetTakeKeyRange(self,TakeIndex:int)->FBTimeSpan:
         """Get take key range. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTakeIndex: index of take to get.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTakeIndex | index of take to get.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         A time range, keys inside that time range will be kept. Keys outside that time range will be removed when importing the animation, by default the time range is [FBTime::MinusInfinity](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_time.html#a7840cbd8a5f56768e40783609ff0f946 "Time constant: Minus Infinity, the lowest negative time value.") -> [FBTime::Infinity](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_time.html#ad4cdfb3a31e984e36d78499115839636 "Time constant: Infinity, the largest time value.") 
-        ## Remarks:
+        ### Remarks:
         Valid only on load/merge, not when saving a file."""
         ...
     def GetTakeName(self,TakeIndex:int)->str:
         """Take Original Name. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pTakeIndex | index of take to get.  |"""
+            - pTakeIndex: index of take to get."""
         ...
     def GetTakeSelect(self,TakeIndex:int)->bool:
         """Return if true if the take will be saved or Loaded. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pTakeIndex | index of take to get.  |"""
+            - pTakeIndex: index of take to get."""
         ...
     def SaveToString(self)->str:
         """Serialize all options to a string Serialize all options to a string specifying a context. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pString | The string containing all settings, target of serializing  |
-        | context | The context to be used when serializing  |"""
+            - pString: The string containing all settings, target of serializing
+            - context: The context to be used when serializing"""
         ...
     def SetAll(self,ElementAction:FBElementAction,bAnimation:bool):
         """Set All Options. 
@@ -19379,27 +16545,19 @@ class FBFbxOptions(FBComponent):
         
         Initialize all loading/saving properties to ElementAction and animation specified. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pElementAction | Default value for all FBPropertyElementAction properties.  |
-        | pAnimation | Default value for all Animation properties.  |"""
+            - pElementAction: Default value for all FBPropertyElementAction properties.
+            - pAnimation: Default value for all Animation properties."""
         ...
     def SetFromString(self,String:str):
         """Set all options from string Set all parameters from a formatted string (previously serialized with SaveToString) 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pString | The string containing all settings. See SaveToFile  |
-        | context | The context to be used when de-serializing  |"""
+            - pString: The string containing all settings. See SaveToFile
+            - context: The context to be used when de-serializing"""
         ...
     def SetMultiLoadNamespaceList(self,MultiLoadNamespaceList:FBStringList):
         """Sets the list of namespaces that will be used when merging multiple scenes (see [FBApplication::FileMerge](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_application.html#abbf8c31278a9d05ff41c5a3826058537 "Merge one or multiple files with the current scene.")). 
@@ -19427,13 +16585,9 @@ class FBFbxOptions(FBComponent):
         [pyfbsdk::FBFbxOptions::FBFbxOptions](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_fbx_options.html#a2e09b3a7e3f09056f67c71e653db5796)FBFbxOptions(bool pLoad, str pFilePathToLoad=None)Constructor.
         [pyfbsdk::FBFbxOptions::SetMultiLoadNamespaceList](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_fbx_options.html#a3d8bb25ae4070d38ebaf3b96937dc9e2)SetMultiLoadNamespaceList(FBStringList pMultiLoadNamespaceList)Sets the list of namespaces that will be used when merging multiple scenes (see FBApplication::FileMe...
         [pyfbsdk::FBStringList](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_string_list.html)String list.**Definition:** pyfbsdk.h:20164
-         ## Parameters:
+         ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pMultiLoadNamespaceList | The multi load namespace list to set.  |"""
+            - pMultiLoadNamespaceList: The multi load namespace list to set."""
         ...
     def SetObjectsToSave(self,ObjectsToSave:list[FBComponent]):
         """Sets the list of objects that will be saved. 
@@ -19441,84 +16595,58 @@ class FBFbxOptions(FBComponent):
         
         This needs to be set before calling [FBApplication::FileSave](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_application.html#af8c039b1b182fa56ef15e22d4557157d "Save the file under another name."). The list is affecting only one save operation. Once the save is completed, the list is cleared. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pObjectsToSave | The objects to save.  |"""
+            - pObjectsToSave: The objects to save."""
         ...
     def SetTakeDescription(self,TakeIndex:int,Description:str):
         """Take Description. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pTakeIndex | index of take to set.  |
-        | pDescription | take description to set  |"""
+            - pTakeIndex: index of take to set.
+            - pDescription: take description to set"""
         ...
     def SetTakeDestinationName(self,TakeIndex:int,DestinationName:str):
         """Take Destination Name upon save or load. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pTakeIndex | index of take to set.  |
-        | pDestinationName | take description to set  |"""
+            - pTakeIndex: index of take to set.
+            - pDestinationName: take description to set"""
         ...
     def SetTakeKeyRange(self,TakeIndex:int,KeyTimeSpan:FBTimeSpan):
         """Set take key range. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTakeIndex: index of take to set.
+            - pKeyTimeSpan: Timespan indicating the time range to keep the keys. Keys that are outside the time range for this take will be removed, by default the time range is [FBTime::MinusInfinity](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_time.html#a7840cbd8a5f56768e40783609ff0f946 "Time constant: Minus Infinity, the lowest negative time value.") -> [FBTime::Infinity](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_time.html#ad4cdfb3a31e984e36d78499115839636 "Time constant: Infinity, the largest time value.")
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTakeIndex | index of take to set.  |
-        | pKeyTimeSpan | Timespan indicating the time range to keep the keys. Keys that are outside the time range for this take will be removed, by default the time range is [FBTime::MinusInfinity](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_time.html#a7840cbd8a5f56768e40783609ff0f946 "Time constant: Minus Infinity, the lowest negative time value.") -> [FBTime::Infinity](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_time.html#ad4cdfb3a31e984e36d78499115839636 "Time constant: Infinity, the largest time value.") |
-        
-        
-        
-        
-        ## Remarks:
+        ### Remarks:
         Valid only on load/merge, not when saving a file."""
         ...
     def SetTakeName(self,TakeIndex:int,Name:str):
         """Take Original Name. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pTakeIndex | index of take to set.  |
-        | pName | take name to set  |"""
+            - pTakeIndex: index of take to set.
+            - pName: take name to set"""
         ...
     def SetTakeSelect(self,TakeIndex:int,bSelect:bool):
         """Return if true if the take will be saved or Loaded. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pTakeIndex | index of take to set  |
-        | pSelect | set true if should be saved or loaded.  |"""
+            - pTakeIndex: index of take to set
+            - pSelect: set true if should be saved or loaded."""
         ...
     @overload
     def __init__(self,arg2):...
@@ -19529,14 +16657,10 @@ class FBFbxOptions(FBComponent):
         
         Create a FBFbxOption to be used in [FBApplication](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_application.html "FBApplication is used mainly to manage files.") Save/Load with default settings. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pLoad | If true, will init option for a default Load (Append all elements and animation). If false will initialized options for a default Save (Save all elements and animation).  |
-        | pFilePathToLoad | If pLoad is true, the client code should pass the file path to load to collect the take info; ignore when pLoad is false.  |"""
+            - pLoad: If true, will init option for a default Load (Append all elements and animation). If false will initialized options for a default Save (Save all elements and animation).
+            - pFilePathToLoad: If pLoad is true, the client code should pass the file path to load to collect the take info; ignore when pLoad is false."""
         ...
 class FBFileMonitoringManager(FBComponent):
     """File Change Monitoring Interface to the file change monitoring."""
@@ -19552,50 +16676,34 @@ class FBFileMonitoringManager(FBComponent):
         """Add file to monitor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pFilePath | The file path to monitor.  |
-        | pFileMonitoringType | The monitor type of this file.  |"""
+            - pFilePath: The file path to monitor.
+            - pFileMonitoringType: The monitor type of this file."""
         ...
     def CleanFileMonitoring(self,bIncludePythonEditorScripts:bool=True):
         """Clean files and directories currently been monitored. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pIncludePythonEditorScripts | True to also clean the monitoring of Python Editor script files loaded, false otherwise.  |"""
+            - pIncludePythonEditorScripts: True to also clean the monitoring of Python Editor script files loaded, false otherwise."""
         ...
     def PauseFileMonitoring(self,bPause:bool=True):
         """Pause file from monitoring, except for Python Editor script files loaded. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pPause | True to pause the file monitoring, false to resume.  |"""
+            - pPause: True to pause the file monitoring, false to resume."""
         ...
     def RemoveFileFromMonitor(self,FilePath:str):
         """Remove file from monitoring. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pFilePath | The file path to be removed.  |"""
+            - pFilePath: The file path to be removed."""
         ...
     def __init__(self):...
 class FBFilter(FBComponent):
@@ -19666,19 +16774,13 @@ class FBFilter(FBComponent):
         
         This is the other apply method and it can be used on an object's animation node. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pNode: Node to apply filter to.
+            - pRecursive: Recursively apply filter on child nodes?
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pNode | Node to apply filter to.  |
-        | pRecursive | Recursively apply filter on child nodes?  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **true** if successful."""
         ...
     @overload
@@ -19688,25 +16790,19 @@ class FBFilter(FBComponent):
         
         This is one of the two apply method that is meant to be called by client code. The FCurve can be a standalone independant FCurve, or can be associated to an object's animated property. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pCurve: FCurve to apply filter to.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pCurve | FCurve to apply filter to.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **true** if successful."""
         ...
     def Reset(self):
         """Reset properties. 
         
         
-        ## Warning:
+        ### Warning:
         This method will only work on plug-in filters, not built-in types."""
         ...
 class FBFolder(FBComponent):
@@ -19728,14 +16824,10 @@ class FBFolder(FBComponent):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name to assign to new folder.  |
-        | pComponent | Object used to determine folder's category.  |"""
+            - pName: Name to assign to new folder.
+            - pComponent: Object used to determine folder's category."""
         ...
 class FBGenericMenu(FBComponent):
     """A GenericMenu class. 
@@ -19792,13 +16884,9 @@ class FBGenericMenu(FBComponent):
         """Remove a menu item from the menu and delete it. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pToDelete | The item to remove.  |"""
+            - pToDelete: The item to remove."""
         ...
     def Execute(self,X:int,Y:int,bRightAlign:bool=True)->FBGenericMenuItem:
         """Starts the menu as a pop-up menu at a specific location on screen. 
@@ -19806,20 +16894,14 @@ class FBGenericMenu(FBComponent):
         
         It returns the item that was clicked by the user. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pX: X location in pixel on screen where the menu is to be popped.
+            - pY: Y location in pixel on screen where the menu is to be popped.
+            - pRightAlign: All menu item will be align to the right justified (if true) or left justified (if false)
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pX | X location in pixel on screen where the menu is to be popped.  |
-        | pY | Y location in pixel on screen where the menu is to be popped.  |
-        | pRightAlign | All menu item will be align to the right justified (if true) or left justified (if false)  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The selected item by the user. Null if the user clicks outside the menu."""
         ...
     def GetFirstItem(self)->FBGenericMenuItem:
@@ -19828,25 +16910,19 @@ class FBGenericMenu(FBComponent):
         
         You can then use GetNextItem to iterate on other menu items. 
         
-        ## Returns:
+        ### Returns:
         The first menu item in this Menu."""
         ...
     def GetItem(self,ItemId:int)->FBGenericMenuItem:
         """Returns the menu item corresponding to an id. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pItemId: Id of the item we are looking for.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pItemId | Id of the item we are looking for.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Will return the Item corresponding to an id (null if not found)."""
         ...
     def GetLastItem(self)->FBGenericMenuItem:
@@ -19855,7 +16931,7 @@ class FBGenericMenu(FBComponent):
         
         You can then use GetPrevItem to reverse iterate on other menu items. 
         
-        ## Returns:
+        ### Returns:
         The last menu item in this Menu."""
         ...
     def GetNextItem(self,Item:FBGenericMenuItem)->FBGenericMenuItem:
@@ -19864,18 +16940,12 @@ class FBGenericMenu(FBComponent):
         
         Returns null if this is the last item in menu. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pItem: Will return the item after pItem
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pItem | Will return the item after pItem  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Will return the item after pItem. Null if pItem is the last item."""
         ...
     def GetPrevItem(self,Item:FBGenericMenuItem)->FBGenericMenuItem:
@@ -19884,100 +16954,70 @@ class FBGenericMenu(FBComponent):
         
         Returns null if this is the first item in menu. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pItem: Will return the item BEFORE pItem
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pItem | Will return the item BEFORE pItem  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Will return the item BEFORE pItem. Null if pItem is the first item."""
         ...
     def InsertAfter(self,BeforeItem:FBGenericMenuItem,ItemName:str,ItemId:int,Menu:FBGenericMenu|None=None)->FBGenericMenuItem:
         """Inserts a new menu Item AFTER another item. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pBeforeItem: The reference item. We will create a new item AFTER this one.
+            - pItemName: Caption of the newly added item.
+            - pItemId: Unique id of this menu item.
+            - pMenu: Optional. If this Item leads to another menu (embedded) it can be specified here.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pBeforeItem | The reference item. We will create a new item AFTER this one.  |
-        | pItemName | Caption of the newly added item.  |
-        | pItemId | Unique id of this menu item.  |
-        | pMenu | Optional. If this Item leads to another menu (embedded) it can be specified here.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Will return the menu item created from this insertion."""
         ...
     def InsertBefore(self,AfterItem:FBGenericMenuItem,ItemName:str,ItemId:int,Menu:FBGenericMenu|None=None)->FBGenericMenuItem:
         """Inserts a new menu Item BEFORE another item. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pAfterItem: The reference item. We will create a new item BEFORE this one.
+            - pItemName: Caption of the newly added item.
+            - pItemId: Unique id of this menu item.
+            - pMenu: Optional. If this Item leads to another menu (embedded) it can be specified here.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pAfterItem | The reference item. We will create a new item BEFORE this one.  |
-        | pItemName | Caption of the newly added item.  |
-        | pItemId | Unique id of this menu item.  |
-        | pMenu | Optional. If this Item leads to another menu (embedded) it can be specified here.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Will return the menu item created from this insertion."""
         ...
     def InsertFirst(self,ItemName:str,ItemId:int,Menu:FBGenericMenu|None=None)->FBGenericMenuItem:
         """Inserts a new menu Item at the first position in the menu list. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pItemName: Caption of the newly added item.
+            - pItemId: Unique id of this menu item.
+            - pMenu: Optional. If this Item leads to another menu (embedded) it can be specified here.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pItemName | Caption of the newly added item.  |
-        | pItemId | Unique id of this menu item.  |
-        | pMenu | Optional. If this Item leads to another menu (embedded) it can be specified here.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Will return the menu item created from this insertion."""
         ...
     def InsertLast(self,ItemName:str,ItemId:int,Menu:FBGenericMenu|None=None)->FBGenericMenuItem:
         """Inserts a new menu Item at the last position in the menu list. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pItemName: Caption of the newly added item.
+            - pItemId: Unique id of this menu item.
+            - pMenu: Optional. If this Item leads to another menu (embedded) it can be specified here.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pItemName | Caption of the newly added item.  |
-        | pItemId | Unique id of this menu item.  |
-        | pMenu | Optional. If this Item leads to another menu (embedded) it can be specified here.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Will return the menu item created from this insertion."""
         ...
     def __init__(self):
@@ -20042,14 +17082,14 @@ class FBGeometry(FBComponent):
         """Begin geometry editing. 
         
         
-        ## Returns:
+        ### Returns:
         **true** if successful."""
         ...
     def GeometryEnd(self)->bool:
         """End geometry editing. 
         
         
-        ## Returns:
+        ### Returns:
         **true** if successful."""
         ...
     def GetBinormalsDirectArray(self)->list:
@@ -20058,20 +17098,14 @@ class FBGeometry(FBComponent):
         
         Modify array value will be only effective when geometry editing is enabled. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pOutArrayCount: To return the length the array.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pOutArrayCount | To return the length the array.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Pointer to direct array of binormals, or NULL if the array hasn't been allocated yet. 
-        ## See also:
+        ### See also:
         [GeometryBegin()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_geometry.html#a137880b95679600966415dc2f6cf3916 "Begin geometry editing.")/GeometryEnd()"""
         ...
     def GetBinormalsIndexArray(self)->list:
@@ -20080,20 +17114,14 @@ class FBGeometry(FBComponent):
         
         Modify array value will be only effective when geometry editing is enabled. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pOutArrayCount: To return the length the array.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pOutArrayCount | To return the length the array.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Pointer to index array of binormals, or NULL if the array hasn't been allocated yet. 
-        ## See also:
+        ### See also:
         [GeometryBegin()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_geometry.html#a137880b95679600966415dc2f6cf3916 "Begin geometry editing.")/GeometryEnd()"""
         ...
     def GetMaterialIndexArray(self)->list:
@@ -20102,20 +17130,14 @@ class FBGeometry(FBComponent):
         
         Modify array value will be only effective when geometry editing is enabled. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pOutArrayCount: To return the length the array.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pOutArrayCount | To return the length the array.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Pointer to index array of Material, or NULL if the array hasn't been allocated yet. 
-        ## See also:
+        ### See also:
         [GeometryBegin()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_geometry.html#a137880b95679600966415dc2f6cf3916 "Begin geometry editing.")/GeometryEnd()"""
         ...
     def GetNormalsDirectArray(self)->list:
@@ -20124,20 +17146,14 @@ class FBGeometry(FBComponent):
         
         Modify array value will be only effective when geometry editing is enabled. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pOutArrayCount: To return the length the array.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pOutArrayCount | To return the length the array.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Pointer to direct array of normals, or NULL if the array hasn't been allocated yet. 
-        ## See also:
+        ### See also:
         [GeometryBegin()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_geometry.html#a137880b95679600966415dc2f6cf3916 "Begin geometry editing.")/GeometryEnd()"""
         ...
     def GetNormalsIndexArray(self)->list:
@@ -20146,20 +17162,14 @@ class FBGeometry(FBComponent):
         
         Modify array value will be only effective when geometry editing is enabled. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pOutArrayCount: To return the length the array.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pOutArrayCount | To return the length the array.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Pointer to index array of normals, or NULL if the array hasn't been allocated yet. 
-        ## See also:
+        ### See also:
         [GeometryBegin()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_geometry.html#a137880b95679600966415dc2f6cf3916 "Begin geometry editing.")/GeometryEnd()"""
         ...
     def GetPositionsArray(self)->list:
@@ -20168,20 +17178,14 @@ class FBGeometry(FBComponent):
         
         Modify array value will be only effective when geometry editing is enabled. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pOutArrayCount: To return the length the array.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pOutArrayCount | To return the length the array.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Pointer to index array of normals, or NULL if the array hasn't been allocated yet. 
-        ## See also:
+        ### See also:
         [GeometryBegin()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_geometry.html#a137880b95679600966415dc2f6cf3916 "Begin geometry editing.")/GeometryEnd()"""
         ...
     def GetTangentsDirectArray(self)->list:
@@ -20190,20 +17194,14 @@ class FBGeometry(FBComponent):
         
         Modify array value will be only effective when geometry editing is enabled. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pOutArrayCount: To return the length the array.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pOutArrayCount | To return the length the array.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Pointer to direct array of tangents, or NULL if the array hasn't been allocated yet. 
-        ## See also:
+        ### See also:
         [GeometryBegin()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_geometry.html#a137880b95679600966415dc2f6cf3916 "Begin geometry editing.")/GeometryEnd()"""
         ...
     def GetTangentsIndexArray(self)->list:
@@ -20212,41 +17210,29 @@ class FBGeometry(FBComponent):
         
         Modify array value will be only effective when geometry editing is enabled. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pOutArrayCount: To return the length the array.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pOutArrayCount | To return the length the array.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Pointer to index array of tangents, or NULL if the array hasn't been allocated yet. 
-        ## See also:
+        ### See also:
         [GeometryBegin()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_geometry.html#a137880b95679600966415dc2f6cf3916 "Begin geometry editing.")/GeometryEnd()"""
         ...
     def GetUVSetDirectArray(self,arg2:str|None=None)->list:
         """Get a pointer to the direct array of UVset Modify array value will be only effective when geometry editing is enabled. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pOutArrayCount: To return the length the array.
+            - pUVSetName: The name of UVset, NULL for the first UVset.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pOutArrayCount | To return the length the array.  |
-        | pUVSetName | The name of UVset, NULL for the first UVset.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         pointer to the array of UV, or NULL is the array hasn't been allocated yet. 
-        ## See also:
+        ### See also:
         [GeometryBegin()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_geometry.html#a137880b95679600966415dc2f6cf3916 "Begin geometry editing.")/GeometryEnd()"""
         ...
     def GetUVSetIndexArray(self,arg2:str|None=None)->list:
@@ -20255,64 +17241,46 @@ class FBGeometry(FBComponent):
         
         Modify array value will be only effective when geometry editing is enabled. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pOutArrayCount: To return the length the array.
+            - pUVSetName: The name of UVset, NULL for the first UVset.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pOutArrayCount | To return the length the array.  |
-        | pUVSetName | The name of UVset, NULL for the first UVset.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Pointer to index array of UVSet, or NULL if the array hasn't been allocated yet. 
-        ## See also:
+        ### See also:
         [GeometryBegin()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_geometry.html#a137880b95679600966415dc2f6cf3916 "Begin geometry editing.")/GeometryEnd()"""
         ...
     def GetUVSetMappingMode(self,UVSetName:str|None=None)->FBGeometryMappingMode:
         """Get UVSet mapping mode. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pUVSetName: The name of UVset, NULL for the first UVset.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pUVSetName | The name of UVset, NULL for the first UVset.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Mapping mode of the UVset."""
         ...
     def GetUVSetReferenceMode(self,UVSetName:str|None=None)->FBGeometryReferenceMode:
         """Get UVSet reference mode. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pUVSetName: The name of UVset, NULL for the first UVset.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pUVSetName | The name of UVset, NULL for the first UVset.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Reference mode of the UVset."""
         ...
     def GetUVSets(self)->FBStringList:
         """Get available UVSet name. 
         
         
-        ## Returns:
+        ### Returns:
         StringList contain all the available UVSets' name."""
         ...
     def GetVertexColorsDirectArray(self)->list:
@@ -20321,20 +17289,14 @@ class FBGeometry(FBComponent):
         
         Modify array value will be only effective when geometry editing is enabled. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pOutArrayCount: To return the length the array.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pOutArrayCount | To return the length the array.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Pointer to direct array of vertex colors, or NULL if the array hasn't been allocated yet. 
-        ## See also:
+        ### See also:
         [GeometryBegin()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_geometry.html#a137880b95679600966415dc2f6cf3916 "Begin geometry editing.")/GeometryEnd()"""
         ...
     def GetVertexColorsIndexArray(self)->list:
@@ -20343,20 +17305,14 @@ class FBGeometry(FBComponent):
         
         Modify array value will be only effective when geometry editing is enabled. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pOutArrayCount: To return the length the array.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pOutArrayCount | To return the length the array.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Pointer to index array of vertex color, or NULL if the array hasn't been allocated yet. 
-        ## See also:
+        ### See also:
         [GeometryBegin()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_geometry.html#a137880b95679600966415dc2f6cf3916 "Begin geometry editing.")/GeometryEnd()"""
         ...
     def SetBinormalsDirectArray(self,arg2:list)->bool:...
@@ -20375,18 +17331,12 @@ class FBGeometry(FBComponent):
         """Add new shape. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pName: the shape name
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pName | the shape name  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         the index of the new shape, -1 if the shape adding fail."""
         ...
     def ShapeClearAll(self):
@@ -20403,51 +17353,37 @@ class FBGeometry(FBComponent):
         """Init the shape. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pShapeIdx | The index of the shape to be initialized  |
-        | pDiffSize | Total number of different point (pos or normal) compared to base geometry.  |
-        | pWithNormal | Currently normal won't be considered during shape blending.  |"""
+            - pShapeIdx: The index of the shape to be initialized
+            - pDiffSize: Total number of different point (pos or normal) compared to base geometry.
+            - pWithNormal: Currently normal won't be considered during shape blending."""
         ...
     def ShapeSetDiffPoint(self,ShapeIdx:int,DiffIndex:int,OriIndex:int,PosDiff:FBVertex,NormalDiff:FBNormal|None=None)->bool:
         """Set the differentiate point. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pShapeIdx | The index of the shape  |
-        | pDiffIndex | The index of the diff point in this shape.  |
-        | pOriIndex | The index of the diff point in the original geometry.  |
-        | pPosDiff | The position differentiation.  |
-        | pNormalDiff | The normal differentiation.  |"""
+            - pShapeIdx: The index of the shape
+            - pDiffIndex: The index of the diff point in this shape.
+            - pOriIndex: The index of the diff point in the original geometry.
+            - pPosDiff: The position differentiation.
+            - pNormalDiff: The normal differentiation."""
         ...
     @overload
     def VertexAdd(self,Vertex:FBVertex)->int:
         """Add a vertex. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pVertex: Vertex values used to add vertex.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pVertex | Vertex values used to add vertex.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Index where vertex was added. 
-        ## Remarks:
+        ### Remarks:
         Set Normal with default value"""
         ...
     @overload
@@ -20455,20 +17391,14 @@ class FBGeometry(FBComponent):
         """Add a vertex. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pVertex: Vertex values used to add vertex.
+            - pNormal: Normal values used to add vertex.
+            - pUV: UV values used to add vertex.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pVertex | Vertex values used to add vertex.  |
-        | pNormal | Normal values used to add vertex.  |
-        | pUV | UV values used to add vertex.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Index where vertex was added."""
         ...
     def VertexArrayClear(self)->bool:
@@ -20477,7 +17407,7 @@ class FBGeometry(FBComponent):
         
         Call this function to clear Position, Normal, UV, Color and etc vertex arrays, and it won't affect geometry's topology (polygon, Surface and etc.,). 
         
-        ## Returns:
+        ### Returns:
         **true** if successful."""
         ...
     def VertexArrayInit(self,Vertexcount:int,bUniqueMaterial:bool,FBGeometryArrayIDs:int=0)->bool:
@@ -20486,15 +17416,11 @@ class FBGeometry(FBComponent):
         
         Init position, normal and UV arrays (tangent, bi-normal and color on demand) with kFBGeometryMapping\_BY\_CONTROL\_POINT / kFBGeometryReference\_DIRECT mode. Will call [VertexArrayClear()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_geometry.html#ab43f405ea6d82de3484e00b77cb209d1 "Clear all geometry vertex arrays.") internally. User should then call GetXXXDirectyArray() to edit the vertex attributes directly. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pVertexcount | number of control points (vertex)  |
-        | pUniqueMaterial | User could specify per polygon mapping mode for mesh  |
-        | pFBGeometryArrayIDs | Request to init other attribute arrays, bitwise combined value of [FBGeometryArrayID](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_geometry_array_i_d.html "ID to use when requesting a specific array of data for a model.") enum items, currently support Tangent, Binormal and VertexColor. Only useful for mesh.  |"""
+            - pVertexcount: number of control points (vertex)
+            - pUniqueMaterial: User could specify per polygon mapping mode for mesh
+            - pFBGeometryArrayIDs: Request to init other attribute arrays, bitwise combined value of [FBGeometryArrayID](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_geometry_array_i_d.html "ID to use when requesting a specific array of data for a model.") enum items, currently support Tangent, Binormal and VertexColor. Only useful for mesh."""
         ...
     def VertexClear(self)->bool:
         """Clear all Vertex arrays. 
@@ -20502,25 +17428,19 @@ class FBGeometry(FBComponent):
         
         Call this function to clear Position, Normal, UV, Color and etc vertex arrays, and it won't affect geometry's topology (polygon, Surface and etc.,). 
         
-        ## Returns:
+        ### Returns:
         **true** if successful."""
         ...
     def VertexColorGet(self,Index:int)->FBColorAndAlpha:
         """Get a Vertex Color. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of Vertex to get Color for(default=-1).
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of Vertex to get Color for(default=-1).  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Color of vertex at UVSetIndex."""
         ...
     @overload
@@ -20530,134 +17450,94 @@ class FBGeometry(FBComponent):
         """Set a UV coordinate. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pRed: Red Color Channel to set, range [0, 1].
+            - pGreen: Green Color Channel to set, range [0, 1].
+            - pBlue: Blue Color Channel to set, range [0, 1].
+            - pAlpha: Alpha Color Channel to set, range [0, 1].
+            - pIndex: Index of Vertex to affect with Red, Green, Blue and Alpha (default=-1).
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pRed | Red Color Channel to set, range [0, 1].  |
-        | pGreen | Green Color Channel to set, range [0, 1].  |
-        | pBlue | Blue Color Channel to set, range [0, 1].  |
-        | pAlpha | Alpha Color Channel to set, range [0, 1].  |
-        | pIndex | Index of Vertex to affect with Red, Green, Blue and Alpha (default=-1).  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **true** if successful."""
         ...
     def VertexCount(self)->int:
         """Get the number of vertices in the geometry. 
         
         
-        ## Returns:
+        ### Returns:
         Number of vertices in the geometry."""
         ...
     def VertexGet(self,Index:int)->FBVertex:
         """Get a vertex. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of vertex to get.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of vertex to get.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Vertex stored at pIndex."""
         ...
     def VertexGetSelected(self,Index:int)->bool:
         """Get the selected state of a vertex. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: The index of the vertex
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | The index of the vertex  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         true if the vertex is selected, false if not"""
         ...
     def VertexGetTransformable(self,Index:int)->bool:
         """Get the Transformable state of a vertex. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: The index of the vertex
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | The index of the vertex  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         true if the vertex is Transformable, false if not"""
         ...
     def VertexGetVisible(self,Index:int)->bool:
         """Get the visible state of a vertex. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: The index of the vertex
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | The index of the vertex  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         true if the vertex is visible, false if not"""
         ...
     def VertexInit(self,Size:int,bResize:bool,bInitUV:bool=True,bInitVertexColor:bool=False):
         """Resize or Reserve vertex, normal and UV array for performance. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pSize | Number of vertices to resize or reserve.  |
-        | pResize | **True**, for the geometry with known vertex count, we should resize the arrays to fixed size, and call [VertexSet()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_geometry.html#a2e5951370a3f25f2ce5683cb2fc6159a "Set a vertex.") afterwards; **False**, While for dynamic size geometry, we should only reserve the arrays with the estimated optimal size, then call [VertexAdd()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_geometry.html#a41b4845445d2656130fac19d9fb64c51 "Add a vertex.") to dynamically increase the vertex count.  |
-        | pInitUV | init Vertex UV array if true  |
-        | pInitVertexColor | Init Vertex Color Array if true.  |"""
+            - pSize: Number of vertices to resize or reserve.
+            - pResize: **True**, for the geometry with known vertex count, we should resize the arrays to fixed size, and call [VertexSet()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_geometry.html#a2e5951370a3f25f2ce5683cb2fc6159a "Set a vertex.") afterwards; **False**, While for dynamic size geometry, we should only reserve the arrays with the estimated optimal size, then call [VertexAdd()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_geometry.html#a41b4845445d2656130fac19d9fb64c51 "Add a vertex.") to dynamically increase the vertex count.
+            - pInitUV: init Vertex UV array if true
+            - pInitVertexColor: Init Vertex Color Array if true."""
         ...
     def VertexNormalGet(self,Index:int)->FBNormal:
         """Get a normal at a vertex. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Vertex to get normal at(default=-1).
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Vertex to get normal at(default=-1).  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Normal of vertex at pIndex."""
         ...
     @overload
@@ -20665,19 +17545,13 @@ class FBGeometry(FBComponent):
         """Set a normal at a vertex. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pVertex: Normal to set.
+            - pIndex: Index of vertex to set Normal at(default=-1).
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pVertex | Normal to set.  |
-        | pIndex | Index of vertex to set Normal at(default=-1).  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **true** if successful."""
         ...
     @overload
@@ -20685,21 +17559,15 @@ class FBGeometry(FBComponent):
         """Set a normal at a vertex. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - px: X coordinate of normal.
+            - py: Y coordinate of normal.
+            - pz: Z coordinate of normal.
+            - pIndex: Index of vertex to set Normal at(default=-1).
         
         
-        
-        |  |  |
-        | --- | --- |
-        | px | X coordinate of normal.  |
-        | py | Y coordinate of normal.  |
-        | pz | Z coordinate of normal.  |
-        | pIndex | Index of vertex to set Normal at(default=-1).  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **true** if successful."""
         ...
     @overload
@@ -20707,19 +17575,13 @@ class FBGeometry(FBComponent):
         """Set a vertex. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pVertex: Vertex values used to set vertex.
+            - pIndex: Index of vertex to affect (default=-1).
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pVertex | Vertex values used to set vertex.  |
-        | pIndex | Index of vertex to affect (default=-1).  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **true** if successful."""
         ...
     @overload
@@ -20727,77 +17589,53 @@ class FBGeometry(FBComponent):
         """Set a vertex. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - px: X coordinate to set.
+            - py: Y coordinate to set.
+            - pz: Z coordinate to set.
+            - pIndex: Index of vertex to set(default=-1).
         
         
-        
-        |  |  |
-        | --- | --- |
-        | px | X coordinate to set.  |
-        | py | Y coordinate to set.  |
-        | pz | Z coordinate to set.  |
-        | pIndex | Index of vertex to set(default=-1).  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **true** if successful."""
         ...
     def VertexSetSelected(self,Index:int,bState:bool)->bool:
         """Set the selected state of a vertex. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: The index of the vertex
+            - pState: The true to selected, false to deselect
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | The index of the vertex  |
-        | pState | The true to selected, false to deselect  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         true if the vertex is selected, false if not"""
         ...
     def VertexSetVisible(self,Index:int,bState:bool)->bool:
         """Set the visible state of a vertex. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: The index of the vertex
+            - pState: true to be visible
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | The index of the vertex  |
-        | pState | true to be visible  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         true if the vertex is visible, false if not"""
         ...
     def VertexUVGet(self,Index:int)->FBUV:
         """Get a UV coordinate. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of Vertex to get UV coordinate for(default=-1).
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of Vertex to get UV coordinate for(default=-1).  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         UV coordinate of vertex at UVSetIndex."""
         ...
     @overload
@@ -20805,19 +17643,13 @@ class FBGeometry(FBComponent):
         """Set a UV coordinate. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pUV: UV coordinate to set.
+            - pIndex: Index of Vertex to affect with UV coordinate(default=-1).
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pUV | UV coordinate to set.  |
-        | pIndex | Index of Vertex to affect with UV coordinate(default=-1).  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **true** if successful."""
         ...
     @overload
@@ -20825,20 +17657,14 @@ class FBGeometry(FBComponent):
         """Set a UV coordinate. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pU: U coordinate to set.
+            - pV: V coordinate to set.
+            - pIndex: Index of Vertex to affect with UV coordinate(default=-1).
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pU | U coordinate to set.  |
-        | pV | V coordinate to set.  |
-        | pIndex | Index of Vertex to affect with UV coordinate(default=-1).  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **true** if successful."""
         ...
 class FBHUDManager(FBComponent):
@@ -20859,13 +17685,9 @@ class FBMesh(FBGeometry):
         """Compute Mesh Vertex Normal. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pCW | **True** for clock wise normal, otherwise for counter-clock wise  |"""
+            - pCW: **True** for clock wise normal, otherwise for counter-clock wise"""
         ...
     def InverseNormal(self):
         """Inverse Normal."""
@@ -20874,32 +17696,26 @@ class FBMesh(FBGeometry):
         """Determines if the mesh is composed entirely of triangles. 
         
         
-        ## Returns:
+        ### Returns:
         true if all polygons are triangles, false otherwise"""
         ...
     def PolygonBegin(self,MaterialId:int=0)->int:
         """Begin Polygon definition. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pMaterialId: Index of material for this polygon. Only effective when MaterialMappingMode is kFBGeometryMapping\_BY\_POLYGON mode.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pMaterialId | Index of material for this polygon. Only effective when MaterialMappingMode is kFBGeometryMapping\_BY\_POLYGON mode.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Number of existing polygons in Mesh"""
         ...
     def PolygonCount(self)->int:
         """Get number of polygons in mesh. 
         
         
-        ## Returns:
+        ### Returns:
         Number of polygons in mesh."""
         ...
     def PolygonEnd(self)->int:
@@ -20908,66 +17724,48 @@ class FBMesh(FBGeometry):
         
         Clean up and associate vertices internally. 
         
-        ## Returns:
+        ### Returns:
         Current number of polygons. 
-        ## Note:
+        ### Note:
         MoBu expect each polygon to contain at least 3 vertices, the behavior is undefined if user add less than 3 vertices polygon."""
         ...
     def PolygonListAdd(self,PolygonSize:int,IndexArraySize:int,IndexArray:list,MaterialId:int=0)->bool:
         """Add Polygon List Must be called in-between [FBGeometry::GeometryBegin()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_geometry.html#a137880b95679600966415dc2f6cf3916 "Begin geometry editing.") / [GeometryEnd()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_geometry.html#a1128c32125a8b7347c4990462a8d86cf "End geometry editing.") It's user's responsibility to make sure to input valid index values, otherwise afterwards behavior will be undefined. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pPolygonSize: Size of polygon, 3 mean triangle, 4 for quadrilateral, and so on. minimum input value is 3.
+            - pIndexArraySize: Size of pIndexArray, Added polygon count is floor(max(pIndexArraySize, 0) / pPolygonSize)
+            - pIndexArray: Index array of triangle strip.
+            - pMaterialId: Index of material for this polygon. Only effective when MaterialMappingMode is kFBGeometryMapping\_BY\_POLYGON mode.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pPolygonSize | Size of polygon, 3 mean triangle, 4 for quadrilateral, and so on. minimum input value is 3.  |
-        | pIndexArraySize | Size of pIndexArray, Added polygon count is floor(max(pIndexArraySize, 0) / pPolygonSize)  |
-        | pIndexArray | Index array of triangle strip.  |
-        | pMaterialId | Index of material for this polygon. Only effective when MaterialMappingMode is kFBGeometryMapping\_BY\_POLYGON mode.  |
-        
-        
-        
-        
-        ## Note:
+        ### Note:
         The indexes' value in input pIndexArray won't be validated, and the behavior is undefined if out of range."""
         ...
     def PolygonMaterialIdGet(self,Index:int=-1)->int:
         """Get a Material ID for the given Polygon index. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Polygon's index to get material ID at (default=-1).
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Polygon's index to get material ID at (default=-1).  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         ID of material of vertex at pIndex."""
         ...
     def PolygonVertexAdd(self,Vertex:int)->bool:
         """Add a vertex. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pVertex: Index in mesh of vertex to add to polygon, must be in range of [0, ControlPointCount)
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pVertex | Index in mesh of vertex to add to polygon, must be in range of [0, ControlPointCount)  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **true** if successful."""
         ...
     def PolygonVertexArrayGet(self)->list:
@@ -20976,108 +17774,74 @@ class FBMesh(FBGeometry):
         
         index to control points). This array is a concatenation of the list of polygon vertices of all the polygons. Example: a mesh made of 2 triangles [1,2,3] and [2,3,4] results in [1,2,3,2,3,4]. The first polygon starts at position 0 and the second at position 3. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pArraySize: Polygon vertex array size.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pArraySize | Polygon vertex array size.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Readonly polygon vertex array."""
         ...
     def PolygonVertexCount(self,PolygonIndex:int)->int:
         """Get Polygon vertex count. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pPolygonIndex: Index of polygon to get vertex count from.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pPolygonIndex | Index of polygon to get vertex count from.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Number of vertices in polygon at pPolygonIndex."""
         ...
     def PolygonVertexIndex(self,PolygonIndex:int,VertexPolygonIndex:int)->int:
         """Get global (for the mesh) index of a vertex from a polygon. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pPolygonIndex: Index of polygon in question.
+            - pVertexPolygonIndex: Polygon vertex index.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pPolygonIndex | Index of polygon in question.  |
-        | pVertexPolygonIndex | Polygon vertex index.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Index in mesh of vertex."""
         ...
     def TriangleListAdd(self,IndexArraySize:int,IndexArray:list,MaterialId:int=0)->bool:
         """Add Triangle List, Must be called in-between [FBGeometry::GeometryBegin()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_geometry.html#a137880b95679600966415dc2f6cf3916 "Begin geometry editing.") / [GeometryEnd()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_geometry.html#a1128c32125a8b7347c4990462a8d86cf "End geometry editing.") It's user's responsibility to make sure to input valid index values, otherwise afterwards behavior will be undefined. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndexArraySize: Size of pIndexArray, Added triangle count is floor(max(pIndexArraySize, 0) / 3)
+            - pIndexArray: Index array of triangle list.
+            - pMaterialId: Index of material for this polygon. Only effective when MaterialMappingMode is kFBGeometryMapping\_BY\_POLYGON mode.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndexArraySize | Size of pIndexArray, Added triangle count is floor(max(pIndexArraySize, 0) / 3)  |
-        | pIndexArray | Index array of triangle list.  |
-        | pMaterialId | Index of material for this polygon. Only effective when MaterialMappingMode is kFBGeometryMapping\_BY\_POLYGON mode.  |
-        
-        
-        
-        
-        ## Note:
+        ### Note:
         The indexes' value in input pIndexArray won't be validated, and the behavior is undefined if out of range."""
         ...
     def TriangleStripAdd(self,IndexArraySize:int,IndexArray:list,MaterialId:int=0)->bool:
         """Add Triangle Strip Must be called in-between [FBGeometry::GeometryBegin()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_geometry.html#a137880b95679600966415dc2f6cf3916 "Begin geometry editing.") / [GeometryEnd()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_geometry.html#a1128c32125a8b7347c4990462a8d86cf "End geometry editing.") It's user's responsibility to make sure to input valid index values, otherwise afterwards behavior will be undefined. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndexArraySize: Size of pIndexArray, Added triangle count is max(pIndexArraySize - 2, 0)
+            - pIndexArray: Index array of triangle strip.
+            - pMaterialId: Index of material for this polygon. Only effective when MaterialMappingMode is kFBGeometryMapping\_BY\_POLYGON mode.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndexArraySize | Size of pIndexArray, Added triangle count is max(pIndexArraySize - 2, 0)  |
-        | pIndexArray | Index array of triangle strip.  |
-        | pMaterialId | Index of material for this polygon. Only effective when MaterialMappingMode is kFBGeometryMapping\_BY\_POLYGON mode.  |
-        
-        
-        
-        
-        ## Note:
+        ### Note:
         The indexes' value in input pIndexArray won't be validated, and the behavior is undefined if out of range."""
         ...
     def __init__(self,Name:str):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of Mesh.  |"""
+            - pName: Name of Mesh."""
         ...
 class FBImage(FBComponent):
     """Image class. 
@@ -21113,37 +17877,25 @@ class FBImage(FBComponent):
         """Convert the image data format to another format. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pNewFormat: The new format to convert the image to.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pNewFormat | The new format to convert the image to.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Return true if the convert was successful."""
         ...
     def ConvertSize(self,Width:int,Height:int)->bool:
         """Convert the image size. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pWidth: New width of the image.
+            - pHeight: New height of the image.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pWidth | New width of the image.  |
-        | pHeight | New height of the image.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Return true if the convert was successful."""
         ...
     def GetBufferAddress(self)->int:...
@@ -21151,15 +17903,11 @@ class FBImage(FBComponent):
         """Init. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pFormat | Image format used to initialize data buffer.  |
-        | pWidth | Image width in pixels.  |
-        | pHeight | Image height in pixels.  |"""
+            - pFormat: Image format used to initialize data buffer.
+            - pWidth: Image width in pixels.
+            - pHeight: Image height in pixels."""
         ...
     def IsCompressedTif(self,arg2:str)->bool:...
     def VerticalFlip(self):
@@ -21171,21 +17919,15 @@ class FBImage(FBComponent):
         
         The image format used is determined by the file extension of the given filename. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pFileName: Full file path name of the image file to write.
+            - pComments: Comments appended to the file for image formats that support it.
+            - pQuality: Quality of the image for image formats that support it. Depends on the image format. For "jpeg": 0-100 where 0=(low visual quality, high compression), 100=(high visual quality, low compression).
+            - pCompressionType: Compression type of image for image formats that support it. Depends on the image format. For "tif": 0 = ( no compression ), 1 = ( LZW-compression ).
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pFileName | Full file path name of the image file to write.  |
-        | pComments | Comments appended to the file for image formats that support it.  |
-        | pQuality | Quality of the image for image formats that support it. Depends on the image format. For "jpeg": 0-100 where 0=(low visual quality, high compression), 100=(high visual quality, low compression).  |
-        | pCompressionType | Compression type of image for image formats that support it. Depends on the image format. For "tif": 0 = ( no compression ), 1 = ( LZW-compression ).  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Return true if the image was successfully written on disk."""
         ...
     def WriteToTif(self,arg2:str,arg3:str,arg4)->bool:...
@@ -21193,13 +17935,9 @@ class FBImage(FBComponent):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pFileName | Path to the image file. If pObject is not NULL, pFileName will be ignored.  |"""
+            - pFileName: Path to the image file. If pObject is not NULL, pFileName will be ignored."""
         ...
 class FBKeyControl(FBComponent):
     """Key control. 
@@ -21224,19 +17962,15 @@ class FBKeyControl(FBComponent):
         
         Equivalent to using the "Move Keys" button in the Key Controls panel. Only keys that are part of the current animation layer will get affected. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pTimeSpan | The time span in which the animation keys will be modified  |
-        | pPivot | The pivot object to use as a reference. The pivot needs to be part of pModelList (or the current keying group) otherwise the move keys operation will abort  |
-        | pT | The global translation to apply to the pivot  |
-        | pR | The global Euler rotation to apply to the pivot (deg)  |
-        | pS | The global scaling factors to apply to the pivot  |
-        | pTime | The time at which the transformation values are applied to the pivot object  |
-        | pModelList | List of models for which the animation will be modified. Optional parameter. If not supplied, the models in the current keying group will be used  |"""
+            - pTimeSpan: The time span in which the animation keys will be modified
+            - pPivot: The pivot object to use as a reference. The pivot needs to be part of pModelList (or the current keying group) otherwise the move keys operation will abort
+            - pT: The global translation to apply to the pivot
+            - pR: The global Euler rotation to apply to the pivot (deg)
+            - pS: The global scaling factors to apply to the pivot
+            - pTime: The time at which the transformation values are applied to the pivot object
+            - pModelList: List of models for which the animation will be modified. Optional parameter. If not supplied, the models in the current keying group will be used"""
         ...
     def __init__(self):
         """Constructor."""
@@ -21253,25 +17987,17 @@ class FBKeyingGroup(FBComponent):
         """AddObjectDependency An object dependency is the content of a keying group and will activate keying group when selected (activation only works if the keying group is a character extension). 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pObj | a Dependency of the keying group.  |"""
+            - pObj: a Dependency of the keying group."""
         ...
     def AddProperty(self,Prop:FBProperty):
         """Add property to be keyed when current keying group is active. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pProp | Property to be added.  |"""
+            - pProp: Property to be added."""
         ...
     def ClearAllItems(self):
         """ClearAllItems clear object dependency, properties and child keying group."""
@@ -21284,180 +18010,132 @@ class FBKeyingGroup(FBComponent):
         """FindPropertyIndex. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pProp: must be in the list (return -1 if not).
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pProp | must be in the list (return -1 if not).  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         the index of pProp in the keyinggroup property list."""
         ...
     def GetCumulativeProperty(self,Index:int,bStopAtVisible:bool)->FBProperty:
         """GetCumulativeProperty Same as GetSubKeyingGroup but recursive in child keying group. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: index in the content Object Dependency list
+            - pStopAtVisible: consider all keying group and stop to the first visible keying group.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | index in the content Object Dependency list  |
-        | pStopAtVisible | consider all keying group and stop to the first visible keying group.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         he number of ObjectDependency of the keying group."""
         ...
     def GetCumulativePropertyCount(self,bStopAtVisible:bool=False)->int:
         """GetCumulativePropertyCount Same as GetSubKeyingGroupCount but recursive in child keying group. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pStopAtVisible: consider all keying group and stop to the first visible keying group.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pStopAtVisible | consider all keying group and stop to the first visible keying group.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         he number of ObjectDependency of the keying group."""
         ...
     def GetParentKeyingGroup(self,Index:int)->FBKeyingGroup:
         """GetParentKeyingGroup. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: is the index of the parent list of the current keying group.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | is the index of the parent list of the current keying group.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         the parent keying group."""
         ...
     def GetParentKeyingGroupCount(self)->int:
         """GetParentKeyingGroupCount. 
         
         
-        ## Returns:
+        ### Returns:
         the number of parent."""
         ...
     def GetProperty(self,Index:int)->FBProperty:
         """GetProperty from the keyinggroup list. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: index of the desired property.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | index of the desired property.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         property coresponding to pIndex."""
         ...
     def GetPropertyCount(self)->int:
         """GetPropertyCount. 
         
         
-        ## Returns:
+        ### Returns:
         the number of properties in the keying group."""
         ...
     def GetSubKeyingGroup(self,Index:int)->FBKeyingGroup:
         """GetSubKeyingGroup. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: index of the desired keying group child.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | index of the desired keying group child.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         the the child at the index."""
         ...
     def GetSubKeyingGroupCount(self)->int:
         """GetSubKeyingGroupCount. 
         
         
-        ## Returns:
+        ### Returns:
         the number of child keying group."""
         ...
     def GetSubObject(self,Index:int)->FBComponent:
         """GetSubObject. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: index in the content Object Dependency list
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | index in the content Object Dependency list  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         the desired object at pIndex."""
         ...
     def GetSubObjectCount(self)->int:
         """GetSubObjectCount. 
         
         
-        ## Returns:
+        ### Returns:
         the number of ObjectDependency of the keying group."""
         ...
     def IsObjectDependency(self,Obj:FBComponent)->bool:
         """IsObjectDependency determine if the pObj is a dependency. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pObj: an object to test the Dependency.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pObj | an object to test the Dependency.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         true if it depend."""
         ...
     def IsObjectDependencySelected(self)->bool:
         """IsObjectDependencySelected. 
         
         
-        ## Returns:
+        ### Returns:
         return true as soon as a Property Owner or another Object Dependency is selected."""
         ...
     def RemoveAllObjectDependency(self):
@@ -21473,25 +18151,17 @@ class FBKeyingGroup(FBComponent):
         """RemoveObjectDependency An object dependency is the content of a keying group and will activate keying group when selected (activation only works if the keying group is a character extension). 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pObj | a Dependency of the keying group.  |"""
+            - pObj: a Dependency of the keying group."""
         ...
     def RemoveProperty(self,Prop:FBProperty):
         """RemoveProperty from the keyinggroup list. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pProp | Property to be removed.  |"""
+            - pProp: Property to be removed."""
         ...
     def SetActive(self,bActive:bool):
         """SetActive, activate the keying group, replacing the other keying group."""
@@ -21506,26 +18176,18 @@ class FBKeyingGroup(FBComponent):
         """Set the object type filter for and object type keying group. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pObject | Object that will be used to set the keying group object type. Use NULL to remove the filter.  |"""
+            - pObject: Object that will be used to set the keying group object type. Use NULL to remove the filter."""
         ...
     def __init__(self,Name:str,Type:FBKeyingGroupType):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Group name.  |
-        | pType | Keying group type.  |"""
+            - pName: Group name.
+            - pType: Keying group type."""
         ...
 class FBLogger(FBComponent):
     def DisableClear(self):...
@@ -21571,122 +18233,96 @@ class FBCharacterExtension(FBKeyingGroup):
         """Add TR Properties from Object. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pObj | Object to add TR properties.  |"""
+            - pObj: Object to add TR properties."""
         ...
     def GetCharacter(self)->FBCharacter:
         """Return the attached Character. 
         
         
-        ## Returns:
+        ### Returns:
         attached Character."""
         ...
     def GetExtensionObjectWithLabelName(self,LabelName:str)->FBComponent:
         """Find stored object based on label name. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pLabelName: The label name.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pLabelName | The label name.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The extension object."""
         ...
     def GetLabelNameWithExtensionObject(self,arg2:FBComponent,arg3)->str:
         """Find the label name that was used to store object pose. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pLabelName | The label name that was used to store object pose.  |
-        | pObj | The extension object.  |
-        | pReturnObjectNameIfNotFound | If the value is true, if the object is not found, pLabelName will be set to the object name; otherwise pLabelName will be set to empty string. By default the value is false.  |"""
+            - pLabelName: The label name that was used to store object pose.
+            - pObj: The extension object.
+            - pReturnObjectNameIfNotFound: If the value is true, if the object is not found, pLabelName will be set to the object name; otherwise pLabelName will be set to empty string. By default the value is false."""
         ...
     def GetMirrorExtension(self)->FBCharacterExtension:
         """Return the character extension determined by MirrorLabel. 
         
         
-        ## Returns:
+        ### Returns:
         character extension determined by MirrorLabel."""
         ...
     def GetRetargetPropertyCount(self)->int:
         """Return the total number of retarget properties. 
         
         
-        ## Returns:
+        ### Returns:
         The total number of retarget properties."""
         ...
     def GetRetargetReferenceProperty(self,PropIndex:int)->FBProperty:
         """Return the reference property of the given index. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pPropIndex: Index to query.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pPropIndex | Index to query.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Reference property of the given index."""
         ...
     def GetRetargetSourceProperty(self,PropIndex:int)->FBProperty:
         """Return the source property of the given index (the source property is the property that drives the reference property during retargeting). 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pPropIndex: Index to query.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pPropIndex | Index to query.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Source property (the property that drives the reference property during retargeting) of the given index."""
         ...
     def GetSourceExtension(self)->FBCharacterExtension:
         """Return the character extension that is used to drive this extension during retargeting. 
         
         
-        ## Returns:
+        ### Returns:
         The character extension that is used to drive this extension during retargeting."""
         ...
     def GetSourceExtensionIndex(self)->int:
         """Return the enum that indicate which extension is used as a source during retargeting, 0 is none, 1-n represent the (ith - 1)character extension in the source character. 
         
         
-        ## Returns:
+        ### Returns:
         The enum that indicate which extension is used as a source during retargeting, 0 is none, 1-n represent the (ith - 1)character extension in the source character."""
         ...
     def GetStancePose(self)->FBObjectPose:
         """Return stance pose. 
         
         
-        ## Returns:
+        ### Returns:
         stance pose."""
         ...
     def GoToStancePose(self):
@@ -21696,38 +18332,28 @@ class FBCharacterExtension(FBKeyingGroup):
         """Return true if one object in object dependency list is selected. 
         
         
-        ## Returns:
+        ### Returns:
         true if one object in object dependency list is selected."""
         ...
     def IsPropertyIncluded(self,Prop:FBProperty)->bool:
         """Return true if the property is in character extension. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pProp: Property to check.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pProp | Property to check.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         true if the property is in character extension."""
         ...
     def RemoveObjectAndProperties(self,Obj:FBComponent):
         """Remove TR Properties from Object. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pObj | Object to remove TR properties.  |"""
+            - pObj: Object to remove TR properties."""
         ...
     def RemoveRetargetSourceProperty(self,PropIndex:int):
         """Remove the source property for retargeting. 
@@ -21735,18 +18361,12 @@ class FBCharacterExtension(FBKeyingGroup):
         
         Only applicable if RetargetMode is Manually Assign. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pPropIndex: Index to remove.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pPropIndex | Index to remove.  |
-        
-        
-        
-        
-        ## Remarks:
+        ### Remarks:
         Only applicable if RetargetMode is Manually Assign."""
         ...
     def SetRetargetSourceProperty(self,PropIndex:int,SourceProp:FBProperty):
@@ -21755,19 +18375,13 @@ class FBCharacterExtension(FBKeyingGroup):
         
         Only applicable if RetargetMode is Manually Assign. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pPropIndex: Index to set.
+            - pSourceProp: Source property to set.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pPropIndex | Index to set.  |
-        | pSourceProp | Source property to set.  |
-        
-        
-        
-        
-        ## Remarks:
+        ### Remarks:
         Only applicable if RetargetMode is Manually Assign."""
         ...
     def SetSourceExtension(self,SourceExtension:FBCharacterExtension):
@@ -21776,18 +18390,12 @@ class FBCharacterExtension(FBKeyingGroup):
         
         Only applicable if RetargetMode is Assign. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pSourceExtension: The source extension to drive this extension during retargeting.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pSourceExtension | The source extension to drive this extension during retargeting.  |
-        
-        
-        
-        
-        ## Remarks:
+        ### Remarks:
         Only applicable if RetargetMode is Assign."""
         ...
     def SetSourceExtensionIndex(self,SrcExtIndex:int):
@@ -21796,18 +18404,12 @@ class FBCharacterExtension(FBKeyingGroup):
         
         Only applicable if RetargetMode is Manually Assign. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pSrcExtIndex: Enum that indicate which extension is used as a source during retargeting, 0 is none, 1-n represent the (ith - 1)character extension in the source character.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pSrcExtIndex | Enum that indicate which extension is used as a source during retargeting, 0 is none, 1-n represent the (ith - 1)character extension in the source character.  |
-        
-        
-        
-        
-        ## Remarks:
+        ### Remarks:
         Only applicable if RetargetMode is Manually Assign."""
         ...
     def UpdateStancePose(self):
@@ -21817,13 +18419,9 @@ class FBCharacterExtension(FBKeyingGroup):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Group name.  |"""
+            - pName: Group name."""
         ...
 class FBManipulator(FBComponent):
     """Manipulator class."""
@@ -21850,238 +18448,176 @@ class FBMarkerSet(FBComponent):
         """Add a marker to the marker set. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pNodeId: Id of Actor skeleton node. For hand, use the "C" index (ex:kFBSkeletonLeftThumbCIndex, kFBSkeletonLeftMiddleCIndex...)
+            - pModel: The model to be associated with the marker (Optional).
+            - pIsOriented: Set marker to be oriented or not (Optional).
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pNodeId | Id of Actor skeleton node. For hand, use the "C" index (ex:kFBSkeletonLeftThumbCIndex, kFBSkeletonLeftMiddleCIndex...)  |
-        | pModel | The model to be associated with the marker (Optional).  |
-        | pIsOriented | Set marker to be oriented or not (Optional).  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Index of the new marker."""
         ...
     def BeginTransaction(self):
         """Specify that you are about to call a group of functions. 
         
         
-        ## Remarks:
+        ### Remarks:
         This is used to speed up operations, the UI won't be refreshed until [EndTransaction()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_marker_set.html#aa9174b2a947fb2febe9bcbf8aec05637 "Specify that you are done calling a group of functions.") is called."""
         ...
     def EndTransaction(self):
         """Specify that you are done calling a group of functions. 
         
         
-        ## Remarks:
+        ### Remarks:
         This is used to speed up operations, the UI won't be refreshed until [EndTransaction()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_marker_set.html#aa9174b2a947fb2febe9bcbf8aec05637 "Specify that you are done calling a group of functions.") is called."""
         ...
     def GetLinkToModelOk(self)->bool:
         """Get the marker set association correctness. 
         
         
-        ## Returns:
+        ### Returns:
         True if all used markers are link with models."""
         ...
     def GetMarkerCount(self,NodeId:FBSkeletonNodeId=FBSkeletonNodeId.kFBSkeletonInvalidIndex)->int:
         """Get the number of marker in the set. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pNodeId: If specified, obtain the number of marker for the specific node.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pNodeId | If specified, obtain the number of marker for the specific node.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Total number of marker."""
         ...
     def GetMarkerModel(self,NodeId:FBSkeletonNodeId,MarkerIndex:int)->FBModel:
         """Get the model associated with a marker. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pNodeId: Id of Actor skeleton node.
+            - pMarkerIndex: Index of marker.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pNodeId | Id of Actor skeleton node.  |
-        | pMarkerIndex | Index of marker.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The model associated with the marker."""
         ...
     def GetMarkerName(self,NodeId:FBSkeletonNodeId,MarkerIndex:int)->str:
         """Get the name of marker at index **pMarkerIndex**. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pNodeId: Id of Actor skeleton node.
+            - pMarkerIndex: Index of marker to access.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pNodeId | Id of Actor skeleton node.  |
-        | pMarkerIndex | Index of marker to access.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Name of marker at index **pMarkerIndex**."""
         ...
     def GetMarkerOriented(self,NodeId:FBSkeletonNodeId,MarkerIndex:int)->bool:
         """Is marker orientated ? 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pNodeId: Id of Actor body node.
+            - pMarkerIndex: Index of marker to access.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pNodeId | Id of Actor body node.  |
-        | pMarkerIndex | Index of marker to access.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **True** if marker is oriented, **false** otherwise."""
         ...
     def GetMarkerROffset(self,NodeId:FBSkeletonNodeId,MarkerIndex:int,ROffset:FBVector3d):
         """Get/Set a marker rotation. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pNodeId | Id of Actor skeleton node.  |
-        | pMarkerIndex | Index of marker to access.  |
-        | pROffset | Current or new value of the marker rotation.  |"""
+            - pNodeId: Id of Actor skeleton node.
+            - pMarkerIndex: Index of marker to access.
+            - pROffset: Current or new value of the marker rotation."""
         ...
     def GetMarkerSetVisibility(self)->int:
         """Get the marker set visibility. 
         
         
-        ## Returns:
+        ### Returns:
         1 if all markers are visible, 2 if some are visible, 0 if none are visible."""
         ...
     def GetMarkerTOffset(self,NodeId:FBSkeletonNodeId,MarkerIndex:int,TOffset:FBVector3d):
         """Get/Set a marker translation. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pNodeId | Id of Actor skeleton node.  |
-        | pMarkerIndex | Index of marker to access.  |
-        | pTOffset | Current or new value of the marker translation.  |"""
+            - pNodeId: Id of Actor skeleton node.
+            - pMarkerIndex: Index of marker to access.
+            - pTOffset: Current or new value of the marker translation."""
         ...
     def GetMarkerUsed(self,NodeId:FBSkeletonNodeId,MarkerIndex:int)->bool:
         """Is marker used ? 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pNodeId: Id of Actor skeleton node.
+            - pMarkerIndex: Index of marker to access.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pNodeId | Id of Actor skeleton node.  |
-        | pMarkerIndex | Index of marker to access.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **True** if marker is used, **false** otherwise."""
         ...
     def GetReferenceModel(self)->FBModel:
         """Get the reference model associated with this marker set. 
         
         
-        ## Returns:
+        ### Returns:
         The reference model associated with the marker set."""
         ...
     def GetUsedMarkerCount(self,NodeId:FBSkeletonNodeId=FBSkeletonNodeId.kFBSkeletonInvalidIndex)->int:
         """Get the number of used marker in the set. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pNodeId: If specified, obtain the number of used marker for the specific node.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pNodeId | If specified, obtain the number of used marker for the specific node.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Total number of used marker."""
         ...
     def SetMarkerModel(self,NodeId:FBSkeletonNodeId,MarkerIndex:int,Model:FBModel):
         """Associate a model to a marker. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pNodeId | Id of Actor skeleton node.  |
-        | pMarkerIndex | Index of marker.  |
-        | pModel | Model to be associated to the marker.  |"""
+            - pNodeId: Id of Actor skeleton node.
+            - pMarkerIndex: Index of marker.
+            - pModel: Model to be associated to the marker."""
         ...
     def SetMarkerName(self,NodeId:FBSkeletonNodeId,MarkerIndex:int,MarkerName:str):
         """Set the name of marker at index **pMarkerIndex**. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pNodeId | Id of Actor skeleton node.  |
-        | pMarkerIndex | Index of marker to access.  |
-        | pMarkerName | New name to give to the marker.  |"""
+            - pNodeId: Id of Actor skeleton node.
+            - pMarkerIndex: Index of marker to access.
+            - pMarkerName: New name to give to the marker."""
         ...
     def SetMarkerOriented(self,NodeId:FBSkeletonNodeId,MarkerIndex:int,bIsOriented:bool):
         """Set marker to be oriented or not. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pNodeId | Id of Actor skeleton node.  |
-        | pMarkerIndex | Index of marker to access.  |
-        | pIsOriented | Oriented or not.  |"""
+            - pNodeId: Id of Actor skeleton node.
+            - pMarkerIndex: Index of marker to access.
+            - pIsOriented: Oriented or not."""
         ...
     def SetMarkerROffset(self,NodeId:FBSkeletonNodeId,MarkerIndex:int,ROffset:FBVector3d):
         """"""
@@ -22090,13 +18626,9 @@ class FBMarkerSet(FBComponent):
         """Set the marker set visibility. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pVisibility | True will make to markers visible, false will hide them.  |"""
+            - pVisibility: True will make to markers visible, false will hide them."""
         ...
     def SetMarkerTOffset(self,NodeId:FBSkeletonNodeId,MarkerIndex:int,TOffset:FBVector3d):
         """"""
@@ -22105,57 +18637,39 @@ class FBMarkerSet(FBComponent):
         """Set marker to be used or not. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pNodeId | Id of Actor skeleton node.  |
-        | pMarkerIndex | Index of marker to access.  |
-        | pUsed | Used or not.  |"""
+            - pNodeId: Id of Actor skeleton node.
+            - pMarkerIndex: Index of marker to access.
+            - pUsed: Used or not."""
         ...
     def SetMultipleMarkerModels(self,ModelList:FBModelList)->bool:
         """Associate multiple models to markers, matching them by name. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pModelList: A list of models to be matched with marker names.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pModelList | A list of models to be matched with marker names.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if at least one marker was matched."""
         ...
     def SetReferenceModel(self,ReferenceModel:FBModel):
         """Associate a model to a marker. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pReferenceModel | Model to be associated to the marker.  |"""
+            - pReferenceModel: Model to be associated to the marker."""
         ...
     def __init__(self,Name:str):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of new marker set.  |"""
+            - pName: Name of new marker set."""
         ...
 class FBMenuManager(FBComponent):
     """The menu manager allows access to MotionBuilder menu bar. 
@@ -22183,19 +18697,13 @@ class FBMenuManager(FBComponent):
         
         The menu path specifies the menu containing the menu item to execute. The ID specifies which menu item to execute in the menu. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pMenuPath: Path containing the menu item to execute.
+            - pMenuItemID: Unique ID of the menu item to execute.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pMenuPath | Path containing the menu item to execute.  |
-        | pMenuItemID | Unique ID of the menu item to execute.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the menu item has been executed, false otherwise. It could returns false if the menu item cannot be found or if the menu item is found but is disabled or is a separator."""
         ...
     def ExecuteMenuItemFromFullPath(self,MenuItemFullPath:str)->bool:
@@ -22210,18 +18718,12 @@ class FBMenuManager(FBComponent):
         menuManager.[ExecuteMenuItemFromFullPath](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_menu_manager.html#a25f7cdcebfbfb9745728172dee877209)( aboutBoxFullPath )
         [pyfbsdk::FBMenuManager::ExecuteMenuItemFromFullPath](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_menu_manager.html#a25f7cdcebfbfb9745728172dee877209)bool ExecuteMenuItemFromFullPath(str pMenuItemFullPath)Execute a particular menu item.
         [pyfbsdk::FBMenuManager::FBMenuManager](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_menu_manager.html#a5dc3aeb17d402ddea9274e69a58a61d1)FBMenuManager()Constructor.
-         ## Parameters:
+         ### Parameters:
+        
+            - pMenuItemFullPath: Path of the menu item to execute.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pMenuItemFullPath | Path of the menu item to execute.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the menu item has been executed, false otherwise. It could returns false if the menu item cannot be found or if the menu item is found but is disabled or is a separator."""
         ...
     def GetMenu(self,Path:str)->FBGenericMenu:
@@ -22230,94 +18732,64 @@ class FBMenuManager(FBComponent):
         
         Don't forget that most menu path already in MotionBuilder have a "&" character as the first letter of their name. You have to use the "/" character as a separator in the specified menu path (ex: "Help/&Communities"). 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pPath: Path of the menu to retrieve
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pPath | Path of the menu to retrieve  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         the [FBGenericMenu](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_generic_menu.html "A GenericMenu class.") at this path./"""
         ...
     def InsertAfter(self,MenuPath:str,BeforeMenuName:str,MenuName:str)->FBGenericMenuItem:
         """Insert a new menu at a specific path AFTER another item. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pMenuPath: Path where to insert the menu. If this is NULL (None) it will insert a new root menu.
+            - pBeforeMenuName: Name of the menu item AFTER which we will insert the new item.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pMenuPath | Path where to insert the menu. If this is NULL (None) it will insert a new root menu.  |
-        | pBeforeMenuName | Name of the menu item AFTER which we will insert the new item.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Returns the menu item corresponding to the newly inserted menu."""
         ...
     def InsertBefore(self,MenuPath:str,AfterMenuName:str,MenuName:str)->FBGenericMenuItem:
         """Insert a new menu at a specific path BEFORE another item. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pMenuPath: Path where to insert the menu. If this is NULL (None) it will insert a new root menu.
+            - pAfterMenuName: Name of the menu item BEFORE which we will insert the new item.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pMenuPath | Path where to insert the menu. If this is NULL (None) it will insert a new root menu.  |
-        | pAfterMenuName | Name of the menu item BEFORE which we will insert the new item.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Returns the menu item corresponding to the newly inserted menu."""
         ...
     def InsertFirst(self,MenuPath:str,MenuName:str)->FBGenericMenuItem:
         """Insert a new menu at the first position of a specific path. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pMenuPath: Path where to insert the menu. If this is NULL (None) it will insert a new root menu.
+            - pMenuName: Name (Caption) of the newly inserted menu.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pMenuPath | Path where to insert the menu. If this is NULL (None) it will insert a new root menu.  |
-        | pMenuName | Name (Caption) of the newly inserted menu.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Returns the menu item corresponding to the newly inserted menu."""
         ...
     def InsertLast(self,MenuPath:str,MenuName:str)->FBGenericMenuItem:
         """Insert a new menu at the last position of a specific path. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pMenuPath: Path where to insert the menu. If this is NULL (None) it will insert a new root menu.
+            - pMenuName: Name (Caption) of the newly inserted menu.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pMenuPath | Path where to insert the menu. If this is NULL (None) it will insert a new root menu.  |
-        | pMenuName | Name (Caption) of the newly inserted menu.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Returns the menu item corresponding to the newly inserted menu."""
         ...
     def IsItemEnable(self,MenuPath:str,ItemId:int)->bool:
@@ -22326,19 +18798,13 @@ class FBMenuManager(FBComponent):
         
         The menu path specifies the menu where we find the item to be enabled/disabled. The Id specifies which item in the menu. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pMenuPath: Path where to find the menu to check
+            - pItemId: Id of the item to check.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pMenuPath | Path where to find the menu to check  |
-        | pItemId | Id of the item to check.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Is the item enable or not."""
         ...
     def SetItemEnable(self,MenuPath:str,ItemId:int,bEnable:bool):
@@ -22347,15 +18813,11 @@ class FBMenuManager(FBComponent):
         
         The menu path specifies the menu where we find the item to be enabled/disabled. The Id specifies which item in the menu. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pMenuPath | Path where to find the menu to enable/disable  |
-        | pItemId | Id of the item in the menu to disable.  |
-        | pEnable | Enable (true) or disable (false) a menu item.  |"""
+            - pMenuPath: Path where to find the menu to enable/disable
+            - pItemId: Id of the item in the menu to disable.
+            - pEnable: Enable (true) or disable (false) a menu item."""
         ...
     def __init__(self):
         """Constructor. 
@@ -22406,13 +18868,9 @@ class FBModelOpticalAdvanced(FBComponent):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pOptical | Optical model.  |"""
+            - pOptical: Optical model."""
         ...
 class FBModelTemplate(FBComponent):
     """Model template class. 
@@ -22449,14 +18907,10 @@ class FBModelVertexData(FBComponent):
         
         Must be called between Enable/DisableOGLVertexData function calls. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pSubPatchIndex | Index of the sub patch to be drawn.  |
-        | pWireFrame | Draw wire frame if true.  |"""
+            - pSubPatchIndex: Index of the sub patch to be drawn.
+            - pWireFrame: Draw wire frame if true."""
         ...
     def DrawSubRegion(self,SubRegionIndex:int,bWireFrame:bool=False):
         """Draw the specified sub region. 
@@ -22464,39 +18918,27 @@ class FBModelVertexData(FBComponent):
         
         Must be called between Enable/DisableOGLVertexData function calls. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pSubRegionIndex | Index of the sub region to be drawn.  |
-        | pWireFrame | Draw wire frame if true.  |"""
+            - pSubRegionIndex: Index of the sub region to be drawn.
+            - pWireFrame: Draw wire frame if true."""
         ...
     def EnableOGLUVSet(self,TextureMapping:FBTextureMapping=FBTextureMapping.kFBTextureMappingUV,UVSet:str|None=None):
         """Enable (Setup) OpenGL UV set array. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pTextureMapping | Texture Mapping Mode.  |
-        | pUVSet | UV Set name if pTextureMapping is kFBTextureMappingUV, otherwise ignored.  |"""
+            - pTextureMapping: Texture Mapping Mode.
+            - pUVSet: UV Set name if pTextureMapping is kFBTextureMappingUV, otherwise ignored."""
         ...
     def EnableOGLVertexData(self,bAfterDeform:bool=True):
         """Enable (Setup) OpenGL Vertex Array (Pos & Normal). 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pAfterDeform | Unused parameter.  |"""
+            - pAfterDeform: Unused parameter."""
         ...
     def GetIndexArray(self)->list:
         """Return the index array. 
@@ -22504,7 +18946,7 @@ class FBModelVertexData(FBComponent):
         
         For the size of the array, see [GetIndexArraySize()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_model_vertex_data.html#ad396db9f24aa2ebb4e5eed8aa613281e "Return the index array size (see GetIndexArray())."). 
         
-        ## Returns:
+        ### Returns:
         (C++) The index array pointer. (Python) The index array as a list."""
         ...
     def GetIndexArraySize(self)->int:
@@ -22513,7 +18955,7 @@ class FBModelVertexData(FBComponent):
         
         It will sum the index size of each sub patch (see [GetSubPatchIndexSize()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_model_vertex_data.html#a3d6bf9721c1049b4b0b73d9d1a9cb790 "Return the size of the indexes for the specified sub patch (see GetIndexArray()).")). 
         
-        ## Returns:
+        ### Returns:
         The index array size."""
         ...
     def GetIndexArrayVBOId(self)->int:...
@@ -22521,79 +18963,55 @@ class FBModelVertexData(FBComponent):
         """Return the number of sub patches. 
         
         
-        ## Returns:
+        ### Returns:
         The number of sub patches."""
         ...
     def GetSubPatchIndexOffset(self,SubPatchIndex:int)->int:
         """Return the start offset of the indexes for the specified sub patch (see [GetIndexArray()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_model_vertex_data.html#ac0ede519b86e20e84f439aa4a8f150c9 "Return the index array.")). 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pSubPatchIndex: Index of the sub patch to be queried.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pSubPatchIndex | Index of the sub patch to be queried.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The start offset of the indexes for the specified sub patch, -1 if the specific sub path index is invalid."""
         ...
     def GetSubPatchIndexSize(self,SubPatchIndex:int)->int:
         """Return the size of the indexes for the specified sub patch (see [GetIndexArray()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_model_vertex_data.html#ac0ede519b86e20e84f439aa4a8f150c9 "Return the index array.")). 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pSubPatchIndex: Index of the sub patch to be queried.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pSubPatchIndex | Index of the sub patch to be queried.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The size of the indexes for the specified sub patch, -1 if the specific sub path index is invalid."""
         ...
     def GetSubPatchMaterial(self,SubPatchIndex:int)->FBMaterial:
         """Return the mapped material for the specified sub patch. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pSubPatchIndex: Index of the sub patch to be queried.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pSubPatchIndex | Index of the sub patch to be queried.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The mapped material for the specified sub patch, the default material if the specific sub path index is invalid."""
         ...
     def GetSubPatchMaterialId(self,SubPatchIndex:int)->int:
         """Return the mapped material ID for the specified sub patch. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pSubPatchIndex: Index of the sub patch to be queried.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pSubPatchIndex | Index of the sub patch to be queried.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The mapped material ID for the specified sub patch, -1 if the specific sub path index is invalid."""
         ...
     def GetSubPatchPrimitiveType(self,arg2)->tuple:
@@ -22602,63 +19020,45 @@ class FBModelVertexData(FBComponent):
         
         Most of the time, kFBGeometry\_TRIANGLES will be returned. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pSubPatchIndex: Index of the sub patch to be queried.
+            - pIsOptimized: (C++ only) Out parameter, return true if the specified sub patch is optimized for fast rendering, custom shader & render should use the optimized sub patch only.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pSubPatchIndex | Index of the sub patch to be queried.  |
-        | pIsOptimized | (C++ only) Out parameter, return true if the specified sub patch is optimized for fast rendering, custom shader & render should use the optimized sub patch only.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         (C++ only) The primitive type of the queried sub patch. (Python only) A tuple with 2 values: ([FBGeometryPrimitiveType](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_geometry_primitive_type.html) return value, pIsOptimized)."""
         ...
     def GetSubRegionCount(self)->int:
         """Return the number of sub regions (mapping with different materials). 
         
         
-        ## Returns:
+        ### Returns:
         The number of sub regions."""
         ...
     def GetSubRegionMaterial(self,SubRegionIndex:int)->FBMaterial:
         """Return the specified sub region's material. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pSubRegionIndex: Index of the sub region to be queried.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pSubRegionIndex | Index of the sub region to be queried.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The sub region's material, the default material if the specific sub region index is invalid."""
         ...
     def GetUVSetArray(self,TextureMapping:FBTextureMapping=FBTextureMapping.kFBTextureMappingUV,UVSet:str|None=None)->list:
         """Return the UV Set array for the specified texture mapping mode. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTextureMapping: Texture mapping mode to be queried.
+            - pUVSet: UV Set name to be queried if pTextureMapping is kFBTextureMappingUV, otherwise ignored.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTextureMapping | Texture mapping mode to be queried.  |
-        | pUVSet | UV Set name to be queried if pTextureMapping is kFBTextureMappingUV, otherwise ignored.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         (C++) The UV Set array pointer. (Python) The UV Set array as a list. // The following C++ snippet show how to deal with the UV mapping UV Set array pointer returned.
         void\* lUVSetArray = lModelVertexData.GetUVSetArray();
         if( lUVSetArray )
@@ -22684,38 +19084,26 @@ class FBModelVertexData(FBComponent):
         """Return the UV Set array format. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTextureMapping: Unused parameter.
+            - pUVSet: Unused parameter.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTextureMapping | Unused parameter.  |
-        | pUVSet | Unused parameter.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The UV Set array format."""
         ...
     def GetUVSetUVCount(self,TextureMapping:FBTextureMapping=FBTextureMapping.kFBTextureMappingUV,UVSet:str|None=None)->int:
         """Return the number of UVs in the UV Set for the specified texture mapping mode. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTextureMapping: Texture mapping mode to be queried.
+            - pUVSet: UV Set name to be queried if pTextureMapping is kFBTextureMappingUV, otherwise ignored.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTextureMapping | Texture mapping mode to be queried.  |
-        | pUVSet | UV Set name to be queried if pTextureMapping is kFBTextureMappingUV, otherwise ignored.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The number of UVs in the UV Set for the specified texture mapping mode."""
         ...
     def GetUVSetVBOId(self,arg2:FBTextureMapping|None=None,arg3:str|None=None)->int:...
@@ -22723,40 +19111,28 @@ class FBModelVertexData(FBComponent):
         """Return the UV Set Buffer Object (VBO) offset for the specified texture mapping mode. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTextureMapping: Texture mapping mode to be queried.
+            - pUVSet: UV Set name to be queried if pTextureMapping is kFBTextureMappingUV, otherwise ignored.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTextureMapping | Texture mapping mode to be queried.  |
-        | pUVSet | UV Set name to be queried if pTextureMapping is kFBTextureMappingUV, otherwise ignored.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The UV Set VBO offset (C++: as a pointer, Python: as a kReference)."""
         ...
     def GetVertexArray(self,ArrayId:FBGeometryArrayID,bAfterDeform:bool=True)->list:
         """Return the vertex array for the specified vertex array Id. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pArrayId: Vertex array Id type to be queried.
+            - pAfterDeform: True to query the deformed position or normal vertex array (model must be deformable and deformation must occur in CPU), false to query the original vertex array.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pArrayId | Vertex array Id type to be queried.  |
-        | pAfterDeform | True to query the deformed position or normal vertex array (model must be deformable and deformation must occur in CPU), false to query the original vertex array.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         (C++) The vertex array pointer. (Python) The vertex array as a list. Deformed position & normal vertex arrays could be NULL if one has not requested the mapping vertex array on CPU. 
-        ## Note:
+        ### Note:
         Use [VertexArrayMappingRequest()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_model_vertex_data.html#ad98d06b4eb79ec2b2218f03be0b13469 "Request deformed vertex array mapping on CPU.") to toggle CPU / GPU skinning per model when necessary. // The following C++ snippet show how to deal with the Point vertex array pointer returned.
         void\* lVertexArray = lModelVertexData.GetVertexArray();
         if( lVertexArray )
@@ -22782,39 +19158,27 @@ class FBModelVertexData(FBComponent):
         
         In order to build a valid VBO buffer for accelerated rendering, those control points with multiple attribute data must be duplicated. This function returns the duplicated vertices' ID mapping from [FBModel::ModelVertexData](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_model.html#a7526d77469f5aac1a496c9cafa2aaf1a "Read Only Property: ModelVertexData for the model.") vertex array to its FBModel::TessellatedMesh vertex array. Note those duplicated vertices are always appended after the original vertex array. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pDuplicatedVertexCount: only) pDuplicatedVertexCount Out parameter, return the count of those duplicated vertices.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pDuplicatedVertexCount | only) pDuplicatedVertexCount Out parameter, return the count of those duplicated vertices.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         (C++) A pointer to the original vertex ID mapping for those duplicated vertices. (Python) A list containing the vertex ID mapping for those duplicated vertices."""
         ...
     def GetVertexArrayType(self,ArrayId:FBGeometryArrayID,bAfterDeform:bool=True)->FBGeometryArrayElementType:
         """Return the vertex array format for the specified array Id. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pArrayId: Vertex array Id type to be queried.
+            - pAfterDeform: Unused parameter.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pArrayId | Vertex array Id type to be queried.  |
-        | pAfterDeform | Unused parameter.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The vertex array format for the specified array Id. 
-        ## Note:
+        ### Note:
         Use [VertexArrayMappingRequest()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_model_vertex_data.html#ad98d06b4eb79ec2b2218f03be0b13469 "Request deformed vertex array mapping on CPU.") to toggle CPU / GPU skinning per model when necessary."""
         ...
     def GetVertexArrayVBOId(self,arg2:FBGeometryArrayID,arg3=None)->int:...
@@ -22822,35 +19186,29 @@ class FBModelVertexData(FBComponent):
         """Return the Vertex Buffer Object (VBO) offset for the specified vertex array Id. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pArrayId: Vertex array Id type to be queried. Only position or normal vertex array Id types are available.
+            - pAfterDeform: True to query the deformed position or normal vertex array (model must be deformable and deformation must occur in CPU), false to query the original vertex array.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pArrayId | Vertex array Id type to be queried. Only position or normal vertex array Id types are available.  |
-        | pAfterDeform | True to query the deformed position or normal vertex array (model must be deformable and deformation must occur in CPU), false to query the original vertex array.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The vertex array VBO offset (C++: as a pointer, Python: as a kReference). 
-        ## Note:
+        ### Note:
         Use [VertexArrayMappingRequest()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_model_vertex_data.html#ad98d06b4eb79ec2b2218f03be0b13469 "Request deformed vertex array mapping on CPU.") to toggle CPU / GPU skinning per model when necessary."""
         ...
     def GetVertexCount(self)->int:
         """Return the number of vertices. 
         
         
-        ## Returns:
+        ### Returns:
         The number of vertices."""
         ...
     def IsDeformable(self)->bool:
         """Return true if the model is deformable. 
         
         
-        ## Returns:
+        ### Returns:
         True if the model is deformable, false otherwise."""
         ...
     def IsDrawable(self)->bool:
@@ -22859,7 +19217,7 @@ class FBModelVertexData(FBComponent):
         
         Returns false if e.g., deformed vertex data has not been computed for this frame (thus not ready to be drawn), or if model should be hidden when Z-Depth selection tool is active. 
         
-        ## Returns:
+        ### Returns:
         True if the model should be drawn, false otherwise."""
         ...
     def PopZDepthClipOverride(self):
@@ -22886,7 +19244,7 @@ class FBModelVertexData(FBComponent):
         
         Model's deformation computation could be executed on GPU, and thus the deformed vertex data will reside in GPU memory only by default. Calling this function [VertexArrayMappingRequest()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_model_vertex_data.html#ad98d06b4eb79ec2b2218f03be0b13469 "Request deformed vertex array mapping on CPU.") will ensure the deformed vertex array to be always mapped to CPU memory. 
         
-        ## Note:
+        ### Note:
         : This function should be called at least once before GetVertexArray(pArrayId, true) to give engine chance to process request properly."""
         ...
 class FBModuleManager(FBComponent):
@@ -22900,43 +19258,31 @@ class FBModuleManager(FBComponent):
         """Returns the loaded module names found in the \*.mod files parsed. 
         
         
-        ## Returns:
+        ### Returns:
         The loaded module names."""
         ...
     def GetModuleModFilePath(self,ModuleName:str)->str:
         """Returns the \*.mod file path containing the definition of the provided loaded module name. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pModuleName: The loaded module name to query.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pModuleName | The loaded module name to query.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The \*.mod file path."""
         ...
     def GetModulePath(self,ModuleName:str)->str:
         """Returns the module path associated with the provided loaded module name. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pModuleName: The loaded module name to query.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pModuleName | The loaded module name to query.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The module path."""
         ...
     def GetModuleSearchPaths(self)->FBStringList:
@@ -22945,25 +19291,19 @@ class FBModuleManager(FBComponent):
         
         By default, there are two module search paths: 
         
-        ## Returns:
+        ### Returns:
         The module search paths."""
         ...
     def GetModuleVersion(self,ModuleName:str)->str:
         """Returns the module version associated with the provided loaded module name. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pModuleName: The loaded module name to query.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pModuleName | The loaded module name to query.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The module version."""
         ...
     def __init__(self):...
@@ -22991,72 +19331,60 @@ class FBMotionBlend(FBComponent):
         """Add a new Edit in the Motion Blend. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pName: The new Edit name. If unset, the name "Edit" will be set.
+            - pSetAsCurrent: True (default) to set the new Edit as the current Edit to be used in the Motion Blend.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pName | The new Edit name. If unset, the name "Edit" will be set.  |
-        | pSetAsCurrent | True (default) to set the new Edit as the current Edit to be used in the Motion Blend.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The new [FBMotionBlendEdit](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_motion_blend_edit.html "Motion Blend Edit class.") object if successful, nullptr (C++) or None (Python) otherwise."""
         ...
     def GetCurrentEdit(self)->FBMotionBlendEdit:
         """Get the current Edit used in the Motion Blend. 
         
         
-        ## Returns:
+        ### Returns:
         The current [FBMotionBlendEdit](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_motion_blend_edit.html "Motion Blend Edit class.") object if successful, nullptr (C++) or None (Python) otherwise."""
         ...
     def GetEdit(self,Index:int)->FBMotionBlendEdit:
         """Get the Edit associated to the input index. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: The index of the Edit to get.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | The index of the Edit to get.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The [FBMotionBlendEdit](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_motion_blend_edit.html "Motion Blend Edit class.") object if successful, nullptr (C++) or None (Python) otherwise."""
         ...
     def GetEditCount(self)->int:
         """Get the number of Edits in the Motion Blend. 
         
         
-        ## Returns:
+        ### Returns:
         The number of Edits in the Motion Blend, or -1 in case of an error."""
         ...
     def GetForceTime(self)->bool:
         """Get the "Force Time" state. 
         
         
-        ## Returns:
+        ### Returns:
         True if the Motion Blend snaps the Timeline indicator in place so that it cannot be moved by dragging, false otherwise."""
         ...
     def GetSnapOnFrame(self)->bool:
         """Get the "Snap On Frame" state. 
         
         
-        ## Returns:
+        ### Returns:
         True if the Motion Blend forces the start and end times of all cuts and poses to snap to the nearest frame, false otherwise."""
         ...
     def GetSyncTakeEditStartEnd(self)->bool:
         """Get the "Sync Take/Edit Start & End" state. 
         
         
-        ## Returns:
+        ### Returns:
         True if the Take start/end times sync with the Take start/end times stored in the Motion Blend Edit selected, false otherwise."""
         ...
     def RemoveAllEdits(self)->bool:
@@ -23065,97 +19393,67 @@ class FBMotionBlend(FBComponent):
         
         A default empty Edit is then created. 
         
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise."""
         ...
     def RemoveEdit(self,Edit:FBMotionBlendEdit)->bool:
         """Remove an Edit from the Motion Blend. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pEdit: The [FBMotionBlendEdit](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_motion_blend_edit.html "Motion Blend Edit class.") object to remove.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pEdit | The [FBMotionBlendEdit](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_motion_blend_edit.html "Motion Blend Edit class.") object to remove.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise."""
         ...
     def SetCurrentEdit(self,Edit:FBMotionBlendEdit)->bool:
         """Set the current Edit to be used in the Motion Blend. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pEdit: The [FBMotionBlendEdit](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_motion_blend_edit.html "Motion Blend Edit class.") object to set as the current Edit.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pEdit | The [FBMotionBlendEdit](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_motion_blend_edit.html "Motion Blend Edit class.") object to set as the current Edit.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise."""
         ...
     def SetForceTime(self,bForceTime:bool)->bool:
         """Set the "Force Time" state. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pForceTime: True to snap the Timeline indicator in place so that it cannot be moved by dragging, false otherwise.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pForceTime | True to snap the Timeline indicator in place so that it cannot be moved by dragging, false otherwise.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise."""
         ...
     def SetSnapOnFrame(self,bSnap:bool)->bool:
         """Set the "Snap On Frame" state. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pSnap: True to force the start and end times of all cuts and poses to snap to the nearest frame, false otherwise.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pSnap | True to force the start and end times of all cuts and poses to snap to the nearest frame, false otherwise.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise."""
         ...
     def SetSyncTakeEditStartEnd(self,bSync:bool)->bool:
         """Set the "Sync Take/Edit Start & End" state. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pSync: True to sync the Take start/end times with the Take start/end times stored in the Motion Blend Edit selected, false otherwise.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pSync | True to sync the Take start/end times with the Take start/end times stored in the Motion Blend Edit selected, false otherwise.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise."""
         ...
     def __init__(self):...
@@ -23182,96 +19480,74 @@ class FBMotionBlendEdit(FBComponent):
         """Clear the Edit. 
         
         
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise."""
         ...
     def GetKeepActive(self)->bool:
         """Get the "Keep Edit Active" state. 
         
         
-        ## Returns:
+        ### Returns:
         True if the result of the Edit is shown while working on other Edits, false otherwise."""
         ...
     def GetName(self)->str:
         """Get the Edit name. 
         
         
-        ## Returns:
+        ### Returns:
         The Edit name."""
         ...
     def GetShowAllGhosts(self)->bool:
         """Get the "Show All Ghosts" state. 
         
         
-        ## Returns:
+        ### Returns:
         True if all Edit ghosts are displayed in the Viewer window, false otherwise."""
         ...
     def SetKeepActive(self,bKeepActive:bool)->bool:
         """Set the "Keep Edit Active" state. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pKeepActive: True to allow the result of the Edit to be shown while working on other Edits, false otherwise.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pKeepActive | True to allow the result of the Edit to be shown while working on other Edits, false otherwise.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise."""
         ...
     def SetName(self,Name:str)->bool:
         """Set the Edit name. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pName: The new name.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pName | The new name.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise."""
         ...
     def SetShowAllGhosts(self,bShow:bool)->bool:
         """Set the "Show All Ghosts" state. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pShow: True to display all of the Edit ghosts in the Viewer window, false to hide them all.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pShow | True to display all of the Edit ghosts in the Viewer window, false to hide them all.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise."""
         ...
     def __init__(self,Name:str|None=None,bSetAsCurrent:bool=True):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | The new Edit name. If unset, the name "Edit" will be set.  |
-        | pSetAsCurrent | True (default) to set the new Edit as the current Edit to be used in the Motion Blend.  |"""
+            - pName: The new Edit name. If unset, the name "Edit" will be set.
+            - pSetAsCurrent: True (default) to set the new Edit as the current Edit to be used in the Motion Blend."""
         ...
 class FBMotionClip(FBComponent):
     """Motion class. 
@@ -23293,13 +19569,9 @@ class FBMotionClip(FBComponent):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pFileName | The complete file path of the media file to access.  |"""
+            - pFileName: The complete file path of the media file to access."""
         ...
 class FBMotionFileExportOptions(FBComponent):
     """Customize motion file exporting."""
@@ -23317,7 +19589,7 @@ class FBMotionFileExportOptions(FBComponent):
         
         This is the file path provided with the constructor or with the SetFilePath method. 
         
-        ## Returns:
+        ### Returns:
         The file path for the motion file(s) to create."""
         ...
     def GetTakeCount(self)->int:
@@ -23326,146 +19598,104 @@ class FBMotionFileExportOptions(FBComponent):
         
         : the take count in the scene). 
         
-        ## Returns:
+        ### Returns:
         The take count that can be exported."""
         ...
     def GetTakeFilePath(self,TakeIndex:int)->str:
         """Get the export file path for given take. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTakeIndex: Index of take to get the file path.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTakeIndex | Index of take to get the file path.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The file path of the given take. Returns nullptr (None in Python) if the operation cannot be performed. 
-        ## Remarks:
+        ### Remarks:
         Changing the value of the OneTakePerFile and/or AddPrefix properties could affect the value returned."""
         ...
     def GetTakeFrameRate(self,TakeIndex:int)->float:
         """Get the actual frame rate of the given take as a double, useful when you have a custom frame rate. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTakeIndex: Index of take to get the frame rate.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTakeIndex | Index of take to get the frame rate.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The frame rate of the given take."""
         ...
     def GetTakeName(self,TakeIndex:int)->str:
         """Get the take name of the given take. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTakeIndex: Index of take to get the name.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTakeIndex | Index of take to get the name.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The name of the given take. Returns nullptr (None in Python) if the operation cannot be performed."""
         ...
     def GetTakeSelect(self,TakeIndex:int)->bool:
         """Get the export selection status of the given take. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTakeIndex: Index of take to get the selection status.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTakeIndex | Index of take to get the selection status.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True is the take will be exported, false otherwise."""
         ...
     def GetTakeStart(self,TakeIndex:int)->FBTime:
         """Get the start time of the given take. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTakeIndex: Index of take to get the start time.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTakeIndex | Index of take to get the start time.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The start time of the given take."""
         ...
     def GetTakeStop(self,TakeIndex:int)->FBTime:
         """Get the stop time of the given take. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTakeIndex: Index of take to get the stop time.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTakeIndex | Index of take to get the stop time.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The stop time of the given take."""
         ...
     def GetTakeTimeMode(self,TakeIndex:int)->FBTimeMode:
         """Get the time mode of the given take. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTakeIndex: Index of take to get the time mode.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTakeIndex | Index of take to get the time mode.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The time mode of the given take. 
-        ## Remarks:
+        ### Remarks:
         Use GetTakeFrameRate if you have a custom time mode to get the actual frame rate."""
         ...
     def IsValid(self)->bool:
         """Is this object valid? 
         
         
-        ## Returns:
+        ### Returns:
         True if the provided file path for the motion file(s) to create is valid and if the take info is up to date with the scene, false otherwise. 
-        ## Remarks:
+        ### Remarks:
         Call the SetFilePath method to provide a valid file path. 
         
         
@@ -23477,7 +19707,7 @@ class FBMotionFileExportOptions(FBComponent):
         
         Useful to call when the scene takes changed since the creation of this object. 
         
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise."""
         ...
     def SetFilePath(self,FilePath:str)->bool:
@@ -23486,41 +19716,29 @@ class FBMotionFileExportOptions(FBComponent):
         
         When the OneTakePerFile property is true, the default takes file path will be based on this file path. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pFilePath: The file path for the motion file(s) to create.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pFilePath | The file path for the motion file(s) to create.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the provided file path is valid, false otherwise. 
-        ## Remarks:
+        ### Remarks:
         All the takes file path will be updated after calling this method."""
         ...
     def SetTakeFilePath(self,TakeIndex:int,FilePath:str)->bool:
         """Set the export file path for given take. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTakeIndex: Index of take to set the file path.
+            - pFilePath: The file path of the given take.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTakeIndex | Index of take to set the file path.  |
-        | pFilePath | The file path of the given take.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise. 
-        ## Remarks:
+        ### Remarks:
         Changing the value of the OneTakePerFile and/or AddPrefix properties could reset the value set. 
         
         
@@ -23530,41 +19748,29 @@ class FBMotionFileExportOptions(FBComponent):
         """Set the export selection status of the given take. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTakeIndex: Index of take to set the selection status.
+            - pSelect: True if the take should be exported, false otherwise.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTakeIndex | Index of take to set the selection status.  |
-        | pSelect | True if the take should be exported, false otherwise.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise."""
         ...
     def SetTakeTimeMode(self,TakeIndex:int,TimeMode:FBTimeMode,CustomFrameRate:float=30.0)->bool:
         """Set the time mode of the given take. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTakeIndex: Index of take to set the time mode.
+            - pTimeMode: Time mode to set.
+            - pCustomFrameRate: Custom frame rate if pTimeMode is set to kFBTimeModeCustom, unused otherwise (default is 30.0).
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTakeIndex | Index of take to set the time mode.  |
-        | pTimeMode | Time mode to set.  |
-        | pCustomFrameRate | Custom frame rate if pTimeMode is set to kFBTimeModeCustom, unused otherwise (default is 30.0).  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise. 
-        ## Remarks:
+        ### Remarks:
         If the OneTakePerFile property is false, changing the time mode/frame rate for one take will modify the time mode/frame rate of all the other takes at once."""
         ...
     def __init__(self,FilePath:str):
@@ -23573,13 +19779,9 @@ class FBMotionFileExportOptions(FBComponent):
         
         Create an [FBMotionFileExportOptions](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_motion_file_export_options.html "Customize motion file exporting.") object to be used when exporting a motion file. Pass the file path for the motion file(s) to create, modify the options and then call the file export process. Only the FBX file format is supported for now. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pFilePath | The file path for the motion file(s) to create.  |"""
+            - pFilePath: The file path for the motion file(s) to create."""
         ...
 class FBMotionFileImportOptions(FBComponent):
     """Customize motion file loading."""
@@ -23621,240 +19823,166 @@ class FBMotionFileImportOptions(FBComponent):
         """Return the take count in the file to be loaded. 
         
         
-        ## Returns:
+        ### Returns:
         Take count 
-        ## Warning:
+        ### Warning:
         You need to use an appropriate constructor with the file path to be able to get the take information."""
         ...
     def GetTakeName(self,TakeIndex:int)->str:
         """Get the take name. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTakeIndex: Index of take to get the name.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTakeIndex | Index of take to get the name.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Take name"""
         ...
     def GetTakeSamples(self,TakeIndex:int)->int:
         """Return the number of samples. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTakeIndex: Index of take to get the samples count.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTakeIndex | Index of take to get the samples count.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Number of samples"""
         ...
     def GetTakeSamplingRate(self,TakeIndex:int)->float:
         """Return the actual sampling rate as a double, useful when you have a custom sampling rate. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTakeIndex: Index of take to get the sampling rate
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTakeIndex | Index of take to get the sampling rate  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Sample rate"""
         ...
     def GetTakeSamplingRateMode(self,TakeIndex:int)->FBTimeMode:
         """Return the sampling rate mode. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTakeIndex: Index of take to get the sampling rate mode
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTakeIndex | Index of take to get the sampling rate mode  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Sample rate mode 
-        ## Remarks:
+        ### Remarks:
         Use GetTakeSamplingRate if you have a custom sampling rate to get the actual rate."""
         ...
     def GetTakeSelect(self,TakeIndex:int)->bool:
         """Return true if the take will be loaded. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTakeIndex: Index of take.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTakeIndex | Index of take.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True is the take will be loaded"""
         ...
     def GetTakeStart(self,TakeIndex:int)->FBTime:
         """Return the Take Start time. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTakeIndex: Index of take to get the start time.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTakeIndex | Index of take to get the start time.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Start time of the take"""
         ...
     def GetTakeStop(self,TakeIndex:int)->FBTime:
         """Return the Take Stop time. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTakeIndex: Index of take to get the stop time.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTakeIndex | Index of take to get the stop time.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Stop time of the take"""
         ...
     def SetTakeName(self,TakeIndex:int,Name:str):
         """Set the take name. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pTakeIndex | Index of take to set.  |
-        | pName | Take name to set  |"""
+            - pTakeIndex: Index of take to set.
+            - pName: Take name to set"""
         ...
     def SetTakeSamples(self,TakeIndex:int,SamplesCount:int):
         """Set the number of samples for a particular take. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTakeIndex: Index of take to set.
+            - pSamplesCount: Number of samples
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTakeIndex | Index of take to set.  |
-        | pSamplesCount | Number of samples  |
-        
-        
-        
-        
-        ## Remarks:
+        ### Remarks:
         Must be set to a value bigger than 0 and smaller than the number of samples in the file. The stop time of the motion will be changed based on the new samples count."""
         ...
     def SetTakeSamplingRate(self,TakeIndex:int,TimeMode:FBTimeMode,CustomSamplingRate:float=30.0):
         """Set the sampling rate for a particular take. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTakeIndex: Index of take to set.
+            - pTimeMode: Time mode to set.
+            - pCustomSamplingRate: Custom sampling rate if pTimeMode is set to kFBTimeModeCustom, unused otherwise (default is 30.0)
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTakeIndex | Index of take to set.  |
-        | pTimeMode | Time mode to set.  |
-        | pCustomSamplingRate | Custom sampling rate if pTimeMode is set to kFBTimeModeCustom, unused otherwise (default is 30.0)  |
-        
-        
-        
-        
-        ## Remarks:
+        ### Remarks:
         Changing the sampling rate will change the stop time of the motion."""
         ...
     def SetTakeSelect(self,TakeIndex:int,bSelect:bool):
         """Indicate if the take will be loaded. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pTakeIndex | Index of take to set.  |
-        | pSelect | Set to true if the take should be loaded.  |"""
+            - pTakeIndex: Index of take to set.
+            - pSelect: Set to true if the take should be loaded."""
         ...
     def SetTakeStart(self,TakeIndex:int,StartTime:FBTime):
         """Set the Take Start time. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTakeIndex: Index of take to set.
+            - pStartTime: Time of the first frame of the take
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTakeIndex | Index of take to set.  |
-        | pStartTime | Time of the first frame of the take  |
-        
-        
-        
-        
-        ## Remarks:
+        ### Remarks:
         Changing the start time of the take will also change the stop time, since the duration is constant. Please change the samples count to change the length of the motion."""
         ...
     def SetTakeStop(self,TakeIndex:int,StopTime:FBTime):
         """Set the Take Stop time. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTakeIndex: Index of take to set.
+            - pStopTime: Time of the last frame of the take
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTakeIndex | Index of take to set.  |
-        | pStopTime | Time of the last frame of the take  |
-        
-        
-        
-        
-        ## Remarks:
+        ### Remarks:
         Changing the stop time of the take will also change the start time, since the duration is constant. Please change the samples count to change the length of the motion."""
         ...
     def __init__(self,StringList:FBStringList):
@@ -23863,13 +19991,9 @@ class FBMotionFileImportOptions(FBComponent):
         
         Create an [FBMotionFileImportOptions](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_motion_file_import_options.html "Customize motion file loading.") object to be used when importing a motion file. Pass file paths to get the appropriate information about those files, modify the options and then call the file import process. Not all options are usable at the same time, some of them are for specific motion type. You can see the valid configuration by looking at the motion file dialog (accessible from File/Motion File Import...). 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pStringList | The client needs to pass a list of files path to load to collect the motion file information.  |"""
+            - pStringList: The client needs to pass a list of files path to load to collect the motion file information."""
         ...
 class FBNamespace(FBComponent):
     """Objects Containing class. 
@@ -23888,13 +20012,9 @@ class FBNamespace(FBComponent):
         """Get the namespace content object count (Not Recursive). 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | content object index to query. return content object inside this namespace (not recursive)  |"""
+            - pIndex: content object index to query. return content object inside this namespace (not recursive)"""
         ...
     def GetContentCount(self)->int:
         """Get the namespace content objects count (Not Recursive). 
@@ -23906,17 +20026,13 @@ class FBNamespace(FBComponent):
         """Get List of the namespace content. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pContentList | the list of content to return.  |
-        | pModificationFlags | bitwise combination of kFBConnectionSrcObjectModified, kFBConnectionDstObjectModified, kFBConnectionSrcPropertyModified, kFBConnectionDstPropertyModified flags. kFBAllContent means all the content.  |
-        | pRecursive | **True** only work on the direct children level namespace, otherwise will work on the whole children namespace hierarchy recursively.  |
-        | pTypeInfo | the typeInfo of the type of interested object, 0 for all the objects.  |
-        | pExactTypeMatch | if **True**, the derived typeInfo won't be considered (For example, [FBCamera](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_camera.html "Creates custom cameras and manages system cameras.") won't be considered when passing [FBModel::TypeInfo](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html#a9b39fba51413fa925a0d94d2feb13bf9 "Contains the Type information of the object.")).  |"""
+            - pContentList: the list of content to return.
+            - pModificationFlags: bitwise combination of kFBConnectionSrcObjectModified, kFBConnectionDstObjectModified, kFBConnectionSrcPropertyModified, kFBConnectionDstPropertyModified flags. kFBAllContent means all the content.
+            - pRecursive: **True** only work on the direct children level namespace, otherwise will work on the whole children namespace hierarchy recursively.
+            - pTypeInfo: the typeInfo of the type of interested object, 0 for all the objects.
+            - pExactTypeMatch: if **True**, the derived typeInfo won't be considered (For example, [FBCamera](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_camera.html "Creates custom cameras and manages system cameras.") won't be considered when passing [FBModel::TypeInfo](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html#a9b39fba51413fa925a0d94d2feb13bf9 "Contains the Type information of the object."))."""
         ...
     def __init__(self,SingleLevelNamespace:str,ParentNSObj:FBNamespace):
         """Constructor. 
@@ -23924,14 +20040,10 @@ class FBNamespace(FBComponent):
         
         Create a new direct children namespace object 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pSingleLevelNamespace | [FBNamespace](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_namespace.html "Objects Containing class.") name. This name will be used as namespace itself. this name string shouldn't contain namespace string separator ":".  |
-        | pParentNSObj | the parent namespace object. if NULl means to create top level namespace.  |"""
+            - pSingleLevelNamespace: [FBNamespace](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_namespace.html "Objects Containing class.") name. This name will be used as namespace itself. this name string shouldn't contain namespace string separator ":".
+            - pParentNSObj: the parent namespace object. if NULl means to create top level namespace."""
         ...
 class FBOpticalGap(FBComponent):
     """Optical Gap class."""
@@ -23945,32 +20057,24 @@ class FBOpticalGap(FBComponent):
         """Insert a control key for the gap. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pTime | Insert time for the control key.  |"""
+            - pTime: Insert time for the control key."""
         ...
     def IsValid(self)->bool:
         """Check if valid (if item exists). 
         
         
-        ## Returns:
+        ### Returns:
         **true** if segment is valid."""
         ...
     def __init__(self,Marker:FBModelMarkerOptical):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pMarker | Model marker(default=NULL).  |"""
+            - pMarker: Model marker(default=NULL)."""
         ...
 class FBFileReference(FBNamespace):
     """Objects Containing class. 
@@ -23993,25 +20097,17 @@ class FBFileReference(FBNamespace):
         """Apply specified reference edits from python script file. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pRefEditPyScriptFilePath | Reference edits Python script file path.  |"""
+            - pRefEditPyScriptFilePath: Reference edits Python script file path."""
         ...
     def ApplyRefEditPyScriptFromString(self,RefEditPyScript:str):
         """Apply specified reference edits from Python script string. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pRefEditPyScript | Reference edits Python script.  |"""
+            - pRefEditPyScript: Reference edits Python script."""
         ...
     def BakeRefEditToFile(self,FilePath:str)->bool:
         """Save the current status of the referenced content back to disk. 
@@ -24019,125 +20115,87 @@ class FBFileReference(FBNamespace):
         
         If pFilePath is ReferenceFilePath, we're saving all the modification back to the original referenced file. Otherwise, we will export the referenced file plus modification to another file. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pFilePath: File path to export.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pFilePath | File path to export.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         true if successful."""
         ...
     def ClearAllRefEdit(self)->bool:
         """Clear all cached Ref edit. 
         
         
-        ## Returns:
+        ### Returns:
         **True** if the RefEdits are cleared properly."""
         ...
     def ClearRefEdit(self,FilePath:str)->bool:
         """Clear the cached RefEdit for the given ref file path. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pFilePath: The Ref File Path to query against, default to be current Ref File.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pFilePath | The Ref File Path to query against, default to be current Ref File.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **True** if the RefEdit for the given Ref File Path is cached and cleared properly."""
         ...
     def DuplicateFileRef(self,DstNameSpaceList:FBStringList,bWithRefEdit:bool=False)->bool:
         """Duplicate/Clone the FileRef object and its referenced content (with/without refEdit). 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pDstNameSpaceList: the list of target new namespace(s) for duplication. These new namespace(s) must be residing in editable scene segments.
+            - pWithRefEdit: false by default, duplication won't include the existing ref edit. otherwise ref edit will be applied on the instantiated FileRef in someway.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pDstNameSpaceList | the list of target new namespace(s) for duplication. These new namespace(s) must be residing in editable scene segments.  |
-        | pWithRefEdit | false by default, duplication won't include the existing ref edit. otherwise ref edit will be applied on the instantiated FileRef in someway.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         true if successful, false is fail."""
         ...
     def GetRefEdit(self,FilePath:str|None=None)->str:
         """Return the RefEdit for given RefFile Path. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pFilePath: The Ref File Path to query against, default to be current Ref File.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pFilePath | The Ref File Path to query against, default to be current Ref File.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         RefEdit as string"""
         ...
     def GetRefFileList(self,RefFileList:FBStringList):
         """Return a list of ref file path which has cached Ref Edit. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pRefFileList | the output parameter to collect the Ref File Path.  |"""
+            - pRefFileList: the output parameter to collect the Ref File Path."""
         ...
     def RevertRefEdit(self,Plug:FBPlug|None=None,ModificationFlag:FBPlugModificationFlag=FBPlugModificationFlag.kFBAllModifiedMask):
         """Revert the modification on the referenced object/property to original state. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pPlug | the plug to revert, revert all if NULL.  |
-        | pModificationFlag | the modification type to revert.  |"""
+            - pPlug: the plug to revert, revert all if NULL.
+            - pModificationFlag: the modification type to revert."""
         ...
     def SwapReferenceFilePath(self,FilePath:str,bApplyAvailableRefEdit:bool,bMergeCurrentRefEdit:bool)->bool:
         """Swap the Ref File Path and apply ref edit. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pFilePath: The new Ref File path to be used
+            - pApplyAvailableRefEdit: Apply the cached Ref Edit (if exist) for the Ref File to be used if **True**.
+            - pMergeCurrentRefEdit: Merge the current RefEdit to if **True** if the reference items' name are matching.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pFilePath | The new Ref File path to be used  |
-        | pApplyAvailableRefEdit | Apply the cached Ref Edit (if exist) for the Ref File to be used if **True**.  |
-        | pMergeCurrentRefEdit | Merge the current RefEdit to if **True** if the reference items' name are matching.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **True** if swap successfully."""
         ...
     def __init__(self,SingleLevelNamespace:str,ParentNSObj:FBNamespace):
@@ -24146,14 +20204,10 @@ class FBFileReference(FBNamespace):
         
         Create a new direct children FileReference object 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pSingleLevelNamespace | FileReference name. This name will be used as namespace itself. this name string shouldn't contain namespace string separator ":".  |
-        | pParentNSObj | the parent namespace object. if NULl means to create top level namespace.  |"""
+            - pSingleLevelNamespace: FileReference name. This name will be used as namespace itself. this name string shouldn't contain namespace string separator ":".
+            - pParentNSObj: the parent namespace object. if NULl means to create top level namespace."""
         ...
 class FBOpticalSegment(FBComponent):
     """Optical segment class."""
@@ -24173,19 +20227,15 @@ class FBOpticalSegment(FBComponent):
         """Cut the segment for the marker at a given time. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pTime | Time to cut segment at.  |"""
+            - pTime: Time to cut segment at."""
         ...
     def IsValid(self)->bool:
         """Check if valid (if item exists). 
         
         
-        ## Returns:
+        ### Returns:
         **true** if segment is valid."""
         ...
     def Reset(self):
@@ -24195,13 +20245,9 @@ class FBOpticalSegment(FBComponent):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pOptical | Optical model(default=NULL).  |"""
+            - pOptical: Optical model(default=NULL)."""
         ...
 class FBPlayerControl(FBComponent):
     """Player control. 
@@ -24260,19 +20306,13 @@ class FBPlayerControl(FBComponent):
         
         It doesn't allow creating a time mark at the same time of another time mark. Note: Internally, the global time marks are stored in time order. Adding a time mark before other existing time marks will modify the index of these other time marks. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTime: Time where to add the time mark.
+            - pName: Name of the time mark to add.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTime | Time where to add the time mark.  |
-        | pName | Name of the time mark to add.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The index of the time mark added if the operation is successful, -1 otherwise."""
         ...
     def DeleteAllGlobalTimeMarks(self):
@@ -24284,18 +20324,12 @@ class FBPlayerControl(FBComponent):
         
         Note: Internally, the global time marks are stored in time order. Deleting a time mark will modify the index of time marks laying after the deleted time mark. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the time mark to delete.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the time mark to delete.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise."""
         ...
     def EvaluationPause(self):
@@ -24308,218 +20342,176 @@ class FBPlayerControl(FBComponent):
         """Get Edit Current Time. 
         
         
-        ## Returns:
+        ### Returns:
         The current time, in the edit time referential."""
         ...
     def GetEditStart(self)->FBTime:
         """Get Edit Start. 
         
         
-        ## Returns:
+        ### Returns:
         Start value for the edit time range."""
         ...
     def GetEditStop(self)->FBTime:
         """Get Edit Stop. 
         
         
-        ## Returns:
+        ### Returns:
         Stop value for the edit time range."""
         ...
     def GetEditZoomStart(self)->FBTime:
         """Get Edit Zoom Start. 
         
         
-        ## Returns:
+        ### Returns:
         Start value for the edit zoom window."""
         ...
     def GetEditZoomStop(self)->FBTime:
         """Get Edit Zoom Stop. 
         
         
-        ## Returns:
+        ### Returns:
         Stop value for the edit zoom window."""
         ...
     def GetGlobalTimeMarkAction(self,Index:int)->FBTimeMarkAction:
         """Returns the action associated with a global time mark. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the time mark.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the time mark.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The action associated with the time mark."""
         ...
     def GetGlobalTimeMarkColor(self,Index:int)->FBColor:
         """Returns the color associated with a global time mark. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the time mark.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the time mark.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The color associated with the time mark."""
         ...
     def GetGlobalTimeMarkCount(self)->int:
         """Returns the number of global time marks. 
         
         
-        ## Returns:
+        ### Returns:
         The number of global time marks."""
         ...
     def GetGlobalTimeMarkName(self,Index:int)->str:
         """Returns the name associated with a global time mark. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the time mark.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the time mark.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The name associated with the time mark."""
         ...
     def GetGlobalTimeMarkTime(self,Index:int)->FBTime:
         """Returns the time associated with a global time mark. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the time mark.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the time mark.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The time associated with the time mark."""
         ...
     def GetNextGlobalTimeMarkIndex(self)->int:
         """Returns the next global time mark index, based on the current local time. 
         
         
-        ## Returns:
+        ### Returns:
         The next global time mark index, -1 if any next time mark is available."""
         ...
     def GetPlaySpeed(self)->float:
         """Get Play Speed . 
         
         
-        ## Returns:
+        ### Returns:
         transport current playback speed."""
         ...
     def GetPlaySpeedMode(self)->FBTransportPlaySpeed:
         """Get Play Speed Mode. 
         
         
-        ## Returns:
+        ### Returns:
         transport current playback speed mode, including kFBSpeed\_Custom mode."""
         ...
     def GetPreviousGlobalTimeMarkIndex(self)->int:
         """Returns the previous global time mark index, based on the current local time. 
         
         
-        ## Returns:
+        ### Returns:
         The previous global time mark index, -1 if any previous time mark is available."""
         ...
     def GetTimeReferential(self)->FBTimeReferential:
         """Get Time Referential. 
         
         
-        ## Returns:
+        ### Returns:
         Current time referential."""
         ...
     def GetTransportFps(self)->FBTimeMode:
         """Get the UI frame rate use for display configure in the system. 
         
         
-        ## Returns:
+        ### Returns:
         current FrameRate selected for the system."""
         ...
     def GetTransportFpsValue(self,TimeMode:FBTimeMode=FBTimeMode.kFBTimeModeDefault)->float:
         """Get the UI frame rate value. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTimeMode: the time mode whose frame rate will be returned
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTimeMode | the time mode whose frame rate will be returned  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Frame rate of the input time mode or system time mode when pTimeMode is not provided."""
         ...
     def GetTransportMode(self)->FBTransportMode:
         """Get Transport Mode. 
         
         
-        ## Returns:
+        ### Returns:
         Current mode of the transport controls."""
         ...
     def Goto(self,p0:FBTime,p1:FBTimeReferential|None=None)->bool:
         """Goto a time specified by **pTime**. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - p0: Time to jump to.
+            - p1: Time referential to use. kFBTimeReferentialAction or kFBTimeReferentialEdit
         
         
-        
-        |  |  |
-        | --- | --- |
-        | p0 | Time to jump to.  |
-        | p1 | Time referential to use. kFBTimeReferentialAction or kFBTimeReferentialEdit  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **true** if successful."""
         ...
     def GotoEnd(self,p0:FBTimeReferential|None=None)->bool:
         """GotoEnd button (FastForward). 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - p0: Time referential to use. kFBTimeReferentialAction or kFBTimeReferentialEdit
         
         
-        
-        |  |  |
-        | --- | --- |
-        | p0 | Time referential to use. kFBTimeReferentialAction or kFBTimeReferentialEdit  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **true** if successful."""
         ...
     def GotoNextKey(self):
@@ -24532,18 +20524,12 @@ class FBPlayerControl(FBComponent):
         """GotoStart button (Rewind). 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - p0: Time referential to use. kFBTimeReferentialAction or kFBTimeReferentialEdit
         
         
-        
-        |  |  |
-        | --- | --- |
-        | p0 | Time referential to use. kFBTimeReferentialAction or kFBTimeReferentialEdit  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **true** if successful."""
         ...
     def IsLocked(self)->bool:
@@ -24559,172 +20545,116 @@ class FBPlayerControl(FBComponent):
         """Lock the transport control. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pLock | boolean value that indicates the new locked state of the transport.  |"""
+            - pLock: boolean value that indicates the new locked state of the transport."""
         ...
     def Play(self,bUseMarkers:bool=False)->bool:
         """Play button. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pUseMarkers: Play until next marker if true, ignore markers otherwise.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pUseMarkers | Play until next marker if true, ignore markers otherwise.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         true if successful."""
         ...
     def PlayReverse(self,bUseMarkers:bool=False)->bool:
         """Play Reverse button. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pUseMarkers: Play until next marker if true, ignore markers otherwise.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pUseMarkers | Play until next marker if true, ignore markers otherwise.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         true if successful."""
         ...
     def Record(self,bOverrideTake:bool=False,bCopyData:bool=True)->bool:
         """Begin recording. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pOverrideTake: Write over current take?(default=false)
+            - pCopyData: Unused. Necessary for compatibility(default=true).
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pOverrideTake | Write over current take?(default=false)  |
-        | pCopyData | Unused. Necessary for compatibility(default=true).  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         true if successful."""
         ...
     def SetEditStart(self,Time:FBTime):
         """Set Edit Start. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pTime | The new start value for the edit time range.  |"""
+            - pTime: The new start value for the edit time range."""
         ...
     def SetEditStop(self,Time:FBTime):
         """Set Edit Stop. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pTime | The new stop value for the edit time range.  |"""
+            - pTime: The new stop value for the edit time range."""
         ...
     def SetEditZoomStart(self,Time:FBTime):
         """Set Edit Zoom Start. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pTime | The new start value for the edit zoom window.  |"""
+            - pTime: The new start value for the edit zoom window."""
         ...
     def SetEditZoomStop(self,Time:FBTime):
         """Set Edit Zoom Stop. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pTime | The new stop value for the edit zoom window.  |"""
+            - pTime: The new stop value for the edit zoom window."""
         ...
     def SetGlobalTimeMarkAction(self,Index:int,Action:FBTimeMarkAction)->bool:
         """Sets a new action for an existing global time mark. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the time mark.
+            - pAction: The new action for the time mark.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the time mark.  |
-        | pAction | The new action for the time mark.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise."""
         ...
     def SetGlobalTimeMarkColor(self,Index:int,Color:FBColor)->bool:
         """Sets a new color for an existing global time mark. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the time mark.
+            - pColor: The new color for the time mark.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the time mark.  |
-        | pColor | The new color for the time mark.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise."""
         ...
     def SetGlobalTimeMarkName(self,Index:int,Name:str)->bool:
         """Sets a new name for an existing global time mark. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the time mark.
+            - pName: The new name for the time mark.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the time mark.  |
-        | pName | The new name for the time mark.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise."""
         ...
     def SetGlobalTimeMarkTime(self,Index:int,Time:FBTime)->int:
@@ -24733,111 +20663,77 @@ class FBPlayerControl(FBComponent):
         
         Note: Internally, the global time marks are stored in time order. Modifying the time of a time mark may modify the index of all time marks. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the time mark.
+            - pTime: The new time for the time mark.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the time mark.  |
-        | pTime | The new time for the time mark.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The new index of the modified time mark."""
         ...
     def SetPlaySpeed(self,Speed:float):
         """Set Play Speed. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pSpeed | set customized speed. It will automatically convert to one of pre-defined play speed mode if it is equal to the pre-defined speed.  |"""
+            - pSpeed: set customized speed. It will automatically convert to one of pre-defined play speed mode if it is equal to the pre-defined speed."""
         ...
     def SetPlaySpeedMode(self,PlaySpeedMode:FBTransportPlaySpeed):
         """Set Play Speed Mode. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pPlaySpeedMode | a pre-defined play speed mode. Don't make sense to input kFBSpeed\_Custom. To set the custom speed, use [SetPlaySpeed()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_player_control.html#a71716b808406bdac9835b31501b895d4 "Set Play Speed.") function directly.  |"""
+            - pPlaySpeedMode: a pre-defined play speed mode. Don't make sense to input kFBSpeed\_Custom. To set the custom speed, use [SetPlaySpeed()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_player_control.html#a71716b808406bdac9835b31501b895d4 "Set Play Speed.") function directly."""
         ...
     def SetTimeReferential(self,TimeReferential:FBTimeReferential):
         """Set Time Referential. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pTimeReferential | The new time referential. Only kFBTimeReferentialAction and kFBTimeReferentialEdit are supported  |"""
+            - pTimeReferential: The new time referential. Only kFBTimeReferentialAction and kFBTimeReferentialEdit are supported"""
         ...
     def SetTransportFps(self,TimeMode:FBTimeMode,Custom:float=0.0):
         """Set the system frame rate use for display. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pTimeMode | Indicate the frame rate value to use base on the [FBTimeMode](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_time_mode.html "Different time modes available.") values enum.(kFBTimeModeDefault will be stored in fps)  |
-        | pCustom | Should the time mode be kFBTimeModeCustom, this is used to specify the custom framerate.  |"""
+            - pTimeMode: Indicate the frame rate value to use base on the [FBTimeMode](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_time_mode.html "Different time modes available.") values enum.(kFBTimeModeDefault will be stored in fps)
+            - pCustom: Should the time mode be kFBTimeModeCustom, this is used to specify the custom framerate."""
         ...
     def StepBackward(self,p0:FBTimeReferential|None=None)->bool:
         """Step one frame backward. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - p0: Time referential to use. kFBTimeReferentialAction or kFBTimeReferentialEdit
         
         
-        
-        |  |  |
-        | --- | --- |
-        | p0 | Time referential to use. kFBTimeReferentialAction or kFBTimeReferentialEdit  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **true** if successful."""
         ...
     def StepForward(self,p0:FBTimeReferential|None=None)->bool:
         """Step one frame ahead. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - p0: Time referential to use. kFBTimeReferentialAction or kFBTimeReferentialEdit
         
         
-        
-        |  |  |
-        | --- | --- |
-        | p0 | Time referential to use. kFBTimeReferentialAction or kFBTimeReferentialEdit  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **true** if successful."""
         ...
     def Stop(self)->bool:
         """Stop button. 
         
         
-        ## Returns:
+        ### Returns:
         true if successful."""
         ...
     def __init__(self):
@@ -24865,13 +20761,9 @@ class FBPointCacheFile(FBComponent):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of Point Cache File Object.  |"""
+            - pName: Name of Point Cache File Object."""
         ...
 class FBRendererCallback(FBComponent):
     """Open Reality renderer callback interface."""
@@ -24909,7 +20801,7 @@ class FBRigidBody(FBComponent):
         """Check if valid (if item exists). 
         
         
-        ## Returns:
+        ### Returns:
         **true** if segment is valid."""
         ...
     def Snap(self):
@@ -24919,13 +20811,9 @@ class FBRigidBody(FBComponent):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pOptical | Optical model(default=NULL).  |"""
+            - pOptical: Optical model(default=NULL)."""
         ...
 class FBSVector():
     """Three dimensional scaling vector. 
@@ -24976,28 +20864,20 @@ class FBSVector():
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | p1 | First element  |
-        | p2 | Second element.  |
-        | p3 | Third element(default=1.0).  |"""
+            - p1: First element
+            - p2: Second element.
+            - p3: Third element(default=1.0)."""
         ...
     @overload
     def __init__(self,Value:float):
         """Constructor from array. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pValue | Array to take values from.  |"""
+            - pValue: Array to take values from."""
         ...
     @overload
     def __init__(self,arg2:list):...
@@ -25124,106 +21004,102 @@ class FBScene(FBComponent):
         """Resolving the Candidate. 
         
         
-        ## Returns:
+        ### Returns:
         true if successful."""
         ...
     def CleanEmptyGroups(self)->int:
         """Remove all empty groups present in the scene. 
         
         
-        ## Returns:
+        ### Returns:
         The number of empty groups removed."""
         ...
     def CleanEmptyRelationConstraints(self)->int:
         """Remove all empty relation constraints present in the scene. 
         
         
-        ## Returns:
+        ### Returns:
         The number of empty relation constraints removed."""
         ...
     def CleanEmptySets(self)->int:
         """Remove all empty sets present in the scene. 
         
         
-        ## Returns:
+        ### Returns:
         The number of empty sets removed."""
         ...
     def CleanInactiveConstraints(self)->int:
         """Remove all inactive constraints present in the scene. 
         
         
-        ## Returns:
+        ### Returns:
         The number of inactive constraints removed."""
         ...
     def CleanRelationConstraintsUnusedBoxes(self)->int:
         """Remove all unused boxes in relations constraints present in the scene. 
         
         
-        ## Returns:
+        ### Returns:
         The number of unused boxes in relations constraints removed."""
         ...
     def CleanUnusedAudioClips(self)->int:
         """Remove all unused audio clips present in the scene. 
         
         
-        ## Returns:
+        ### Returns:
         The number of unused audio clips removed."""
         ...
     def CleanUnusedMaterials(self)->int:
         """Remove all unused materials present in the scene. 
         
         
-        ## Returns:
+        ### Returns:
         The number of unused material removed."""
         ...
     def CleanUnusedShaders(self)->int:
         """Remove all unused shaders present in the scene. 
         
         
-        ## Returns:
+        ### Returns:
         The number of unused shaders removed."""
         ...
     def CleanUnusedTextures(self)->int:
         """Remove all unused textures present in the scene. 
         
         
-        ## Returns:
+        ### Returns:
         The number of unused textures removed."""
         ...
     def CleanUnusedVideoClips(self)->int:
         """Remove all unused video clips present in the scene. 
         
         
-        ## Returns:
+        ### Returns:
         The number of unused video clips removed."""
         ...
     def Evaluate(self)->bool:
         """Evaluate the scene. 
         
         
-        ## Returns:
+        ### Returns:
         true if successful. 
-        ## Note:
+        ### Note:
         MoBu's is highly optimized for real-time performance, due to its multi-thread, double buffer and lazy-evaluation architecture, complex scripts are often required to call [FBScene::Evaluate()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_scene.html#a133019f4b3a3240f6c2f6716f6c67bf3 "Evaluate the scene.") to commit previous scene change commands before execute following operations. Also, certain operations in SDK may require cached data to be reevaluated. In typical large scenes this call may be consider as very costly. That's why user is responsible to design code in the way that requires as little as possible calls to [FBScene::Evaluate](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_scene.html#a133019f4b3a3240f6c2f6716f6c67bf3 "Evaluate the scene."). We should consider use [FBScene::Evaluate()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_scene.html#a133019f4b3a3240f6c2f6716f6c67bf3 "Evaluate the scene.") between scene change commands as "common scripting practice"""
         ...
     def EvaluateDeformations(self)->bool:
         """Evaluate the deformations of the scene. 
         
         
-        ## Returns:
+        ### Returns:
         true if successful."""
         ...
     def GetScriptsPaths(self)->FBStringList:
         """Get paths of all the python scripts object in the scene. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pPathList | Out parameter, to collect the path of python scripts.  |"""
+            - pPathList: Out parameter, to collect the path of python scripts."""
         ...
     def NamespaceCleanup(self)->bool:
         """Remove all empty namespaces. 
@@ -25231,262 +21107,188 @@ class FBScene(FBComponent):
         
         During some namespace operations, empty namespace may left over, while this is not harmful but could be annoying. Save the scene and load it back those empty namespaces will disappear. And this function also allow user to remove all empty namespaces from the scene easily via SDK. 
         
-        ## Returns:
+        ### Returns:
         **True** if operation successfully."""
         ...
     def NamespaceDelete(self,Namespace:str)->bool:
         """Delete the namespace & all its content. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pNamespace: the namespace to work on
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pNamespace | the namespace to work on  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **True** if operation successfully, **False** is this namespace doesn't exist, or is locked (by FileReferencing or etc.,)"""
         ...
     def NamespaceDeleteContent(self,Namespace:str,ModificationFlags:FBPlugModificationFlag=FBPlugModificationFlag.kFBPlugAllContent,bRecursive:bool=True,TypeInfo:int=FBPlug.TypeInfo,bExactTypeMatch:bool=False)->bool:
         """Delete the namespace content. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pNamespace: the namespace to work on
+            - pModificationFlags: bitwise combination of kFBConnectionSrcObjectModified, kFBConnectionDstObjectModified, kFBConnectionSrcPropertyModified, kFBConnectionDstPropertyModified flags. kFBPlugAllContent means all the content. Modification flags beside kFBPlugAllContent will only work on FileReference Namespace.
+            - pRecursive: **True** only work on the direct children level namespace, otherwise will work on the children namespace hierarchy recursively.
+            - pTypeInfo: the typeInfo of the type of interested object, default for all the objects.
+            - pExactTypeMatch: if **True**, the derived typeInfo won't be considered (For example, [FBCamera](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_camera.html "Creates custom cameras and manages system cameras.") won't be considered when passing [FBModel::TypeInfo](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html#a9b39fba51413fa925a0d94d2feb13bf9 "Contains the Type information of the object.")).
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pNamespace | the namespace to work on  |
-        | pModificationFlags | bitwise combination of kFBConnectionSrcObjectModified, kFBConnectionDstObjectModified, kFBConnectionSrcPropertyModified, kFBConnectionDstPropertyModified flags. kFBPlugAllContent means all the content. Modification flags beside kFBPlugAllContent will only work on FileReference Namespace.  |
-        | pRecursive | **True** only work on the direct children level namespace, otherwise will work on the children namespace hierarchy recursively.  |
-        | pTypeInfo | the typeInfo of the type of interested object, default for all the objects.  |
-        | pExactTypeMatch | if **True**, the derived typeInfo won't be considered (For example, [FBCamera](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_camera.html "Creates custom cameras and manages system cameras.") won't be considered when passing [FBModel::TypeInfo](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html#a9b39fba51413fa925a0d94d2feb13bf9 "Contains the Type information of the object.")).  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **False** is the given namespace doesn't exist, or is locked (by FileRef or etc.,), **True** otherwise. 
-        ## Note:
+        ### Note:
         Not all the objects will be deletable (system objects and etc.,). Deletion of partial FileRef content isn't prevented, however the behavior is undefined."""
         ...
     def NamespaceEmpty(self,Namespace:str)->bool:
         """Query if namespace is empty. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pNamespace: the namespace to query, NULL for whole scene.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pNamespace | the namespace to query, NULL for whole scene.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **True** if the namespace (don't include nested children namespace) is empty"""
         ...
     def NamespaceExist(self,Namespace:str)->bool:
         """Query if namespace exists. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pNamespace: the namespace to query
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pNamespace | the namespace to query  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **True** if the namespace exist, otherwise return **False**."""
         ...
     def NamespaceExport(self,Namespace:str,FilePath:str,bASCIIFormat:bool=False)->bool:
         """Export scene content within namespace to file. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pNamespace: the namespace to use, must exist
+            - pFilePath: the referenced file path to export.
+            - pASCIIFormat: save the file in ASCII format.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pNamespace | the namespace to use, must exist  |
-        | pFilePath | the referenced file path to export.  |
-        | pASCIIFormat | save the file in ASCII format.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **True** if successfully."""
         ...
     def NamespaceGet(self,Namespace:str)->FBNamespace:
         """Get Namespace object. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pNamespace: the namespace to query
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pNamespace | the namespace to query  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Namespace with exact name matching"""
         ...
     def NamespaceGetChildrenList(self,NamespaceList:FBStringList,Namespace:str|None=None,bRecursive:bool=True)->int:
         """Get list of children namespaces in the given namespace. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pNamespaceList: the list of namespace to return.
+            - pNamespace: specify the parent namespace, NULL for the whole scene.
+            - pRecursive: **True** only work on the direct children level namespace, otherwise will work on the whole children namespace hierarchy recursively.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pNamespaceList | the list of namespace to return.  |
-        | pNamespace | specify the parent namespace, NULL for the whole scene.  |
-        | pRecursive | **True** only work on the direct children level namespace, otherwise will work on the whole children namespace hierarchy recursively.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         the list of children namespaces."""
         ...
     def NamespaceGetContentList(self,ContentList:FBComponentList,Namespace:str,ModificationFlags:FBPlugModificationFlag=FBPlugModificationFlag.kFBPlugAllContent,bRecursive:bool=True,TypeInfo:int=FBPlug.TypeInfo,bExactTypeMatch:bool=False):
         """Get List of the namespace content. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pContentList | the list of content to return.  |
-        | pNamespace | the namespace to work on, NULL for whole scene.  |
-        | pModificationFlags | bitwise combination of kFBConnectionSrcObjectModified, kFBConnectionDstObjectModified, kFBConnectionSrcPropertyModified, kFBConnectionDstPropertyModified flags. kFBPlugAllContent means all the content. Modification flags beside kFBPlugAllContent will only work on FileReference Namespace.  |
-        | pRecursive | **True** only work on the direct children level namespace, otherwise will work on the whole children namespace hierarchy recursively.  |
-        | pTypeInfo | the typeInfo of the type of interested object, 0 for all the objects.  |
-        | pExactTypeMatch | if **True**, the derived typeInfo won't be considered (For example, [FBCamera](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_camera.html "Creates custom cameras and manages system cameras.") won't be considered when passing [FBModel::TypeInfo](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html#a9b39fba51413fa925a0d94d2feb13bf9 "Contains the Type information of the object.")).  |"""
+            - pContentList: the list of content to return.
+            - pNamespace: the namespace to work on, NULL for whole scene.
+            - pModificationFlags: bitwise combination of kFBConnectionSrcObjectModified, kFBConnectionDstObjectModified, kFBConnectionSrcPropertyModified, kFBConnectionDstPropertyModified flags. kFBPlugAllContent means all the content. Modification flags beside kFBPlugAllContent will only work on FileReference Namespace.
+            - pRecursive: **True** only work on the direct children level namespace, otherwise will work on the whole children namespace hierarchy recursively.
+            - pTypeInfo: the typeInfo of the type of interested object, 0 for all the objects.
+            - pExactTypeMatch: if **True**, the derived typeInfo won't be considered (For example, [FBCamera](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_camera.html "Creates custom cameras and manages system cameras.") won't be considered when passing [FBModel::TypeInfo](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html#a9b39fba51413fa925a0d94d2feb13bf9 "Contains the Type information of the object."))."""
         ...
     def NamespaceGetOwnerFileReference(self,Namespace:str)->FBFileReference:
         """Get Owner FileReference object if the namespace is originated from File Reference. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pNamespace: the namespace to work on, could be nested namespace inside the FileReference's namespace.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pNamespace | the namespace to work on, could be nested namespace inside the FileReference's namespace.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         the FileReference object is the namespace is originated from. NULL otherwise."""
         ...
     def NamespaceImport(self,Namespace:str,FilePath:str,bAsFileReference:bool=False)->bool:
         """Import file into Namespace (or as file reference) 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pNamespace: the namespace to import to, must be in editable scope.
+            - pFilePath: the referenced file path to import.
+            - pAsFileReference: import the file as file reference. The default value is false.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pNamespace | the namespace to import to, must be in editable scope.  |
-        | pFilePath | the referenced file path to import.  |
-        | pAsFileReference | import the file as file reference. The default value is false.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **True** if successfully."""
         ...
     def NamespaceImportToMultiple(self,DstNamespaceList:FBStringList,FilePath:str,bAsFileReference:bool=False)->bool:
         """Import file into multiple Namespaces (or as file references) 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pDstNamespaceList: the Dst namespaces list to import, must not exist or be self contained.
+            - pFilePath: the referenced file path to import.
+            - pAsFileReference: import the file as file reference. The default value is false.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pDstNamespaceList | the Dst namespaces list to import, must not exist or be self contained.  |
-        | pFilePath | the referenced file path to import.  |
-        | pAsFileReference | import the file as file reference. The default value is false.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **True** if successfully. 
-        ## Note:
+        ### Note:
         Nested destination namespaces are not allowed (e.g. a DstNamespaceList contains "NS1" and "NS1:NS2" will return False)."""
         ...
     def NamespaceRename(self,NameSpace:str,NewNamespace:str,bRecursive:bool=True,TypeInfo:int=FBPlug.TypeInfo,bExactTypeMatch:bool=False)->bool:
         """Rename the namespace. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pNameSpace: the namespace to work on, NULL for whole scene.
+            - pNewNamespace: the new namespace
+            - pRecursive: **True** only work on the direct children level namespace, otherwise will work on the children namespace hierarchy recursively.
+            - pTypeInfo: the typeInfo of the type of interested object, default for all the objects.
+            - pExactTypeMatch: if **True**, the derived typeInfo won't be considered (For example, [FBCamera](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_camera.html "Creates custom cameras and manages system cameras.") won't be considered when passing [FBModel::TypeInfo](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html#a9b39fba51413fa925a0d94d2feb13bf9 "Contains the Type information of the object.")).
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pNameSpace | the namespace to work on, NULL for whole scene.  |
-        | pNewNamespace | the new namespace  |
-        | pRecursive | **True** only work on the direct children level namespace, otherwise will work on the children namespace hierarchy recursively.  |
-        | pTypeInfo | the typeInfo of the type of interested object, default for all the objects.  |
-        | pExactTypeMatch | if **True**, the derived typeInfo won't be considered (For example, [FBCamera](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_camera.html "Creates custom cameras and manages system cameras.") won't be considered when passing [FBModel::TypeInfo](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html#a9b39fba51413fa925a0d94d2feb13bf9 "Contains the Type information of the object.")).  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **True** if operation successfully, **False** is this namespace (or pTypeInfo type of objects) doesn't exist, or locked (by FileReferencing or etc.,) 
-        ## Note:
+        ### Note:
         call with default parameters is considered as renaming of the whole namespace structure, otherwise will be considered as partially renaming individual objects. Renaming permission will be validated accordingly."""
         ...
     def NamespaceSelectContent(self,Namespace:str,bSelect:bool,ModificationFlags:FBPlugModificationFlag=FBPlugModificationFlag.kFBPlugAllContent,bRecursive:bool=True,TypeInfo:int=FBPlug.TypeInfo,bExactTypeMatch:bool=False):
         """Select (or de-select) the namespace content. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pNamespace | the namespace to work on, NULL for whole scene.  |
-        | pSelect | **True** (or **False**) indicate to select (or de-select)  |
-        | pModificationFlags | bitwise combination of kFBConnectionSrcObjectModified, kFBConnectionDstObjectModified, kFBConnectionSrcPropertyModified, kFBConnectionDstPropertyModified flags. kFBPlugAllContent means all the content. Modification flags beside kFBPlugAllContent will only work on FileReference Namespace.  |
-        | pRecursive | **True** only work on the direct children level namespace, otherwise will work on the children namespace hierarchy recursively.  |
-        | pTypeInfo | the typeInfo of the type of interested object, default for all the objects.  |
-        | pExactTypeMatch | if **True**, the derived typeInfo won't be considered (For example, [FBCamera](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_camera.html "Creates custom cameras and manages system cameras.") won't be considered when passing [FBModel::TypeInfo](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html#a9b39fba51413fa925a0d94d2feb13bf9 "Contains the Type information of the object.")).  |"""
+            - pNamespace: the namespace to work on, NULL for whole scene.
+            - pSelect: **True** (or **False**) indicate to select (or de-select)
+            - pModificationFlags: bitwise combination of kFBConnectionSrcObjectModified, kFBConnectionDstObjectModified, kFBConnectionSrcPropertyModified, kFBConnectionDstPropertyModified flags. kFBPlugAllContent means all the content. Modification flags beside kFBPlugAllContent will only work on FileReference Namespace.
+            - pRecursive: **True** only work on the direct children level namespace, otherwise will work on the children namespace hierarchy recursively.
+            - pTypeInfo: the typeInfo of the type of interested object, default for all the objects.
+            - pExactTypeMatch: if **True**, the derived typeInfo won't be considered (For example, [FBCamera](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_camera.html "Creates custom cameras and manages system cameras.") won't be considered when passing [FBModel::TypeInfo](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html#a9b39fba51413fa925a0d94d2feb13bf9 "Contains the Type information of the object."))."""
         ...
 class FBSet(FBBox):
     """Objects Set class. 
@@ -25508,43 +21310,29 @@ class FBSet(FBBox):
         """Contains. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pComponent: Component to verify if it is in the Group
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pComponent | Component to verify if it is in the Group  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         0 if the component is not in the [FBSet](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_set.html "Objects Set class."), 1 if it is in this [FBSet](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_set.html "Objects Set class."), 2 if it is in another [FBSet](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_set.html "Objects Set class.")"""
         ...
     def Select(self,bSelect:bool):
         """Select. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pSelect | If **true**, set contents will be selected.  |"""
+            - pSelect: If **true**, set contents will be selected."""
         ...
     def __init__(self,Name:str):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Set name.  |"""
+            - pName: Set name."""
         ...
 class FBShader(FBBox):
     """Shader class."""
@@ -25556,55 +21344,39 @@ class FBShader(FBBox):
         """Append shader to **pModel**. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pModel: Model to append shader to.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pModel | Model to append shader to.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise."""
         ...
     def CloneShaderParameter(self,NewShader:FBShader):
         """Clone shader. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pNewShader | Shader to copy data to.  |"""
+            - pNewShader: Shader to copy data to."""
         ...
     def ReplaceAll(self,Model:FBModel)->bool:
         """Replace all shader in **pModel**. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pModel: Model to replace all shader to.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pModel | Model to replace all shader to.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise."""
         ...
     def ShaderNeedBeginRender(self)->bool:
         """Does the shader need a begin render call. 
         
         
-        ## Remarks:
+        ### Remarks:
         Re-implement this function and return true if you need it. This method is called once per shader on each render pass."""
         ...
 class FBShaderLighted(FBShader):
@@ -25684,13 +21456,9 @@ class FBShaderLighted(FBShader):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of shader.  |"""
+            - pName: Name of shader."""
         ...
 class FBShaderManager():
     """Shader manager. 
@@ -25776,18 +21544,12 @@ class FBShaderManager():
         
         This method provides a generic way of creating shaders using the type name, internal or localized. The name of the new shader will be the same as the type name used, subject to changes according to the system's unique name policy. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pShaderTypeName: Name of the type of shader desired.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pShaderTypeName | Name of the type of shader desired.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         A pointer to the newly created shader object, or a NULL pointer if the type name was not recognised."""
         ...
     def __init__(self):
@@ -25853,27 +21615,19 @@ class FBShaderShadowLive(FBShader):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of shader.  |"""
+            - pName: Name of shader."""
         ...
 class FBSkeletonState():
     def GetNodeMatrix(self,SkeletonId:FBSkeletonNodeId,SkeletonGlobalMatrix:FBMatrix):
         """Returned global matrix associated to the given Index. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pSkeletonId | Index of the skeleton Node  |
-        | pSkeletonGlobalMatrix | returned global matrix of the index Given  |"""
+            - pSkeletonId: Index of the skeleton Node
+            - pSkeletonGlobalMatrix: returned global matrix of the index Given"""
         ...
 class FBSpreadPart(FBComponent):
     """Spreadsheet part. 
@@ -25911,7 +21665,7 @@ class FBSpreadRow(FBSpreadPart):
         
         This will initiate the UI edit of a row caption. 
         
-        ## Returns:
+        ### Returns:
         Operation was successful (**true** or **false**)."""
         ...
     def Remove(self):
@@ -25963,7 +21717,7 @@ class FBStory(FBComponent):
         """Remove all empty tracks and folders present in the Story Tool. 
         
         
-        ## Returns:
+        ### Returns:
         The number of empty story tracks and/or folders removed."""
         ...
     def PlotAllShotTracksToCameraSwitcher(self,Take:FBTake)->bool:
@@ -25972,20 +21726,14 @@ class FBStory(FBComponent):
         
         This undoable operation will overwrite the Camera Switcher of Take. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTake: Take to plot the Shot Tracks to the Camera Switcher to.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTake | Take to plot the Shot Tracks to the Camera Switcher to.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise. 
-        ## Remarks:
+        ### Remarks:
         To plot a single Shot Track to the Camera Switcher, use the [FBStoryTrack.PlotToCameraSwitcher](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_story_track.html#a64eff4284838a7d6da67221ce45ba8e5 "PlotToCameraSwitcher Plot the Shot Track to the Camera Switcher on the given Take.") method."""
         ...
     def __init__(self):
@@ -26121,7 +21869,7 @@ class FBStoryClip(FBComponent):
         
         Determines if the animation clip can assign its sources to some destinations or not. 
         
-        ## Returns:
+        ### Returns:
         Returns true if the animation clip can assign its sources to some destinations, false otherwise."""
         ...
     def Clone(self)->FBStoryClip:
@@ -26131,21 +21879,15 @@ class FBStoryClip(FBComponent):
         """Assign source to destination if the pSrcName is found in source list and pObject is in the Details list. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pSrcName: The name of the source.
+            - pObject: The destination object.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pSrcName | The name of the source.  |
-        | pObject | The destination object.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Returns true if assignment has been executed when the pSrcName is found in source list and pObject is in the Details list. 
-        ## Remarks:
+        ### Remarks:
         Assignment success depends on if they have the same name property and with animation on the source property."""
         ...
     def ExportToFile(self,OutputFile:str)->bool:
@@ -26154,18 +21896,12 @@ class FBStoryClip(FBComponent):
         
         Export animation clip to disk file. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pOutputFile: Output file path name.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pOutputFile | Output file path name.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Returns true if successful."""
         ...
     def GetAffectedAnimationNodes(self,arg2:FBComponent)->list:
@@ -26174,19 +21910,13 @@ class FBStoryClip(FBComponent):
         
         Get the list of animation nodes affected by this story clip, for a specific object. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pAffectedAnimationNodes: Array of affected animation nodes, will be filled by the function.
+            - pClipObject: The object for which we search for affected animation nodes.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pAffectedAnimationNodes | Array of affected animation nodes, will be filled by the function.  |
-        | pClipObject | The object for which we search for affected animation nodes.  |
-        
-        
-        
-        
-        ## Python:
+        ### Python:
         The function takes only one parameter (pClipObject) and returns a Python list. ex : lArray = lClip.GetAffectedAnimationNodes(lObject)"""
         ...
     def GetAffectedObjects(self)->list:
@@ -26195,18 +21925,12 @@ class FBStoryClip(FBComponent):
         
         Get the list of objects affected by this story clip. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pAffectedObjects: Array of affected objects, will be filled by the function.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pAffectedObjects | Array of affected objects, will be filled by the function.  |
-        
-        
-        
-        
-        ## Python:
+        ### Python:
         The function takes no parameter and returns a Python list. ex : lArray = lClip.GetAffectedObjects()"""
         ...
     def GetAssignSourcesToDestinationsInfo(self)->tuple:
@@ -26215,23 +21939,17 @@ class FBStoryClip(FBComponent):
         
         Returns the information about the current state of Sources to Destinations assignment. The pSrcList, pValidAnimatedSrc, pDefaultDstList & pEffectiveDstList parameters will all be of the same size, each index being related to the same index in the other lists/array. The pAvailableDstList & pValidAnimatedDst parameters can contain more items than the other lists. Both will all be of the same size, each index being related to the same index in the other list/array. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pSrcList: (C++ only) String list containing all the sources, will be filled by the method.
+            - pValidAnimatedSrc: (C++ only) Array of bool containing the animated validity state of the sources, will be filled by the method.
+            - pAvailableDstList: (C++ only) String list containing all the available destinations, will be filled by the method.
+            - pValidAnimatedDst: (C++ only) Array of bool containing the animated validity state of the available destinations, will be filled by the method.
+            - pDefaultDstList: (C++ only) String list containing the default destinations (contains each string item that will be put back when pressing the 'Reset' button in the UI), will be filled by the method.
+            - pEffectiveDstList: (C++ only) String list containing the effective destination (destinations currently active), will be filled by the method.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pSrcList | (C++ only) String list containing all the sources, will be filled by the method.  |
-        | pValidAnimatedSrc | (C++ only) Array of bool containing the animated validity state of the sources, will be filled by the method.  |
-        | pAvailableDstList | (C++ only) String list containing all the available destinations, will be filled by the method.  |
-        | pValidAnimatedDst | (C++ only) Array of bool containing the animated validity state of the available destinations, will be filled by the method.  |
-        | pDefaultDstList | (C++ only) String list containing the default destinations (contains each string item that will be put back when pressing the 'Reset' button in the UI), will be filled by the method.  |
-        | pEffectiveDstList | (C++ only) String list containing the effective destination (destinations currently active), will be filled by the method.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         (Python only) A tuple with 6 values: (pSrcList, pValidAnimatedSrc, pAvailableDstList, pValidAnimatedDst, pDefaultDstList, pEffectiveDstList)."""
         ...
     def GetAssignSourcesToDestinationsInfoEx(self)->tuple:...
@@ -26239,28 +21957,22 @@ class FBStoryClip(FBComponent):
         """GetReadOnly Retrieves the clip read-only status. 
         
         
-        ## Returns:
+        ### Returns:
         Returns the clip read-only status."""
         ...
     def GetSourceTimeFromDestinationTime(self,DestinationTime:FBTime)->tuple:
         """Get the clip source time (internal time) from a destination time (local time). 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pDestinationTime: The destination time to convert.
+            - pLoopNumber: The number of loops applied on the source time to match the destination time to convert. Optional. Will be filled by the method.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pDestinationTime | The destination time to convert.  |
-        | pLoopNumber | The number of loops applied on the source time to match the destination time to convert. Optional. Will be filled by the method.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The clip source time matching the input destination time. 
-        ## Python:
+        ### Python:
         The function takes only one parameter (pDestinationTime) and returns a Python tuple: (sourceTime, loopNumber). ex : lTuple = lClip.GetSourceTimeFromDestinationTime(lDestinationTime)"""
         ...
     def MakeWritable(self)->bool:
@@ -26269,7 +21981,7 @@ class FBStoryClip(FBComponent):
         
         Imports FCurves from story clip scene making them accessible for the user. 
         
-        ## Returns:
+        ### Returns:
         Returns true if successful."""
         ...
     @overload
@@ -26286,16 +21998,12 @@ class FBStoryClip(FBComponent):
         
         Match the animation clip to its previous/next animation clip, one to each other. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pObjectName | The object name that specifies which part of the track content to use to match clips. If the object name is not valid, or empty, the match object will be disabled so that the blend does not take it into account when matching clips.  |
-        | pTimeType | The time type specifying which point of a cross-blend the selected clip is matched.  |
-        | pTranslationType | The translation type specifying if/how a clip's match object is translated to match another clip's animation.  |
-        | pRotationType | The rotation type specifying if/how a clip's match object is rotated to match another clip's animation.  |"""
+            - pObjectName: The object name that specifies which part of the track content to use to match clips. If the object name is not valid, or empty, the match object will be disabled so that the blend does not take it into account when matching clips.
+            - pTimeType: The time type specifying which point of a cross-blend the selected clip is matched.
+            - pTranslationType: The translation type specifying if/how a clip's match object is translated to match another clip's animation.
+            - pRotationType: The rotation type specifying if/how a clip's match object is rotated to match another clip's animation."""
         ...
     def Move(self,Delta:FBTime,bForce:bool)->FBTime:
         """Move. 
@@ -26303,19 +22011,13 @@ class FBStoryClip(FBComponent):
         
         Move the clip of a delta offset. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pDelta: Delta time to apply to the clip.
+            - pForce: Force clip to find the nearest position if the move fail.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pDelta | Delta time to apply to the clip.  |
-        | pForce | Force clip to find the nearest position if the move fail.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Return the delta between the new and previous clip's position."""
         ...
     def MoveTo(self,Time:FBTime,bForce:bool)->FBTime:
@@ -26324,19 +22026,13 @@ class FBStoryClip(FBComponent):
         
         Move the clip to the specified time. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTime: Time where to put the clip.
+            - pForce: Force clip to find the nearest position if the move fail.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTime | Time where to put the clip.  |
-        | pForce | Force clip to find the nearest position if the move fail.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Returns the new clip's time position."""
         ...
     def Razor(self,Time:FBTime)->FBStoryClip:
@@ -26345,18 +22041,12 @@ class FBStoryClip(FBComponent):
         
         Cut (razor) the clip at the specified time. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTime: Time where to cut. This time is local to the track, not to the clip.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTime | Time where to cut. This time is local to the track, not to the clip.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Returns the new clip generated by the razor action (right part)."""
         ...
     def SetAssignSourcesToDestinationsInfo(self,EffectiveDstList:list)->bool:
@@ -26365,37 +22055,25 @@ class FBStoryClip(FBComponent):
         
         Sets the new effective destinations information for the Sources to Destinations assignment. The input string list size must contain the same number of items than the effective destination list returned by the GetAssignSourcesToDestinationsInfo method. Each item in the input string list must match an item in the available destination list returned by the GetAssignSourcesToDestinationsInfo method. The item at a given index of the input string list will be related to the same index of the sources list returned by the GetAssignSourcesToDestinationsInfo method. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pEffectiveDstList: String list containing the new effective destination.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pEffectiveDstList | String list containing the new effective destination.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Returns true if the assign succeeded, false otherwise."""
         ...
     def SetReadOnly(self,bMakeClipReadOnly:bool,OutputFile:str="")->bool:
         """SetReadOnly Assigns the clip read-only status. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pMakeClipReadOnly: New read-only status
+            - pOutputFile: Output file path name, when setting the clip's read-only status to true.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pMakeClipReadOnly | New read-only status  |
-        | pOutputFile | Output file path name, when setting the clip's read-only status to true.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Returns true if successful."""
         ...
     def SetTime(self,SourceIn:FBTime,SourceOut:FBTime,DestinationIn:FBTime,DestinationOut:FBTime,bUseAlternateSrcInProp:bool):
@@ -26404,23 +22082,19 @@ class FBStoryClip(FBComponent):
         
         In and out values are optional and the current values for the story clip will be used if not supplied. The story "Speed" property will be adjusted in order for the supplied values to be respected by the story clip. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pSourceIn | New value for the source IN time. Passing a value will modify the "MarkIn" and/or the "Speed" properties.  |
-        | pSourceOut | New value for the source OUT time. Passing a value will modify the "MarkOut" and/or the "Speed" properties.  |
-        | pDestinationIn | New value for the destination IN time. Passing a value will modify the "Stop" and/or the "Speed" properties.  |
-        | pDestinationOut | New value for the destination OUT time. Passing a value will modify the "Start" and/or the "Speed" properties.  |
-        | pUseAlternateSrcInProp | Will work on the "ExtractStart" property instead of the "MarkIn" property when passing pSourceIn.  |"""
+            - pSourceIn: New value for the source IN time. Passing a value will modify the "MarkIn" and/or the "Speed" properties.
+            - pSourceOut: New value for the source OUT time. Passing a value will modify the "MarkOut" and/or the "Speed" properties.
+            - pDestinationIn: New value for the destination IN time. Passing a value will modify the "Stop" and/or the "Speed" properties.
+            - pDestinationOut: New value for the destination OUT time. Passing a value will modify the "Start" and/or the "Speed" properties.
+            - pUseAlternateSrcInProp: Will work on the "ExtractStart" property instead of the "MarkIn" property when passing pSourceIn."""
         ...
     def UpdateFromCurrentTake(self)->bool:
         """Update clip animation from current take animation for clip track's scope, works only for clip created by Insert Current Take and connected to current take. 
         
         
-        ## Returns:
+        ### Returns:
         Returns true if succeed."""
         ...
     @overload
@@ -26428,46 +22102,34 @@ class FBStoryClip(FBComponent):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pClipObject | Object (media data) for the clip.  |
-        | pTrack | The track in which we create the clip.  |
-        | pTime | Time where the clip should begin.  |"""
+            - pClipObject: Object (media data) for the clip.
+            - pTrack: The track in which we create the clip.
+            - pTime: Time where the clip should begin."""
         ...
     @overload
     def __init__(self,FilePath:str,Track:FBStoryTrack,Time:FBTime):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pFilePath | Media file path to create clip with.  |
-        | pTrack | The track in which we create the clip.  |
-        | pTime | Time where the clip should begin.  |"""
+            - pFilePath: Media file path to create clip with.
+            - pTrack: The track in which we create the clip.
+            - pTime: Time where the clip should begin."""
         ...
     @overload
     def __init__(self,FilePath:str,Track:FBStoryTrack,Time:FBTime,TimeOffset:FBTime):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pFilePath | Media file path to create clip with.  |
-        | pTrack | The track in which we create the clip.  |
-        | pTime | Time where the clip should begin.  |
-        | pTimeOffset | Time offset where the clip should begin.  |"""
+            - pFilePath: Media file path to create clip with.
+            - pTrack: The track in which we create the clip.
+            - pTime: Time where the clip should begin.
+            - pTimeOffset: Time offset where the clip should begin."""
         ...
 class FBStoryFolder(FBComponent):
     """Story Folder class. 
@@ -26502,26 +22164,18 @@ class FBStoryFolder(FBComponent):
         """Used to align selected clips . 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pType | Type of alignment that will be done.  |
-        | pReferenceClip | Needed when kFBStoryClipAlignmentEndPreviousAllAligned, kFBStoryClipAlignmentBeginningNextAllAligned or kFBStoryClipAlignmentCurrentTimelineWithOffset are used.  |"""
+            - pType: Type of alignment that will be done.
+            - pReferenceClip: Needed when kFBStoryClipAlignmentEndPreviousAllAligned, kFBStoryClipAlignmentBeginningNextAllAligned or kFBStoryClipAlignmentCurrentTimelineWithOffset are used."""
         ...
     def AlignSelectedClipsGroup(self,Type:FBStoryGroupClipAlignmentType):
         """Used to align clips inside a group. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pType | Type of alignment that will be done.  |"""
+            - pType: Type of alignment that will be done."""
         ...
     def ConvertClipsToReadOnly(self,bSelected:bool,FilePath:str):
         """Convert all clips to read-only clips. 
@@ -26529,68 +22183,48 @@ class FBStoryFolder(FBComponent):
         
         Identical clips are replaced by the same read-only clip. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pSelected: Only selected clip will be converted.
+            - pFilePath: Folder path where the read-only clips will be saved.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pSelected | Only selected clip will be converted.  |
-        | pFilePath | Folder path where the read-only clips will be saved.  |
-        
-        
-        
-        
-        ## Remarks:
+        ### Remarks:
         Currently only animation clips are supported in the Root Folder"""
         ...
     def ExpandSelectedClips(self,bPreserveOverlap:bool):
         """Used to expand selected clips . 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pPreserveOverlap | If true, portion of clips that overlap other clips won't be modified.  |"""
+            - pPreserveOverlap: If true, portion of clips that overlap other clips won't be modified."""
         ...
     def ExpandSelectedClipsGroup(self,bPreserveOverlap:bool):
         """ExpandSelectedClipsGroup Used to expand group clip dependent clips. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pPreserveOverlap | If true, portion of clips that overlap other clips won't be modified.  |"""
+            - pPreserveOverlap: If true, portion of clips that overlap other clips won't be modified."""
         ...
     def Load(self,bLoad:bool):
         """Allow to load/unload all story clips under this folder. 
         
         
-        ## Remarks:
+        ### Remarks:
         Currently only animation clips are supported."""
         ...
     def __init__(self,ParentFolder:FBStoryFolder|None=None):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pParentFolder: If NULL, parent will be the global root folder, according to its type.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pParentFolder | If NULL, parent will be the global root folder, according to its type.  |
-        
-        
-        
-        
-        ## Remarks:
+        ### Remarks:
         You can't create a folder with the RootEditFolder as parent."""
         ...
 class FBStoryGroupClip(FBComponent):
@@ -26615,19 +22249,13 @@ class FBStoryGroupClip(FBComponent):
         
         Move the clip of a delta offset. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pDelta: Delta time to apply to the clip.
+            - pForce: Force clip to find the nearest position if the move fail.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pDelta | Delta time to apply to the clip.  |
-        | pForce | Force clip to find the nearest position if the move fail.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Return the delta between the new and previous clip's position."""
         ...
     def MoveTo(self,Time:FBTime,bForce:bool)->FBTime:
@@ -26636,19 +22264,13 @@ class FBStoryGroupClip(FBComponent):
         
         Move the clip to the specified time. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTime: Time where to put the clip.
+            - pForce: Force clip to find the nearest position if the move fail.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTime | Time where to put the clip.  |
-        | pForce | Force clip to find the nearest position if the move fail.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Returns the new clip's time position."""
         ...
     def Razor(self,Time:FBTime):
@@ -26657,25 +22279,17 @@ class FBStoryGroupClip(FBComponent):
         
         Cut (razor) the clip at the specified time. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pTime | Time where to cut. This time is local to the track, not to the clip.  |"""
+            - pTime: Time where to cut. This time is local to the track, not to the clip."""
         ...
     def __init__(self,AffectedClipObject:list[FBStoryClip]):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pAffectedClipObject | Clips that will be controlled by the group clip.  |"""
+            - pAffectedClipObject: Clips that will be controlled by the group clip."""
         ...
 class FBStoryTrack(FBConstraint):
     """Story Track class. 
@@ -26766,21 +22380,15 @@ class FBStoryTrack(FBConstraint):
         
         This method will always connect the created clip to the current take. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTimeSpan: Time span for the clip to create.
+            - pTake: Take to get the animation from.
+            - pOutputOffset: Time offset for the clip if necessary.
+            - pMakeUndoable: If the operation should be undoable.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTimeSpan | Time span for the clip to create.  |
-        | pTake | Take to get the animation from.  |
-        | pOutputOffset | Time offset for the clip if necessary.  |
-        | pMakeUndoable | If the operation should be undoable.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Created story clip if the operation succeeded, NULL otherwise."""
         ...
     @overload
@@ -26788,55 +22396,39 @@ class FBStoryTrack(FBConstraint):
         """CopyTakeIntoTrack Copy animation from the specified take for affected objects of the track. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTimeSpan: Time span for the clip to create.
+            - pTake: Take to get the animation from.
+            - pConnectToCurrentTake: True to connect the created clip to the current take, false otherwise.
+            - pOutputOffset: Time offset for the clip if necessary.
+            - pMakeUndoable: If the operation should be undoable.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTimeSpan | Time span for the clip to create.  |
-        | pTake | Take to get the animation from.  |
-        | pConnectToCurrentTake | True to connect the created clip to the current take, false otherwise.  |
-        | pOutputOffset | Time offset for the clip if necessary.  |
-        | pMakeUndoable | If the operation should be undoable.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Created story clip if the operation succeeded, NULL otherwise."""
         ...
     def CreateSubTrack(self,TrackType:FBStoryTrackType,RefMode:FBStoryTrackRefMode)->FBStoryTrack:
         """Create a sub track, Only Character and Animation tracks can have sub-tracks. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTrackType: Type of the sub track to be created.
+            - pRefMode: Composition mode of the sub track, kFBStoryTrackOverride or kFBStoryTrackAdditive.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTrackType | Type of the sub track to be created.  |
-        | pRefMode | Composition mode of the sub track, kFBStoryTrackOverride or kFBStoryTrackAdditive.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Created sub story track if the operation succeeded otherwise NULL."""
         ...
     def EnableBodyPart(self,Part:FBStoryTrackBodyPart,bEnable:bool):
         """EnableBodyPart. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pPart | Which part to enable/disable.  |
-        | pEnable | If True, this will enable the body part solving while false will disable it. Enable a specific body part for character solving.  |"""
+            - pPart: Which part to enable/disable.
+            - pEnable: If True, this will enable the body part solving while false will disable it. Enable a specific body part for character solving."""
         ...
     def IsBodyPartEnabled(self,Part:FBStoryTrackBodyPart)->bool:
         """IsBodyPartEnabled. 
@@ -26848,7 +22440,7 @@ class FBStoryTrack(FBConstraint):
         """Allow to load/unload all story clips under this track. 
         
         
-        ## Remarks:
+        ### Remarks:
         Currently only animation clips are supported."""
         ...
     def PlotToCameraSwitcher(self,Take:FBTake)->bool:
@@ -26857,20 +22449,14 @@ class FBStoryTrack(FBConstraint):
         
         This undoable operation will overwrite the Camera Switcher of Take. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTake: Take to plot the Shot Track to the Camera Switcher to.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTake | Take to plot the Shot Track to the Camera Switcher to.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise. 
-        ## Remarks:
+        ### Remarks:
         To plot all Shot Tracks to the Camera Switcher, use the [FBStory.PlotAllShotTracksToCameraSwitcher](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_story.html#ac7e4f5b948df1d33dd0f8207e89b1c82 "PlotAllShotTracksToCameraSwitcher Plot all Shot Tracks to the Camera Switcher on the given Take.") method."""
         ...
     @overload
@@ -26878,28 +22464,20 @@ class FBStoryTrack(FBConstraint):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pTrackType | Type of the track to be created.  |
-        | pFolder | If NULL, parent will be the global root folder.  |"""
+            - pTrackType: Type of the track to be created.
+            - pFolder: If NULL, parent will be the global root folder."""
         ...
     @overload
     def __init__(self,Source:FBComponent,Folder:FBStoryFolder|None=None):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pSource | Source of the track to be created based on media component type.  |
-        | pFolder | If NULL, parent will be the global root folder.  |"""
+            - pSource: Source of the track to be created based on media component type.
+            - pFolder: If NULL, parent will be the global root folder."""
         ...
 class FBStringList():
     """String list. 
@@ -26915,37 +22493,25 @@ class FBStringList():
         """Add a string to the list. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - S: String to add to list.
+            - pRef: Reference to store with string (default = 0)
         
         
-        
-        |  |  |
-        | --- | --- |
-        | S | String to add to list.  |
-        | pRef | Reference to store with string (default = 0)  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Index where item was stored."""
         ...
     def AsString(self,Separator:str='~')->str:
         """Get as string. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pSeparator: the string list separator.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pSeparator | the string list separator.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         String list."""
         ...
     def Clear(self):
@@ -26956,18 +22522,12 @@ class FBStringList():
         """Find the index where **pRef** is stored. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pRef: Reference to look for.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pRef | Reference to look for.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Index at which **pRef** can be found."""
         ...
     @overload
@@ -26975,158 +22535,108 @@ class FBStringList():
         """Find the index with the string **pString** (or start with **pString**) 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pString: String to search for.
+            - pCaseSensitive: true if considering case.
+            - pStartWith: true if to find the index of the string which start with pString.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pString | String to search for.  |
-        | pCaseSensitive | true if considering case.  |
-        | pStartWith | true if to find the index of the string which start with pString.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Index where **S** is stored."""
         ...
     def GetAt(self,Index:int)->str:
         """Get the string at **pIndex**. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index to get string at.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index to get string at.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         String at **pIndex**."""
         ...
     def GetReferenceAt(self,Index:int)->int:
         """Get the reference store with the string at **pIndex**. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index to get reference at.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index to get reference at.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Reference stored with value at **pIndex**."""
         ...
     def IndexOf(self,S:str)->int:
         """Get the index of a string. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - S: String to look for.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | S | String to look for.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Index where string **S** was found."""
         ...
     def InsertAt(self,Index:int,S:str,Ref:int=0):
         """Insert an entry at **pIndex**. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index where item is to be inserted.  |
-        | S | String to insert.  |
-        | pRef | Reference to store with string(default=0).  |"""
+            - pIndex: Index where item is to be inserted.
+            - S: String to insert.
+            - pRef: Reference to store with string(default=0)."""
         ...
     def Remove(self,S:str)->int:
         """Remove a string from the list. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - S: String to remove from the list.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | S | String to remove from the list.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Index where item was found."""
         ...
     def RemoveAt(self,Index:int):
         """Remove an entry at **pIndex**. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index where item is to be removed from.  |"""
+            - pIndex: Index where item is to be removed from."""
         ...
     def SetAt(self,Index:int,String:str)->bool:
         """Set the string at **pIndex**. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index where string is to be set.  |
-        | pString | String to set value at **pIndex** with.  |"""
+            - pIndex: Index where string is to be set.
+            - pString: String to set value at **pIndex** with."""
         ...
     def SetReferenceAt(self,Index:int,Ref:int):
         """Set the reference stored with the string at **pIndex**. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index to store reference at.  |
-        | pRef | Reference to store at **pIndex**.  |"""
+            - pIndex: Index to store reference at.
+            - pRef: Reference to store at **pIndex**."""
         ...
     def SetString(self,String:str,Separator:str='~')->bool:
         """Set string for list. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pString | String to set for list.  |
-        | pSeparator | the string list separator.  |"""
+            - pString: String to set for list.
+            - pSeparator: the string list separator."""
         ...
     def Sort(self):
         """Sort the string list (ascending)"""
@@ -27141,14 +22651,10 @@ class FBStringList():
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pString | String to set for list.  |
-        | pSeparator | the string list separator.  |"""
+            - pString: String to set for list.
+            - pSeparator: the string list separator."""
         ...
     def __len__(self)->int:...
     def __setitem__(self,arg2,arg3:str)->bool:...
@@ -27298,7 +22804,7 @@ class FBSystem(FBComponent):
         """Get current work directory. 
         
         
-        ## Returns:
+        ### Returns:
         current work directory."""
         ...
     def GetCommandLineArgs(self)->FBStringList:
@@ -27307,14 +22813,14 @@ class FBSystem(FBComponent):
         
         This function returns portion of the command line arguments within a pair of delimiters (sdk-begin & sdk-end). Example:Note that "-console", "-G500,500", "-suspendMessages" and "C:/temp/sample.fbx" are for MotionBuilder itself hence are consumed accordingly. Only those arguments between sdk-begin and sdk-end are accessible with this function. In this example, they will be "--department mocap --usage on-stage"This SDK command line argument is useful for plugin deployment and management in large production facility, where different department or different workflow may require a different set of plugins or functionality/behavior dynamically.Python users also have access to this through official built-in module sys.argv which could be parsed easily via argparse module. 
         
-        ## Returns:
+        ### Returns:
         the command line arguments"""
         ...
     def GetLoadedPluginItemGroups(self,PluginItemName:str)->FBStringList:
         """Returns a string list containing the groups list in which the specified plug-in item's name belongs to. 
         
         
-        ## Returns:
+        ### Returns:
         the groups list in which the specified plug-in item's name belongs to."""
         ...
     def GetLoadedPluginItemInfo(self,PluginItemName:str)->FBStringList:
@@ -27323,14 +22829,14 @@ class FBSystem(FBComponent):
         
         A specific plug-in item information can be retrieved from the returned string list with a EPluginItemInfo enum value. 
         
-        ## Returns:
+        ### Returns:
         the information of the specified plug-in item's name."""
         ...
     def GetLoadedPluginItemsName(self)->FBStringList:
         """Returns a string list containing the names of all the loaded plug-in. 
         
         
-        ## Returns:
+        ### Returns:
         the names of all the loaded plug-in."""
         ...
     def GetPluginPath(self)->FBStringList:
@@ -27339,7 +22845,7 @@ class FBSystem(FBComponent):
         
         By default, MotionBuilder searches C++ plug-ins and load them at start-up. Users could provide additional plugin paths by setting environment variable "MOTIONBUILDER\_PLUGIN\_PATH" before running MotionBuilder or by adding new paths in the SDK section of the Preferences.Note: It is also possible to load C++ plug-ins at startup using the Module functionality. See the documentation around the Modules and the [FBModuleManager](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_module_manager.html "Module Manager class.") SDK class. 
         
-        ## Returns:
+        ### Returns:
         the plugin paths"""
         ...
     def GetPythonStartupPath(self)->FBStringList:
@@ -27348,25 +22854,19 @@ class FBSystem(FBComponent):
         
         User could put python script in the startup folders, and MotionBuilder will search scripts from those folders and run them at startup. By default, there are two startup folders: /config/PythonStartup and /bin/config/PythonStartup. Users could append additional paths by setting environment variable "MOTIONBUILDER\_PYTHON\_STARTUP" before launching application.Note: It is also possible to run python scripts at startup using the Module functionality. See the documentation around the Modules and the [FBModuleManager](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_module_manager.html "Module Manager class.") SDK class. 
         
-        ## Returns:
+        ### Returns:
         the python startup path"""
         ...
     def MakeFullPath(self,RelativeFilePath:str)->str:
         """Return the full path. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pRelativeFilePath: The relative file path
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pRelativeFilePath | The relative file path  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Full file path based on combining the current directory"""
         ...
     def __init__(self):
@@ -27382,13 +22882,9 @@ class FBPatch(FBSurface):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of Patch.  |"""
+            - pName: Name of Patch."""
         ...
 class FBNurbs(FBSurface):
     """Nurbs class."""
@@ -27404,116 +22900,80 @@ class FBNurbs(FBSurface):
         """Get knot vector value of control point. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pUorV | **1** if V knot vector, **0** if U knot vector.  |
-        | pIndex | Index of control point to set knot value for.  |"""
+            - pUorV: **1** if V knot vector, **0** if U knot vector.
+            - pIndex: Index of control point to set knot value for."""
         ...
     def GetControlMultiplicity(self,UorV:int,Index:int)->int:
         """Get multiplicity (number of "instances") of control point. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pUorV | **1** if V multiplicity, **0** if U multlipicity.  |
-        | pIndex | Index of control point to get multiplicity for.  |"""
+            - pUorV: **1** if V multiplicity, **0** if U multlipicity.
+            - pIndex: Index of control point to get multiplicity for."""
         ...
     def GetControlWeight(self,Index:int)->float:
         """Get weight of control point. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of control point to get weight from.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of control point to get weight from.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Weight of control point at index pIndex."""
         ...
     def GetKnotCount(self,UorV:int)->int:
         """Number of knot vectors. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pUorV: **1** if V knot vector, **0** if U knot vector.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pUorV | **1** if V knot vector, **0** if U knot vector.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Number of knot vectors on NURBS surface"""
         ...
     def SetControlKnotValue(self,UorV:int,Index:int,KnotValue:float):
         """Set knot vector value of control point. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pUorV | **1** if V knot vector, **0** if U knot vector.  |
-        | pIndex | Index of control point to set knot value for.  |
-        | pKnotValue | Knot value for control point at pIndex.  |"""
+            - pUorV: **1** if V knot vector, **0** if U knot vector.
+            - pIndex: Index of control point to set knot value for.
+            - pKnotValue: Knot value for control point at pIndex."""
         ...
     def SetControlMultiplicity(self,UorV:int,Index:int,Multiplicity:int):
         """Set multiplicity (number of "instances") of control point. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pUorV | **1** if V multiplicity, **0** if U multlipicity.  |
-        | pIndex | Index of control point to set multiplicity for.  |
-        | pMultiplicity | Multiplicity value for control point at pIndex.  |"""
+            - pUorV: **1** if V multiplicity, **0** if U multlipicity.
+            - pIndex: Index of control point to set multiplicity for.
+            - pMultiplicity: Multiplicity value for control point at pIndex."""
         ...
     def SetControlWeight(self,Index:int,Weight:float):
         """Set weight of control point. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of control point to set weight at.  |
-        | pWeight | Weight of control point.  |"""
+            - pIndex: Index of control point to set weight at.
+            - pWeight: Weight of control point."""
         ...
     def __init__(self,Name:str):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of Nurbs.  |"""
+            - pName: Name of Nurbs."""
         ...
 class FBTexture(FBBox):
     """[See samples: HUDElements.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_h_u_d_0c_h_u_d_elements_8py-example.html) [MaterialAndTexture.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_material_and_texture_0c_material_and_texture_8py-example.html) [TextureAnimation.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_material_and_texture_0c_texture_animation_8py-example.html) [VideoInput.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_video_0c_video_input_8py-example.html) [VideoMemory.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_video_0c_video_memory_8py-example.html) [DeleteUnusedMedia.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_delete_unused_media_8py-example.html)"""
@@ -27547,7 +23007,7 @@ class FBTexture(FBBox):
         
         This will duplicated the current texture. 
         
-        ## Returns:
+        ### Returns:
         Newly created texture."""
         ...
     def OGLInit(self):
@@ -27558,13 +23018,9 @@ class FBTexture(FBBox):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of the texture media. If pName is a valid path, [FBTexture](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_texture.html "See samples: HUDElements.py, MaterialAndTexture.py, TextureAnimation.py, VideoInput....") will create a [FBVideo](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_video.html "Video media class.") object which is used in the Video property; else just a ordinary name.  |"""
+            - pName: Name of the texture media. If pName is a valid path, [FBTexture](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_texture.html "See samples: HUDElements.py, MaterialAndTexture.py, TextureAnimation.py, VideoInput....") will create a [FBVideo](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_video.html "Video media class.") object which is used in the Video property; else just a ordinary name."""
         ...
 class FBLayeredTexture(FBTexture):
     """LayeredTexture class. 
@@ -27590,13 +23046,9 @@ class FBLayeredTexture(FBTexture):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of texture media. Can be a NULL pointer. If set, this will create a [FBVideo](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_video.html "Video media class.") object used as the Video property.  |"""
+            - pName: Name of texture media. Can be a NULL pointer. If set, this will create a [FBVideo](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_video.html "Video media class.") object used as the Video property."""
         ...
 class FBTime():
     """Time data structure. 
@@ -27631,7 +23083,7 @@ class FBTime():
         """Get time value (long) 
         
         
-        ## Returns:
+        ### Returns:
         Time value as long."""
         ...
     def GetFrame(self,TimeMode:FBTimeMode=FBTimeMode.kFBTimeModeDefault)->int:
@@ -27640,130 +23092,94 @@ class FBTime():
         
         With this function, it is possible to obtain the cumulative and local frame counts. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTimeMode: Time mode to get the constant (default is kFBTimeModeDefault).
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTimeMode | Time mode to get the constant (default is kFBTimeModeDefault).  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Frames per second constant for the specified time mode."""
         ...
     def GetMilliSeconds(self)->int:
         """Get milliseconds for time. 
         
         
-        ## Returns:
+        ### Returns:
         MilliSeconds value."""
         ...
     def GetSecondDouble(self)->float:
         """Get seconds as double. 
         
         
-        ## Returns:
+        ### Returns:
         Seconds in double form."""
         ...
     def GetTimeString(self,Mode:FBTimeMode=FBTimeMode.kFBTimeModeDefault,Format:ETimeFormats=eDefaultFormat)->str:
         """Get time as a string. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pMode: Time mode (default=kFBTimeModeDefault) to use (call [FBSystem()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/class_f_b_system.html "Provides access to the underlying system, and the MotionBuilder scene.").GetTransportFps() to the the current UI displayed mode).
+            - pFormat: Format to use for the returned string(default=FBTime::eDefaultFormat).
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pMode | Time mode (default=kFBTimeModeDefault) to use (call [FBSystem()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/class_f_b_system.html "Provides access to the underlying system, and the MotionBuilder scene.").GetTransportFps() to the the current UI displayed mode).  |
-        | pFormat | Format to use for the returned string(default=FBTime::eDefaultFormat).  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         String value of time."""
         ...
     def Set(self,Time:int):
         """Set time value from a long. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pTime | Time value to set.  |"""
+            - pTime: Time value to set."""
         ...
     def SetFrame(self,Frames:int,TimeMode:FBTimeMode=FBTimeMode.kFBTimeModeDefault):
         """Set time in frame format. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pFrames | The number of frames.  |
-        | pTimeMode | The time mode identifier which will dictate the extraction algorithm.  |"""
+            - pFrames: The number of frames.
+            - pTimeMode: The time mode identifier which will dictate the extraction algorithm."""
         ...
     def SetMilliSeconds(self,MilliSeconds:int):
         """Set milliseconds time. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pMilliSeconds | MilliSeconds value.  |"""
+            - pMilliSeconds: MilliSeconds value."""
         ...
     def SetSecondDouble(self,Time:float):
         """Set seconds from double. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pTime | Time to set seconds from.  |"""
+            - pTime: Time to set seconds from."""
         ...
     def SetTime(self,Hour:int,Minute:int=0,Second:int=0,Frame:int=0,Field:int=0,TimeMode:FBTimeMode=FBTimeMode.kFBTimeModeDefault):
         """Set time (from separate values) 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pHour | Hour value.  |
-        | pMinute | Minute value(default=0).  |
-        | pSecond | Second value(default=0).  |
-        | pFrame | Frame value(default=0).  |
-        | pField | Field value(default=0).  |
-        | pTimeMode | Time mode to get time as(default=kFBTimeModeDefault).  |"""
+            - pHour: Hour value.
+            - pMinute: Minute value(default=0).
+            - pSecond: Second value(default=0).
+            - pFrame: Frame value(default=0).
+            - pField: Field value(default=0).
+            - pTimeMode: Time mode to get time as(default=kFBTimeModeDefault)."""
         ...
     def SetTimeString(self,Time:str):
         """Set time from string. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pTime | String to set time from.  |"""
+            - pTime: String to set time from."""
         ...
     @overload
     def __add__(self,arg2:FBTime)->object:...
@@ -27778,18 +23194,14 @@ class FBTime():
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pHour | Hour value.  |
-        | pMinute | Minute value.  |
-        | pSecond | Second value.  |
-        | pFrame | Frame value.  |
-        | pField | Field value.  |
-        | pTimeMode | Time mode(default=kFBTimeModeDefault).  |"""
+            - pHour: Hour value.
+            - pMinute: Minute value.
+            - pSecond: Second value.
+            - pFrame: Frame value.
+            - pField: Field value.
+            - pTimeMode: Time mode(default=kFBTimeModeDefault)."""
         ...
     @overload
     def __init__(self,arg2:FBTime):...
@@ -27832,21 +23244,21 @@ class FBTimeCode():
         """Get the raw value for the frame. 
         
         
-        ## Returns:
+        ### Returns:
         raw value for the frame."""
         ...
     def GetRawRate(self)->float:
         """Get the raw value for the rate. 
         
         
-        ## Returns:
+        ### Returns:
         raw value for the rate."""
         ...
     def GetRawSecond(self)->float:
         """Get the raw value for the second. 
         
         
-        ## Returns:
+        ### Returns:
         raw value for the second."""
         ...
     def GetTime(self)->FBTime:
@@ -27856,59 +23268,41 @@ class FBTimeCode():
         """Get time as a string. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pFormat: Format to use for the returned string(default=FBTime::eDefaultFormat).
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pFormat | Format to use for the returned string(default=FBTime::eDefaultFormat).  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         String value of time."""
         ...
     def SetTime(self,Time:FBTime):
         """Set TimeCode according to the given time. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pTime | Time value to set.  |"""
+            - pTime: Time value to set."""
         ...
     def SetTimeCode(self,Hour:int,Minute:int=0,Second:int=0,Frame:float=0):
         """Set timecode. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pHour | Hour value.  |
-        | pMinute | Minute value.  |
-        | pSecond | Second value.  |
-        | pFrame | Frame value.  |"""
+            - pHour: Hour value.
+            - pMinute: Minute value.
+            - pSecond: Second value.
+            - pFrame: Frame value."""
         ...
     def SetTimeCodeString(self,Time:str,Format:FBTime.ETimeFormats=FBTime.eDefaultFormat):
         """Set time from string. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pTime | String to set time from.  |
-        | pFormat | Format to use for the string(default=FBTime::eDefaultFormat).  |"""
+            - pTime: String to set time from.
+            - pFormat: Format to use for the string(default=FBTime::eDefaultFormat)."""
         ...
     @overload
     def __init__(self):...
@@ -27917,13 +23311,9 @@ class FBTimeCode():
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pRate | Framerate value.  |"""
+            - pRate: Framerate value."""
         ...
     @overload
     def __init__(self,arg2:FBTimeCode):...
@@ -27978,33 +23368,23 @@ class FBTake(FBComponent):
         
         It doesn't allow creating a time mark at the same time of another time mark. Note: Internally, the time marks are stored in time order. Adding a time mark before other existing time marks will modify the index of these other time marks. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTime: Time where to add the time mark on the take.
+            - pName: Name of the time mark to add.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTime | Time where to add the time mark on the take.  |
-        | pName | Name of the time mark to add.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The index of the time mark added if the operation is successful, -1 otherwise."""
         ...
     def ClearAllProperties(self,bOnSelectedObjectsOnly:bool,bOnLockedProperties:bool=False):
         """Clear the animation on all the properties. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pOnSelectedObjectsOnly | Specify if clear will be performed on all objects or only on the one that are currently selected.  |
-        | pOnLockedProperties | Specify if clear will be performed on locked properties as well.  |"""
+            - pOnSelectedObjectsOnly: Specify if clear will be performed on all objects or only on the one that are currently selected.
+            - pOnLockedProperties: Specify if clear will be performed on locked properties as well."""
         ...
     def ClearAllPropertiesOnCurrentLayer(self):
         """Clear all the animation on the current layer."""
@@ -28015,18 +23395,12 @@ class FBTake(FBComponent):
         
         Will create a copy of the current take, with the current take data. This is analogous to creating a new take, and copying the current take data into it. The Layers data and the TimeWarp date will be copied. The newly created take will be set as the current take. The newly created take is automatically added to the scene and available in the Transport control. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pNewTakeName: The name for the new take.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pNewTakeName | The name for the new take.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Handle to the newly created take."""
         ...
     def CreateNewLayer(self):
@@ -28039,69 +23413,51 @@ class FBTake(FBComponent):
         """Delete animation (FCurve keys) of this take object within a time range. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pStartTime: Start of time range.
+            - pStopTime: End of time range.
+            - pInclusive: True to include within the time range the keys at pStartTime and pStopTime, false otherwise.
+            - pLayerID: The animation layer ID being affected by the delete operation, -1 to delete the animation of all animations layers.
+            - pOnLockedProperties: True to delete animation on locked properties, false to skip deleting animation on locked properties.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pStartTime | Start of time range.  |
-        | pStopTime | End of time range.  |
-        | pInclusive | True to include within the time range the keys at pStartTime and pStopTime, false otherwise.  |
-        | pLayerID | The animation layer ID being affected by the delete operation, -1 to delete the animation of all animations layers.  |
-        | pOnLockedProperties | True to delete animation on locked properties, false to skip deleting animation on locked properties.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the delete operation is successful (at least one FCurve has been modified), false otherwise (e.g. no keys found within the time range, invalid layer ID, etc.)."""
         ...
     def DeleteAnimationOnObjects(self,Objects:list[FBBox],StartTime:FBTime=FBTime.MinusInfinity,StopTime:FBTime=FBTime.Infinity,bInclusive:bool=True,LayerID:int=-1,bOnLockedProperties:bool=False)->bool:
         """Delete animation (FCurve keys) of this take object on given objects within a time range. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pObjects: Objects affected by the delete operation.
+            - pStartTime: Start of time range.
+            - pStopTime: End of time range.
+            - pInclusive: True to include within the time range the keys at pStartTime and pStopTime, false otherwise.
+            - pLayerID: The animation layer ID being affected by the delete operation, -1 to delete the animation of all animations layers.
+            - pOnLockedProperties: True to delete animation on locked properties, false to skip deleting animation on locked properties.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pObjects | Objects affected by the delete operation.  |
-        | pStartTime | Start of time range.  |
-        | pStopTime | End of time range.  |
-        | pInclusive | True to include within the time range the keys at pStartTime and pStopTime, false otherwise.  |
-        | pLayerID | The animation layer ID being affected by the delete operation, -1 to delete the animation of all animations layers.  |
-        | pOnLockedProperties | True to delete animation on locked properties, false to skip deleting animation on locked properties.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the delete operation is successful (at least one FCurve has been modified), false otherwise (e.g. no keys found within the time range, invalid layer ID, etc.)."""
         ...
     def DeleteAnimationOnProperties(self,Properties:list,StartTime:FBTime=FBTime.MinusInfinity,StopTime:FBTime=FBTime.Infinity,bInclusive:bool=True,LayerID:int=-1,bOnLockedProperties:bool=False,PropertyComponents:FBPropertyComponents=FBPropertyComponents.kFBPropertyComponentAll)->bool:
         """Delete animation (FCurve keys) of this take object on given properties within a time range. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pProperties: Properties affected by the delete operation.
+            - pStartTime: Start of time range.
+            - pStopTime: End of time range.
+            - pInclusive: True to include within the time range the keys at pStartTime and pStopTime, false otherwise.
+            - pLayerID: The animation layer ID being affected by the delete operation, -1 to delete the animation of all animations layers.
+            - pOnLockedProperties: True to delete animation on locked properties, false to skip deleting animation on locked properties.
+            - pPropertyComponents: The component bit field considered when performing the delete operation, for properties having such components. By default, all components are considered. If a property don't have any component, this parameter is not affecting that property.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pProperties | Properties affected by the delete operation.  |
-        | pStartTime | Start of time range.  |
-        | pStopTime | End of time range.  |
-        | pInclusive | True to include within the time range the keys at pStartTime and pStopTime, false otherwise.  |
-        | pLayerID | The animation layer ID being affected by the delete operation, -1 to delete the animation of all animations layers.  |
-        | pOnLockedProperties | True to delete animation on locked properties, false to skip deleting animation on locked properties.  |
-        | pPropertyComponents | The component bit field considered when performing the delete operation, for properties having such components. By default, all components are considered. If a property don't have any component, this parameter is not affecting that property.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the delete operation is successful (at least one FCurve has been modified), false otherwise (e.g. no keys found within the time range, invalid layer ID, etc.)."""
         ...
     def DeleteTimeMark(self,Index:int)->bool:
@@ -28110,18 +23466,12 @@ class FBTake(FBComponent):
         
         Note: Internally, the time marks are stored in time order. Deleting a time mark will modify the index of time marks laying after the deleted time mark. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the time mark to delete.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the time mark to delete.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise."""
         ...
     def DuplicateSelectedLayers(self):
@@ -28134,50 +23484,38 @@ class FBTake(FBComponent):
         """Get the current layer for the take. 
         
         
-        ## Returns:
+        ### Returns:
         The current layer index."""
         ...
     def GetLayer(self,LayerIndex:int)->FBAnimationLayer:
         """Get the layer object that have the specified ID. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pLayerIndex: The index of the layer that will be returned.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pLayerIndex | The index of the layer that will be returned.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Layer with the specified ID."""
         ...
     def GetLayerByName(self,Name:str)->FBAnimationLayer:
         """Get the layer object that have the specified name. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pName: The name of the animation layer to get.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pName | The name of the animation layer to get.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Layer with the specified name or NULL if no layer has been found."""
         ...
     def GetLayerCount(self)->int:
         """Get the layer count. 
         
         
-        ## Returns:
+        ### Returns:
         The layer count."""
         ...
     def GetLayerRealSelection(self)->bool:
@@ -28186,100 +23524,76 @@ class FBTake(FBComponent):
         
         Check the SetLayerRealSelection function for more information about this. 
         
-        ## Returns:
+        ### Returns:
         True if selecting a layer will also select the [FBComponent](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html "MotionBuilder SDK base class.") of that layer."""
         ...
     def GetNextTimeMarkIndex(self)->int:
         """Returns the next time mark index, based on the current local time. 
         
         
-        ## Returns:
+        ### Returns:
         The next time mark index, -1 if any next time mark is available."""
         ...
     def GetPreviousTimeMarkIndex(self)->int:
         """Returns the previous time mark index, based on the current local time. 
         
         
-        ## Returns:
+        ### Returns:
         The previous time mark index, -1 if any previous time mark is available."""
         ...
     def GetTimeMarkAction(self,Index:int)->FBTimeMarkAction:
         """Returns the action associated with a time mark. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the time mark.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the time mark.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The action associated with the time mark."""
         ...
     def GetTimeMarkColor(self,Index:int)->FBColor:
         """Returns the color associated with a time mark. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the time mark.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the time mark.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The color associated with the time mark."""
         ...
     def GetTimeMarkCount(self)->int:
         """Returns the number of time marks on the take. 
         
         
-        ## Returns:
+        ### Returns:
         The number of time marks on the take."""
         ...
     def GetTimeMarkName(self,Index:int)->str:
         """Returns the name associated with a time mark. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the time mark.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the time mark.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The name associated with the time mark."""
         ...
     def GetTimeMarkTime(self,Index:int)->FBTime:
         """Returns the time associated with a time mark. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the time mark.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the time mark.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The time associated with the time mark."""
         ...
     def MergeLayers(self,MergeOptions:FBAnimationLayerMergeOptions,bDeleteMergedLayers:bool,MergeMode:FBMergeLayerMode,bMergeLockedProperties:bool=False):
@@ -28288,16 +23602,12 @@ class FBTake(FBComponent):
         
         This is equivalent of pressing the merge button in the Animation Layer editor. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pMergeOptions | Indicate which objects, layers and properties (selected or all) should be merged.  |
-        | pDeleteMergedLayers | The source layer will be deleted after the merge if no animation is left on those layers, or if those layers are not parent of another layer.  |
-        | pMergeMode | Set the layer mode of the resulting layer, if possible (the BaseAnimation layer cannot be modified).  |
-        | pMergeLockedProperties | The properties will be merged even if they are locked.  |"""
+            - pMergeOptions: Indicate which objects, layers and properties (selected or all) should be merged.
+            - pDeleteMergedLayers: The source layer will be deleted after the merge if no animation is left on those layers, or if those layers are not parent of another layer.
+            - pMergeMode: Set the layer mode of the resulting layer, if possible (the BaseAnimation layer cannot be modified).
+            - pMergeLockedProperties: The properties will be merged even if they are locked."""
         ...
     def MoveCurrentLayerDown(self)->bool:
         """Move the current layer down, similar to using the button to move the layer in the Animation Layer tool. 
@@ -28305,7 +23615,7 @@ class FBTake(FBComponent):
         
         Use the SetCurrentLayer to specify the current layer. 
         
-        ## Returns:
+        ### Returns:
         True if successful."""
         ...
     def MoveCurrentLayerUp(self)->bool:
@@ -28314,7 +23624,7 @@ class FBTake(FBComponent):
         
         Use the SetCurrentLayer to specify the current layer. 
         
-        ## Returns:
+        ### Returns:
         True if successful."""
         ...
     def OffsetAnimation(self,OffsetTime:FBTime,StartTime:FBTime=FBTime.MinusInfinity,StopTime:FBTime=FBTime.Infinity,bInclusive:bool=True,LayerID:int=-1,bOnLockedProperties:bool=False)->bool:
@@ -28323,23 +23633,17 @@ class FBTake(FBComponent):
         
         Non-moving FCurve keys that are situated in the target range are deleted automatically, to preserve the animation being offset. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pOffsetTime: The offset time to apply.
+            - pStartTime: Start of time range.
+            - pStopTime: End of time range.
+            - pInclusive: True to include within the time range the keys at pStartTime and pStopTime, false otherwise.
+            - pLayerID: The animation layer ID being affected by the offset operation, -1 to offset the animation of all animations layers.
+            - pOnLockedProperties: True to offset animation on locked properties, false to skip offsetting animation on locked properties.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pOffsetTime | The offset time to apply.  |
-        | pStartTime | Start of time range.  |
-        | pStopTime | End of time range.  |
-        | pInclusive | True to include within the time range the keys at pStartTime and pStopTime, false otherwise.  |
-        | pLayerID | The animation layer ID being affected by the offset operation, -1 to offset the animation of all animations layers.  |
-        | pOnLockedProperties | True to offset animation on locked properties, false to skip offsetting animation on locked properties.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the offset operation is successful (at least one FCurve has been modified), false otherwise (e.g. no keys found within the time range, invalid layer ID, etc.)."""
         ...
     def OffsetAnimationOnObjects(self,Objects:list[FBBox],OffsetTime:FBTime,StartTime:FBTime=FBTime.MinusInfinity,StopTime:FBTime=FBTime.Infinity,bInclusive:bool=True,LayerID:int=-1,bOnLockedProperties:bool=False)->bool:
@@ -28348,24 +23652,18 @@ class FBTake(FBComponent):
         
         Non-moving FCurve keys that are situated in the target range are deleted automatically, to preserve the animation being offset. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pObjects: Objects affected by the offset operation.
+            - pOffsetTime: The offset time to apply.
+            - pStartTime: Start of time range.
+            - pStopTime: End of time range.
+            - pInclusive: True to include within the time range the keys at pStartTime and pStopTime, false otherwise.
+            - pLayerID: The animation layer ID being affected by the offset operation, -1 to offset the animation of all animations layers.
+            - pOnLockedProperties: True to offset animation on locked properties, false to skip offsetting animation on locked properties.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pObjects | Objects affected by the offset operation.  |
-        | pOffsetTime | The offset time to apply.  |
-        | pStartTime | Start of time range.  |
-        | pStopTime | End of time range.  |
-        | pInclusive | True to include within the time range the keys at pStartTime and pStopTime, false otherwise.  |
-        | pLayerID | The animation layer ID being affected by the offset operation, -1 to offset the animation of all animations layers.  |
-        | pOnLockedProperties | True to offset animation on locked properties, false to skip offsetting animation on locked properties.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the offset operation is successful (at least one FCurve has been modified), false otherwise (e.g. no keys found within the time range, invalid layer ID, etc.)."""
         ...
     def OffsetAnimationOnProperties(self,Properties:list,OffsetTime:FBTime,StartTime:FBTime=FBTime.MinusInfinity,StopTime:FBTime=FBTime.Infinity,bInclusive:bool=True,LayerID:int=-1,bOnLockedProperties:bool=False,PropertyComponents:FBPropertyComponents=FBPropertyComponents.kFBPropertyComponentAll)->bool:
@@ -28374,25 +23672,19 @@ class FBTake(FBComponent):
         
         Non-moving FCurve keys that are situated in the target range are deleted automatically, to preserve the animation being offset. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pProperties: Properties affected by the offset operation.
+            - pOffsetTime: The offset time to apply.
+            - pStartTime: Start of time range.
+            - pStopTime: End of time range.
+            - pInclusive: True to include within the time range the keys at pStartTime and pStopTime, false otherwise.
+            - pLayerID: The animation layer ID being affected by the offset operation, -1 to offset the animation of all animations layers.
+            - pOnLockedProperties: True to offset animation on locked properties, false to skip offsetting animation on locked properties.
+            - pPropertyComponents: The component bit field considered when performing the offset operation, for properties having such components. By default, all components are considered. If a property don't have any component, this parameter is not affecting that property.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pProperties | Properties affected by the offset operation.  |
-        | pOffsetTime | The offset time to apply.  |
-        | pStartTime | Start of time range.  |
-        | pStopTime | End of time range.  |
-        | pInclusive | True to include within the time range the keys at pStartTime and pStopTime, false otherwise.  |
-        | pLayerID | The animation layer ID being affected by the offset operation, -1 to offset the animation of all animations layers.  |
-        | pOnLockedProperties | True to offset animation on locked properties, false to skip offsetting animation on locked properties.  |
-        | pPropertyComponents | The component bit field considered when performing the offset operation, for properties having such components. By default, all components are considered. If a property don't have any component, this parameter is not affecting that property.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the offset operation is successful (at least one FCurve has been modified), false otherwise (e.g. no keys found within the time range, invalid layer ID, etc.)."""
         ...
     def PlotAllTakesOnObjects(self,PlotPeriod:FBTime,ObjectsToPlot:list[FBBox]):
@@ -28401,14 +23693,10 @@ class FBTake(FBComponent):
         
         This method will plot the animation of all takes to the specified objects. Although the method supports boxes, the most common use case it to specify FBModels that have been cast to boxes. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pPlotPeriod | Period for the plot.  |
-        | pObjectsToPlot | Objects to plot.  |"""
+            - pPlotPeriod: Period for the plot.
+            - pObjectsToPlot: Objects to plot."""
         ...
     def PlotAllTakesOnProperties(self,PlotPeriod:FBTime,PropertiesToPlot:list):
         """Plot the animation on given properties for all takes. 
@@ -28416,14 +23704,10 @@ class FBTake(FBComponent):
         
         Will plot the animation for all takes on the given properties in the scene. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pPlotPeriod | Period for the plot.  |
-        | pPropertiesToPlot | Properties to plot.  |"""
+            - pPlotPeriod: Period for the plot.
+            - pPropertiesToPlot: Properties to plot."""
         ...
     def PlotAllTakesOnSelected(self,PlotPeriod:FBTime):
         """Plot the animation on selected models for all takes. 
@@ -28431,13 +23715,9 @@ class FBTake(FBComponent):
         
         Will plot the animation for all takes on the selected models in the scene. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pPlotPeriod | Period for the plot.  |"""
+            - pPlotPeriod: Period for the plot."""
         ...
     def PlotAllTakesOnSelectedProperties(self,PlotPeriod:FBTime):
         """Plot the animation on selected properties for all takes. 
@@ -28445,13 +23725,9 @@ class FBTake(FBComponent):
         
         Will plot the animation for all takes on the selected properties in the scene. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pPlotPeriod | Period for the plot.  |"""
+            - pPlotPeriod: Period for the plot."""
         ...
     @overload
     def PlotTakeOnObjects(self,PlotPeriod:FBTime,ObjectsToPlot:list[FBBox]):
@@ -28460,14 +23736,10 @@ class FBTake(FBComponent):
         
         This method will plot the animation of the take to the specified objects. Although the method supports boxes, the most common use case it to specify FBModels that have been cast to boxes. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pPlotPeriod | Period for the plot.  |
-        | pObjectsToPlot | Objects to plot.  |"""
+            - pPlotPeriod: Period for the plot.
+            - pObjectsToPlot: Objects to plot."""
         ...
     @overload
     def PlotTakeOnObjects(self,PlotOptions:FBPlotOptions,ObjectsToPlot:list[FBBox]):
@@ -28476,14 +23748,10 @@ class FBTake(FBComponent):
         
         This method will plot the animation of the take to the specified objects. Although the method supports boxes, the most common use case it to specify FBModels that have been cast to boxes. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pPlotOptions | Option parameters for plotting  |
-        | pObjectsToPlot | Objects to plot.  |"""
+            - pPlotOptions: Option parameters for plotting
+            - pObjectsToPlot: Objects to plot."""
         ...
     @overload
     def PlotTakeOnProperties(self,PlotPeriod:FBTime,PropertiesToPlot:list):
@@ -28492,14 +23760,10 @@ class FBTake(FBComponent):
         
         Will plot the animation of the take in question on the given properties in the scene. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pPlotPeriod | Period for the plot.  |
-        | pPropertiesToPlot | Properties to plot.  |"""
+            - pPlotPeriod: Period for the plot.
+            - pPropertiesToPlot: Properties to plot."""
         ...
     @overload
     def PlotTakeOnProperties(self,PlotOptions:FBPlotOptions,PropertiesToPlot:list):
@@ -28508,14 +23772,10 @@ class FBTake(FBComponent):
         
         Will plot the animation of the take in question on the given properties in the scene. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pPlotOptions | Option parameters for plotting.  |
-        | pPropertiesToPlot | Properties to plot.  |"""
+            - pPlotOptions: Option parameters for plotting.
+            - pPropertiesToPlot: Properties to plot."""
         ...
     @overload
     def PlotTakeOnSelected(self,PlotPeriod:FBTime):
@@ -28524,13 +23784,9 @@ class FBTake(FBComponent):
         
         Will plot the animation of the take in question on the selected models in the scene. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pPlotPeriod | Period for the plot.  |"""
+            - pPlotPeriod: Period for the plot."""
         ...
     @overload
     def PlotTakeOnSelected(self,PlotOptions:FBPlotOptions):
@@ -28539,13 +23795,9 @@ class FBTake(FBComponent):
         
         Will plot the animation of the take in question on the selected models in the scene. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pPlotOptions | Option parameters for plotting  |"""
+            - pPlotOptions: Option parameters for plotting"""
         ...
     @overload
     def PlotTakeOnSelectedProperties(self,PlotPeriod:FBTime):
@@ -28554,13 +23806,9 @@ class FBTake(FBComponent):
         
         Will plot the animation of the take in question on the selected properties in the scene. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pPlotPeriod | Period for the plot.  |"""
+            - pPlotPeriod: Period for the plot."""
         ...
     @overload
     def PlotTakeOnSelectedProperties(self,PlotOptions:FBPlotOptions):
@@ -28569,25 +23817,17 @@ class FBTake(FBComponent):
         
         Will plot the animation of the take in question on the selected properties in the scene. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pPlotOptions | Option parameters for plotting  |"""
+            - pPlotOptions: Option parameters for plotting"""
         ...
     def RemoveLayer(self,LayerIndex:int):
         """Remove a layer. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pLayerIndex | Layer with at the specified index will be removed.  |"""
+            - pLayerIndex: Layer with at the specified index will be removed."""
         ...
     def SetCurrentLayer(self,LayerIndex:int):
         """Set the current layer for the take. 
@@ -28595,13 +23835,9 @@ class FBTake(FBComponent):
         
         Note that this will not deselect the other layers. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pLayerIndex | The layer index to be set as the current one.  |"""
+            - pLayerIndex: The layer index to be set as the current one."""
         ...
     def SetLayerRealSelection(self,bValue:bool):
         """Set real selection for layer. 
@@ -28609,69 +23845,47 @@ class FBTake(FBComponent):
         
         This method is used to specify if using the SelectLayer method of the [FBAnimationLayer](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_animation_layer.html "Used to access animation layer properties and modify them.") object will also select the [FBComponent](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html "MotionBuilder SDK base class.") object. In previous version of MotionBuilder, an animation layer was always selected, causing the layer to be displayed in the property editor. Also, when parsing the selected objects in the SDK, a layer would always be there. Setting this value to false will prevent this. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pValue | True if future layer selection will also select the [FBComponent](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html "MotionBuilder SDK base class.") object.  |"""
+            - pValue: True if future layer selection will also select the [FBComponent](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html "MotionBuilder SDK base class.") object."""
         ...
     def SetTimeMarkAction(self,Index:int,Action:FBTimeMarkAction)->bool:
         """Sets a new action for an existing time mark. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the time mark.
+            - pAction: The new action for the time mark.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the time mark.  |
-        | pAction | The new action for the time mark.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise."""
         ...
     def SetTimeMarkColor(self,Index:int,Color:FBColor)->bool:
         """Sets a new color for an existing time mark. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the time mark.
+            - pColor: The new color for the time mark.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the time mark.  |
-        | pColor | The new color for the time mark.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise."""
         ...
     def SetTimeMarkName(self,Index:int,Name:str)->bool:
         """Sets a new name for an existing time mark. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the time mark.
+            - pName: The new name for the time mark.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the time mark.  |
-        | pName | The new name for the time mark.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise."""
         ...
     def SetTimeMarkTime(self,Index:int,Time:FBTime)->int:
@@ -28680,32 +23894,22 @@ class FBTake(FBComponent):
         
         Note: Internally, the time marks are stored in time order. Modifying the time of a time mark may modify the index of all time marks. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the time mark.
+            - pTime: The new time for the time mark.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the time mark.  |
-        | pTime | The new time for the time mark.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The new index of the modified time mark."""
         ...
     def __init__(self,Name:str):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of take.  |"""
+            - pName: Name of take."""
         ...
 class FBFCurve(FBComponent):
     """FCurve class. 
@@ -28723,25 +23927,17 @@ class FBFCurve(FBComponent):
         """Create and interpolator curve. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pCurveType | Interpolator curve type to create.  |"""
+            - pCurveType: Interpolator curve type to create."""
         ...
     def EditBegin(self,KeyCount:int=-1):
         """Setup function to begin adding keys. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pKeyCount | Key to begin adding at(default is -1).  |"""
+            - pKeyCount: Key to begin adding at(default is -1)."""
         ...
     def EditClear(self):
         """Empty FCurve of all keys."""
@@ -28750,30 +23946,20 @@ class FBFCurve(FBComponent):
         """End key adding sequence. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pKeyCount | Key to finish adding at (default is -1).  |"""
+            - pKeyCount: Key to finish adding at (default is -1)."""
         ...
     def Evaluate(self,Time:FBTime)->float:
         """Evaluate FCurve at **pTime**. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTime: Time at which FCurve is to be evaluated.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTime | Time at which FCurve is to be evaluated.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Value of FCurve at **pTime**."""
         ...
     def GetPostExtrapolationCount(self)->int:
@@ -28792,21 +23978,15 @@ class FBFCurve(FBComponent):
         """Add a key at the specified time. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTime: Time at which to insert the key.
+            - pValue: Value of the key.
+            - pInterpolation: Interpolation type of the inserted key, default value is Cubic interpolation.
+            - pTangentMode: Tangent calculation method of the inserted key, default value is Auto (Smooth).
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTime | Time at which to insert the key.  |
-        | pValue | Value of the key.  |
-        | pInterpolation | Interpolation type of the inserted key, default value is Cubic interpolation.  |
-        | pTangentMode | Tangent calculation method of the inserted key, default value is Auto (Smooth).  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The position of the new key in the list of FCurve keys."""
         ...
     @overload
@@ -28816,19 +23996,13 @@ class FBFCurve(FBComponent):
         
         This function is much faster than multiple removes. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pStartIndex: Index of first deleted key.
+            - pStopIndex: Index of last deleted key.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pStartIndex | Index of first deleted key.  |
-        | pStopIndex | Index of last deleted key.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the delete operation is successful, false otherwise (e.g. the FCurve is locked, the index range is invalid, etc.)."""
         ...
     @overload
@@ -28838,20 +24012,14 @@ class FBFCurve(FBComponent):
         
         This function is much faster than multiple removes. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pStart: Start of time range.
+            - pStop: End of time range.
+            - pInclusive: True to include within the time range the keys at pStartTime and pStopTime, false otherwise.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pStart | Start of time range.  |
-        | pStop | End of time range.  |
-        | pInclusive | True to include within the time range the keys at pStartTime and pStopTime, false otherwise.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the delete operation is successful, false otherwise (e.g. the FCurve is locked, no keys found within the time range, etc.)."""
         ...
     def KeyDeleteByIndexRange(self,arg2,arg3)->bool:...
@@ -28860,375 +24028,251 @@ class FBFCurve(FBComponent):
         """Get the key interpolation type at the specified index. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the key to query.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the key to query.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Type of interpolation."""
         ...
     def KeyGetLeftBezierTangent(self,Index:int)->float:
         """Get the key left bezier tangent value at the specified index. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the key to query.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the key to query.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Left bezier tangent."""
         ...
     def KeyGetLeftDerivative(self,Index:int)->float:
         """Get the key left derivative value at the specified index. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the key to query.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the key to query.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Left derivative value, in units/seconds."""
         ...
     def KeyGetLeftTangentWeight(self,Index:int)->float:
         """Get the key left tangent weight at the specified index. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the key to query.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the key to query.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Left tangent weight."""
         ...
     def KeyGetMarkedForManipulation(self,Index:int)->bool:
         """Get the key manipulation state. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the key to query.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the key to query.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the key is being manipulated, false otherwise."""
         ...
     def KeyGetRightBezierTangent(self,Index:int)->float:
         """Get the key right bezier tangent value at the specified index. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the key to query.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the key to query.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Right bezier tangent."""
         ...
     def KeyGetRightDerivative(self,Index:int)->float:
         """Get the key right derivative value at the specified index. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the key to query.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the key to query.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Right derivative value, in units/seconds."""
         ...
     def KeyGetRightTangentWeight(self,Index:int)->float:
         """Get the key right tangent weight at the specified index. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the key to query.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the key to query.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Right tangent weight."""
         ...
     def KeyGetSelected(self,Index:int)->bool:
         """Get the key selected state. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the key to query.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the key to query.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the key is selected, false otherwise."""
         ...
     def KeyGetTCBBias(self,Index:int)->float:
         """Get the key bias value at the specified index (TCB key). 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the key to query.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the key to query.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Bias value."""
         ...
     def KeyGetTCBContinuity(self,Index:int)->float:
         """Get the key continuity value at the specified index (TCB key). 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the key to query.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the key to query.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Continuity value."""
         ...
     def KeyGetTCBTension(self,Index:int)->float:
         """Get the key tension value at the specified index (TCB key). 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the key to query.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the key to query.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Tension value."""
         ...
     def KeyGetTangentBreak(self,Index:int)->bool:
         """Get the key tangent's break status at the specified index. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the key to query.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the key to query.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Tangent's break status."""
         ...
     def KeyGetTangentClampMode(self,Index:int)->FBTangentClampMode:
         """Get the key tangent's clamp method at the specified index. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the key to query.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the key to query.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Tangent's clamp method."""
         ...
     def KeyGetTangentConstantMode(self,Index:int)->FBTangentConstantMode:
         """Get the key tangent's constant mode at the specified index. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the key to query.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the key to query.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Tangent's constant mode."""
         ...
     def KeyGetTangentCustomIndex(self,Index:int)->FBTangentCustomIndex:
         """Get the key tangent's custom index at the specified index. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the key to query.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the key to query.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Tangent's custom index."""
         ...
     def KeyGetTangentMode(self,Index:int)->FBTangentMode:
         """Get the key tangent mode at the specified index. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the key to query.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the key to query.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Tangent calculation method."""
         ...
     def KeyGetTangentWeightMode(self,Index:int)->FBTangentWeightMode:
         """Get the tangent weight mode for a key. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the key to query.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the key to query.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Current weight mode."""
         ...
     def KeyGetTime(self,Index:int)->FBTime:
         """Get the key time value at the specified index. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the key to query.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the key to query.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Time of key."""
         ...
     def KeyGetValue(self,Index:int)->float:
         """Get the key value at the specified index. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the key to query.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the key to query.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Value of the key."""
         ...
     def KeyInsert(self,Time:FBTime,Interpolation:FBInterpolation=FBInterpolation.kFBInterpolationCubic,TangentMode:FBTangentMode=FBTangentMode.kFBTangentModeAuto):
         """Insert a key without affecting the curve shape. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pTime | Time at which the key is to be inserted.  |
-        | pInterpolation | Interpolation type of the inserted key, default value is Cubic interpolation.  |
-        | pTangentMode | Tangent calculation method of the inserted key, default value is Auto (Smooth).  |"""
+            - pTime: Time at which the key is to be inserted.
+            - pInterpolation: Interpolation type of the inserted key, default value is Cubic interpolation.
+            - pTangentMode: Tangent calculation method of the inserted key, default value is Auto (Smooth)."""
         ...
     @overload
     def KeyOffset(self,OffsetTime:FBTime,StartIndex:int,StopIndex:int)->bool:
@@ -29237,20 +24281,14 @@ class FBFCurve(FBComponent):
         
         When offsetting many keys at once, all non-moving keys that are situated in the target range are deleted automatically, to preserve the animation being offset. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pOffsetTime: The offset time to apply on keys.
+            - pStartIndex: Index of first key to be offset.
+            - pStopIndex: Index of last key to be offset.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pOffsetTime | The offset time to apply on keys.  |
-        | pStartIndex | Index of first key to be offset.  |
-        | pStopIndex | Index of last key to be offset.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the offset operation is successful, false otherwise (e.g. the FCurve is locked, the index range is invalid, etc.)."""
         ...
     @overload
@@ -29260,271 +24298,189 @@ class FBFCurve(FBComponent):
         
         Non-moving keys that are situated in the target range are deleted automatically, to preserve the animation being offset. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pOffsetTime: The offset time to apply on keys.
+            - pStartTime: Start of time range.
+            - pStopTime: End of time range.
+            - pInclusive: True to include within the time range the keys at pStartTime and pStopTime, false otherwise.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pOffsetTime | The offset time to apply on keys.  |
-        | pStartTime | Start of time range.  |
-        | pStopTime | End of time range.  |
-        | pInclusive | True to include within the time range the keys at pStartTime and pStopTime, false otherwise.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the offset operation is successful, false otherwise (e.g. the FCurve is locked, no keys found within the time range, etc.)."""
         ...
     def KeyReplaceBy(self,Source:FBFCurve,Start:FBTime=FBTime.MinusInfinity,Stop:FBTime=FBTime.Infinity,bUseExactGivenSpan:bool=False,bKeyStartEndOnNoKey:bool=True):
         """Replace keys within a range in current function curve with keys found in a source function curve. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pSource | Source function curve.  |
-        | pStart | Start of time range.  |
-        | pStop | End of time range.  |
-        | pUseExactGivenSpan | When false, the time of the first and last key in the range will be used.  |
-        | pKeyStartEndOnNoKey | When true, inserts a key at the beginning and at the end of the range if there is no key to insert.  |"""
+            - pSource: Source function curve.
+            - pStart: Start of time range.
+            - pStop: End of time range.
+            - pUseExactGivenSpan: When false, the time of the first and last key in the range will be used.
+            - pKeyStartEndOnNoKey: When true, inserts a key at the beginning and at the end of the range if there is no key to insert."""
         ...
     def KeySetInterpolation(self,Index:int,Value:FBInterpolation):
         """Set the key interpolation type at the specified index. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the key to set.  |
-        | pValue | Type of interpolation.  |"""
+            - pIndex: Index of the key to set.
+            - pValue: Type of interpolation."""
         ...
     def KeySetLeftBezierTangent(self,Index:int,Value:float):
         """Set the key left bezier tangent value at the specified index. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the key to set.  |
-        | pValue | Left bezier tangent.  |"""
+            - pIndex: Index of the key to set.
+            - pValue: Left bezier tangent."""
         ...
     def KeySetLeftDerivative(self,Index:int,Value:float):
         """Set the key left derivative value at the specified index. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the key to set.  |
-        | pValue | Left derivative value, in units/seconds.  |"""
+            - pIndex: Index of the key to set.
+            - pValue: Left derivative value, in units/seconds."""
         ...
     def KeySetLeftTangentWeight(self,Index:int,Value:float):
         """Set the key left tangent weight at the specified index. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the key to set.  |
-        | pValue | Left tangent weight.  |"""
+            - pIndex: Index of the key to set.
+            - pValue: Left tangent weight."""
         ...
     def KeySetMarkedForManipulation(self,Index:int,bValue:bool)->bool:
         """Set the key manipulation state. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the key to set.
+            - pValue: New manipulation state.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the key to set.  |
-        | pValue | New manipulation state.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation was successful, false otherwise."""
         ...
     def KeySetRightBezierTangent(self,Index:int,Value:float):
         """Set the key right bezier tangent value at the specified index. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the key to set.  |
-        | pValue | Right bezier tangent.  |"""
+            - pIndex: Index of the key to set.
+            - pValue: Right bezier tangent."""
         ...
     def KeySetRightDerivative(self,Index:int,Value:float):
         """Set the key right derivative value at the specified index. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the key to set.  |
-        | pValue | Right derivative value, in units/seconds.  |"""
+            - pIndex: Index of the key to set.
+            - pValue: Right derivative value, in units/seconds."""
         ...
     def KeySetRightTangentWeight(self,Index:int,Value:float):
         """Set the key right tangent weight at the specified index. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the key to set.  |
-        | pValue | Right tangent weight.  |"""
+            - pIndex: Index of the key to set.
+            - pValue: Right tangent weight."""
         ...
     def KeySetSelected(self,Index:int,bValue:bool)->bool:
         """Set the key selected state. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the key to set.
+            - pValue: New selection state.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the key to set.  |
-        | pValue | New selection state.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation was successful, false otherwise."""
         ...
     def KeySetTCBBias(self,Index:int,Value:float):
         """Set the key bias value at the specified index (TCB key). 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the key to set.  |
-        | pValue | Bias value.  |"""
+            - pIndex: Index of the key to set.
+            - pValue: Bias value."""
         ...
     def KeySetTCBContinuity(self,Index:int,Value:float):
         """Set the key continuity value at the specified index (TCB key). 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the key to set.  |
-        | pValue | Continuity value.  |"""
+            - pIndex: Index of the key to set.
+            - pValue: Continuity value."""
         ...
     def KeySetTCBTension(self,Index:int,Value:float):
         """Set the key tension value at the specified index (TCB key). 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the key to set.  |
-        | pValue | Tension value.  |"""
+            - pIndex: Index of the key to set.
+            - pValue: Tension value."""
         ...
     def KeySetTangentBreak(self,Index:int,bValue:bool):
         """Set the key tangent's break status at the specified index. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the key to set.  |
-        | pValue | Tangent's break status.  |"""
+            - pIndex: Index of the key to set.
+            - pValue: Tangent's break status."""
         ...
     def KeySetTangentClampMode(self,Index:int,Value:FBTangentClampMode):
         """Set the key tangent's clamp method at the specified index. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the key to set.  |
-        | pValue | Tangent's clamp method.  |"""
+            - pIndex: Index of the key to set.
+            - pValue: Tangent's clamp method."""
         ...
     def KeySetTangentConstantMode(self,Index:int,Value:FBTangentConstantMode):
         """Set the key tangent's constant mode at the specified index. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the key to set.  |
-        | pValue | Tangent's constant mode.  |"""
+            - pIndex: Index of the key to set.
+            - pValue: Tangent's constant mode."""
         ...
     def KeySetTangentCustomIndex(self,Index:int,Value:FBTangentCustomIndex):
         """Set the key tangent's custom index at the specified index. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the key to set.  |
-        | pValue | Tangent's custom index.  |"""
+            - pIndex: Index of the key to set.
+            - pValue: Tangent's custom index."""
         ...
     def KeySetTangentMode(self,Index:int,Value:FBTangentMode):
         """Set the key tangent mode at the specified index. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the key to set.  |
-        | pValue | Tangent calculation method.  |"""
+            - pIndex: Index of the key to set.
+            - pValue: Tangent calculation method."""
         ...
     def KeySetTangentWeightMode(self,Index:int,Value:FBTangentWeightMode):
         """Change the tangent weight for a key. 
@@ -29532,40 +24488,28 @@ class FBFCurve(FBComponent):
         
         Setting the value for LeftTangentWeight/RightTangentWeight will also activate the weight for that part. Please see the note provided with [FBTangentWeightMode](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_tangent_weight_mode.html "Active tangent weight, no/one/both side are active on a key.") for the left weight of a key. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the key to set.  |
-        | pValue | Set the pValue according to the desired mode, kFBTangentWeightModeNone to disable it.  |"""
+            - pIndex: Index of the key to set.
+            - pValue: Set the pValue according to the desired mode, kFBTangentWeightModeNone to disable it."""
         ...
     def KeySetTime(self,Index:int,Value:FBTime):
         """Set the key time value at the specified index. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the key to set.  |
-        | pValue | Time of key.  |"""
+            - pIndex: Index of the key to set.
+            - pValue: Time of key."""
         ...
     def KeySetValue(self,Index:int,Value:float):
         """Set the key value at the specified index. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the key to set.  |
-        | pValue | Value of the key.  |"""
+            - pIndex: Index of the key to set.
+            - pValue: Value of the key."""
         ...
     def KeysAdd(self,Times:list[FBTime],Values:list[float],Interpolations:list[FBInterpolation]=[],TangentModes:list[FBTangentMode]=[])->bool:
         """Add at once multiple keys at different specified times. 
@@ -29573,23 +24517,17 @@ class FBFCurve(FBComponent):
         
         The array size of pTimes and pValues must match. If pInterpolations and pTangentModes parameters are specified, their array sizes must also match the array size of pTimes. The value of each index of each input array will be used together to form a key data to add. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTimes: Times at which to insert the keys.
+            - pValues: Values of the keys.
+            - pInterpolations: Interpolation types of the inserted keys, default value is Cubic interpolation for all the keys if this parameter is omitted.
+            - pTangentModes: Tangent calculation methods of the inserted keys, default value is Auto (Smooth) for all the keys if this parameter is omitted.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTimes | Times at which to insert the keys.  |
-        | pValues | Values of the keys.  |
-        | pInterpolations | Interpolation types of the inserted keys, default value is Cubic interpolation for all the keys if this parameter is omitted.  |
-        | pTangentModes | Tangent calculation methods of the inserted keys, default value is Auto (Smooth) for all the keys if this parameter is omitted.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise. 
-        ## Python:
+        ### Python:
         Each parameter of KeysAdd is a Python list. ex : KeysAdd( [time1, time2], [value1, value2] )"""
         ...
     def KeysSetValues(self,Indices:list[int],Values:list[float],Interpolations:list[FBInterpolation]=[],TangentModes:list[FBTangentMode]=[])->bool:
@@ -29598,23 +24536,17 @@ class FBFCurve(FBComponent):
         
         The array size of pIndices and pValues must match. If pInterpolations and pTangentModes parameters are specified, their array sizes must also match the array size of pIndices. The value of each index of each input array (except for pIndices) will be used together to modify the key data of the key specified by the key index of pIndices. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndices: Indices of existing keys to modify.
+            - pValues: New values of the keys to modify.
+            - pInterpolations: New interpolation types of the keys to modify if specified, otherwise the interpolation types are untouched.
+            - pTangentModes: New tangent calculation methods of the keys to modify if specified, otherwise the tangent calculation methods are untouched.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndices | Indices of existing keys to modify.  |
-        | pValues | New values of the keys to modify.  |
-        | pInterpolations | New interpolation types of the keys to modify if specified, otherwise the interpolation types are untouched.  |
-        | pTangentModes | New tangent calculation methods of the keys to modify if specified, otherwise the tangent calculation methods are untouched.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation is successful (at least one key is modified), false otherwise. 
-        ## Python:
+        ### Python:
         Each parameter of KeysSetValues is a Python list. ex : KeysSetValues( [index1, index2], [value1, value2] )"""
         ...
     def SetPostExtrapolationCount(self,Count:int):
@@ -29658,13 +24590,9 @@ class FBAnimationNode(FBComponent):
         
         (NOTE: Only used in the context of a story clip) 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pKeyTime | Time of the key to convert.  |"""
+            - pKeyTime: Time of the key to convert."""
         ...
     def ConvertNodeToGlobalTime(self,KeyTime:FBTime)->FBTime:
         """Convert node time to global time. 
@@ -29672,33 +24600,29 @@ class FBAnimationNode(FBComponent):
         
         (NOTE: Only used in the context of a story clip) 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pKeyTime | Time of the key to convert.  |"""
+            - pKeyTime: Time of the key to convert."""
         ...
     def GetAnimationToPlay(self)->FBAnimationNode:
         """Get animation node to play from. 
         
         
-        ## Returns:
+        ### Returns:
         Animation node to be played."""
         ...
     def GetAnimationToRecord(self)->FBAnimationNode:
         """Get animation node to record to. 
         
         
-        ## Returns:
+        ### Returns:
         Animation node to record to."""
         ...
     def GetDataDoubleArrayCount(self)->int:
         """If the DataPtr is of numeric value type ... get the size of the array ex: Light Intensity:1, Translation 3. 
         
         
-        ## Returns:
+        ### Returns:
         Size of DataPtr array."""
         ...
     def GetSizeOfData(self)->int:
@@ -29708,7 +24632,7 @@ class FBAnimationNode(FBComponent):
         """Verifies if there is a key at the current. 
         
         
-        ## Returns:
+        ### Returns:
         **true** if there is a key at the current time."""
         ...
     @overload
@@ -29716,31 +24640,23 @@ class FBAnimationNode(FBComponent):
         """Add a key to the animation node. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pTime | Time to add key at.  |
-        | pData | Value of data to add at **pTime**.  |
-        | pInterpolation | Interpolation type of the inserted key, default value is Cubic interpolation.  |
-        | pTangentMode | Tangent calculation method of the inserted key, default value is Auto (Smooth).  |"""
+            - pTime: Time to add key at.
+            - pData: Value of data to add at **pTime**.
+            - pInterpolation: Interpolation type of the inserted key, default value is Cubic interpolation.
+            - pTangentMode: Tangent calculation method of the inserted key, default value is Auto (Smooth)."""
         ...
     @overload
     def KeyAdd(self,Data:float,Interpolation:FBInterpolation=FBInterpolation.kFBInterpolationCubic,TangentMode:FBTangentMode=FBTangentMode.kFBTangentModeAuto):
         """Add a key to the animation node at current time. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pData | Value of data to add.  |
-        | pInterpolation | Interpolation type of the inserted key, default value is Cubic interpolation.  |
-        | pTangentMode | Tangent calculation method of the inserted key, default value is Auto (Smooth).  |"""
+            - pData: Value of data to add.
+            - pInterpolation: Interpolation type of the inserted key, default value is Cubic interpolation.
+            - pTangentMode: Tangent calculation method of the inserted key, default value is Auto (Smooth)."""
         ...
     @overload
     def KeyAdd(self,arg2:FBTime,arg3:list,arg4:FBInterpolation|None=None,arg5:FBTangentMode|None=None):...
@@ -29750,13 +24666,9 @@ class FBAnimationNode(FBComponent):
         """Keys the current candidate values if no time is specified, at current time. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pTime | Time at which to insert the key.  |"""
+            - pTime: Time at which to insert the key."""
         ...
     def KeyRemove(self):
         """Remove key at current time."""
@@ -29765,13 +24677,9 @@ class FBAnimationNode(FBComponent):
         """Remove key at the specified time. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pTime | Time for the key  |"""
+            - pTime: Time for the key"""
         ...
     @overload
     def ReadData(self,arg2:FBEvaluateInfo|None=None,arg3=None)->list:...
@@ -29782,62 +24690,42 @@ class FBAnimationNode(FBComponent):
         """Set buffer type for ANIMATIONNODE\_TYPE\_LOCAL\_TRANSLATION, ANIMATIONNODE\_TYPE\_LOCAL\_ROTATION and ANIMATIONNODE\_TYPE\_LOCAL\_SCALE. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pGlobal | Is buffer local or global.  |"""
+            - pGlobal: Is buffer local or global."""
         ...
     def SetCandidate(self,Data:list,bCheckLocked:bool=False)->bool:
         """Set the current candidate values for current time. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pCheckLocked: Decides whether to check the locked status.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pCheckLocked | Decides whether to check the locked status.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **true** if successful."""
         ...
     def WriteData(self,Data:list,EvaluateInfo:FBEvaluateInfo|None=None)->int:
         """Write data to animation node. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - Data: Data to write to animation node.
+            - pEvaluateInfo: Node evaluation information (access to system and local time).
         
         
-        
-        |  |  |
-        | --- | --- |
-        | Data | Data to write to animation node.  |
-        | pEvaluateInfo | Node evaluation information (access to system and local time).  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **true** if successful."""
         ...
     def __init__(self,Name:str):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of animation node (default is NULL).  |"""
+            - pName: Name of animation node (default is NULL)."""
         ...
 class FBTimeSpan():
     """TimeSpan class."""
@@ -29847,28 +24735,28 @@ class FBTimeSpan():
         
         Returns 1 if positive, -1 otherwise. 
         
-        ## Returns:
+        ### Returns:
         Direction of timespan."""
         ...
     def GetDuration(self)->FBTime:
         """Get the unsigned duration value of a timespan. 
         
         
-        ## Returns:
+        ### Returns:
         **Unsigned** duration of the timespan."""
         ...
     def GetSignedDuration(self)->FBTime:
         """Get the signed duration value of a timespan. 
         
         
-        ## Returns:
+        ### Returns:
         **Signed** duration of the timespan."""
         ...
     def GetStart(self)->FBTime:
         """Get the start/stop time. 
         
         
-        ## Returns:
+        ### Returns:
         Start/Stop time."""
         ...
     def GetStop(self)->FBTime:
@@ -29878,27 +24766,19 @@ class FBTimeSpan():
         """Set the TimeSpan. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pStart | Start time.  |
-        | pStop | Stop time.  |"""
+            - pStart: Start time.
+            - pStop: Stop time."""
         ...
     def __init__(self,Start:FBTime|None=None,Stop:FBTime|None=None):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pStart | Start time(default=0).  |
-        | pStop | Stop time(default=0).  |"""
+            - pStart: Start time(default=0).
+            - pStop: Stop time(default=0)."""
         ...
 class FBTimeWarpManager(FBComponent):
     """Time Warp Manager Interface to the Time Warp Manager. 
@@ -29914,20 +24794,14 @@ class FBTimeWarpManager(FBComponent):
         """Apply the TimeWarp in a Take to an evaluation property, just connect the storing property for the TimeWarp to the evaluation property. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTake: The Take where the TimeWarp in.
+            - pEvalProp: The evaluation property to be applied on.
+            - pTimeWarp: The TimeWarp to apply.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTake | The Take where the TimeWarp in.  |
-        | pEvalProp | The evaluation property to be applied on.  |
-        | pTimeWarp | The TimeWarp to apply.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if apply successfully."""
         ...
     def DestroyTimeWarpFromTake(self,arg2:FBTake,arg3:FBAnimationNode):...
@@ -29935,126 +24809,86 @@ class FBTimeWarpManager(FBComponent):
         """Find the Nick Number of one timewarp globally. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTimeWarp: The TimeWarp queried.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTimeWarp | The TimeWarp queried.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         the Nick Number of the timewarp."""
         ...
     def GetTimeWarpAtIndex(self,Take:FBTake,Index:int)->FBAnimationNode:
         """Get the TimeWarp in a Take At specific Index. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTake: The Take queried.
+            - pIndex: The index of the TimeWarp.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTake | The Take queried.  |
-        | pIndex | The index of the TimeWarp.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         TimeWarp at specific Index in a Take."""
         ...
     def GetTimeWarpCount(self,Take:FBTake)->int:
         """Get the count of TimeWarp in a Take. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTake: The Take queried.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTake | The Take queried.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         the TimeWarp count."""
         ...
     def GetTimeWarpFromNickNumber(self,Take:FBTake,Number:int)->FBAnimationNode:
         """Get the timeWarp of specific Nick Number in a Take. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTake: The Take queried.
+            - pNumber: the Nick Number of one TimeWarp.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTake | The Take queried.  |
-        | pNumber | the Nick Number of one TimeWarp.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         the TimeWarp of specific Nick Number."""
         ...
     def GetTimeWarpNickNumber(self,Take:FBTake,TimeWarp:FBAnimationNode)->int:
         """Get the Nick Number of one TimeWarp in a Take. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTake: The Take queried.
+            - pTimeWarp: The TimeWarp queried.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTake | The Take queried.  |
-        | pTimeWarp | The TimeWarp queried.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         the Nick Number of one TimeWarp."""
         ...
     def GetTimeWarpNickNumberAtIndex(self,Take:FBTake,Index:int)->int:
         """Get the Nick Number of one TimeWarp At specific index in a Take. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTake: The Take queried.
+            - pIndex: The index a TimeWarp at.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTake | The Take queried.  |
-        | pIndex | The index a TimeWarp at.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         the Nick Number of one TimeWarp At specific index."""
         ...
     def RemoveTimeWarp(self,Take:FBTake,EvalProp:FBProperty):
         """Undo apply a timeWarp in a Take to an evaluation property, just disconnect the evaluation property from storing property. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pTake | The Take where the TimeWarp evaluation property connected is in.  |
-        | pEvalProp | The evaluation property connected a TimeWarp in the storing property of one take.  |"""
+            - pTake: The Take where the TimeWarp evaluation property connected is in.
+            - pEvalProp: The evaluation property connected a TimeWarp in the storing property of one take."""
         ...
     @overload
     def RemoveTimeWarpFromScene(self,arg2:FBAnimationNode):...
@@ -30065,132 +24899,92 @@ class FBTimeWarpManager(FBComponent):
         
         Any locked properties affected by this TimeWarp will be modified as well. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pTake | The Take where the TimeWarp is in.  |
-        | pTimeWarp | The TimeWarp to be removed and deleted.  |"""
+            - pTake: The Take where the TimeWarp is in.
+            - pTimeWarp: The TimeWarp to be removed and deleted."""
         ...
     def SetTimeWarpNickNumber(self,Take:FBTake,TimeWarp:FBAnimationNode,Number:int)->bool:
         """Set the Nick Number of one TimeWarp in a Take. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTake: The Take specific.
+            - pTimeWarp: The TimeWarp specific.
+            - pNumber: The Nick Number to set.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTake | The Take specific.  |
-        | pTimeWarp | The TimeWarp specific.  |
-        | pNumber | The Nick Number to set.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if set successfully."""
         ...
     def TimeWarpAddToTake(self,Take:FBTake,TimeWarp:FBAnimationNode,NickNumber:int=0):
         """Add one TimeWarp to a Take. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pTake | The Take one TimeWarp added to.  |
-        | pTimeWarp | The TimeWarp to be added.  |
-        | pNickNumber | The Nick Number for the TimeWarp.  |"""
+            - pTake: The Take one TimeWarp added to.
+            - pTimeWarp: The TimeWarp to be added.
+            - pNickNumber: The Nick Number for the TimeWarp."""
         ...
     def TimeWarpClearTake(self,Take:FBTake):
         """Clear all TimeWarp in a Take, and removed from the DataSet. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pTake | The Take to be cleared.  |"""
+            - pTake: The Take to be cleared."""
         ...
     def TimeWarpCopyTake(self,DstTake:FBTake,SrcTake:FBTake):
         """Copy all the TimeWarp in one Take, add to another Take. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pDstTake | Copy all TimeWarp to.  |
-        | pSrcTake | Copy all TimeWarp from.  |"""
+            - pDstTake: Copy all TimeWarp to.
+            - pSrcTake: Copy all TimeWarp from."""
         ...
     def TimeWarpCreateNew(self,Name:str)->FBAnimationNode:
         """Create a TimeWarp with a specific name on the current Take. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pName: The name for the TimeWarp.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pName | The name for the TimeWarp.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         the TimeWarp created."""
         ...
     def TimeWarpInitTake(self,Take:FBTake):
         """Allocate container for the TimeWarp in one Take. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pTake | The Take allocated for.  |"""
+            - pTake: The Take allocated for."""
         ...
     def TimeWarpMergeCurveNode(self,Take:FBTake,EvalProp:FBProperty,Node:FBAnimationNode,TimeWarpNode:FBAnimationNode):
         """Merge the TimeWarp to a function curve, and Remove the connection between the storing property and the evaluation property for the TimeWarp. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pTake | The Take that the TimeWarp is in.  |
-        | pEvalProp | the evaluation property the TimeWarp connected.  |
-        | pNode | The function curve to merge on.  |
-        | pTimeWarpNode | The TimeWarp to be merged.  |"""
+            - pTake: The Take that the TimeWarp is in.
+            - pEvalProp: the evaluation property the TimeWarp connected.
+            - pNode: The function curve to merge on.
+            - pTimeWarpNode: The TimeWarp to be merged."""
         ...
     def TimeWarpRename(self,Take:FBTake,TimeWarp:FBAnimationNode,NewName:str):
         """Rename a TimeWarp. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pTake | The Take where the timeWarp is in.  |
-        | pTimeWarp | The TimeWarp to be renamed.  |
-        | pNewName | The new name for the TimeWarp.  |"""
+            - pTake: The Take where the timeWarp is in.
+            - pTimeWarp: The TimeWarp to be renamed.
+            - pNewName: The new name for the TimeWarp."""
         ...
     def TimeWarpTakeChange(self):
         """Call registered callbacks when changes related to TimeWarp happen."""
@@ -30199,7 +24993,7 @@ class FBTimeWarpManager(FBComponent):
         """Constructor. 
         
         
-        ## Note:
+        ### Note:
         protect"""
         ...
 class FBToolLayoutManager(FBComponent):
@@ -30251,18 +25045,12 @@ class FBToolLayoutManager(FBComponent):
         """Create a new layout from the current layout state. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pLayoutName: The new layout name to create.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pLayoutName | The new layout name to create.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The new layout's name (could be different that the one supplied) if the operation is successful, nullptr (C++) or None (Python) otherwise."""
         ...
     @overload
@@ -30272,18 +25060,12 @@ class FBToolLayoutManager(FBComponent):
         
         Deleting a factory layout is not permitted. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pLayoutIdx: The layout index to delete.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pLayoutIdx | The layout index to delete.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise."""
         ...
     @overload
@@ -30293,71 +25075,59 @@ class FBToolLayoutManager(FBComponent):
         
         Deleting a factory layout is not permitted. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pLayoutName: The layout name to delete.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pLayoutName | The layout name to delete.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise."""
         ...
     def GetAutoUpdateLayout(self)->bool:
         """Get the 'Auto-update Layout' state value. 
         
         
-        ## Returns:
+        ### Returns:
         The 'Auto-update Layout' state value."""
         ...
     def GetCurrentLayoutIdx(self)->int:
         """Get the layout index of the current layout. 
         
         
-        ## Returns:
+        ### Returns:
         The layout index of the current layout."""
         ...
     def GetCurrentLayoutName(self)->str:
         """Get the name of the current layout. 
         
         
-        ## Returns:
+        ### Returns:
         The name of the current layout."""
         ...
     def GetCustomLayoutCount(self)->int:
         """Get the number of custom layouts. 
         
         
-        ## Returns:
+        ### Returns:
         The number of custom layouts."""
         ...
     def GetFactoryLayoutCount(self)->int:
         """Get the number of factory layouts. 
         
         
-        ## Returns:
+        ### Returns:
         The number of factory layouts."""
         ...
     def GetLayoutName(self,LayoutIdx:int)->str:
         """Get the layout name associated with the given layout index. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pLayoutIdx: The layout index to query. The factory layouts are using negative indices.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pLayoutIdx | The layout index to query. The factory layouts are using negative indices.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The layout name if the operation is successful, nullptr (C++) or None (Python) otherwise."""
         ...
     def GetPreventDocking(self)->bool:
@@ -30366,7 +25136,7 @@ class FBToolLayoutManager(FBComponent):
         
         Note: When 'Prevent Docking' state is true, it is possible to temporary allow docking a window by holding the SHIFT key before moving it. When 'Prevent Docking' state is false, it is possible to temporary prevent docking a window by holding the CTRL key before moving it. 
         
-        ## Returns:
+        ### Returns:
         The 'Prevent Docking' state value."""
         ...
     def RenameLayout(self,OldLayoutName:str,NewLayoutName:str)->str:
@@ -30375,37 +25145,25 @@ class FBToolLayoutManager(FBComponent):
         
         Renaming a factory layout is not permitted. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pOldLayoutName: The layout's name to rename.
+            - pNewLayoutName: The new layout name.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pOldLayoutName | The layout's name to rename.  |
-        | pNewLayoutName | The new layout name.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The new layout's name (could be different that the one supplied) if the operation is successful, nullptr (C++) or None (Python) otherwise."""
         ...
     def SetAutoUpdateLayout(self,bAutoUpdate:bool)->bool:
         """Set the 'Auto-update Layout' state value. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pAutoUpdate: The 'Auto-update Layout' state value.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pAutoUpdate | The 'Auto-update Layout' state value.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise."""
         ...
     @overload
@@ -30413,18 +25171,12 @@ class FBToolLayoutManager(FBComponent):
         """Set the current layout from the given layout index. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pLayoutIdx: The layout index to set as the current layout. The factory layouts are using negative indices.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pLayoutIdx | The layout index to set as the current layout. The factory layouts are using negative indices.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise."""
         ...
     @overload
@@ -30432,18 +25184,12 @@ class FBToolLayoutManager(FBComponent):
         """Set the current layout from the given layout name. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pLayoutName: The layout's name to set as the current layout.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pLayoutName | The layout's name to set as the current layout.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise."""
         ...
     def SetPreventDocking(self,bPreventDocking:bool)->bool:
@@ -30452,18 +25198,12 @@ class FBToolLayoutManager(FBComponent):
         
         Note: When 'Prevent Docking' state is true, it is possible to temporary allow docking a window by holding the SHIFT key before moving it. When 'Prevent Docking' state is false, it is possible to temporary prevent docking a window by holding the CTRL key before moving it. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pPreventDocking: The 'Prevent Docking' state value.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pPreventDocking | The 'Prevent Docking' state value.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise."""
         ...
     def UpdateCurrentLayout(self)->bool:
@@ -30472,7 +25212,7 @@ class FBToolLayoutManager(FBComponent):
         
         Updating a factory layout is not permitted. 
         
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise."""
         ...
     def __init__(self):...
@@ -30487,157 +25227,121 @@ class FBTransportAudioManager(FBComponent):
         """Get the Audio Clip displayed on the Transport Tool. 
         
         
-        ## Returns:
+        ### Returns:
         The Audio Clip displayed, nullptr (C++) / None (Python) if any."""
         ...
     def GetAudioTrack(self)->FBStoryTrack:
         """Get the Audio Track displayed on the Transport Tool. 
         
         
-        ## Returns:
+        ### Returns:
         The Audio Track displayed, nullptr (C++) / None (Python) if any."""
         ...
     def GetLockPitchToSpeed(self)->bool:
         """Get the 'Lock Pitch to Speed' state. 
         
         
-        ## Returns:
+        ### Returns:
         True if the 'Lock Pitch to Speed' state is set, false otherwise."""
         ...
     def GetShowAudio(self)->bool:
         """Get the 'Show Audio' state. 
         
         
-        ## Returns:
+        ### Returns:
         True if the 'Show Audio' state is set, false otherwise."""
         ...
     def GetShowLeftChannel(self)->bool:
         """Get the 'Show Left Channel' state. 
         
         
-        ## Returns:
+        ### Returns:
         True if the 'Show Left Channel' state is set, false otherwise."""
         ...
     def GetShowRightChannel(self)->bool:
         """Get the 'Show Right Channel' state. 
         
         
-        ## Returns:
+        ### Returns:
         True if the 'Show Right Channel' state is set, false otherwise."""
         ...
     def RemoveAudio(self)->bool:
         """Remove the audio clip or audio track currently displayed on the Transport Tool. 
         
         
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise."""
         ...
     def SetAudioClip(self,AudioClip:FBAudioClip)->bool:
         """Set the Audio Clip to display on the Transport Tool. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pAudioClip: The Audio Clip to display.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pAudioClip | The Audio Clip to display.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise."""
         ...
     def SetAudioTrack(self,AudioTrack:FBStoryTrack)->bool:
         """Set the Audio Track to display on the Transport Tool. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pAudioTrack: The Audio Track to display.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pAudioTrack | The Audio Track to display.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise."""
         ...
     def SetLockPitchToSpeed(self,bLock:bool)->bool:
         """Set the 'Lock Pitch to Speed' state. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pLock: True to lock pitch to speed, false otherwise.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pLock | True to lock pitch to speed, false otherwise.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise."""
         ...
     def SetShowAudio(self,bShow:bool)->bool:
         """Set the 'Show Audio' state. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pShow: True to show the Audio waveform, false otherwise.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pShow | True to show the Audio waveform, false otherwise.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise."""
         ...
     def SetShowLeftChannel(self,bShow:bool)->bool:
         """Set the 'Show Left Channel' state. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pShow: True to show the left channel, false otherwise.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pShow | True to show the left channel, false otherwise.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise."""
         ...
     def SetShowRightChannel(self,bShow:bool)->bool:
         """Set the 'Show Right Channel' state. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pShow: True to show the right channel, false otherwise.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pShow | True to show the right channel, false otherwise.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if the operation is successful, false otherwise."""
         ...
     def __init__(self):...
@@ -30727,14 +25431,14 @@ class FBUndoManager(FBComponent):
         """Determine if an undo operation is in action. 
         
         
-        ## Returns:
+        ### Returns:
         true the Undo Manager is performing an Undo or a Redo operation."""
         ...
     def Clear(self)->bool:
         """Clear the undo and redo stacks. 
         
         
-        ## Returns:
+        ### Returns:
         A boolean value indicating success (true) or failure (false)."""
         ...
     def Redo(self):
@@ -30746,18 +25450,12 @@ class FBUndoManager(FBComponent):
         
         Quick Function to add Model TRS in Undo Stack 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pModel: Model to backup TRS
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pModel | Model to backup TRS  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         true if add transaction successfully."""
         ...
     def TransactionAddObjectDestroy(self,Object:FBComponent)->bool:
@@ -30766,18 +25464,12 @@ class FBUndoManager(FBComponent):
         
         Function to add object to destroy in Undo Stack. No need to call [FBDelete()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html#aa85a55e68d7403dbd4238f3e30e83119 "Open Reality deletion function.") on the object after calling this function. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pObject: Object to backup
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pObject | Object to backup  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         true if add transaction successfully."""
         ...
     def TransactionAddProperty(self,Property:FBProperty)->bool:
@@ -30786,18 +25478,12 @@ class FBUndoManager(FBComponent):
         
         Quick Function to add property value in Undo Stack 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pProperty: Property to backup
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pProperty | Property to backup  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         true if add transaction successfully."""
         ...
     def TransactionBegin(self,TransactionName:str)->bool:
@@ -30806,18 +25492,12 @@ class FBUndoManager(FBComponent):
         
         Users should call [TransactionBegin()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_undo_manager.html#af7427e75659bfb18a593655de6170fa9 "Open transaction stack for adding transactions.")/TransactionEnd() in pairs, Transaction stack must be closed before UI event callback return. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pTransactionName: Name of Transaction.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pTransactionName | Name of Transaction.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         true if open transaction stack successfully."""
         ...
     def TransactionEnd(self)->bool:
@@ -30826,27 +25506,23 @@ class FBUndoManager(FBComponent):
         
         Users should call [TransactionBegin()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_undo_manager.html#af7427e75659bfb18a593655de6170fa9 "Open transaction stack for adding transactions.")/TransactionEnd() in pairs, Transaction stack must be closed before UI event callback return. 
         
-        ## Returns:
+        ### Returns:
         true if transaction close successfully."""
         ...
     def TransactionIsOpen(self)->bool:
         """Query if transaction stack is already open. 
         
         
-        ## Returns:
+        ### Returns:
         true if transaction is already open."""
         ...
     def Undo(self,bNoRedo:bool=False):
         """Undo last action. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pNoRedo | If true, once the action is undone, it cannot be redone.  |"""
+            - pNoRedo: If true, once the action is undone, it cannot be redone."""
         ...
     def __init__(self):
         """Constructor."""
@@ -30856,13 +25532,9 @@ class FBUserObject(FBBox):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | User object name.  |"""
+            - pName: User object name."""
         ...
 class FBVector2d():
     """Vector2d class. 
@@ -30877,7 +25549,7 @@ class FBVector2d():
     print color[0]
     color[0] = 1.0
     [pyfbsdk::FBColor](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_color.html)FBColor class.**Definition:** pyfbsdk.h:516
-     ## Warning:
+     ### Warning:
     Slicing is not supported by this object."""
     @overload
     def CopyFrom(self,arg2:FBVector2d)->FBVector2d:...
@@ -30895,18 +25567,12 @@ class FBVector2d():
         """Returns the ith component Corresponds to python: print v[1]. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the components to get (0 to 1)
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the components to get (0 to 1)  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Color component value."""
         ...
     @overload
@@ -30970,14 +25636,10 @@ class FBVector2d():
         """Sets the ith components Corresponds to python: v[1] = 0.5. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the components to set (0 to 1)  |
-        | pComponentValue | Value of component to set  |"""
+            - pIndex: Index of the components to set (0 to 1)
+            - pComponentValue: Value of component to set"""
         ...
     @overload
     def __sub__(self,arg2:FBVector2d)->object:...
@@ -31000,7 +25662,7 @@ class FBVector3d():
     print color[0]
     color[0] = 1.0
     [pyfbsdk::FBColor](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_color.html)FBColor class.**Definition:** pyfbsdk.h:516
-     ## Warning:
+     ### Warning:
     Slicing is not supported by this object."""
     @overload
     def CopyFrom(self,arg2:FBVector3d)->FBVector3d:...
@@ -31024,18 +25686,12 @@ class FBVector3d():
         """Returns the ith component Corresponds to python: print v[1]. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the components to get (0 to 2)
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the components to get (0 to 2)  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Color component value."""
         ...
     @overload
@@ -31099,14 +25755,10 @@ class FBVector3d():
         """Sets the ith components Corresponds to python: v[1] = 0.5. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the components to set (0 to 2)  |
-        | pComponentValue | Value of component to set  |"""
+            - pIndex: Index of the components to set (0 to 2)
+            - pComponentValue: Value of component to set"""
         ...
     @overload
     def __sub__(self,arg2:FBVector3d)->object:...
@@ -31129,7 +25781,7 @@ class FBVector4d():
     print color[0]
     color[0] = 1.0 
     [pyfbsdk::FBColor](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_color.html)FBColor class.**Definition:** pyfbsdk.h:516
-     ## Warning:
+     ### Warning:
     Slicing is not supported by this object."""
     @overload
     def CopyFrom(self,arg2:FBVector4d)->FBVector4d:...
@@ -31153,18 +25805,12 @@ class FBVector4d():
         """Returns the ith component Corresponds to python: print v[1]. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the components to get (0 to 3)
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the components to get (0 to 3)  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Color component value."""
         ...
     @overload
@@ -31228,14 +25874,10 @@ class FBVector4d():
         """Sets the ith components Corresponds to python: v[1] = 0.5. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the components to set (0 to 3)  |
-        | pComponentValue | Value of component to set  |"""
+            - pIndex: Index of the components to set (0 to 3)
+            - pComponentValue: Value of component to set"""
         ...
     @overload
     def __sub__(self,arg2:FBVector4d)->object:...
@@ -31257,7 +25899,7 @@ class FBVertex():
     print v[0]
     v[0] = 1.0
     [pyfbsdk::FBVertex::FBVertex](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_vertex.html#a6f5ea4171b09b687fcbf8b7549efca18)FBVertex()
-    ## Warning:
+    ### Warning:
     Slicing is not supported by this object."""
     @overload
     def CopyFrom(self,arg2:FBVertex)->FBVertex:...
@@ -31281,18 +25923,12 @@ class FBVertex():
         """Returns the ith component Corresponds to python: print v[1]. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the components to get (0 to 1)
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the components to get (0 to 1)  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Color component value."""
         ...
     @overload
@@ -31340,14 +25976,10 @@ class FBVertex():
         """Sets the ith components Corresponds to python: v[1] = 0.5. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the components to set (0 to 1)  |
-        | pComponentValue | Value of component to set  |"""
+            - pIndex: Index of the components to set (0 to 1)
+            - pComponentValue: Value of component to set"""
         ...
     @overload
     def __sub__(self,arg2:FBVertex)->object:...
@@ -31376,18 +26008,12 @@ class FBVideo(FBBox):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pName: Name of video media.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of video media.  |
-        
-        
-        
-        
-        ## Warning:
+        ### Warning:
         The pName parameter must point to a valid media file, otherwise the object will not be valid. Use the method 'IsValid()' to confirm the object status."""
         ...
 class FBVideoClip(FBVideo):
@@ -31456,67 +26082,51 @@ class FBVideoClip(FBVideo):
         """Draw a frame of the image to the current view. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pX | X position of image (default=0).  |
-        | pY | Y position of image (default=0).  |
-        | pW | Width of image (default=-1).  |
-        | pH | Height of image (default=-1).  |
-        | pFrame | Frame to draw (default=-1).  |"""
+            - pX: X position of image (default=0).
+            - pY: Y position of image (default=0).
+            - pW: Width of image (default=-1).
+            - pH: Height of image (default=-1).
+            - pFrame: Frame to draw (default=-1)."""
         ...
     def GetEmbeddedTimecode(self,arg2)->FBTimeCode:
         """Get the embedded timecode associated to a video clip frame. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pFrame: Video clip frame to get timecode for.
+            - pTimeCode: The timecode object being filled by this method.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pFrame | Video clip frame to get timecode for.  |
-        | pTimeCode | The timecode object being filled by this method.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if an embedded timecode is retrieved from the video clip, false otherwise. (Python: If no embedded timecode is retrieved, returns an [FBTimeCode](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_time_code.html "TimeCode data structure.") object with its time set to [FBTime::Infinity](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_time.html#ad4cdfb3a31e984e36d78499115839636 "Time constant: Infinity, the largest time value."))."""
         ...
     def GetTextureID(self)->int:
         """Get the texture ID. 
         
         
-        ## Returns:
+        ### Returns:
         ID of the texture"""
         ...
     def IsValid(self)->bool:
         """Verifies the validity of the [FBVideo](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_video.html "Video media class.") object. 
         
         
-        ## Returns:
+        ### Returns:
         **true** if data is valid."""
         ...
     def __init__(self,Name:str):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pName: Name of video media.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of video media.  |
-        
-        
-        
-        
-        ## Warning:
+        ### Warning:
         The pName parameter must point to a valid media file, otherwise the object will not be valid. Use the method '[IsValid()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_video_clip.html#a9dcb9b43a3d0fa9003d4c1c9d921f6b2 "Verifies the validity of the FBVideo object.")' to confirm the object status."""
         ...
 class FBVideoClipImage(FBVideoClip):
@@ -31534,13 +26144,9 @@ class FBVideoClipImage(FBVideoClip):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of image file.  |"""
+            - pName: Name of image file."""
         ...
 class FBVideoClipImageDDS(FBVideoClipImage):
     """Video clip image media class for DDS images."""
@@ -31548,13 +26154,9 @@ class FBVideoClipImageDDS(FBVideoClipImage):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of DDS image file.  |"""
+            - pName: Name of DDS image file."""
         ...
 class FBVideoCodecManager():
     """Video Codec manager class. 
@@ -31577,14 +26179,10 @@ class FBVideoCodecManager():
         
         Get all codec id available for a given file format. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pFileFormatInfo | file format description string (AVI, MOV...)  |
-        | pCodecList | Codec list id  |"""
+            - pFileFormatInfo: file format description string (AVI, MOV...)
+            - pCodecList: Codec list id"""
         ...
     def GetDefaultCodec(self,FileFormatInfo:str)->str:
         """GetDefaultCodec. 
@@ -31592,13 +26190,9 @@ class FBVideoCodecManager():
         
         Get the default codec id for a given file format. This is the codec that will be used if codec mode is FBVideoCodecUseDefault 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pFileFormatInfo | file format description string (AVI, MOV...)  |"""
+            - pFileFormatInfo: file format description string (AVI, MOV...)"""
         ...
     def RegisterExternalVideoFormat(self,FormatSuffix:str)->bool:
         """Register external video format suffix. 
@@ -31606,20 +26200,14 @@ class FBVideoCodecManager():
         
         Only alphabetic and number is allowed in provided suffix, and can not be empty suffix or the system exist suffixes. This will allow this suffix to be appeared in the filters of file dialog when importing video, also allow to create a texture/video object with a path containing this suffix via SDK. However it will the custom SDK plug-in developer's responsibility to load the file into memory. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pFormatSuffix: Suffix/File extension of external video file format
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pFormatSuffix | Suffix/File extension of external video file format  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         true if register successful 
-        ## Remarks:
+        ### Remarks:
         After register an external video format, and save a scene with this kind of video. when start MotionBuilder next time and before load the scene back, 
         
         
@@ -31631,14 +26219,10 @@ class FBVideoCodecManager():
         
         Set the default codec id for a given file format. This is the codec that will be used if codec mode is FBVideoCodecUseDefault 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pFileFormatInfo | file format description string (AVI, MOV...)  |
-        | pCodecId | the codec id to set as default  |"""
+            - pFileFormatInfo: file format description string (AVI, MOV...)
+            - pCodecId: the codec id to set as default"""
         ...
     def __init__(self):...
 class FBVideoGrabOptions():
@@ -31706,7 +26290,7 @@ class FBVideoGrabber(FBComponent):
         
         Begin video grabbing session. 
         
-        ## Returns:
+        ### Returns:
         **True** if we can begin the grab session."""
         ...
     def EndGrab(self):
@@ -31719,14 +26303,14 @@ class FBVideoGrabber(FBComponent):
         """GetLastErrorMsg. 
         
         
-        ## Returns:
+        ### Returns:
         If an error occured, this function returns the last error message, otherwise an empty string."""
         ...
     def GetOptions(self)->FBVideoGrabOptions:
         """GetOptions give you a copy of current grabbing options. 
         
         
-        ## Returns:
+        ### Returns:
         Struct that contain all grabbing options.
         [See sample: JpegRender.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_jpeg_render_8py-example.html)"""
         ...
@@ -31734,7 +26318,7 @@ class FBVideoGrabber(FBComponent):
         """GetStatistics. 
         
         
-        ## Returns:
+        ### Returns:
         Struct that contain all grabbing statistics."""
         ...
     def Grab(self):
@@ -31747,7 +26331,7 @@ class FBVideoGrabber(FBComponent):
         """Render a snapshot of the actual display. 
         
         
-        ## Returns:
+        ### Returns:
         An FBimage containing data of the rendered snapshot."""
         ...
     def ResetOptions(self):
@@ -31760,13 +26344,9 @@ class FBVideoGrabber(FBComponent):
         """SetOptions. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pOptions | Struct that contain all grabbing options.  |"""
+            - pOptions: Struct that contain all grabbing options."""
         ...
     def __init__(self):
         """Constructor."""
@@ -31793,91 +26373,75 @@ class FBVideoIn(FBVideo):
         """Get the current compressor index. 
         
         
-        ## Returns:
+        ### Returns:
         Index of the current compressor."""
         ...
     def LiveGetCompressorCount(self)->int:
         """Get the compressor count. 
         
         
-        ## Returns:
+        ### Returns:
         Number of available compressor."""
         ...
     def LiveGetCompressorName(self,CompressorIndex:int)->str:
         """Get the compressor name at a particular index. 
         
         
-        ## Returns:
+        ### Returns:
         Name of the compressor. If the pCompressorIndex is higher than the number of compressor, the function will return NULL."""
         ...
     def LiveGetResolutionFR(self)->int:
         """Get the current resolution and frame rate index. 
         
         
-        ## Returns:
+        ### Returns:
         Index of the current resolution and frame rate."""
         ...
     def LiveGetResolutionFRCount(self)->int:
         """Get the number of resolution and frame rate available for the device. 
         
         
-        ## Returns:
+        ### Returns:
         Number of available resolution and frame rate."""
         ...
     def LiveGetResolutionFRName(self,Index:int)->str:
         """Get the resolution and frame rate string description at the specified index. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the resolution and frame rate.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the resolution and frame rate.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Name of the resolution and frame rate."""
         ...
     def LiveGetType(self)->FBVideoLiveType:
         """Get the type of the video input device. 
         
         
-        ## Returns:
+        ### Returns:
         Type of the video input device."""
         ...
     def LiveSetCompressor(self,CompressorIndex:int):
         """Set the current compressor to be used when recording. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pCompressorIndex: Index of the compressor.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pCompressorIndex | Index of the compressor.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         True if successful."""
         ...
     def LiveSetResolutionFR(self,Index:int):
         """Set the current resolution and frame rate for the device. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the resolution and frame rate.  |"""
+            - pIndex: Index of the resolution and frame rate."""
         ...
     def __init__(self):
         """Constructor."""
@@ -31901,26 +26465,18 @@ class FBVideoMemory(FBVideo):
         """Set image size to allow MoBu preview texture with proper dimension / aspect. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pW | Width of image.  |
-        | pH | Height of image.  |"""
+            - pW: Width of image.
+            - pH: Height of image."""
         ...
     def __init__(self,Name:str):
         """Constructor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of video media.  |"""
+            - pName: Name of video media."""
         ...
 class FBVideoOut(FBVideo):
     """Video media class. 
@@ -31953,7 +26509,7 @@ class FBViewingOptions():
     """Current Viewer Pane being rendered. 
     
     
-    ## Returns:
+    ### Returns:
     Index of the pane being rendered."""
     PickingMode:int
     """**Read Write Property:** Reference to the current picking mode."""
@@ -31967,7 +26523,7 @@ class FBViewingOptions():
     """Get a reference to the stereo display mode. 
     
     
-    ## Returns:
+    ### Returns:
     Reference to the current stereo display mode."""
     def InPicking(self)->bool:...
     def IsInColorBufferPicking(self)->bool:
@@ -32065,64 +26621,48 @@ class FBVisualComponent(FBComponent):
         """Add a child component. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pChild: Visual component to add as a child.
+            - pId: User reference number to associate with **pChild**(default=0).
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pChild | Visual component to add as a child.  |
-        | pId | User reference number to associate with **pChild**(default=0).  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Operation was successful (**true** or **false**)."""
         ...
     def GetChild(self,Id:int)->FBVisualComponent:
         """Get a child component. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pId: User reference number to look for child with(default=0).
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pId | User reference number to look for child with(default=0).  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Handle to child (NULL if not found)."""
         ...
     def GetQWidgetAddress(self)->int:
         """Get internal QWidget. 
         
         
-        ## Returns:
+        ### Returns:
         Handle to internal QWidget object."""
         ...
     def IsView(self)->bool:
         """Is component a view? 
         
         
-        ## Returns:
+        ### Returns:
         **true** if component is a view."""
         ...
     def Refresh(self,bNow:bool=False):
         """Refresh component. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pNow | Refresh immediately if **true** (default = **false**).  |"""
+            - pNow: Refresh immediately if **true** (default = **false**)."""
         ...
     def ViewExpose(self):
         """Exposed view callback function."""
@@ -32131,17 +26671,13 @@ class FBVisualComponent(FBComponent):
         """Input callback function. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pMouseX | Mouse X position.  |
-        | pMouseY | Mouse Y position.  |
-        | pAction | Mouse action.  |
-        | pButtonKey | Keyboard input.  |
-        | pModifier | Keyboard input modifier.  |"""
+            - pMouseX: Mouse X position.
+            - pMouseY: Mouse Y position.
+            - pAction: Mouse action.
+            - pButtonKey: Keyboard input.
+            - pModifier: Keyboard input modifier."""
         ...
 class FBVisualContainer(FBVisualComponent):
     """Used to create a container for a tool UI. 
@@ -32177,7 +26713,7 @@ class FBVisualContainer(FBVisualComponent):
         """Get the selected item. 
         
         
-        ## Returns:
+        ### Returns:
         Index of current selection."""
         ...
     @overload
@@ -32185,20 +26721,14 @@ class FBVisualContainer(FBVisualComponent):
         """Set an item's icon. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pRef: Reference to item in container.
+            - pImage: Handle to image to use.
+            - pUseACopyOfTheImage: Create a copy of the image?(default=true)
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pRef | Reference to item in container.  |
-        | pImage | Handle to image to use.  |
-        | pUseACopyOfTheImage | Create a copy of the image?(default=true)  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Operation was successful (**true** or **false**)."""
         ...
     @overload
@@ -32206,37 +26736,25 @@ class FBVisualContainer(FBVisualComponent):
         """Set an item's icon. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pRef: Reference to item in container.
+            - pFilename: Name of file where image is located.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pRef | Reference to item in container.  |
-        | pFilename | Name of file where image is located.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Operation was successful (**true** or **false**)."""
         ...
     def ItemNameEdit(self,Ref:int)->bool:
         """Edit a container item. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pRef: Reference of container to edit.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pRef | Reference of container to edit.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Operation was successful (**true** or **false**)."""
         ...
     def __init__(self):
@@ -32252,36 +26770,26 @@ class FBView(FBVisualComponent):
         """Draw a string in the view. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pText | Text to draw.  |
-        | pX | X position of string.  |
-        | pY | Y position of string.  |
-        | pEnable | Is string enabled? (default =-1)  |"""
+            - pText: Text to draw.
+            - pX: X position of string.
+            - pY: Y position of string.
+            - pEnable: Is string enabled? (default =-1)"""
         ...
     def SetViewport(self,X:int,Y:int,W:int,H:int)->bool:
         """Set view's viewport. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pX: Viewport X value.
+            - pY: Viewport Y value.
+            - pW: Viewport W (width) value.
+            - pH: Viewport H (height) value.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pX | Viewport X value.  |
-        | pY | Viewport Y value.  |
-        | pW | Viewport W (width) value.  |
-        | pH | Viewport H (height) value.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Operation was successful (**true** or **false**)."""
         ...
     def __init__(self):
@@ -32370,26 +26878,20 @@ class FBTree(FBVisualComponent):
         """Get the root node. 
         
         
-        ## Returns:
+        ### Returns:
         the root node of the tree."""
         ...
     def InsertLast(self,Node:FBTreeNode,Name:str)->FBTreeNode:
         """Insert node at the end. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pNode: Node under which the new node will appear.
+            - pName: Text to display for this node.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pNode | Node under which the new node will appear.  |
-        | pName | Text to display for this node.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         the newly created node."""
         ...
     def __init__(self):
@@ -32473,32 +26975,22 @@ class FBSpread(FBVisualComponent):
         
         By default, the newly created column will use the [FBCellStyle.kFBCellStyleString](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_cell_style.html#a982147b71c48edcf3a5688ede8028bc7 "String.") style. Modify the Style property to modify the column's style. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pString | Text to display with column.  |
-        | pRef | User-define column reference number(default=0).  |"""
+            - pString: Text to display with column.
+            - pRef: User-define column reference number(default=0)."""
         ...
     def GetCellValue(self,Row:int,Column:int)->object:
         """Get a cell's value. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pRow: Row of cell.
+            - pColumn: Column of cell.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pRow | Row of cell.  |
-        | pColumn | Column of cell.  |
-        
-        
-        
-        
-        ## Return values:
+        ### Return values:
         
         
         
@@ -32510,90 +27002,68 @@ class FBSpread(FBVisualComponent):
         """Get a cell's internal toolkit view. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pRef | Row of cell.  |
-        | pColumn | Column of cell.  |
-        | pView | Handle of view.  |"""
+            - pRef: Row of cell.
+            - pColumn: Column of cell.
+            - pView: Handle of view."""
         ...
     def GetColumn(self,Column:int)->FBSpreadColumn:
         """Get a column from a column number. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pColumn: Column number.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pColumn | Column number.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         A copy of column."""
         ...
     def GetColumnCount(self)->int:
         """Get the column count. 
         
         
-        ## Returns:
+        ### Returns:
         The column count."""
         ...
     def GetCurrentCell(self)->FBSpreadCell:
         """Get the current cell. 
         
         
-        ## Returns:
+        ### Returns:
         A copy of the the current cell."""
         ...
     def GetRow(self,Ref:int)->FBSpreadRow:
         """Get a row from a row reference. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pRef: Reference to a row.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pRef | Reference to a row.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         A copy of the row."""
         ...
     def GetRowCount(self)->int:
         """Get the row count. 
         
         
-        ## Returns:
+        ### Returns:
         The row count."""
         ...
     def GetSpreadCell(self,Ref:int,Column:int)->FBSpreadCell:
         """Get a cell from row and column numbers. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pRef: Row reference.
+            - pColumn: Column number.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pRef | Row reference.  |
-        | pColumn | Column number.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         A copy of the cell."""
         ...
     def Home(self):
@@ -32603,26 +27073,18 @@ class FBSpread(FBVisualComponent):
         """Add a row. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pString | Text to display with row.  |
-        | pRef | User-defined reference for row(default=0).  |"""
+            - pString: Text to display with row.
+            - pRef: User-defined reference for row(default=0)."""
         ...
     def RowSort(self,bAscending:bool=True):
         """Sort rows. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pAscending | If **true**, sort ascending.  |"""
+            - pAscending: If **true**, sort ascending."""
         ...
     def SetCellValue(self,Row:int,Column:int,Value):
         """Set a cell's value. 
@@ -32630,29 +27092,21 @@ class FBSpread(FBVisualComponent):
         
         To be effective, the type of pValue must be valid type for the cell's style (see [FBSpreadPart.Style](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_spread_part.html#ace9cc1d223691293563af70ce414fb91 "Read Write Property: Style of cell")). By default, a newly created cell will use its column's style. The default column's style is [FBCellStyle.kFBCellStyleString](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_cell_style.html#a982147b71c48edcf3a5688ede8028bc7 "String."). Modify the Style property to modify the cell's style. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pRow | Row of cell.  |
-        | pColumn | Column of cell.  |
-        | pValue | Value of the cell (can be str (single or tuple), int, float or [FBTime](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_time.html "Time data structure."))  |"""
+            - pRow: Row of cell.
+            - pColumn: Column of cell.
+            - pValue: Value of the cell (can be str (single or tuple), int, float or [FBTime](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_time.html "Time data structure."))"""
         ...
     def SetCellView(self,Ref:int,Column:int,View:FBVisualComponent):
         """Set a cell's internal toolkit view. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pRef | Row of cell.  |
-        | pColumn | Column of cell.  |
-        | pView | View to use to set cell's view.  |"""
+            - pRef: Row of cell.
+            - pColumn: Column of cell.
+            - pView: View to use to set cell's view."""
         ...
     def __init__(self):
         """Constructor."""
@@ -32740,27 +27194,23 @@ class FBPlotPopup(FBVisualComponent):
         """Get plot options. 
         
         
-        ## Returns:
+        ### Returns:
         plot options."""
         ...
     def Popup(self,WindowName:str)->bool:
         """Execute plot popup. 
         
         
-        ## Returns:
+        ### Returns:
         **true** if **OK** is clicked by user."""
         ...
     def SetPlotOptions(self,PlotOptions:FBPlotOptions):
         """Set plot options. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pPlotOptions | Set the plot options that will be used when displaying the plot popup. First use the [GetPlotOptions()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_plot_popup.html#a2f79e68857f65fe637c98616b4b24a97 "Get plot options."), change the options and use the [SetPlotOptions()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_plot_popup.html#aaf85452e3a2fd43906744348fdc4e684 "Set plot options.") to set them before calling the [Popup()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_plot_popup.html#a0138b8dc2bd5bd5715e3d361aaaee3af "Execute plot popup.") function.  |"""
+            - pPlotOptions: Set the plot options that will be used when displaying the plot popup. First use the [GetPlotOptions()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_plot_popup.html#a2f79e68857f65fe637c98616b4b24a97 "Get plot options."), change the options and use the [SetPlotOptions()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_plot_popup.html#aaf85452e3a2fd43906744348fdc4e684 "Set plot options.") to set them before calling the [Popup()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_plot_popup.html#a0138b8dc2bd5bd5715e3d361aaaee3af "Execute plot popup.") function."""
         ...
     def __init__(self):
         """Constructor."""
@@ -32793,18 +27243,12 @@ class FBList(FBVisualComponent):
         """Returns whether or not the item **pIndex** is currently selected. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index to see if select or not.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index to see if select or not.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         **true** if item at **pIndex** is selected."""
         ...
     def __init__(self):
@@ -32842,181 +27286,129 @@ class FBLayout(FBVisualComponent):
         """Add a region to the layout. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pName: Name of region.
+            - pTitle: Title to display.
+            - pX: X: Position.
+            - pXType: X: Type of attachment.
+            - pXRelative: X: Item to attach to.
+            - pMultX: X: Multiplier of relative value.
+            - pY: Y: Position.
+            - pYType: Y: Type of attachment.
+            - pYRelative: Y: Item to attach to.
+            - pMultY: Y: Multiplier of relative value.
+            - pW: W: Width of region.
+            - pWType: W: Type of attachment.
+            - pWRelative: W: Item to attach to.
+            - pMultW: W: Multiplier of relative value.
+            - pH: H: Height of region.
+            - pHType: H: Type of attachment.
+            - pHRelative: H: Item to attach to.
+            - pMultH: H: Multiplier of relative value.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of region.  |
-        | pTitle | Title to display.  |
-        | pX | X: Position.  |
-        | pXType | X: Type of attachment.  |
-        | pXRelative | X: Item to attach to.  |
-        | pMultX | X: Multiplier of relative value.  |
-        | pY | Y: Position.  |
-        | pYType | Y: Type of attachment.  |
-        | pYRelative | Y: Item to attach to.  |
-        | pMultY | Y: Multiplier of relative value.  |
-        | pW | W: Width of region.  |
-        | pWType | W: Type of attachment.  |
-        | pWRelative | W: Item to attach to.  |
-        | pMultW | W: Multiplier of relative value.  |
-        | pH | H: Height of region.  |
-        | pHType | H: Type of attachment.  |
-        | pHRelative | H: Item to attach to.  |
-        | pMultH | H: Multiplier of relative value.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Operation was successful (**true** or **false**)."""
         ...
     def ClearControl(self,Name:str):
         """Remove a control from a region in a visual component. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of region to remove control.  |"""
+            - pName: Name of region to remove control."""
         ...
     def GetControl(self,Name:str)->FBVisualComponent:
         """Get control of a region in a visual component. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pName: Name of region to find.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of region to find.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The component if it is found."""
         ...
     def GetRegion(self,Name:str)->bool:
         """Verify if a region with pName exists. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pName: Name of region to check.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of region to check.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Operation was successful (true or false)."""
         ...
     def GetRegionPositions(self,Name:str,bComputed:bool,X:int,Y:int,W:int|None=None,H:int|None=None)->bool:
         """Get region **pName** information (position and size) 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pName: Name of region.
+            - pComputed: Is the information retrieved relative or absolute?
+            - pX: Position in X of the region.
+            - pY: Position in Y of the region.
+            - pW: Width of the region.
+            - pH: Height of the region.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of region.  |
-        | pComputed | Is the information retrieved relative or absolute?  |
-        | pX | Position in X of the region.  |
-        | pY | Position in Y of the region.  |
-        | pW | Width of the region.  |
-        | pH | Height of the region.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Operation was successful (true or false)."""
         ...
     def GetSplitStyle(self,Name:str)->FBSplitStyle:
         """Get a region's splitstyle. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pName: Name of Region to get splitstyle from.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of Region to get splitstyle from.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Split style of specified region."""
         ...
     def MoveRegion(self,Name:str,X:int,Y:int)->bool:
         """Move a region. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pName: Name of region to move.
+            - pX: New X position.
+            - pY: New Y position.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of region to move.  |
-        | pX | New X position.  |
-        | pY | New Y position.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Operation was successful (true or false)."""
         ...
     def RemoveRegion(self,Name:str)->bool:
         """Remove a region. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pName: Name of region to remove.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of region to remove.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Operation was successful (true or false)."""
         ...
     def RenameRegion(self,OldName:str,NewName:str)->bool:
         """Rename a region. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pOldName: Region's old name.
+            - pNewName: Region's new name.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pOldName | Region's old name.  |
-        | pNewName | Region's new name.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Operation was successful (true or false)."""
         ...
     def Restructure(self,bNoMove:bool):
@@ -33026,133 +27418,93 @@ class FBLayout(FBVisualComponent):
         """Suspend all automatic layout recomputation. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pAutoRestructure | If true, Suspend all automatic layout recomputation, else restore it.  |"""
+            - pAutoRestructure: If true, Suspend all automatic layout recomputation, else restore it."""
         ...
     def SetBorder(self,Name:str,Type:FBBorderStyle,bShowTitle:bool,bInSet:bool,Width:int,Spacing:int,MaxAngle:float,CornerRadius:int)->bool:
         """Set border properties for a region. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pName: Name of Region to change border properties.
+            - pType: Border style to use.
+            - pShowTitle: Show region title?
+            - pInSet: Is region inset?
+            - pWidth: Border width.
+            - pSpacing: Border spacing.
+            - pMaxAngle: Max angle for rounding.
+            - pCornerRadius: Corner radius for rounding.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of Region to change border properties.  |
-        | pType | Border style to use.  |
-        | pShowTitle | Show region title?  |
-        | pInSet | Is region inset?  |
-        | pWidth | Border width.  |
-        | pSpacing | Border spacing.  |
-        | pMaxAngle | Max angle for rounding.  |
-        | pCornerRadius | Corner radius for rounding.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Operation was successful (true or false)."""
         ...
     def SetControl(self,Name:str,Component:FBVisualComponent)->bool:
         """Set control of a region to a visual component. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pName: Name of region to affect.
+            - pComponent: Component to control region.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of region to affect.  |
-        | pComponent | Component to control region.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Operation was successful (true or false)."""
         ...
     def SetRegionTitle(self,Name:str,Title:str)->bool:
         """Set a region's title. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pName: Name of region to change title.
+            - pTitle: New title for region.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of region to change title.  |
-        | pTitle | New title for region.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Operation was successful (true or false)."""
         ...
     def SetSplitStyle(self,Name:str,RegionType:FBSplitStyle)->bool:
         """Set a region's splitstyle. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pName: Name of Region to set splitstyle.
+            - pRegionType: Split style give to region.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of Region to set splitstyle.  |
-        | pRegionType | Split style give to region.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Operation was successful (true or false)."""
         ...
     def SetView(self,Name:str,Component:FBVisualComponent)->bool:
         """Set view. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pName: Name of Region.
+            - pComponent: Component to set as view.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of Region.  |
-        | pComponent | Component to set as view.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Operation was successful (true or false)."""
         ...
     def SizeRegion(self,Name:str,W:int,H:int)->bool:
         """Change a region's size. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pName: Name of region to resize.
+            - pW: New region width.
+            - pH: New region height.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of region to resize.  |
-        | pW | New region width.  |
-        | pH | New region height.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Operation was successful (true or false)."""
         ...
     def __init__(self):
@@ -33211,7 +27563,7 @@ class FBTool(FBLayout):
         """Get the possible docking position for the tool (concatenated). 
         
         
-        ## Returns:
+        ### Returns:
         Get all the docking flags in one call. Flags can be concatenated."""
         ...
     def SetPossibleDockPosition(self,Flags:FBToolPossibleDockPosition):
@@ -33220,26 +27572,18 @@ class FBTool(FBLayout):
         
         Be sure to call this function once the tool is visible, a good place to call it is when the OnShow event of the layout is called. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pFlags | Set the docking position flag values. Note: this function overwrites all flags with those passed in parameter.  |"""
+            - pFlags: Set the docking position flag values. Note: this function overwrites all flags with those passed in parameter."""
         ...
     def __init__(self,Name:str,bRegisterTool:bool|None=None):
         """Constructor used when creating tools not in the Tools menu of MotionBuilder. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pName | Name of tool, must be an unique name.  |
-        | pRegisterTool | Tells if we should register the tool on the toolmanager. You can later call Showtool to pop it.  |"""
+            - pName: Name of tool, must be an unique name.
+            - pRegisterTool: Tells if we should register the tool on the toolmanager. You can later call Showtool to pop it."""
         ...
 class FBPopup(FBLayout):
     """Popup window. 
@@ -33260,30 +27604,20 @@ class FBPopup(FBLayout):
         """Close popup. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pOk | Equivalent of **OK** button clicked if **true** (default = **false**).  |"""
+            - pOk: Equivalent of **OK** button clicked if **true** (default = **false**)."""
         ...
     def Show(self,Parent:FBVisualComponent|None=None):
         """Show popup. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pParent: Parent object for popup
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pParent | Parent object for popup  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Operation was successful (**true** or **false**)."""
         ...
     def __init__(self):
@@ -33322,25 +27656,17 @@ class FBFCurveEditor(FBVisualComponent):
         """Add an animation node to the editor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pNode | Animation node to show in the editor.  |"""
+            - pNode: Animation node to show in the editor."""
         ...
     def AddProperty(self,Property:FBPropertyAnimatable):
         """Add an animatable property to the editor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pProperty | Property to show in the editor.  |"""
+            - pProperty: Property to show in the editor."""
         ...
     def Clear(self):
         """Clear the editor."""
@@ -33349,13 +27675,9 @@ class FBFCurveEditor(FBVisualComponent):
         """Remove an animation node from the editor. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pNode | Animation node to hide from editor.  |"""
+            - pNode: Animation node to hide from editor."""
         ...
     def __init__(self):
         """Constructor."""
@@ -33529,46 +27851,32 @@ class FBButton(FBVisualComponent):
         
         This method is only useful for buttons of style kFB2States. 
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pState: The state to be queried.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pState | The state to be queried.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         The color vector."""
         ...
     def SetImageFileNames(self,UpImage:str,DownImage:str|None=None,ThirdImage:str|None=None,bFromResources:bool=False):
         """Sets the image used to generate a kFBBitmap2States. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pUpImage | The image used when button is unpushed  |
-        | pDownImage | The image used when button is pushed  |
-        | pFromResources | Add resource path to image path.  |"""
+            - pUpImage: The image used when button is unpushed
+            - pDownImage: The image used when button is pushed
+            - pFromResources: Add resource path to image path."""
         ...
     def SetStateColor(self,State:FBButtonState,Color:FBColor):
         """Returns whether or not the item **pIndex** is currently selected. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pState | The state to be set.  |
-        | pColor | The desired color vector.  |"""
+            - pState: The state to be set.
+            - pColor: The desired color vector."""
         ...
     def __init__(self):
         """Constructor."""
@@ -33587,25 +27895,17 @@ class FBMemo(FBEdit):
         """Get the content of the memo. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pLines | Content of the memo will be copied to it.  |"""
+            - pLines: Content of the memo will be copied to it."""
         ...
     def SetStrings(self,Lines:FBStringList):
         """Set the content of the memo. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pLines | Content of the memo from will be set to it.  |"""
+            - pLines: Content of the memo from will be set to it."""
         ...
     def __init__(self):
         """Constructor."""
@@ -33624,50 +27924,36 @@ class FBBrowsingProperty(FBVisualComponent):
         """Add an object whose properties will be displayed. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pObject | Object whose properties will be displayed in the property brwoser.  |"""
+            - pObject: Object whose properties will be displayed in the property brwoser."""
         ...
     def ObjectGet(self,Index:int)->FBPlug:
         """Return the object at the specified index. 
         
         
-        ## Parameters:
+        ### Parameters:
+        
+            - pIndex: Index of the object to get.
         
         
-        
-        |  |  |
-        | --- | --- |
-        | pIndex | Index of the object to get.  |
-        
-        
-        
-        
-        ## Returns:
+        ### Returns:
         Object at the index specified currently displayed in the property browser."""
         ...
     def ObjectGetCount(self)->int:
         """Get the number of object displayed in the property browser. 
         
         
-        ## Returns:
+        ### Returns:
         Object currently displayed in the property browser."""
         ...
     def RemoveObject(self,Object:FBPlug):
         """Remove an object from the property browser. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pObject | Object to remove.  |"""
+            - pObject: Object to remove."""
         ...
     def __init__(self):
         """Constructor."""
@@ -33691,16 +27977,12 @@ class FBArrowButton(FBVisualComponent):
         
         The [FBArrowButton](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_arrow_button.html "Creates a button which opens a layout to display content.") must already have been added to a layout before calling this method. 
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pTitle | Title of the content managed by the [FBArrowButton](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_arrow_button.html "Creates a button which opens a layout to display content.") |
-        | pContent | Content that the [FBArrowButton](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_arrow_button.html "Creates a button which opens a layout to display content.") displays or hides  |
-        | pContentWidth | Width of the content  |
-        | pContentHeight | Height of the content  |"""
+            - pTitle: Title of the content managed by the [FBArrowButton](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_arrow_button.html "Creates a button which opens a layout to display content.")
+            - pContent: Content that the [FBArrowButton](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_arrow_button.html "Creates a button which opens a layout to display content.") displays or hides
+            - pContentWidth: Width of the content
+            - pContentHeight: Height of the content"""
         ...
     def __init__(self):
         """Constructor."""
@@ -33719,13 +28001,9 @@ class FBWebView(FBVisualComponent):
         """Load the specified Url. 
         
         
-        ## Parameters:
+        ### Parameters:
         
-        
-        
-        |  |  |
-        | --- | --- |
-        | pURL | url to load in the WebView.  |"""
+            - pURL: url to load in the WebView."""
         ...
     def __init__(self):
         """Constructor."""
@@ -33755,15 +28033,11 @@ def FBAdd(Result:FBVector4d,V1:FBVector4d,V2:FBVector4d):
     """Add two vectors together (**pResult** = **pV1** **+** **pV2**) 
     
     
-    ## Parameters:
+    ### Parameters:
     
-    
-    
-    |  |  |
-    | --- | --- |
-    | pResult | Resulting vector.  |
-    | pV1 | 1st vector.  |
-    | pV2 | 2nd vector.  |"""
+        - pResult: Resulting vector.
+        - pV1: 1st vector.
+        - pV2: 2nd vector."""
     ...
 def FBAnimationLayer_TypeInfo()->int:...
 def FBAnimationNode_TypeInfo()->int:...
@@ -33811,21 +28085,15 @@ def FBAudioFmt_AppendFormat(Format:int,Channels:int,Bits:int,Rate:int)->int:
     [pyfbsdk::FBAudioFmt\_AppendFormat](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/namespacepyfbsdk.html#a558e07263d8f93f7b83696ab07a1ee1f)FBAudioFmt FBAudioFmt\_AppendFormat(FBAudioFmt pFormat, int pChannels, int pBits, int pRate)Append the rendering audio format using the specified settings.
     [pyfbsdk::FBAudioFmt\_GetRateValue](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/namespacepyfbsdk.html#ab90fa01add469a4b64e80dddaf70d319)int FBAudioFmt\_GetRateValue(FBAudioFmt pFormat)Get the rate value of the Audio format object.
     [pyfbsdk::FBAudioFmt\_GetChannelValue](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/namespacepyfbsdk.html#aec9229decbf402351b6288973c8c2b0f)int FBAudioFmt\_GetChannelValue(FBAudioFmt pFormat)Get the channel value of the Audio format object.
-     ## Parameters:
+     ### Parameters:
+    
+        - pFormat: Audio format to use. Set this to 0 if there is no audio format to be appended.
+        - pChannels: Number of channels. Valid values are 0, 1, 2, 4, 8.
+        - pBits: Bit depth. Valid values are 0, 8, 16, 24, 32.
+        - pRate: Audio rate. Valid values are 0, 8000, 11025, 12000, 12500, 16000, 22050, 24000, 25000, 32000, 44100, 48000, 50000, 64000, 88200, 96000, 100000.
     
     
-    
-    |  |  |
-    | --- | --- |
-    | pFormat | Audio format to use. Set this to 0 if there is no audio format to be appended.  |
-    | pChannels | Number of channels. Valid values are 0, 1, 2, 4, 8.  |
-    | pBits | Bit depth. Valid values are 0, 8, 16, 24, 32.  |
-    | pRate | Audio rate. Valid values are 0, 8000, 11025, 12000, 12500, 16000, 22050, 24000, 25000, 32000, 44100, 48000, 50000, 64000, 88200, 96000, 100000.  |
-    
-    
-    
-    
-    ## Returns:
+    ### Returns:
     An audio format object with the specified format."""
     ...
 @overload
@@ -33833,152 +28101,104 @@ def FBAudioFmt_AppendFormat(Format:int,SrcFormat:int)->int:
     """Append the rendering audio format with another audio format. 
     
     
-    ## Parameters:
+    ### Parameters:
+    
+        - pFormat: Audio format to use.
+        - pSrcFormat: Audio format to be appended.
     
     
-    
-    |  |  |
-    | --- | --- |
-    | pFormat | Audio format to use.  |
-    | pSrcFormat | Audio format to be appended.  |
-    
-    
-    
-    
-    ## Returns:
+    ### Returns:
     An audio format object with the specified format."""
     ...
 def FBAudioFmt_ConvertBitDepthMode(BitDepthMode:FBAudioBitDepthMode)->int:
     """Converts an [FBAudioBitDepthMode](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_audio_bit_depth_mode.html "Enum FBAudioBitDepthMode.") enum value to its FBAudioFmt object equivalent. 
     
     
-    ## Parameters:
+    ### Parameters:
+    
+        - pBitDepthMode: The bit depth mode enum value.
     
     
-    
-    |  |  |
-    | --- | --- |
-    | pBitDepthMode | The bit depth mode enum value.  |
-    
-    
-    
-    
-    ## Returns:
+    ### Returns:
     The FBAudioFmt object equivalent to the input bit depth mode enum value."""
     ...
 def FBAudioFmt_ConvertChannelMode(ChannelMode:FBAudioChannelMode)->int:
     """Converts an [FBAudioChannelMode](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_audio_channel_mode.html "Enum FBAudioChannelMode.") enum value to its FBAudioFmt object equivalent. 
     
     
-    ## Parameters:
+    ### Parameters:
+    
+        - pChannelMode: The channel mode enum value.
     
     
-    
-    |  |  |
-    | --- | --- |
-    | pChannelMode | The channel mode enum value.  |
-    
-    
-    
-    
-    ## Returns:
+    ### Returns:
     The FBAudioFmt object equivalent to the input channel mode enum value."""
     ...
 def FBAudioFmt_ConvertRateMode(RateMode:FBAudioRateMode)->int:
     """Converts an [FBAudioRateMode](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_audio_rate_mode.html "Enum FBAudioRateMode.") enum value to its FBAudioFmt object equivalent. 
     
     
-    ## Parameters:
+    ### Parameters:
+    
+        - pRateMode: The rate mode enum value.
     
     
-    
-    |  |  |
-    | --- | --- |
-    | pRateMode | The rate mode enum value.  |
-    
-    
-    
-    
-    ## Returns:
+    ### Returns:
     The FBAudioFmt object equivalent to the input rate mode enum value."""
     ...
 def FBAudioFmt_GetBitsValue(Format:int)->int:
     """Get the bit depth value of the Audio format object. 
     
     
-    ## Parameters:
+    ### Parameters:
+    
+        - pFormat: Audio format to use.
     
     
-    
-    |  |  |
-    | --- | --- |
-    | pFormat | Audio format to use.  |
-    
-    
-    
-    
-    ## Returns:
+    ### Returns:
     Bit depth value as an integer value."""
     ...
 def FBAudioFmt_GetBytesValue(Format:int)->int:
     """Get the bytes value of the Audio format object. 
     
     
-    ## Parameters:
+    ### Parameters:
+    
+        - pFormat: Audio format to use.
     
     
-    
-    |  |  |
-    | --- | --- |
-    | pFormat | Audio format to use.  |
-    
-    
-    
-    
-    ## Returns:
+    ### Returns:
     Bytes value as an integer value."""
     ...
 def FBAudioFmt_GetChannelValue(Format:int)->int:
     """Get the channel value of the Audio format object. 
     
     
-    ## Parameters:
+    ### Parameters:
+    
+        - pFormat: Audio format to use.
     
     
-    
-    |  |  |
-    | --- | --- |
-    | pFormat | Audio format to use.  |
-    
-    
-    
-    
-    ## Returns:
+    ### Returns:
     Channel value as an integer value."""
     ...
 def FBAudioFmt_GetDefaultFormat()->int:
     """Get default audio format. 
     
     
-    ## Returns:
+    ### Returns:
     An audio format object."""
     ...
 def FBAudioFmt_GetRateValue(Format:int)->int:
     """Get the rate value of the Audio format object. 
     
     
-    ## Parameters:
+    ### Parameters:
+    
+        - pFormat: Audio format to use.
     
     
-    
-    |  |  |
-    | --- | --- |
-    | pFormat | Audio format to use.  |
-    
-    
-    
-    
-    ## Returns:
+    ### Returns:
     Audio rate value as an integer value."""
     ...
 @overload
@@ -33988,21 +28208,15 @@ def FBAudioFmt_RemoveFormat(Format:int,Channels:int,Bits:int,Rate:int)->int:
     
     Please refer to python example in FBAudioFmt\_AppendFormat. 
     
-    ## Parameters:
+    ### Parameters:
+    
+        - pFormat: Audio format to use.
+        - pChannels: Number of channels to remove. Set this to 0 if you don't want to remove the channel.
+        - pBits: Bit depth to remove. Set this to 0 if you don't want to remove bit depth.
+        - pRate: Audio rate to remove. Set this to 0 if you don't want to remove audio rate.
     
     
-    
-    |  |  |
-    | --- | --- |
-    | pFormat | Audio format to use.  |
-    | pChannels | Number of channels to remove. Set this to 0 if you don't want to remove the channel.  |
-    | pBits | Bit depth to remove. Set this to 0 if you don't want to remove bit depth.  |
-    | pRate | Audio rate to remove. Set this to 0 if you don't want to remove audio rate.  |
-    
-    
-    
-    
-    ## Returns:
+    ### Returns:
     An audio format object without the specified format settings passed in parameter."""
     ...
 @overload
@@ -34010,40 +28224,28 @@ def FBAudioFmt_RemoveFormat(Format:int,SrcFormat:int)->int:
     """Remove audio format from another audio format object. 
     
     
-    ## Parameters:
+    ### Parameters:
+    
+        - pFormat: Audio format to use.
+        - pSrcFormat: Audio format to remove.
     
     
-    
-    |  |  |
-    | --- | --- |
-    | pFormat | Audio format to use.  |
-    | pSrcFormat | Audio format to remove.  |
-    
-    
-    
-    
-    ## Returns:
+    ### Returns:
     An audio format object without the specified format settings passed in parameter."""
     ...
 def FBAudioFmt_TestFormat(SrcFormat:int,Channels:int,Bits:int,Rate:int)->bool:
     """Test if the given audio format object contains the channel, bit depth, and rate. 
     
     
-    ## Parameters:
+    ### Parameters:
+    
+        - pSrcFormat: Audio format to test.
+        - pChannels: Number of channels to test.
+        - pBits: Bit depth to test.
+        - pRate: Audio rate to test.
     
     
-    
-    |  |  |
-    | --- | --- |
-    | pSrcFormat | Audio format to test.  |
-    | pChannels | Number of channels to test.  |
-    | pBits | Bit depth to test.  |
-    | pRate | Audio rate to test.  |
-    
-    
-    
-    
-    ## Returns:
+    ### Returns:
     True if the given audio format object contains the channel, bit depth, and rate."""
     ...
 def FBAudioIn_TypeInfo()->int:...
@@ -34072,20 +28274,14 @@ def FBClamp(V:float,L:float,H:float)->float:
     """Clamp value. 
     
     
-    ## Parameters:
+    ### Parameters:
+    
+        - pV: Value to clamp.
+        - pL: Low limit.
+        - pH: High limit.
     
     
-    
-    |  |  |
-    | --- | --- |
-    | pV | Value to clamp.  |
-    | pL | Low limit.  |
-    | pH | High limit.  |
-    
-    
-    
-    
-    ## Returns:
+    ### Returns:
     Clamped value."""
     ...
 def FBCluster_TypeInfo()->int:...
@@ -34094,22 +28290,16 @@ def FBConnect(Src:FBPlug,Dst:FBPlug,ConnectionType:FBConnectionType=FBConnection
     """Request the connection two [FBPlug](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_plug.html "Connections Basic Open Reality SDK Element.") objects. 
     
     
-    ## Parameters:
+    ### Parameters:
+    
+        - pSrc: Source plug.
+        - pDst: Destination plug.
+        - pConnectionType: Type of connection, taken from [FBConnectionType](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_connection_type.html "Connection types available between plugs.").
     
     
-    
-    |  |  |
-    | --- | --- |
-    | pSrc | Source plug.  |
-    | pDst | Destination plug.  |
-    | pConnectionType | Type of connection, taken from [FBConnectionType](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_connection_type.html "Connection types available between plugs.").  |
-    
-    
-    
-    
-    ## Returns:
+    ### Returns:
     A boolean indicating success (True) or failure (False). 
-    ## Remarks:
+    ### Remarks:
     This global function is used primarily to connect connectors in a [FBConstraintRelation](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_constraint_relation.html "ConstraintRelation class.")."""
     ...
 def FBConstraintManager_TypeInfo()->int:...
@@ -34122,19 +28312,13 @@ def FBCreateObject(GroupName:str,EntryName:str,Name:str,Data=None)->FBComponent:
     """FBCreateObject. 
     
     
-    ## Parameters:
+    ### Parameters:
     
-    
-    
-    |  |  |
-    | --- | --- |
-    | pGroupName | Set the name of the Group.  |
-    | pEntryName | Set the name of the Entry.  |
-    | pName | Set the name of the Object to create.  |
-    | pData | Data to pass to object creator function.  |
-    | nth | Set the occurrence of the object to remove. |
-    
-    
+        - pGroupName: Set the name of the Group.
+        - pEntryName: Set the name of the Entry.
+        - pName: Set the name of the Object to create.
+        - pData: Data to pass to object creator function.
+        - nth: Set the occurrence of the object to remove.
     
     
     [See sample: ObjectCreation.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_object_creation_8py-example.html)"""
@@ -34148,18 +28332,12 @@ def FBDeleteCharacterPinningPreset(PresetName:str)->bool:
     """Deletes a pinning preset from the Character Controls Tool. 
     
     
-    ## Parameters:
+    ### Parameters:
+    
+        - pPresetName: The preset name to delete (not the file path nor the filename of the preset).
     
     
-    
-    |  |  |
-    | --- | --- |
-    | pPresetName | The preset name to delete (not the file path nor the filename of the preset).  |
-    
-    
-    
-    
-    ## Returns:
+    ### Returns:
     True if the operation is successful, false otherwise."""
     ...
 def FBDeleteObjectsByName(NamePattern:str,NameSpace:str|None=None,GroupName:str|None=None)->int:
@@ -34168,20 +28346,14 @@ def FBDeleteObjectsByName(NamePattern:str,NameSpace:str|None=None,GroupName:str|
     
     This function will query the system for objects fulfilling a particular name pattern and delete them. specify a namespace preferred, delete all objects with the group name without specified a namespace specified may lead to inconsistent in scene. Wrap multiple calls to [FBDeleteObjectsByName()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/namespacepyfbsdk.html#a6add04a94a40327b8190d922f7a35cac "FBDeleteObjectsByName.") inside pair of [FBPreventUIUpdateBegin()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/namespacepyfbsdk.html#ac643c9042962342b0e5edfc03f35fdea "Call to prevent UI updates when creating/deleting/renaming objects.") / [FBPreventUIUpdateEnd()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/namespacepyfbsdk.html#a9c050ffa65ccbb821c8b8d2692f7247f "Call to end blocking the UI updates.") could improve application's performance. 
     
-    ## Parameters:
+    ### Parameters:
+    
+        - pNamePattern: if not NULL, indicate the name pattern to search. This pattern can contain any amount of \*. (ex: \*tr\*mod\*scene ). if is NULL or Empty string, \* will be used for match all.
+        - pNameSpace: if not NULL, the objects must be inside the given namespace.
+        - pGroupName: if not NULL, indicate the object group name (type).
     
     
-    
-    |  |  |
-    | --- | --- |
-    | pNamePattern | if not NULL, indicate the name pattern to search. This pattern can contain any amount of \*. (ex: \*tr\*mod\*scene ). if is NULL or Empty string, \* will be used for match all.  |
-    | pNameSpace | if not NULL, the objects must be inside the given namespace.  |
-    | pGroupName | if not NULL, indicate the object group name (type).  |
-    
-    
-    
-    
-    ## Returns:
+    ### Returns:
     the count of objects found and deleted."""
     ...
 def FBDeviceInstrument_TypeInfo()->int:...
@@ -34192,40 +28364,28 @@ def FBDisconnect(Src:FBPlug,Dst:FBPlug)->bool:
     """Connect two [FBPlug](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_plug.html "Connections Basic Open Reality SDK Element.") objects. 
     
     
-    ## Parameters:
+    ### Parameters:
+    
+        - pSrc: Source plug.
+        - pDst: Destination plug.
     
     
-    
-    |  |  |
-    | --- | --- |
-    | pSrc | Source plug.  |
-    | pDst | Destination plug.  |
-    
-    
-    
-    
-    ## Returns:
+    ### Returns:
     A boolean indicating success (True) or failure (False). 
-    ## Remarks:
+    ### Remarks:
     This global function is used primarily to disconnect connectors in a [FBConstraintRelation](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_constraint_relation.html "ConstraintRelation class.")."""
     ...
 def FBDot(V1:FBVector4d,V2:FBVector4d)->float:
     """Calculate the dot product of two vectors. 
     
     
-    ## Parameters:
+    ### Parameters:
+    
+        - pV1: 1st vector.
+        - pV2: 2nd vector.
     
     
-    
-    |  |  |
-    | --- | --- |
-    | pV1 | 1st vector.  |
-    | pV2 | 2nd vector.  |
-    
-    
-    
-    
-    ## Returns:
+    ### Returns:
     Dot product."""
     ...
 def FBEditColor_TypeInfo()->int:...
@@ -34253,18 +28413,12 @@ def FBFindModelByLabelName(ModelLabelName:str)->FBModel:
     
     Searches the scene for a model, based on the model's label name. Label name is "NameSpaceName:ObjectName". also known as "PrefixName::ObjectName" Full name is "GroupName::NameSpaceName:ObjectName". 
     
-    ## Parameters:
+    ### Parameters:
+    
+        - pModelLabelName: LabelName of model to search for. Specify it with schema like "NameSpaceName:ObjectName",or "ObjectName" if no NameSpaceName.
     
     
-    
-    |  |  |
-    | --- | --- |
-    | pModelLabelName | LabelName of model to search for. Specify it with schema like "NameSpaceName:ObjectName",or "ObjectName" if no NameSpaceName.  |
-    
-    
-    
-    
-    ## Returns:
+    ### Returns:
     A handle onto the model with Label name matching, returns NULL if no model was found by the search.
     [See samples: CopyAnimation.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_f_curve_0c_copy_animation_8py-example.html) [3dsMaxBipedTemplate.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c3ds_max_biped_template_8py-example.html) [EnableGameModeOnSelectedCharacters\_Z.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_enable_game_mode_on_selected_characters__z_8py-example.html) [ExportAnimationLibrary.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_export_animation_library_8py-example.html)"""
     ...
@@ -34274,19 +28428,13 @@ def FBFindModelByUniqueColorId(Color:FBColor)->tuple:
     
     A model could have a single unique ColorID, but SDK plugin user could request additional ColorID per model to support multi sub items picking. see [FBModel::SetAdditionalUniqueColorIDCount()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_model.html#a90f9f9cd10be9bcbf09b8c01cc627a0c "Request additional Unique color IDs."). 
     
-    ## Parameters:
+    ### Parameters:
+    
+        - pColor: Color channel values are in range of [0,1] with precision 1.0/255
+        - pSubItemIndex: (C++ only) Pass out SubItem index value if not null.
     
     
-    
-    |  |  |
-    | --- | --- |
-    | pColor | Color channel values are in range of [0,1] with precision 1.0/255  |
-    | pSubItemIndex | (C++ only) Pass out SubItem index value if not null.  |
-    
-    
-    
-    
-    ## Returns:
+    ### Returns:
     (C++ only) A handle onto the model with unique color id matching, returns NULL if no model was found by the search. (Python only) A tuple with 2 values: ([FBModel](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_model.html "Model class.") return value, pSubItemIndex)."""
     ...
 def FBFindObjectByFullName(ObjectFullName:str)->FBComponent:
@@ -34295,18 +28443,12 @@ def FBFindObjectByFullName(ObjectFullName:str)->FBComponent:
     
     This function will query the system for an object with its FullName matching. Full name is "GroupName::NameSpaceName:ObjectName". Label name is "NameSpaceName:ObjectName". also known as "PrefixName::ObjectName" 
     
-    ## Parameters:
+    ### Parameters:
+    
+        - pObjectFullName: Full Name of object to search for. Specify it with schema like "GroupName::NameSpaceName:ObjectName",or "GroupName::ObjectName" if no NameSpaceName.
     
     
-    
-    |  |  |
-    | --- | --- |
-    | pObjectFullName | Full Name of object to search for. Specify it with schema like "GroupName::NameSpaceName:ObjectName",or "GroupName::ObjectName" if no NameSpaceName.  |
-    
-    
-    
-    
-    ## Returns:
+    ### Returns:
     A handle onto the object with Full name matching pObjectFullName, returns NULL if no object was found by the search."""
     ...
 def FBFindObjectsByName(NamePattern:str,List:FBComponentList,bIncludeNamespace:bool=True,bModelsOnly:bool=False):
@@ -34315,18 +28457,12 @@ def FBFindObjectsByName(NamePattern:str,List:FBComponentList,bIncludeNamespace:b
     
     This function will query the system for objects fulfilling a particular name pattern 
     
-    ## Parameters:
+    ### Parameters:
     
-    
-    
-    |  |  |
-    | --- | --- |
-    | pNamePattern | Indicate the name pattern to search. This pattern can contain any amount of \*. (ex: \*tr\*mod\*scene )  |
-    | pList | List that contains the objects  |
-    | pIncludeNamespace | Does the search use the complete name (with namespace)  |
-    | pModelsOnly | Is the search on models or all types of objects |
-    
-    
+        - pNamePattern: Indicate the name pattern to search. This pattern can contain any amount of \*. (ex: \*tr\*mod\*scene )
+        - pList: List that contains the objects
+        - pIncludeNamespace: Does the search use the complete name (with namespace)
+        - pModelsOnly: Is the search on models or all types of objects
     
     
     [See sample: FindObjectsWithWildcard.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_find_objects_with_wildcard_8py-example.html)"""
@@ -34339,7 +28475,7 @@ def FBGetActorMarkerSetVisibility()->bool:
     """Queries visibility of the marker set of the current actor. 
     
     
-    ## Returns:
+    ### Returns:
     True if the marker set of the current actor are visible, or false if it is hidden."""
     ...
 def FBGetCharacterComparisonThresholdValue()->float:
@@ -34348,89 +28484,71 @@ def FBGetCharacterComparisonThresholdValue()->float:
     
     : when applying a Character Clip using the "Control Rig" Solving Mode). 
     
-    ## Returns:
+    ### Returns:
     The threshold value."""
     ...
 def FBGetCharacterExternalSolverCount()->int:
     """Get character external solver count. 
     
     
-    ## Returns:
+    ### Returns:
     Number of external character solver available."""
     ...
 def FBGetCharacterExternalSolverIndex(Name:str)->int:
     """Get character external solver index. 
     
     
-    ## Parameters:
+    ### Parameters:
+    
+        - pName: Name of external solver.
     
     
-    
-    |  |  |
-    | --- | --- |
-    | pName | Name of external solver.  |
-    
-    
-    
-    
-    ## Returns:
+    ### Returns:
     Index of external solver specified at the provided name."""
     ...
 def FBGetCharacterExternalSolverName(Index:int)->str:
     """Get character external solver name. 
     
     
-    ## Parameters:
+    ### Parameters:
+    
+        - pIndex: Index of external solver.
     
     
-    
-    |  |  |
-    | --- | --- |
-    | pIndex | Index of external solver.  |
-    
-    
-    
-    
-    ## Returns:
+    ### Returns:
     Name of the external solver specified at the provided index."""
     ...
 def FBGetCharacterFingerTipsVisibility()->bool:
     """Queries visibility of the finger-tips of the current character. 
     
     
-    ## Returns:
+    ### Returns:
     True if finger-tips of the current character are visible, or false if they are hidden."""
     ...
 def FBGetCharacterFloorContactsVisibility()->bool:
     """Queries visibility of the floor contacts of the current character. 
     
     
-    ## Returns:
+    ### Returns:
     True if floor contacts of the current character are visible, or false if they are hidden."""
     ...
 def FBGetCharactersKeyingMode()->FBCharacterKeyingMode:
     """return Character Manipulation/Keying Mode 
     
     
-    ## Returns:
+    ### Returns:
     Keying Mode"""
     ...
 def FBGetConstantKeyReducerThresholdValue(ThresholdType:FBConstantKeyReducerThresholdType)->float:
     """Return a specific threshold value used by the Constant Key Reducer filter. 
     
     
-    ## Parameters:
+    ### Parameters:
+    
+        - pThresholdType: The threshold type to retrieve its value.
     
     
-    
-    |  |  |
-    | --- | --- |
-    | pThresholdType | The threshold type to retrieve its value.  |
-    
-    
-    
-    
-    ## Returns:
+    ### Returns:
     The threshold value."""
     ...
 def FBGetContinuousRotation(ROut:FBVector3d,R0:FBVector3d,R1:FBVector3d):
@@ -34439,15 +28557,11 @@ def FBGetContinuousRotation(ROut:FBVector3d,R0:FBVector3d,R1:FBVector3d):
     
     This routine will help to avoid gimble locks due to interpolation. 
     
-    ## Parameters:
+    ### Parameters:
     
-    
-    
-    |  |  |
-    | --- | --- |
-    | pROut | Successful continuous rotation (gimble-lock free).  |
-    | pR0 | Suggested next rotation.  |
-    | pR1 | Previous rotation.  |"""
+        - pROut: Successful continuous rotation (gimble-lock free).
+        - pR0: Suggested next rotation.
+        - pR1: Previous rotation."""
     ...
 def FBGetDisplayInfo()->FBEvaluateInfo:
     """Get the displays evaluation information structure. 
@@ -34455,25 +28569,19 @@ def FBGetDisplayInfo()->FBEvaluateInfo:
     
     This function can be used in order to call real-time functions based on the current display evalution state. 
     
-    ## Returns:
+    ### Returns:
     The display evalution structure."""
     ...
 def FBGetEffectorBodyPart(EffectorId:FBEffectorId)->FBBodyPartId:
     """return BodyPart ID from Effector. 
     
     
-    ## Parameters:
+    ### Parameters:
+    
+        - pEffectorId: Effector ID.
     
     
-    
-    |  |  |
-    | --- | --- |
-    | pEffectorId | Effector ID.  |
-    
-    
-    
-    
-    ## Returns:
+    ### Returns:
     ID of the BodyPart the effector is in."""
     ...
 def FBGetEvaluationTaskCycle()->FBProfileTaskCycle:
@@ -34485,21 +28593,17 @@ def FBGetGlobalMatrix(Matrix:FBMatrix,MatrixParent:FBMatrix,LocalMatrix:FBMatrix
     
     From an input referential, this function will calculate the global matrix corresponding to the input local matrix (which is with respect to the parent matrix). 
     
-    ## Parameters:
+    ### Parameters:
     
-    
-    
-    |  |  |
-    | --- | --- |
-    | pMatrix | Calculated local matrix.  |
-    | pMatrixParent | Parent matrix.  |
-    | pLocalMatrix | Local matrix.  |"""
+        - pMatrix: Calculated local matrix.
+        - pMatrixParent: Parent matrix.
+        - pLocalMatrix: Local matrix."""
     ...
 def FBGetLastSelectedModel()->FBModel:
     """Get the last selected model, which is the one having the manipulator in the viewer. 
     
     
-    ## Returns:
+    ### Returns:
     The last selected model or nullptr (C++) or None (Python) if no model is selected."""
     ...
 def FBGetLocalMatrix(Matrix:FBMatrix,MatrixParent:FBMatrix,MatrixChild:FBMatrix):
@@ -34508,15 +28612,11 @@ def FBGetLocalMatrix(Matrix:FBMatrix,MatrixParent:FBMatrix,MatrixChild:FBMatrix)
     
     Will calculate the local matrix from two global matrices. The resulting matrix will be a local matrix containing the local transformations to go from the parent referentialto the child referential. 
     
-    ## Parameters:
+    ### Parameters:
     
-    
-    
-    |  |  |
-    | --- | --- |
-    | pMatrix | Calculated local matrix.  |
-    | pMatrixParent | Parent matrix (new base referential).  |
-    | pMatrixChild | Child matrix.  |"""
+        - pMatrix: Calculated local matrix.
+        - pMatrixParent: Parent matrix (new base referential).
+        - pMatrixChild: Child matrix."""
     ...
 def FBGetMainThreadTaskCycle()->FBProfileTaskCycle:
     """Get root task cycle."""
@@ -34541,7 +28641,7 @@ def FBGetMainWindow()->int:
     else:
      print( "MotionBuilder main window not found!" )
     [pyfbsdk::FBGetMainWindow](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/namespacepyfbsdk.html#a168c7b3df16bd9358f8326cd57167134)QMainWindow FBGetMainWindow()Return the MotionBuilder main window.
-     ## Returns:
+     ### Returns:
     The MotionBuilder main window."""
     ...
 @overload
@@ -34594,20 +28694,14 @@ def FBGetMultiLangText(Context:FBPlug,Key:str,bFlagReturnKey:bool=False)->str:
     [pyfbsdk::FBProperty](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property.html)Generic application property.**Definition:** pyfbsdk.h:974
     [pyfbsdk::FBProperty::GetName](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property.html#ac118888b6aea131c7656b144b7754bc4)str GetName()Get the property's name.
     [pyfbsdk::FBTrace](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/namespacepyfbsdk.html#a99732f36822ecaf16ebd2f0ae94d775d)FBTrace(str pFormatString,... p1)This function prints useful debugging strings in the console with kFBNORMAL\_TRACE output detailed lev...
-     ## Parameters:
+     ### Parameters:
+    
+        - pContext: Object which dictates the context of the lookup.
+        - pKey: String to look up.
+        - pFlagReturnKey: Should the lookup fail, will return the key instead of an empty string.
     
     
-    
-    |  |  |
-    | --- | --- |
-    | pContext | Object which dictates the context of the lookup.  |
-    | pKey | String to look up.  |
-    | pFlagReturnKey | Should the lookup fail, will return the key instead of an empty string.  |
-    
-    
-    
-    
-    ## Returns:
+    ### Returns:
     The corresponding string if the lookup was succesfull. If not will return an empty string if pFlagReturnKey was false. Otherwise will return the key string."""
     ...
 @overload
@@ -34636,20 +28730,14 @@ def FBGetMultiLangText(Context:str,Key:str,bFlagReturnKey:bool=False)->str:
      
     // Will return 'Field Of View'.
     [FBTrace](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/namespacepyfbsdk.html#a99732f36822ecaf16ebd2f0ae94d775d)( "%s\n", [FBGetMultiLangText](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/namespacepyfbsdk.html#a9de6515574f954b9380ba76dfdf60ce0)( "KCamera", "FieldOfView" ));
-     ## Parameters:
+     ### Parameters:
+    
+        - pContext: String which dictates the context of the lookup.
+        - pKey: String to look up.
+        - pFlagReturnKey: Should the lookup fail, will return the key instead of an empty string.
     
     
-    
-    |  |  |
-    | --- | --- |
-    | pContext | String which dictates the context of the lookup.  |
-    | pKey | String to look up.  |
-    | pFlagReturnKey | Should the lookup fail, will return the key instead of an empty string.  |
-    
-    
-    
-    
-    ## Returns:
+    ### Returns:
     The corresponding string if the lookup was succesfull. If not will return an empty string if pFlagReturnKey was false. Otherwise will return the key string."""
     ...
 def FBGetRenderingTaskCycle()->FBProfileTaskCycle:
@@ -34659,18 +28747,12 @@ def FBGetSelectedModels(List:FBModelList,Parent:FBModel|None=None,bSelected:bool
     """Find all models that are selected (if pSelected is true) Searches recursively from a root model for models that are selected, and adds them to a list of models. 
     
     
-    ## Parameters:
+    ### Parameters:
     
-    
-    
-    |  |  |
-    | --- | --- |
-    | pList | List to add found models to.  |
-    | pParent | Root model to look from (default=NULL(root)).  |
-    | pSelected | true to find selected models, false to find unselected models(default=true).  |
-    | pSortBySelectOrder | true to sort the result by selection order, first selected model in the first part of the list; false to sort the result by scene graph order |
-    
-    
+        - pList: List to add found models to.
+        - pParent: Root model to look from (default=NULL(root)).
+        - pSelected: true to find selected models, false to find unselected models(default=true).
+        - pSortBySelectOrder: true to sort the result by selection order, first selected model in the first part of the list; false to sort the result by scene graph order
     
     
     [See sample: FBGetSelectedModels.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_utilities_0c_f_b_get_selected_models_8py-example.html)"""
@@ -34694,32 +28776,24 @@ def FBInterpolateRotation(ROut:FBVector3d,R0:FBVector3d,R1:FBVector3d,U:float):
     """Interpolate a rotation in Euler space. 
     
     
-    ## Parameters:
+    ### Parameters:
     
-    
-    
-    |  |  |
-    | --- | --- |
-    | pROut | Resulting, interpolated rotation.  |
-    | pR0 | 1st rotation.  |
-    | pR1 | 2nd rotation.  |
-    | pU | Interpolation ratio.  |"""
+        - pROut: Resulting, interpolated rotation.
+        - pR0: 1st rotation.
+        - pR1: 2nd rotation.
+        - pU: Interpolation ratio."""
     ...
 @overload
 def FBInterpolateRotation(QOut:FBVector4d,Q0:FBVector4d,Q1:FBVector4d,U:float):
     """Interpolate a rotation in Quaternion. 
     
     
-    ## Parameters:
+    ### Parameters:
     
-    
-    
-    |  |  |
-    | --- | --- |
-    | pQOut | Resulting, interpolated rotation.  |
-    | pQ0 | 1st rotation.  |
-    | pQ1 | 2nd rotation.  |
-    | pU | Interpolation ratio.  |"""
+        - pQOut: Resulting, interpolated rotation.
+        - pQ0: 1st rotation.
+        - pQ1: 2nd rotation.
+        - pU: Interpolation ratio."""
     ...
 def FBKeyControl_TypeInfo()->int:...
 def FBKeyingGroup_TypeInfo()->int:...
@@ -34732,18 +28806,12 @@ def FBLength(V:FBVector4d)->float:
     """Get the length of a vector. 
     
     
-    ## Parameters:
+    ### Parameters:
+    
+        - pV: Vector to calculate length for.
     
     
-    
-    |  |  |
-    | --- | --- |
-    | pV | Vector to calculate length for.  |
-    
-    
-    
-    
-    ## Returns:
+    ### Returns:
     Length of vector **pV**."""
     ...
 @overload
@@ -34751,18 +28819,12 @@ def FBLength(V:FBVertex)->float:
     """Get the length of a vertex (from origin) 
     
     
-    ## Parameters:
+    ### Parameters:
+    
+        - pV: Vertex for which length is to be measured.
     
     
-    
-    |  |  |
-    | --- | --- |
-    | pV | Vertex for which length is to be measured.  |
-    
-    
-    
-    
-    ## Returns:
+    ### Returns:
     Length of vertex (from origin)."""
     ...
 def FBLight_TypeInfo()->int:...
@@ -34771,36 +28833,24 @@ def FBLoadCharacterPinningPreset(PresetName:str)->bool:
     """Loads a pinning preset in the Character Controls Tool. 
     
     
-    ## Parameters:
+    ### Parameters:
+    
+        - pPresetName: The preset name to load (not the file path nor the filename of the preset).
     
     
-    
-    |  |  |
-    | --- | --- |
-    | pPresetName | The preset name to load (not the file path nor the filename of the preset).  |
-    
-    
-    
-    
-    ## Returns:
+    ### Returns:
     True if the operation is successful, false otherwise."""
     ...
 def FBLoadFbxPrimitivesModel(ModelName:str)->FBModel:
     """Load a model. 
     
     
-    ## Parameters:
+    ### Parameters:
+    
+        - pModelName: Name of primitive model to load.
     
     
-    
-    |  |  |
-    | --- | --- |
-    | pModelName | Name of primitive model to load.  |
-    
-    
-    
-    
-    ## Returns:
+    ### Returns:
     A handle onto the model that was loaded, returns NULL if no model was found."""
     ...
 def FBLogger_TypeInfo()->int:...
@@ -34811,169 +28861,119 @@ def FBMatrixInverse(Matrix:FBMatrix,Src:FBMatrix):
     """Invert a matrix. 
     
     
-    ## Parameters:
+    ### Parameters:
     
-    
-    
-    |  |  |
-    | --- | --- |
-    | pMatrix | Calculated inverse matrix.  |
-    | pSrc | Source matrix to invert.  |"""
+        - pMatrix: Calculated inverse matrix.
+        - pSrc: Source matrix to invert."""
     ...
 def FBMatrixMult(Matrix:FBMatrix,A:FBMatrix,B:FBMatrix):
     """Multiply two matrices. 
     
     
-    ## Parameters:
+    ### Parameters:
     
-    
-    
-    |  |  |
-    | --- | --- |
-    | pMatrix | Calculated resulting matrix.  |
-    | pA | 1st matrix.  |
-    | pB | 2nd matrix.  |"""
+        - pMatrix: Calculated resulting matrix.
+        - pA: 1st matrix.
+        - pB: 2nd matrix."""
     ...
 def FBMatrixOrthogonalize(Matrix:FBMatrix):
     """Make sure that rotation vectors are orthogonal and normalized (fast way for removing scaling from matrix) 
     
     
-    ## Parameters:
+    ### Parameters:
     
-    
-    
-    |  |  |
-    | --- | --- |
-    | pMatrix | Rotation Matrix to Orthogonalize.  |"""
+        - pMatrix: Rotation Matrix to Orthogonalize."""
     ...
 def FBMatrixToQuaternion(Quaternion:FBVector4d,Matrix:FBMatrix):
     """Get a quaternion from a matrix (potential ). 
     
     
-    ## Parameters:
+    ### Parameters:
+    
+        - pQuaternion: Calculated quaternion.
+        - pMatrix: Input matrix.
     
     
-    
-    |  |  |
-    | --- | --- |
-    | pQuaternion | Calculated quaternion.  |
-    | pMatrix | Input matrix.  |
-    
-    
-    
-    
-    ## Warning:
+    ### Warning:
     Matrix can contain scaling and/or translation, we orthogonalize matrix before."""
     ...
 def FBMatrixToRotation(Vector:FBVector3d,Matrix:FBMatrix,RotationOrder:FBRotationOrder=FBRotationOrder.kFBXYZ):
     """Obtain rotation vector from a matrix. 
     
     
-    ## Parameters:
+    ### Parameters:
     
-    
-    
-    |  |  |
-    | --- | --- |
-    | pVector | Extracted rotation vector, ordered the same way as the rotation order specified by pRotationOrder.  |
-    | pMatrix | Input matrix.  |
-    | pRotationOrder | Rotation order.  |"""
+        - pVector: Extracted rotation vector, ordered the same way as the rotation order specified by pRotationOrder.
+        - pMatrix: Input matrix.
+        - pRotationOrder: Rotation order."""
     ...
 def FBMatrixToRotationWithPrecision(Vector:FBVector3d,Matrix:FBMatrix,RotationOrder:FBRotationOrder,Precision:float):
     """Obtain rotation vector from a matrix. 
     
     
-    ## Parameters:
+    ### Parameters:
+    
+        - pVector: Extracted rotation vector.
+        - pMatrix: Input matrix.
+        - pRotationOrder: Rotation Order.
+        - pPrecision: Indicate the precision level (pow(10.0, -pPrecision)) used when calculating the threshold value for gimble lock.
     
     
-    
-    |  |  |
-    | --- | --- |
-    | pVector | Extracted rotation vector.  |
-    | pMatrix | Input matrix.  |
-    | pRotationOrder | Rotation Order.  |
-    | pPrecision | Indicate the precision level (pow(10.0, -pPrecision)) used when calculating the threshold value for gimble lock.  |
-    
-    
-    
-    
-    ## Warning:
+    ### Warning:
     Rotation is in EulerXYZ or EulerZYX only"""
     ...
 def FBMatrixToScaling(Vector:FBSVector,Matrix:FBMatrix):
     """Obtain scaling vector from a matrix. 
     
     
-    ## Parameters:
+    ### Parameters:
     
-    
-    
-    |  |  |
-    | --- | --- |
-    | pVector | Extracted scaling vector.  |
-    | pMatrix | Input matrix.  |"""
+        - pVector: Extracted scaling vector.
+        - pMatrix: Input matrix."""
     ...
 def FBMatrixToTQS(TVector:FBVector4d,Quaternion:FBVector4d,SVector:FBSVector,Matrix:FBMatrix):
     """Obtain translation vector, rotation quaternion, and scaling vector from a matrix. 
     
     
-    ## Parameters:
+    ### Parameters:
     
-    
-    
-    |  |  |
-    | --- | --- |
-    | pTVector | Extracted translation vector.  |
-    | pQuaternion | Extracted rotation quaternion.  |
-    | pSVector | Extracted scaling vector.  |
-    | pMatrix | Input matrix.  |"""
+        - pTVector: Extracted translation vector.
+        - pQuaternion: Extracted rotation quaternion.
+        - pSVector: Extracted scaling vector.
+        - pMatrix: Input matrix."""
     ...
 def FBMatrixToTRS(TVector:FBVector4d,RVector:FBVector3d,SVector:FBSVector,Matrix:FBMatrix):
     """Obtain translation, rotation, and scaling vectors from a matrix. 
     
     
-    ## Parameters:
+    ### Parameters:
+    
+        - pTVector: Extracted translation vector.
+        - pRVector: Extracted rotation vector.
+        - pSVector: Extracted scaling vector.
+        - pMatrix: Input matrix.
     
     
-    
-    |  |  |
-    | --- | --- |
-    | pTVector | Extracted translation vector.  |
-    | pRVector | Extracted rotation vector.  |
-    | pSVector | Extracted scaling vector.  |
-    | pMatrix | Input matrix.  |
-    
-    
-    
-    
-    ## Warning:
+    ### Warning:
     Rotation is in EulerXYZ"""
     ...
 def FBMatrixToTranslation(Vector:FBVector4d,Matrix:FBMatrix):
     """Obtain translation vector from a matrix. 
     
     
-    ## Parameters:
+    ### Parameters:
     
-    
-    
-    |  |  |
-    | --- | --- |
-    | pVector | Extracted translation vector.  |
-    | pMatrix | Input matrix.  |"""
+        - pVector: Extracted translation vector.
+        - pMatrix: Input matrix."""
     ...
 def FBMatrixTranspose(Matrix:FBMatrix,Src:FBMatrix):
     """Transpose a matrix. 
     
     
-    ## Parameters:
+    ### Parameters:
     
-    
-    
-    |  |  |
-    | --- | --- |
-    | pMatrix | Calculated transpose matrix.  |
-    | pSrc | Source matrix to transpose.  |"""
+        - pMatrix: Calculated transpose matrix.
+        - pSrc: Source matrix to transpose."""
     ...
 def FBMemo_TypeInfo()->int:...
 def FBMenuManager_TypeInfo()->int:...
@@ -34983,7 +28983,7 @@ def FBMergeTransactionBegin():
     
     Useful to consecutively merge multiple files into scene. 
     
-    ## Note:
+    ### Note:
     The transaction need to be closed by calling [FBMergeTransactionEnd()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/namespacepyfbsdk.html#aaa23f01696af70541dff826bd4ec8a67 "Call to end the merge transaction."). There is no need to call [FBPreventUIUpdateBegin()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/namespacepyfbsdk.html#ac643c9042962342b0e5edfc03f35fdea "Call to prevent UI updates when creating/deleting/renaming objects.") with this function, since it already contains the same optimization."""
     ...
 def FBMergeTransactionEnd():
@@ -34995,7 +28995,7 @@ def FBMergeTransactionFileRefEditBegin():
     
     Useful to consecutively merge multiple files into scene with FileRef edit operation in between. 
     
-    ## Note:
+    ### Note:
     The transaction need to be closed by calling [FBMergeTransactionFileRefEditEnd()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/namespacepyfbsdk.html#a2b9d101370a2834a5f4163581abe2204 "Call to end merge transaction with File Reference edit.")."""
     ...
 def FBMergeTransactionFileRefEditEnd():
@@ -35014,24 +29014,18 @@ def FBMessageBox(BoxTitle:str,Message:str,Button1Str:str,Button2Str:str|None=Non
     
     Opens a message box containing a message and up to three buttons. Waits for the user to click a button. 
     
-    ## Parameters:
+    ### Parameters:
+    
+        - pBoxTitle: Title of message box.
+        - pMessage: Message to place in box.
+        - pButton1Str: String for first button (Cannot be NULL).
+        - pButton2Str: String for second button (NULL will not create a button).
+        - pButton3Str: String for third button (NULL will not create a button).
+        - pDefaultButton: Indicates the default (pre-selected) button (default is 0).
+        - pScrolledMessage: Scroll message (default is 0).
     
     
-    
-    |  |  |
-    | --- | --- |
-    | pBoxTitle | Title of message box.  |
-    | pMessage | Message to place in box.  |
-    | pButton1Str | String for first button (Cannot be NULL).  |
-    | pButton2Str | String for second button (NULL will not create a button).  |
-    | pButton3Str | String for third button (NULL will not create a button).  |
-    | pDefaultButton | Indicates the default (pre-selected) button (default is 0).  |
-    | pScrolledMessage | Scroll message (default is 0).  |
-    
-    
-    
-    
-    ## Returns:
+    ### Returns:
     The number of the button selected.
     [See samples: GetUserValue.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_get_user_value_8py-example.html) [AssignRigidBody.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_assign_rigid_body_8py-example.html) [BatchExportCharacterAnimationTool.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_batch_export_character_animation_tool_8py-example.html) [EnableGameModeOnSelectedCharacters\_Z.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_enable_game_mode_on_selected_characters__z_8py-example.html) [FBMessageBox.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_f_b_message_box_8py-example.html) [FBMessageBoxGetUserValue.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_f_b_message_box_get_user_value_8py-example.html)"""
     ...
@@ -35074,45 +29068,33 @@ def FBMult(Result:FBVector4d,V1:FBVector4d,V2:float):
     """Multiply **pV2** from **pV1** (**pResult** = **pV1** **\*** **pV2**) 
     
     
-    ## Parameters:
+    ### Parameters:
     
-    
-    
-    |  |  |
-    | --- | --- |
-    | pResult | Resulting vector.  |
-    | pV1 | 1st vector.  |
-    | pV2 | 2nd vector.  |"""
+        - pResult: Resulting vector.
+        - pV1: 1st vector.
+        - pV2: 2nd vector."""
     ...
 @overload
 def FBMult(Result:FBVector4d,V1:FBVector4d,V2:FBVector4d):
     """Calculate the cross product of two vectors. 
     
     
-    ## Parameters:
+    ### Parameters:
     
-    
-    
-    |  |  |
-    | --- | --- |
-    | pResult | Resulting vector.  |
-    | pV1 | 1st vector.  |
-    | pV2 | 2nd vector.  |"""
+        - pResult: Resulting vector.
+        - pV1: 1st vector.
+        - pV2: 2nd vector."""
     ...
 @overload
 def FBMult(Result:FBMatrix,M:FBMatrix,V:FBSVector):
     """Calculate the cross product of a Matrix and Scale Vector. 
     
     
-    ## Parameters:
+    ### Parameters:
     
-    
-    
-    |  |  |
-    | --- | --- |
-    | pResult | Resulting Matrix.  |
-    | pM | Matrix.  |
-    | pV | vector.  |"""
+        - pResult: Resulting Matrix.
+        - pM: Matrix.
+        - pV: vector."""
     ...
 @overload
 def FBMult(arg1:FBMatrix,arg2:FBMatrix,arg3:FBSVector):...
@@ -35127,26 +29109,18 @@ def FBObjectLifeLogEnable(bEnable:bool):
     
     Default logging if off This logging may hurt performance slightly. use it only for debug purpose. 
     
-    ## Parameters:
+    ### Parameters:
     
-    
-    
-    |  |  |
-    | --- | --- |
-    | pEnable | true to enable logging.  |"""
+        - pEnable: true to enable logging."""
     ...
 def FBObjectPose_TypeInfo()->int:...
 def FBObjectPrintLivings(StartUniqueId:int):
     """Print those living objects created when logging is enabled. 
     
     
-    ## Parameters:
+    ### Parameters:
     
-    
-    
-    |  |  |
-    | --- | --- |
-    | pStartUniqueId | Any living object has been logged and with its uniqueId no less than pStartUniqueId will be printed out.  |"""
+        - pStartUniqueId: Any living object has been logged and with its uniqueId no less than pStartUniqueId will be printed out."""
     ...
 def FBObject_GetEntryCount(GroupIndex:int)->int:
     """"""
@@ -35185,19 +29159,13 @@ def FBPopNormalTool(ToolName:str,bSetFocus:bool=True)->bool:
     """This function is used to bring up a specific tool in the GUI. 
     
     
-    ## Parameters:
+    ### Parameters:
+    
+        - pToolName: The name of the tool as shown in the Open Reality menu.
+        - pSetFocus: Indicate if the tool will have the focus.
     
     
-    
-    |  |  |
-    | --- | --- |
-    | pToolName | The name of the tool as shown in the Open Reality menu.  |
-    | pSetFocus | Indicate if the tool will have the focus.  |
-    
-    
-    
-    
-    ## Returns:
+    ### Returns:
     If the tool was brought up successfully."""
     ...
 def FBPopup_TypeInfo()->int:...
@@ -35208,7 +29176,7 @@ def FBPreventUIUpdateBegin():
     
     Useful to speed up script operations. Previously, [FBMergeTransactionBegin()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/namespacepyfbsdk.html#aad4907c6749ae8eb9e115ce14358bc58 "Call to begin the transaction for merging multiple files.")/ [FBMergeTransactionEnd()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/namespacepyfbsdk.html#aaa23f01696af70541dff826bd4ec8a67 "Call to end the merge transaction.") could be used to do this kind of optimization, even if no merge operations were done. However, using [FBMergeTransactionBegin()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/namespacepyfbsdk.html#aad4907c6749ae8eb9e115ce14358bc58 "Call to begin the transaction for merging multiple files.")/ [FBMergeTransactionEnd()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/namespacepyfbsdk.html#aaa23f01696af70541dff826bd4ec8a67 "Call to end the merge transaction.") with non-merge operation could lead to issues, like objects with invalid namespaces. [FBPreventUIUpdateBegin()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/namespacepyfbsdk.html#ac643c9042962342b0e5edfc03f35fdea "Call to prevent UI updates when creating/deleting/renaming objects.")/FBPreventUIUpdateEnd() fix this issue, while giving the same speed increase. 
     
-    ## Note:
+    ### Note:
     The transaction need to be closed by calling [FBPreventUIUpdateEnd()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/namespacepyfbsdk.html#a9c050ffa65ccbb821c8b8d2692f7247f "Call to end blocking the UI updates."). There is no need to call this function when using [FBMergeTransactionBegin()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/namespacepyfbsdk.html#aad4907c6749ae8eb9e115ce14358bc58 "Call to begin the transaction for merging multiple files."), since [FBMergeTransactionBegin()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/namespacepyfbsdk.html#aad4907c6749ae8eb9e115ce14358bc58 "Call to begin the transaction for merging multiple files.") already has the same optimization."""
     ...
 def FBPreventUIUpdateEnd():
@@ -35226,51 +29194,35 @@ def FBQAdd(Result:FBVector4d,Q1:FBVector4d,Q2:FBVector4d):
     """Add two quaternions together (**pResult** = **pQ1** **+** **pQ2**) 
     
     
-    ## Parameters:
+    ### Parameters:
     
-    
-    
-    |  |  |
-    | --- | --- |
-    | pResult | Resulting quaternion.  |
-    | pQ1 | 1st quaternion.  |
-    | pQ2 | 2nd quaternion.  |"""
+        - pResult: Resulting quaternion.
+        - pQ1: 1st quaternion.
+        - pQ2: 2nd quaternion."""
     ...
 def FBQDot(Q1:FBVector4d,Q2:FBVector4d)->float:
     """Calculate the dot product of two quaternions. 
     
     
-    ## Parameters:
+    ### Parameters:
+    
+        - pQ1: 1st quaternion.
+        - pQ2: 2nd quaternion.
     
     
-    
-    |  |  |
-    | --- | --- |
-    | pQ1 | 1st quaternion.  |
-    | pQ2 | 2nd quaternion.  |
-    
-    
-    
-    
-    ## Returns:
+    ### Returns:
     Dot product."""
     ...
 def FBQLength(Q:FBVector4d)->float:
     """Get the length of a quaternion. 
     
     
-    ## Parameters:
+    ### Parameters:
+    
+        - pQ: Quaternion to calculate length for.
     
     
-    
-    |  |  |
-    | --- | --- |
-    | pQ | Quaternion to calculate length for.  |
-    
-    
-    
-    
-    ## Returns:
+    ### Returns:
     Length of quaternion **pQ**."""
     ...
 @overload
@@ -35278,97 +29230,69 @@ def FBQMult(Result:FBVector4d,Q1:FBVector4d,Q2:float):
     """Multiply **pQ2** from **pQ1** (**pResult** = **pQ1** **\*** **pQ2**) 
     
     
-    ## Parameters:
+    ### Parameters:
     
-    
-    
-    |  |  |
-    | --- | --- |
-    | pResult | Resulting quaternion.  |
-    | pQ1 | 1st quaternion.  |
-    | pQ2 | 2nd quaternion.  |"""
+        - pResult: Resulting quaternion.
+        - pQ1: 1st quaternion.
+        - pQ2: 2nd quaternion."""
     ...
 @overload
 def FBQMult(Result:FBVector4d,Q1:FBVector4d,Q2:FBVector4d):
     """Calculate the cross product of two quaternions. 
     
     
-    ## Parameters:
+    ### Parameters:
     
-    
-    
-    |  |  |
-    | --- | --- |
-    | pResult | Resulting quaternion.  |
-    | pQ1 | 1st quaternion.  |
-    | pQ2 | 2nd quaternion.  |"""
+        - pResult: Resulting quaternion.
+        - pQ1: 1st quaternion.
+        - pQ2: 2nd quaternion."""
     ...
 def FBQSub(Result:FBVector4d,Q1:FBVector4d,Q2:FBVector4d):
     """Subtract **pQ2** from **pQ1** (**pResult** = **pQ1** **-** **pQ2**) 
     
     
-    ## Parameters:
+    ### Parameters:
     
-    
-    
-    |  |  |
-    | --- | --- |
-    | pResult | Resulting quaternion.  |
-    | pQ1 | 1st quaternion.  |
-    | pQ2 | 2nd quaternion.  |"""
+        - pResult: Resulting quaternion.
+        - pQ1: 1st quaternion.
+        - pQ2: 2nd quaternion."""
     ...
 def FBQuaternionToMatrix(Matrix:FBMatrix,Quaternion:FBVector4d):
     """Get a rotation matrix from a quaternion vector. 
     
     
-    ## Parameters:
+    ### Parameters:
     
-    
-    
-    |  |  |
-    | --- | --- |
-    | pMatrix | Calculated rotation matrix.  |
-    | pQuaternion | Input quaternion.  |"""
+        - pMatrix: Calculated rotation matrix.
+        - pQuaternion: Input quaternion."""
     ...
 def FBQuaternionToRotation(Vector:FBVector3d,Quaternion:FBVector4d,RotationOrder:FBRotationOrder=FBRotationOrder.kFBXYZ):
     """Get a rotation vector from a quaternion vector. 
     
     
-    ## Parameters:
+    ### Parameters:
+    
+        - pVector: Calculated rotation vector, ordered the same way as the rotation order specified by pRotationOrder.
+        - pQuaternion: Input quaternion.
+        - pRotationOrder: Rotation order.
     
     
-    
-    |  |  |
-    | --- | --- |
-    | pVector | Calculated rotation vector, ordered the same way as the rotation order specified by pRotationOrder.  |
-    | pQuaternion | Input quaternion.  |
-    | pRotationOrder | Rotation order.  |
-    
-    
-    
-    
-    ## Warning:
+    ### Warning:
     Rotation is in EulerXYZ or kFBZYX only"""
     ...
 def FBQuaternionToRotationWithPrecision(Vector:FBVector3d,Quaternion:FBVector4d,RotationOrder:FBRotationOrder,Precision:float):
     """Get a rotation vector from a quaternion vector. 
     
     
-    ## Parameters:
+    ### Parameters:
+    
+        - pVector: Calculated rotation vector.
+        - pQuaternion: Input quaternion.
+        - pRotationOrder: Rotation order of the rotation vector.
+        - pPrecision: Indicate the precision level (pow(10.0, -pPrecision)) used when calculating the threshold value for gimble lock.
     
     
-    
-    |  |  |
-    | --- | --- |
-    | pVector | Calculated rotation vector.  |
-    | pQuaternion | Input quaternion.  |
-    | pRotationOrder | Rotation order of the rotation vector.  |
-    | pPrecision | Indicate the precision level (pow(10.0, -pPrecision)) used when calculating the threshold value for gimble lock.  |
-    
-    
-    
-    
-    ## Warning:
+    ### Warning:
     Rotation is in EulerXYZ or kFBZYX only"""
     ...
 def FBReferenceTime_TypeInfo()->int:...
@@ -35379,61 +29303,43 @@ def FBRotationToMatrix(Matrix:FBMatrix,Vector:FBVector3d,RotationOrder:FBRotatio
     """Convert a rotation vector to a matrix. 
     
     
-    ## Parameters:
+    ### Parameters:
     
-    
-    
-    |  |  |
-    | --- | --- |
-    | pMatrix | Calculated resulting matrix.  |
-    | pVector | Rotation vector, ordered the same way as the rotation order specified by pRotationOrder.  |
-    | pRotationOrder | Rotation order.  |"""
+        - pMatrix: Calculated resulting matrix.
+        - pVector: Rotation vector, ordered the same way as the rotation order specified by pRotationOrder.
+        - pRotationOrder: Rotation order."""
     ...
 def FBRotationToQuaternion(Quaternion:FBVector4d,Vector:FBVector3d,RotationOrder:FBRotationOrder=FBRotationOrder.kFBXYZ):
     """Get a quaternion from a rotation vector. 
     
     
-    ## Parameters:
+    ### Parameters:
     
-    
-    
-    |  |  |
-    | --- | --- |
-    | pQuaternion | Calculated quaternion.  |
-    | pVector | Input rotation vector, ordered the same way as the rotation order specified by pRotationOrder.  |
-    | pRotationOrder | Rotation order.  |"""
+        - pQuaternion: Calculated quaternion.
+        - pVector: Input rotation vector, ordered the same way as the rotation order specified by pRotationOrder.
+        - pRotationOrder: Rotation order."""
     ...
 def FBSaveCharacterPinningPreset(PresetName:str,bAllowOverwriting:bool=False)->bool:
     """Saves a pinning preset from the current pinning values in the Character Controls Tool. 
     
     
-    ## Parameters:
+    ### Parameters:
+    
+        - pPresetName: The preset name to save (not the file path nor the filename of the preset).
+        - pAllowOverwriting: True to allow overwriting an existing preset having the same name as the one provided, false otherwise.
     
     
-    
-    |  |  |
-    | --- | --- |
-    | pPresetName | The preset name to save (not the file path nor the filename of the preset).  |
-    | pAllowOverwriting | True to allow overwriting an existing preset having the same name as the one provided, false otherwise.  |
-    
-    
-    
-    
-    ## Returns:
+    ### Returns:
     True if the operation is successful, false otherwise."""
     ...
 def FBScalingToMatrix(Matrix:FBMatrix,Vector:FBSVector):
     """Convert a scaling vector to a matrix. 
     
     
-    ## Parameters:
+    ### Parameters:
     
-    
-    
-    |  |  |
-    | --- | --- |
-    | pMatrix | Calculated resulting matrix.  |
-    | pVector | Scaling vector.  |"""
+        - pMatrix: Calculated resulting matrix.
+        - pVector: Scaling vector."""
     ...
 def FBScene_TypeInfo()->int:...
 def FBSchedulingDependencyOutput(bEnable:bool):
@@ -35442,31 +29348,21 @@ def FBSchedulingDependencyOutput(bEnable:bool):
     
     When enabled log file will be created and updated each time MultiThreaded scheduling is happening (scene rebuild) 
     
-    ## Parameters:
+    ### Parameters:
     
-    
-    
-    |  |  |
-    | --- | --- |
-    | pEnable | ON/OFF switch. This is not stored in config (should be changed only for debug purpose, because slow down rebuild process )  |"""
+        - pEnable: ON/OFF switch. This is not stored in config (should be changed only for debug purpose, because slow down rebuild process )"""
     ...
 def FBScrollBox_TypeInfo()->int:...
 def FBSetActorMarkerSetVisibility(bShow:bool)->bool:
     """Sets visibility of the marker set of the current actor. 
     
     
-    ## Parameters:
+    ### Parameters:
+    
+        - pShow: Specifies if the market of the current actor should be visible.
     
     
-    
-    |  |  |
-    | --- | --- |
-    | pShow | Specifies if the market of the current actor should be visible.  |
-    
-    
-    
-    
-    ## Returns:
+    ### Returns:
     True if the operation is successful, false otherwise."""
     ...
 def FBSetCharacterComparisonThresholdValue(Value:float):
@@ -35475,50 +29371,34 @@ def FBSetCharacterComparisonThresholdValue(Value:float):
     
     : when applying a Character Clip using the "Control Rig" Solving Mode). 
     
-    ## Parameters:
+    ### Parameters:
     
-    
-    
-    |  |  |
-    | --- | --- |
-    | pValue | The new threshold value to set.  |"""
+        - pValue: The new threshold value to set."""
     ...
 def FBSetCharacterFingerTipsVisibility(bShow:bool):
     """Sets visibility of the finger-tips of the current character. 
     
     
-    ## Parameters:
+    ### Parameters:
     
-    
-    
-    |  |  |
-    | --- | --- |
-    | pShow | Specifies if finger-tips of the current character should be visible.  |"""
+        - pShow: Specifies if finger-tips of the current character should be visible."""
     ...
 def FBSetCharacterFloorContactsVisibility(bShow:bool):
     """Sets visibility of the floor contacts of the current character. 
     
     
-    ## Parameters:
+    ### Parameters:
     
-    
-    
-    |  |  |
-    | --- | --- |
-    | pShow | Specifies if floor contacts of the current character should be visible.  |"""
+        - pShow: Specifies if floor contacts of the current character should be visible."""
     ...
 def FBSetConstantKeyReducerThresholdValue(ThresholdType:FBConstantKeyReducerThresholdType,Value:float):
     """Set a specific threshold value used by the Constant Key Reducer filter. 
     
     
-    ## Parameters:
+    ### Parameters:
     
-    
-    
-    |  |  |
-    | --- | --- |
-    | pThresholdType | The threshold type to set its value.  |
-    | pValue | The new threshold value to set.  |"""
+        - pThresholdType: The threshold type to set its value.
+        - pValue: The new threshold value to set."""
     ...
 def FBSetLastSelectedModel(Model:FBModel):
     """Set the given model as the last one selected, so the manipulator in the viewer will then be on that particular model. 
@@ -35526,13 +29406,9 @@ def FBSetLastSelectedModel(Model:FBModel):
     
     If the model is not selected, it will also be selected. 
     
-    ## Parameters:
+    ### Parameters:
     
-    
-    
-    |  |  |
-    | --- | --- |
-    | pModel | Model that will be flagged as the last selected model.  |"""
+        - pModel: Model that will be flagged as the last selected model."""
     ...
 def FBSet_TypeInfo()->int:...
 def FBShaderLighted_TypeInfo()->int:...
@@ -35542,15 +29418,9 @@ def FBSleep(MilliSeconds:int):
     """Sleep function Puts system to sleep for specified time. 
     
     
-    ## Parameters:
+    ### Parameters:
     
-    
-    
-    |  |  |
-    | --- | --- |
-    | MilliSeconds | Time to sleep for. |
-    
-    
+        - MilliSeconds: Time to sleep for.
     
     
     [See sample: FBProgress.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_f_b_progress_8py-example.html)"""
@@ -35570,15 +29440,11 @@ def FBSub(Result:FBVector4d,V1:FBVector4d,V2:FBVector4d):
     """Subtract **pV2** from **pV1** (**pResult** = **pV1** **-** **pV2**) 
     
     
-    ## Parameters:
+    ### Parameters:
     
-    
-    
-    |  |  |
-    | --- | --- |
-    | pResult | Resulting vector.  |
-    | pV1 | 1st vector.  |
-    | pV2 | 2nd vector.  |"""
+        - pResult: Resulting vector.
+        - pV1: 1st vector.
+        - pV2: 2nd vector."""
     ...
 def FBSurface_TypeInfo()->int:...
 def FBSystem_TypeInfo()->int:...
@@ -35586,36 +29452,26 @@ def FBTQSToMatrix(Matrix:FBMatrix,TVector:FBVector4d,Quaternion:FBVector4d,SVect
     """Convert translation vector, rotation quaternion, and scaling vector to a matrix. 
     
     
-    ## Parameters:
+    ### Parameters:
     
-    
-    
-    |  |  |
-    | --- | --- |
-    | pMatrix | Calculated resulting matrix.  |
-    | pTVector | Translation vector.  |
-    | pQuaternion | Rotation quaternion.  |
-    | pSVector | Scaling vector.  |"""
+        - pMatrix: Calculated resulting matrix.
+        - pTVector: Translation vector.
+        - pQuaternion: Rotation quaternion.
+        - pSVector: Scaling vector."""
     ...
 def FBTRSToMatrix(Matrix:FBMatrix,TVector:FBVector4d,RVector:FBVector3d,SVector:FBSVector):
     """Convert translation, rotation, and scaling vectors to a matrix. 
     
     
-    ## Parameters:
+    ### Parameters:
+    
+        - pMatrix: Calculated resulting matrix.
+        - pTVector: Translation vector.
+        - pRVector: Rotation vector.
+        - pSVector: Scaling vector.
     
     
-    
-    |  |  |
-    | --- | --- |
-    | pMatrix | Calculated resulting matrix.  |
-    | pTVector | Translation vector.  |
-    | pRVector | Rotation vector.  |
-    | pSVector | Scaling vector.  |
-    
-    
-    
-    
-    ## Warning:
+    ### Warning:
     Rotation is in EulerXYZ"""
     ...
 def FBTabPanel_TypeInfo()->int:...
@@ -35629,18 +29485,12 @@ def FBTrace(FormatString:str):
     """This function prints useful debugging strings in the console with kFBNORMAL\_TRACE output detailed level. 
     
     
-    ## Parameters:
+    ### Parameters:
+    
+        - pFormatString: A printf-style format string, to use the following arguments in the list.
     
     
-    
-    |  |  |
-    | --- | --- |
-    | pFormatString | A printf-style format string, to use the following arguments in the list.  |
-    
-    
-    
-    
-    ## Warning:
+    ### Warning:
     There is currently a limitation which sets the maximum length of the resulting string to be limited to 2048 bytes. 
     
     
@@ -35651,37 +29501,25 @@ def FBTraceSetLevel(NewLevel:int):
     """Set Global Trace Detailed Level which affects all the output targets. 
     
     
-    ## Parameters:
+    ### Parameters:
+    
+        - pNewLevel: Any trace message with detailed level higher than this new level will be ignored, valid value range [kFBNO\_TRACE, kFBALL\_TRACE]
     
     
-    
-    |  |  |
-    | --- | --- |
-    | pNewLevel | Any trace message with detailed level higher than this new level will be ignored, valid value range [kFBNO\_TRACE, kFBALL\_TRACE]  |
-    
-    
-    
-    
-    ## Note:
+    ### Note:
     Python console trace current output level could be further adjusted via pythonidelib.SetTraceLevel()."""
     ...
 def FBTraceWithLevel(Level:int,FormatString:str):
     """This function prints useful debugging strings in the console. 
     
     
-    ## Parameters:
+    ### Parameters:
+    
+        - pLevel: to control trace output detailed level, valid value range [kFBCRITICAL\_TRACE, kFBALL\_TRACE]
+        - pFormatString: A printf-style format string, to use the following arguments in the list.
     
     
-    
-    |  |  |
-    | --- | --- |
-    | pLevel | to control trace output detailed level, valid value range [kFBCRITICAL\_TRACE, kFBALL\_TRACE]  |
-    | pFormatString | A printf-style format string, to use the following arguments in the list.  |
-    
-    
-    
-    
-    ## Warning:
+    ### Warning:
     There is currently a limitation which sets the maximum length of the resulting string to be limited to 2048 bytes. 
     
     
@@ -35691,14 +29529,10 @@ def FBTranslationToMatrix(Matrix:FBMatrix,Vector:FBVector4d):
     """Convert a translation vector to a matrix. 
     
     
-    ## Parameters:
+    ### Parameters:
     
-    
-    
-    |  |  |
-    | --- | --- |
-    | pMatrix | Calculated resulting matrix.  |
-    | pVector | Translation vector.  |"""
+        - pMatrix: Calculated resulting matrix.
+        - pVector: Translation vector."""
     ...
 def FBTransportAudioManager_TypeInfo()->int:...
 def FBTreeNode_TypeInfo()->int:...
@@ -35709,29 +29543,21 @@ def FBVectorMatrixMult(OutVector:FBVector4d,Matrix:FBMatrix,Vector:FBVector4d):
     """Multiply a vector by a matrix. 
     
     
-    ## Parameters:
+    ### Parameters:
     
-    
-    
-    |  |  |
-    | --- | --- |
-    | pOutVector | Resulting vector.  |
-    | pMatrix | Matrix to affect the vector with.  |
-    | pVector | Source vector.  |"""
+        - pOutVector: Resulting vector.
+        - pMatrix: Matrix to affect the vector with.
+        - pVector: Source vector."""
     ...
 def FBVertexMatrixMult(OutVertex:FBVertex,Matrix:FBMatrix,Vertex:FBVertex):
     """Multiply a vertex by a matrix. 
     
     
-    ## Parameters:
+    ### Parameters:
     
-    
-    
-    |  |  |
-    | --- | --- |
-    | pOutVertex | Resulting vertex.  |
-    | pMatrix | Matrix to affect the vertex with.  |
-    | pVertex | Source vertex.  |"""
+        - pOutVertex: Resulting vertex.
+        - pMatrix: Matrix to affect the vertex with.
+        - pVertex: Source vertex."""
     ...
 def FBVideoClipImageDDS_TypeInfo()->int:...
 def FBVideoClipImage_TypeInfo()->int:...

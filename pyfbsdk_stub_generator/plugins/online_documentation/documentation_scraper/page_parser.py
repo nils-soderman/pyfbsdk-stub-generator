@@ -23,6 +23,7 @@ class ClassNames:
     ParameterName = "paramname"
     ParameterType = "paramtype"
     TextBlockDescription = "textblock"
+    ParameterTalble = "params"
 
 
 @dataclass
@@ -142,11 +143,6 @@ class DocstringParser(markdownify.MarkdownConverter):
     def ParseDocString(self, DescriptionHtml: Tag | NavigableString):
         return self.convert(str(DescriptionHtml))
 
-    def convert_dt(self, el: Tag, text, convert_as_inline):
-        """ Convert all <dt> tags to a headers. """
-        HeaderText = markdownify.markdownify(str(el))
-        return f"## {HeaderText}:\n"
-
     def convert_a(self, el: Tag, text, convert_as_inline):
         """ Make sure all <a> tags have a full URL. """
         Href = el.get("href")
@@ -169,3 +165,34 @@ class DocstringParser(markdownify.MarkdownConverter):
             el["href"] = f"{self.UrlBase}{Href}"
 
         return markdownify.markdownify(str(el))
+
+    # -------------------------
+    #      Parameter Lists
+    # -------------------------
+
+    def convert_dt(self, el: Tag, text, convert_as_inline):
+        """ Convert all <dt> tags to a headers. """
+        HeaderText = markdownify.markdownify(str(el))
+        return f"### {HeaderText}:\n"
+
+    def convert_table(self, el: Tag, text, convert_as_inline):
+        # Check if element has the class name for a parameter list
+        ElementClassNames = el.get("class")
+        if ElementClassNames and ClassNames.ParameterTalble in ElementClassNames:
+            ParameterLines = []
+            Row: Tag
+            for Row in el.find_all("tr"):
+                Text = ""
+
+                Cell: Tag
+                for Index, Cell in enumerate(Row.find_all("td")):
+                    if Index == 0 and ClassNames.ParameterName in Cell.get("class"):
+                        Text = f"    - {GetSafeText(Cell.get_text())}: "
+                    else:
+                        # TODO: Might not ned to run mardkdownify on the cell text, just use the text instead
+                        Text += markdownify.markdownify(str(Cell)).strip(string.whitespace + "|")
+
+                ParameterLines.append(Text)
+            return "\n".join(ParameterLines)
+
+        return super().convert_table(el, text, convert_as_inline)
