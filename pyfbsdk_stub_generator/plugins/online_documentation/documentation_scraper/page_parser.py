@@ -157,7 +157,7 @@ class DocstringMarkdownConverter(markdownify.MarkdownConverter):
 
         # There are some (what I guess is) broken <b> tags scattered around in the docstrings. Remove them.
         DocString = DocString.replace("b>", " ")
-        
+
         # Lines = []
         # for Line in DocString.split("\n"):
         #     if Line.startswith("    "):
@@ -187,10 +187,14 @@ class DocstringMarkdownConverter(markdownify.MarkdownConverter):
         if Href and not Href.startswith("http"):
             el["href"] = f"{self.UrlBase}{Href}"
 
-        return markdownify.markdownify(str(el))
+        return super().convert_a(el, text, convert_as_inline)
 
     def convert_p(self, el, text, convert_as_inline):
-        return super().convert_p(el, text, convert_as_inline).strip() + "\n"
+        return text.strip() + "\n"
+    
+    def convert_b(self, el, text, convert_as_inline):
+        """ Skip adding ** around bold text. Since PyLance doesn't support bold text markdown atm."""
+        return text
 
     # -------------------------
     #      Parameter Lists
@@ -224,7 +228,7 @@ class DocstringMarkdownConverter(markdownify.MarkdownConverter):
                 ParameterLines.append(Text)
             return "\n".join(ParameterLines)
 
-        return super().convert_table(el, text, convert_as_inline)
+        return text  # super().convert_table(el, text, convert_as_inline)
 
     # -------------------------
     #      Code Blocks

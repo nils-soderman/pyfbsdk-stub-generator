@@ -2821,7 +2821,7 @@ class FBPropertyFlag(Enumeration):
     
     [See sample: PropertyDrop.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_property_drop_8py-example.html)   
     
-    **These classes are under development and may change dramatically between versions.**"""
+    These classes are under development and may change dramatically between versions."""
     kFBDrivenSetByMain:FBPropertyFlag
     """Driven property can be modified, valid only when the main property is modified."""
     kFBDynamicHidden:FBPropertyFlag
@@ -4073,13 +4073,13 @@ class FBAddRegionParam():
     
     Each region components: X, Y, Width and Height needs its own [FBAddRegionParam](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_add_region_param.html "This class provide a placeholder to put values necessary to create a Region with FBLayout...."). ex: x = [FBAddRegionParam](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_add_region_param.html "This class provide a placeholder to put values necessary to create a Region with FBLayout....")(0,[FBAttachType.kFBAttachLeft](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_attach_type.html#a515a9fce5f31a6a352618a99ccebd358 "Attach to left [min(x1,x2)]"),"") y = [FBAddRegionParam](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_add_region_param.html "This class provide a placeholder to put values necessary to create a Region with FBLayout....")(0,[FBAttachType.kFBAttachTop](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_attach_type.html#acf522b0b312ed5f748dd443b9c1f725b "Attach to top [min(y1,y2)]"),"") w = [FBAddRegionParam](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_add_region_param.html "This class provide a placeholder to put values necessary to create a Region with FBLayout....")(0,[FBAttachType.kFBAttachRight](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_attach_type.html#adb2cd1fac6e9229996167824546e0c00 "Attach to right [max(x1,x2)]"),"") h = [FBAddRegionParam](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_add_region_param.html "This class provide a placeholder to put values necessary to create a Region with FBLayout....")(25,[FBAttachType.kFBAttachNone](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_attach_type.html#acd7210d36736844518c582980ef225b8 "No attachment."),"") mainLyt.AddRegion("main","main", x, y, w, h)"""
     mMult:FBPropertyFloat
-    """**Read Property:** Multiplier of relative value."""
+    """Read Property: Multiplier of relative value."""
     mPos:FBPropertyInt
-    """**Read Property:** Offset in pixel according depending on the use of [FBAddRegionParam](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_add_region_param.html "This class provide a placeholder to put values necessary to create a Region with FBLayout....") (X, Y, W or H)."""
+    """Read Property: Offset in pixel according depending on the use of [FBAddRegionParam](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_add_region_param.html "This class provide a placeholder to put values necessary to create a Region with FBLayout....") (X, Y, W or H)."""
     mRelative:str
-    """**Read Property:** Name of Region to attach relative to."""
+    """Read Property: Name of Region to attach relative to."""
     mType:FBAttachType
-    """**Read Property:** Type of Attachment."""
+    """Read Property: Type of Attachment."""
     def __init__(self,Pos:int,Type:FBAttachType,Relative:str,Mult:float=1.0):
         """Initialize a region params.
         
@@ -4097,71 +4097,71 @@ class FBAudioRenderOptions():
     
     [See sample: AudioRendering.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_audio_0c_audio_rendering_8py-example.html)"""
     BitDepthMode:FBAudioBitDepthMode
-    """**Property:** Bit depth for one sample of audio. 8, 16 and 24 bits available for audio render, 16 bits default."""
+    """Property: Bit depth for one sample of audio. 8, 16 and 24 bits available for audio render, 16 bits default."""
     ChannelMode:FBAudioChannelMode
-    """**Property:** Audio render channel number, 1 for Mono(left channel right channel render mixed to one channel), 2 for Stereo(left channel right channel render separately)."""
+    """Property: Audio render channel number, 1 for Mono(left channel right channel render mixed to one channel), 2 for Stereo(left channel right channel render separately)."""
     OutputFileName:str
-    """**Property:** Audio Render destination file."""
+    """Property: Audio Render destination file."""
     RateMode:FBAudioRateMode
-    """**Property:** Rate mode for number of samples per second. 44100 hz default,8000, 11025,12000,16000,22050,24000,32000,44100,48000,64000,88200,96000 available for audio render."""
+    """Property: Rate mode for number of samples per second. 44100 hz default,8000, 11025,12000,16000,22050,24000,32000,44100,48000,64000,88200,96000 available for audio render."""
     TimeSpan:FBTimeSpan
-    """**Property:** Start and stop selection time to render."""
+    """Property: Start and stop selection time to render."""
     def __init__(self):
         """Constructor."""
         ...
 class FBBatchOptions():
     """Option parameters for the batch process."""
     Character:FBCharacter
-    """**Read Write Property:** The character to receive the animation."""
+    """Read Write Property: The character to receive the animation."""
     FrameAnimation:bool
-    """**Read Write Property:** Set timeline start and end time to corespond with the start and end of animation."""
+    """Read Write Property: Set timeline start and end time to corespond with the start and end of animation."""
     InputDirectory:str
-    """**Read Write Property:** The directory containning the input files."""
+    """Read Write Property: The directory containning the input files."""
     InputFileFormat:FBBatchFileFormat
-    """**Read Write Property:** File format of the input files."""
+    """Read Write Property: File format of the input files."""
     KeepCharacterConstraint:bool
-    """**Read Write Property:** To keep the character constaint when saving."""
+    """Read Write Property: To keep the character constaint when saving."""
     KeepDummyBones:bool
-    """**Read Write Property:** To keep dummy bones."""
+    """Read Write Property: To keep dummy bones."""
     OnContainsBatchTakesAction:FBBatchOnContainsBatchTakes
-    """**Read Write Property:** Action to perform when a scene already contains batch takes while in a batch process."""
+    """Read Write Property: Action to perform when a scene already contains batch takes while in a batch process."""
     OnTakeExistAction:FBBatchOnTakeExist
-    """**Read Write Property:** Action to perform when a take already exist while in a batch process."""
+    """Read Write Property: Action to perform when a take already exist while in a batch process."""
     OutputDirectory:str
-    """**Read Write Property:** The directory containning the output files."""
+    """Read Write Property: The directory containning the output files."""
     OutputFileFormat:FBBatchFileFormat
-    """**Read Write Property:** File format of the output files."""
+    """Read Write Property: File format of the output files."""
     OverwriteScaling:bool
-    """**Read Write Property:** Set the scaling to a default setting of 1.0."""
+    """Read Write Property: Set the scaling to a default setting of 1.0."""
     PlotToCharacter:bool
-    """**Read Write Property:** To plot the animation on the character."""
+    """Read Write Property: To plot the animation on the character."""
     PlotToControlSet:bool
-    """**Read Write Property:** To plot the animation on the control set."""
+    """Read Write Property: To plot the animation on the control set."""
     ProcessType:FBBatchProcessType
-    """**Read Write Property:** What process should be done? Load, Save or Both."""
+    """Read Write Property: What process should be done? Load, Save or Both."""
     SkeletonFile:str
-    """**Read Write Property:** The Skeleton file (for Acclaim AMC files)."""
+    """Read Write Property: The Skeleton file (for Acclaim AMC files)."""
     StartAnimationAtZero:bool
-    """**Read Write Property:** Set the time of all loaded files to 0."""
+    """Read Write Property: Set the time of all loaded files to 0."""
     UseBatchSuffix:bool
-    """**Read Write Property:** Add a batch suffix to the name of the files."""
+    """Read Write Property: Add a batch suffix to the name of the files."""
     UseSingleTake:bool
-    """**Read Write Property:** Use only one take to convert all files."""
+    """Read Write Property: Use only one take to convert all files."""
     WriteRate:bool
-    """**Read Write Property:** Write frame rate in Acclaim AMC files."""
+    """Read Write Property: Write frame rate in Acclaim AMC files."""
     WriteTranslation:bool
-    """**Read Write Property:** Write translation animation data included with Acclaim AMC files."""
+    """Read Write Property: Write translation animation data included with Acclaim AMC files."""
     def __init__(self):
         """Constructor."""
         ...
 class FBCallback():
     """This class is used for the internal callback framework and is not meant to be used by clients."""
     Callback:object
-    """**Read Property:** Python callback that will called when the [FBCallback](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_callback.html "This class is used for the internal callback framework and is not meant to be used by clients.") is executed."""
+    """Read Property: Python callback that will called when the [FBCallback](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_callback.html "This class is used for the internal callback framework and is not meant to be used by clients.") is executed."""
     EventType:FBEventName
-    """**Read Property:** Event type to which this callback is connected."""
+    """Read Property: Event type to which this callback is connected."""
     Wrapper:object
-    """**Read Property:** Pyfbsdk Wrapper that is the owner of the callback."""
+    """Read Property: Pyfbsdk Wrapper that is the owner of the callback."""
     def __init__(self,arg2,arg3:FBEventName,arg4):...
 class FBCharacterPoseOptions():
     """Stores options for operations on poses.
@@ -4489,7 +4489,7 @@ class FBConfigFile():
         
         
         ### Returns:
-        **true** if the value was found or added, or false if the item was not found and could not be added to the file."""
+        true if the value was found or added, or false if the item was not found and could not be added to the file."""
         ...
     def Set(self,SectionName:str,ItemName:str,Value:str,Comment:str|None=None)->bool:
         """Set an item's value.
@@ -4504,7 +4504,7 @@ class FBConfigFile():
         
         
         ### Returns:
-        **true** if the item was written to the config file, **false** otherwise."""
+        true if the item was written to the config file, false otherwise."""
         ...
     @overload
     def __init__(self,ConfigFileName:str,VirtualMode:bool=False,ClearFile:bool=False):
@@ -4537,13 +4537,13 @@ class FBConstraintInfo():
         """Was a 'snap' requested?
         
         ### Returns:
-        **true** if 'snap' was requeststed."""
+        true if 'snap' was requeststed."""
         ...
     def GetZeroRequested(self)->bool:
         """Was a 'zero' requested?
         
         ### Returns:
-        **true** if 'zero' was requeststed."""
+        true if 'zero' was requeststed."""
         ...
 class FBConstructionOperation():
     """[FBConstructionOperation](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_construction_operation.html "FBConstructionOperation is used to represent an operation in the construction history.") is used to represent an operation in the construction history.
@@ -4628,7 +4628,7 @@ class FBDeviceNotifyInfo():
         """Return the wanted timer sync count (internal or external)
         
         ### Returns:
-        sync count or **-1** if no sync is present"""
+        sync count or -1 if no sync is present"""
         ...
     def GetSystemTime(self)->FBTime:
         """Get system time.
@@ -4671,7 +4671,7 @@ class FBEvaluateInfo():
         """Return the wanted timer sync count (internal or external).
         
         ### Returns:
-        sync count or **-1** if no sync is present"""
+        sync count or -1 if no sync is present"""
         ...
     def GetLocalTime(self)->FBTime:
         """Return local (scene) time.
@@ -4683,7 +4683,7 @@ class FBEvaluateInfo():
         """Return the wanted timer sync count (internal or external).
         
         ### Returns:
-        sync count or **-1** if no sync is present"""
+        sync count or -1 if no sync is present"""
         ...
     def GetSystemTime(self)->FBTime:
         """Return system time.
@@ -4695,16 +4695,16 @@ class FBEvaluateInfo():
         """Is local time stopped? (ie: no animation).
         
         ### Returns:
-        **true** if local time is stopped."""
+        true if local time is stopped."""
         ...
 class FBEvent():
     """Base Event class."""
     Type:int
-    """**Read Only Property:** Type of event."""
+    """Read Only Property: Type of event."""
 class FBEventActivate(FBEvent):
     """Activation event."""
     Data:int
-    """**Read Write Property:** Generic data of event."""
+    """Read Write Property: Generic data of event."""
 class FBEventClipChange(FBEvent):
     def __init__(self):
         """Constructor.
@@ -4716,9 +4716,9 @@ class FBEventClipChange(FBEvent):
 class FBEventConnectionDataNotify(FBEvent):
     """Connection notify event class."""
     Action:FBConnectionAction
-    """**Read Only Property:** Connection's action performed."""
+    """Read Only Property: Connection's action performed."""
     Plug:FBPlug
-    """**Read Only Property:** The plug involved in the action."""
+    """Read Only Property: The plug involved in the action."""
     def __init__(self):
         """Constructor.
         
@@ -4742,17 +4742,17 @@ class FBEventConnectionKeyingNotify(FBEvent):
 class FBEventConnectionNotify(FBEvent):
     """Connection notify event class."""
     Action:FBConnectionAction
-    """**Read Only Property:** Connection's action performed."""
+    """Read Only Property: Connection's action performed."""
     ConnectionType:FBConnectionType
-    """**Read Only Property:** Connection's type."""
+    """Read Only Property: Connection's type."""
     DstPlug:FBPlug
-    """**Read Only Property:** The destination plug involved in the action."""
+    """Read Only Property: The destination plug involved in the action."""
     NewPlug:FBPlug
-    """**Read Only Property:** New plug created by the action. (Mostly used by merge/replace)"""
+    """Read Only Property: New plug created by the action. (Mostly used by merge/replace)"""
     SrcIndex:int
-    """**Read Only Property:** Index of the source in the destination component."""
+    """Read Only Property: Index of the source in the destination component."""
     SrcPlug:FBPlug
-    """**Read Only Property:** The source plug involved in the action."""
+    """Read Only Property: The source plug involved in the action."""
     def __init__(self):
         """Constructor.
         
@@ -4763,9 +4763,9 @@ class FBEventConnectionNotify(FBEvent):
 class FBEventConnectionStateNotify(FBEvent):
     """Connection notify event class."""
     Action:FBConnectionAction
-    """**Read Only Property:** Connection's action performed."""
+    """Read Only Property: Connection's action performed."""
     Plug:FBPlug
-    """**Read Only Property:** The plug involved in the action."""
+    """Read Only Property: The plug involved in the action."""
     def __init__(self):
         """Constructor.
         
@@ -4776,7 +4776,7 @@ class FBEventConnectionStateNotify(FBEvent):
 class FBEventDblClick(FBEvent):
     """Input event class."""
     Selection:int
-    """**Read Only Property:** Id of selection."""
+    """Read Only Property: Id of selection."""
     def __init__(self):
         """Constructor.
         
@@ -4787,15 +4787,15 @@ class FBEventDblClick(FBEvent):
 class FBEventDragAndDrop(FBEvent):
     """Drag and drop interface. Event: Global Evaluation pipeline critical timing callback event."""
     Components:list
-    """**Read Property:** List of components drop. (it acces the same data as [FBEventDragAndDrop.Get](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_event_drag_and_drop.html#a642fa6de110af053123bb85b527945fc "Get the FBComponent specified by pIndex from the Drag and Drop list."))"""
+    """Read Property: List of components drop. (it acces the same data as [FBEventDragAndDrop.Get](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_event_drag_and_drop.html#a642fa6de110af053123bb85b527945fc "Get the FBComponent specified by pIndex from the Drag and Drop list."))"""
     Data:int
-    """**Property:** User specified reference. (for example, [FBSpread](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_spread.html "Base spreadsheet class."):row)"""
+    """Property: User specified reference. (for example, [FBSpread](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_spread.html "Base spreadsheet class."):row)"""
     PosX:int
-    """**Property:** X position of mouse."""
+    """Property: X position of mouse."""
     PosY:int
-    """**Property:** Y position of mouse."""
+    """Property: Y position of mouse."""
     State:FBDragAndDropState
-    """**Property:** Drag and drop sub-event."""
+    """Property: Drag and drop sub-event."""
     def Accept(self):
         """Accept a drag and drop sequence.
         
@@ -4813,7 +4813,7 @@ class FBEventDragAndDrop(FBEvent):
         """Clear drag and drop list."""
         ...
     def Get(self,Index:int)->FBComponent:
-        """Get the [FBComponent](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html "MotionBuilder SDK base class.") specified by **pIndex** from the Drag and Drop list.
+        """Get the [FBComponent](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html "MotionBuilder SDK base class.") specified by pIndex from the Drag and Drop list.
         
         ### Parameters:
         
@@ -4821,7 +4821,7 @@ class FBEventDragAndDrop(FBEvent):
         
         
         ### Returns:
-        Handle to [FBComponent](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html "MotionBuilder SDK base class.") in list at **pIndex**."""
+        Handle to [FBComponent](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html "MotionBuilder SDK base class.") in list at pIndex."""
         ...
     def GetCount(self)->int:
         """Get the number of items in the DragAndDrop list.
@@ -4839,33 +4839,33 @@ class FBEventFileChange(FBEvent):
     
     This event occurs every time a monitored file changed:"""
     Path:str
-    """**Read Only Property:** The path of changed file."""
+    """Read Only Property: The path of changed file."""
 class FBEventInput(FBEvent):
     """Input event class."""
     InputType:FBInputType
-    """**Read Only Property:** Input type."""
+    """Read Only Property: Input type."""
     Key:int
-    """**Read Only Property:** Input key."""
+    """Read Only Property: Input key."""
     KeyState:int
-    """**Read Only Property:** State of key."""
+    """Read Only Property: State of key."""
     MouseButton:int
-    """**Read Only Property:** Mouse Button."""
+    """Read Only Property: Mouse Button."""
     X:int
-    """**Read Only Property:** Mouse X Position."""
+    """Read Only Property: Mouse X Position."""
     Y:int
-    """**Read Only Property:** Mouse Y Position."""
+    """Read Only Property: Mouse Y Position."""
 class FBEventMenu(FBEvent):
     """Menu event."""
     Id:int
-    """**Read Write Property:** Id number for menu item."""
+    """Read Write Property: Id number for menu item."""
     Name:str
-    """**Read Write Property:** Name of menu item."""
+    """Read Write Property: Name of menu item."""
 class FBEventOverrideFileOpen(FBEvent):
     """Event that is called before a file open/merge."""
     FilePath:str
-    """**Read Only Property:** Path to the file that will be opened/merged."""
+    """Read Only Property: Path to the file that will be opened/merged."""
     WillOverride:bool
-    """**Read Write Property:** Set to true for handling the file load, false by default. If the return value is false, MotionBuilder will proceed with the normal file open/merge process."""
+    """Read Write Property: Set to true for handling the file load, false by default. If the return value is false, MotionBuilder will proceed with the normal file open/merge process."""
     def __init__(self):
         """Constructor.
         
@@ -4884,9 +4884,9 @@ class FBEventPlayerControlChange(FBEvent):
 class FBEventResize(FBEvent):
     """Event sent to a control that resizes."""
     Height:int
-    """**Property:** New Height of the window."""
+    """Property: New Height of the window."""
     Width:int
-    """**Property:** New Width of the window."""
+    """Property: New Width of the window."""
     def __init__(self):
         """Constructor.
         
@@ -4899,9 +4899,9 @@ class FBEventSceneChange(FBEvent):
     
     This event occurs every time a model is:(un)selectedaddeddestroyedrenamed, etc.."""
     ChildComponent:FBComponent
-    """**Read Only Property:** Child component of the event."""
+    """Read Only Property: Child component of the event."""
     Component:FBComponent
-    """**Read Only Property:** Modified component"""
+    """Read Only Property: Modified component"""
     def __init__(self):
         """Constructor.
         
@@ -4912,21 +4912,21 @@ class FBEventSceneChange(FBEvent):
 class FBEventShow(FBEvent):
     """Show event class."""
     Shown:bool
-    """**Read Only Property:** Was layer just shown?"""
+    """Read Only Property: Was layer just shown?"""
 class FBEventSpread(FBEvent):
     """Spreadsheet event."""
     Action:int
-    """**Read Only Property:** Action associated to the spread event."""
+    """Read Only Property: Action associated to the spread event."""
     Column:int
-    """**Read Only Property:** Column of event."""
+    """Read Only Property: Column of event."""
     Row:int
-    """**Read Only Property:** Row of event."""
+    """Read Only Property: Row of event."""
 class FBEventTakeChange(FBEvent):
     """Take change event class.
     
     This event occurs every time a take is:addeddestroyedrenamedselected, etc."""
     Take:FBTake
-    """**Read Only Property:** The take modified."""
+    """Read Only Property: The take modified."""
     def __init__(self):
         """Constructor.
         
@@ -4937,17 +4937,17 @@ class FBEventTakeChange(FBEvent):
 class FBEventTransaction(FBEvent):
     """Transaction event."""
     IsBeginTransaction:bool
-    """**Read Only Property:** Tells if the transaction is at begin."""
+    """Read Only Property: Tells if the transaction is at begin."""
 class FBEventTree(FBEvent):
     """[FBTree](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_tree.html "Tree list view.") node event."""
     TreeNode:FBTreeNode
-    """**Read Write Property:** Tree node."""
+    """Read Write Property: Tree node."""
     Why:callbackframework.FBEventSource
-    """**Read Write Property:** Reason of the event."""
+    """Read Write Property: Reason of the event."""
 class FBEventTreeSelect(FBEvent):
     """[FBTree](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_tree.html "Tree list view.") selection event. Event: Video Frame offline Rendering Event."""
     TreeNode:FBTreeNode
-    """**Read Write Property:** Selected tree node."""
+    """Read Write Property: Selected tree node."""
     def __init__(self):
         """Constructor.
         
@@ -4978,17 +4978,17 @@ class FBFCurveEvent(FBEvent):
     
     It contains the necessary information to identify the owner of the curve and what modification was made."""
     Curve:FBFCurve
-    """**Read Only Property:** Curve that will receive the new key."""
+    """Read Only Property: Curve that will receive the new key."""
     CurveIndex:int
-    """**Read Only Property:** Index of curve."""
+    """Read Only Property: Index of curve."""
     CurveName:str
-    """**Read Only Property:** Name of curve."""
+    """Read Only Property: Name of curve."""
     EventType:FBFCurveEventType
-    """**Read Only Property:** Type of fcurve event."""
+    """Read Only Property: Type of fcurve event."""
     KeyIndexStart:int
-    """**Read Only Property:** Index of the first key which is involved in the event."""
+    """Read Only Property: Index of the first key which is involved in the event."""
     KeyIndexStop:int
-    """**Read Only Property:** Index of the last key which is involved in the event."""
+    """Read Only Property: Index of the last key which is involved in the event."""
     ParentAnimationNode:property
     ParentComponent:property
     ParentProperty:property
@@ -5006,47 +5006,47 @@ class FBFCurveKey():
     
     [See sample: StartKeysAtCurrentTime.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_start_keys_at_current_time_8py-example.html)"""
     Bias:float
-    """**Read Write Property:** Bias (TCB)."""
+    """Read Write Property: Bias (TCB)."""
     Continuity:float
-    """**Read Write Property:** Continuity (TCB)."""
+    """Read Write Property: Continuity (TCB)."""
     ExtrapolationMode:FBExtrapolationMode
-    """**Read Write Property:** Extrapolation mode"""
+    """Read Write Property: Extrapolation mode"""
     Interpolation:FBInterpolation
-    """**Read Write Property:** Type of interpolation."""
+    """Read Write Property: Type of interpolation."""
     LeftBezierTangent:float
-    """**Read Write Property:** Left bezier tangent"""
+    """Read Write Property: Left bezier tangent"""
     LeftDerivative:float
-    """**Read Write Property:** Left derivative, in units/seconds."""
+    """Read Write Property: Left derivative, in units/seconds."""
     LeftTangentWeight:float
-    """**Read Write Property:** Left tangent weight"""
+    """Read Write Property: Left tangent weight"""
     MarkedForManipulation:bool
-    """**Read Write Property:** Is the key marked for manipulation."""
+    """Read Write Property: Is the key marked for manipulation."""
     RightBezierTangent:float
-    """**Read Write Property:** Right bezier tangent"""
+    """Read Write Property: Right bezier tangent"""
     RightDerivative:float
-    """**Read Write Property:** Right derivative, in units/seconds."""
+    """Read Write Property: Right derivative, in units/seconds."""
     RightTangentWeight:float
-    """**Read Write Property:** Right tangent weight"""
+    """Read Write Property: Right tangent weight"""
     Selected:bool
-    """**Read Write Property:** Is the key selected."""
+    """Read Write Property: Is the key selected."""
     TangentBreak:bool
-    """**Read Write Property:** Tangent's break status"""
+    """Read Write Property: Tangent's break status"""
     TangentClampMode:FBTangentClampMode
-    """**Read Write Property:** Tangent's clamp method."""
+    """Read Write Property: Tangent's clamp method."""
     TangentConstantMode:FBTangentConstantMode
-    """**Read Write Property:** Tangent's constant mode"""
+    """Read Write Property: Tangent's constant mode"""
     TangentCustomIndex:FBTangentCustomIndex
-    """**Read Write Property:** Tangent's custom index"""
+    """Read Write Property: Tangent's custom index"""
     TangentMode:FBTangentMode
-    """**Read Write Property:** Tangent calculation method."""
+    """Read Write Property: Tangent calculation method."""
     TangentWeightMode:FBTangentWeightMode
-    """**Read Write Property:** Tangent's weight mode. Setting the value for LeftTangentWeight/RightTangentWeight will also activate the weight for that part. Please see the note provided with [FBTangentWeightMode](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_tangent_weight_mode.html "Active tangent weight, no/one/both side are active on a key.") for the left weight of a key."""
+    """Read Write Property: Tangent's weight mode. Setting the value for LeftTangentWeight/RightTangentWeight will also activate the weight for that part. Please see the note provided with [FBTangentWeightMode](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_tangent_weight_mode.html "Active tangent weight, no/one/both side are active on a key.") for the left weight of a key."""
     Tension:float
-    """**Read Write Property:** Tension (TCB)."""
+    """Read Write Property: Tension (TCB)."""
     Time:FBTime
-    """**Read Write Property:** Time of key."""
+    """Read Write Property: Time of key."""
     Value:float
-    """**Read Write Property:** Value of Key"""
+    """Read Write Property: Value of Key"""
     def __init__(self):...
 class FBFilePopup():
     """File Popup (for open/save).
@@ -5055,22 +5055,22 @@ class FBFilePopup():
     
     [See samples: AudioTrackSetupTool.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_complex_tools_0c_audio_track_setup_tool_8py-example.html) [FBFilePopup.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_f_b_file_popup_8py-example.html)"""
     Caption:str
-    """**Read Write Property:** Caption to put in popup window."""
+    """Read Write Property: Caption to put in popup window."""
     FileName:str
-    """**Read Write Property:** File selected."""
+    """Read Write Property: File selected."""
     Filter:str
-    """**Read Write Property:** Filter to use for popup window file selection."""
+    """Read Write Property: Filter to use for popup window file selection."""
     FullFilename:str
-    """**Read Only Property:** Full filename (path and file)."""
+    """Read Only Property: Full filename (path and file)."""
     Path:str
-    """**Read Write Property:** Path of file selected."""
+    """Read Write Property: Path of file selected."""
     Style:FBFilePopupStyle
-    """**Read Write Property:** Style of file popup."""
+    """Read Write Property: Style of file popup."""
     def Execute(self)->bool:
         """Execute file popup.
         
         ### Returns:
-        **true** if **OK** is clicked by user."""
+        true if OK is clicked by user."""
         ...
     def __init__(self):
         """Constructor."""
@@ -5147,14 +5147,14 @@ class FBFolderPopup():
     
     [See samples: RenderLayers.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_rendering_0c_render_layers_8py-example.html) [BatchExportCharacterAnimationTool.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_batch_export_character_animation_tool_8py-example.html) [RenameFirstTakeOnMultipleFiles.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_rename_first_take_on_multiple_files_8py-example.html) [FBFolderPopup.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_f_b_folder_popup_8py-example.html)"""
     Caption:str
-    """**Read Write Property:** Caption to put in popup window."""
+    """Read Write Property: Caption to put in popup window."""
     Path:str
-    """**Read Write Property:** Path of folder selected."""
+    """Read Write Property: Path of folder selected."""
     def Execute(self)->bool:
         """Execute folder popup.
         
         ### Returns:
-        **true** if **OK** is clicked by user."""
+        true if OK is clicked by user."""
         ...
     def __init__(self):
         """Constructor."""
@@ -5568,29 +5568,29 @@ class FBPlotOptions():
     
     [See samples: PlotNonSelectedCharStoryTracks.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_plot_non_selected_char_story_tracks_8py-example.html) [PlotSelectedCharStoryTracks.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_plot_selected_char_story_tracks_8py-example.html)"""
     ConstantKeyReducerKeepOneKey:bool
-    """**Read Write Property:** Should the constant key reducer keep at least one key?"""
+    """Read Write Property: Should the constant key reducer keep at least one key?"""
     EvaluateDeformation:bool
-    """**Read Write Property:** Should we evaluate deformation while plotting? This is useful when there is a dependency with the deformation. Disabled by default."""
+    """Read Write Property: Should we evaluate deformation while plotting? This is useful when there is a dependency with the deformation. Disabled by default."""
     PlotAllTakes:bool
-    """**Read Write Property:** Should we plot all takes?"""
+    """Read Write Property: Should we plot all takes?"""
     PlotAuxEffectors:bool
-    """**Read Write Property:** Should we plot aux effectors?"""
+    """Read Write Property: Should we plot aux effectors?"""
     PlotLockedProperties:bool
-    """**Read Write Property:** Should we plot locked properties?"""
+    """Read Write Property: Should we plot locked properties?"""
     PlotOnFrame:bool
-    """**Read Write Property:** Should we plot on frame?"""
+    """Read Write Property: Should we plot on frame?"""
     PlotPeriod:FBTime
-    """**Read Write Property:** The plot period (1/fps)."""
+    """Read Write Property: The plot period (1/fps)."""
     PlotTangentMode:FBPlotTangentMode
-    """**Read Write Property:** The tangent mode for plotted curve."""
+    """Read Write Property: The tangent mode for plotted curve."""
     PlotTranslationOnRootOnly:bool
-    """**Read Write Property:** Should we plot the translation on root only?"""
+    """Read Write Property: Should we plot the translation on root only?"""
     PreciseTimeDiscontinuities:bool
-    """**Read Write Property:** Should we use precise time discontinuities?"""
+    """Read Write Property: Should we use precise time discontinuities?"""
     RotationFilterToApply:FBRotationFilter
-    """**Read Write Property:** The rotation filter to apply."""
+    """Read Write Property: The rotation filter to apply."""
     UseConstantKeyReducer:bool
-    """**Read Write Property:** Should we use a constant key reducer with the filter?"""
+    """Read Write Property: Should we use a constant key reducer with the filter?"""
     def __init__(self):
         """Constructor."""
         ...
@@ -5705,7 +5705,7 @@ class FBPropertyListManipulator():
 class FBPropertyListMarkerSegment():
     """PropertyList: MarkerSet.
     
-    **These classes are under development and may change dramatically between versions.**"""
+    These classes are under development and may change dramatically between versions."""
     def __getitem__(self,arg2)->FBOpticalSegment:...
     def __len__(self)->int:...
 class FBPropertyListModelMarkerOptical():
@@ -5719,7 +5719,7 @@ class FBPropertyListModelTemplate():
 class FBPropertyListModelTemplateBinding():
     """List: MotionClip   
     
-    **PropertyList:** MotionClip"""
+    PropertyList: MotionClip"""
     def __getitem__(self,arg2)->object:...
     def __len__(self)->int:...
 class FBPropertyListOpticalGap():
@@ -5772,7 +5772,7 @@ class FBPropertyManager():
 class FBPropertyStateEvent(FBEvent):
     """This class is used when the state of a property tracked by the [FBFCurveEventManager](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_f_curve_event_manager.html "FCurve Event Manager Interface to the FBFCurveEventManager.") is changed."""
     EventType:FBPropertyStateEventType
-    """**Read Only Property:** Event type, please see the [FBPropertyStateEventType](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_state_event_type.html "This enum indicates what modification was made to the animation of a tracked property....") for the possible types."""
+    """Read Only Property: Event type, please see the [FBPropertyStateEventType](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_state_event_type.html "This enum indicates what modification was made to the animation of a tracked property....") for the possible types."""
     ParentComponent:property
     Property:property
     def __init__(self):
@@ -5841,7 +5841,7 @@ class FBPythonWrapper():
     
     OnUnbind is used in this way: it notifies the user when the wrapped ORSDK objects is destroyed."""
     OnUnbind:FBEvent
-    """**Event:** Will notifier the user when the corresponding ORSDK objects is unbound from the PythonObject."""
+    """Event: Will notifier the user when the corresponding ORSDK objects is unbound from the PythonObject."""
 class FBPlug(FBPythonWrapper):
     """Connections Basic Open Reality SDK Element.
     
@@ -5954,14 +5954,14 @@ class FBProperty(FBPlug):
     ```
     The methods 'PropertyCreate()' and 'PropertyRemove' of the class [FBComponent](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html "MotionBuilder SDK base class.") can be used to modify an object's set of properties."""
     Data:object
-    """**Read Write Property:** The property data value. Type of this depends on the subclass of [FBProperty](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property.html "Generic application property.") (ex: in a [FBPropertyInt](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_int.html), Data is of type int)."""
+    """Read Write Property: The property data value. Type of this depends on the subclass of [FBProperty](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property.html "Generic application property.") (ex: in a [FBPropertyInt](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_int.html), Data is of type int)."""
     Name:str
-    """**Read Property:** The property's name."""
+    """Read Property: The property's name."""
     def AllowsLocking(self)->bool:
         """AllowsLocking.
         
         ### Returns:
-        **true** if property can be locked"""
+        true if property can be locked"""
         ...
     def AsString(self,Flag:FBDataAsStringFlag=FBDataAsStringFlag.kFBDataAsStringUI)->str:
         """Get the property value as a string.
@@ -6061,7 +6061,7 @@ class FBProperty(FBPlug):
         """HasSomethingLocked.
         
         ### Returns:
-        **true** if property or any of its members is locked"""
+        true if property or any of its members is locked"""
         ...
     def IsAnimatable(self)->bool:
         """"""
@@ -6073,19 +6073,19 @@ class FBProperty(FBPlug):
         """Verify if property is of this type.
         
         ### Returns:
-        **true** if property is of type."""
+        true if property is of type."""
         ...
     def IsLocked(self)->bool:
         """IsLocked.
         
         ### Returns:
-        **true** if property is locked"""
+        true if property is locked"""
         ...
     def IsMaxClamp(self)->bool:
         """Indicate if maximum value clamping will be applied on user input value.
         
         ### Returns:
-        **true** if property the value will be clamped to a maximum value."""
+        true if property the value will be clamped to a maximum value."""
         ...
     def IsMemberLocked(self,Index:int)->bool:
         """IsMemberLocked.
@@ -6096,13 +6096,13 @@ class FBProperty(FBPlug):
         
         
         ### Returns:
-        **true** if property sub-member is locked"""
+        true if property sub-member is locked"""
         ...
     def IsMinClamp(self)->bool:
         """Indicate if minimum value clamping will be applied on user input value.
         
         ### Returns:
-        **true** if property the value will be clamped to a minimum value."""
+        true if property the value will be clamped to a minimum value."""
         ...
     def IsObjectList(self)->bool:
         """Indicate if is an instance of [FBPropertyListObject](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_list_object.html "List-like structure fo system elements.").
@@ -6114,7 +6114,7 @@ class FBProperty(FBPlug):
         """Is property read-only?
         
         ### Returns:
-        **true** if property is read-only."""
+        true if property is read-only."""
         ...
     def IsReferenceProperty(self)->bool:
         """"""
@@ -6202,19 +6202,19 @@ class FBComponent(FBPlug):
     
     [See sample: ReplaceNamespace.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_replace_namespace_8py-example.html)"""
     Components:FBPropertyListComponent
-    """**List:** List of components."""
+    """List: List of components."""
     FullName:property
     LongName:str
-    """**Read Write Property:** Name and namespace for object."""
+    """Read Write Property: Name and namespace for object."""
     Name:str
-    """**Read Write Property:** Unique name of object. [See sample: RemoveSuffixFromNameOfSceneElements.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_remove_suffix_from_name_of_scene_elements_8py-example.html)"""
+    """Read Write Property: Unique name of object. [See sample: RemoveSuffixFromNameOfSceneElements.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_remove_suffix_from_name_of_scene_elements_8py-example.html)"""
     OwnerNamespace:property
     Parents:FBPropertyListComponent
-    """**List:** Parents."""
+    """List: Parents."""
     PropertyList:FBPropertyManager
-    """**Read Only Property:** Manages all of the properties for the component."""
+    """Read Only Property: Manages all of the properties for the component."""
     Selected:bool
-    """**Read Write Property:** Selected property."""
+    """Read Write Property: Selected property."""
     def DisableObjectFlags(self,Flags:FBObjectFlag):
         """Disable a specific Object Flags.
         
@@ -6384,9 +6384,9 @@ class FBReferenceTime(FBComponent):
     
     Interface for the reference time used by MotionBuilder The reference time are identified using unique ID. A unique ID is given when a reference time is added to the system with [Add()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_reference_time.html#a2b07a7c9e383b708bfe251ae6e988d5c "Add a reference time to list."). Instead of using a linear array to store the reference time, a map is used to link an ID to a reference time. The available IDs can be queried using [GetUniqueIDList()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_reference_time.html#a66ea5d3b1811a945a435e430b46f507b "Get list of currently available IDs.")."""
     CurrentTimeReferenceID:int
-    """**Read Write Property:** Current reference time ID"""
+    """Read Write Property: Current reference time ID"""
     UseRelativeLocalTime:bool
-    """**Read Write Property:** True to show the relative local time, false otherwise. This will only be effective when displaying the Local Time, but the state can be changed even if not currently displaying the Local Time."""
+    """Read Write Property: True to show the relative local time, false otherwise. This will only be effective when displaying the Local Time, but the state can be changed even if not currently displaying the Local Time."""
     def Add(self,Name:str)->int:
         """Add a reference time to list.
         
@@ -6692,7 +6692,7 @@ class FBPropertyString(FBProperty):
 class FBPropertyListTreeNode(FBProperty):
     """PropertyList of nodes in the tree view. PropertyList: UserObject.
     
-    **These classes are under development and may change dramatically between versions.**"""
+    These classes are under development and may change dramatically between versions."""
     Data:FBTreeNode
     def __contains__(self,arg2)->bool:...
     def __delitem__(self,arg2:int):...
@@ -7025,13 +7025,13 @@ class FBPropertyListControlSet(FBPropertyListComponent):
 class FBPropertyListConstraintSolver(FBPropertyListComponent):
     """PropertyList: MarkerSet.
     
-    **These classes are under development and may change dramatically between versions.**"""
+    These classes are under development and may change dramatically between versions."""
     Data:FBConstraintSolver
     def __getitem__(self,arg2)->object:...
 class FBPropertyListActor(FBPropertyListComponent):
     """PropertyList: Actor face.
     
-    **These classes are under development and may change dramatically between versions.**"""
+    These classes are under development and may change dramatically between versions."""
     Data:FBActor
     def __getitem__(self,arg2)->object:...
 class FBPropertyListActorFace(FBPropertyListComponent):
@@ -7056,7 +7056,7 @@ class FBPropertyListBox(FBPropertyListComponent):
 class FBPropertyListCamera(FBPropertyListComponent):
     """PropertyList: Character.
     
-    **These classes are under development and may change dramatically between versions.**"""
+    These classes are under development and may change dramatically between versions."""
     Data:FBCamera
     def __getitem__(self,arg2)->object:...
 class FBPropertyListCharacter(FBPropertyListComponent):
@@ -7065,13 +7065,13 @@ class FBPropertyListCharacter(FBPropertyListComponent):
 class FBPropertyListCharacterExtension(FBPropertyListComponent):
     """Character extension property list. PropertyList: Character face.
     
-    **These classes are under development and may change dramatically between versions.**"""
+    These classes are under development and may change dramatically between versions."""
     Data:FBCharacterExtension
     def __getitem__(self,arg2)->object:...
 class FBPropertyListCharacterFace(FBPropertyListComponent):
     """PropertyList: CharacterMarkerSet.
     
-    **These classes are under development and may change dramatically between versions.**"""
+    These classes are under development and may change dramatically between versions."""
     Data:FBCharacterFace
     def __getitem__(self,arg2)->object:...
 class FBPropertyListCharacterMarkerSet(FBPropertyListComponent):
@@ -7194,12 +7194,12 @@ class FBPropertyBool(FBProperty):
 class FBPropertyAnimatable(FBProperty):
     """Animatable property base class."""
     Data:object
-    """**Read Write Property:** The property data value. Type of this depends on the subclass of [FBPropertyAnimatable](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_animatable.html "Animatable property base class.") (ex: in a [FBPropertyAnimatableInt](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_animatable_int.html), Data is of type int)."""
+    """Read Write Property: The property data value. Type of this depends on the subclass of [FBPropertyAnimatable](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_animatable.html "Animatable property base class.") (ex: in a [FBPropertyAnimatableInt](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_animatable_int.html), Data is of type int)."""
     def AllowsMuting(self)->bool:
         """AllowsMuting.
         
         ### Returns:
-        **true** if property can be muted"""
+        true if property can be muted"""
         ...
     def GetAnimationNode(self)->FBAnimationNode:
         """Get the animation node for the property.
@@ -7234,14 +7234,14 @@ class FBPropertyAnimatable(FBProperty):
         """HasSomethingMuted.
         
         ### Returns:
-        **true** if property or any of its members is muted"""
+        true if property or any of its members is muted"""
         ...
     def IsAnimated(self)->bool:
         """Is the property animated.
         
         This is true if the property has an FCurve associated to it.
         ### Returns:
-        **true** if animated, **false** if not animated."""
+        true if animated, false if not animated."""
         ...
     def IsFocused(self)->bool:
         """Is the property focused (keyable).
@@ -7258,7 +7258,7 @@ class FBPropertyAnimatable(FBProperty):
         
         
         ### Returns:
-        **true** if the component is in focus, false otherwise"""
+        true if the component is in focus, false otherwise"""
         ...
     def IsMemberMuted(self,Index:int)->bool:
         """IsMemberMuted.
@@ -7269,13 +7269,13 @@ class FBPropertyAnimatable(FBProperty):
         
         
         ### Returns:
-        **true** if property sub-member is muted"""
+        true if property sub-member is muted"""
         ...
     def IsMuted(self)->bool:
         """IsMuted.
         
         ### Returns:
-        **true** if property is muted"""
+        true if property is muted"""
         ...
     def Key(self):
         """Key the property."""
@@ -7304,7 +7304,7 @@ class FBPropertyAnimatable(FBProperty):
         
         
         ### Returns:
-        **true** if the color was reverted to its default value, false otherwise"""
+        true if the color was reverted to its default value, false otherwise"""
         ...
     def SetAnimated(self,State:bool,CheckLocked:bool=False):
         """Set the animation state of the property.
@@ -7324,7 +7324,7 @@ class FBPropertyAnimatable(FBProperty):
         
         
         ### Returns:
-        **true** if the color was changed, false otherwise"""
+        true if the color was changed, false otherwise"""
         ...
     def SetFocus(self,State:bool):
         """Set the property's focus (keyable) state.
@@ -7343,7 +7343,7 @@ class FBPropertyAnimatable(FBProperty):
         
         
         ### Returns:
-        **true** if the operation was successful, false otherwise"""
+        true if the operation was successful, false otherwise"""
         ...
     def SetMemberMuted(self,Index:int,Muted:bool):
         """SetMemberMuted.
@@ -7445,57 +7445,57 @@ class FBRenderer(FBComponent):
     
     [See samples: render.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_rendering_0crender_8py-example.html) [CameraSwitcher.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_camera_0c_camera_switcher_8py-example.html)"""
     AdvancedLightingMode:bool
-    """**Read write Property:** Turn on/off advanced lighting setting UI widgets."""
+    """Read write Property: Turn on/off advanced lighting setting UI widgets."""
     AdvancedMaterialMode:bool
-    """**Read write Property:** Turn on/off advanced material setting UI widgets."""
+    """Read write Property: Turn on/off advanced material setting UI widgets."""
     AutoEvaluate:bool
-    """**Read Write Property:** Indicate if a call to RenderBegin will also cause a re-evaluation of the scene."""
+    """Read Write Property: Indicate if a call to RenderBegin will also cause a re-evaluation of the scene."""
     Background:bool
-    """**Read Write Property:** The renderer."""
+    """Read Write Property: The renderer."""
     CurrentPaneCallbackIndex:int
-    """**Read Write Property:** Current Pane's Renderer Callback Index."""
+    """Read Write Property: Current Pane's Renderer Callback Index."""
     CurrentPaneCallbackPrefIndex:int
-    """**Read Write Property:** Current Pane's Renderer Callback Preference Index."""
+    """Read Write Property: Current Pane's Renderer Callback Preference Index."""
     DisplayNormals:bool
-    """**Read Write Property:** Display model normals in main viewer."""
+    """Read Write Property: Display model normals in main viewer."""
     DisplaySetUpdateId:int
-    """**Read Only Property:** Current DisplaySet Update Id. Add/Delete models, Show/Hide models will affect DisplaySet."""
+    """Read Only Property: Current DisplaySet Update Id. Add/Delete models, Show/Hide models will affect DisplaySet."""
     DisplayableGeometryCount:int
-    """**Read Only Property:** Displayable geometry count."""
+    """Read Only Property: Displayable geometry count."""
     DisplayableLightCount:int
-    """**Read Only Property:** Displayable light count."""
+    """Read Only Property: Displayable light count."""
     FrustumCulling:bool
-    """**Read Write Property:** Turn on/off the early frustum culling optimization."""
+    """Read Write Property: Turn on/off the early frustum culling optimization."""
     HideManipulatorsOnManip:bool
-    """**Read Write Property:** Hide manipulators UI elements while manipulating."""
+    """Read Write Property: Hide manipulators UI elements while manipulating."""
     HideManipulatorsOnPlayback:bool
-    """**Read Write Property:** Hide manipulators UI elements during playback."""
+    """Read Write Property: Hide manipulators UI elements during playback."""
     IDBufferDisplay:bool
-    """**Read write Property:** Render Model's unique Color ID into color Buffer (used for picking)"""
+    """Read write Property: Render Model's unique Color ID into color Buffer (used for picking)"""
     IDBufferPicking:bool
-    """**Read write Property:** Use ID (Color) Buffer for picking, instead of OpenGl selection buffer picking."""
+    """Read write Property: Use ID (Color) Buffer for picking, instead of OpenGl selection buffer picking."""
     IDBufferPickingAlpha:float
-    """**Read write Property:** Those Semi-transparent (Alpha Blend) geometry(region) contribute less than this threshold, will be considered as invisible during ID picking."""
+    """Read write Property: Those Semi-transparent (Alpha Blend) geometry(region) contribute less than this threshold, will be considered as invisible during ID picking."""
     PickingEnabled:bool
-    """**Read Write Property:** Is picking in the viewer enabled?"""
+    """Read Write Property: Is picking in the viewer enabled?"""
     RegisteredCallbackCount:int
-    """**Read Only Property:** Registered Renderer Callback Count."""
+    """Read Only Property: Registered Renderer Callback Count."""
     RendererCallbacks:FBPropertyListRendererCallback
-    """**List:** Renderer Callbacks attached."""
+    """List: Renderer Callbacks attached."""
     RendererUpdateId:int
-    """**Read Only Property:** Current Render Update Id. DisplaySet update, material change, texture changes and shader change and other operations will trigger Renderer update."""
+    """Read Only Property: Current Render Update Id. DisplaySet update, material change, texture changes and shader change and other operations will trigger Renderer update."""
     Scene:FBScene
-    """**Read Write Property:** Scene that the renderer will use/draw"""
+    """Read Write Property: Scene that the renderer will use/draw"""
     SelectionForceSnapPointsDisplay:bool
-    """**Read write Property:** Force show all feature points (pivots and etc) on selected models if true, ignore individual model's settings."""
+    """Read write Property: Force show all feature points (pivots and etc) on selected models if true, ignore individual model's settings."""
     SelectionOverride:bool
-    """**Read write Property:** Add transparent color override layer on selected models if true."""
+    """Read write Property: Add transparent color override layer on selected models if true."""
     SelectionOverrideColor:FBColor
-    """**Read write Property:** Selection override layer color."""
+    """Read write Property: Selection override layer color."""
     SelectionOverrideTransparency:float
-    """**Read write Property:** Selection override layer transparency."""
+    """Read write Property: Selection override layer transparency."""
     ShowStats:bool
-    """**Read Write Property:** Show the stats about FPS, Evaluation rate ... like when using Shift-F in main viewer."""
+    """Read Write Property: Show the stats about FPS, Evaluation rate ... like when using Shift-F in main viewer."""
     def ArrangeAllInSchematic(self,Mode:FBArrangeMode):
         """Request to arrange all objects in schematic view .
         
@@ -7548,7 +7548,7 @@ class FBRenderer(FBComponent):
         
         
         ### Returns:
-        **true** if successful."""
+        true if successful."""
         ...
     def GetCameraInPane(self,PaneIndex:int)->FBCamera:
         """Return the camera displayed in the given pane index.
@@ -7722,7 +7722,7 @@ class FBRenderer(FBComponent):
         
         
         ### Returns:
-        **true** if successful."""
+        true if successful."""
         ...
     def MouseInputNormalized(self,X:float,Y:float,InputType:FBInputType,ButtonKey:int,Modifier:FBInputModifier,WheelDeltaValue:int|None=None,Layer:int=-1,PaneId:int=-1)->bool:
         """Mouse input.
@@ -7740,7 +7740,7 @@ class FBRenderer(FBComponent):
         
         
         ### Returns:
-        **true** if successful."""
+        true if successful."""
         ...
     def OGLModelDisplay(self,RenderOptions:FBRenderOptions,Model:FBModel):
         """"""
@@ -7782,7 +7782,7 @@ class FBRenderer(FBComponent):
         
         
         ### Returns:
-        **true** if successful."""
+        true if successful."""
         ...
     def RectPick(self,X1:int,Y1:int,X2:int,Y2:int,PickInfosList:FBPickInfosList)->bool:
         """Object rectangle selection.
@@ -7828,7 +7828,7 @@ class FBRenderer(FBComponent):
         
         
         ### Returns:
-        **true** if successful."""
+        true if successful."""
         ...
     def RenderBegin(self,X:int,Y:int,W:int,H:int)->bool:
         """RenderBegin.
@@ -7949,11 +7949,11 @@ class FBProgress(FBComponent):
     
     [See samples: CustomProperty.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_custom_property_8py-example.html) [SetAllToDoneInAllTakes.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_set_all_to_done_in_all_takes_8py-example.html)"""
     Caption:str
-    """**Read Write Property:** Caption to be displayed for progress bar."""
+    """Read Write Property: Caption to be displayed for progress bar."""
     Percent:int
-    """**Read Write Property:** Percent completed for the operation. Must be used called in between [ProgressBegin()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_progress.html#a74b65ec9004d7726cb2eb88eac9f0929 "Start progress, must be called before set Text & Percent property.")/ProgressDone()"""
+    """Read Write Property: Percent completed for the operation. Must be used called in between [ProgressBegin()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_progress.html#a74b65ec9004d7726cb2eb88eac9f0929 "Start progress, must be called before set Text & Percent property.")/ProgressDone()"""
     Text:str
-    """**Read Write Property:** Text to display on progress bar. Must be used in between [ProgressBegin()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_progress.html#a74b65ec9004d7726cb2eb88eac9f0929 "Start progress, must be called before set Text & Percent property.")/ProgressDone()"""
+    """Read Write Property: Text to display on progress bar. Must be used in between [ProgressBegin()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_progress.html#a74b65ec9004d7726cb2eb88eac9f0929 "Start progress, must be called before set Text & Percent property.")/ProgressDone()"""
     def ProgressBegin(self):
         """Start progress, must be called before set Text & Percent property."""
         ...
@@ -7975,15 +7975,15 @@ class FBProfiler(FBComponent):
     
     [See sample: CreateProfilingEventsLog.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_profiling_0c_create_profiling_events_log_8py-example.html)"""
     ActiveSampling:bool
-    """**Read/Write Property:** Activate the sampling for time events. Call before quering for [FBProfileTimeEvent](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_profile_time_event.html "FBProfileTimeEvent.")."""
+    """Read/Write Property: Activate the sampling for time events. Call before quering for [FBProfileTimeEvent](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_profile_time_event.html "FBProfileTimeEvent.")."""
     BufferSize:int
-    """**Read/Write Property:** Buffer size for average and timing computation (maximum value 200)."""
+    """Read/Write Property: Buffer size for average and timing computation (maximum value 200)."""
     EvaluationDepth:int
-    """**Read/Write Property:** Specify the depth of evaluation profiling for data collection (maximum value is 10)."""
+    """Read/Write Property: Specify the depth of evaluation profiling for data collection (maximum value is 10)."""
     FrameReference:bool
-    """**Read/Write Property:** Draw task cycles in relation to main thread cycle time - frame cycle (percentage display)."""
+    """Read/Write Property: Draw task cycles in relation to main thread cycle time - frame cycle (percentage display)."""
     ProfilingMode:FBProfilingMode
-    """**Read/Write Property:** Profiling collection modes, including disabling all profiling."""
+    """Read/Write Property: Profiling collection modes, including disabling all profiling."""
     def GetEndEventSample(self,Index:int)->FBProfileTimeEvent:
         """Get end time event for event at given index.
         
@@ -8099,7 +8099,7 @@ class FBProfiler(FBComponent):
 class FBPose(FBComponent):
     """Pose class."""
     Type:FBPoseType
-    """**Read Only Property:** Type of the pose (bind pose or rest pose)"""
+    """Read Only Property: Type of the pose (bind pose or rest pose)"""
     def AddNode(self,Object:FBModel,Matrix:FBMatrix|None=None,IsLocalMatrix:bool=False)->int:
         """Add a new pose node.
         
@@ -8227,31 +8227,31 @@ class FBPointCacheManager(FBComponent):
     
     [See sample: CharacterPointCache.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_point_cache_0c_character_point_cache_8py-example.html)"""
     AllowCacheResampling:bool
-    """**Read Write Property:** Allow the resample models's existing point cache deformation when true."""
+    """Read Write Property: Allow the resample models's existing point cache deformation when true."""
     AlwaysAskForPath:bool
-    """**Read Write Property:** Always ask for the point cache file save path when true."""
+    """Read Write Property: Always ask for the point cache file save path when true."""
     ApplyCacheOnNewModel:bool
-    """**Read Write Property:** Duplicated the cached models, and assoicated the point cache to the new models."""
+    """Read Write Property: Duplicated the cached models, and assoicated the point cache to the new models."""
     ApplyGlobalTransform:bool
-    """**Read Write Property:** Include no-deformable models and the global transform to Vertex Cache when true."""
+    """Read Write Property: Include no-deformable models and the global transform to Vertex Cache when true."""
     CacheAABBox:bool
-    """**Read Write Property:** Cache AABBox (Axis Aligned Bounding Box) when true."""
+    """Read Write Property: Cache AABBox (Axis Aligned Bounding Box) when true."""
     CacheNormal:bool
-    """**Read Write Property:** Cache normal when true."""
+    """Read Write Property: Cache normal when true."""
     CreateFilePerFrameCache:bool
-    """**Read Write Property:** Create the point cache file for each frame when true."""
+    """Read Write Property: Create the point cache file for each frame when true."""
     CreateMultiChannelCache:bool
-    """**Read Write Property:** Create a single multiple channel point cache file for all models when true."""
+    """Read Write Property: Create a single multiple channel point cache file for all models when true."""
     DefaultPath:str
-    """**Read Write Property:** Default point cache file save path."""
+    """Read Write Property: Default point cache file save path."""
     Models:FBPropertyListObject
-    """**Read Write Property:** Models to be recorded"""
+    """Read Write Property: Models to be recorded"""
     NewModelRoot:FBModel
-    """**Read Write Property:** Valid only when ApplyCacheOnNewModel is on. Create New Models under NewModelRoot. otherwise, a NULL model will be created."""
+    """Read Write Property: Valid only when ApplyCacheOnNewModel is on. Create New Models under NewModelRoot. otherwise, a NULL model will be created."""
     SaveEveryFrame:int
-    """**Read Write Property:** Recording Frequency."""
+    """Read Write Property: Recording Frequency."""
     def SetTransformReference(self):
-        """**Action Property:** Set the model's current transformation as the reference."""
+        """Action Property: Set the model's current transformation as the reference."""
         ...
     def __init__(self):...
 class FBCharacterPose(FBPose):
@@ -8435,13 +8435,13 @@ class FBCharacterPose(FBPose):
         
         
         ### Returns:
-        **true** if the pose of the character extension stored in the pose."""
+        true if the pose of the character extension stored in the pose."""
         ...
     def IsCharacterPoseStored(self)->bool:
         """Is the pose of the character stored in the pose?
         
         ### Returns:
-        **true** if the pose of the character stored in the pose."""
+        true if the pose of the character stored in the pose."""
         ...
     def PastePose(self,Character:FBCharacter,CharacterPoseOptions:FBCharacterPoseOptions):
         """Paste the pose of a character and its extensions.
@@ -8846,9 +8846,9 @@ class FBCluster(FBComponent):
     
     [See sample: FBClusterTransactions.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_f_b_cluster_transactions_8py-example.html)"""
     ClusterAccuracy:float
-    """**Read Write Property:** Cluster accuracy."""
+    """Read Write Property: Cluster accuracy."""
     ClusterMode:FBClusterMode
-    """**Read Write Property:** Cluster mode."""
+    """Read Write Property: Cluster mode."""
     def ClusterBegin(self,Index:int=-1)->int:
         """Begin cluster definition.
         
@@ -9029,7 +9029,7 @@ class FBCluster(FBComponent):
 class FBCharacterMarkerSet(FBComponent):
     """Character marker set class.
     
-    **These classes are under development and may change dramatically between versions.**"""
+    These classes are under development and may change dramatically between versions."""
     def GetExtractionProperty(self,NodeId:FBBodyNodeId)->FBProperty:
         """Get the extraction property associated with each body part of the character.
         
@@ -9059,7 +9059,7 @@ class FBCharacterMarkerSet(FBComponent):
 class FBCameraSwitcherAudioManager(FBComponent):
     """Camera Switcher Audio Manager class.
     
-    **This class allows users to interact with the Audio Manager of the Camera Switcher.**"""
+    This class allows users to interact with the Audio Manager of the Camera Switcher."""
     def GetAudioClip(self)->FBAudioClip:
         """Get the Audio Clip displayed on the Camera Switcher.
         
@@ -9174,11 +9174,11 @@ class FBBox(FBComponent):
     
     All animatable elements are derived in some way from the main box class, either by deriving directly or owning a box."""
     Animatable:bool
-    """**Read Write Property:** Is the box animatable."""
+    """Read Write Property: Is the box animatable."""
     Live:bool
-    """**Read Write Property:** Is live?"""
+    """Read Write Property: Is live?"""
     RecordMode:bool
-    """**Read Write Property:** Is recording?"""
+    """Read Write Property: Is recording?"""
     UniqueName:str
     """internal Unique name."""
     def AnimationNodeDestroy(self,AnimationNode:FBAnimationNode)->bool:
@@ -9190,7 +9190,7 @@ class FBBox(FBComponent):
         
         
         ### Returns:
-        **true** if destruction was successful."""
+        true if destruction was successful."""
         ...
     def AnimationNodeInGet(self)->FBAnimationNode:
         """Get the (IN/OUT) animation node for this box.
@@ -9207,7 +9207,7 @@ class FBBox(FBComponent):
         
         
         ### Returns:
-        **true** if node is user data."""
+        true if node is user data."""
         ...
     def AnimationNodeOutGet(self)->FBAnimationNode:
         """"""
@@ -9277,28 +9277,28 @@ class FBBoxPlaceHolder(FBBox):
     
     This class is mainly used with a constraint relation to have multiple boxes that are a representation of the same underlying box. The underlying box will usually be a device. Instantiation of [FBBoxPlaceHolder](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_box_place_holder.html "Wrapper around a specific instance of a FBBox object.") should be left to the the system."""
     Box:FBBox
-    """**Read Only Property:** Underlying box object."""
+    """Read Only Property: Underlying box object."""
 class FBConstraint(FBBox):
     """Base class for constraints."""
     Active:bool
-    """**Read Write Property:** Active state."""
+    """Read Write Property: Active state."""
     Deformer:bool
-    """**Read Write Property:** Is a deformer constraint?"""
+    """Read Write Property: Is a deformer constraint?"""
     Description:str
-    """**Read Write Property:** Long description of constraint."""
+    """Read Write Property: Long description of constraint."""
     HasLayout:bool
-    """**Read Write Property:** Does the constraint have a layout?"""
+    """Read Write Property: Does the constraint have a layout?"""
     Lock:bool
-    """**Read Write Property:** Lock state."""
+    """Read Write Property: Lock state."""
     Weight:FBPropertyAnimatableDouble
-    """**Read Write Property:** Weight of constraint."""
+    """Read Write Property: Weight of constraint."""
     def AnimationNodeInCreate(self,UserId:int,Model:FBModel,Attribute:str)->FBAnimationNode:
         """"""
         ...
     def AnimationNodeOutCreate(self,UserId:int,Model:FBModel,Attribute:str)->FBAnimationNode:
         """Animation Node Creations (IN/OUT).
         
-        Used to create the connectors (in or out) on an animation node. This function will return a newly created animation node, connected to the model specified by **pModel**.
+        Used to create the connectors (in or out) on an animation node. This function will return a newly created animation node, connected to the model specified by pModel.
         ### Parameters:
         
             - UserId: User specified reference number.
@@ -9316,22 +9316,22 @@ class FBConstraint(FBBox):
         Newly created (and copied) constraint."""
         ...
     def DeformerBind(self,Model:FBModel)->bool:
-        """Bind/Unbind **pModel** to deformation constraint.
+        """Bind/Unbind pModel to deformation constraint.
         
-        These functions are used for adding/removing a deformation binding to/from **pModel** if the constraint is a deformation constraint.
+        These functions are used for adding/removing a deformation binding to/from pModel if the constraint is a deformation constraint.
         ### Parameters:
         
             - Model: Model to bind/unbind.
         
         
         ### Returns:
-        **true** if successful."""
+        true if successful."""
         ...
     def DeformerUnBind(self,Model:FBModel)->bool:
         """"""
         ...
     def Disable(self,Model:FBModel)->bool:
-        """Disable constraint on **pModel**.
+        """Disable constraint on pModel.
         
         ### Parameters:
         
@@ -9339,7 +9339,7 @@ class FBConstraint(FBBox):
         
         
         ### Returns:
-        **true** if successful."""
+        true if successful."""
         ...
     def FreezeSRT(self,Model:FBModel,S:bool,R:bool,T:bool):
         """Freeze current model state.
@@ -9364,7 +9364,7 @@ class FBConstraint(FBBox):
         
         
         ### Returns:
-        **true** if successful. 
+        true if successful. 
         ### Warning:
         If you try to add a model to a group that is already full, the success of the operation will be false and the reference will not be added."""
         ...
@@ -9429,10 +9429,10 @@ class FBConstraint(FBBox):
         
         
         ### Returns:
-        The name of the reference group **pGroupIndex**."""
+        The name of the reference group pGroupIndex."""
         ...
     def ReferenceRemove(self,GroupIndex:int,Model:FBModel)->bool:
-        """Remove a reference to **pModel** from the group at **pGroupIndex**.
+        """Remove a reference to pModel from the group at pGroupIndex.
         
         ### Parameters:
         
@@ -9441,20 +9441,20 @@ class FBConstraint(FBBox):
         
         
         ### Returns:
-        **true** if successful."""
+        true if successful."""
         ...
     def RemoveAllAnimationNodes(self):
         """Remove animation nodes."""
         ...
     def RestoreModelState(self,Model:FBModel):
-        """Restore the saved model state onto **pModel**.
+        """Restore the saved model state onto pModel.
         
         ### Parameters:
         
             - Model: Model to affect with previous state."""
         ...
     def SaveModelState(self,Model:FBModel,S:bool,R:bool,T:bool):
-        """Save current state of **pModel**.
+        """Save current state of pModel.
         
         ### Parameters:
         
@@ -9467,7 +9467,7 @@ class FBConstraint(FBBox):
         """Setup animation nodes."""
         ...
     def Snap(self):
-        """**Function Property:** Snap constraint."""
+        """Function Property: Snap constraint."""
         ...
     def SnapSuggested(self):
         """Suggest 'snap'."""
@@ -9478,17 +9478,17 @@ class FBModelPlaceHolder(FBBoxPlaceHolder):
     
     This class is mainly used with a constraint relation to have multiple boxes that are a representation of the same underlying model. Instantiation of [FBModelPlaceHolder](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_model_place_holder.html "Wrapper around a specific instance of a FBModel object.") should be left to the the system."""
     Model:FBModel
-    """**Read Only Property:** Underlying model object."""
+    """Read Only Property: Underlying model object."""
     UseGlobalTransforms:bool
-    """**Read Write Property:** Indicate if the translations are expressed in local or global mode."""
+    """Read Write Property: Indicate if the translations are expressed in local or global mode."""
 class FBCharacterSolver(FBConstraint):
     """Constraint class."""
     ExtraBones:list
-    """**Read Property:** List of Extra Bones in character"""
+    """Read Property: List of Extra Bones in character"""
     ExtraFK:list
-    """**Read Property:** List of Extra FK in character"""
+    """Read Property: List of Extra FK in character"""
     Source:FBComponent
-    """**Read Write Property:** Source character when doing a character retarget."""
+    """Read Write Property: Source character when doing a character retarget."""
     def GetParentRotationOffset(self,arg2:FBModel)->FBVector3d:
         """Get the Parent Rotation Offset of the Given Extra Bone Index.
         
@@ -9522,11 +9522,11 @@ class FBCharacterSolver(FBConstraint):
 class FBCharacterFace(FBConstraint):
     """Animates a character face using an actor as input.
     
-    **These classes are under development and may change dramatically between versions.**"""
+    These classes are under development and may change dramatically between versions."""
     ActiveInput:bool
-    """**Read Write Property:** Is the character input active?"""
+    """Read Write Property: Is the character input active?"""
     InputActorFace:FBActorFace
-    """**Read Write Property:** The index of the actor used for the input."""
+    """Read Write Property: The index of the actor used for the input."""
     def ClusterGroupAdd(self,List:FBModelList,Name:str)->int:
         """Add a cluster group to the character face.
         
@@ -9537,7 +9537,7 @@ class FBCharacterFace(FBConstraint):
         
         
         ### Returns:
-        **Index** of the new cluster group **-1** if the operation failed to complete."""
+        Index of the new cluster group -1 if the operation failed to complete."""
         ...
     def ClusterGroupFindByName(self,Name:str)->int:
         """Find a cluster group by name.
@@ -9548,7 +9548,7 @@ class FBCharacterFace(FBConstraint):
         
         
         ### Returns:
-        **Index** of the matching cluster group. **-1** if not found."""
+        Index of the matching cluster group. -1 if not found."""
         ...
     def ClusterGroupGetCount(self)->int:
         """Retrieve the total number of cluster groups.
@@ -9611,7 +9611,7 @@ class FBCharacterFace(FBConstraint):
         
         
         ### Returns:
-        **Index** of the new shape. **-1** if the operation failed to complete."""
+        Index of the new shape. -1 if the operation failed to complete."""
         ...
     def ClusterShapeFindByName(self,ClusterGrpId:int,Name:str)->int:
         """Find a cluster shape in a cluster group by name.
@@ -9623,7 +9623,7 @@ class FBCharacterFace(FBConstraint):
         
         
         ### Returns:
-        **Index** of the matching shape. **-1** if not found."""
+        Index of the matching shape. -1 if not found."""
         ...
     def ClusterShapeGetCount(self,ClusterGrpId:int)->int:
         """Retrieve the total number of shapes in a cluster group.
@@ -9694,7 +9694,7 @@ class FBCharacterFace(FBConstraint):
         
         
         ### Returns:
-        **Index** of the new expression. **-1** if the operation failed to complete."""
+        Index of the new expression. -1 if the operation failed to complete."""
         ...
     def ExpressionFindByName(self,Name:str)->int:
         """Find an expression on the face by name.
@@ -9705,7 +9705,7 @@ class FBCharacterFace(FBConstraint):
         
         
         ### Returns:
-        **Index** of the matching expression. **-1** if not found."""
+        Index of the matching expression. -1 if not found."""
         ...
     def ExpressionGetCount(self)->int:
         """Retrieve the total number of expressions on the face.
@@ -9793,7 +9793,7 @@ class FBCharacterFace(FBConstraint):
         
         
         ### Returns:
-        **Index** of the shape, **-1** if not found."""
+        Index of the shape, -1 if not found."""
         ...
     def ShapeGetCount(self,ShapeGrpId:int)->int:
         """Retrieve the total number of shapes in a blendshape group.
@@ -9839,7 +9839,7 @@ class FBCharacterFace(FBConstraint):
         
         
         ### Returns:
-        **Index** of the blendshape group, **-1** if not found."""
+        Index of the blendshape group, -1 if not found."""
         ...
     def ShapeGroupGetCount(self)->int:
         """Retrieve the total number of blendshape groups on this character face.
@@ -9904,7 +9904,7 @@ class FBCharacterFace(FBConstraint):
 class FBCharacter(FBConstraint):
     """A character is the link between a motion source and a character model.
     
-    **These classes are under development and may change dramatically between versions.** This class exposes part of the functionality associated with a Character. A character can possess a number of potential sources at the same time, such as an actor and another character, but with only one active at any given time. Before setting the InputType to the desired value, one must make sure to have previously set either the InputCharacter or the InputActor.To obtain the list of characters present in a scene, you need to create an instance of class [FBSystem](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_system.html "Provides access to the underlying system, and the MotionBuilder scene."), to obtain the current scene. The [FBScene](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_scene.html "Access to the MotionBuilder scene.") object holds the list of characters in the property Characters.
+    These classes are under development and may change dramatically between versions. This class exposes part of the functionality associated with a Character. A character can possess a number of potential sources at the same time, such as an actor and another character, but with only one active at any given time. Before setting the InputType to the desired value, one must make sure to have previously set either the InputCharacter or the InputActor.To obtain the list of characters present in a scene, you need to create an instance of class [FBSystem](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_system.html "Provides access to the underlying system, and the MotionBuilder scene."), to obtain the current scene. The [FBScene](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_scene.html "Access to the MotionBuilder scene.") object holds the list of characters in the property Characters.
     
     ```c++
     FBSystem lSystem;
@@ -9930,125 +9930,125 @@ class FBCharacter(FBConstraint):
     ```
     [See samples: CharacterMarkerSet.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_character_0c_character_marker_set_8py-example.html) [EnableGameModeOnSelectedCharacters\_Z.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_enable_game_mode_on_selected_characters__z_8py-example.html) [MirrorPoseOverTime.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_mirror_pose_over_time_8py-example.html) [PlotNonSelectedCharStoryTracks.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_plot_non_selected_char_story_tracks_8py-example.html) [PlotSelectedCharStoryTracks.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_plot_selected_char_story_tracks_8py-example.html)"""
     ActiveInput:bool
-    """**Read Write Property:** Is the character input active?"""
+    """Read Write Property: Is the character input active?"""
     CharacterExtensions:FBPropertyListCharacterExtension
-    """**List:** Character Extensions in the character."""
+    """List: Character Extensions in the character."""
     ContactBehaviour:FBCharacterContactBehaviour
-    """**Read Write Property:** Contact Behavior selection."""
+    """Read Write Property: Contact Behavior selection."""
     FKFingerMultiplier:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to augment the amount of FK propagation for unmarkered intermediate finger phalanges."""
+    """Read Write Property: Used to augment the amount of FK propagation for unmarkered intermediate finger phalanges."""
     FKFingerTipMultiplier:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to augment the amount of FK propagation for unmarkered finger tip phalanges."""
+    """Read Write Property: Used to augment the amount of FK propagation for unmarkered finger tip phalanges."""
     FKThumbTipMultiplier:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to augment the amount of FK propagation for unmarkered thumb tip phalanges."""
+    """Read Write Property: Used to augment the amount of FK propagation for unmarkered thumb tip phalanges."""
     HipsTranslationMode:FBCharacterHipsTranslationMode
-    """**Read Write Property:** Hips Translation Mode."""
+    """Read Write Property: Hips Translation Mode."""
     HumanFingerLimits:FBPropertyAnimatableBool
-    """**Read Write Property:** Enables/Disables human finger limits during actor solve."""
+    """Read Write Property: Enables/Disables human finger limits during actor solve."""
     InputActor:FBActor
-    """**Read Write Property:** The index of the actor used for the input."""
+    """Read Write Property: The index of the actor used for the input."""
     InputCharacter:FBCharacter
-    """**Read Write Property:** The index of the character used for the input."""
+    """Read Write Property: The index of the character used for the input."""
     InputType:FBCharacterInputType
-    """**Read Write Property:** The input type for the character (ex: Actor)."""
+    """Read Write Property: The input type for the character (ex: Actor)."""
     InverseLeftElbow:bool
-    """**Read Write Property:** Is left elbow inverted."""
+    """Read Write Property: Is left elbow inverted."""
     InverseLeftKnee:bool
-    """**Read Write Property:** Is left knee inverted."""
+    """Read Write Property: Is left knee inverted."""
     InverseRightElbow:bool
-    """**Read Write Property:** Is right elbow inverted."""
+    """Read Write Property: Is right elbow inverted."""
     InverseRightKnee:bool
-    """**Read Write Property:** Is right knee inverted."""
+    """Read Write Property: Is right knee inverted."""
     KeyingMode:FBCharacterKeyingMode
-    """**Read Write Property:** The current keying mode."""
+    """Read Write Property: The current keying mode."""
     LeftElbowKillPitch:bool
-    """**Read Write Property:** is Pitch used for Left elbow."""
+    """Read Write Property: is Pitch used for Left elbow."""
     LeftHandIndexIndex:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     LeftHandIndexMiddle:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     LeftHandIndexPinky:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     LeftHandIndexRing:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     LeftHandMiddleIndex:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     LeftHandMiddleMiddle:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     LeftHandMiddlePinky:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     LeftHandMiddleRing:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     LeftHandPinkyIndex:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     LeftHandPinkyMiddle:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     LeftHandPinkyPinky:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     LeftHandPinkyRing:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     LeftHandRingIndex:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     LeftHandRingMiddle:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     LeftHandRingPinky:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     LeftHandRingRing:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     LeftKneeKillPitch:bool
-    """**Read Write Property:** is Pitch used for Left knee."""
+    """Read Write Property: is Pitch used for Left knee."""
     LockX:bool
-    """**Read Write Property:** Lock character skeleton in place on X axis."""
+    """Read Write Property: Lock character skeleton in place on X axis."""
     LockY:bool
-    """**Read Write Property:** Lock character skeleton in place on Y axis."""
+    """Read Write Property: Lock character skeleton in place on Y axis."""
     LockZ:bool
-    """**Read Write Property:** Lock character skeleton in place on Z axis."""
+    """Read Write Property: Lock character skeleton in place on Z axis."""
     MirrorMode:bool
-    """**Read Write Property:** is in mirror mode."""
+    """Read Write Property: is in mirror mode."""
     RightElbowKillPitch:bool
-    """**Read Write Property:** is Pitch used for Right elbow."""
+    """Read Write Property: is Pitch used for Right elbow."""
     RightHandIndexIndex:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     RightHandIndexMiddle:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     RightHandIndexPinky:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     RightHandIndexRing:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     RightHandMiddleIndex:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     RightHandMiddleMiddle:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     RightHandMiddlePinky:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     RightHandMiddleRing:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     RightHandPinkyIndex:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     RightHandPinkyMiddle:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     RightHandPinkyPinky:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     RightHandPinkyRing:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     RightHandRingIndex:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     RightHandRingMiddle:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     RightHandRingPinky:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     RightHandRingRing:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     RightKneeKillPitch:bool
-    """**Read Write Property:** is Pitch used for Right knee."""
+    """Read Write Property: is Pitch used for Right knee."""
     RollSolver:FBCharacterRollSolver
-    """**Read Write Property:** Roll Solver selection."""
+    """Read Write Property: Roll Solver selection."""
     ShoulderCorrection:FBPropertyAnimatableDouble
-    """**Read Write Property:** shoulder correction values."""
+    """Read Write Property: shoulder correction values."""
     SyncMode:bool
-    """**Read Write Property:** is character in sync mode."""
+    """Read Write Property: is character in sync mode."""
     WriteReference:bool
-    """**Read Write Property:** are we writing back on reference."""
+    """Read Write Property: are we writing back on reference."""
     def AddCharacterExtension(self,Ext:FBCharacterExtension):
         """AddCharacterExtension.
         
@@ -10432,7 +10432,7 @@ class FBCharacter(FBConstraint):
 class FBActor(FBConstraint):
     """[FBActor](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_actor.html "FBActor is used to link motion data to a character.") is used to link motion data to a character.
     
-    In MotionBuilder, an actor is a model used to link captured motion data to a character. Use functions in [FBActor](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_actor.html "FBActor is used to link motion data to a character.") to set the body color, skeleton color, pivot color, marker size, pivot size, pivot information, etc. on an actor.**These classes are under development and may change dramatically between versions.**To obtain the list of actors present in a scene, you need to create an instance of class [FBSystem](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_system.html "Provides access to the underlying system, and the MotionBuilder scene."), to obtain the current scene. The [FBScene](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_scene.html "Access to the MotionBuilder scene.") object holds the list of actors in the property Actors.
+    In MotionBuilder, an actor is a model used to link captured motion data to a character. Use functions in [FBActor](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_actor.html "FBActor is used to link motion data to a character.") to set the body color, skeleton color, pivot color, marker size, pivot size, pivot information, etc. on an actor.These classes are under development and may change dramatically between versions.To obtain the list of actors present in a scene, you need to create an instance of class [FBSystem](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_system.html "Provides access to the underlying system, and the MotionBuilder scene."), to obtain the current scene. The [FBScene](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_scene.html "Access to the MotionBuilder scene.") object holds the list of actors in the property Actors.
     
     ```c++
     FBSystem lSystem;
@@ -10457,353 +10457,353 @@ class FBActor(FBConstraint):
     }
     ```"""
     BodyColor:FBColor
-    """**Read Write Property:** The color of the body of the actor."""
+    """Read Write Property: The color of the body of the actor."""
     ChestOffsetR:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local rotation offset that is applied after the actor solve"""
+    """Read Write Property: Local rotation offset that is applied after the actor solve"""
     ChestOffsetT:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local translation offset that is applied after the actor solve"""
+    """Read Write Property: Local translation offset that is applied after the actor solve"""
     ChestPosition:FBVector3d
-    """**Read Write Property:** Body part pivot of the actor."""
+    """Read Write Property: Body part pivot of the actor."""
     FKFingerMultiplier:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to augment the amount of FK propagation for unmarkered intermediate finger phalanges."""
+    """Read Write Property: Used to augment the amount of FK propagation for unmarkered intermediate finger phalanges."""
     FKFingerTipMultiplier:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to augment the amount of FK propagation for unmarkered finger tip phalanges."""
+    """Read Write Property: Used to augment the amount of FK propagation for unmarkered finger tip phalanges."""
     FKThumbTipMultiplier:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to augment the amount of FK propagation for unmarkered thumb tip phalanges."""
+    """Read Write Property: Used to augment the amount of FK propagation for unmarkered thumb tip phalanges."""
     HeadOffsetR:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local rotation offset that is applied after the actor solve"""
+    """Read Write Property: Local rotation offset that is applied after the actor solve"""
     HeadOffsetT:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local translation offset that is applied after the actor solve"""
+    """Read Write Property: Local translation offset that is applied after the actor solve"""
     HeadPosition:FBVector3d
-    """**Read Write Property:** Body part pivot of the actor."""
+    """Read Write Property: Body part pivot of the actor."""
     HipsOffsetR:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local rotation offset that is applied after the actor solve"""
+    """Read Write Property: Local rotation offset that is applied after the actor solve"""
     HipsOffsetT:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local translation offset that is applied after the actor solve"""
+    """Read Write Property: Local translation offset that is applied after the actor solve"""
     HipsPosition:FBVector3d
-    """**Read Write Property:** Body part pivot of the actor."""
+    """Read Write Property: Body part pivot of the actor."""
     HumanFingerLimits:FBPropertyAnimatableBool
-    """**Read Write Property:** Enables/Disables human finger limits during actor solve."""
+    """Read Write Property: Enables/Disables human finger limits during actor solve."""
     IKManip:bool
-    """**Read Write Property:** Access to the IK Manip mode. This property is shared for all actors."""
+    """Read Write Property: Access to the IK Manip mode. This property is shared for all actors."""
     LeftAnkleOffsetR:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local rotation offset that is applied after the actor solve"""
+    """Read Write Property: Local rotation offset that is applied after the actor solve"""
     LeftAnkleOffsetT:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local translation offset that is applied after the actor solve"""
+    """Read Write Property: Local translation offset that is applied after the actor solve"""
     LeftAnklePosition:FBVector3d
-    """**Read Write Property:** Body part pivot of the actor."""
+    """Read Write Property: Body part pivot of the actor."""
     LeftCollarOffsetR:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local rotation offset that is applied after the actor solve"""
+    """Read Write Property: Local rotation offset that is applied after the actor solve"""
     LeftCollarOffsetT:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local translation offset that is applied after the actor solve"""
+    """Read Write Property: Local translation offset that is applied after the actor solve"""
     LeftCollarPosition:FBVector3d
-    """**Read Write Property:** Body part pivot of the actor."""
+    """Read Write Property: Body part pivot of the actor."""
     LeftElbowOffsetR:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local rotation offset that is applied after the actor solve"""
+    """Read Write Property: Local rotation offset that is applied after the actor solve"""
     LeftElbowOffsetT:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local translation offset that is applied after the actor solve"""
+    """Read Write Property: Local translation offset that is applied after the actor solve"""
     LeftElbowPosition:FBVector3d
-    """**Read Write Property:** Body part pivot of the actor."""
+    """Read Write Property: Body part pivot of the actor."""
     LeftFootOffsetR:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local rotation offset that is applied after the actor solve"""
+    """Read Write Property: Local rotation offset that is applied after the actor solve"""
     LeftFootOffsetT:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local translation offset that is applied after the actor solve"""
+    """Read Write Property: Local translation offset that is applied after the actor solve"""
     LeftFootPosition:FBVector3d
-    """**Read Write Property:** Body part pivot of the actor."""
+    """Read Write Property: Body part pivot of the actor."""
     LeftHandIndexIndex:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     LeftHandIndexMiddle:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     LeftHandIndexPinky:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     LeftHandIndexRing:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     LeftHandMiddleIndex:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     LeftHandMiddleMiddle:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     LeftHandMiddlePinky:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     LeftHandMiddleRing:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     LeftHandPinkyIndex:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     LeftHandPinkyMiddle:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     LeftHandPinkyPinky:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     LeftHandPinkyRing:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     LeftHandRingIndex:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     LeftHandRingMiddle:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     LeftHandRingPinky:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     LeftHandRingRing:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     LeftHipOffsetR:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local rotation offset that is applied after the actor solve"""
+    """Read Write Property: Local rotation offset that is applied after the actor solve"""
     LeftHipOffsetT:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local translation offset that is applied after the actor solve"""
+    """Read Write Property: Local translation offset that is applied after the actor solve"""
     LeftHipPosition:FBVector3d
-    """**Read Write Property:** Body part pivot of the actor."""
+    """Read Write Property: Body part pivot of the actor."""
     LeftIndexAOffsetR:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local rotation offset that is applied after the actor solve"""
+    """Read Write Property: Local rotation offset that is applied after the actor solve"""
     LeftIndexAOffsetT:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local translation offset that is applied after the actor solve"""
+    """Read Write Property: Local translation offset that is applied after the actor solve"""
     LeftIndexBOffsetR:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local rotation offset that is applied after the actor solve"""
+    """Read Write Property: Local rotation offset that is applied after the actor solve"""
     LeftIndexBOffsetT:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local translation offset that is applied after the actor solve"""
+    """Read Write Property: Local translation offset that is applied after the actor solve"""
     LeftIndexCOffsetR:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local rotation offset that is applied after the actor solve"""
+    """Read Write Property: Local rotation offset that is applied after the actor solve"""
     LeftIndexCOffsetT:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local translation offset that is applied after the actor solve"""
+    """Read Write Property: Local translation offset that is applied after the actor solve"""
     LeftKneeOffsetR:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local rotation offset that is applied after the actor solve"""
+    """Read Write Property: Local rotation offset that is applied after the actor solve"""
     LeftKneeOffsetT:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local translation offset that is applied after the actor solve"""
+    """Read Write Property: Local translation offset that is applied after the actor solve"""
     LeftKneePosition:FBVector3d
-    """**Read Write Property:** Body part pivot of the actor."""
+    """Read Write Property: Body part pivot of the actor."""
     LeftMiddleAOffsetR:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local rotation offset that is applied after the actor solve"""
+    """Read Write Property: Local rotation offset that is applied after the actor solve"""
     LeftMiddleAOffsetT:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local translation offset that is applied after the actor solve"""
+    """Read Write Property: Local translation offset that is applied after the actor solve"""
     LeftMiddleBOffsetR:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local rotation offset that is applied after the actor solve"""
+    """Read Write Property: Local rotation offset that is applied after the actor solve"""
     LeftMiddleBOffsetT:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local translation offset that is applied after the actor solve"""
+    """Read Write Property: Local translation offset that is applied after the actor solve"""
     LeftMiddleCOffsetR:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local rotation offset that is applied after the actor solve"""
+    """Read Write Property: Local rotation offset that is applied after the actor solve"""
     LeftMiddleCOffsetT:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local translation offset that is applied after the actor solve"""
+    """Read Write Property: Local translation offset that is applied after the actor solve"""
     LeftPinkyAOffsetR:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local rotation offset that is applied after the actor solve"""
+    """Read Write Property: Local rotation offset that is applied after the actor solve"""
     LeftPinkyAOffsetT:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local translation offset that is applied after the actor solve"""
+    """Read Write Property: Local translation offset that is applied after the actor solve"""
     LeftPinkyBOffsetR:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local rotation offset that is applied after the actor solve"""
+    """Read Write Property: Local rotation offset that is applied after the actor solve"""
     LeftPinkyBOffsetT:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local translation offset that is applied after the actor solve"""
+    """Read Write Property: Local translation offset that is applied after the actor solve"""
     LeftPinkyCOffsetR:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local rotation offset that is applied after the actor solve"""
+    """Read Write Property: Local rotation offset that is applied after the actor solve"""
     LeftPinkyCOffsetT:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local translation offset that is applied after the actor solve"""
+    """Read Write Property: Local translation offset that is applied after the actor solve"""
     LeftRingAOffsetR:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local rotation offset that is applied after the actor solve"""
+    """Read Write Property: Local rotation offset that is applied after the actor solve"""
     LeftRingAOffsetT:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local translation offset that is applied after the actor solve"""
+    """Read Write Property: Local translation offset that is applied after the actor solve"""
     LeftRingBOffsetR:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local rotation offset that is applied after the actor solve"""
+    """Read Write Property: Local rotation offset that is applied after the actor solve"""
     LeftRingBOffsetT:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local translation offset that is applied after the actor solve"""
+    """Read Write Property: Local translation offset that is applied after the actor solve"""
     LeftRingCOffsetR:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local rotation offset that is applied after the actor solve"""
+    """Read Write Property: Local rotation offset that is applied after the actor solve"""
     LeftRingCOffsetT:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local translation offset that is applied after the actor solve"""
+    """Read Write Property: Local translation offset that is applied after the actor solve"""
     LeftShoulderOffsetR:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local rotation offset that is applied after the actor solve"""
+    """Read Write Property: Local rotation offset that is applied after the actor solve"""
     LeftShoulderOffsetT:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local translation offset that is applied after the actor solve"""
+    """Read Write Property: Local translation offset that is applied after the actor solve"""
     LeftShoulderPosition:FBVector3d
-    """**Read Write Property:** Body part pivot of the actor."""
+    """Read Write Property: Body part pivot of the actor."""
     LeftThumbAOffsetR:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local rotation offset that is applied after the actor solve"""
+    """Read Write Property: Local rotation offset that is applied after the actor solve"""
     LeftThumbAOffsetT:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local translation offset that is applied after the actor solve"""
+    """Read Write Property: Local translation offset that is applied after the actor solve"""
     LeftThumbBOffsetR:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local rotation offset that is applied after the actor solve"""
+    """Read Write Property: Local rotation offset that is applied after the actor solve"""
     LeftThumbBOffsetT:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local translation offset that is applied after the actor solve"""
+    """Read Write Property: Local translation offset that is applied after the actor solve"""
     LeftThumbCOffsetR:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local rotation offset that is applied after the actor solve"""
+    """Read Write Property: Local rotation offset that is applied after the actor solve"""
     LeftThumbCOffsetT:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local translation offset that is applied after the actor solve"""
+    """Read Write Property: Local translation offset that is applied after the actor solve"""
     LeftWristOffsetR:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local rotation offset that is applied after the actor solve"""
+    """Read Write Property: Local rotation offset that is applied after the actor solve"""
     LeftWristOffsetT:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local translation offset that is applied after the actor solve"""
+    """Read Write Property: Local translation offset that is applied after the actor solve"""
     LeftWristPosition:FBVector3d
-    """**Read Write Property:** Body part pivot of the actor."""
+    """Read Write Property: Body part pivot of the actor."""
     ManipulateOffsets:bool
-    """**Read Write Property:** Flag to compute offsets while manipulating. If it is set to false, the manipulator is re-snapping as before. If it is set to true, offsets properties (T and R) are computed and candidated instead."""
+    """Read Write Property: Flag to compute offsets while manipulating. If it is set to false, the manipulator is re-snapping as before. If it is set to true, offsets properties (T and R) are computed and candidated instead."""
     MarkerSet:FBMarkerSet
-    """**Read Write Property:** Associated marker set."""
+    """Read Write Property: Associated marker set."""
     MarkerSetSize:float
-    """**Read Write Property:** The size of the markers of the actor."""
+    """Read Write Property: The size of the markers of the actor."""
     NeckOffsetR:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local rotation offset that is applied after the actor solve"""
+    """Read Write Property: Local rotation offset that is applied after the actor solve"""
     NeckOffsetT:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local translation offset that is applied after the actor solve"""
+    """Read Write Property: Local translation offset that is applied after the actor solve"""
     NeckPosition:FBVector3d
-    """**Read Write Property:** Body part pivot of the actor."""
+    """Read Write Property: Body part pivot of the actor."""
     OutputMarkerSet:FBMarkerSet
-    """**Read Write Property:** Associated output marker set."""
+    """Read Write Property: Associated output marker set."""
     PivotColor:FBColor
-    """**Read Write Property:** The color of the pivot points of the actor."""
+    """Read Write Property: The color of the pivot points of the actor."""
     PivotPointsVisibility:bool
-    """**Read Write Property:** Show or Hide the Pivot Points."""
+    """Read Write Property: Show or Hide the Pivot Points."""
     PivotSize:float
-    """**Read Write Property:** The size of the pivot points of the actor."""
+    """Read Write Property: The size of the pivot points of the actor."""
     RightAnkleOffsetR:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local rotation offset that is applied after the actor solve"""
+    """Read Write Property: Local rotation offset that is applied after the actor solve"""
     RightAnkleOffsetT:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local translation offset that is applied after the actor solve"""
+    """Read Write Property: Local translation offset that is applied after the actor solve"""
     RightAnklePosition:FBVector3d
-    """**Read Write Property:** Body part pivot of the actor."""
+    """Read Write Property: Body part pivot of the actor."""
     RightCollarOffsetR:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local rotation offset that is applied after the actor solve"""
+    """Read Write Property: Local rotation offset that is applied after the actor solve"""
     RightCollarOffsetT:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local translation offset that is applied after the actor solve"""
+    """Read Write Property: Local translation offset that is applied after the actor solve"""
     RightCollarPosition:FBVector3d
-    """**Read Write Property:** Body part pivot of the actor."""
+    """Read Write Property: Body part pivot of the actor."""
     RightElbowOffsetR:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local rotation offset that is applied after the actor solve"""
+    """Read Write Property: Local rotation offset that is applied after the actor solve"""
     RightElbowOffsetT:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local translation offset that is applied after the actor solve"""
+    """Read Write Property: Local translation offset that is applied after the actor solve"""
     RightElbowPosition:FBVector3d
-    """**Read Write Property:** Body part pivot of the actor."""
+    """Read Write Property: Body part pivot of the actor."""
     RightFootOffsetR:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local rotation offset that is applied after the actor solve"""
+    """Read Write Property: Local rotation offset that is applied after the actor solve"""
     RightFootOffsetT:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local translation offset that is applied after the actor solve"""
+    """Read Write Property: Local translation offset that is applied after the actor solve"""
     RightFootPosition:FBVector3d
-    """**Read Write Property:** Body part pivot of the actor."""
+    """Read Write Property: Body part pivot of the actor."""
     RightHandIndexIndex:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     RightHandIndexMiddle:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     RightHandIndexPinky:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     RightHandIndexRing:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     RightHandMiddleIndex:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     RightHandMiddleMiddle:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     RightHandMiddlePinky:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     RightHandMiddleRing:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     RightHandPinkyIndex:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     RightHandPinkyMiddle:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     RightHandPinkyPinky:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     RightHandPinkyRing:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     RightHandRingIndex:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     RightHandRingMiddle:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     RightHandRingPinky:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     RightHandRingRing:FBPropertyAnimatableDouble
-    """**Read Write Property:** Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
+    """Read Write Property: Used to set blending coefficients. Each of the 4 fingers can be a blend of the 4 finger. This is not available for thumbs."""
     RightHipOffsetR:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local rotation offset that is applied after the actor solve"""
+    """Read Write Property: Local rotation offset that is applied after the actor solve"""
     RightHipOffsetT:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local translation offset that is applied after the actor solve"""
+    """Read Write Property: Local translation offset that is applied after the actor solve"""
     RightHipPosition:FBVector3d
-    """**Read Write Property:** Body part pivot of the actor."""
+    """Read Write Property: Body part pivot of the actor."""
     RightIndexAOffsetR:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local rotation offset that is applied after the actor solve"""
+    """Read Write Property: Local rotation offset that is applied after the actor solve"""
     RightIndexAOffsetT:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local translation offset that is applied after the actor solve"""
+    """Read Write Property: Local translation offset that is applied after the actor solve"""
     RightIndexBOffsetR:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local rotation offset that is applied after the actor solve"""
+    """Read Write Property: Local rotation offset that is applied after the actor solve"""
     RightIndexBOffsetT:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local translation offset that is applied after the actor solve"""
+    """Read Write Property: Local translation offset that is applied after the actor solve"""
     RightIndexCOffsetR:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local rotation offset that is applied after the actor solve"""
+    """Read Write Property: Local rotation offset that is applied after the actor solve"""
     RightIndexCOffsetT:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local translation offset that is applied after the actor solve"""
+    """Read Write Property: Local translation offset that is applied after the actor solve"""
     RightKneeOffsetR:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local rotation offset that is applied after the actor solve"""
+    """Read Write Property: Local rotation offset that is applied after the actor solve"""
     RightKneeOffsetT:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local translation offset that is applied after the actor solve"""
+    """Read Write Property: Local translation offset that is applied after the actor solve"""
     RightKneePosition:FBVector3d
-    """**Read Write Property:** Body part pivot of the actor."""
+    """Read Write Property: Body part pivot of the actor."""
     RightMiddleAOffsetR:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local rotation offset that is applied after the actor solve"""
+    """Read Write Property: Local rotation offset that is applied after the actor solve"""
     RightMiddleAOffsetT:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local translation offset that is applied after the actor solve"""
+    """Read Write Property: Local translation offset that is applied after the actor solve"""
     RightMiddleBOffsetR:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local rotation offset that is applied after the actor solve"""
+    """Read Write Property: Local rotation offset that is applied after the actor solve"""
     RightMiddleBOffsetT:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local translation offset that is applied after the actor solve"""
+    """Read Write Property: Local translation offset that is applied after the actor solve"""
     RightMiddleCOffsetR:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local rotation offset that is applied after the actor solve"""
+    """Read Write Property: Local rotation offset that is applied after the actor solve"""
     RightMiddleCOffsetT:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local translation offset that is applied after the actor solve"""
+    """Read Write Property: Local translation offset that is applied after the actor solve"""
     RightPinkyAOffsetR:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local rotation offset that is applied after the actor solve"""
+    """Read Write Property: Local rotation offset that is applied after the actor solve"""
     RightPinkyAOffsetT:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local translation offset that is applied after the actor solve"""
+    """Read Write Property: Local translation offset that is applied after the actor solve"""
     RightPinkyBOffsetR:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local rotation offset that is applied after the actor solve"""
+    """Read Write Property: Local rotation offset that is applied after the actor solve"""
     RightPinkyBOffsetT:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local translation offset that is applied after the actor solve"""
+    """Read Write Property: Local translation offset that is applied after the actor solve"""
     RightPinkyCOffsetR:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local rotation offset that is applied after the actor solve"""
+    """Read Write Property: Local rotation offset that is applied after the actor solve"""
     RightPinkyCOffsetT:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local translation offset that is applied after the actor solve"""
+    """Read Write Property: Local translation offset that is applied after the actor solve"""
     RightRingAOffsetR:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local rotation offset that is applied after the actor solve"""
+    """Read Write Property: Local rotation offset that is applied after the actor solve"""
     RightRingAOffsetT:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local translation offset that is applied after the actor solve"""
+    """Read Write Property: Local translation offset that is applied after the actor solve"""
     RightRingBOffsetR:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local rotation offset that is applied after the actor solve"""
+    """Read Write Property: Local rotation offset that is applied after the actor solve"""
     RightRingBOffsetT:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local translation offset that is applied after the actor solve"""
+    """Read Write Property: Local translation offset that is applied after the actor solve"""
     RightRingCOffsetR:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local rotation offset that is applied after the actor solve"""
+    """Read Write Property: Local rotation offset that is applied after the actor solve"""
     RightRingCOffsetT:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local translation offset that is applied after the actor solve"""
+    """Read Write Property: Local translation offset that is applied after the actor solve"""
     RightShoulderOffsetR:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local rotation offset that is applied after the actor solve"""
+    """Read Write Property: Local rotation offset that is applied after the actor solve"""
     RightShoulderOffsetT:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local translation offset that is applied after the actor solve"""
+    """Read Write Property: Local translation offset that is applied after the actor solve"""
     RightShoulderPosition:FBVector3d
-    """**Read Write Property:** Body part pivot of the actor."""
+    """Read Write Property: Body part pivot of the actor."""
     RightThumbAOffsetR:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local rotation offset that is applied after the actor solve"""
+    """Read Write Property: Local rotation offset that is applied after the actor solve"""
     RightThumbAOffsetT:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local translation offset that is applied after the actor solve"""
+    """Read Write Property: Local translation offset that is applied after the actor solve"""
     RightThumbBOffsetR:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local rotation offset that is applied after the actor solve"""
+    """Read Write Property: Local rotation offset that is applied after the actor solve"""
     RightThumbBOffsetT:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local translation offset that is applied after the actor solve"""
+    """Read Write Property: Local translation offset that is applied after the actor solve"""
     RightThumbCOffsetR:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local rotation offset that is applied after the actor solve"""
+    """Read Write Property: Local rotation offset that is applied after the actor solve"""
     RightThumbCOffsetT:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local translation offset that is applied after the actor solve"""
+    """Read Write Property: Local translation offset that is applied after the actor solve"""
     RightWristOffsetR:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local rotation offset that is applied after the actor solve"""
+    """Read Write Property: Local rotation offset that is applied after the actor solve"""
     RightWristOffsetT:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local translation offset that is applied after the actor solve"""
+    """Read Write Property: Local translation offset that is applied after the actor solve"""
     RightWristPosition:FBVector3d
-    """**Read Write Property:** Body part pivot of the actor."""
+    """Read Write Property: Body part pivot of the actor."""
     SkeletonColor:FBColor
-    """**Read Write Property:** The color of the skeleton of the actor."""
+    """Read Write Property: The color of the skeleton of the actor."""
     SkeletonVisibility:bool
-    """**Read Write Property:** Show or Hide the Skeleton."""
+    """Read Write Property: Show or Hide the Skeleton."""
     SymmetryEditRotation:bool
-    """**Read Write Property:** Symmetry Edit (Rotation) mode state. Only effective when IKManip property is set to false. This property is shared for all actors."""
+    """Read Write Property: Symmetry Edit (Rotation) mode state. Only effective when IKManip property is set to false. This property is shared for all actors."""
     SymmetryEditScaling:bool
-    """**Read Write Property:** Symmetry Edit (Scaling) mode state. Only effective when IKManip property is set to false. This property is shared for all actors."""
+    """Read Write Property: Symmetry Edit (Scaling) mode state. Only effective when IKManip property is set to false. This property is shared for all actors."""
     SymmetryEditTranslation:bool
-    """**Read Write Property:** Symmetry Edit (Translation) mode state. Only effective when IKManip property is set to false. This property is shared for all actors."""
+    """Read Write Property: Symmetry Edit (Translation) mode state. Only effective when IKManip property is set to false. This property is shared for all actors."""
     Visibility:bool
-    """**Read Write Property:** Show or Hide the Actor Body."""
+    """Read Write Property: Show or Hide the Actor Body."""
     WaistOffsetR:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local rotation offset that is applied after the actor solve"""
+    """Read Write Property: Local rotation offset that is applied after the actor solve"""
     WaistOffsetT:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Local translation offset that is applied after the actor solve"""
+    """Read Write Property: Local translation offset that is applied after the actor solve"""
     WaistPosition:FBVector3d
-    """**Read Write Property:** Body part pivot of the actor."""
+    """Read Write Property: Body part pivot of the actor."""
     @overload
     def GetCurrentSkeletonState(self)->FBSkeletonState:...
     @overload
@@ -10910,7 +10910,7 @@ class FBConstraintRelation(FBConstraint):
     
     [See samples: CreateAndPopulateAConstraintRelation.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_create_and_populate_a_constraint_relation_8py-example.html) [TraversingRelationConstraint.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_traversing_relation_constraint_8py-example.html)"""
     Boxes:FBPropertyListBox
-    """**List:** Boxes used in this constraint."""
+    """List: Boxes used in this constraint."""
     def ConstrainObject(self,ConstrainedObject:FBBox)->FBBox:
         """Create a receiver box.
         
@@ -10973,15 +10973,15 @@ class FBConstraintRelation(FBConstraint):
 class FBCycleAnalysisNode(FBBox):
     """Cycle Analysis class."""
     RealTime:bool
-    """**Read Only Property:** Real time."""
+    """Read Only Property: Real time."""
     RootHMode:FBRootHMode
-    """**Read Only Property:** RootH Mode."""
+    """Read Only Property: RootH Mode."""
     RootRMode:FBRootRMode
-    """**Read Only Property:** RootR Mode."""
+    """Read Only Property: RootR Mode."""
     RootSpeedMode:FBRootSpeedMode
-    """**Read Only Property:** Root Speed Mode."""
+    """Read Only Property: Root Speed Mode."""
     RootXZMode:FBRootXZMode
-    """**Read Only Property:** RootXZ Mode."""
+    """Read Only Property: RootXZ Mode."""
     def GetPoseFCurve(self)->FBFCurve:
         """"""
         ...
@@ -11033,29 +11033,29 @@ class FBDevice(FBBox):
     ```
     [See samples: StartDevice.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_start_device_8py-example.html) [StopDevice.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_stop_device_8py-example.html)"""
     CommType:int
-    """**Read Write Property:** Type of communications."""
+    """Read Write Property: Type of communications."""
     HardwareVersionInfo:str
-    """**Read Write Property:** Device information: hardware version."""
+    """Read Write Property: Device information: hardware version."""
     Information:str
-    """**Read Write Property:** Device information: information."""
+    """Read Write Property: Device information: information."""
     ModelBindingRoot:FBModel
-    """**Component:** Root of model currently binded model hierarchy."""
+    """Component: Root of model currently binded model hierarchy."""
     ModelTemplate:FBModelTemplate
-    """**Component:** Root of model template structure."""
+    """Component: Root of model template structure."""
     Online:bool
-    """**Read Write Property:** Is online?"""
+    """Read Write Property: Is online?"""
     RecordingStartTime:FBTime
-    """**Read Only Property:** The time at which the recording started."""
+    """Read Only Property: The time at which the recording started."""
     RecordingStopTime:FBTime
-    """**Read Only Property:** The time at which the recording stopped."""
+    """Read Only Property: The time at which the recording stopped."""
     SamplingMode:FBDeviceSamplingMode
-    """**Read Write Property:** Mode to use to record device."""
+    """Read Write Property: Mode to use to record device."""
     SamplingPeriod:FBTime
-    """**Read Write Property:** Set this to how many times a device is to be evaluated in one second. There is no theoretical maximum value but practically you should consider scene complexity, system resources, network speed, etc. If set to 0: the device is evaluated on the sync signal. When the sync occurs; the device is scheduled to be evaluated. If you do not set, the sampling period is based on the internal variable from the [Sync] section of the .Application.txt file (NTSC, PAL, CINEMA)."""
+    """Read Write Property: Set this to how many times a device is to be evaluated in one second. There is no theoretical maximum value but practically you should consider scene complexity, system resources, network speed, etc. If set to 0: the device is evaluated on the sync signal. When the sync occurs; the device is scheduled to be evaluated. If you do not set, the sampling period is based on the internal variable from the [Sync] section of the .Application.txt file (NTSC, PAL, CINEMA)."""
     Status:str
-    """**Read Write Property:** Device information: status."""
+    """Read Write Property: Device information: status."""
     def AckOneBadSampleReceived(self):
-        """Acknowlege that one **bad** sample was received (for statistical purposes)."""
+        """Acknowlege that one bad sample was received (for statistical purposes)."""
         ...
     def AckOneSampleReceived(self):
         """Acknowlege that one sample was received (for statistical purposes)."""
@@ -11087,7 +11087,7 @@ class FBDevice(FBBox):
         """Create a new model binding.
         
         ### Returns:
-        **The** model root that has been created or NULL is an error occured."""
+        The model root that has been created or NULL is an error occured."""
         ...
     def ModelBindingRootsList(self,List:FBModelList):
         """Get the list of all the possible root models for binding.
@@ -11113,42 +11113,42 @@ class FBDevice(FBBox):
 class FBGlobalLight(FBBox):
     """Global light class."""
     AmbientColor:FBPropertyAnimatableColor
-    """**Read Write Property:** Ambient light color."""
+    """Read Write Property: Ambient light color."""
     FogBegin:FBPropertyAnimatableDouble
-    """**Read Write Property:** Begin fog distance."""
+    """Read Write Property: Begin fog distance."""
     FogColor:FBPropertyAnimatableColor
-    """**Read Write Property:** Fog color."""
+    """Read Write Property: Fog color."""
     FogDensity:FBPropertyAnimatableDouble
-    """**Read Write Property:** Fog density."""
+    """Read Write Property: Fog density."""
     FogEnable:bool
-    """**Read Write Property:** Enable fog?"""
+    """Read Write Property: Enable fog?"""
     FogEnd:FBPropertyAnimatableDouble
-    """**Read Write Property:** End fog distance."""
+    """Read Write Property: End fog distance."""
     FogMode:FBFogMode
-    """**Read Write Property:** Fog falloff mode."""
+    """Read Write Property: Fog falloff mode."""
     def __init__(self):...
 class FBDeviceOptical(FBDevice):
     """Optical device class."""
     AutoAntialiasing:bool
-    """**Property:** Is it auto-antialiasing?"""
+    """Property: Is it auto-antialiasing?"""
     DampingTime:float
-    """**Property:** Damping time for device."""
+    """Property: Damping time for device."""
     ForceOpticalSamplingRate:bool
-    """**Property:** Force the use of the optical sampling rate?"""
+    """Property: Force the use of the optical sampling rate?"""
     MarkerTimeStamp:FBTime
-    """**Property:** TimeStamp for marker."""
+    """Property: TimeStamp for marker."""
     Markers:FBPropertyListDeviceOpticalMarker
-    """**List:** Markers."""
+    """List: Markers."""
     ModelOptical:FBModel
-    """**Property:** Optical model for manipulation."""
+    """Property: Optical model for manipulation."""
     OpticalSamplingRate:float
-    """**Property:** Resampling rate for optical device."""
+    """Property: Resampling rate for optical device."""
     SkipFrame:bool
-    """**Property:** Skip Record Frame"""
+    """Property: Skip Record Frame"""
     SupportOcclusion:bool
-    """**Property:** Does the device support occulsion?"""
+    """Property: Does the device support occulsion?"""
     UseMarkerTimeStamp:bool
-    """**Property:** Use the individual marker timestamps?"""
+    """Property: Use the individual marker timestamps?"""
     def DeviceOpticalBeginSetup(self):
         """Begin device setup."""
         ...
@@ -11178,13 +11178,13 @@ class FBGroup(FBBox):
     
     [See samples: FBGetSelectedModels.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_f_b_get_selected_models_8py-example.html) [FBGroup.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_f_b_group_8py-example.html)"""
     Items:FBPropertyListComponent
-    """**List:** Items in the group."""
+    """List: Items in the group."""
     Pickable:bool
-    """**Read Write Property:** Controls if objects in the group are pickable."""
+    """Read Write Property: Controls if objects in the group are pickable."""
     Show:bool
-    """**Read Write Property:** Controls if objects in the group are displayed."""
+    """Read Write Property: Controls if objects in the group are displayed."""
     Transformable:bool
-    """**Read Write Property:** Controls if objects in the group are transformable."""
+    """Read Write Property: Controls if objects in the group are transformable."""
     def Clone(self)->FBGroup:
         """Clone the group.
         
@@ -11232,13 +11232,13 @@ class FBHUD(FBBox):
         eTextureElement:FBHUD.EStockElement
         eTimeline:FBHUD.EStockElement
     Elements:FBPropertyListHUDElement
-    """**List:** Elements present in the HUD."""
+    """List: Elements present in the HUD."""
     HUDs:FBPropertyListHUD
-    """**List:** HUDS attached to this HUD."""
+    """List: HUDS attached to this HUD."""
     OnDisplay:FBEvent
-    """**Event:** Callback just before HUD is displayed to update custom values"""
+    """Event: Callback just before HUD is displayed to update custom values"""
     Visibility:bool
-    """**Read Write Property:** Indicate if the information will be displayed or not."""
+    """Read Write Property: Indicate if the information will be displayed or not."""
     eBloopSlate:FBHUD.EStockElement
     eFlashElement:FBHUD.EStockElement
     eRecordLight:FBHUD.EStockElement
@@ -11282,44 +11282,44 @@ class FBHUDElement(FBBox):
     
     Display scene related information on a camera output. Rendered on video out, output renderings."""
     Height:float
-    """**Read Write Property:** Specifies the height of HUD element on the screen. It's in pixel when ScaleByPercent is false and percentage when ScaleByPercent is true."""
+    """Read Write Property: Specifies the height of HUD element on the screen. It's in pixel when ScaleByPercent is false and percentage when ScaleByPercent is true."""
     HorizontalDock:FBHUDElementHAlignment
-    """**Read Write Property:** Specifies if the HUD element will be horizontally docked to the Left, Right, or Center."""
+    """Read Write Property: Specifies if the HUD element will be horizontally docked to the Left, Right, or Center."""
     Justification:FBHUDElementHAlignment
-    """**Read Write Property:** Specifies if the justification of the HUD element is Left, Right, or Center."""
+    """Read Write Property: Specifies if the justification of the HUD element is Left, Right, or Center."""
     PositionByPercent:bool
-    """**Read Write Property:** When set to true, X and Y position values are in percentage, relative to the corresponding camera view dimension. Otherwise, they are absolute pixel values."""
+    """Read Write Property: When set to true, X and Y position values are in percentage, relative to the corresponding camera view dimension. Otherwise, they are absolute pixel values."""
     ScaleByPercent:bool
-    """**Read Write Property:** When set to true, Scale is in percentage, relative to the corresponding camera view dimension. Otherwise, it is an absolute value."""
+    """Read Write Property: When set to true, Scale is in percentage, relative to the corresponding camera view dimension. Otherwise, it is an absolute value."""
     ScaleUniformly:bool
-    """**Read Write Property:** Specifies whether the width and height of HUD element will be scaled uniformly according to the initial aspect ratio."""
+    """Read Write Property: Specifies whether the width and height of HUD element will be scaled uniformly according to the initial aspect ratio."""
     Show:bool
-    """**Read Write Property:** Specifies if the HUD element will be displayed or not."""
+    """Read Write Property: Specifies if the HUD element will be displayed or not."""
     VerticalDock:FBHUDElementVAlignment
-    """**Read Write Property:** Specifies if the HUD element will be vertically docked to the Bottom, Top, or Center."""
+    """Read Write Property: Specifies if the HUD element will be vertically docked to the Bottom, Top, or Center."""
     Visibility:property
     Width:float
-    """**Read Write Property:** Specifies the width of HUD element on the screen. It's in pixel when ScaleByPercent is false and percentage when ScaleByPercent is true."""
+    """Read Write Property: Specifies the width of HUD element on the screen. It's in pixel when ScaleByPercent is false and percentage when ScaleByPercent is true."""
     X:float
-    """**Read Write Property:** Specifies the horizontal position of the HUD element, relative to dock position and justification."""
+    """Read Write Property: Specifies the horizontal position of the HUD element, relative to dock position and justification."""
     Y:float
-    """**Read Write Property:** Specifies the vertical position of the HUD element, relative to dock position and justification."""
+    """Read Write Property: Specifies the vertical position of the HUD element, relative to dock position and justification."""
 class FBHandle(FBBox):
     """[FBHandle](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_handle.html "FBHandle class exposes the Handle object of the application.") class exposes the Handle object of the application.
     
     This is a terminal class and should not be used as a base for a new class."""
     Follow:FBPropertyListObject
-    """**List:** Object to be followed by the handle. Should have a cardinality of 1."""
+    """List: Object to be followed by the handle. Should have a cardinality of 1."""
     Image:FBPropertyListObject
-    """**List:** Image to be used in the handle display. Only the image at position 0 is used."""
+    """List: Image to be used in the handle display. Only the image at position 0 is used."""
     Manipulate:FBPropertyListObject
-    """**List:** Objects manipulated by the handle."""
+    """List: Objects manipulated by the handle."""
     ManipulateRotation:FBPropertyListObject
-    """**List:** Objects manipulated by the handle. Only their rotation is affected."""
+    """List: Objects manipulated by the handle. Only their rotation is affected."""
     ManipulateScaling:FBPropertyListObject
-    """**List:** Objects manipulated by the handle. Only their scaling is affected."""
+    """List: Objects manipulated by the handle. Only their scaling is affected."""
     ManipulateTranslation:FBPropertyListObject
-    """**List:** Objects manipulated by the handle. Only their translation is affected."""
+    """List: Objects manipulated by the handle. Only their translation is affected."""
     def Select(self):
         """Meta selection.
         
@@ -11340,7 +11340,7 @@ class FBHUDFlashElement(FBHUDElement):
     
     [See sample: HUDElements.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_h_u_d_0c_h_u_d_elements_8py-example.html)"""
     FilePath:str
-    """**Read Write Property:** Path to load the swf file from"""
+    """Read Write Property: Path to load the swf file from"""
     def __init__(self,Name:str):
         """Constructor.
         
@@ -11355,7 +11355,7 @@ class FBHUDRectElement(FBHUDElement):
     
     [See sample: HUDElements.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_h_u_d_0c_h_u_d_elements_8py-example.html)"""
     Color:FBColorAndAlpha
-    """**Read Write Property:** Color of the rectangluar region."""
+    """Read Write Property: Color of the rectangluar region."""
     def __init__(self,Name:str):
         """Constructor.
         
@@ -11368,15 +11368,15 @@ class FBHUDBloopSlateElement(FBHUDFlashElement):
     
     Bloop Slate HUD element. Display a bloop slate (swf) file rendered on the HUD."""
     BackgroundColor:FBColorAndAlpha
-    """**Read Write Property:** Bloop slate background color, by default it is 100% transparent."""
+    """Read Write Property: Bloop slate background color, by default it is 100% transparent."""
     Enable:bool
-    """**Read Write Property:** Bloop slate will appear if set to true."""
+    """Read Write Property: Bloop slate will appear if set to true."""
     ForegroundColor:FBColorAndAlpha
-    """**Read Write Property:** Bloop slate foreground color."""
+    """Read Write Property: Bloop slate foreground color."""
     ShowAfterDelayOnRecordPlay:FBTime
-    """**Read Write Property:** Delay before the bloop slate is displayed after recording has started."""
+    """Read Write Property: Delay before the bloop slate is displayed after recording has started."""
     ShowDuration:FBTime
-    """**Read Write Property:** Time that the bloop slate will be displayed."""
+    """Read Write Property: Time that the bloop slate will be displayed."""
     def __init__(self,Name:str):
         """Constructor.
         
@@ -11391,21 +11391,21 @@ class FBHUDTimelineElement(FBHUDFlashElement):
     
     [See sample: Timeline.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_h_u_d_0c_timeline_8py-example.html)"""
     CutActiveColor:FBColorAndAlpha
-    """**Read Write Property:** Specifies color of the Cut region when it is active."""
+    """Read Write Property: Specifies color of the Cut region when it is active."""
     CutIdleColor:FBColorAndAlpha
-    """**Read Write Property:** Specifies color of the Cut region when it is idle."""
+    """Read Write Property: Specifies color of the Cut region when it is idle."""
     HeadActiveColor:FBColorAndAlpha
-    """**Read Write Property:** Specifies color of the Head region when it is active."""
+    """Read Write Property: Specifies color of the Head region when it is active."""
     HeadDuration:FBTime
-    """**Read Write Property:** Specifies duration of the Head region."""
+    """Read Write Property: Specifies duration of the Head region."""
     HeadIdleColor:FBColorAndAlpha
-    """**Read Write Property:** Specifies color of the Head region when it is idle."""
+    """Read Write Property: Specifies color of the Head region when it is idle."""
     TailActiveColor:FBColorAndAlpha
-    """**Read Write Property:** Specifies color of the Tail region when it is active."""
+    """Read Write Property: Specifies color of the Tail region when it is active."""
     TailDuration:FBTime
-    """**Read Write Property:** Specifies duration of the Tail region."""
+    """Read Write Property: Specifies duration of the Tail region."""
     TailIdleColor:FBColorAndAlpha
-    """**Read Write Property:** Specifies color of the Tail region when it is idle."""
+    """Read Write Property: Specifies color of the Tail region when it is idle."""
     def __init__(self,Name:str):
         """Constructor.
         
@@ -11420,17 +11420,17 @@ class FBHUDTextElement(FBHUDElement):
     
     [See samples: HUDElements.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_h_u_d_0c_h_u_d_elements_8py-example.html) [HUDTextElement.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_h_u_d_0c_h_u_d_text_element_8py-example.html) [HUD.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_h_u_d_8py-example.html)"""
     AdjustWidthToFitText:bool
-    """**Read Write Property:** If On it it will adjust the width of a text element so that a text character's aspect ratio does not change as the content grows or shrinks."""
+    """Read Write Property: If On it it will adjust the width of a text element so that a text character's aspect ratio does not change as the content grows or shrinks."""
     BackgroundColor:FBColorAndAlpha
-    """**Read Write Property:** Background text color."""
+    """Read Write Property: Background text color."""
     Color:FBColorAndAlpha
-    """**Read Write Property:** Text color."""
+    """Read Write Property: Text color."""
     Content:str
-    """**Read Write Property:** C like format to display like in printf."""
+    """Read Write Property: C like format to display like in printf."""
     Font:str
-    """**Read Write Property:** Specifies the font."""
+    """Read Write Property: Specifies the font."""
     ForceTimeCodeDisplay:bool
-    """**Read Write Property:** Specifies if the display of time-related reference property will be in timecode format."""
+    """Read Write Property: Specifies if the display of time-related reference property will be in timecode format."""
     def GetFontList(self)->FBStringList:
         """Returns a list of supported fonts."""
         ...
@@ -11448,7 +11448,7 @@ class FBHUDTextureElement(FBHUDElement):
     
     [See sample: HUDElements.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_h_u_d_0c_h_u_d_elements_8py-example.html)"""
     Texture:FBPropertyListTexture
-    """**Read Write Property:** Texture to display."""
+    """Read Write Property: Texture to display."""
     def __init__(self,Name:str):
         """Constructor.
         
@@ -11463,41 +11463,41 @@ class FBMaterial(FBBox):
     
     [See samples: MaterialAndTexture.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_material_and_texture_0c_material_and_texture_8py-example.html) [TextureAnimation.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_material_and_texture_0c_texture_animation_8py-example.html) [VideoInput.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_video_0c_video_input_8py-example.html) [VideoMemory.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_video_0c_video_memory_8py-example.html)"""
     Ambient:FBPropertyAnimatableColor
-    """**Read Write Property:** Ambient color."""
+    """Read Write Property: Ambient color."""
     AmbientFactor:FBPropertyAnimatableDouble
-    """**Read Write Property:** Ambient Factor value."""
+    """Read Write Property: Ambient Factor value."""
     Bump:FBPropertyAnimatableColor
-    """**Read Write Property:** Bump."""
+    """Read Write Property: Bump."""
     BumpFactor:FBPropertyAnimatableDouble
-    """**Read Write Property:** Bump Factor value."""
+    """Read Write Property: Bump Factor value."""
     Diffuse:FBPropertyAnimatableColor
-    """**Read Write Property:** Diffuse color."""
+    """Read Write Property: Diffuse color."""
     DiffuseFactor:FBPropertyAnimatableDouble
-    """**Read Write Property:** Diffuse Factor value."""
+    """Read Write Property: Diffuse Factor value."""
     DisplacementColor:FBPropertyAnimatableColor
-    """**Read Write Property:** Displacement color."""
+    """Read Write Property: Displacement color."""
     DisplacementFactor:FBPropertyAnimatableDouble
-    """**Read Write Property:** Displacement Factor value."""
+    """Read Write Property: Displacement Factor value."""
     Emissive:FBPropertyAnimatableColor
-    """**Read Write Property:** Emissive color."""
+    """Read Write Property: Emissive color."""
     EmissiveFactor:FBPropertyAnimatableDouble
-    """**Read Write Property:** Emissive Factor value."""
+    """Read Write Property: Emissive Factor value."""
     NormalMap:FBPropertyAnimatableColor
-    """**Read Write Property:** Normal Map."""
+    """Read Write Property: Normal Map."""
     Reflection:FBPropertyAnimatableColor
-    """**Read Write Property:** Reflection color."""
+    """Read Write Property: Reflection color."""
     ReflectionFactor:FBPropertyAnimatableDouble
-    """**Read Write Property:** Reflection Factor value."""
+    """Read Write Property: Reflection Factor value."""
     Shininess:FBPropertyAnimatableDouble
-    """**Read Write Property:** Shininess value."""
+    """Read Write Property: Shininess value."""
     Specular:FBPropertyAnimatableColor
-    """**Read Write Property:** Specular color."""
+    """Read Write Property: Specular color."""
     SpecularFactor:FBPropertyAnimatableDouble
-    """**Read Write Property:** Specular Factor value."""
+    """Read Write Property: Specular Factor value."""
     TransparencyFactor:FBPropertyAnimatableDouble
-    """**Read Write Property:** Transparency Factor value."""
+    """Read Write Property: Transparency Factor value."""
     TransparentColor:FBPropertyAnimatableColor
-    """**Read Write Property:** Transparent color."""
+    """Read Write Property: Transparent color."""
     def Clone(self)->FBMaterial:
         """Clone the material.
         
@@ -11547,34 +11547,34 @@ class FBModel(FBBox):
     
     [See sample: ResetLocalTranslationRotation.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_reset_local_translation_rotation_8py-example.html)"""
     AnimationNode:FBAnimationNode
-    """**Read Only Property:** Animation node of the model."""
+    """Read Only Property: Animation node of the model."""
     BlendShapeDeformable:bool
-    """**Read Write Property:** Model blend-shape deformable. Not Savable"""
+    """Read Write Property: Model blend-shape deformable. Not Savable"""
     CastsShadows:bool
-    """**Read Write Property:** If true, the geometry will produce shadows."""
+    """Read Write Property: If true, the geometry will produce shadows."""
     Children:FBPropertyListModel
-    """**List:** Children for model."""
+    """List: Children for model."""
     ConstrainDeformable:bool
-    """**Read Write Property:** Model constraint deformable. Not Savable"""
+    """Read Write Property: Model constraint deformable. Not Savable"""
     CullingMode:property
     Deformers:FBPropertyListDeformer
-    """**List:** Deformers (Skeleton Deformer or Point Cache Deformer)."""
+    """List: Deformers (Skeleton Deformer or Point Cache Deformer)."""
     GeometricRotation:FBVector3d
-    """**Read Write Property:** Geometric rotation."""
+    """Read Write Property: Geometric rotation."""
     GeometricScaling:FBVector3d
-    """**Read Write Property:** Geometric scaling."""
+    """Read Write Property: Geometric scaling."""
     GeometricTranslation:FBVector3d
-    """**Read Write Property:** Geometric translation."""
+    """Read Write Property: Geometric translation."""
     Geometry:FBGeometry
-    """**Read Write Property:** Geometry for the model."""
+    """Read Write Property: Geometry for the model."""
     GeometryUpdateId:int
-    """**Read Only Property:** model geometry (vertex data) related update id."""
+    """Read Only Property: model geometry (vertex data) related update id."""
     Icon3D:bool
-    """**Read Write Property:** Is model a 3D icon?"""
+    """Read Write Property: Is model a 3D icon?"""
     IsConstrained:bool
-    """**Read Only Property:** Is model constrained?"""
+    """Read Only Property: Is model constrained?"""
     IsDeformable:bool
-    """**Read Only Property:** Is model deformable?"""
+    """Read Only Property: Is model deformable?"""
     IsVisible:bool
     """If the model is visible.
     
@@ -11587,81 +11587,81 @@ class FBModel(FBBox):
     ### Returns:
     true if visible for the given evaluate info."""
     LookAt:FBModel
-    """**Read Write Property:** Look at model (interest point)."""
+    """Read Write Property: Look at model (interest point)."""
     Materials:FBPropertyListMaterial
-    """**List:** Materials for model."""
+    """List: Materials for model."""
     ModelVertexData:FBModelVertexData
-    """**Read Only Property:** ModelVertexData for the model."""
+    """Read Only Property: ModelVertexData for the model."""
     Parent:FBModel
-    """**Read Write Property:** Parent model."""
+    """Read Write Property: Parent model."""
     Pickable:bool
-    """**Read Write Property:** Indicate if a model can be picked in the viewer. This has a default value of 'true'."""
+    """Read Write Property: Indicate if a model can be picked in the viewer. This has a default value of 'true'."""
     PointCacheDeformable:bool
-    """**Read Write Property:** Model point cache deformable. Not Savable"""
+    """Read Write Property: Model point cache deformable. Not Savable"""
     PointCacheRecord:bool
-    """**Read Write Property:** Record Point Cache for model? Not Savable"""
+    """Read Write Property: Record Point Cache for model? Not Savable"""
     PostRotation:FBVector3d
-    """**Read Write Property:** Post Rotation (considered if RotationActive is true)"""
+    """Read Write Property: Post Rotation (considered if RotationActive is true)"""
     PreRotation:FBVector3d
-    """**Read Write Property:** Pre Rotation (considered if RotationActive is true)"""
+    """Read Write Property: Pre Rotation (considered if RotationActive is true)"""
     PrimaryVisibility:bool
-    """**Read Write Property:** Control the geometry render state. Geometry can still cast shadows even if this is turned off."""
+    """Read Write Property: Control the geometry render state. Geometry can still cast shadows even if this is turned off."""
     QuaternionInterpolate:bool
-    """**Read Write Property:** Use quaternion interpolation."""
+    """Read Write Property: Use quaternion interpolation."""
     ReceiveShadows:bool
-    """**Read Write Property:** If true, the geometry will receive shadows."""
+    """Read Write Property: If true, the geometry will receive shadows."""
     Rotation:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Lcl rotation."""
+    """Read Write Property: Lcl rotation."""
     RotationActive:bool
-    """**Read Write Property:** Is model using Rotation Limits?"""
+    """Read Write Property: Is model using Rotation Limits?"""
     RotationMax:FBVector3d
-    """**Read Write Property:** Max Rotation Limit (considered if RotationActive is true)"""
+    """Read Write Property: Max Rotation Limit (considered if RotationActive is true)"""
     RotationMaxX:bool
-    """**Read Write Property:** Is model using Maximum Rotation Limits On X?"""
+    """Read Write Property: Is model using Maximum Rotation Limits On X?"""
     RotationMaxY:bool
-    """**Read Write Property:** Is model using Maximum Rotation Limits On Y?"""
+    """Read Write Property: Is model using Maximum Rotation Limits On Y?"""
     RotationMaxZ:bool
-    """**Read Write Property:** Is model using Maximum Rotation Limits On Z?"""
+    """Read Write Property: Is model using Maximum Rotation Limits On Z?"""
     RotationMin:FBVector3d
-    """**Read Write Property:** Min Rotation Limit (considered if RotationActive is true)"""
+    """Read Write Property: Min Rotation Limit (considered if RotationActive is true)"""
     RotationMinX:bool
-    """**Read Write Property:** Is model using Minimum Rotation Limits On X?"""
+    """Read Write Property: Is model using Minimum Rotation Limits On X?"""
     RotationMinY:bool
-    """**Read Write Property:** Is model using Minimum Rotation Limits On Y?"""
+    """Read Write Property: Is model using Minimum Rotation Limits On Y?"""
     RotationMinZ:bool
-    """**Read Write Property:** Is model using Minimum Rotation Limits On Z?"""
+    """Read Write Property: Is model using Minimum Rotation Limits On Z?"""
     RotationOrder:FBModelRotationOrder
-    """**Read Write Property:** Rotation order."""
+    """Read Write Property: Rotation order."""
     RotationSpaceForLimitOnly:bool
-    """**Read Write Property:** Apply Post Rotation Matrix only for Limits?"""
+    """Read Write Property: Apply Post Rotation Matrix only for Limits?"""
     Scaling:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Lcl scaling."""
+    """Read Write Property: Lcl scaling."""
     Scene:FBScene
-    """**Read Only Property:** Scene containing the model."""
+    """Read Only Property: Scene containing the model."""
     Shaders:FBPropertyListShader
-    """**List:** Shaders for model."""
+    """List: Shaders for model."""
     ShadingMode:FBModelShadingMode
-    """**Read Write Property:** Shading mode for the model."""
+    """Read Write Property: Shading mode for the model."""
     Show:bool
-    """**Read Write Property:** Indicate if the viewer should show the object, according to its visibility value. This has a default value of 'false'."""
+    """Read Write Property: Indicate if the viewer should show the object, according to its visibility value. This has a default value of 'false'."""
     SkeletonDeformable:bool
-    """**Read Write Property:** Model skeleton deformable. Not Savable"""
+    """Read Write Property: Model skeleton deformable. Not Savable"""
     SoftSelected:bool
-    """**Read Write Property:** Is model Soft selected?"""
+    """Read Write Property: Is model Soft selected?"""
     Textures:FBPropertyListTexture
-    """**List:** Textures with Special UseType (Other than "Color" which should connect to materials)."""
+    """List: Textures with Special UseType (Other than "Color" which should connect to materials)."""
     Transformable:bool
-    """**Read Write Property:** Indicate if a model can be transformable in the viewer. This has a default value of 'true'."""
+    """Read Write Property: Indicate if a model can be transformable in the viewer. This has a default value of 'true'."""
     Translation:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Lcl translation."""
+    """Read Write Property: Lcl translation."""
     UniqueColorId:FBColor
-    """**Read Only Property:** Unique Color Id for color based viewer picking. Color channel values are in the range [0, 1] with 1.0/255 precision."""
+    """Read Only Property: Unique Color Id for color based viewer picking. Color channel values are in the range [0, 1] with 1.0/255 precision."""
     UpVector:FBModel
-    """**Read Write Property:** UpVector model."""
+    """Read Write Property: UpVector model."""
     Visibility:FBPropertyAnimatableBool
-    """**Read Write Property:** Visibility of model. This can be overridden by the 'Show' property."""
+    """Read Write Property: Visibility of model. This can be overridden by the 'Show' property."""
     VisibilityInheritance:bool
-    """**Read Write Property:** //!< When this value is set to True the Visibility of this model is also applied to all its descendants"""
+    """Read Write Property: //!< When this value is set to True the Visibility of this model is also applied to all its descendants"""
     def Clone(self)->FBModel:
         """Clone the model.
         
@@ -11902,17 +11902,17 @@ class FBModel(FBBox):
         """Get the current Frustum Culling Status.
         
         ### Returns:
-        **True** if model don't use frustum culling currently."""
+        True if model don't use frustum culling currently."""
         ...
     def __copy__(self)->object:...
 class FBNote(FBBox):
     """Note class."""
     StaticComment:str
-    """**Read Write Property:** Comment associated to this note."""
+    """Read Write Property: Comment associated to this note."""
     def Attach(self,Comp:FBComponent|None=None)->bool:
         """Attach the note to a component.
         
-        Will attach the note to the component. If **pComp** is NULL, the note will only be added to the scene.
+        Will attach the note to the component. If pComp is NULL, the note will only be added to the scene.
         ### Parameters:
         
             - Comp: Component on which to attach note.
@@ -11924,7 +11924,7 @@ class FBNote(FBBox):
     def Detach(self,Comp:FBComponent|None=None)->bool:
         """Detach the note from a component.
         
-        Will detach the note from the component. If **pComp** is NULL, the note will be removed from the scene and detached from all components.
+        Will detach the note from the component. If pComp is NULL, the note will be removed from the scene and detached from all components.
         ### Parameters:
         
             - Comp: Component from which to detach note.
@@ -11959,44 +11959,44 @@ class FBLight(FBModel):
         eRectangle:FBLight.EAreaLightShapes
         eSphere:FBLight.EAreaLightShapes
     AreaLightShape:FBLight.EAreaLightShapes
-    """**Read Write Property:** Area light shape."""
+    """Read Write Property: Area light shape."""
     AttenuationType:FBAttenuationType
-    """**Read Write Property:** Type of attenuation for the light."""
+    """Read Write Property: Type of attenuation for the light."""
     BottomBarnDoor:float
-    """**Read Write Property:** Angle of bottom barn door."""
+    """Read Write Property: Angle of bottom barn door."""
     CastLightOnObject:bool
-    """**Read Write Property:** Cast light on object?"""
+    """Read Write Property: Cast light on object?"""
     CastShadows:bool
-    """**Read Write Property:** Cast shadows on object?"""
+    """Read Write Property: Cast shadows on object?"""
     ConeAngle:property
     DiffuseColor:FBPropertyAnimatableColor
-    """**Read Write Property:** Color: Diffuse color."""
+    """Read Write Property: Color: Diffuse color."""
     DrawFrontFacingVolumetric:bool
-    """**Read Write Property:** Draw front facing volumetric light?"""
+    """Read Write Property: Draw front facing volumetric light?"""
     DrawGroundProjection:bool
-    """**Read Write Property:** Draw ground projection of gobo?"""
+    """Read Write Property: Draw ground projection of gobo?"""
     DrawVolumetricLight:bool
-    """**Read Write Property:** Draw volumetric light with gobo?"""
+    """Read Write Property: Draw volumetric light with gobo?"""
     EnableBarnDoor:bool
-    """**Read Write Property:** Whether or not enable barn door."""
+    """Read Write Property: Whether or not enable barn door."""
     FogIntensity:FBPropertyAnimatableDouble
-    """**Read Write Property:** Intensity of the fog (spot light)."""
+    """Read Write Property: Intensity of the fog (spot light)."""
     GoboMedia:FBVideo
-    """**Read Write Property:** Media to use as a Gobo with the light."""
+    """Read Write Property: Media to use as a Gobo with the light."""
     InnerAngle:FBPropertyAnimatableDouble
-    """**Read Write Property:** Inner Cone angle for light."""
+    """Read Write Property: Inner Cone angle for light."""
     Intensity:FBPropertyAnimatableDouble
-    """**Read Write Property:** Light intensity."""
+    """Read Write Property: Light intensity."""
     LeftBarnDoor:float
-    """**Read Write Property:** Angle of left barn door."""
+    """Read Write Property: Angle of left barn door."""
     LightType:FBLightType
-    """**Read Write Property:** Type of light."""
+    """Read Write Property: Type of light."""
     OuterAngle:FBPropertyAnimatableDouble
-    """**Read Write Property:** Outer Cone angle for light."""
+    """Read Write Property: Outer Cone angle for light."""
     RightBarnDoor:float
-    """**Read Write Property:** Angle of right barn door."""
+    """Read Write Property: Angle of right barn door."""
     TopBarnDoor:float
-    """**Read Write Property:** Angle of top barn door."""
+    """Read Write Property: Angle of top barn door."""
     eRectangle:FBLight.EAreaLightShapes
     eSphere:FBLight.EAreaLightShapes
     def __init__(self,Name:str):
@@ -12013,9 +12013,9 @@ class FBCameraSwitcher(FBModel):
     
     [See sample: CameraSwitcher.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_camera_0c_camera_switcher_8py-example.html)"""
     CurrentCamera:FBCamera
-    """**Read Write Property:** Camera currently being used by the switcher. Set to NULL to turn on evaluate switch, otherwise manual switch."""
+    """Read Write Property: Camera currently being used by the switcher. Set to NULL to turn on evaluate switch, otherwise manual switch."""
     CurrentCameraIndex:int
-    """**Read Write Property:** Camera index currently being used by the switcher. Set to -1 to turn on evaluate switch."""
+    """Read Write Property: Camera index currently being used by the switcher. Set to -1 to turn on evaluate switch."""
     def PlotToCamera(self,Camera:FBCamera)->bool:
         """Plot the Camera Switcher animation onto a destination camera.
         
@@ -12041,195 +12041,195 @@ class FBCamera(FBModel):
     AnimatableFarPlane:property
     AnimatableNearPlane:property
     AntiAliasingIntensity:float
-    """**Read Write Property:** Anti-aliasing intensity."""
+    """Read Write Property: Anti-aliasing intensity."""
     AntiAliasingMethod:FBCameraAntiAliasingMethod
-    """**Read Write Property:** Anti-aliasing method."""
+    """Read Write Property: Anti-aliasing method."""
     ApertureMode:FBCameraApertureMode
-    """**Read Write Property:** Aperture mode."""
+    """Read Write Property: Aperture mode."""
     BackGroundColor:FBPropertyAnimatableColor
-    """**Read Write Property:** Background color for camera."""
+    """Read Write Property: Background color for camera."""
     BackGroundImageCenter:bool
-    """**Read Write Property:** Center the background image"""
+    """Read Write Property: Center the background image"""
     BackGroundImageCrop:bool
-    """**Read Write Property:** Crop the background image"""
+    """Read Write Property: Crop the background image"""
     BackGroundImageFit:bool
-    """**Read Write Property:** Fit the background image"""
+    """Read Write Property: Fit the background image"""
     BackGroundImageKeepRatio:bool
-    """**Read Write Property:** Keep the background image's ratio"""
+    """Read Write Property: Keep the background image's ratio"""
     BackGroundImageOffsetX:FBPropertyAnimatableDouble
-    """**Read Write Property:** Ignored if BackGroundImageFit is true. X offset, in term of percentage of the fit background image width, applied on the background image."""
+    """Read Write Property: Ignored if BackGroundImageFit is true. X offset, in term of percentage of the fit background image width, applied on the background image."""
     BackGroundImageOffsetY:FBPropertyAnimatableDouble
-    """**Read Write Property:** Ignored if BackGroundImageFit is true. Y offset, in term of percentage of the fit background image height, applied on the background image."""
+    """Read Write Property: Ignored if BackGroundImageFit is true. Y offset, in term of percentage of the fit background image height, applied on the background image."""
     BackGroundImageScaleX:FBPropertyAnimatableDouble
-    """**Read Write Property:** Ignored if BackGroundImageFit is true. X scale, in term of percentage of the fit background image width, applied on the background image."""
+    """Read Write Property: Ignored if BackGroundImageFit is true. X scale, in term of percentage of the fit background image width, applied on the background image."""
     BackGroundImageScaleY:FBPropertyAnimatableDouble
-    """**Read Write Property:** Ignored if BackGroundImageFit and/or BackGroundImageKeepRatio is true. Y scale, in term of percentage of the fit background image height, applied on the background image. The X scale property is considered instead of this Y scale property if BackGroundImageKeepRatio is set to true."""
+    """Read Write Property: Ignored if BackGroundImageFit and/or BackGroundImageKeepRatio is true. Y scale, in term of percentage of the fit background image height, applied on the background image. The X scale property is considered instead of this Y scale property if BackGroundImageKeepRatio is set to true."""
     BackGroundPlaneDistance:float
-    """**Read Write Property:** Set the distance for the background plane."""
+    """Read Write Property: Set the distance for the background plane."""
     BackGroundPlaneDistanceMode:FBCameraDistanceMode
-    """**Read Write Property:** Select mode for the background plane's distance."""
+    """Read Write Property: Select mode for the background plane's distance."""
     BackGroundTexture:FBTexture
-    """**Read Write Property:** Background Texture"""
+    """Read Write Property: Background Texture"""
     CameraViewportHeight:int
-    """**Read Only Property:** Camera Viewport height"""
+    """Read Only Property: Camera Viewport height"""
     CameraViewportWidth:int
-    """**Read Only Property:** Camera Viewport width"""
+    """Read Only Property: Camera Viewport width"""
     CameraViewportX:int
-    """**Read Only Property:** Camera Viewport start position's X value"""
+    """Read Only Property: Camera Viewport start position's X value"""
     CameraViewportY:int
-    """**Read Only Property:** Camera Viewport start position's Y value"""
+    """Read Only Property: Camera Viewport start position's Y value"""
     Display2DMagnifierFrame:bool
-    """**Read Write Property:** Enable/Disable the drawing of the 2D Magnifier frame box."""
+    """Read Write Property: Enable/Disable the drawing of the 2D Magnifier frame box."""
     DisplayTurnTableIcon:bool
-    """**Read Write Property:** Enable/Disable the drawing of the Turn Table icon."""
+    """Read Write Property: Enable/Disable the drawing of the Turn Table icon."""
     FarPlaneDistance:float
-    """**Read Write Property:** Far plane distance."""
+    """Read Write Property: Far plane distance."""
     FieldOfView:FBPropertyAnimatableDouble
-    """**Read Write Property:** Field of View (used when in horizontal or vertical aperture modes)."""
+    """Read Write Property: Field of View (used when in horizontal or vertical aperture modes)."""
     FieldOfViewX:FBPropertyAnimatableDouble
-    """**Read Write Property:** Field of View X angle (used in horizontal and vertical aperture mode)."""
+    """Read Write Property: Field of View X angle (used in horizontal and vertical aperture mode)."""
     FieldOfViewY:FBPropertyAnimatableDouble
-    """**Read Write Property:** Field of View Y angle (used in horizontal and vertical aperture mode)."""
+    """Read Write Property: Field of View Y angle (used in horizontal and vertical aperture mode)."""
     FilmAspectRatio:float
-    """**Read Write Property:** Film aspect ratio."""
+    """Read Write Property: Film aspect ratio."""
     FilmBackType:FBCameraFilmBackType
-    """**Read Write Property:** Film back standard type."""
+    """Read Write Property: Film back standard type."""
     FilmSizeHeight:float
-    """**Read Write Property:** Height of the film."""
+    """Read Write Property: Height of the film."""
     FilmSizeWidth:float
-    """**Read Write Property:** Width of the film."""
+    """Read Write Property: Width of the film."""
     FocalLength:FBPropertyAnimatableDouble
-    """**Read Write Property:** Focal Length."""
+    """Read Write Property: Focal Length."""
     FocusAngle:FBPropertyAnimatableDouble
-    """**Read Write Property:** Focus Angle (rendering dof)."""
+    """Read Write Property: Focus Angle (rendering dof)."""
     FocusDistanceSource:FBCameraFocusDistanceSource
-    """**Read Write Property:** Select source for focusing."""
+    """Read Write Property: Select source for focusing."""
     FocusModel:FBModel
-    """**Read Write Property:** Another model that determines the focus distance."""
+    """Read Write Property: Another model that determines the focus distance."""
     FocusSpecificDistance:FBPropertyAnimatableDouble
-    """**Read Write Property:** Specfic distance for focusing."""
+    """Read Write Property: Specfic distance for focusing."""
     ForeGroundAlpha:FBPropertyAnimatableDouble
-    """**Read Write Property:** Opacity of foreground."""
+    """Read Write Property: Opacity of foreground."""
     ForeGroundImageCenter:bool
-    """**Read Write Property:** Center the foreground image"""
+    """Read Write Property: Center the foreground image"""
     ForeGroundImageCrop:bool
-    """**Read Write Property:** Crop the foreground image"""
+    """Read Write Property: Crop the foreground image"""
     ForeGroundImageFit:bool
-    """**Read Write Property:** Fit the foreground image"""
+    """Read Write Property: Fit the foreground image"""
     ForeGroundImageKeepRatio:bool
-    """**Read Write Property:** Keep the foreground image's ratio?"""
+    """Read Write Property: Keep the foreground image's ratio?"""
     ForeGroundImageOffsetX:FBPropertyAnimatableDouble
-    """**Read Write Property:** Ignored if ForeGroundImageFit is true. X offset, in term of percentage of the fit foreground image width, applied on the foreground image."""
+    """Read Write Property: Ignored if ForeGroundImageFit is true. X offset, in term of percentage of the fit foreground image width, applied on the foreground image."""
     ForeGroundImageOffsetY:FBPropertyAnimatableDouble
-    """**Read Write Property:** Ignored if ForeGroundImageFit is true. Y offset, in term of percentage of the fit foreground image height, applied on the foreground image."""
+    """Read Write Property: Ignored if ForeGroundImageFit is true. Y offset, in term of percentage of the fit foreground image height, applied on the foreground image."""
     ForeGroundImageScaleX:FBPropertyAnimatableDouble
-    """**Read Write Property:** Ignored if ForeGroundImageFit is true. X scale, in term of percentage of the fit foreground image width, applied on the foreground image."""
+    """Read Write Property: Ignored if ForeGroundImageFit is true. X scale, in term of percentage of the fit foreground image width, applied on the foreground image."""
     ForeGroundImageScaleY:FBPropertyAnimatableDouble
-    """**Read Write Property:** Ignored if ForeGroundImageFit and/or ForeGroundImageKeepRatio is true. Y scale, in term of percentage of the fit foreground image height, applied on the foreground image. The X scale property is considered instead of this Y scale property if ForeGroundImageKeepRatio is set to true."""
+    """Read Write Property: Ignored if ForeGroundImageFit and/or ForeGroundImageKeepRatio is true. Y scale, in term of percentage of the fit foreground image height, applied on the foreground image. The X scale property is considered instead of this Y scale property if ForeGroundImageKeepRatio is set to true."""
     ForeGroundMaterialThreshold:float
-    """**Read Write Property:** Material threshold for a transparent foreground."""
+    """Read Write Property: Material threshold for a transparent foreground."""
     ForeGroundPlaneDistance:float
-    """**Read Write Property:** Set the distance for the foreground plane."""
+    """Read Write Property: Set the distance for the foreground plane."""
     ForeGroundPlaneDistanceMode:FBCameraDistanceMode
-    """**Read Write Property:** Select mode for the foreground plane's distance."""
+    """Read Write Property: Select mode for the foreground plane's distance."""
     ForeGroundTexture:FBTexture
-    """**Read Write Property:** ForeGround Texture"""
+    """Read Write Property: ForeGround Texture"""
     ForeGroundTransparent:bool
-    """**Read Write Property:** Is the foreground transparent?"""
+    """Read Write Property: Is the foreground transparent?"""
     FrameColor:FBColor
-    """**Read Write Property:** Frame color for camera."""
+    """Read Write Property: Frame color for camera."""
     FrameSizeMode:FBCameraFrameSizeMode
-    """**Read Write Property:** Frame size standard mode."""
+    """Read Write Property: Frame size standard mode."""
     HUDs:FBPropertyListHUD
-    """**List :** HUDs present in this camera"""
+    """List : HUDs present in this camera"""
     InteractiveMode:bool
-    """**Read Write Property:** Interactive mode?"""
+    """Read Write Property: Interactive mode?"""
     Interest:FBModel
-    """**Read Write Property:** Direct camera's interest."""
+    """Read Write Property: Direct camera's interest."""
     MagnifierPosX:FBPropertyAnimatableDouble
-    """**Read Write Property:** 2D Magnifier X Position."""
+    """Read Write Property: 2D Magnifier X Position."""
     MagnifierPosY:FBPropertyAnimatableDouble
-    """**Read Write Property:** 2D Magnifier Y Position."""
+    """Read Write Property: 2D Magnifier Y Position."""
     MagnifierZoom:FBPropertyAnimatableDouble
-    """**Read Write Property:** 2D Magnifier Zoom value."""
+    """Read Write Property: 2D Magnifier Zoom value."""
     MotionBlurIntensity:FBPropertyAnimatableDouble
-    """**Read Write Property:** Motion Blur Intensity."""
+    """Read Write Property: Motion Blur Intensity."""
     MouseLockCamera:bool
-    """**Read Write Property:** Mouse lock for camera?"""
+    """Read Write Property: Mouse lock for camera?"""
     NearPlaneDistance:float
-    """**Read Write Property:** Near plane distance."""
+    """Read Write Property: Near plane distance."""
     NumberOfSamples:int
-    """**Read Write Property:** Number of samples to oversample with."""
+    """Read Write Property: Number of samples to oversample with."""
     OpticalCenterX:FBPropertyAnimatableDouble
-    """**Read Write Property:** Optical Center X (mm)."""
+    """Read Write Property: Optical Center X (mm)."""
     OpticalCenterY:FBPropertyAnimatableDouble
-    """**Read Write Property:** Optical Center Y (mm)."""
+    """Read Write Property: Optical Center Y (mm)."""
     OrthoFactor:float
     """Constant scale factor to be used with OrthoZoom for orthographic cameras."""
     OrthoZoom:float
-    """**Read Write Property:** Zoom factor of an orthographic camera."""
+    """Read Write Property: Zoom factor of an orthographic camera."""
     PixelAspectRatio:float
-    """**Read Write Property:** Pixel aspect ratio."""
+    """Read Write Property: Pixel aspect ratio."""
     ResolutionHeight:float
-    """**Read Write Property:** Resolution height."""
+    """Read Write Property: Resolution height."""
     ResolutionMode:FBCameraResolutionMode
-    """**Read Write Property:** Resolution standard mode."""
+    """Read Write Property: Resolution standard mode."""
     ResolutionWidth:float
-    """**Read Write Property:** Resolution width."""
+    """Read Write Property: Resolution width."""
     Roll:FBPropertyAnimatableDouble
-    """**Read Write Property:** Camera's roll on it's Z axis."""
+    """Read Write Property: Camera's roll on it's Z axis."""
     SafeAreaMode:FBCameraSafeAreaMode
-    """**Read Write Property:** Select mode for safe area."""
+    """Read Write Property: Select mode for safe area."""
     SamplingType:FBCameraSamplingType
-    """**Read Write Property:** Type of over sampling."""
+    """Read Write Property: Type of over sampling."""
     SqueezeRatio:float
-    """**Read Write Property:** Squeeze ratio."""
+    """Read Write Property: Squeeze ratio."""
     SystemCamera:bool
-    """**Read Only Property:** Indicate if this a producer (default or system) camera or a custom (user-created) camera."""
+    """Read Only Property: Indicate if this a producer (default or system) camera or a custom (user-created) camera."""
     TurnTable:FBPropertyAnimatableDouble
-    """**Read Write Property:** Camera's rotation around its interest."""
+    """Read Write Property: Camera's rotation around its interest."""
     Type:FBCameraType
-    """**Read Write Property:** Type of camera"""
+    """Read Write Property: Type of camera"""
     Use2DMagnifier:bool
-    """**Read Write Property:** Enable/Disable the 2D Magnifier."""
+    """Read Write Property: Enable/Disable the 2D Magnifier."""
     UseAccumulationBuffer:bool
-    """**Read Write Property:** Use accumulation buffer?"""
+    """Read Write Property: Use accumulation buffer?"""
     UseAntiAliasing:bool
-    """**Read Write Property:** Use anti-aliasing?"""
+    """Read Write Property: Use anti-aliasing?"""
     UseDepthOfField:FBPropertyAnimatableBool
-    """**Read Write Property:** Use depth of field calculations?"""
+    """Read Write Property: Use depth of field calculations?"""
     UseFrameColor:bool
-    """**Read Write Property:** Use frame color?"""
+    """Read Write Property: Use frame color?"""
     UseMotionBlur:bool
-    """**Read Write Property:** Enable Motion Blur."""
+    """Read Write Property: Enable Motion Blur."""
     UseRealTimeMotionBlur:bool
-    """**Read Write Property:** Enable Real-time Motion Blur."""
+    """Read Write Property: Enable Real-time Motion Blur."""
     ViewBackGroundPlaneMode:FBCameraViewPlaneMode
-    """**Read Write Property:** Background plane view mode"""
+    """Read Write Property: Background plane view mode"""
     ViewCameraInterest:bool
-    """**Read Write Property:** Show the camera interest?"""
+    """Read Write Property: Show the camera interest?"""
     ViewDisplaySafeArea:bool
-    """**Read Write Property:** Display safe area?"""
+    """Read Write Property: Display safe area?"""
     ViewForeGroundPlaneMode:FBCameraViewPlaneMode
-    """**Read Write Property:** Foreground plane view mode"""
+    """Read Write Property: Foreground plane view mode"""
     ViewNearFarPlane:bool
-    """**Read Write Property:** Show near/far planes?"""
+    """Read Write Property: Show near/far planes?"""
     ViewOpticalCenter:bool
-    """**Read Write Property:** View optical center?"""
+    """Read Write Property: View optical center?"""
     ViewShowAxis:bool
-    """**Read Write Property:** Show axis?"""
+    """Read Write Property: Show axis?"""
     ViewShowGrid:bool
-    """**Read Write Property:** Show grid?"""
+    """Read Write Property: Show grid?"""
     ViewShowManipulators:bool
-    """**Read Write Property:** Show manipulators?"""
+    """Read Write Property: Show manipulators?"""
     ViewShowName:bool
-    """**Read Write Property:** Show name?"""
+    """Read Write Property: Show name?"""
     ViewShowTimeCode:bool
-    """**Read Write Property:** Show time code?"""
+    """Read Write Property: Show time code?"""
     WindowHeight:float
-    """**Read Only Property:** Window height."""
+    """Read Only Property: Window height."""
     WindowWidth:float
-    """**Read Only Property:** Window width."""
+    """Read Only Property: Window width."""
     def GetCameraMatrix(self,Matrix:FBMatrix,Type:FBCameraMatrixType,EvalInfo:FBEvaluateInfo|None=None):
         """Obtains the camera's matrix.
         
@@ -12270,19 +12270,19 @@ class FBModelMarker(FBModel):
     
     [See sample: FBCamera.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_f_b_camera_8py-example.html)"""
     Color:FBColor
-    """**Read Write Property:** Color of model marker."""
+    """Read Write Property: Color of model marker."""
     IKPivot:FBVector3d
-    """**Read Write Property:** marker Pivot Offset."""
+    """Read Write Property: marker Pivot Offset."""
     Length:float
-    """**Read Write Property:** Length for capsule (not related to scaling)."""
+    """Read Write Property: Length for capsule (not related to scaling)."""
     Look:FBMarkerLook
-    """**Read Write Property:** Look of model marker."""
+    """Read Write Property: Look of model marker."""
     ResLevel:FBMarkerResolutionLevel
-    """**Read Write Property:** Resolution level of model marker."""
+    """Read Write Property: Resolution level of model marker."""
     Size:float
-    """**Read Write Property:** Size (not related to scaling)."""
+    """Read Write Property: Size (not related to scaling)."""
     Type:FBMarkerType
-    """**Read Write Property:** Type of model marker."""
+    """Read Write Property: Type of model marker."""
     def __init__(self,Name:str):
         """Constructor.
         
@@ -12292,33 +12292,33 @@ class FBModelMarker(FBModel):
         ...
 class FBCameraStereo(FBCamera):
     CenterCamera:FBCamera
-    """**Read Write Property:**  This property hold the center camera connected to it. Must be either the master, left or right camera."""
+    """Read Write Property:  This property hold the center camera connected to it. Must be either the master, left or right camera."""
     DisplayZeroParallaxPlane:bool
-    """**Read Write Property:**  Display the zero parallax plane."""
+    """Read Write Property:  Display the zero parallax plane."""
     FilmOffsetLeftCam:FBPropertyAnimatableDouble
-    """**Read Write Property:**  This property handles the film offset for the left camera. (inch)"""
+    """Read Write Property:  This property handles the film offset for the left camera. (inch)"""
     FilmOffsetRightCam:FBPropertyAnimatableDouble
-    """**Read Write Property:**  This property handles the film offset for the right camera. (inch)"""
+    """Read Write Property:  This property handles the film offset for the right camera. (inch)"""
     InteraxialSeparation:FBPropertyAnimatableDouble
-    """**Read Write Property:**  This property handles the distance between left and right cameras."""
+    """Read Write Property:  This property handles the distance between left and right cameras."""
     LeftCamera:FBCamera
-    """**Read Write Property:**  This property hold the left camera connected to it."""
+    """Read Write Property:  This property hold the left camera connected to it."""
     PrecompFileName:str
-    """**Read Write Property:**  This property handles the precomp file name."""
+    """Read Write Property:  This property handles the precomp file name."""
     RelativePrecompFileName:str
-    """**Read Write Property:**  This property handles the relative precomp file name."""
+    """Read Write Property:  This property handles the relative precomp file name."""
     RightCamera:FBCamera
-    """**Read Write Property:**  This property hold the right camera connected to it."""
+    """Read Write Property:  This property hold the right camera connected to it."""
     Stereo:FBCameraStereoType
-    """**Read Write Property:**  //!< This property handles the types of Stereo camera."""
+    """Read Write Property:  //!< This property handles the types of Stereo camera."""
     ToeInAdjust:FBPropertyAnimatableDouble
-    """**Read Write Property:**  This property is to offset the computed toe-in effect when it's in Converged mode."""
+    """Read Write Property:  This property is to offset the computed toe-in effect when it's in Converged mode."""
     ZeroParallax:FBPropertyAnimatableDouble
-    """**Read Write Property:**  This property handles the distance on the camera view axis where the zero parallax plane occurs."""
+    """Read Write Property:  This property handles the distance on the camera view axis where the zero parallax plane occurs."""
     ZeroParallaxPlaneColor:FBColor
-    """**Read Write Property:**  Zero parallax plane color."""
+    """Read Write Property:  Zero parallax plane color."""
     ZeroParallaxPlaneTransparency:float
-    """**Read Write Property:**  Zero parallax plane transparency."""
+    """Read Write Property:  Zero parallax plane transparency."""
     def __init__(self,Name:str):
         """Constructor.
         
@@ -12329,7 +12329,7 @@ class FBCameraStereo(FBCamera):
 class FBModelNull(FBModel):
     """Null object class."""
     Size:float
-    """**Read Write Property:** Size (not related to scaling)."""
+    """Read Write Property: Size (not related to scaling)."""
     def __init__(self,Name:str):
         """Constructor.
         
@@ -12340,15 +12340,15 @@ class FBModelNull(FBModel):
 class FBModelMarkerOptical(FBModelMarker):
     """Optical model marker class."""
     Data:FBAnimationNode
-    """**Property:** Data."""
+    """Property: Data."""
     Done:bool
-    """**Property:** Done?"""
+    """Property: Done?"""
     Gaps:FBPropertyListOpticalGap
-    """**Property:** Gaps."""
+    """Property: Gaps."""
     Optical:FBModelOptical
-    """**Property:** Optical model."""
+    """Property: Optical model."""
     Segments:FBPropertyListMarkerSegment
-    """**Property:** Marker segments."""
+    """Property: Marker segments."""
     def ExportBegin(self)->int:
         """Begin export of optical data.
         
@@ -12360,7 +12360,7 @@ class FBModelMarkerOptical(FBModelMarker):
         """End exportation from optical model.
         
         ### Returns:
-        **true** if successful."""
+        true if successful."""
         ...
     def ExportKey(self,X:float,Y:float,Z:float|None=None,Occlusion:float|None=None)->bool:
         """Export a key of optical data.
@@ -12374,7 +12374,7 @@ class FBModelMarkerOptical(FBModelMarker):
         
         
         ### Returns:
-        **true** if successful."""
+        true if successful."""
         ...
     def GetRigidBody(self)->FBRigidBody:
         """Get the rigid body for the marker.
@@ -12394,7 +12394,7 @@ class FBModelMarkerOptical(FBModelMarker):
         
         Interpolates optical data to create a curve from the input key frams.
         ### Returns:
-        **true** if successful."""
+        true if successful."""
         ...
     def ImportKey(self,X:float,Y:float,Z:float=0.0,Occlusion:float=0.0)->bool:
         """Import a key of optical data.
@@ -12408,7 +12408,7 @@ class FBModelMarkerOptical(FBModelMarker):
         
         
         ### Returns:
-        **true** if successful."""
+        true if successful."""
         ...
     def InsertSegmentedData(self,TData:FBAnimationNode,OData:FBAnimationNode):
         """Insert segmented data.
@@ -12437,19 +12437,19 @@ class FBModelMarkerOptical(FBModelMarker):
 class FBModelOptical(FBModel):
     """Optical model class."""
     MarkerSize:float
-    """**Read Write Property:** Size of markers."""
+    """Read Write Property: Size of markers."""
     Markers:FBPropertyListModelMarkerOptical
-    """**List:** Markers."""
+    """List: Markers."""
     RigidBodies:FBPropertyListRigidBody
-    """**List:** Rigid bodies."""
+    """List: Rigid bodies."""
     SamplingPeriod:FBTime
-    """**Read Write Property:**Sampling period."""
+    """Read Write Property:Sampling period."""
     SamplingStart:FBTime
-    """**Read Write Property:** Sampling start time."""
+    """Read Write Property: Sampling start time."""
     SamplingStop:FBTime
-    """**Read Write Property:**Sampling stop time."""
+    """Read Write Property:Sampling stop time."""
     Segments:FBPropertyListOpticalSegment
-    """**List:** Segments."""
+    """List: Segments."""
     def ClearSegments(self,UnUsedOnly:bool=True):
         """Clear the segments (by default only the unused).
         
@@ -12473,13 +12473,13 @@ class FBModelOptical(FBModel):
         """Setup exportation from optical model.
         
         ### Returns:
-        **true** if successful."""
+        true if successful."""
         ...
     def ImportSetup(self)->bool:
         """Setup importation for optical model.
         
         ### Returns:
-        **true** if successful."""
+        true if successful."""
         ...
     def __init__(self,Name:str):
         """Constructor.
@@ -12503,27 +12503,27 @@ class FBModelPath3D(FBModel):
         eArrow:FBModelPath3D.EPathEndCapStyle
         eNone:FBModelPath3D.EPathEndCapStyle
     AutoControlNode:bool
-    """**Read Write Property:** Automatically create key control nodes."""
+    """Read Write Property: Automatically create key control nodes."""
     Color:FBPropertyAnimatableColor
-    """**Read Write Property:** Path display color in viewport."""
+    """Read Write Property: Path display color in viewport."""
     KeyPropertyBehavior:FBModelPath3D.EKeyPropertyBehavior
-    """**Read Only Property:** Key property behavior."""
+    """Read Only Property: Key property behavior."""
     PathEndCapScale:float
-    """**Read Write Property:** Path end cap display scale."""
+    """Read Write Property: Path end cap display scale."""
     PathEndCapStyle:PathEndCapStyle
-    """**Read Write Property:** Path end cap display style."""
+    """Read Write Property: Path end cap display style."""
     PathLength:float
-    """**Read Only Property:** Path Length In Centimeter."""
+    """Read Only Property: Path Length In Centimeter."""
     PathLengthInString:str
-    """**Read Only Property:** Path Length Display String According To The Current Unit."""
+    """Read Only Property: Path Length Display String According To The Current Unit."""
     PathLengthShow:bool
-    """**Read Write Property:** Path length label display or not."""
+    """Read Write Property: Path length label display or not."""
     PathLengthUnit:FBModelPath3D.ELengthUnitType
-    """**Read Write Property:** Path Length Unit."""
+    """Read Write Property: Path Length Unit."""
     TextBackground:FBColorAndAlpha
-    """**Read Write Property:** Path Length label display background color."""
+    """Read Write Property: Path Length label display background color."""
     TextScale:float
-    """**Read Write Property:** Path Length label display scale."""
+    """Read Write Property: Path Length label display scale."""
     eArchitectural:FBModelPath3D.ELengthUnitType
     eArrow:FBModelPath3D.EPathEndCapStyle
     eCM:FBModelPath3D.ELengthUnitType
@@ -12992,7 +12992,7 @@ class FBModelRoot(FBModel):
     
     [See sample: SelectModelsWithNameContainingSubstring.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_select_models_with_name_containing_substring_8py-example.html)"""
     Size:float
-    """**Read Write Property:** Size (not related to scaling)."""
+    """Read Write Property: Size (not related to scaling)."""
     def __init__(self,Name:str):
         """Constructor.
         
@@ -13003,19 +13003,19 @@ class FBModelRoot(FBModel):
 class FBModelSkeleton(FBModel):
     """Root object class."""
     Color:FBColor
-    """**Read Write Property:** Color of skeleton node."""
+    """Read Write Property: Color of skeleton node."""
     Length:float
-    """**Read Write Property:** Length of skeleton node. (Note: Only effective when the look is set to: Capsule)"""
+    """Read Write Property: Length of skeleton node. (Note: Only effective when the look is set to: Capsule)"""
     LinkFollowGeometryOffset:bool
-    """**Read Write Property:** Whether link to parent node must follow skeleton node or not, when skeleton node has a geometry offset."""
+    """Read Write Property: Whether link to parent node must follow skeleton node or not, when skeleton node has a geometry offset."""
     Look:FBSkeletonLook
-    """**Read Write Property:** Look of skeleton node."""
+    """Read Write Property: Look of skeleton node."""
     PreserveLinkEndPosition:bool
-    """**Read Write Property:** Whether skeleton node must preserve its links' end position to children nodes, when skeleton node has a geometry offset. (Note: Only effective when the look is set to: Bone, Box or Stick)"""
+    """Read Write Property: Whether skeleton node must preserve its links' end position to children nodes, when skeleton node has a geometry offset. (Note: Only effective when the look is set to: Bone, Box or Stick)"""
     Resolution:FBSkeletonResolutionLevel
-    """**Read Write Property:** Resolution of skeleton node. (Note: Only effective when the look is set to: Sphere, Capsule or Stick)"""
+    """Read Write Property: Resolution of skeleton node. (Note: Only effective when the look is set to: Sphere, Capsule or Stick)"""
     Size:float
-    """**Read Write Property:** Size (not related to scaling)."""
+    """Read Write Property: Size (not related to scaling)."""
     def GetSkinModelList(self,SkinModelList:FBModelList):
         """Return the list of skin model associated with this Skeleton(Bone), which could be the deformable skins connected via cluster, or non deformable skins which are parented directly under this bone.
         
@@ -13228,49 +13228,49 @@ class FBAudioClip(FBComponent):
     
     [See sample: AudioTrackSetupTool.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_complex_tools_0c_audio_track_setup_tool_8py-example.html)"""
     AccessMode:FBAccessMode
-    """**Read Write Property:** Specify the media data access mode between disk or memory."""
+    """Read Write Property: Specify the media data access mode between disk or memory."""
     Bits:int
-    """**Read Only Property:** the bits of media."""
+    """Read Only Property: the bits of media."""
     Channels:int
-    """**Read Only Property:** the number of channels in use."""
+    """Read Only Property: the number of channels in use."""
     ClipSpeed:float
-    """**Read Write Property:** The speed of the media when being played."""
+    """Read Write Property: The speed of the media when being played."""
     ConstrainDstToTake:bool
-    """**Read Write Property:** Indicates whether to constrain the EndPoint to the end of the take."""
+    """Read Write Property: Indicates whether to constrain the EndPoint to the end of the take."""
     CurrentTake:FBTake
-    """**Read Write Property:** The take this media belongs to."""
+    """Read Write Property: The take this media belongs to."""
     Destination:FBAudioOut
-    """**Read Write Property:** The audio output destination where the clip will be played."""
+    """Read Write Property: The audio output destination where the clip will be played."""
     DstDuration:FBTime
-    """**Read Write Property:** When not used in the Story, this specify when the clips stops playing."""
+    """Read Write Property: When not used in the Story, this specify when the clips stops playing."""
     DstEnd:FBTime
-    """**Read Write Property:** Total duration of this audio clip."""
+    """Read Write Property: Total duration of this audio clip."""
     DstIn:FBTime
-    """**Read Write Property:** When not used in the Story, this specify when the clips begin to play."""
+    """Read Write Property: When not used in the Story, this specify when the clips begin to play."""
     Format:int
-    """**Read Only Property:** Data format of media, including rate, bits and channels count. You can typecast it to a FBAudioFmt."""
+    """Read Only Property: Data format of media, including rate, bits and channels count. You can typecast it to a FBAudioFmt."""
     LockClipSpeed:bool
-    """**Read Write Property:** Indicates whether to lock the current playing speed."""
+    """Read Write Property: Indicates whether to lock the current playing speed."""
     LockPitchToSpeed:bool
-    """**Read Write Property:** Time stretch enabled factor."""
+    """Read Write Property: Time stretch enabled factor."""
     Path:str
-    """**Read Only Property:** Full Path of the media."""
+    """Read Only Property: Full Path of the media."""
     Pitch:float
-    """**Read Write Property:** The audio clip pitch value. To write to this property, you must first set LockPitchToSpeed property to false."""
+    """Read Write Property: The audio clip pitch value. To write to this property, you must first set LockPitchToSpeed property to false."""
     Rate:int
-    """**Read Only Property:** the rate of media."""
+    """Read Only Property: the rate of media."""
     RelativePath:str
-    """**Read Only Property:** Relative path of media."""
+    """Read Only Property: Relative path of media."""
     Scrubbing:bool
-    """**Read Write Property:** Control which clip (one at a time) can shuttle when playing a various speeds."""
+    """Read Write Property: Control which clip (one at a time) can shuttle when playing a various speeds."""
     SrcDuration:FBTime
-    """**Read Only Property:** The duration time of media."""
+    """Read Only Property: The duration time of media."""
     SrcEnd:FBTime
-    """**Read Only Property:** The end time of media."""
+    """Read Only Property: The end time of media."""
     SrcIn:FBTime
-    """**Read Only Property:** The begin time of media."""
+    """Read Only Property: The begin time of media."""
     UseChannel:FBUseChnMode
-    """**Read Write Property:** Enables you to control which track are used with stereo clips."""
+    """Read Write Property: Enables you to control which track are used with stereo clips."""
     def FileOpen(self,Path:str)->bool:
         """Load an audio clip file.
         
@@ -13318,11 +13318,11 @@ class FBAudioClip(FBComponent):
 class FBAssetMng(FBComponent):
     """Used to access asset manager functionity to get files locally or from a server."""
     Description:str
-    """**Read Write Property:** Description of the manager."""
+    """Read Write Property: Description of the manager."""
     LastError:str
     """Last error string."""
     MenuFlags:int
-    """**Read Write Property:** Flags specifing which menu items are added by the manager."""
+    """Read Write Property: Flags specifing which menu items are added by the manager."""
     def BrowseForFile(self)->FBAssetFile:
         """Let the user browse the asset database to select a file.
         
@@ -13416,7 +13416,7 @@ class FBAssetMng(FBComponent):
         """Initialize the connection to the server.
         
         ### Returns:
-        **True** if the connection was established, **false** otherwise."""
+        True if the connection was established, false otherwise."""
         ...
     def MapLocalPathToServerPath(self,LocalPath:str)->str:
         """Convert the local path to a server path by using managed paths mapping.
@@ -13489,7 +13489,7 @@ class FBAssetItem(FBComponent):
         """Get the path to this item on the local hard disk.
         
         ### Returns:
-        The path as an **FBString**."""
+        The path as an FBString."""
         ...
     def GetName(self)->str:
         """Get the name of this item (file name or folder name).
@@ -13501,13 +13501,13 @@ class FBAssetItem(FBComponent):
         """Get the parent folder of this item.
         
         ### Returns:
-        An **FBAssetFolder\*** if the parent was found, or NULL if this is the root item."""
+        An FBAssetFolder\* if the parent was found, or NULL if this is the root item."""
         ...
     def GetServerPath(self)->str:
         """Get the path to this item on the database.
         
         ### Returns:
-        The server path as an **FBString**."""
+        The server path as an FBString."""
         ...
     def ShowHistory(self):
         """Display a dialog with this item history."""
@@ -13534,31 +13534,31 @@ class FBApplication(FBComponent):
     
     [See samples: FBFbxOptions.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_f_b_fbx_options_8py-example.html) [FBSystemEvents.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_f_b_system_events_8py-example.html) [ImportWithNamespace.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_import_with_namespace_8py-example.html) [BatchExportCharacterAnimationTool.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_batch_export_character_animation_tool_8py-example.html) [ExportAnimationLibrary.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_export_animation_library_8py-example.html) [SaveOneTakePerFile.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_save_one_take_per_file_8py-example.html)"""
     ApplicationState:FBApplicationState
-    """**Read Only Property:** State the MotionBuilder application has been started in."""
+    """Read Only Property: State the MotionBuilder application has been started in."""
     CurrentActor:FBActor
-    """**Read Write Property:** Indicate the current actor, as used by the character tool. Can be NULL. If not null, CurrentCharacter must be null, as the character tool works on only one item at a time."""
+    """Read Write Property: Indicate the current actor, as used by the character tool. Can be NULL. If not null, CurrentCharacter must be null, as the character tool works on only one item at a time."""
     CurrentCharacter:FBCharacter
-    """**Read Write Property:** Indicate the current character, as used by the character tool. Can be NULL. If not null, CurrentActor must be null, as the character tool works on only one item at a time. [See sample: CurrentCharacterGoToStancePose.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_current_character_go_to_stance_pose_8py-example.html)"""
+    """Read Write Property: Indicate the current character, as used by the character tool. Can be NULL. If not null, CurrentActor must be null, as the character tool works on only one item at a time. [See sample: CurrentCharacterGoToStancePose.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_current_character_go_to_stance_pose_8py-example.html)"""
     FBXFileName:str
-    """**Read Write Property:** Current scene filename."""
+    """Read Write Property: Current scene filename."""
     OnFileExit:FBEvent
-    """**Event:** A File Exit as been requested, nothing has been destroyed yet."""
+    """Event: A File Exit as been requested, nothing has been destroyed yet."""
     OnFileMerge:FBEvent
-    """**Event:** A File Merge has been requested, nothing has been loaded yet."""
+    """Event: A File Merge has been requested, nothing has been loaded yet."""
     OnFileNew:FBEvent
-    """**Event:** A File New has been requested, nothing has been destroyed yet."""
+    """Event: A File New has been requested, nothing has been destroyed yet."""
     OnFileNewCompleted:FBEvent
-    """**Event:** A File New has been completed."""
+    """Event: A File New has been completed."""
     OnFileOpen:FBEvent
-    """**Event:** A File Open has been requested, nothing has been loaded yet."""
+    """Event: A File Open has been requested, nothing has been loaded yet."""
     OnFileOpenCompleted:FBEvent
-    """**Event:** A File Open has been completed."""
+    """Event: A File Open has been completed."""
     OnFileSave:FBEvent
-    """**Event:** A File Save has been requested, nothing has been saved yet."""
+    """Event: A File Save has been requested, nothing has been saved yet."""
     OnFileSaveCompleted:FBEvent
-    """**Event:** A File Save has been completed."""
+    """Event: A File Save has been completed."""
     OnOverrideFileOpen:FBEventOverrideFileOpen
-    """**Event:** Called when a file is about to be opened/merged. The user can override the process with his own file import system."""
+    """Event: Called when a file is about to be opened/merged. The user can override the process with his own file import system."""
     def AudioRender(self,AudioRenderOptions:FBAudioRenderOptions|None=None)->bool:
         """Render audio of current scene to media file, currently WAV file only.
         
@@ -13927,7 +13927,7 @@ class FBApplication(FBComponent):
         
         
         ### Returns:
-        **true** if successful."""
+        true if successful."""
         ...
     def Maximize(self)->bool:
         """Maximize window (minimized).
@@ -14091,10 +14091,10 @@ class FBAssetFolder(FBAssetItem):
         An FBAssetFolder\* object representing the newly added folder."""
         ...
     def GetChild(self,Index:int)->FBAssetItem:
-        """Get the child at index **pIndex**.
+        """Get the child at index pIndex.
         
         ### Returns:
-        The child at **pIndex**, or NULL if the index was out of range."""
+        The child at pIndex, or NULL if the index was out of range."""
         ...
     def GetChildCount(self)->int:
         """Get the number of items in this folder.
@@ -14121,19 +14121,19 @@ class FBAnimationLayer(FBComponent):
     
     [See samples: AnimationLayers.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_animation_layer_0c_animation_layers_8py-example.html) [MergeAnimationLayers.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_animation_layer_0c_merge_animation_layers_8py-example.html)"""
     Color:FBColor
-    """**Read Write Property:** The animation layer color."""
+    """Read Write Property: The animation layer color."""
     LayerMode:FBLayerMode
-    """**Read Write Property:** Layer mode. By default, the layer is in kFBLayerModeAdditive mode. Cannot be applied to the BaseAnimation Layer."""
+    """Read Write Property: Layer mode. By default, the layer is in kFBLayerModeAdditive mode. Cannot be applied to the BaseAnimation Layer."""
     LayerRotationMode:FBLayerRotationMode
-    """**Read Only Property:** Layer rotation mode. Cannot be applied to the BaseAnimation Layer."""
+    """Read Only Property: Layer rotation mode. Cannot be applied to the BaseAnimation Layer."""
     Lock:bool
-    """**Read Write Property:** If true, the layer is locked. You cannot modify keyframes on a locked layer."""
+    """Read Write Property: If true, the layer is locked. You cannot modify keyframes on a locked layer."""
     Mute:bool
-    """**Read Write Property:** If true, the layer is muted. A muted layer is not included in the result animation. Cannot be applied to the BaseAnimation Layer."""
+    """Read Write Property: If true, the layer is muted. A muted layer is not included in the result animation. Cannot be applied to the BaseAnimation Layer."""
     Solo:bool
-    """**Read Write Property:** If true, the layer is soloed. When you solo a layer, you mute other layers that are at the same level in the hierarchy, as well as the children of those layers. Cannot be applied to the BaseAnimation Layer."""
+    """Read Write Property: If true, the layer is soloed. When you solo a layer, you mute other layers that are at the same level in the hierarchy, as well as the children of those layers. Cannot be applied to the BaseAnimation Layer."""
     Weight:FBPropertyAnimatableDouble
-    """**Read Write Property:** The weight value of a layer determines how much it is present in the result animation. Takes a value from 0 (the layer is not present) to 100. The weighting of a parent layer is factored into the weighting of its child layers, if any. BaseAnimation Layer always has a Weight of 100."""
+    """Read Write Property: The weight value of a layer determines how much it is present in the result animation. Takes a value from 0 (the layer is not present) to 100. The weighting of a parent layer is factored into the weighting of its child layers, if any. BaseAnimation Layer always has a Weight of 100."""
     def AddChildLayer(self,AnimationLayer:FBAnimationLayer):
         """Add a child to the layer.
         
@@ -14216,7 +14216,7 @@ class FBAnimationLayer(FBComponent):
 class FBActorFace(FBComponent):
     """Used to plot actor face animation.
     
-    **These classes are under development and may change dramatically between versions.**"""
+    These classes are under development and may change dramatically between versions."""
     def PlotAnimation(self)->bool:
         """Plot the animation of the actor face.
         
@@ -14233,7 +14233,7 @@ class FBActorFace(FBComponent):
 class FBActionManager(FBComponent):
     """Action Manager class.
     
-    **This class is introduced to enable users to access to the actions related functions. between versions.**"""
+    This class is introduced to enable users to access to the actions related functions. between versions."""
     CurrentInteractionMode:property
     def RescanCurrentInteractionModeShortcuts(self)->bool:
         """Rescan the current interaction mode, in case some shortcuts have changed in the config file.
@@ -14289,7 +14289,7 @@ class FBConstraintManager(FBComponent):
     def TypeGetName(self,TypeIndex:int)->str:
         """Get the name of a registered type of constraint.
         
-        This will search in the registry for a constraint at the index **pTypeIndex**.
+        This will search in the registry for a constraint at the index pTypeIndex.
         ### Parameters:
         
             - TypeIndex: Index of a constraint type.
@@ -14302,7 +14302,7 @@ class FBConstraintManager(FBComponent):
 class FBConstructionHistory(FBComponent):
     """Access to global construction history functionality."""
     OnChange:FBEvent
-    """**Event:** History changed."""
+    """Event: History changed."""
     def GetDeltaOperations(self,Operations:list,sinceCommandId:int):
         """GetDeltaOperations Get the list of delta operations in the construction history.
         
@@ -14349,11 +14349,11 @@ class FBConstructionHistory(FBComponent):
 class FBControlSet(FBComponent):
     """Control set class.
     
-    **These classes are under development and may change dramatically between versions.**"""
+    These classes are under development and may change dramatically between versions."""
     ControlSetType:FBControlSetType
-    """**Read Property:** the control Set Type (FKIK or IK)."""
+    """Read Property: the control Set Type (FKIK or IK)."""
     UseAxis:bool
-    """**Read Write Property:** is using axis."""
+    """Read Write Property: is using axis."""
     def GetFKIndex(self,Model:FBModel)->int:
         """Return the index of the given FK model.
         
@@ -14483,29 +14483,29 @@ class FBCycleCreator(FBComponent):
 class FBDeck(FBComponent):
     """Interface to a tape deck."""
     CassetteInside:bool
-    """**Read Only Property:** Is the cassette inside?"""
+    """Read Only Property: Is the cassette inside?"""
     EE:bool
-    """**Read Write Property:** Is EE on?"""
+    """Read Write Property: Is EE on?"""
     IconFilename:str
-    """**Read Write Property:** Filename of icon for deck."""
+    """Read Write Property: Filename of icon for deck."""
     Latency:FBTime
-    """**Read Write Property:** Latency of response for the deck;"""
+    """Read Write Property: Latency of response for the deck;"""
     Offset:FBTime
-    """**Read Write Property:** Current offset for the TC."""
+    """Read Write Property: Current offset for the TC."""
     Online:bool
-    """**Read Write Property:** Is deck online?"""
+    """Read Write Property: Is deck online?"""
     PlayingBackward:bool
-    """**Read Only Property:** Playing backwards?"""
+    """Read Only Property: Playing backwards?"""
     PlayingForward:bool
-    """**Read Only Property:** Playing forward?"""
+    """Read Only Property: Playing forward?"""
     PostRoll:FBTime
-    """**Read Write Property:** Post-Roll."""
+    """Read Write Property: Post-Roll."""
     PreRoll:FBTime
-    """**Read Write Property:** Pre-Roll."""
+    """Read Write Property: Pre-Roll."""
     StandBy:bool
-    """**Read Write Property:** In standby mode?"""
+    """Read Write Property: In standby mode?"""
     TransportControl:FBDeckTransportMode
-    """**Read Write Property:** Mode w/r to TC (None, Sync, Main );"""
+    """Read Write Property: Mode w/r to TC (None, Sync, Main );"""
     UniqueName:str
     """internal Unique name."""
     def CueAt(self,Time:FBTime):
@@ -14567,7 +14567,7 @@ class FBDeck(FBComponent):
 class FBDeformer(FBComponent):
     """Base Model deformer class."""
     DeformerType:FBDeformerType
-    """**Read Only Property:** Deformer Type."""
+    """Read Only Property: Deformer Type."""
     def __init__(self,Name:str):
         """Constructor.
         
@@ -14578,11 +14578,11 @@ class FBDeformer(FBComponent):
 class FBDeviceInstrument(FBComponent):
     """Instrument abstraction layer."""
     Active:bool
-    """**Read Write Property:** Is instrument active?"""
+    """Read Write Property: Is instrument active?"""
     Device:FBDevice
-    """**Read Write Property:** Handle to owner device."""
+    """Read Write Property: Handle to owner device."""
     ModelTemplate:FBModelTemplate
-    """**Read Write Property:** Model template to build instruments' structure."""
+    """Read Write Property: Model template to build instruments' structure."""
     def InstrumentRecordFrame(self,RecordTime:FBTime,NotifyInfo:FBDeviceNotifyInfo):
         """Record the data to the function curves for the instrument.
         
@@ -14601,7 +14601,7 @@ class FBDeviceInstrument(FBComponent):
         
         
         ### Returns:
-        **true** if successful."""
+        true if successful."""
         ...
     def __init__(self,Device:FBDevice):
         """Constructor.
@@ -14613,25 +14613,25 @@ class FBDeviceInstrument(FBComponent):
 class FBDeformerPointCache(FBDeformer):
     """Base Model deformer class."""
     Active:bool
-    """**Read Write Property:** Active."""
+    """Read Write Property: Active."""
     ChannelCount:int
-    """**Read Only Property:** Channel Count."""
+    """Read Only Property: Channel Count."""
     ChannelEnd:FBTime
-    """**Read Only Property:** Channel End."""
+    """Read Only Property: Channel End."""
     ChannelFrameRate:float
-    """**Read Only Property:** Channel FrameRate."""
+    """Read Only Property: Channel FrameRate."""
     ChannelIndex:int
-    """**Read Write Property:** Channel Index."""
+    """Read Write Property: Channel Index."""
     ChannelName:str
-    """**Read Only Property:** Channel Name."""
+    """Read Only Property: Channel Name."""
     ChannelPointCount:int
-    """**Read Only Property:** Channel Point Count."""
+    """Read Only Property: Channel Point Count."""
     ChannelSampleRegular:bool
-    """**Read Only Property:** Channel Sample Regular."""
+    """Read Only Property: Channel Sample Regular."""
     ChannelStart:FBTime
-    """**Read Only Property:** Channel Start."""
+    """Read Only Property: Channel Start."""
     PointCacheFile:FBPointCacheFile
-    """**Read Write Property:** Point Cache File Object."""
+    """Read Write Property: Point Cache File Object."""
     def __init__(self,Name:str):
         """Constructor.
         
@@ -14642,13 +14642,13 @@ class FBDeformerPointCache(FBDeformer):
 class FBDeviceOpticalMarker(FBComponent):
     """Device optical marker.
     
-    A device optical marker represents the input locations for interfacing optical hardware. This type of marker corresponds uniquely to the input (from the hardware) and will be represented on-screen by a **[FBModelMarkerOptical](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_model_marker_optical.html "Optical model marker class.")**."""
+    A device optical marker represents the input locations for interfacing optical hardware. This type of marker corresponds uniquely to the input (from the hardware) and will be represented on-screen by a [FBModelMarkerOptical](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_model_marker_optical.html "Optical model marker class.")."""
     IsUsed:bool
-    """**Property:** Is marker used?"""
+    """Property: Is marker used?"""
     Model:FBModel
-    """**Property:** Model marker access."""
+    """Property: Model marker access."""
     Occlusion:float
-    """**Property:** Occulsion data for marker."""
+    """Property: Occulsion data for marker."""
     Translation:property
     def SetData(self,X:float,Y:float,Z:float=0.0,Occlusion:float=0.0):
         """Set data for optical marker.
@@ -14669,27 +14669,27 @@ class FBDeviceOpticalMarker(FBComponent):
         ...
 class FBEvaluateManager(FBComponent):
     DeviceCount:int
-    """**Read only Property:** Number of devices to evaluate."""
+    """Read only Property: Number of devices to evaluate."""
     DualQuaternionSkinning:bool
-    """**Read/Write Property:** Using state of the Dual Quaternion for skinning (CPU Skinning or GPU Skinning)."""
+    """Read/Write Property: Using state of the Dual Quaternion for skinning (CPU Skinning or GPU Skinning)."""
     FrameSkipOptimization:bool
-    """**Read/Write Property:** if true, apply frame skip optimization during playback. off-line rendering don't use frame skip optimization."""
+    """Read/Write Property: if true, apply frame skip optimization during playback. off-line rendering don't use frame skip optimization."""
     NodeCount:int
-    """**Read only Property:** Number of nodes to evaluate."""
+    """Read only Property: Number of nodes to evaluate."""
     OnRenderingPipelineEvent:callbackframework.FBEventSource
-    """**For callback events at rendering pipeline.**"""
+    """For callback events at rendering pipeline."""
     OnSynchronizationEvent:callbackframework.FBEventSource
-    """**For callback events at synchronization point.**"""
+    """For callback events at synchronization point."""
     ParallelDeformation:bool
-    """**Read/Write Property:** true if deformation is evaluated in parallel."""
+    """Read/Write Property: true if deformation is evaluated in parallel."""
     ParallelEvaluation:bool
-    """**Read/Write Property:** true if parallel DAG schedule algorithm is being used. false when serial algorithm is being used."""
+    """Read/Write Property: true if parallel DAG schedule algorithm is being used. false when serial algorithm is being used."""
     ParallelPipeline:bool
-    """**Read/Write Property:** true if transformation is evaluated in parallel."""
+    """Read/Write Property: true if transformation is evaluated in parallel."""
     ParallelScheduleType:FBParallelScheduleType
-    """**DEPRICATED** **Read/Write Property:** choose between serial and parallel DAG schedule algorithm. kFBParallelScheduleSimple and kFBParallelScheduleAdvanced will set ParallelEvalution to true. kFBParallelScheduleSerial will set ParallelEvalution to false"""
+    """DEPRICATED Read/Write Property: choose between serial and parallel DAG schedule algorithm. kFBParallelScheduleSimple and kFBParallelScheduleAdvanced will set ParallelEvalution to true. kFBParallelScheduleSerial will set ParallelEvalution to false"""
     UseGPUDeformation:bool
-    """**Read/Write Property:** true if GPU deformation is used."""
+    """Read/Write Property: true if GPU deformation is used."""
     def InvalidateDAG(self):
         """Invalidate the DAG and trigger parallel scheduling at the next frame."""
         ...
@@ -14769,9 +14769,9 @@ class FBFCurveEventManager(FBComponent):
     
     This class is used to track the changes on a FCurve of a property."""
     OnFCurveEvent:property
-    """**Event:** Called when a registered FCurve is modified."""
+    """Event: Called when a registered FCurve is modified."""
     OnPropertyEvent:property
-    """**Event:** Called when a registered property state is modified (detached, destroyed...)."""
+    """Event: Called when a registered property state is modified (detached, destroyed...)."""
     def RegisterProperty(self,Property:FBPropertyAnimatable)->bool:
         """Register a property to the FCurve Event Manager.
         
@@ -14804,159 +14804,159 @@ class FBFbxOptions(FBComponent):
     
     [See samples: FBFbxOptions.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_f_b_fbx_options_8py-example.html) [ImportWithNamespace.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_import_with_namespace_8py-example.html) [BatchExportCharacterAnimationTool.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_batch_export_character_animation_tool_8py-example.html)"""
     ActorFaces:FBElementAction
-    """**Read Write Property:** Handling of the Actor Faces elements."""
+    """Read Write Property: Handling of the Actor Faces elements."""
     ActorFacesAnimation:bool
-    """**Read Write Property:** Handling of the Actor Faces animation."""
+    """Read Write Property: Handling of the Actor Faces animation."""
     Actors:FBElementAction
-    """**Read Write Property:** Handling of the Actors elements."""
+    """Read Write Property: Handling of the Actors elements."""
     Audio:FBElementAction
-    """**Read Write Property:** Handling of the Audio elements."""
+    """Read Write Property: Handling of the Audio elements."""
     BaseCameras:bool
-    """**Read Write Property:** Consider base camera settings."""
+    """Read Write Property: Consider base camera settings."""
     Bones:FBElementAction
-    """**Read Write Property:** Handling of the Bones elements."""
+    """Read Write Property: Handling of the Bones elements."""
     BonesAnimation:bool
-    """**Read Write Property:** Handling of the Bones animation."""
+    """Read Write Property: Handling of the Bones animation."""
     CacheSize:int
-    """**Read Write Property:** The Cached buffer size used to accelerate IO system."""
+    """Read Write Property: The Cached buffer size used to accelerate IO system."""
     CameraSwitcherSettings:bool
-    """**Read Write Property:** Consider camera switcher settings."""
+    """Read Write Property: Consider camera switcher settings."""
     Cameras:FBElementAction
-    """**Read Write Property:** Handling of the Cameras elements."""
+    """Read Write Property: Handling of the Cameras elements."""
     CamerasAnimation:bool
-    """**Read Write Property:** Handling of the Cameras animation."""
+    """Read Write Property: Handling of the Cameras animation."""
     CharacterExtensions:FBElementAction
-    """**Read Write Property:** Handling of the Character Extensions."""
+    """Read Write Property: Handling of the Character Extensions."""
     CharacterFaces:FBElementAction
-    """**Read Write Property:** Handling of the Character Faces elements."""
+    """Read Write Property: Handling of the Character Faces elements."""
     CharacterFacesAnimation:bool
-    """**Read Write Property:** Handling of the Character Faces animation."""
+    """Read Write Property: Handling of the Character Faces animation."""
     Characters:FBElementAction
-    """**Read Write Property:** Handling of the Characters elements."""
+    """Read Write Property: Handling of the Characters elements."""
     CharactersAnimation:bool
-    """**Read Write Property:** Handling of the Characters animation."""
+    """Read Write Property: Handling of the Characters animation."""
     ClearSelectionBeforeSave:bool
-    """**Read Write Property:** Set to true if the current selected objects shouldn't saved when call [FBApplication::SaveCharacterRigAndAnimation](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_application.html#a346f461e13aa027da1465de97310530a "Save the rig and its animation in a file.")."""
+    """Read Write Property: Set to true if the current selected objects shouldn't saved when call [FBApplication::SaveCharacterRigAndAnimation](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_application.html#a346f461e13aa027da1465de97310530a "Save the rig and its animation in a file.")."""
     ConsiderMuteSolo:bool
-    """**Read Write property:** Consider the mute/solo settings to identify identical layer when merging."""
+    """Read Write property: Consider the mute/solo settings to identify identical layer when merging."""
     Constraints:FBElementAction
-    """**Read Write Property:** Handling of the Constraints elements."""
+    """Read Write Property: Handling of the Constraints elements."""
     ConstraintsAnimation:bool
-    """**Read Write Property:** Handling of the Constraints animation."""
+    """Read Write Property: Handling of the Constraints animation."""
     CopyCharacterExtensions:bool
-    """**Read Write Property:** pCopyMissingExtensions Set to true if the character extensions on the rig in the file should be copied to the target rig."""
+    """Read Write Property: pCopyMissingExtensions Set to true if the character extensions on the rig in the file should be copied to the target rig."""
     CurrentCameraSettings:bool
-    """**Read Write Property:** Consider current camera settings."""
+    """Read Write Property: Consider current camera settings."""
     Devices:FBElementAction
-    """**Read Write Property:** Handling of the Devices elements."""
+    """Read Write Property: Handling of the Devices elements."""
     DevicesAnimation:bool
-    """**Read Write Property:** Handling of the Devices animation."""
+    """Read Write Property: Handling of the Devices animation."""
     EmbedMedia:bool
-    """**Read Write Property:** Embed all media in the FBX file itself. When saving in ASCII mode it is not possible to embed media."""
+    """Read Write Property: Embed all media in the FBX file itself. When saving in ASCII mode it is not possible to embed media."""
     FileFormatAndVersion:FBFileFormatAndVersion
-    """**Read Write Property:** File format and version chosen to save the scene."""
+    """Read Write Property: File format and version chosen to save the scene."""
     FileReference:bool
-    """**Read Write property:** Load/Save scene as FileReference."""
+    """Read Write property: Load/Save scene as FileReference."""
     FileReferenceEdit:bool
-    """**Read Write Property:** Load/Save the edits made to referenced objects or not."""
+    """Read Write Property: Load/Save the edits made to referenced objects or not."""
     FileReferences:FBElementAction
-    """**Read Write Property:** Handling of the FileReferences elements."""
+    """Read Write Property: Handling of the FileReferences elements."""
     GlobalLightingSettings:bool
-    """**Read Write Property:** Consider global Lighting settings."""
+    """Read Write Property: Consider global Lighting settings."""
     Groups:FBElementAction
-    """**Read Write Property:** Handling of the Groups elements."""
+    """Read Write Property: Handling of the Groups elements."""
     IgnoreConflicts:bool
-    """**Read Write Property:** Set to true to ignore conflicts between objects in character extensions and objects in the scene. Conflicting objects will be merged in the extension"""
+    """Read Write Property: Set to true to ignore conflicts between objects in character extensions and objects in the scene. Conflicting objects will be merged in the extension"""
     KeepTransformHierarchy:bool
-    """**Read Write Property:** Indicate whether we keep transform hierarchy when SaveSelectedModelsOnly is true. Default value is false to ensure consistent behavior with SaveSelected operation via file menu."""
+    """Read Write Property: Indicate whether we keep transform hierarchy when SaveSelectedModelsOnly is true. Default value is false to ensure consistent behavior with SaveSelected operation via file menu."""
     KeyingGroups:FBElementAction
-    """**Read Write Property:** Handling of the Keying Groups elements."""
+    """Read Write Property: Handling of the Keying Groups elements."""
     Lights:FBElementAction
-    """**Read Write Property:** Handling of the Lights elements."""
+    """Read Write Property: Handling of the Lights elements."""
     LightsAnimation:bool
-    """**Read Write Property:** Handling of the Lights animation."""
+    """Read Write Property: Handling of the Lights animation."""
     Materials:FBElementAction
-    """**Read Write Property:** Handling of the Materials elements."""
+    """Read Write Property: Handling of the Materials elements."""
     MaterialsAnimation:bool
-    """**Read Write Property:** Handling of the Materials animation."""
+    """Read Write Property: Handling of the Materials animation."""
     Models:FBElementAction
-    """**Read Write Property:** Handling of the Models elements."""
+    """Read Write Property: Handling of the Models elements."""
     ModelsAnimation:bool
-    """**Read Write Property:** Handling of the Models animation."""
+    """Read Write Property: Handling of the Models animation."""
     NamespaceList:str
-    """**Read Write Property:** A list of namespaces separated by '~'. On Load, duplicate the loaded objects into each namespace in the list. If the SetMultiLoadNamespaceList method is also called, this property is ignored."""
+    """Read Write Property: A list of namespaces separated by '~'. On Load, duplicate the loaded objects into each namespace in the list. If the SetMultiLoadNamespaceList method is also called, this property is ignored."""
     Notes:FBElementAction
-    """**Read Write Property:** Handling of the Notes elements."""
+    """Read Write Property: Handling of the Notes elements."""
     NotesAnimation:bool
-    """**Read Write Property:** Handling of the Notes animation."""
+    """Read Write Property: Handling of the Notes animation."""
     OpticalData:FBElementAction
-    """**Read Write Property:** Handling of the Optical Data elements."""
+    """Read Write Property: Handling of the Optical Data elements."""
     PhysicalProperties:FBElementAction
-    """**Read Write Property:** Handling of the Physical Properties elements."""
+    """Read Write Property: Handling of the Physical Properties elements."""
     PhysicalPropertiesAnimation:bool
-    """**Read Write Property:** Handling of the Physical Properties animation."""
+    """Read Write Property: Handling of the Physical Properties animation."""
     Poses:FBElementAction
-    """**Read Write Property:** Handling of the Poses elements."""
+    """Read Write Property: Handling of the Poses elements."""
     ProcessAnimationOnExtension:bool
-    """**Read Write Property:** Set to true if animation on character extensions should also be transferred."""
+    """Read Write Property: Set to true if animation on character extensions should also be transferred."""
     RemoveConstraintReference:bool
-    """**Read Write Property:** Set to true if we should remove constraint reference."""
+    """Read Write Property: Set to true if we should remove constraint reference."""
     RemoveEmptyLayer:bool
-    """**Read Write property:** Remove empty animation layers that are in additive mode, without child or parent."""
+    """Read Write property: Remove empty animation layers that are in additive mode, without child or parent."""
     ReplaceControlSet:bool
-    """**Read Write Property:** Set to true if the character extensions (and their children) should be saved when call [FBApplication::SaveCharacterRigAndAnimation](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_application.html#a346f461e13aa027da1465de97310530a "Save the rig and its animation in a file.")."""
+    """Read Write Property: Set to true if the character extensions (and their children) should be saved when call [FBApplication::SaveCharacterRigAndAnimation](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_application.html#a346f461e13aa027da1465de97310530a "Save the rig and its animation in a file.")."""
     ResetDOF:bool
-    """**Read Write Property:** Set to true if we should change the limits on the target rig."""
+    """Read Write Property: Set to true if we should change the limits on the target rig."""
     ResetHierarchy:bool
-    """**Read Write Property:** Set to true if we should reset the character hierarchy."""
+    """Read Write Property: Set to true if we should reset the character hierarchy."""
     RetargetOnBaseLayer:bool
-    """**Read Write Property:** If the transfer method is retarget, set this parameter to control where the retarget correction will be made (on base layer or on another layer)."""
+    """Read Write Property: If the transfer method is retarget, set this parameter to control where the retarget correction will be made (on base layer or on another layer)."""
     SaveCharacter:bool
-    """**Read Write Property:** Set to true if the character should be saved when call [FBApplication::SaveCharacterRigAndAnimation](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_application.html#a346f461e13aa027da1465de97310530a "Save the rig and its animation in a file.")."""
+    """Read Write Property: Set to true if the character should be saved when call [FBApplication::SaveCharacterRigAndAnimation](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_application.html#a346f461e13aa027da1465de97310530a "Save the rig and its animation in a file.")."""
     SaveCharacterExtensions:bool
-    """**Read Write Property:** Set to true if the character extensions (and their children) should be saved when call [FBApplication::SaveCharacterRigAndAnimation](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_application.html#a346f461e13aa027da1465de97310530a "Save the rig and its animation in a file.")."""
+    """Read Write Property: Set to true if the character extensions (and their children) should be saved when call [FBApplication::SaveCharacterRigAndAnimation](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_application.html#a346f461e13aa027da1465de97310530a "Save the rig and its animation in a file.")."""
     SaveControlSet:bool
-    """**Read Write Property:** Set to true if the rig (and its children) should be saved when call [FBApplication::SaveCharacterRigAndAnimation](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_application.html#a346f461e13aa027da1465de97310530a "Save the rig and its animation in a file.")."""
+    """Read Write Property: Set to true if the rig (and its children) should be saved when call [FBApplication::SaveCharacterRigAndAnimation](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_application.html#a346f461e13aa027da1465de97310530a "Save the rig and its animation in a file.")."""
     SaveSelectedModelsOnly:bool
-    """**Read Write Property:** Indicate that only the selected models will be saved."""
+    """Read Write Property: Indicate that only the selected models will be saved."""
     Scripts:FBElementAction
-    """**Read Write Property:** Handling of the Scripts elements."""
+    """Read Write Property: Handling of the Scripts elements."""
     SetPropertyStaticIfPossible:bool
-    """**Read Write Property:** Set to false if want to keep properties' animated flag even when they are not really animated(no keyframe data) while retrieving/storing. [See sample: SetPropertyStaticIfPossibleOption.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_utilities_0c_set_property_static_if_possible_option_8py-example.html)"""
+    """Read Write Property: Set to false if want to keep properties' animated flag even when they are not really animated(no keyframe data) while retrieving/storing. [See sample: SetPropertyStaticIfPossibleOption.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_utilities_0c_set_property_static_if_possible_option_8py-example.html)"""
     Sets:FBElementAction
-    """**Read Write Property:** Handling of the Sets elements."""
+    """Read Write Property: Handling of the Sets elements."""
     Shaders:FBElementAction
-    """**Read Write Property:** Handling of the Shaders elements."""
+    """Read Write Property: Handling of the Shaders elements."""
     ShadersAnimation:bool
-    """**Read Write Property:** Handling of the Shaders animation."""
+    """Read Write Property: Handling of the Shaders animation."""
     ShowFileDialog:bool
-    """**Read Write Property:** Set to true if want to pop up dialog for FileName, Format, Embed, Compression, UseTakeName, OneTakePerFile."""
+    """Read Write Property: Set to true if want to pop up dialog for FileName, Format, Embed, Compression, UseTakeName, OneTakePerFile."""
     ShowOptionsDialog:bool
-    """**Read Write Property:** Set to true if want to pop up options dialog for detail settings."""
+    """Read Write Property: Set to true if want to pop up options dialog for detail settings."""
     Solvers:FBElementAction
-    """**Read Write Property:** Handling of the Solvers elements."""
+    """Read Write Property: Handling of the Solvers elements."""
     SolversAnimation:bool
-    """**Read Write Property:** Handling of the Solvers animation."""
+    """Read Write Property: Handling of the Solvers animation."""
     Story:FBElementAction
-    """**Read Write Property:** Handling of the Story elements."""
+    """Read Write Property: Handling of the Story elements."""
     StoryAnimation:bool
-    """**Read Write Property:** Handling of the Story animation (animatable properties on story objects)."""
+    """Read Write Property: Handling of the Story animation (animatable properties on story objects)."""
     TakeSpan:FBTakeSpanOnLoad
-    """**Read Write Property:** Indicate how the take start and end point should be set. By default it is read from the file."""
+    """Read Write Property: Indicate how the take start and end point should be set. By default it is read from the file."""
     Textures:FBElementAction
-    """**Read Write Property:** Handling of the Textures elements."""
+    """Read Write Property: Handling of the Textures elements."""
     TexturesAnimation:bool
-    """**Read Write Property:** Handling of the Textures animation."""
+    """Read Write Property: Handling of the Textures animation."""
     TransferMethod:FBCharacterLoadAnimationMethod
-    """**Read Write Property:** How should the animation should be transfered on the target rig."""
+    """Read Write Property: How should the animation should be transfered on the target rig."""
     TransportSettings:bool
-    """**Read Write Property:** Consider transport control settings."""
+    """Read Write Property: Consider transport control settings."""
     UpdateRecentFiles:bool
-    """**Read Write Property:** Set to true to update recent file list."""
+    """Read Write Property: Set to true to update recent file list."""
     UseASCIIFormat:bool
-    """**Read Write Property:** Indicate if the resulting FBX file will be in binary or ASCII mode."""
+    """Read Write Property: Indicate if the resulting FBX file will be in binary or ASCII mode."""
     Video:FBElementAction
-    """**Read Write Property:** Handling of the Video elements."""
+    """Read Write Property: Handling of the Video elements."""
     def GetMultiLoadNamespaceList(self)->FBStringList:
         """Returns the list of namespaces that will be used when merging multiple scenes (see [FBApplication::FileMerge](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_application.html#abbf8c31278a9d05ff41c5a3826058537 "Merge one or multiple files with the current scene.")).
         
@@ -15129,13 +15129,13 @@ class FBFbxOptions(FBComponent):
 class FBFileMonitoringManager(FBComponent):
     """File Change Monitoring Interface to the file change monitoring."""
     OnFileChangeAnimationClip:FBEvent
-    """**Event:** Animation clip file change event."""
+    """Event: Animation clip file change event."""
     OnFileChangeFileReference:FBEvent
-    """**Event:** File Reference file change event."""
+    """Event: File Reference file change event."""
     OnFileChangeMainScene:FBEvent
-    """**Event:** Main scene file change event."""
+    """Event: Main scene file change event."""
     OnFileChangePythonEditorScript:FBEvent
-    """**Event:** Python Editor Script file change event."""
+    """Event: Python Editor Script file change event."""
     def AddFileToMonitor(self,FilePath:str,FileMonitoringType:FBFileMonitoringType):
         """Add file to monitor.
         
@@ -15214,9 +15214,9 @@ class FBFilter(FBComponent):
             lFilter.Apply( lModel.Translation.GetAnimationNode(), True )
     ```"""
     Start:FBTime
-    """**Read Write Property:** Start time of the filtering region"""
+    """Read Write Property: Start time of the filtering region"""
     Stop:FBTime
-    """**Read Write Property:** Stop time of the filtering region"""
+    """Read Write Property: Stop time of the filtering region"""
     @overload
     def Apply(self,Node:FBAnimationNode,Recursive:bool)->bool:
         """Apply the filter to an animation node.
@@ -15229,7 +15229,7 @@ class FBFilter(FBComponent):
         
         
         ### Returns:
-        **true** if successful."""
+        true if successful."""
         ...
     @overload
     def Apply(self,Curve:FBFCurve)->bool:
@@ -15242,7 +15242,7 @@ class FBFilter(FBComponent):
         
         
         ### Returns:
-        **true** if successful."""
+        true if successful."""
         ...
     def Reset(self):
         """Reset properties.
@@ -15257,7 +15257,7 @@ class FBFolder(FBComponent):
     
     [See sample: FBFolder.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_f_b_folder_8py-example.html)"""
     Items:FBPropertyListComponent
-    """**List:** List of components in the folder."""
+    """List: List of components in the folder."""
     def __init__(self,Name:str,Component:FBComponent):
         """Constructor.
         
@@ -15308,7 +15308,7 @@ class FBGenericMenu(FBComponent):
     
     [See sample: FBMenu.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_f_b_menu_8py-example.html)"""
     OnMenuActivate:FBEvent
-    """**Event Property:** Register on this property to be notified when a menu item is clicked by the user."""
+    """Event Property: Register on this property to be notified when a menu item is clicked by the user."""
     def DeleteItem(self,ToDelete:FBGenericMenuItem):
         """Remove a menu item from the menu and delete it.
         
@@ -15445,13 +15445,13 @@ class FBGenericMenuItem(FBComponent):
     
     [See sample: FBMenu.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_f_b_menu_8py-example.html)"""
     Caption:str
-    """**Read/Write Property:** Caption of the menu item."""
+    """Read/Write Property: Caption of the menu item."""
     Enable:bool
-    """**Read/Write Property:** Enable or Disable (grey out) a menu Item."""
+    """Read/Write Property: Enable or Disable (grey out) a menu Item."""
     Id:int
-    """**Read/Write Property:** Id of the menu item."""
+    """Read/Write Property: Id of the menu item."""
     Menu:FBGenericMenu
-    """**Read/Write Property:** If the menu item leads to another menu."""
+    """Read/Write Property: If the menu item leads to another menu."""
 class FBGeometry(FBComponent):
     """Geometry class.
     
@@ -15459,34 +15459,34 @@ class FBGeometry(FBComponent):
     
     [See samples: ShapeCreation.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_geometry_0c_shape_creation_8py-example.html) [VertexArrayManipulation.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_geometry_0c_vertex_array_manipulation_8py-example.html)"""
     BinormalMappingMode:FBGeometryMappingMode
-    """**Read Only Property:** Binormal mapping mode."""
+    """Read Only Property: Binormal mapping mode."""
     BinormalReferenceMode:FBGeometryReferenceMode
-    """**Read Only Property:** Binormal reference mode."""
+    """Read Only Property: Binormal reference mode."""
     MaterialMappingMode:FBGeometryMappingMode
-    """**Read Property:** Material mapping mode."""
+    """Read Property: Material mapping mode."""
     NormalMappingMode:FBGeometryMappingMode
-    """**Read Only Property:** Normal mapping mode."""
+    """Read Only Property: Normal mapping mode."""
     NormalReferenceMode:FBGeometryReferenceMode
-    """**Read Only Property:** Normal reference mode."""
+    """Read Only Property: Normal reference mode."""
     TangentMappingMode:FBGeometryMappingMode
-    """**Read Only Property:** Tangent mapping mode."""
+    """Read Only Property: Tangent mapping mode."""
     TangentReferenceMode:FBGeometryReferenceMode
-    """**Read Only Property:** Tangent reference mode."""
+    """Read Only Property: Tangent reference mode."""
     VertexColorMappingMode:FBGeometryMappingMode
-    """**Read Only Property:** Vertex Color mapping mode."""
+    """Read Only Property: Vertex Color mapping mode."""
     VertexColorReferenceMode:FBGeometryReferenceMode
-    """**Read Only Property:** Vertex Color reference mode."""
+    """Read Only Property: Vertex Color reference mode."""
     def GeometryBegin(self)->bool:
         """Begin geometry editing.
         
         ### Returns:
-        **true** if successful."""
+        true if successful."""
         ...
     def GeometryEnd(self)->bool:
         """End geometry editing.
         
         ### Returns:
-        **true** if successful."""
+        true if successful."""
         ...
     def GetBinormalsDirectArray(self)->list:
         """Get a pointer to the direct array of binormals.
@@ -15771,7 +15771,7 @@ class FBGeometry(FBComponent):
         
         Call this function to clear Position, Normal, UV, Color and etc vertex arrays, and it won't affect geometry's topology (polygon, Surface and etc.,).
         ### Returns:
-        **true** if successful."""
+        true if successful."""
         ...
     def VertexArrayInit(self,Vertexcount:int,UniqueMaterial:bool,FBGeometryArrayIDs:int=0)->bool:
         """Init geometry vertex arrays.
@@ -15788,7 +15788,7 @@ class FBGeometry(FBComponent):
         
         Call this function to clear Position, Normal, UV, Color and etc vertex arrays, and it won't affect geometry's topology (polygon, Surface and etc.,).
         ### Returns:
-        **true** if successful."""
+        true if successful."""
         ...
     def VertexColorGet(self,Index:int)->FBColorAndAlpha:
         """Get a Vertex Color.
@@ -15817,7 +15817,7 @@ class FBGeometry(FBComponent):
         
         
         ### Returns:
-        **true** if successful."""
+        true if successful."""
         ...
     def VertexCount(self)->int:
         """Get the number of vertices in the geometry.
@@ -15901,7 +15901,7 @@ class FBGeometry(FBComponent):
         
         
         ### Returns:
-        **true** if successful."""
+        true if successful."""
         ...
     @overload
     def VertexNormalSet(self,x:float,y:float,z:float,Index:int=-1)->bool:
@@ -15916,7 +15916,7 @@ class FBGeometry(FBComponent):
         
         
         ### Returns:
-        **true** if successful."""
+        true if successful."""
         ...
     @overload
     def VertexSet(self,Vertex:FBVertex,Index:int=-1)->bool:
@@ -15929,7 +15929,7 @@ class FBGeometry(FBComponent):
         
         
         ### Returns:
-        **true** if successful."""
+        true if successful."""
         ...
     @overload
     def VertexSet(self,x:float,y:float,z:float,Index:int=-1)->bool:
@@ -15944,7 +15944,7 @@ class FBGeometry(FBComponent):
         
         
         ### Returns:
-        **true** if successful."""
+        true if successful."""
         ...
     def VertexSetSelected(self,Index:int,State:bool)->bool:
         """Set the selected state of a vertex.
@@ -15992,7 +15992,7 @@ class FBGeometry(FBComponent):
         
         
         ### Returns:
-        **true** if successful."""
+        true if successful."""
         ...
     @overload
     def VertexUVSet(self,U:float,V:float,Index:int=-1)->bool:
@@ -16006,11 +16006,11 @@ class FBGeometry(FBComponent):
         
         
         ### Returns:
-        **true** if successful."""
+        true if successful."""
         ...
 class FBHUDManager(FBComponent):
     DefaultHUD:FBHUD
-    """**Read Write Property:** Specifies the HUD to be displayed on cameras that do not have HUD explicitly assigned."""
+    """Read Write Property: Specifies the HUD to be displayed on cameras that do not have HUD explicitly assigned."""
     def __init__(self):...
 class FBMesh(FBGeometry):
     """Mesh class.
@@ -16094,7 +16094,7 @@ class FBMesh(FBGeometry):
         
         
         ### Returns:
-        **true** if successful."""
+        true if successful."""
         ...
     def PolygonVertexArrayGet(self)->list:
         """Get the array of polygon vertex (i.e.
@@ -16171,19 +16171,19 @@ class FBImage(FBComponent):
     
     [See sample: VideoMemory.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_video_0c_video_memory_8py-example.html)"""
     Depth:int
-    """**Read Write Property:** Color depth of the image."""
+    """Read Write Property: Color depth of the image."""
     Format:FBImageFormat
-    """**Read Write Property:** Image data format."""
+    """Read Write Property: Image data format."""
     Height:int
-    """**Read Write Property:** Height of the image in pixels."""
+    """Read Write Property: Height of the image in pixels."""
     InterleaveType:FBImageInterleaveType
-    """**Read Only Property:** Image interleave type. Only meaningful if image type is field."""
+    """Read Only Property: Image interleave type. Only meaningful if image type is field."""
     InterpolationType:FBImageInterpolationType
-    """**Read Only Property:** Image interpolation type."""
+    """Read Only Property: Image interpolation type."""
     Type:FBImageType
-    """**Read Only Property:** Image type, refering to either frame or field."""
+    """Read Only Property: Image type, refering to either frame or field."""
     Width:int
-    """**Read Write Property:** Width of the image in pixels."""
+    """Read Write Property: Width of the image in pixels."""
     def Cleanup(self):
         """Cleanup image data, making it black."""
         ...
@@ -16254,9 +16254,9 @@ class FBKeyControl(FBComponent):
     
     [See sample: MirrorPoseOverTime.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_mirror_pose_over_time_8py-example.html)"""
     AutoKey:bool
-    """**Read Write Property:** Enable/Disable Auto Key feature (key when moving 3D objects)."""
+    """Read Write Property: Enable/Disable Auto Key feature (key when moving 3D objects)."""
     NewKeyInterpolationType:FBNewKeyInterpolationType
-    """**Read Write Property:** Current key interpolation type that will be used for new keys."""
+    """Read Write Property: Current key interpolation type that will be used for new keys."""
     def MoveKeys(self,TimeSpan:FBTimeSpan,Pivot:FBModel,T:FBVector3d,R:FBVector3d,S:FBVector3d,Time:FBTime,ModelList:FBModelList|None=None):
         """Move animation keys in space, with respect to a pivot object.
         
@@ -16481,23 +16481,23 @@ class FBCharacterExtension(FBKeyingGroup):
     
     [See sample: CreateCharacterExtensionOnSelectedObject.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_create_character_extension_on_selected_object_8py-example.html)"""
     IncludePartInBodyPart:bool
-    """**Read Write Property:** Include or not this extension when the Body Part mode is active."""
+    """Read Write Property: Include or not this extension when the Body Part mode is active."""
     IncludePartInFullBody:bool
-    """**Read Write Property:** Include or not this extension when the Full Body mode is active."""
+    """Read Write Property: Include or not this extension when the Full Body mode is active."""
     Label:str
-    """**Read Write Property:** The logical name of the extension, use for mirroring."""
+    """Read Write Property: The logical name of the extension, use for mirroring."""
     MirrorLabel:int
-    """**Read Write Property:** Enum that indicate which extension is used as mirror, 0 is none, 1 is self, 2-n represent the (ith - 2)character extension in the attached character excluding self."""
+    """Read Write Property: Enum that indicate which extension is used as mirror, 0 is none, 1 is self, 2-n represent the (ith - 2)character extension in the attached character excluding self."""
     PlotAllowed:FBPlotAllowed
-    """**Read Write Property:** Controls if objects in the set are transformable."""
+    """Read Write Property: Controls if objects in the set are transformable."""
     ReferenceModel:FBModel
-    """**Read Write Property:** Controls the referential of the extension."""
+    """Read Write Property: Controls the referential of the extension."""
     RetargetMode:FBCharacterExtensionRetargetMode
-    """**Read Write Property:** Character extension retarget mode."""
+    """Read Write Property: Character extension retarget mode."""
     StancePoseMode:FBCharacterExtensionStancePoseMode
-    """**Read Write Property:** Character extension stance pose mode."""
+    """Read Write Property: Character extension stance pose mode."""
     SyncActivationAndVisibilityMode:FBSyncActivationAndVisibilityMode
-    """**Read Write Property:** The "Sync Activation & Visibility" mode."""
+    """Read Write Property: The "Sync Activation & Visibility" mode."""
     def AddObjectProperties(self,Obj:FBComponent):
         """Add TR Properties from Object.
         
@@ -16672,21 +16672,21 @@ class FBCharacterExtension(FBKeyingGroup):
 class FBManipulator(FBComponent):
     """Manipulator class."""
     Active:bool
-    """**Read Write Property:** Is manipulator active?"""
+    """Read Write Property: Is manipulator active?"""
     AlwaysActive:bool
-    """**Read Write Property:** Is manipulator always active?"""
+    """Read Write Property: Is manipulator always active?"""
     ConsumeEvent:bool
-    """**Read Write Property:** Is manipulator consuming event? If true, this will prevent other manipulators from being called."""
+    """Read Write Property: Is manipulator consuming event? If true, this will prevent other manipulators from being called."""
     DefaultBehavior:bool
-    """**Read Write Property:** Using default manipulator behavior?"""
+    """Read Write Property: Using default manipulator behavior?"""
     ViewerText:str
-    """**Read Write Property:** Text displayed in view."""
+    """Read Write Property: Text displayed in view."""
     Visible:bool
-    """**Read Write Property:** Is manipulator visible?"""
+    """Read Write Property: Is manipulator visible?"""
 class FBMarkerSet(FBComponent):
     """Marker set class.
     
-    **These classes are under development and may change dramatically between versions.**"""
+    These classes are under development and may change dramatically between versions."""
     def AddMarker(self,NodeId:FBSkeletonNodeId,Model:FBModel|None=None,IsOriented:bool=False)->int:
         """Add a marker to the marker set.
         
@@ -16742,7 +16742,7 @@ class FBMarkerSet(FBComponent):
         The model associated with the marker."""
         ...
     def GetMarkerName(self,NodeId:FBSkeletonNodeId,MarkerIndex:int)->str:
-        """Get the name of marker at index **pMarkerIndex**.
+        """Get the name of marker at index pMarkerIndex.
         
         ### Parameters:
         
@@ -16751,7 +16751,7 @@ class FBMarkerSet(FBComponent):
         
         
         ### Returns:
-        Name of marker at index **pMarkerIndex**."""
+        Name of marker at index pMarkerIndex."""
         ...
     def GetMarkerOriented(self,NodeId:FBSkeletonNodeId,MarkerIndex:int)->bool:
         """Is marker orientated ?
@@ -16763,7 +16763,7 @@ class FBMarkerSet(FBComponent):
         
         
         ### Returns:
-        **True** if marker is oriented, **false** otherwise."""
+        True if marker is oriented, false otherwise."""
         ...
     def GetMarkerROffset(self,NodeId:FBSkeletonNodeId,MarkerIndex:int,ROffset:FBVector3d):
         """Get/Set a marker rotation.
@@ -16799,7 +16799,7 @@ class FBMarkerSet(FBComponent):
         
         
         ### Returns:
-        **True** if marker is used, **false** otherwise."""
+        True if marker is used, false otherwise."""
         ...
     def GetReferenceModel(self)->FBModel:
         """Get the reference model associated with this marker set.
@@ -16828,7 +16828,7 @@ class FBMarkerSet(FBComponent):
             - Model: Model to be associated to the marker."""
         ...
     def SetMarkerName(self,NodeId:FBSkeletonNodeId,MarkerIndex:int,MarkerName:str):
-        """Set the name of marker at index **pMarkerIndex**.
+        """Set the name of marker at index pMarkerIndex.
         
         ### Parameters:
         
@@ -17030,27 +17030,27 @@ class FBMenuManager(FBComponent):
 class FBModelOpticalAdvanced(FBComponent):
     """Advanced optical model information."""
     Active:bool
-    """**Property:** Optical engine for model active?"""
+    """Property: Optical engine for model active?"""
     AutoPlayToNextSegment:bool
-    """**Property:** Automatic play to next segment ?"""
+    """Property: Automatic play to next segment ?"""
     ControllerMode:FBControllerMode
-    """**Property:** Controller mode."""
+    """Property: Controller mode."""
     GenerationMode:FBGenerationMode
-    """**Property:** Optical genration mode."""
+    """Property: Optical genration mode."""
     InsertSegmentMode:FBInsertSegmentMode
-    """**Property:** Insert segment mode."""
+    """Property: Insert segment mode."""
     MaxMatchDistance:float
-    """**Property:** Max matching distance."""
+    """Property: Max matching distance."""
     PlayToNextSegment:bool
-    """**Property:** Play to next segment ?"""
+    """Property: Play to next segment ?"""
     Quality:FBAnimationNode
-    """**Property:** Rigid body quality."""
+    """Property: Rigid body quality."""
     SegmentMode:FBSegmentMode
-    """**Property:** Segment mode."""
+    """Property: Segment mode."""
     ShowRigidQuality:bool
-    """**Property:** Show the rigid quality?"""
+    """Property: Show the rigid quality?"""
     UsedTake:FBTake
-    """**Property:** Take used by optical model."""
+    """Property: Take used by optical model."""
     def AcceptAllSegments(self):
         """Accept all segments."""
         ...
@@ -17078,19 +17078,19 @@ class FBModelTemplate(FBComponent):
     
     Model templates are 'placeholders' for animation input from devices. These generic 'models' can be any type of element, and permit the abstraction of the input from the actual type of model. In order to animate a model, one should bind the model to an animation node."""
     Bindings:FBPropertyListModelTemplateBinding
-    """**List:** Bindings for animation interface."""
+    """List: Bindings for animation interface."""
     Children:FBPropertyListModelTemplate
-    """**List:** Children for object hierarchy."""
+    """List: Children for object hierarchy."""
     DefaultRotation:FBVector3d
-    """**Read Write Property:** Default rotation."""
+    """Read Write Property: Default rotation."""
     DefaultScaling:FBVector3d
-    """**Read Write Property:** Default scaling."""
+    """Read Write Property: Default scaling."""
     DefaultTranslation:FBVector3d
-    """**Read Write Property:** Default translation."""
+    """Read Write Property: Default translation."""
     Model:FBModel
-    """**Read Write Property:** Model being interfaced."""
+    """Read Write Property: Model being interfaced."""
     Prefix:str
-    """**Read Write Property:** Prefix of model template."""
+    """Read Write Property: Prefix of model template."""
 class FBModelVertexData(FBComponent):
     def DisableOGLUVSet(self):
         """Disable OpenGL UV set array."""
@@ -17414,7 +17414,7 @@ class FBModelVertexData(FBComponent):
 class FBModuleManager(FBComponent):
     """Module Manager class.
     
-    **This class is introduced to enable users to access information related to the loaded modules.**"""
+    This class is introduced to enable users to access information related to the loaded modules."""
     def GetLoadedModuleNames(self)->FBStringList:
         """Returns the loaded module names found in the \*.mod files parsed.
         
@@ -17674,13 +17674,13 @@ class FBMotionClip(FBComponent):
     
     Properties of this class are work in progress, but you can still list them and get their names."""
     Filename:str
-    """**Read Write Property:** Filename and path of motion file."""
+    """Read Write Property: Filename and path of motion file."""
     RelativePath:str
-    """**Read Only Property:** Relative path to the motion file."""
+    """Read Only Property: Relative path to the motion file."""
     Start:FBTime
-    """**Read Only Property:** Start time of clip."""
+    """Read Only Property: Start time of clip."""
     Stop:FBTime
-    """**Read Only Property:** Stop time of clip."""
+    """Read Only Property: Stop time of clip."""
     def __init__(self,FileName:str):
         """Constructor.
         
@@ -17691,13 +17691,13 @@ class FBMotionClip(FBComponent):
 class FBMotionFileExportOptions(FBComponent):
     """Customize motion file exporting."""
     AddPrefix:bool
-    """**Read Write Property:** Effective only if the OneTakePerFile property is true. True to prefix the constructor's specified filename in the take export file path, false otherwise. Changing this property value will reset any user-specified file path set with the SetTakeFilePath method."""
+    """Read Write Property: Effective only if the OneTakePerFile property is true. True to prefix the constructor's specified filename in the take export file path, false otherwise. Changing this property value will reset any user-specified file path set with the SetTakeFilePath method."""
     FileCreation:FBFileCreation
-    """**Read Write Property:** Operation to execute when trying to write a file that already exists on disk."""
+    """Read Write Property: Operation to execute when trying to write a file that already exists on disk."""
     ModelSelection:FBModelSelection
-    """**Read Write Property:** Specifies the content to export."""
+    """Read Write Property: Specifies the content to export."""
     OneTakePerFile:bool
-    """**Read Write Property:** True to export each take in a separated file, false to export all takes in a single file. Changing this property value will reset any user-specified file path set with the SetTakeFilePath method."""
+    """Read Write Property: True to export each take in a separated file, false to export all takes in a single file. Changing this property value will reset any user-specified file path set with the SetTakeFilePath method."""
     def GetFilePath(self)->str:
         """Get the file path for the motion file(s) to create.
         
@@ -17880,39 +17880,39 @@ class FBMotionFileExportOptions(FBComponent):
 class FBMotionFileImportOptions(FBComponent):
     """Customize motion file loading."""
     BaseRotationOnPreRotation:bool
-    """**Read Write Property:** If set to true, the base rotation will be imported as Pre Rotation. Used for htr, asf/amc files."""
+    """Read Write Property: If set to true, the base rotation will be imported as Pre Rotation. Used for htr, asf/amc files."""
     BaseTranslationOnRotationOffset:bool
-    """**Read Write Property:** If set to true, the base translation will be imported as Rotation Pivot offset. Used for htr, asf/amc"""
+    """Read Write Property: If set to true, the base translation will be imported as Rotation Pivot offset. Used for htr, asf/amc"""
     CreateInsteadOfMerge:bool
-    """**Read Write Property:** If set to true, the motion will imported/models will be created in the scene, if set to false, the motion will be merged."""
+    """Read Write Property: If set to true, the motion will imported/models will be created in the scene, if set to false, the motion will be merged."""
     CreateOpticalSegments:bool
-    """**Read Write Property:** If set to true, optical segments will be created. Used for trc, c3d files."""
+    """Read Write Property: If set to true, optical segments will be created. Used for trc, c3d files."""
     CreateReferenceNode:bool
     """Settings based on file type."""
     CreateUnmatchedModels:bool
-    """**Read Write Property:** If set to true, nodes will be created to match the hierarchical structure of the imported file."""
+    """Read Write Property: If set to true, nodes will be created to match the hierarchical structure of the imported file."""
     CreateUnusedOpticalSegments:bool
-    """**Read Write Property:** If set to true, unused optical segments will be created. Used for trc, c3d files."""
+    """Read Write Property: If set to true, unused optical segments will be created. Used for trc, c3d files."""
     IgnoreModelType:bool
-    """**Read Write Property:** If set to true, model type will not be considered when finding a matching model in the scene."""
+    """Read Write Property: If set to true, model type will not be considered when finding a matching model in the scene."""
     ImportDOF:bool
-    """**Read Write Property:** If set to true, the DOF value will be imported from the file."""
+    """Read Write Property: If set to true, the DOF value will be imported from the file."""
     ImportScaling:bool
-    """**Read Write Property:** If set to true, scaling values will be imported."""
+    """Read Write Property: If set to true, scaling values will be imported."""
     KeepActorPrefix:bool
-    """**Read Write Property:** If set to true, the Actor prefix will be kept when naming each optical marker. Used with c3d files."""
+    """Read Write Property: If set to true, the Actor prefix will be kept when naming each optical marker. Used with c3d files."""
     KeepDummyNode:bool
-    """**Read Write Property:** If set to true, dummy bones from the file are not removed. Used for asf/amc files."""
+    """Read Write Property: If set to true, dummy bones from the file are not removed. Used for asf/amc files."""
     ModelSelection:FBModelSelection
     """Common settings when merging, unused with the CreateInsteadOfMerge property is set to true."""
     SetLimits:bool
-    """**Read Write Property:** If set to true, use motion limits. Used for asf/amc files."""
+    """Read Write Property: If set to true, use motion limits. Used for asf/amc files."""
     SetOccludedToLastValidPosition:bool
-    """**Read Write Property:** If set to true, occluded segments will be set to their last valid position. Used for trc, c3d files."""
+    """Read Write Property: If set to true, occluded segments will be set to their last valid position. Used for trc, c3d files."""
     TakeStartEnd:FBTakeSpanOnLoad
-    """**Read Write Property:** Indicates how the start/end value of the take will be modified."""
+    """Read Write Property: Indicates how the start/end value of the take will be modified."""
     UpAxisUsedInFile:FBUpAxis
-    """**Read Write Property:** Indicated the up axis used in the motion file. Only effective when loading c3d files."""
+    """Read Write Property: Indicated the up axis used in the motion file. Only effective when loading c3d files."""
     def GetTakeCount(self)->int:
         """Return the take count in the file to be loaded.
         
@@ -18078,10 +18078,10 @@ class FBNamespace(FBComponent):
     
     This class is an interface to manipulate object's containing in the scene."""
     ChildrenNamespaces:FBPropertyListNamespace
-    """**List:** Direct Children Namespace Objects."""
+    """List: Direct Children Namespace Objects."""
     ContentCount:property
     ContentLocked:bool
-    """**Read Write Property:** Content locking state."""
+    """Read Write Property: Content locking state."""
     def GetContent(self,Index:int)->FBComponent:
         """Get the namespace content object count (Not Recursive).
         
@@ -18117,11 +18117,11 @@ class FBNamespace(FBComponent):
 class FBOpticalGap(FBComponent):
     """Optical Gap class."""
     Data:FBAnimationNode
-    """**Property:** Gap curve data."""
+    """Property: Gap curve data."""
     Interpolation:FBGapMode
-    """**Property:** Gap mode."""
+    """Property: Gap mode."""
     TimeSpan:FBTimeSpan
-    """**Property:** Current timespan."""
+    """Property: Current timespan."""
     def InsertControlKey(self,Time:FBTime):
         """Insert a control key for the gap.
         
@@ -18133,7 +18133,7 @@ class FBOpticalGap(FBComponent):
         """Check if valid (if item exists).
         
         ### Returns:
-        **true** if segment is valid."""
+        true if segment is valid."""
         ...
     def __init__(self,Marker:FBModelMarkerOptical):
         """Constructor.
@@ -18149,9 +18149,9 @@ class FBFileReference(FBNamespace):
     
     [See sample: MBFileRefDemo.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_referencing_0c_m_b_file_ref_demo_8py-example.html)"""
     IsLoaded:bool
-    """**Read Write Property:**  File Reference Load/Unload."""
+    """Read Write Property:  File Reference Load/Unload."""
     ReferenceFilePath:str
-    """**Read Write Property:**  File Reference file path."""
+    """Read Write Property:  File Reference file path."""
     def ApplyRefEditPyScriptFromFile(self,RefEditPyScriptFilePath:str):
         """Apply specified reference edits from python script file.
         
@@ -18182,7 +18182,7 @@ class FBFileReference(FBNamespace):
         """Clear all cached Ref edit.
         
         ### Returns:
-        **True** if the RefEdits are cleared properly."""
+        True if the RefEdits are cleared properly."""
         ...
     def ClearRefEdit(self,FilePath:str)->bool:
         """Clear the cached RefEdit for the given ref file path.
@@ -18193,7 +18193,7 @@ class FBFileReference(FBNamespace):
         
         
         ### Returns:
-        **True** if the RefEdit for the given Ref File Path is cached and cleared properly."""
+        True if the RefEdit for the given Ref File Path is cached and cleared properly."""
         ...
     def DuplicateFileRef(self,DstNameSpaceList:FBStringList,WithRefEdit:bool=False)->bool:
         """Duplicate/Clone the FileRef object and its referenced content (with/without refEdit).
@@ -18244,7 +18244,7 @@ class FBFileReference(FBNamespace):
         
         
         ### Returns:
-        **True** if swap successfully."""
+        True if swap successfully."""
         ...
     def __init__(self,SingleLevelNamespace:str,ParentNSObj:FBNamespace):
         """Constructor.
@@ -18258,17 +18258,17 @@ class FBFileReference(FBNamespace):
 class FBOpticalSegment(FBComponent):
     """Optical segment class."""
     Data:FBAnimationNode
-    """**Property:** Segment curve data."""
+    """Property: Segment curve data."""
     Marker:FBModelMarkerOptical
-    """**Property:** Optical marker."""
+    """Property: Optical marker."""
     MarkerTimeSpan:FBTimeSpan
-    """**Property:** Marker/Segment timespan."""
+    """Property: Marker/Segment timespan."""
     OriginalTimeSpan:FBTimeSpan
-    """**Property:** Original timespan for segment."""
+    """Property: Original timespan for segment."""
     TimeSpan:FBTimeSpan
-    """**Property:** Current segment timespan."""
+    """Property: Current segment timespan."""
     Used:bool
-    """**Property:** Is segment used?"""
+    """Property: Is segment used?"""
     def Cut(self,Time:FBTime):
         """Cut the segment for the marker at a given time.
         
@@ -18280,7 +18280,7 @@ class FBOpticalSegment(FBComponent):
         """Check if valid (if item exists).
         
         ### Returns:
-        **true** if segment is valid."""
+        true if segment is valid."""
         ...
     def Reset(self):
         """Reset the marker segment."""
@@ -18306,35 +18306,35 @@ class FBPlayerControl(FBComponent):
     
     [See samples: ShotTrackSetupTool.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_complex_tools_0c_shot_track_setup_tool_8py-example.html) [RenderLayers.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_rendering_0c_render_layers_8py-example.html) [CameraSwitcher.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_camera_0c_camera_switcher_8py-example.html) [BloopSlate.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_h_u_d_0c_bloop_slate_8py-example.html) [RecordLight.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_h_u_d_0c_record_light_8py-example.html) [Timeline.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_h_u_d_0c_timeline_8py-example.html) [CreateProfilingEventsLog.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_profiling_0c_create_profiling_events_log_8py-example.html) [MirrorPoseOverTime.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_mirror_pose_over_time_8py-example.html) [MultiLayerKeying.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_multi_layer_keying_8py-example.html) [StartDevice.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_start_device_8py-example.html) [StopDevice.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_stop_device_8py-example.html) [TimeCodeKeying.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_time_code_keying_8py-example.html)"""
     IsPlaying:bool
-    """**Read Only Property:** Is the transport control playing?"""
+    """Read Only Property: Is the transport control playing?"""
     IsPlotting:bool
-    """**Read Only Property:** Is there a plotting in progress?"""
+    """Read Only Property: Is there a plotting in progress?"""
     IsRecording:bool
-    """**Read Only Property:** Is there a recording in progress?"""
+    """Read Only Property: Is there a recording in progress?"""
     LoopMode:FBTransportLoopMode
-    """**Read Write Property:** Loop mode."""
+    """Read Write Property: Loop mode."""
     LoopStart:FBTime
-    """**Read Write Property:** Loop begin time."""
+    """Read Write Property: Loop begin time."""
     LoopStop:FBTime
-    """**Read Write Property:** Loop end time."""
+    """Read Write Property: Loop end time."""
     NextMarker:FBTime
-    """**Read Only Property:** Next marked time."""
+    """Read Only Property: Next marked time."""
     OnChange:FBEvent
-    """**Event Property:** Fired when something in the player control has changed. (see [FBEventPlayerControlChange](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_event_player_control_change.html))"""
+    """Event Property: Fired when something in the player control has changed. (see [FBEventPlayerControlChange](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_event_player_control_change.html))"""
     PlotSamplingPeriod:FBTime
-    """**Read Write Property:** Sampling period for the model plotting."""
+    """Read Write Property: Sampling period for the model plotting."""
     PreviousMarker:FBTime
-    """**Read Only Property:** Previous marked time."""
+    """Read Only Property: Previous marked time."""
     RecordingSamplingPeriod:FBTime
-    """**Read Write Property:** Sampling period for the model recording."""
+    """Read Write Property: Sampling period for the model recording."""
     SnapMode:FBTransportSnapMode
-    """**Read Write Property:** Set the transport control snap mode."""
+    """Read Write Property: Set the transport control snap mode."""
     TransportTimeFormat:FBTransportTimeFormat
-    """**Read Write Property:** Current Time Mode of the transport controls."""
+    """Read Write Property: Current Time Mode of the transport controls."""
     ZoomWindowStart:FBTime
-    """**Read Write Property:** Starting time of the transport control zoom window."""
+    """Read Write Property: Starting time of the transport control zoom window."""
     ZoomWindowStop:FBTime
-    """**Read Write Property:** Stopping time of the transport control zoom window."""
+    """Read Write Property: Stopping time of the transport control zoom window."""
     def AddGlobalTimeMark(self,Time:FBTime)->int:
         """Add a global time mark.
         
@@ -18503,7 +18503,7 @@ class FBPlayerControl(FBComponent):
         Current mode of the transport controls."""
         ...
     def Goto(self,p0:FBTime,p1:FBTimeReferential|None=None)->bool:
-        """Goto a time specified by **pTime**.
+        """Goto a time specified by pTime.
         
         ### Parameters:
         
@@ -18512,7 +18512,7 @@ class FBPlayerControl(FBComponent):
         
         
         ### Returns:
-        **true** if successful."""
+        true if successful."""
         ...
     def GotoEnd(self,p0:FBTimeReferential|None=None)->bool:
         """GotoEnd button (FastForward).
@@ -18523,7 +18523,7 @@ class FBPlayerControl(FBComponent):
         
         
         ### Returns:
-        **true** if successful."""
+        true if successful."""
         ...
     def GotoNextKey(self):
         """Go to the next key."""
@@ -18540,7 +18540,7 @@ class FBPlayerControl(FBComponent):
         
         
         ### Returns:
-        **true** if successful."""
+        true if successful."""
         ...
     def IsLocked(self)->bool:
         """Return the current locking state of the transport."""
@@ -18706,7 +18706,7 @@ class FBPlayerControl(FBComponent):
         
         
         ### Returns:
-        **true** if successful."""
+        true if successful."""
         ...
     def StepForward(self,p0:FBTimeReferential|None=None)->bool:
         """Step one frame ahead.
@@ -18717,7 +18717,7 @@ class FBPlayerControl(FBComponent):
         
         
         ### Returns:
-        **true** if successful."""
+        true if successful."""
         ...
     def Stop(self)->bool:
         """Stop button.
@@ -18731,21 +18731,21 @@ class FBPlayerControl(FBComponent):
 class FBPointCacheFile(FBComponent):
     """Base Model deformer class."""
     CacheFileName:str
-    """**Read Write Property:** Filename of media."""
+    """Read Write Property: Filename of media."""
     ChannelCount:int
-    """**Read Only Property:** Channel Count."""
+    """Read Only Property: Channel Count."""
     FreeRunning:bool
-    """**Read Write Property:** Free Running."""
+    """Read Write Property: Free Running."""
     Loop:bool
-    """**Read Write Property:** Loop."""
+    """Read Write Property: Loop."""
     Offset:FBTime
-    """**Read Write Property:** Offset."""
+    """Read Write Property: Offset."""
     PlaySpeed:float
-    """**Read Write Property:** Play Speed."""
+    """Read Write Property: Play Speed."""
     StartTime:FBTime
-    """**Read Write Property:** Start Time."""
+    """Read Write Property: Start Time."""
     StopTime:FBTime
-    """**Read Write Property:** Stop Time."""
+    """Read Write Property: Stop Time."""
     def __init__(self,Name:str):
         """Constructor.
         
@@ -18756,32 +18756,32 @@ class FBPointCacheFile(FBComponent):
 class FBRendererCallback(FBComponent):
     """Open Reality renderer callback interface."""
     DefaultCameraBackPlateRendering:bool
-    """**Read write Property:** Set true to use default camera back plate rendering; set false to disable it."""
+    """Read write Property: Set true to use default camera back plate rendering; set false to disable it."""
     DefaultCameraFrontPlateRendering:bool
-    """**Read write Property:** Set true to use default camera front plate rendering; set false to disable it."""
+    """Read write Property: Set true to use default camera front plate rendering; set false to disable it."""
     DefaultLightGroundProjectionRendering:bool
-    """**Read write Property:** Set true to use default light ground projection rendering; set false to disable it."""
+    """Read write Property: Set true to use default light ground projection rendering; set false to disable it."""
     DefaultLightVolumeRendering:bool
-    """**Read write Property:** Set true to use default light volume rendering; set false to disable it."""
+    """Read write Property: Set true to use default light volume rendering; set false to disable it."""
     SupportIDBufferPicking:bool
-    """**Read write Property:** Can this Renderer Callback support IDBuffer Picking."""
+    """Read write Property: Can this Renderer Callback support IDBuffer Picking."""
     def __init__(self,Name:str):
         """Constructor."""
         ...
 class FBRigidBody(FBComponent):
     """Rigid body class."""
     Done:bool
-    """**Property:** Done?"""
+    """Property: Done?"""
     Markers:FBPropertyListRigidBodyMarkers
-    """**Property:** List of markers composing the rigid body."""
+    """Property: List of markers composing the rigid body."""
     Mode:FBRigidBodyMode
-    """**Property:** Rigid body mode."""
+    """Property: Rigid body mode."""
     Model:FBModel
-    """**Property:** Rigid body model."""
+    """Property: Rigid body model."""
     QualityData:FBAnimationNode
-    """**Property:** Quality of rigid body."""
+    """Property: Quality of rigid body."""
     SmoothWidth:int
-    """**Property:** Smoothing width."""
+    """Property: Smoothing width."""
     def ComputeAnimation(self):
         """Compute the rigid body animation."""
         ...
@@ -18789,7 +18789,7 @@ class FBRigidBody(FBComponent):
         """Check if valid (if item exists).
         
         ### Returns:
-        **true** if segment is valid."""
+        true if segment is valid."""
         ...
     def Snap(self):
         """Snap the rigid body."""
@@ -18892,87 +18892,87 @@ class FBScene(FBComponent):
     
     [See samples: InsertCurrentTake.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_insert_current_take_8py-example.html) [DeleteUnusedMedia.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_delete_unused_media_8py-example.html) [MirrorPoseOverTime.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_mirror_pose_over_time_8py-example.html) [SelectModelsWithNameContainingSubstring.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_select_models_with_name_containing_substring_8py-example.html) [SetAllCamerasBackgroundColorFromFirstSelectedCamera.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_set_all_cameras_background_color_from_first_selected_camera_8py-example.html) [StartDevice.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_start_device_8py-example.html)"""
     ActorFaces:FBPropertyListActorFace
-    """**List:** ActorFaces in scene."""
+    """List: ActorFaces in scene."""
     Actors:FBPropertyListActor
-    """**List:** Actors in scene."""
+    """List: Actors in scene."""
     AudioClips:FBPropertyListAudioClip
-    """**List:** Audio clips in scene."""
+    """List: Audio clips in scene."""
     Cameras:FBPropertyListCamera
-    """**List:** Cameras in scene."""
+    """List: Cameras in scene."""
     CharacterExtensions:FBPropertyListCharacterExtension
-    """**List:** Character extensions available in the scene."""
+    """List: Character extensions available in the scene."""
     CharacterFaces:FBPropertyListCharacterFace
-    """**List:** Character faces in scene."""
+    """List: Character faces in scene."""
     CharacterMarkerSets:FBPropertyListCharacterMarkerSet
-    """**List:** Character marker sets in scene."""
+    """List: Character marker sets in scene."""
     CharacterPoses:FBPropertyListCharacterPose
-    """**List:** Character poses in scene."""
+    """List: Character poses in scene."""
     Characters:FBPropertyListCharacter
-    """**List:** Characters in scene."""
+    """List: Characters in scene."""
     ConstraintSolvers:FBPropertyListConstraintSolver
-    """**List:** Constraint Solvers present in the scene."""
+    """List: Constraint Solvers present in the scene."""
     Constraints:FBPropertyListConstraint
-    """**List:** Constraints in scene."""
+    """List: Constraints in scene."""
     ControlSets:FBPropertyListControlSet
-    """**List:** Control set rigs in scene."""
+    """List: Control set rigs in scene."""
     Deformers:FBPropertyListDeformer
-    """**List:** Deformers for scene."""
+    """List: Deformers for scene."""
     Devices:FBPropertyListDevice
-    """**List:** Devices for scene."""
+    """List: Devices for scene."""
     FileReferences:FBPropertyListFileReference
-    """**List:** FileReference available in the scene."""
+    """List: FileReference available in the scene."""
     Folders:FBPropertyListFolder
-    """**List:** Folders in scene."""
+    """List: Folders in scene."""
     Groups:FBPropertyListGroup
-    """**List:** Groups available in the scene."""
+    """List: Groups available in the scene."""
     HUDs:FBPropertyListHUD
-    """**Read Only Property:** Heads Up Displays in the scene."""
+    """Read Only Property: Heads Up Displays in the scene."""
     Handles:FBPropertyListHandle
-    """**List:** Handles present in the scene."""
+    """List: Handles present in the scene."""
     KeyingGroups:FBPropertyListKeyingGroup
-    """**Read Write Property:** Keying Groups in the scene."""
+    """Read Write Property: Keying Groups in the scene."""
     Lights:FBPropertyListLight
-    """**List:** Lights in scene."""
+    """List: Lights in scene."""
     MarkerSets:FBPropertyListMarkerSet
-    """**List:** Marker sets in scene."""
+    """List: Marker sets in scene."""
     Materials:FBPropertyListMaterial
-    """**List:** Materials for scene."""
+    """List: Materials for scene."""
     ModelOpticals:FBPropertyListModelOptical
-    """**Read Write Property:** Optical Data in the scene."""
+    """Read Write Property: Optical Data in the scene."""
     ModelSkeletons:FBPropertyListModelSkeleton
-    """**Read Write Property:** Bones (Skeletons) in the scene."""
+    """Read Write Property: Bones (Skeletons) in the scene."""
     MotionClips:FBPropertyListMotionClip
-    """**List:** Motion clips in scene."""
+    """List: Motion clips in scene."""
     Namespaces:FBPropertyListNamespace
-    """**List:** Namespace (include FileReference) available in the scene"""
+    """List: Namespace (include FileReference) available in the scene"""
     Notes:FBPropertyListNote
-    """**List:** Notes in scene."""
+    """List: Notes in scene."""
     ObjectPoses:FBPropertyListObjectPose
-    """**List:** ObjectPoses in scene."""
+    """List: ObjectPoses in scene."""
     OnChange:FBEvent
-    """**Event:** Something in the scene has happened.([FBEventSceneChange](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_event_scene_change.html "Select model event class."))"""
+    """Event: Something in the scene has happened.([FBEventSceneChange](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_event_scene_change.html "Select model event class."))"""
     OnTakeChange:FBEvent
-    """**Event:** Something related to a take has happened.([FBEventTakeChange](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_event_take_change.html "Take change event class."))"""
+    """Event: Something related to a take has happened.([FBEventTakeChange](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_event_take_change.html "Take change event class."))"""
     PhysicalProperties:FBPropertyListPhysicalProperties
-    """**List:** PhysicalProperties present in the scene."""
+    """List: PhysicalProperties present in the scene."""
     Poses:FBPropertyListPose
-    """**List:** Poses in scene."""
+    """List: Poses in scene."""
     Renderer:FBRenderer
-    """**Read Only Property:** Local renderer."""
+    """Read Only Property: Local renderer."""
     RootModel:FBModel
-    """**Read Only Property:** Scene Root model for that scene"""
+    """Read Only Property: Scene Root model for that scene"""
     Sets:FBPropertyListSet
-    """**List:** Sets available in the scene."""
+    """List: Sets available in the scene."""
     Shaders:FBPropertyListShader
-    """**List:** Shaders for scene."""
+    """List: Shaders for scene."""
     Takes:FBPropertyListTake
-    """**List:** Takes for scene."""
+    """List: Takes for scene."""
     Textures:FBPropertyListTexture
-    """**List:** Textures for scene."""
+    """List: Textures for scene."""
     UserObjects:FBPropertyListUserObject
-    """**List:** User objects"""
+    """List: User objects"""
     VideoClips:FBPropertyListVideoClip
-    """**List:** Video clips in scene."""
+    """List: Video clips in scene."""
     def CandidateEvaluationAndResolve(self)->bool:
         """Resolving the Candidate.
         
@@ -19065,7 +19065,7 @@ class FBScene(FBComponent):
         
         During some namespace operations, empty namespace may left over, while this is not harmful but could be annoying. Save the scene and load it back those empty namespaces will disappear. And this function also allow user to remove all empty namespaces from the scene easily via SDK.
         ### Returns:
-        **True** if operation successfully."""
+        True if operation successfully."""
         ...
     def NamespaceDelete(self,Namespace:str)->bool:
         """Delete the namespace & all its content.
@@ -19076,7 +19076,7 @@ class FBScene(FBComponent):
         
         
         ### Returns:
-        **True** if operation successfully, **False** is this namespace doesn't exist, or is locked (by FileReferencing or etc.,)"""
+        True if operation successfully, False is this namespace doesn't exist, or is locked (by FileReferencing or etc.,)"""
         ...
     def NamespaceDeleteContent(self,Namespace:str,ModificationFlags:FBPlugModificationFlag=FBPlugModificationFlag.kFBPlugAllContent,Recursive:bool=True,TypeInfo:int=FBPlug.TypeInfo,ExactTypeMatch:bool=False)->bool:
         """Delete the namespace content.
@@ -19091,7 +19091,7 @@ class FBScene(FBComponent):
         
         
         ### Returns:
-        **False** is the given namespace doesn't exist, or is locked (by FileRef or etc.,), **True** otherwise. 
+        False is the given namespace doesn't exist, or is locked (by FileRef or etc.,), True otherwise. 
         ### Note:
         Not all the objects will be deletable (system objects and etc.,). Deletion of partial FileRef content isn't prevented, however the behavior is undefined."""
         ...
@@ -19104,7 +19104,7 @@ class FBScene(FBComponent):
         
         
         ### Returns:
-        **True** if the namespace (don't include nested children namespace) is empty"""
+        True if the namespace (don't include nested children namespace) is empty"""
         ...
     def NamespaceExist(self,Namespace:str)->bool:
         """Query if namespace exists.
@@ -19115,7 +19115,7 @@ class FBScene(FBComponent):
         
         
         ### Returns:
-        **True** if the namespace exist, otherwise return **False**."""
+        True if the namespace exist, otherwise return False."""
         ...
     def NamespaceExport(self,Namespace:str,FilePath:str,ASCIIFormat:bool=False)->bool:
         """Export scene content within namespace to file.
@@ -19128,7 +19128,7 @@ class FBScene(FBComponent):
         
         
         ### Returns:
-        **True** if successfully."""
+        True if successfully."""
         ...
     def NamespaceGet(self,Namespace:str)->FBNamespace:
         """Get Namespace object.
@@ -19188,7 +19188,7 @@ class FBScene(FBComponent):
         
         
         ### Returns:
-        **True** if successfully."""
+        True if successfully."""
         ...
     def NamespaceImportToMultiple(self,DstNamespaceList:FBStringList,FilePath:str,AsFileReference:bool=False)->bool:
         """Import file into multiple Namespaces (or as file references)
@@ -19201,7 +19201,7 @@ class FBScene(FBComponent):
         
         
         ### Returns:
-        **True** if successfully. 
+        True if successfully. 
         ### Note:
         Nested destination namespaces are not allowed (e.g. a DstNamespaceList contains "NS1" and "NS1:NS2" will return False)."""
         ...
@@ -19218,7 +19218,7 @@ class FBScene(FBComponent):
         
         
         ### Returns:
-        **True** if operation successfully, **False** is this namespace (or pTypeInfo type of objects) doesn't exist, or locked (by FileReferencing or etc.,) 
+        True if operation successfully, False is this namespace (or pTypeInfo type of objects) doesn't exist, or locked (by FileReferencing or etc.,) 
         ### Note:
         call with default parameters is considered as renaming of the whole namespace structure, otherwise will be considered as partially renaming individual objects. Renaming permission will be validated accordingly."""
         ...
@@ -19239,13 +19239,13 @@ class FBSet(FBBox):
     
     This class is an interface to manipulate object sets in the scene. Note: an item cannot be in two [FBSet](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_set.html "Objects Set class.") objects at once. Also, an [FBGroup](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_group.html "Objects Grouping class.") cannot contain [FBSet](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_set.html "Objects Set class.") objects, although an [FBSet](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_set.html "Objects Set class.") object can contain an FBGRoup."""
     Items:FBPropertyListComponent
-    """**List:** Items in the set."""
+    """List: Items in the set."""
     Pickable:bool
-    """**Read Write Property:** Controls if objects in the set are pickable."""
+    """Read Write Property: Controls if objects in the set are pickable."""
     Transformable:bool
-    """**Read Write Property:** Controls if objects in the set are transformable."""
+    """Read Write Property: Controls if objects in the set are transformable."""
     Visibility:FBPropertyAnimatableBool
-    """**Read Write Property:** Visibility of set (animatable)."""
+    """Read Write Property: Visibility of set (animatable)."""
     def Contains(self,Component:FBComponent)->int:
         """Contains.
         
@@ -19274,11 +19274,11 @@ class FBSet(FBBox):
 class FBShader(FBBox):
     """Shader class."""
     RenderingPass:FBRenderingPass
-    """**Read Write Property:** Rendering pass object are shaded in."""
+    """Read Write Property: Rendering pass object are shaded in."""
     ShaderDescription:str
     """Description."""
     def Append(self,Model:FBModel)->bool:
-        """Append shader to **pModel**.
+        """Append shader to pModel.
         
         ### Parameters:
         
@@ -19296,7 +19296,7 @@ class FBShader(FBBox):
             - NewShader: Shader to copy data to."""
         ...
     def ReplaceAll(self,Model:FBModel)->bool:
-        """Replace all shader in **pModel**.
+        """Replace all shader in pModel.
         
         ### Parameters:
         
@@ -19358,21 +19358,21 @@ class FBShaderLighted(FBShader):
         lShader.ReplaceAll( lModel )
     ```"""
     Alpha:FBPropertyAnimatableDouble
-    """**Read Write Property:** Controls the actual effect of the shader on the object. At 0.0 it does nothing, and at 1.0 it fully affects the object."""
+    """Read Write Property: Controls the actual effect of the shader on the object. At 0.0 it does nothing, and at 1.0 it fully affects the object."""
     Contrast:float
-    """**Read Write Property:** Changes the contrast of the object when it reflects light."""
+    """Read Write Property: Changes the contrast of the object when it reflects light."""
     Luminosity:float
-    """**Read Write Property:** Changes the brightness of the object when reflecting light."""
+    """Read Write Property: Changes the brightness of the object when reflecting light."""
     Specular:float
-    """**Read Write Property:** Changes an object's level of shininess when it reflects light by affecting the specular highlight."""
+    """Read Write Property: Changes an object's level of shininess when it reflects light by affecting the specular highlight."""
     Transparency:FBAlphaSource
-    """**Read Write Property:** Indicates the computation method of the transparency."""
+    """Read Write Property: Indicates the computation method of the transparency."""
     UseContrast:bool
-    """**Read Write Property:** Activate the Contrast option."""
+    """Read Write Property: Activate the Contrast option."""
     UseLuminosity:bool
-    """**Read Write Property:** Activate the Luminosity option."""
+    """Read Write Property: Activate the Luminosity option."""
     UseSpecular:bool
-    """**Read Write Property:** Activate the Specularity option."""
+    """Read Write Property: Activate the Specularity option."""
     def __init__(self,Name:str|None=None):
         """Constructor.
         
@@ -19465,9 +19465,9 @@ class FBShaderManager():
         ...
 class FBShaderModelInfo():
     Model:FBModel
-    """**Read Write Property:** Shader mModel"""
+    """Read Write Property: Shader mModel"""
     Model_Version:int
-    """**Read Write Property:** Shader version informations"""
+    """Read Write Property: Shader version informations"""
     Shader_Version:property
 class FBShaderShadowLive(FBShader):
     """Shader Shadow Live class.
@@ -19499,21 +19499,21 @@ class FBShaderShadowLive(FBShader):
     lShader.ShadowCasterProperty.append( lModel )
     ```"""
     Lights:FBPropertyListObject
-    """**List:** List of light object which will produce shadows."""
+    """List: List of light object which will produce shadows."""
     LocalShadow:bool
-    """**Read Write Property:** Creates an accurate projection of a shadow for each object."""
+    """Read Write Property: Creates an accurate projection of a shadow for each object."""
     Models:FBPropertyListObject
-    """**List:** List of object which when lighted will cast a shadow."""
+    """List: List of object which when lighted will cast a shadow."""
     ShadowFrameType:FBShadowFrameType
-    """**Read Write Property:** Used to select the shadow calculation method."""
+    """Read Write Property: Used to select the shadow calculation method."""
     ShadowIntensity:FBPropertyAnimatableDouble
-    """**Read Write Property:** Controls the darkness of shadows cast by a selected object."""
+    """Read Write Property: Controls the darkness of shadows cast by a selected object."""
     ShadowType:FBShadowType
-    """**Read Write Property:** Indicate which shadow type is desired."""
+    """Read Write Property: Indicate which shadow type is desired."""
     ShadowZOffset:float
-    """**Read Write Property:** Specifies the offset of the Live Shadow shader's plane from the original selected plane."""
+    """Read Write Property: Specifies the offset of the Live Shadow shader's plane from the original selected plane."""
     UseGobo:bool
-    """**Read Write Property:** Includes the gobo in the shadow map calculation."""
+    """Read Write Property: Includes the gobo in the shadow map calculation."""
     def __init__(self,Name:str|None=None):
         """Constructor.
         
@@ -19535,33 +19535,33 @@ class FBSpreadPart(FBComponent):
     
     Due to protected constructor, this can only be created by a child object."""
     Column:int
-    """**Read Only Property:** Column number."""
+    """Read Only Property: Column number."""
     Enabled:bool
-    """**Read Write Property:** Is SpreadPart enabled?"""
+    """Read Write Property: Is SpreadPart enabled?"""
     Justify:FBTextJustify
-    """**Read Write Property:** Text justification for SpreadPart"""
+    """Read Write Property: Text justification for SpreadPart"""
     ReadOnly:bool
-    """**Read Write Property:** Is SpreadPart read-only?"""
+    """Read Write Property: Is SpreadPart read-only?"""
     Row:int
-    """**Read Only Property:** Row number."""
+    """Read Only Property: Row number."""
     Style:FBCellStyle
-    """**Read Write Property:** Style of cell"""
+    """Read Write Property: Style of cell"""
 class FBSpreadRow(FBSpreadPart):
     """Spreadsheet row."""
     Caption:str
-    """**Read Write Property:** Caption to display with row."""
+    """Read Write Property: Caption to display with row."""
     Parent:int
-    """**Read Write Property:** Parent of row (reference)."""
+    """Read Write Property: Parent of row (reference)."""
     RowSelected:bool
-    """**Read Write Property:** Is row selected?"""
+    """Read Write Property: Is row selected?"""
     RowVisible:bool
-    """**Read Write Property:** Is row visible? Set to true to show the row, false to hide the row."""
+    """Read Write Property: Is row visible? Set to true to show the row, false to hide the row."""
     def EditCaption(self)->bool:
         """Edit the row caption.
         
         This will initiate the UI edit of a row caption.
         ### Returns:
-        Operation was successful (**true** or **false**)."""
+        Operation was successful (true or false)."""
         ...
     def Remove(self):
         """Remove (destroy) row."""
@@ -19569,9 +19569,9 @@ class FBSpreadRow(FBSpreadPart):
 class FBSpreadColumn(FBSpreadPart):
     """Spreadsheet column."""
     Caption:str
-    """**Read Write Property:** Caption of the column."""
+    """Read Write Property: Caption of the column."""
     Width:int
-    """**Read Write Property:** Column width."""
+    """Read Write Property: Column width."""
 class FBSpreadCell(FBSpreadPart):
     """Spreadsheet cell."""
     ...
@@ -19582,25 +19582,25 @@ class FBStory(FBComponent):
     
     [See samples: CreateShotClip.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_create_shot_clip_8py-example.html) [InsertCurrentTake.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_insert_current_take_8py-example.html) [BloopSlate.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_h_u_d_0c_bloop_slate_8py-example.html) [RecordLight.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_h_u_d_0c_record_light_8py-example.html) [PlotNonSelectedCharStoryTracks.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_plot_non_selected_char_story_tracks_8py-example.html) [PlotSelectedCharStoryTracks.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_plot_selected_char_story_tracks_8py-example.html) [PrintClipNamesAndStartStopFrames.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_print_clip_names_and_start_stop_frames_8py-example.html)"""
     ClipsTextsVisible:bool
-    """**Read Write Property:** If true, clips' texts are visible."""
+    """Read Write Property: If true, clips' texts are visible."""
     DisplayShotClipsExpanded:bool
-    """**Read Write Property:** If true, shot clips are displayed in expanded mode (each Shot track reflected as a new line in the Shot clips pane), otherwise, are displayed in collapsed mode (all Shot tracks reflected as a single line in the Shot clips pane)."""
+    """Read Write Property: If true, shot clips are displayed in expanded mode (each Shot track reflected as a new line in the Shot clips pane), otherwise, are displayed in collapsed mode (all Shot tracks reflected as a single line in the Shot clips pane)."""
     LockedShot:bool
-    """**Read Write Property:** If true, shots will be locked (no time discontinuity)."""
+    """Read Write Property: If true, shots will be locked (no time discontinuity)."""
     MaintainShotAndClipShotLengthsSynced:bool
-    """**Read Write Property:** When working in time discontinuity, if true, shots and their corresponding shot clips will be kept in sync in regards of their lengths."""
+    """Read Write Property: When working in time discontinuity, if true, shots and their corresponding shot clips will be kept in sync in regards of their lengths."""
     Mute:bool
-    """**Read Write Property:** If true, the Story mode will be globally disabled."""
+    """Read Write Property: If true, the Story mode will be globally disabled."""
     NoneBlockingPostprocess:bool
-    """**Read Write Property:** If true, record to disk will post process recorded data in low priority thread without affecting application performance. Clip in story will remain unloaded."""
+    """Read Write Property: If true, record to disk will post process recorded data in low priority thread without affecting application performance. Clip in story will remain unloaded."""
     RecordToDisk:bool
-    """**Read Write Property:** If true, record to story will record directly to disk."""
+    """Read Write Property: If true, record to story will record directly to disk."""
     RootEditFolder:FBStoryFolder
-    """**Read Only Property:** Story's root edit folder"""
+    """Read Only Property: Story's root edit folder"""
     RootFolder:FBStoryFolder
-    """**Read Only Property:** Story's root folder"""
+    """Read Only Property: Story's root folder"""
     SummaryClip:bool
-    """**Read Write Property:** If true, summary clips for story folders will be created to help manipulating folder content."""
+    """Read Write Property: If true, summary clips for story folders will be created to help manipulating folder content."""
     def CleanEmptyTracksAndFolders(self)->int:
         """Remove all empty tracks and folders present in the Story Tool.
         
@@ -19631,116 +19631,116 @@ class FBStoryClip(FBComponent):
     
     [See samples: AudioTrackSetupTool.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_complex_tools_0c_audio_track_setup_tool_8py-example.html) [VideoClip.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_story_0c_video_clip_8py-example.html) [PrintClipNamesAndStartStopFrames.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_print_clip_names_and_start_stop_frames_8py-example.html)"""
     AudioClip:FBAudioClip
-    """**Read Only Property:** The audio clip used by this StoryClip."""
+    """Read Only Property: The audio clip used by this StoryClip."""
     AutoLoop:bool
-    """**Read Write Property:** If true, clip will automatically loop"""
+    """Read Write Property: If true, clip will automatically loop"""
     ClipAnimationPath:str
-    """**Read Write Property:** Animation clip's file path"""
+    """Read Write Property: Animation clip's file path"""
     ClipAudioPath:str
-    """**Read Write Property:** Audio clip's file path"""
+    """Read Write Property: Audio clip's file path"""
     ClipPitch:float
-    """**Read Write Property:** The clip pitch value."""
+    """Read Write Property: The clip pitch value."""
     ClipVideoPath:str
-    """**Read Write Property:** Video clip's file path"""
+    """Read Write Property: Video clip's file path"""
     Color:FBColor
-    """**Read Write Property:** Color of the clip."""
+    """Read Write Property: Color of the clip."""
     ConnectedToTake:bool
-    """**Read Write Property:** When connected to current take, user can do updating from current take, but user can't edit clip animation by adding keys, only works for clips created by Insert Current Take."""
+    """Read Write Property: When connected to current take, user can do updating from current take, but user can't edit clip animation by adding keys, only works for clips created by Insert Current Take."""
     CustomTimeWarp:FBAnimationNode
-    """**Read Only Property:** Animation and Shot clip's custom TimeWarp FCurve."""
+    """Read Only Property: Animation and Shot clip's custom TimeWarp FCurve."""
     FrameRate:float
-    """**Read Write Property:** Frame rate value. Only effective when UseSystemFrameRate is false."""
+    """Read Write Property: Frame rate value. Only effective when UseSystemFrameRate is false."""
     Ghost:bool
-    """**Read Write Property:** Show ghosts"""
+    """Read Write Property: Show ghosts"""
     GhostCustomTime:FBTime
-    """**Read Write Property:** Custom time to display ghost, only applicable if ShowGhostClipMode is kFBStoryClipTimeCustom."""
+    """Read Write Property: Custom time to display ghost, only applicable if ShowGhostClipMode is kFBStoryClipTimeCustom."""
     GhostManipulatorCustomTime:FBTime
-    """**Read Write Property:** Custom time to display ghost manipulator, only applicable if GhostManipulatorMode is kFBStoryClipGhostCustom."""
+    """Read Write Property: Custom time to display ghost manipulator, only applicable if GhostManipulatorMode is kFBStoryClipGhostCustom."""
     GhostManipulatorMode:FBStoryClipGhostTimeMode
-    """**Read Write Property:** Time mode to display ghost manipulator. See [FBStoryClipGhostTimeMode](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_story_clip_ghost_time_mode.html "Time mode to display ghost.")."""
+    """Read Write Property: Time mode to display ghost manipulator. See [FBStoryClipGhostTimeMode](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_story_clip_ghost_time_mode.html "Time mode to display ghost.")."""
     GhostManipulatorOffset:FBVector3d
-    """**Read Write Property:** Animation clip's ghost manipulator offset."""
+    """Read Write Property: Animation clip's ghost manipulator offset."""
     GhostModel:bool
-    """**Read Write Property:** Show ghost of models"""
+    """Read Write Property: Show ghost of models"""
     GhostPivot:bool
-    """**Read Write Property:** Show ghost of match object"""
+    """Read Write Property: Show ghost of match object"""
     GhostTravelling:bool
-    """**Read Write Property:** Show ghost of clip vector or traveling node"""
+    """Read Write Property: Show ghost of clip vector or traveling node"""
     ImageSequence:bool
-    """**Read Write Property:** Whether is a image sequence."""
+    """Read Write Property: Whether is a image sequence."""
     Loaded:bool
-    """**Read Write Property:** If true, clip file is loaded into memory and can be evaluated (will affect track content)."""
+    """Read Write Property: If true, clip file is loaded into memory and can be evaluated (will affect track content)."""
     LockPitchToSpeed:bool
-    """**Read Write Property:** Time-stretching enabled or not."""
+    """Read Write Property: Time-stretching enabled or not."""
     Loop:bool
-    """**Read Write Property:** If true, loop clip's animation"""
+    """Read Write Property: If true, loop clip's animation"""
     LoopTranslation:FBVector3d
-    """**Read Write Property:** Animation clip's loop translation."""
+    """Read Write Property: Animation clip's loop translation."""
     MarkIn:FBTime
-    """**Read Write Property:** Start time inside the clip."""
+    """Read Write Property: Start time inside the clip."""
     MarkOut:FBTime
-    """**Read Write Property:** Stop time inside the clip."""
+    """Read Write Property: Stop time inside the clip."""
     MirrorAnimation:bool
-    """**Read Write Property:** If true, clip animation will be mirrored"""
+    """Read Write Property: If true, clip animation will be mirrored"""
     MirrorPlane:FBStoryClipMirrorPlane
-    """**Read Write Property:** Several mirror planes to mirror animation. See [FBStoryClipMirrorPlane](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_story_clip_mirror_plane.html "Several mirror planes to mirror animation.")"""
+    """Read Write Property: Several mirror planes to mirror animation. See [FBStoryClipMirrorPlane](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_story_clip_mirror_plane.html "Several mirror planes to mirror animation.")"""
     Offset:FBTime
-    """**Read Write Property:** First loop time offset."""
+    """Read Write Property: First loop time offset."""
     OnChange:FBEvent
-    """**Event:** Something in the clip has changed. (FBEventClip)"""
+    """Event: Something in the clip has changed. (FBEventClip)"""
     Pivots:FBPropertyListPivot
-    """**List:** Pivots models (Generally, only one model is necessary)"""
+    """List: Pivots models (Generally, only one model is necessary)"""
     PostBlend:FBTimeSpan
-    """**Read Write Property:** Start/Stop time of the post-blend phase."""
+    """Read Write Property: Start/Stop time of the post-blend phase."""
     PreBlend:FBTimeSpan
-    """**Read Write Property:** Start/Stop time of the pre-blend phase."""
+    """Read Write Property: Start/Stop time of the pre-blend phase."""
     Rotation:FBVector3d
-    """**Read Write Property:** Animation clip's rotation offset. Refer to class notes to learn more about how this is applied."""
+    """Read Write Property: Animation clip's rotation offset. Refer to class notes to learn more about how this is applied."""
     Scale:float
-    """**Read Write Property:** Animation clip's scaling (some don't support this property)"""
+    """Read Write Property: Animation clip's scaling (some don't support this property)"""
     ShotActionStart:FBTime
-    """**Read Write Property:** If not in locked shot mode (time discontinuity enabled), this time can be different from the Clip->Start property."""
+    """Read Write Property: If not in locked shot mode (time discontinuity enabled), this time can be different from the Clip->Start property."""
     ShotActionStop:FBTime
-    """**Read Write Property:** If not in locked shot mode (time discontinuity enabled), this time can be different from the Clip->Start property."""
+    """Read Write Property: If not in locked shot mode (time discontinuity enabled), this time can be different from the Clip->Start property."""
     ShotBackplate:FBVideo
-    """**Read Write Property:** The backplate used for that specific shot."""
+    """Read Write Property: The backplate used for that specific shot."""
     ShotCamera:FBCamera
-    """**Read Write Property:** The camera used for that specific shot."""
+    """Read Write Property: The camera used for that specific shot."""
     ShotFrontplate:FBVideo
-    """**Read Write Property:** The frontplate used for that specific shot."""
+    """Read Write Property: The frontplate used for that specific shot."""
     ShotStartStopLocked:bool
-    """**Read Write Property:** Shot clip's 'In/Out Locked' property value. True if the shot clip's In/Out properties (start/stop times of the clip local to its track) are locked, false otherwise."""
+    """Read Write Property: Shot clip's 'In/Out Locked' property value. True if the shot clip's In/Out properties (start/stop times of the clip local to its track) are locked, false otherwise."""
     ShowBackplate:bool
-    """**Read Write Property:** Enable/Disable the shot backplate."""
+    """Read Write Property: Enable/Disable the shot backplate."""
     ShowEmbeddedTimecode:property
     ShowFrontplate:bool
-    """**Read Write Property:** Enable/Disable the shot frontplate."""
+    """Read Write Property: Enable/Disable the shot frontplate."""
     ShowGhostClipMode:FBStoryClipShowGhostMode
-    """**Read Write Property:** Show the ghost depending on the time. See [FBStoryClipShowGhostMode](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_story_clip_show_ghost_mode.html "Show Ghost Modes for story animation clips.")"""
+    """Read Write Property: Show the ghost depending on the time. See [FBStoryClipShowGhostMode](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_story_clip_show_ghost_mode.html "Show Ghost Modes for story animation clips.")"""
     SolvingMode:FBStoryClipSolveMode
-    """**Read Write Property:** Solve Modes for story character clips. See [FBStoryClipSolveMode](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_story_clip_solve_mode.html "Solve Modes for story character clips.")"""
+    """Read Write Property: Solve Modes for story character clips. See [FBStoryClipSolveMode](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_story_clip_solve_mode.html "Solve Modes for story character clips.")"""
     Speed:float
-    """**Read Write Property:** Speed of the clip."""
+    """Read Write Property: Speed of the clip."""
     Start:FBTime
-    """**Read Write Property:** Start time of the clip local to its track."""
+    """Read Write Property: Start time of the clip local to its track."""
     StartStopLocked:bool
-    """**Read Write Property:** Clip's 'In/Out Locked' property value. True if the clip's In/Out properties (start/stop times of the clip local to its track) are locked, false otherwise."""
+    """Read Write Property: Clip's 'In/Out Locked' property value. True if the clip's In/Out properties (start/stop times of the clip local to its track) are locked, false otherwise."""
     Stop:FBTime
-    """**Read Write Property:** Stop time of the clip local to its track."""
+    """Read Write Property: Stop time of the clip local to its track."""
     TimeWarpEnabled:bool
-    """**Read Write Property:** Animation and Shot clip's TimeWarp activeness."""
+    """Read Write Property: Animation and Shot clip's TimeWarp activeness."""
     TimeWarpInterpolatorType:FBStoryClipTimeWarpInterpolatorType
-    """**Read Write Property:** Animation and Shot clip's TimeWarp interpolation type. See [FBStoryClipTimeWarpInterpolatorType](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_story_clip_time_warp_interpolator_type.html "Types of TimeWrap Interpolator for Story Clips.")."""
+    """Read Write Property: Animation and Shot clip's TimeWarp interpolation type. See [FBStoryClipTimeWarpInterpolatorType](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_story_clip_time_warp_interpolator_type.html "Types of TimeWrap Interpolator for Story Clips.")."""
     TimeWarpReverse:bool
-    """**Read Write Property:** If true, reverse the Animation or Shot clip's TimeWarp FCurve."""
+    """Read Write Property: If true, reverse the Animation or Shot clip's TimeWarp FCurve."""
     Translation:FBVector3d
-    """**Read Write Property:** Animation clip's translation offset. Refer to class notes to learn more about how this is applied."""
+    """Read Write Property: Animation clip's translation offset. Refer to class notes to learn more about how this is applied."""
     TravellingNode:FBPropertyListObject
-    """**List:** Travelling node(s). If set, this property will overwrite the Track's Travelling node(s)."""
+    """List: Travelling node(s). If set, this property will overwrite the Track's Travelling node(s)."""
     TravellingNodeFunction:FBStoryClipNodeFunction
-    """**Read Write Property:** Travelling node function. If set, this property will overwrite the Track's Travelling node function. See [FBStoryClipNodeFunction](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_story_clip_node_function.html "Node function.")."""
+    """Read Write Property: Travelling node function. If set, this property will overwrite the Track's Travelling node function. See [FBStoryClipNodeFunction](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_story_clip_node_function.html "Node function.")."""
     UseSystemFrameRate:bool
-    """**Read Write Property:** Whether always use system frame rate."""
+    """Read Write Property: Whether always use system frame rate."""
     def CanAssignSourcesToDestinations(self)->bool:
         """CanAssignSourcesToDestinations.
         
@@ -19983,21 +19983,21 @@ class FBStoryFolder(FBComponent):
     
     [See sample: FBStoryFolder.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_story_0c_f_b_story_folder_8py-example.html)"""
     Childs:FBPropertyListStoryFolder
-    """**List:** Children folders of this folder."""
+    """List: Children folders of this folder."""
     Collapsed:bool
-    """**Read Write Property:** Toggle to collapse or expand the story folder."""
+    """Read Write Property: Toggle to collapse or expand the story folder."""
     Label:str
-    """**Read Write Property:** Label to display for this story folder."""
+    """Read Write Property: Label to display for this story folder."""
     Mute:bool
-    """**Read Write Property:** If true, this story folder will be muted."""
+    """Read Write Property: If true, this story folder will be muted."""
     Parent:FBStoryFolder
-    """**Read Only Property:** Object pointing to the folder's parent."""
+    """Read Only Property: Object pointing to the folder's parent."""
     RecordClipPath:str
-    """**Read Write Property:** Path for story recording. Can be relative or full path."""
+    """Read Write Property: Path for story recording. Can be relative or full path."""
     Solo:bool
-    """**Read Write Property:** If true, this story folder will be the only one to play."""
+    """Read Write Property: If true, this story folder will be the only one to play."""
     Tracks:FBPropertyListStoryTrack
-    """**List:** Tracks of this folder."""
+    """List: Tracks of this folder."""
     def AlignSelectedClips(self,Type:FBStoryClipAlignmentType,ReferenceClip:FBComponent):
         """Used to align selected clips .
         
@@ -20062,13 +20062,13 @@ class FBStoryGroupClip(FBComponent):
     
     Group Clip represents a group of clips that can be manipulated together."""
     DependentClips:FBPropertyListObject
-    """**Read Write Property:** Clips that are included in the group clip."""
+    """Read Write Property: Clips that are included in the group clip."""
     Start:FBTime
-    """**Read Write Property:** Start time of the clip."""
+    """Read Write Property: Start time of the clip."""
     StartStopLocked:bool
-    """**Read Write Property:** Clip's 'In/Out Locked' property value. True if the clip's In/Out properties (start/end times of the clip local to its track) are locked, false otherwise."""
+    """Read Write Property: Clip's 'In/Out Locked' property value. True if the clip's In/Out properties (start/end times of the clip local to its track) are locked, false otherwise."""
     Stop:FBTime
-    """**Read Write Property:** Stop time of the clip."""
+    """Read Write Property: Stop time of the clip."""
     def Move(self,Delta:FBTime,Force:bool)->FBTime:
         """Move.
         
@@ -20117,59 +20117,59 @@ class FBStoryTrack(FBConstraint):
     
     [See samples: CreateShotClip.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_create_shot_clip_8py-example.html) [AudioTrackSetupTool.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_complex_tools_0c_audio_track_setup_tool_8py-example.html) [BloopSlate.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_h_u_d_0c_bloop_slate_8py-example.html) [RecordLight.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_h_u_d_0c_record_light_8py-example.html) [FBStoryFolder.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_story_0c_f_b_story_folder_8py-example.html) [VideoClip.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_story_0c_video_clip_8py-example.html) [PlotNonSelectedCharStoryTracks.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_plot_non_selected_char_story_tracks_8py-example.html) [PlotSelectedCharStoryTracks.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_plot_selected_char_story_tracks_8py-example.html) [PrintClipNamesAndStartStopFrames.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_print_clip_names_and_start_stop_frames_8py-example.html)"""
     AcceptKey:bool
-    """**Read Write Property:** Allow track to accept keys"""
+    """Read Write Property: Allow track to accept keys"""
     AudioOutIndex:int
-    """**Read Write Property:** Audio Output's index to use."""
+    """Read Write Property: Audio Output's index to use."""
     Character:FBCharacter
-    """**Read Write Property:** Character to use."""
+    """Read Write Property: Character to use."""
     CharacterIndex:int
-    """**Read Write Property:** Character's index to use."""
+    """Read Write Property: Character's index to use."""
     ClipNameConvention:str
-    """**Read Write Property:** Naming convention for each new recording clip that is created. Can use special tags: <Name> <StartTCValue> <StartFrameValue> <StartDate> <StartTime> <TakeName>"""
+    """Read Write Property: Naming convention for each new recording clip that is created. Can use special tags: <Name> <StartTCValue> <StartFrameValue> <StartDate> <StartTime> <TakeName>"""
     Clips:FBPropertyListStoryClip
-    """**List:** Clips contained in this track."""
+    """List: Clips contained in this track."""
     Details:FBPropertyListStoryDetails
-    """**List:** All objects associated to this track for processing."""
+    """List: All objects associated to this track for processing."""
     Ghost:bool
-    """**Read Write Property:** Show ghosts"""
+    """Read Write Property: Show ghosts"""
     GhostModel:bool
-    """**Read Write Property:** Show ghost of models"""
+    """Read Write Property: Show ghost of models"""
     GhostPivot:bool
-    """**Read Write Property:** Show ghost of match object"""
+    """Read Write Property: Show ghost of match object"""
     GhostShowTrackMode:FBStoryTrackGhostShowMode
-    """**Read Write Property:** Show the ghosts for all the clips or only the adjacent clips. See [FBStoryTrackGhostShowMode](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_story_track_ghost_show_mode.html "Ghost Show Modes for story animation tracks.")"""
+    """Read Write Property: Show the ghosts for all the clips or only the adjacent clips. See [FBStoryTrackGhostShowMode](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_story_track_ghost_show_mode.html "Ghost Show Modes for story animation tracks.")"""
     GhostTravelling:bool
-    """**Read Write Property:** Show ghost of clip vector or traveling node"""
+    """Read Write Property: Show ghost of clip vector or traveling node"""
     Label:str
-    """**Read Write Property:** Label to display for this story track."""
+    """Read Write Property: Label to display for this story track."""
     Mute:bool
-    """**Read Write Property:** If true, this track wont' play."""
+    """Read Write Property: If true, this track wont' play."""
     OffsetEnable:bool
-    """**Read Write Property:** When enabled, allow clip to be offset"""
+    """Read Write Property: When enabled, allow clip to be offset"""
     ParentFolder:FBStoryFolder
-    """**Read Only Property:** Parent folder."""
+    """Read Only Property: Parent folder."""
     ParentTrack:FBStoryTrack
-    """**Read Only Property:** Parent track, if the track is of Character or Animation type."""
+    """Read Only Property: Parent track, if the track is of Character or Animation type."""
     PassThrough:bool
-    """**Read Write Property:** Enable passthrough of animation if there is no clip on track animation is taken from other tracks of take"""
+    """Read Write Property: Enable passthrough of animation if there is no clip on track animation is taken from other tracks of take"""
     RecordClipPath:str
-    """**Read Write Property:** Path for story recording. Can be relative or full path."""
+    """Read Write Property: Path for story recording. Can be relative or full path."""
     RecordTrack:bool
-    """**Read Write Property:** Path for story recording. Can be relative or full path."""
+    """Read Write Property: Path for story recording. Can be relative or full path."""
     ReferenceMode:FBStoryTrackRefMode
-    """**Read Write Property:** Track composition mode, kFBStoryTrackOverride or kFBStoryTrackAdditive"""
+    """Read Write Property: Track composition mode, kFBStoryTrackOverride or kFBStoryTrackAdditive"""
     ShowBackplate:bool
-    """**Read Write Property:** If true, the backplate will be shown."""
+    """Read Write Property: If true, the backplate will be shown."""
     ShowFrontplate:bool
-    """**Read Write Property:** If true, the frontplate will be shown."""
+    """Read Write Property: If true, the frontplate will be shown."""
     Solo:bool
-    """**Read Write Property:** If true, this track will be the only one to play."""
+    """Read Write Property: If true, this track will be the only one to play."""
     SubTracks:FBPropertyListStorySubTrack
-    """**List:** Only Character and Animation tracks can have sub-tracks."""
+    """List: Only Character and Animation tracks can have sub-tracks."""
     TrackVideo:FBVideo
-    """**Read Only Property:** This [FBVideo](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_video.html "Video media class.") can be used as a texture."""
+    """Read Only Property: This [FBVideo](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_video.html "Video media class.") can be used as a texture."""
     Type:FBStoryTrackType
-    """**Read Only Property:** Type of the track"""
+    """Read Only Property: Type of the track"""
     def AddClip(self,Clip:FBComponent,Time:FBTime):
         """AddClip Add the clip to the track."""
         ...
@@ -20312,7 +20312,7 @@ class FBStringList():
         ...
     @overload
     def Find(self,Ref:int)->int:
-        """Find the index where **pRef** is stored.
+        """Find the index where pRef is stored.
         
         ### Parameters:
         
@@ -20320,11 +20320,11 @@ class FBStringList():
         
         
         ### Returns:
-        Index at which **pRef** can be found."""
+        Index at which pRef can be found."""
         ...
     @overload
     def Find(self,String:str,CaseSensitive:bool=True,StartWith:bool=False)->int:
-        """Find the index with the string **pString** (or start with **pString**)
+        """Find the index with the string pString (or start with pString)
         
         ### Parameters:
         
@@ -20334,10 +20334,10 @@ class FBStringList():
         
         
         ### Returns:
-        Index where **S** is stored."""
+        Index where S is stored."""
         ...
     def GetAt(self,Index:int)->str:
-        """Get the string at **pIndex**.
+        """Get the string at pIndex.
         
         ### Parameters:
         
@@ -20345,10 +20345,10 @@ class FBStringList():
         
         
         ### Returns:
-        String at **pIndex**."""
+        String at pIndex."""
         ...
     def GetReferenceAt(self,Index:int)->int:
-        """Get the reference store with the string at **pIndex**.
+        """Get the reference store with the string at pIndex.
         
         ### Parameters:
         
@@ -20356,7 +20356,7 @@ class FBStringList():
         
         
         ### Returns:
-        Reference stored with value at **pIndex**."""
+        Reference stored with value at pIndex."""
         ...
     def IndexOf(self,S:str)->int:
         """Get the index of a string.
@@ -20367,10 +20367,10 @@ class FBStringList():
         
         
         ### Returns:
-        Index where string **S** was found."""
+        Index where string S was found."""
         ...
     def InsertAt(self,Index:int,S:str,Ref:int=0):
-        """Insert an entry at **pIndex**.
+        """Insert an entry at pIndex.
         
         ### Parameters:
         
@@ -20390,14 +20390,14 @@ class FBStringList():
         Index where item was found."""
         ...
     def RemoveAt(self,Index:int):
-        """Remove an entry at **pIndex**.
+        """Remove an entry at pIndex.
         
         ### Parameters:
         
             - Index: Index where item is to be removed from."""
         ...
     def SetAt(self,Index:int,String:str)->bool:
-        """Set the string at **pIndex**.
+        """Set the string at pIndex.
         
         ### Parameters:
         
@@ -20405,7 +20405,7 @@ class FBStringList():
             - String: String to set value at **pIndex** with."""
         ...
     def SetReferenceAt(self,Index:int,Ref:int):
-        """Set the reference stored with the string at **pIndex**.
+        """Set the reference stored with the string at pIndex.
         
         ### Parameters:
         
@@ -20442,19 +20442,19 @@ class FBStringList():
 class FBSurface(FBGeometry):
     """Surface class."""
     SurfaceMode:FBSurfaceMode
-    """**Read Write Property:** Surface mode."""
+    """Read Write Property: Surface mode."""
     UClosed:bool
-    """**Read Write Property:** U Closed."""
+    """Read Write Property: U Closed."""
     USize:int
-    """**Read Write Property:** Size in U directions."""
+    """Read Write Property: Size in U directions."""
     UStep:int
-    """**Read Write Property:** Step in U directions."""
+    """Read Write Property: Step in U directions."""
     VClosed:bool
-    """**Read Write Property:** V Closed"""
+    """Read Write Property: V Closed"""
     VSize:int
-    """**Read Write Property:** Size in V directions."""
+    """Read Write Property: Size in V directions."""
     VStep:int
-    """**Read Write Property:** Step in V directions."""
+    """Read Write Property: Step in V directions."""
     def ControlPointsBegin(self):
         """"""
         ...
@@ -20500,78 +20500,78 @@ class FBSystem(FBComponent):
         ePluginItemFileName:FBSystem.EPluginItemInfo
         ePluginItemIconName:FBSystem.EPluginItemInfo
     ApplicationPath:str
-    """**Read Only Property:** Location where the application is installed."""
+    """Read Only Property: Location where the application is installed."""
     AreMessageBoxesSuspended:bool
-    """**Read Only Property:** While true, the system is suspending the messages boxes that would normally be displayed."""
+    """Read Only Property: While true, the system is suspending the messages boxes that would normally be displayed."""
     AssetManager:FBAssetMng
-    """**Read Only Property:** Current asset manager."""
+    """Read Only Property: Current asset manager."""
     AudioInputs:FBPropertyListAudioIn
-    """**List:** Available audio inputs."""
+    """List: Available audio inputs."""
     AudioOutputs:FBPropertyListAudioOut
-    """**List:** Available audio outputs."""
+    """List: Available audio outputs."""
     BuildId:str
-    """**Read Only Property:** Unique build Id string."""
+    """Read Only Property: Unique build Id string."""
     BuildVersion:str
-    """**Read Only Property:** Unique build version string. The format of the build version information is: Major.Minor.Revision.BuildNumber. All sub-parts of the build version string are containing only numeric characters."""
+    """Read Only Property: Unique build version string. The format of the build version information is: Major.Minor.Revision.BuildNumber. All sub-parts of the build version string are containing only numeric characters."""
     ComputerName:str
-    """**Read Only Property:** Computer name. [See sample: ShowMachineNameAndCameraNamePlusResolution.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_show_machine_name_and_camera_name_plus_resolution_8py-example.html)"""
+    """Read Only Property: Computer name. [See sample: ShowMachineNameAndCameraNamePlusResolution.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_show_machine_name_and_camera_name_plus_resolution_8py-example.html)"""
     ConfigPath:str
     """"""
     ConstructionHistory:FBConstructionHistory
-    """**Read Only Property:** Construction History."""
+    """Read Only Property: Construction History."""
     CurrentTake:FBTake
-    """**Read Write Property:** Current take. [See samples: GoToNextTake.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_go_to_next_take_8py-example.html)"""
+    """Read Write Property: Current take. [See samples: GoToNextTake.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_go_to_next_take_8py-example.html)"""
     DesktopSize:property
     FrameRate:float
-    """**Read Only Property:** The frame rate of the viewer."""
+    """Read Only Property: The frame rate of the viewer."""
     FullScreenViewer:bool
-    """**Read Write Property:** Indicates that the viewer is in full screen mode."""
+    """Read Write Property: Indicates that the viewer is in full screen mode."""
     LocalTime:FBTime
-    """**Read Only Property:** Local time in take."""
+    """Read Only Property: Local time in take."""
     Manipulators:FBPropertyListManipulator
-    """**List:** of manipulators."""
+    """List: of manipulators."""
     OnConnectionDataNotify:FBEventConnectionDataNotify
-    """**Event:** A data event occurred between objects in the system."""
+    """Event: A data event occurred between objects in the system."""
     OnConnectionKeyingNotify:FBEventConnectionKeyingNotify
-    """**Event:** A keying event occurred when objects are being keyed."""
+    """Event: A keying event occurred when objects are being keyed."""
     OnConnectionNotify:FBEventConnectionNotify
-    """**Event:** A connection event occurred between objects in the system. [See sample: FBSystemEvents.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_f_b_system_events_8py-example.html)"""
+    """Event: A connection event occurred between objects in the system. [See sample: FBSystemEvents.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_f_b_system_events_8py-example.html)"""
     OnConnectionStateNotify:FBEventConnectionStateNotify
-    """**Event:** A state change event occurred between objects in the system."""
+    """Event: A state change event occurred between objects in the system."""
     OnUIIdle:callbackframework.FBEventSource
-    """**Event:** User-interface idle event. Useful callback for less frequent GUI refresh and etc. lightweight tasks (occur once per several frames)."""
+    """Event: User-interface idle event. Useful callback for less frequent GUI refresh and etc. lightweight tasks (occur once per several frames)."""
     OnVideoFrameRendering:FBEventVideoFrameRendering
-    """**Event:** A video frame rendering event occurred when the scene is being off-line rendered into video files."""
+    """Event: A video frame rendering event occurred when the scene is being off-line rendered into video files."""
     PathImages:str
-    """**Read Only Property:** Path to images."""
+    """Read Only Property: Path to images."""
     PathMeshs:str
-    """**Read Only Property:** Path to meshes"""
+    """Read Only Property: Path to meshes"""
     ProcessMemory:float
-    """**Read Only Property:** The size (MB) of process's working set memory."""
+    """Read Only Property: The size (MB) of process's working set memory."""
     ProcessMemoryPeak:float
-    """**Read Only Property:** The size (MB) of process's peak memory."""
+    """Read Only Property: The size (MB) of process's peak memory."""
     PythonVersion:int
-    """**Read Only Property:** The Python interpreter version being used. The value is either 27 or 37."""
+    """Read Only Property: The Python interpreter version being used. The value is either 27 or 37."""
     Renderer:FBRenderer
-    """**Read Only Property:** Default renderer."""
+    """Read Only Property: Default renderer."""
     RootModel:FBModel
-    """**Read Only Property:** Root model."""
+    """Read Only Property: Root model."""
     Scene:FBScene
-    """**Read Only Property:** Scene."""
+    """Read Only Property: Scene."""
     SceneRootModel:FBModel
-    """**Read Only Property:** Scene root model."""
+    """Read Only Property: Scene root model."""
     SuspendMessageBoxes:bool
-    """**Read Write Property:** While true, all the message boxes, that would normally be displayed, are suspended."""
+    """Read Write Property: While true, all the message boxes, that would normally be displayed, are suspended."""
     SystemTime:FBTime
-    """**Read Only Property:** System time."""
+    """Read Only Property: System time."""
     UserConfigPath:str
     """"""
     Version:float
-    """**Read Only Property:** Application version."""
+    """Read Only Property: Application version."""
     VideoInputs:FBPropertyListVideoIn
-    """**List:** Available video inputs."""
+    """List: Available video inputs."""
     VideoOutputs:FBPropertyListVideoOut
-    """**List:** Available video outputs."""
+    """List: Available video outputs."""
     ePluginItemDescription:FBSystem.EPluginItemInfo
     ePluginItemFileName:FBSystem.EPluginItemInfo
     ePluginItemIconName:FBSystem.EPluginItemInfo
@@ -20638,9 +20638,9 @@ class FBSystem(FBComponent):
 class FBPatch(FBSurface):
     """Patch class."""
     USurfaceType:FBSurfaceType
-    """**Read Write Property:** Patch mode for U direction."""
+    """Read Write Property: Patch mode for U direction."""
     VSurfaceType:FBSurfaceType
-    """**Read Write Property:** Patch mode for V direction."""
+    """Read Write Property: Patch mode for V direction."""
     def __init__(self,Name:str):
         """Constructor.
         
@@ -20651,13 +20651,13 @@ class FBPatch(FBSurface):
 class FBNurbs(FBSurface):
     """Nurbs class."""
     UNurbType:FBNurbType
-    """**Read Write Property:** Nurbs Type for U direction."""
+    """Read Write Property: Nurbs Type for U direction."""
     UOrder:int
-    """**Read Write Property:** Nurbs U order."""
+    """Read Write Property: Nurbs U order."""
     VNurbType:FBNurbType
-    """**Read Write Property:** Nurbs Type for V direction."""
+    """Read Write Property: Nurbs Type for V direction."""
     VOrder:int
-    """**Read Write Property:** Nurbs V order."""
+    """Read Write Property: Nurbs V order."""
     def GetControlKnotValue(self,UorV:int,Index:int)->float:
         """Get knot vector value of control point.
         
@@ -20732,29 +20732,29 @@ class FBNurbs(FBSurface):
 class FBTexture(FBBox):
     """[See samples: HUDElements.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_h_u_d_0c_h_u_d_elements_8py-example.html) [MaterialAndTexture.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_material_and_texture_0c_material_and_texture_8py-example.html) [TextureAnimation.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_material_and_texture_0c_texture_animation_8py-example.html) [VideoInput.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_video_0c_video_input_8py-example.html) [VideoMemory.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_video_0c_video_memory_8py-example.html) [DeleteUnusedMedia.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_delete_unused_media_8py-example.html)"""
     Alpha:FBPropertyAnimatableDouble
-    """**Read Write Property:** Texture alpha value."""
+    """Read Write Property: Texture alpha value."""
     BlendMode:FBTextureBlendMode
-    """**Read Write Property:** Texture blend mode."""
+    """Read Write Property: Texture blend mode."""
     Height:int
-    """**Read Only Property:** Height of texture."""
+    """Read Only Property: Height of texture."""
     Mapping:FBTextureMapping
-    """**Read Write Property:** Texture mapping."""
+    """Read Write Property: Texture mapping."""
     Rotation:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Rotation coordinates."""
+    """Read Write Property: Rotation coordinates."""
     Scaling:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Scaling coordinates."""
+    """Read Write Property: Scaling coordinates."""
     SwapUV:bool
-    """**Read Write Property:** Swap UV coordinates?"""
+    """Read Write Property: Swap UV coordinates?"""
     TextureOGLId:int
-    """**Read Only:** OpenGL texture buffer object Id."""
+    """Read Only: OpenGL texture buffer object Id."""
     Translation:FBPropertyAnimatableVector3d
-    """**Read Write Property:** Translation coordinates."""
+    """Read Write Property: Translation coordinates."""
     UseType:FBTextureUseType
-    """**Read Write Property:** Texture Use Type."""
+    """Read Write Property: Texture Use Type."""
     Video:FBVideo
-    """**Read Write Property:** Media used for texturing."""
+    """Read Write Property: Media used for texturing."""
     Width:int
-    """**Read Only Property:** Width of texture."""
+    """Read Only Property: Width of texture."""
     def Clone(self)->FBTexture:
         """Clone the texture.
         
@@ -20780,9 +20780,9 @@ class FBLayeredTexture(FBTexture):
     
     [See sample: LayeredTexture.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_material_and_texture_0c_layered_texture_8py-example.html)"""
     BackgroundColor:FBPropertyAnimatableColorAndAlpha
-    """**Read/Write Property:** Animatable Background color which is used to clear color buffer before composition."""
+    """Read/Write Property: Animatable Background color which is used to clear color buffer before composition."""
     Layers:FBPropertyListTexture
-    """**Read/Write Property:** Textures Layers."""
+    """Read/Write Property: Textures Layers."""
     def SetLayerConfigDirty(self):
         """Set layer config dirty to trigger new composition."""
         ...
@@ -21065,11 +21065,11 @@ class FBTake(FBComponent):
     ```
     [See samples: MergePreviewAnimationLayers.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_animation_layer_0c_merge_preview_animation_layers_8py-example.html) [ExportAnimationLibrary.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_export_animation_library_8py-example.html) [GoToNextTake.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_go_to_next_take_8py-example.html) [GoToPreviousTake.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_go_to_previous_take_8py-example.html) [MirrorPoseOverTime.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_mirror_pose_over_time_8py-example.html) [MultiLayerKeying.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_multi_layer_keying_8py-example.html) [RenameFirstTakeOnMultipleFiles.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_rename_first_take_on_multiple_files_8py-example.html) [SaveOneTakePerFile.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_save_one_take_per_file_8py-example.html) [TimeCodeKeying.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_time_code_keying_8py-example.html)"""
     Comments:str
-    """**Read Write Property:** Take comments."""
+    """Read Write Property: Take comments."""
     LocalTimeSpan:FBTimeSpan
-    """**Read Write Property:** Local time span."""
+    """Read Write Property: Local time span."""
     ReferenceTimeSpan:FBTimeSpan
-    """**Read Write Property:** Reference time span."""
+    """Read Write Property: Reference time span."""
     def AddTimeMark(self,Time:FBTime)->int:
         """Add a time mark to the take.
         
@@ -21555,7 +21555,7 @@ class FBFCurve(FBComponent):
     
     [See samples: ClearKeysOnSelectedModels.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_clear_keys_on_selected_models_8py-example.html) [FCurveEditor.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_f_curve_editor_8py-example.html)"""
     Keys:FBPropertyListFCurveKey
-    """**List:** Keys."""
+    """List: Keys."""
     def CreateInterpolatorCurve(self,CurveType:FBInterpolatorCurveType)->FBFCurve:
         """Create and interpolator curve.
         
@@ -21581,7 +21581,7 @@ class FBFCurve(FBComponent):
             - KeyCount: Key to finish adding at (default is -1)."""
         ...
     def Evaluate(self,Time:FBTime)->float:
-        """Evaluate FCurve at **pTime**.
+        """Evaluate FCurve at pTime.
         
         ### Parameters:
         
@@ -21589,7 +21589,7 @@ class FBFCurve(FBComponent):
         
         
         ### Returns:
-        Value of FCurve at **pTime**."""
+        Value of FCurve at pTime."""
         ...
     def GetPostExtrapolationCount(self)->int:
         """Get count for post extrapolation."""
@@ -22140,23 +22140,23 @@ class FBFCurve(FBComponent):
 class FBAnimationNode(FBComponent):
     """[See samples: CopyAnimation.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_f_curve_0c_copy_animation_8py-example.html) [ClearKeysOnSelectedModels.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_clear_keys_on_selected_models_8py-example.html) [TraversingRelationConstraint.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_traversing_relation_constraint_8py-example.html) [FCurveEditor.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_f_curve_editor_8py-example.html)"""
     ConnectorType:FBAnimationNodeConnectorType
-    """**Read Only Property:** Animation node connector type."""
+    """Read Only Property: Animation node connector type."""
     DefaultInterpolation:FBInterpolation
-    """**Read Write Property:** Default type of interpolation."""
+    """Read Write Property: Default type of interpolation."""
     FCurve:FBFCurve
-    """**Read Write Property:** FCurve for animation. [See sample: StartKeysAtCurrentTime.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_start_keys_at_current_time_8py-example.html)"""
+    """Read Write Property: FCurve for animation. [See sample: StartKeysAtCurrentTime.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_start_keys_at_current_time_8py-example.html)"""
     KeyCount:int
-    """**Read Only Property:** Number of keys."""
+    """Read Only Property: Number of keys."""
     Label:str
-    """**Read Write Property:** Label (UI Name)."""
+    """Read Write Property: Label (UI Name)."""
     Live:bool
-    """**Read Write Property:** Is animation live?"""
+    """Read Write Property: Is animation live?"""
     Nodes:FBPropertyListAnimationNode
-    """**List:** List of animation nodes."""
+    """List: List of animation nodes."""
     RecordMode:bool
-    """**Read Write Property:** Is the node in recording mode (device connectors)?"""
+    """Read Write Property: Is the node in recording mode (device connectors)?"""
     UserName:str
-    """**Read Only Property:** Name of animation node."""
+    """Read Only Property: Name of animation node."""
     def ConvertGlobalToNodeTime(self,KeyTime:FBTime)->FBTime:
         """Convert global time to node time.
         
@@ -22198,7 +22198,7 @@ class FBAnimationNode(FBComponent):
         """Verifies if there is a key at the current.
         
         ### Returns:
-        **true** if there is a key at the current time."""
+        true if there is a key at the current time."""
         ...
     @overload
     def KeyAdd(self,Time:FBTime,Data:float,Interpolation:FBInterpolation=FBInterpolation.kFBInterpolationCubic,TangentMode:FBTangentMode=FBTangentMode.kFBTangentModeAuto):
@@ -22263,7 +22263,7 @@ class FBAnimationNode(FBComponent):
         
         
         ### Returns:
-        **true** if successful."""
+        true if successful."""
         ...
     def WriteData(self,Data:list,EvaluateInfo:FBEvaluateInfo|None=None)->int:
         """Write data to animation node.
@@ -22275,7 +22275,7 @@ class FBAnimationNode(FBComponent):
         
         
         ### Returns:
-        **true** if successful."""
+        true if successful."""
         ...
     def __init__(self,Name:str):
         """Constructor.
@@ -22297,13 +22297,13 @@ class FBTimeSpan():
         """Get the unsigned duration value of a timespan.
         
         ### Returns:
-        **Unsigned** duration of the timespan."""
+        Unsigned duration of the timespan."""
         ...
     def GetSignedDuration(self)->FBTime:
         """Get the signed duration value of a timespan.
         
         ### Returns:
-        **Signed** duration of the timespan."""
+        Signed duration of the timespan."""
         ...
     def GetStart(self)->FBTime:
         """Get the start/stop time.
@@ -22526,7 +22526,7 @@ class FBTimeWarpManager(FBComponent):
 class FBToolLayoutManager(FBComponent):
     """Tool Layout Manager class.
     
-    **This class allows users to interact with Layouts.**Sample Python code:
+    This class allows users to interact with Layouts.Sample Python code:
     
     ```python
     from pyfbsdk import *
@@ -22713,7 +22713,7 @@ class FBToolLayoutManager(FBComponent):
 class FBTransportAudioManager(FBComponent):
     """Transport Tool Audio Manager class.
     
-    **This class allows users to interact with the Audio Manager of the Transport Tool.**"""
+    This class allows users to interact with the Audio Manager of the Transport Tool."""
     def GetAudioClip(self)->FBAudioClip:
         """Get the Audio Clip displayed on the Transport Tool.
         
@@ -22826,9 +22826,9 @@ class FBTransportAudioManager(FBComponent):
 class FBTreeNode(FBComponent):
     """A node in the tree view."""
     Checked:bool
-    """**Read Write Property:** Is [FBTreeNode](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_tree_node.html "A node in the tree view.") checked."""
+    """Read Write Property: Is [FBTreeNode](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_tree_node.html "A node in the tree view.") checked."""
     Reference:int
-    """**Read Write Property:** Data to be associated to this node."""
+    """Read Write Property: Data to be associated to this node."""
 class FBUV():
     @overload
     def CopyFrom(self,arg2:FBUV)->FBUV:...
@@ -22891,13 +22891,13 @@ class FBUndoManager(FBComponent):
     
     [See sample: IndividualUndoCalls.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_individual_undo_calls_8py-example.html)"""
     OnRedo:FBEvent
-    """**Event:** A redo operation will be executed."""
+    """Event: A redo operation will be executed."""
     OnRedoCompleted:FBEvent
-    """**Event:** A redo operation has been executed."""
+    """Event: A redo operation has been executed."""
     OnUndo:FBEvent
-    """**Event:** An undo operation will be executed."""
+    """Event: An undo operation will be executed."""
     OnUndoCompleted:FBEvent
-    """**Event:** An undo operation has been executed."""
+    """Event: An undo operation has been executed."""
     def ActiveOperation(self)->bool:
         """Determine if an undo operation is in action.
         
@@ -23428,7 +23428,7 @@ class FBVideo(FBBox):
     
     [See sample: DeleteUnusedMedia.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_delete_unused_media_8py-example.html)"""
     KeepOnGPU:bool
-    """**Read Write Property:** Don't auto flush from GPU if true. session runtime flag, won't be saved."""
+    """Read Write Property: Don't auto flush from GPU if true. session runtime flag, won't be saved."""
     def __init__(self,Name:str):
         """Constructor.
         
@@ -23447,57 +23447,57 @@ class FBVideoClip(FBVideo):
     
     [See sample: VideoClip.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_story_0c_video_clip_8py-example.html)"""
     CurrentFrame:int
-    """**Read Write Property:** Current frame."""
+    """Read Write Property: Current frame."""
     CurrentFrameTime:FBTime
-    """**Read Write Property:** Current time in clip."""
+    """Read Write Property: Current time in clip."""
     CurrentFrameTimeCode:FBTime
-    """**Read Only Property:** Embedded timecode from current frame in clip. Use the method GetEmbeddedTimecode to get the timecode of a different frame than the current frame."""
+    """Read Only Property: Embedded timecode from current frame in clip. Use the method GetEmbeddedTimecode to get the timecode of a different frame than the current frame."""
     CustomEmbeddedStartTimecode:FBTime
-    """**Read Write Property:**The custom timecode of the first frame of the video. To be effective, the ShowEmbeddedTimecode and UseCustomEmbeddedStartTimecode properties must be active."""
+    """Read Write Property:The custom timecode of the first frame of the video. To be effective, the ShowEmbeddedTimecode and UseCustomEmbeddedStartTimecode properties must be active."""
     Filename:str
-    """**Read Write Property:** Filename of media."""
+    """Read Write Property: Filename of media."""
     Format:FBVideoFormat
-    """**Read Only Property:** Video format."""
+    """Read Only Property: Video format."""
     FrameRate:float
-    """**Read Write Property:** Frame rate."""
+    """Read Write Property: Frame rate."""
     FrameTime:FBTime
-    """**Read Only Property:** Inverse of FPS, time per frame"""
+    """Read Only Property: Inverse of FPS, time per frame"""
     FreeRunning:bool
-    """**Read Write Property:** Is free Running on?"""
+    """Read Write Property: Is free Running on?"""
     Height:int
-    """**Read Only Property:** Height of image."""
+    """Read Only Property: Height of image."""
     InterlaceMode:FBVideoInterlaceMode
-    """**Read Write Property:** Interlace mode."""
+    """Read Write Property: Interlace mode."""
     LastFrame:int
-    """**Read Only Property:** Last frame in clip."""
+    """Read Only Property: Last frame in clip."""
     LastFrameTime:FBTime
-    """**Read Only Property:** Time of last frame"""
+    """Read Only Property: Time of last frame"""
     Loop:bool
-    """**Read Write Property:** Loop video clip?"""
+    """Read Write Property: Loop video clip?"""
     PlaySpeed:float
-    """**Read Write Property:** Playback speed."""
+    """Read Write Property: Playback speed."""
     PowerOfTwoHeight:int
-    """**Read Only Property:** Closest power of two value superior to height of image."""
+    """Read Only Property: Closest power of two value superior to height of image."""
     PowerOfTwoWidth:int
-    """**Read Only Property:** Closest power of two value superior to width of image."""
+    """Read Only Property: Closest power of two value superior to width of image."""
     ProxyMode:FBVideoProxyMode
-    """**Read Write Property:** Proxy mode."""
+    """Read Write Property: Proxy mode."""
     RelativePath:str
-    """**Read Only Property:** Relative path of media."""
+    """Read Only Property: Relative path of media."""
     ShowEmbeddedTimecode:bool
-    """**Read Write Property:** True if the video clip is showing its embedded timecode (real, if available, or custom), false if showing a timecode starting at 00:00:00:00 (00)."""
+    """Read Write Property: True if the video clip is showing its embedded timecode (real, if available, or custom), false if showing a timecode starting at 00:00:00:00 (00)."""
     StartFrame:int
-    """**Read Write Property:** Frame to begin video playback from."""
+    """Read Write Property: Frame to begin video playback from."""
     StopFrame:int
-    """**Read Write Property:** Frame to end video playback at."""
+    """Read Write Property: Frame to end video playback at."""
     StorageMode:FBVideoStorageMode
-    """**Read Write Property:** Storage mode."""
+    """Read Write Property: Storage mode."""
     TimeOffset:FBTime
-    """**Read Write Property:** Temporal offset for beginning of video."""
+    """Read Write Property: Temporal offset for beginning of video."""
     UseCustomEmbeddedStartTimecode:bool
-    """**Read Write Property:** True if the video clip is using the custom embedded start timecode value, false if it is using the real embedded timecode, if available."""
+    """Read Write Property: True if the video clip is using the custom embedded start timecode value, false if it is using the real embedded timecode, if available."""
     Width:int
-    """**Read Only Property:** Width of image."""
+    """Read Only Property: Width of image."""
     def DrawImage(self,X:int=0,Y:int=0,W:int=-1,H:int=-1,Frame:int=-1):
         """Draw a frame of the image to the current view.
         
@@ -23531,7 +23531,7 @@ class FBVideoClip(FBVideo):
         """Verifies the validity of the [FBVideo](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_video.html "Video media class.") object.
         
         ### Returns:
-        **true** if data is valid."""
+        true if data is valid."""
         ...
     def __init__(self,Name:str):
         """Constructor.
@@ -23549,11 +23549,11 @@ class FBVideoClipImage(FBVideoClip):
     
     Used for a variety of image types. For DDS images, use the [FBVideoClipImageDDS](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_video_clip_image_d_d_s.html "Video clip image media class for DDS images.") instead."""
     ImageSequence:bool
-    """**Read Write Property:** Clip is an image sequence?"""
+    """Read Write Property: Clip is an image sequence?"""
     MaxMipMapResolution:FBVideoResolution
-    """**Read Write Property:** Maximum MipMap resolution will be loaded into GPU."""
+    """Read Write Property: Maximum MipMap resolution will be loaded into GPU."""
     UseSystemFrameRate:bool
-    """**Read Write Property:** Clip is using system frame rate?"""
+    """Read Write Property: Clip is using system frame rate?"""
     def __init__(self,Name:str):
         """Constructor.
         
@@ -23577,7 +23577,7 @@ class FBVideoCodecManager():
     
     [See samples: codecExamples.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_rendering_0ccodec_examples_8py-example.html) [render.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_rendering_0crender_8py-example.html)"""
     VideoCodecMode:FBVideoCodecMode
-    """**Read Write Property:** This decide how the system behaves when ask to render a file (codec dialog, uncompress, use default codec)"""
+    """Read Write Property: This decide how the system behaves when ask to render a file (codec dialog, uncompress, use default codec)"""
     def GetCodecIdList(self,FileFormatInfo:str)->list:
         """GetCodecIdList.
         
@@ -23627,45 +23627,45 @@ class FBVideoGrabOptions():
     
     Contain options to control how the grabbing process will occur."""
     AntiAliasing:bool
-    """**Read Write Property:** If true, video frames will be anti-aliased."""
+    """Read Write Property: If true, video frames will be anti-aliased."""
     AudioCustomStandaloneFileName:FBPropertyString
     """Destination for the custom audio standalone file, if mAudioUseCustomStandaloneFileName is set to true."""
     AudioOutputLocation:FBAudioOutputLocation
     """Audio output location when rendering using a video format (for still image formats & SWF (Flash) format, the audio is always rendered in a standalone file)."""
     AudioRenderFormat:int
-    """**Read Write Property:** Audio render format."""
+    """Read Write Property: Audio render format."""
     AudioUseCustomStandaloneFileName:bool
     """If true and if the audio is rendered in a standalone output file, the audio file is generated at the file location specified by mAudioCustomStandaloneFileName, otherwise the audio file is generated in the same directory as the rendered images/video files based on their names."""
     BitsPerPixel:FBVideoRenderDepth
-    """**Read Write Property:** Video grab color depth."""
+    """Read Write Property: Video grab color depth."""
     CameraResolution:FBCameraResolutionMode
-    """**Read Write Property:** Camera Resolution."""
+    """Read Write Property: Camera Resolution."""
     FieldMode:FBVideoRenderFieldMode
-    """**Read Write Property:** Video grab field mode."""
+    """Read Write Property: Video grab field mode."""
     OutputFileName:str
-    """**Read Write Property:** Grabbing destination file."""
+    """Read Write Property: Grabbing destination file."""
     RenderAudio:bool
-    """**Read Write Property:** If true and there's audio in the scene, render the audio as well."""
+    """Read Write Property: If true and there's audio in the scene, render the audio as well."""
     RendererCallbackIndex:property
     RendererCallbackPrefIndex:property
     ShowCameraLabel:bool
-    """**Read Write Property:** If true, display camera label information."""
+    """Read Write Property: If true, display camera label information."""
     ShowSafeArea:bool
-    """**Read Write Property:** If true, display safe area."""
+    """Read Write Property: If true, display safe area."""
     ShowTimeCode:bool
-    """**Read Write Property:** If true, display time code information."""
+    """Read Write Property: If true, display time code information."""
     StereoDisplayMode:property
     StillImageCompression:property
     StillImageCompressionType:int
-    """**Read Write Property:** Compression type of image for image formats that support it. Depends on the image format. For "tif": 0 = ( no compression ), 1 = ( LZW-compression )."""
+    """Read Write Property: Compression type of image for image formats that support it. Depends on the image format. For "tif": 0 = ( no compression ), 1 = ( LZW-compression )."""
     StillImageQuality:int
-    """**Read Write Property:** Quality of the image for image formats that support it. Depends on the image format. For "jpeg": 0-100 where 0=(low visual quality, high compression), 100=(high visual quality, low compression)."""
+    """Read Write Property: Quality of the image for image formats that support it. Depends on the image format. For "jpeg": 0-100 where 0=(low visual quality, high compression), 100=(high visual quality, low compression)."""
     TimeSpan:FBTimeSpan
-    """**Read Write Property:** Start and stop selection time to grab."""
+    """Read Write Property: Start and stop selection time to grab."""
     TimeSteps:FBTime
-    """**Read Write Property:** Time step length between each grab."""
+    """Read Write Property: Time step length between each grab."""
     ViewingMode:FBVideoRenderViewingMode
-    """**Read Write Property:** Video grab viewing mode."""
+    """Read Write Property: Video grab viewing mode."""
     def __init__(self):...
 class FBVideoGrabber(FBComponent):
     """Video Grabber class.
@@ -23678,7 +23678,7 @@ class FBVideoGrabber(FBComponent):
         
         Begin video grabbing session.
         ### Returns:
-        **True** if we can begin the grab session."""
+        True if we can begin the grab session."""
         ...
     def EndGrab(self):
         """EndGrab.
@@ -23737,13 +23737,13 @@ class FBVideoIn(FBVideo):
     
     [See sample: VideoInput.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_video_0c_video_input_8py-example.html)"""
     FilePath:str
-    """**Read Write Property:** Location of the generated movie file after a recording session."""
+    """Read Write Property: Location of the generated movie file after a recording session."""
     Online:bool
-    """**Read Write Property:** If true, the device is online and will display the current video feed."""
+    """Read Write Property: If true, the device is online and will display the current video feed."""
     RecordAudio:bool
-    """**Read Write Property:** If true, the device will also record audio during a recording session."""
+    """Read Write Property: If true, the device will also record audio during a recording session."""
     Recording:bool
-    """**Read Write Property:** If true, the device will record during a recording session."""
+    """Read Write Property: If true, the device will record during a recording session."""
     def LiveGetCompressor(self)->int:
         """Get the current compressor index.
         
@@ -23822,7 +23822,7 @@ class FBVideoMemory(FBVideo):
     
     [See sample: VideoMemory.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_video_0c_video_memory_8py-example.html)"""
     TextureOGLId:int
-    """**Read Write Property:** OpenGL texture buffer object id (GL\_TEXTURE\_2D type)."""
+    """Read Write Property: OpenGL texture buffer object id (GL\_TEXTURE\_2D type)."""
     def SetObjectImageSize(self,W:int,H:int):
         """Set image size to allow MoBu preview texture with proper dimension / aspect.
         
@@ -23845,7 +23845,7 @@ class FBVideoOut(FBVideo):
     
     [See sample: VideoOutput.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_video_0c_video_output_8py-example.html)"""
     Online:bool
-    """**Read Write Property:** If true, the device is online and will output display."""
+    """Read Write Property: If true, the device is online and will output display."""
     def __init__(self):
         """Constructor."""
         ...
@@ -23854,22 +23854,22 @@ class FBViewingOptions():
     
     The [FBRenderer](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_renderer.html "Open Reality renderer interface.") allows to get and set those options."""
     DisplayMode:FBModelShadingMode
-    """**Read Write Property:** Current Shading mode"""
+    """Read Write Property: Current Shading mode"""
     DisplayWhat:int
-    """**Read Write Property:** current display mask."""
+    """Read Write Property: current display mask."""
     PaneIndex:int
     """Current Viewer Pane being rendered.
     
     ### Returns:
     Index of the pane being rendered."""
     PickingMode:int
-    """**Read Write Property:** Reference to the current picking mode."""
+    """Read Write Property: Reference to the current picking mode."""
     ShowCameraLabel:bool
-    """**Read Write Property:** Show Camera Label when rendering."""
+    """Read Write Property: Show Camera Label when rendering."""
     ShowSafeArea:bool
-    """**Read Write Property:** Show Safe Area when rendering."""
+    """Read Write Property: Show Safe Area when rendering."""
     ShowTimeCode:bool
-    """**Read Write Property:** Show Time Code when rendering."""
+    """Read Write Property: Show Time Code when rendering."""
     StereoDisplayMode:FBStereoDisplayMode
     """Get a reference to the stereo display mode.
     
@@ -23888,81 +23888,81 @@ class FBVisualComponent(FBComponent):
     
     All of the user interface elements available in the SDK derive from this class."""
     BorderCaption:str
-    """**Read Write Property:** Caption to display in border."""
+    """Read Write Property: Caption to display in border."""
     BorderCornerRadius:int
-    """**Read Write Property:** Corner radius (rounded)."""
+    """Read Write Property: Corner radius (rounded)."""
     BorderInSet:bool
-    """**Read Write Property:** Is border inset?"""
+    """Read Write Property: Is border inset?"""
     BorderMaxAngle:float
-    """**Read Write Property:** Max angle for rounding."""
+    """Read Write Property: Max angle for rounding."""
     BorderShowCaption:bool
-    """**Read Write Property:** Show caption?"""
+    """Read Write Property: Show caption?"""
     BorderSpacing:int
-    """**Read Write Property:** Spacing of border."""
+    """Read Write Property: Spacing of border."""
     BorderStyle:FBBorderStyle
-    """**Read Write Property:** Style of border."""
+    """Read Write Property: Style of border."""
     BorderWidth:int
-    """**Read Write Property:** Width of border."""
+    """Read Write Property: Width of border."""
     Caption:str
-    """**Property:** Widget caption."""
+    """Property: Widget caption."""
     Enabled:bool
-    """**Read Write Property:** Is visual enabled?"""
+    """Read Write Property: Is visual enabled?"""
     Height:int
-    """**Read Write Property:** Height."""
+    """Read Write Property: Height."""
     Hint:str
-    """**Read Write Property:** Hint to show."""
+    """Read Write Property: Hint to show."""
     Left:int
-    """**Read Write Property:** Left coordinate."""
+    """Read Write Property: Left coordinate."""
     ReadOnly:bool
-    """**Read Write Property:** Is visual component read only?"""
+    """Read Write Property: Is visual component read only?"""
     RegionAttachToHeight:FBVisualComponent
-    """**Read Write Property:** Height Attachment source."""
+    """Read Write Property: Height Attachment source."""
     RegionAttachToWidth:FBVisualComponent
-    """**Read Write Property:** Width Attachment source."""
+    """Read Write Property: Width Attachment source."""
     RegionAttachToX:FBVisualComponent
-    """**Read Write Property** X Attachment source."""
+    """Read Write Property X Attachment source."""
     RegionAttachToY:FBVisualComponent
-    """**Read Write Property:** Y Attachment source."""
+    """Read Write Property: Y Attachment source."""
     RegionAttachTypeHeight:FBAttachType
-    """**Read Write Property:** Height Attachment type."""
+    """Read Write Property: Height Attachment type."""
     RegionAttachTypeWidth:FBAttachType
-    """**Read Write Property:** Width Attachment type."""
+    """Read Write Property: Width Attachment type."""
     RegionAttachTypeX:FBAttachType
-    """**Read Write Property:** X Attachment type."""
+    """Read Write Property: X Attachment type."""
     RegionAttachTypeY:FBAttachType
-    """**Read Write Property:** Y Attachment type."""
+    """Read Write Property: Y Attachment type."""
     RegionName:str
-    """**Read Write Property:** Region name."""
+    """Read Write Property: Region name."""
     RegionOffsetHeight:int
-    """**Read Write Property:** Region height offset."""
+    """Read Write Property: Region height offset."""
     RegionOffsetWidth:int
-    """**Read Write Property:** Region width offset."""
+    """Read Write Property: Region width offset."""
     RegionOffsetX:int
-    """**Read Write Property:** Region X offset."""
+    """Read Write Property: Region X offset."""
     RegionOffsetY:int
-    """**Read Write Property:** Region Y offset."""
+    """Read Write Property: Region Y offset."""
     RegionPosMaxX:int
-    """**Read Write Property:** Region X position Max"""
+    """Read Write Property: Region X position Max"""
     RegionPosMaxY:int
-    """**Read Write Property:** Region Y position Max"""
+    """Read Write Property: Region Y position Max"""
     RegionPosMinX:int
-    """**Read Write Property:** Region X position Min"""
+    """Read Write Property: Region X position Min"""
     RegionPosMinY:int
-    """**Read Write Property:** Region Y position Min"""
+    """Read Write Property: Region Y position Min"""
     RegionRatioHeight:float
-    """**Read Write Property:** Ratio for Height attachment."""
+    """Read Write Property: Ratio for Height attachment."""
     RegionRatioWidth:float
-    """**Read Write Property:** Ratio for Width attachment."""
+    """Read Write Property: Ratio for Width attachment."""
     RegionRatioX:float
-    """**Read Write Property:** Ratio for X attachment."""
+    """Read Write Property: Ratio for X attachment."""
     RegionRatioY:float
-    """**Read Write Property:** Ratio for Y attachment."""
+    """Read Write Property: Ratio for Y attachment."""
     Top:int
-    """**Read Write Property:** Top coordinate."""
+    """Read Write Property: Top coordinate."""
     Visible:bool
-    """**Read Write Property:** Is visual component visible?"""
+    """Read Write Property: Is visual component visible?"""
     Width:int
-    """**Read Write Property:** Width."""
+    """Read Write Property: Width."""
     def AddChild(self,Child:FBVisualComponent,Id:int=0)->bool:
         """Add a child component.
         
@@ -23973,7 +23973,7 @@ class FBVisualComponent(FBComponent):
         
         
         ### Returns:
-        Operation was successful (**true** or **false**)."""
+        Operation was successful (true or false)."""
         ...
     def GetChild(self,Id:int)->FBVisualComponent:
         """Get a child component.
@@ -23996,7 +23996,7 @@ class FBVisualComponent(FBComponent):
         """Is component a view?
         
         ### Returns:
-        **true** if component is a view."""
+        true if component is a view."""
         ...
     def Refresh(self,Now:bool=False):
         """Refresh component.
@@ -24026,25 +24026,25 @@ class FBVisualContainer(FBVisualComponent):
     
     [See samples: Container.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_container_8py-example.html) [PropertyDrop.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_property_drop_8py-example.html) [TutorialBox.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_tutorial_box_8py-example.html)"""
     IconPosition:FBIconPosition
-    """**Read Write Property:** Where the icon is positioned for the items."""
+    """Read Write Property: Where the icon is positioned for the items."""
     ItemHeight:int
-    """**Read Write Property:** Item height."""
+    """Read Write Property: Item height."""
     ItemIndex:int
-    """**Read Write Property:** Current item selected."""
+    """Read Write Property: Current item selected."""
     ItemWidth:int
-    """**Read Write Property:** Item width."""
+    """Read Write Property: Item width."""
     ItemWrap:bool
-    """**Read Write Property:** Are items wrapped when enough space is available?"""
+    """Read Write Property: Are items wrapped when enough space is available?"""
     Items:FBStringList
-    """**List:** Names of items in container."""
+    """List: Names of items in container."""
     OnChange:FBEvent
-    """**Event:** Container contents changed."""
+    """Event: Container contents changed."""
     OnDblClick:FBEvent
-    """**Event:** Double click."""
+    """Event: Double click."""
     OnDragAndDrop:FBEvent
-    """**Event:** Drag and Drop event."""
+    """Event: Drag and Drop event."""
     Orientation:FBOrientation
-    """**Read Write Property:** Orientation of container."""
+    """Read Write Property: Orientation of container."""
     def GetSelection(self)->int:
         """Get the selected item.
         
@@ -24063,7 +24063,7 @@ class FBVisualContainer(FBVisualComponent):
         
         
         ### Returns:
-        Operation was successful (**true** or **false**)."""
+        Operation was successful (true or false)."""
         ...
     @overload
     def ItemIconSet(self,Ref:int,Filename:str)->bool:
@@ -24076,7 +24076,7 @@ class FBVisualContainer(FBVisualComponent):
         
         
         ### Returns:
-        Operation was successful (**true** or **false**)."""
+        Operation was successful (true or false)."""
         ...
     def ItemNameEdit(self,Ref:int)->bool:
         """Edit a container item.
@@ -24087,7 +24087,7 @@ class FBVisualContainer(FBVisualComponent):
         
         
         ### Returns:
-        Operation was successful (**true** or **false**)."""
+        Operation was successful (true or false)."""
         ...
     def __init__(self):
         """Constructor."""
@@ -24095,9 +24095,9 @@ class FBVisualContainer(FBVisualComponent):
 class FBView(FBVisualComponent):
     """Generic view."""
     DoubleBuffer:bool
-    """**Read Only Property:** Indicates if the view is double buffered."""
+    """Read Only Property: Indicates if the view is double buffered."""
     GraphicOGL:bool
-    """**Read Only Property:** Indicates if the view is OpenGL."""
+    """Read Only Property: Indicates if the view is OpenGL."""
     def DrawString(self,Text:str,X:float,Y:float,Enable:int=-1):
         """Draw a string in the view.
         
@@ -24120,7 +24120,7 @@ class FBView(FBVisualComponent):
         
         
         ### Returns:
-        Operation was successful (**true** or **false**)."""
+        Operation was successful (true or false)."""
         ...
     def __init__(self):
         """Constructor."""
@@ -24132,71 +24132,71 @@ class FBTree(FBVisualComponent):
     
     [See sample: Tree.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_tree_8py-example.html)"""
     AllowCollapse:bool
-    """**Read Write Property:** When OnCollapsing occurs, set this to true to allow collapse."""
+    """Read Write Property: When OnCollapsing occurs, set this to true to allow collapse."""
     AllowExpansion:bool
-    """**Read Write Property:** When OnExpanding occurs, set this to true to allow expansion."""
+    """Read Write Property: When OnExpanding occurs, set this to true to allow expansion."""
     AutoExpandOnDblClick:bool
-    """**Read Write Property:** Allow automatic expand on double click, default is false."""
+    """Read Write Property: Allow automatic expand on double click, default is false."""
     AutoExpandOnDragOver:bool
-    """**Read Write Property:** Allow automatic expand on drag over, default is false."""
+    """Read Write Property: Allow automatic expand on drag over, default is false."""
     AutoScroll:bool
-    """**Read Write Property:** If AutoScroll property is True then the tree window will be automatically scrolled when the user drags item(s) over the boundaries of the tree."""
+    """Read Write Property: If AutoScroll property is True then the tree window will be automatically scrolled when the user drags item(s) over the boundaries of the tree."""
     AutoScrollOnExpand:bool
-    """**Read Write Property:** Allow automatic scroll on expand, default is true."""
+    """Read Write Property: Allow automatic scroll on expand, default is true."""
     CheckBoxes:bool
-    """**Read Write Property:** Draw check boxe for each node."""
+    """Read Write Property: Draw check boxe for each node."""
     DeselectOnCollapse:bool
-    """**Read Write Property:** Tells whether node are deselected if parent node is collapsed."""
+    """Read Write Property: Tells whether node are deselected if parent node is collapsed."""
     EditNodeOn2Select:bool
-    """**Read Write Property:** Set to true, to allow automatic node editing on second select."""
+    """Read Write Property: Set to true, to allow automatic node editing on second select."""
     HighlightOnRightClick:bool
-    """**Read Write Property:** Hightlight node on right click."""
+    """Read Write Property: Hightlight node on right click."""
     Indent:int
-    """**Read Write Property:** Use Indent to determine how far child nodes are indented from their parent nodes when the parent is expanded."""
+    """Read Write Property: Use Indent to determine how far child nodes are indented from their parent nodes when the parent is expanded."""
     ItemHeight:int
-    """**Read Write Property:** Height of an item."""
+    """Read Write Property: Height of an item."""
     MultiDrag:bool
-    """**Read Write Property:** Tells whether multiple drag/drop is allowed or not."""
+    """Read Write Property: Tells whether multiple drag/drop is allowed or not."""
     MultiSelect:bool
-    """**Read Write Property:** Tells whether multiple selection is allowed or not."""
+    """Read Write Property: Tells whether multiple selection is allowed or not."""
     NoSelectOnDrag:bool
-    """**Read Write Property:** Tells whether node are selected if drag is start and node is not already selected."""
+    """Read Write Property: Tells whether node are selected if drag is start and node is not already selected."""
     NoSelectOnRightClick:bool
-    """**Read Write Property:** Tells whether node are selected if right click on node."""
+    """Read Write Property: Tells whether node are selected if right click on node."""
     OnChange:FBEvent
-    """**Event:** Change of the selection."""
+    """Event: Change of the selection."""
     OnClick:FBEvent
-    """**Event:** Click on a node of the tree. Use OnSelect."""
+    """Event: Click on a node of the tree. Use OnSelect."""
     OnClickCheck:FBEvent
-    """**Event:** Click on a node checkbox of the tree."""
+    """Event: Click on a node checkbox of the tree."""
     OnCollapsed:FBEvent
-    """**Event:** Click on the "-" sign before a non-leaf node."""
+    """Event: Click on the "-" sign before a non-leaf node."""
     OnCollapsing:FBEvent
-    """**Event:** Fired before the node collapse. To refuse collapsing, set AllowCollapse to false."""
+    """Event: Fired before the node collapse. To refuse collapsing, set AllowCollapse to false."""
     OnDblClick:FBEvent
-    """**Event:** Double-Click on a node of the tree. Use [FBEventTreeSelect](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_event_tree_select.html "FBTree selection event. Event: Video Frame offline Rendering Event.") to cast event."""
+    """Event: Double-Click on a node of the tree. Use [FBEventTreeSelect](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_event_tree_select.html "FBTree selection event. Event: Video Frame offline Rendering Event.") to cast event."""
     OnDragAndDrop:FBEvent
-    """**Event:** Drag and drop of an element."""
+    """Event: Drag and drop of an element."""
     OnExpanded:FBEvent
-    """**Event:** Click on the "+" sign before a non-leaf node"""
+    """Event: Click on the "+" sign before a non-leaf node"""
     OnExpanding:FBEvent
-    """**Event:** Is fired before the node expand. To refuse expanding set AllowExpansion to false."""
+    """Event: Is fired before the node expand. To refuse expanding set AllowExpansion to false."""
     OnSelect:FBEvent
-    """**Event:** A node was selected. Use [FBEventTreeSelect](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_event_tree_select.html "FBTree selection event. Event: Video Frame offline Rendering Event.") to cast event."""
+    """Event: A node was selected. Use [FBEventTreeSelect](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_event_tree_select.html "FBTree selection event. Event: Video Frame offline Rendering Event.") to cast event."""
     SelectedCount:int
-    """**Read Only Property:** Count of selected items."""
+    """Read Only Property: Count of selected items."""
     SelectedNodes:FBPropertyListTreeNode
-    """**Read Only Property:** List of selected nodes."""
+    """Read Only Property: List of selected nodes."""
     SelectionActive:bool
-    """**Read Write Property:** Tells whether selection is allowed or not."""
+    """Read Write Property: Tells whether selection is allowed or not."""
     ShowLines:bool
-    """**Read Write Property:** On node selection, will draw entire line selected"""
+    """Read Write Property: On node selection, will draw entire line selected"""
     TreeHeight:int
-    """**Read Only Property:** Height of the tree."""
+    """Read Only Property: Height of the tree."""
     TreeWidth:int
-    """**Read Only Property:** Width of the tree."""
+    """Read Only Property: Width of the tree."""
     VisibleItemCount:int
-    """**Read Only Property:** Count of visible items."""
+    """Read Only Property: Count of visible items."""
     def Clear(self):
         """Clear the tree (remove all nodes)."""
         ...
@@ -24228,11 +24228,11 @@ class FBThermometer(FBVisualComponent):
     
     [See sample: Thermometer.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_thermometer_8py-example.html)"""
     Max:float
-    """**Read Write Property:** Maximum value."""
+    """Read Write Property: Maximum value."""
     Min:float
-    """**Read Write Property:** Minimum value."""
+    """Read Write Property: Minimum value."""
     Value:float
-    """**Read Write Property:** Current value."""
+    """Read Write Property: Current value."""
     def Clear(self):
         """Reset bounds and value."""
         ...
@@ -24246,15 +24246,15 @@ class FBTabPanel(FBVisualComponent):
     
     [See sample: TabPanel.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_tab_panel_8py-example.html)"""
     ItemIndex:int
-    """**Read Write Property:** Current tab panel."""
+    """Read Write Property: Current tab panel."""
     Items:FBStringList
-    """**List:** Names for tab panels."""
+    """List: Names for tab panels."""
     Layout:FBLayout
-    """**Read Write Property:** Layout for current tab panel."""
+    """Read Write Property: Layout for current tab panel."""
     OnChange:FBEvent
-    """**Event:** Tab panel change."""
+    """Event: Tab panel change."""
     TabStyle:int
-    """**Read Write Property:** Style of the tab panel, 0 creates normal tabs, 1 creates buttons to activate tabs."""
+    """Read Write Property: Style of the tab panel, 0 creates normal tabs, 1 creates buttons to activate tabs."""
     def __init__(self):
         """Constructor."""
         ...
@@ -24265,19 +24265,19 @@ class FBSpread(FBVisualComponent):
     
     [See samples: ActionScriptMgr.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_complex_tools_0c_action_script_mgr_8py-example.html) [Spread.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_spread_8py-example.html)"""
     Column:int
-    """**Read Write Property:** Current column."""
+    """Read Write Property: Current column."""
     MultiSelect:bool
-    """**Read Write Property:** Can there be multiple selections?"""
+    """Read Write Property: Can there be multiple selections?"""
     OnCellChange:FBEvent
-    """**Event:** Cell value changed."""
+    """Event: Cell value changed."""
     OnColumnClick:FBEvent
-    """**Event:** Column clicked."""
+    """Event: Column clicked."""
     OnDragAndDrop:FBEvent
-    """**Event:** Drag and drop event."""
+    """Event: Drag and drop event."""
     OnRowClick:FBEvent
-    """**Event:** Row clicked."""
+    """Event: Row clicked."""
     Row:int
-    """**Read Write Property:** Current row."""
+    """Read Write Property: Current row."""
     def Clear(self):
         """Clear spreadsheet This function will empty spreadsheet of all its rows, columns and cells."""
         ...
@@ -24300,8 +24300,6 @@ class FBSpread(FBVisualComponent):
         
         
         ### Return values:
-        
-        
         
         |  |  |
         | --- | --- |
@@ -24415,17 +24413,17 @@ class FBSlider(FBVisualComponent):
     
     [See samples: BlendShape\_Editor.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_complex_tools_0c_blend_shape__editor_8py-example.html) [Slider.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_slider_8py-example.html)"""
     Max:float
-    """**Read Write Property:** Maximum value."""
+    """Read Write Property: Maximum value."""
     Min:float
-    """**Read Write Property:** Minimum value."""
+    """Read Write Property: Minimum value."""
     OnChange:FBEvent
-    """**Event:** Slider value changed."""
+    """Event: Slider value changed."""
     OnTransaction:FBEvent
-    """**Event:** Transaction begin/end (continuous value changes). This event property doesn't exist in pyfbsdk."""
+    """Event: Transaction begin/end (continuous value changes). This event property doesn't exist in pyfbsdk."""
     Orientation:FBOrientation
-    """**Read Write Property:** Slider orientation."""
+    """Read Write Property: Slider orientation."""
     Value:float
-    """**Read Write Property:** Current value."""
+    """Read Write Property: Current value."""
     def __init__(self):
         """Constructor."""
         ...
@@ -24436,7 +24434,7 @@ class FBScrollBox(FBVisualComponent):
     
     [See sample: Scrollbox.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_scrollbox_8py-example.html)"""
     Content:FBLayout
-    """**Read Property:** an empty layout in which you can add scrollable content."""
+    """Read Property: an empty layout in which you can add scrollable content."""
     def SetContentSize(self,arg2,arg3):...
     def __init__(self):
         """Constructor."""
@@ -24444,7 +24442,7 @@ class FBScrollBox(FBVisualComponent):
 class FBPropertyConnectionEditor(FBVisualComponent):
     """Property Connection Editor."""
     Property:property
-    """**Read Write Property:** Property to edit connections. Set to NULL to disable."""
+    """Read Write Property: Property to edit connections. Set to NULL to disable."""
     def PopupList(self):
         """Launch a list of connected objects."""
         ...
@@ -24461,17 +24459,17 @@ class FBPlotPopup(FBVisualComponent):
     
     [See sample: FBPlotPopup.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_f_b_plot_popup_8py-example.html)"""
     EnableEvaluateDeformation:bool
-    """**Read Write Property:** Enable Evaluate Deformation option for popup."""
+    """Read Write Property: Enable Evaluate Deformation option for popup."""
     EnablePlotAuxEffectors:bool
-    """**Read Write Property:** Enable Plot Aux Effectors option for popup."""
+    """Read Write Property: Enable Plot Aux Effectors option for popup."""
     EnablePlotCharacterExtension:bool
-    """**Read Write Property:** Enable Plot Character Extension option for popup."""
+    """Read Write Property: Enable Plot Character Extension option for popup."""
     EnablePlotLockedProperties:bool
-    """**Read Write Property:** Enable Plot Locked Properties option for popup."""
+    """Read Write Property: Enable Plot Locked Properties option for popup."""
     EnablePlotTranslationOnRootOnly:bool
-    """**Read Write Property:** Enable Plot Translation On Root Only option for popup."""
+    """Read Write Property: Enable Plot Translation On Root Only option for popup."""
     EnableSmartPlotControls:bool
-    """**Read Write Property:** Enable Smart Plot option for popup."""
+    """Read Write Property: Enable Smart Plot option for popup."""
     def GetPlotOptions(self)->FBPlotOptions:
         """Get plot options.
         
@@ -24482,7 +24480,7 @@ class FBPlotPopup(FBVisualComponent):
         """Execute plot popup.
         
         ### Returns:
-        **true** if **OK** is clicked by user."""
+        true if OK is clicked by user."""
         ...
     def SetPlotOptions(self,PlotOptions:FBPlotOptions):
         """Set plot options.
@@ -24501,21 +24499,21 @@ class FBList(FBVisualComponent):
     
     [See samples: List.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_list_8py-example.html) [ToolCommunicationReceiver.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_tool_communication_receiver_8py-example.html)"""
     ExtendedSelect:bool
-    """**Read Write Property:** Extended selection state?"""
+    """Read Write Property: Extended selection state?"""
     ItemIndex:int
-    """**Read Write Property:** Current item index."""
+    """Read Write Property: Current item index."""
     Items:FBStringList
-    """**List:** Names of items in list."""
+    """List: Names of items in list."""
     MultiSelect:bool
-    """**Read Write Property:** Can multiple items be selected?"""
+    """Read Write Property: Can multiple items be selected?"""
     OnChange:FBEvent
-    """**Event:** List changed."""
+    """Event: List changed."""
     OnDragAndDrop:FBEvent
-    """**Event:** Drag and drop event."""
+    """Event: Drag and drop event."""
     Style:FBListStyle
-    """**Read Write Property:** Style or direction of list."""
+    """Read Write Property: Style or direction of list."""
     def IsSelected(self,Index:int)->bool:
-        """Returns whether or not the item **pIndex** is currently selected.
+        """Returns whether or not the item pIndex is currently selected.
         
         ### Parameters:
         
@@ -24523,7 +24521,7 @@ class FBList(FBVisualComponent):
         
         
         ### Returns:
-        **true** if item at **pIndex** is selected."""
+        true if item at pIndex is selected."""
         ...
     def __init__(self):
         """Constructor."""
@@ -24536,19 +24534,19 @@ class FBLayoutRegion(FBVisualComponent):
 class FBLayout(FBVisualComponent):
     """Used to build the user interface.
     
-    Layouts manage areas of the screen called regions. Regions contain UI components such as buttons, viewers, and edit boxes. Regions are added to layouts. When a UI component is bound to a region, the region defines how big it is and how it behaves when the layout is resized.**Types of Layouts** Device Constraint Manipulator Shader A region is first defined using the [FBLayout::AddRegion()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_layout.html#ada9608d3cc29bcfcb802803c582c7e82 "Add a region to the layout.") function. Once a region is defined and the corresponding UI component is created, and the component is bound to its region with [FBLayout::SetControl()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_layout.html#a037812ff1eb73124773acd374351edbe "Set control of a region to a visual component."). You can use the [FBSystem::OnUIIdle()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_system.html#a51d224fe3663c140eb8971ed9250a7cf "Event: User-interface idle event. Useful callback for less frequent GUI refresh and etc....") in your layout to update real-time UI components such as guages and status indicators. In Python, FBBoxLayout and FBGridLayout take care of most of the region handling. They are used to create basic control layouts for simple tools. If you have a lot of content you can use [FBScrollBox](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_scroll_box.html "Scroll Box.") to manage it. For an example, see the Python sample Scrollbox.py.\* Also see the Python sample Layout.py, and the C++ sample ortooluidemo.
+    Layouts manage areas of the screen called regions. Regions contain UI components such as buttons, viewers, and edit boxes. Regions are added to layouts. When a UI component is bound to a region, the region defines how big it is and how it behaves when the layout is resized.Types of Layouts Device Constraint Manipulator Shader A region is first defined using the [FBLayout::AddRegion()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_layout.html#ada9608d3cc29bcfcb802803c582c7e82 "Add a region to the layout.") function. Once a region is defined and the corresponding UI component is created, and the component is bound to its region with [FBLayout::SetControl()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_layout.html#a037812ff1eb73124773acd374351edbe "Set control of a region to a visual component."). You can use the [FBSystem::OnUIIdle()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_system.html#a51d224fe3663c140eb8971ed9250a7cf "Event: User-interface idle event. Useful callback for less frequent GUI refresh and etc....") in your layout to update real-time UI components such as guages and status indicators. In Python, FBBoxLayout and FBGridLayout take care of most of the region handling. They are used to create basic control layouts for simple tools. If you have a lot of content you can use [FBScrollBox](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_scroll_box.html "Scroll Box.") to manage it. For an example, see the Python sample Scrollbox.py.\* Also see the Python sample Layout.py, and the C++ sample ortooluidemo.
     
     [See samples: ShotTrackSetupTool.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_complex_tools_0c_shot_track_setup_tool_8py-example.html) [Attach.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_attach_8py-example.html) [Border.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_border_8py-example.html) [Layout.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_layout_8py-example.html)"""
     OnIdle:FBEvent
-    """**Event:** Idle."""
+    """Event: Idle."""
     OnInput:FBEvent
-    """**Event:** Input."""
+    """Event: Input."""
     OnPaint:FBEvent
-    """**Event:** Paint layout."""
+    """Event: Paint layout."""
     OnResize:FBEvent
-    """**Event:** Resize layout."""
+    """Event: Resize layout."""
     OnShow:FBEvent
-    """**Event:** Show layout."""
+    """Event: Show layout."""
     def AddRegion(self,Name:str,Title:str,arg4:FBAddRegionParam,arg5:FBAddRegionParam,arg6:FBAddRegionParam,arg7:FBAddRegionParam)->bool:
         """Add a region to the layout.
         
@@ -24575,7 +24573,7 @@ class FBLayout(FBVisualComponent):
         
         
         ### Returns:
-        Operation was successful (**true** or **false**)."""
+        Operation was successful (true or false)."""
         ...
     def ClearControl(self,Name:str):
         """Remove a control from a region in a visual component.
@@ -24607,7 +24605,7 @@ class FBLayout(FBVisualComponent):
         Operation was successful (true or false)."""
         ...
     def GetRegionPositions(self,Name:str,Computed:bool,X:int,Y:int,W:int|None=None,H:int|None=None)->bool:
-        """Get region **pName** information (position and size)
+        """Get region pName information (position and size)
         
         ### Parameters:
         
@@ -24768,11 +24766,11 @@ class FBLabel(FBVisualComponent):
     
     [See sample: Label.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_label_8py-example.html)"""
     Justify:FBTextJustify
-    """**Read Write Property:** Text justification for label."""
+    """Read Write Property: Text justification for label."""
     Style:FBTextStyle
-    """**Read Write Property:** Text style appearance."""
+    """Read Write Property: Text style appearance."""
     WordWrap:bool
-    """**Read Write Property:** Enable wordwrap on text drawing."""
+    """Read Write Property: Enable wordwrap on text drawing."""
     def __init__(self):
         """Constructor."""
         ...
@@ -24783,25 +24781,25 @@ class FBTool(FBLayout):
     
     [See samples: MBFileRefDemo.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_referencing_0c_m_b_file_ref_demo_8py-example.html) [CloseTool.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_close_tool_8py-example.html) [MoveResizeToolExample.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_move_resize_tool_example_8py-example.html) [SafeToolCreationExample.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_safe_tool_creation_example_8py-example.html) [ToolCommunicationReceiver.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_tool_communication_receiver_8py-example.html) [ToolNativeWidgetHolder.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_tool_native_widget_holder_8py-example.html)"""
     DisplayName:str
-    """**Read Write Property:** Tool Display Name (Caption on the tool's title bar)"""
+    """Read Write Property: Tool Display Name (Caption on the tool's title bar)"""
     MaxSizeX:int
-    """**Read Property:** Maximum Size in X (Disabled in this version). A value of -1 means no maximum size."""
+    """Read Property: Maximum Size in X (Disabled in this version). A value of -1 means no maximum size."""
     MaxSizeY:int
     """Maximum Size in Y (Disabled in this version). A value of -1 means no maximum size."""
     MinSizeX:int
-    """**Read Property:** Minimum Size in X. A value of -1 means no minimum value."""
+    """Read Property: Minimum Size in X. A value of -1 means no minimum value."""
     MinSizeY:int
-    """**Read Property:** Minimum Size in Y. A value of -1 means no minimum value."""
+    """Read Property: Minimum Size in Y. A value of -1 means no minimum value."""
     StartPosX:int
-    """**Read Property:** Starting Position in X. This is the initial position when the tool is opened. Default = 450"""
+    """Read Property: Starting Position in X. This is the initial position when the tool is opened. Default = 450"""
     StartPosY:int
-    """**Read Property:** Starting Position in Y. This is the initial position when the tool is opened. Default = 450"""
+    """Read Property: Starting Position in Y. This is the initial position when the tool is opened. Default = 450"""
     StartSizeX:int
-    """**Read Property:** Starting Size. This is the initial size in X when the tool is opened. Default = 800"""
+    """Read Property: Starting Size. This is the initial size in X when the tool is opened. Default = 800"""
     StartSizeY:int
-    """**Read Property:** Starting Size. This is the initial size in Y when the tool is opened. Default = 400"""
+    """Read Property: Starting Size. This is the initial size in Y when the tool is opened. Default = 400"""
     ToolName:str
-    """**Read Property:** Tool Name"""
+    """Read Property: Tool Name"""
     def GetPossibleDockPosition(self)->FBToolPossibleDockPosition:
         """Get the possible docking position for the tool (concatenated).
         
@@ -24831,7 +24829,7 @@ class FBPopup(FBLayout):
     
     [See sample: Popup.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_popup_8py-example.html)"""
     Modal:bool
-    """**Read Write Property:** Modal?"""
+    """Read Write Property: Modal?"""
     def Close(self,Ok:bool):
         """Close popup.
         
@@ -24848,7 +24846,7 @@ class FBPopup(FBLayout):
         
         
         ### Returns:
-        Operation was successful (**true** or **false**)."""
+        Operation was successful (true or false)."""
         ...
     def __init__(self):
         """Constructor."""
@@ -24860,11 +24858,11 @@ class FBImageContainer(FBVisualComponent):
     
     [See sample: ImageContainer.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_image_container_8py-example.html)"""
     Filename:str
-    """**Read Write Property:** Filename for image."""
+    """Read Write Property: Filename for image."""
     OnDragAndDrop:FBEvent
-    """**Event:** Drag and drop."""
+    """Event: Drag and drop."""
     UseTransparentBackground:bool
-    """**Read Write Property:** True to specify that the image is using a transparent background, false otherwise."""
+    """Read Write Property: True to specify that the image is using a transparent background, false otherwise."""
     def __init__(self):
         """Constructor."""
         ...
@@ -24904,17 +24902,17 @@ class FBFCurveEditor(FBVisualComponent):
 class FBEditVector(FBVisualComponent):
     """Vector edit widget."""
     OnChange:FBEvent
-    """**Event:** Vector value changed."""
+    """Event: Vector value changed."""
     Value:FBVector3d
-    """**Read Write Property:** Current value of vector."""
+    """Read Write Property: Current value of vector."""
     def __init__(self):
         """Constructor."""
         ...
 class FBEditTimeCode(FBVisualComponent):
     OnChange:FBEvent
-    """**Event:** Timecode changed."""
+    """Event: Timecode changed."""
     Value:FBTime
-    """**Read Write Property:** Current timecode value."""
+    """Read Write Property: Current timecode value."""
     def __init__(self):
         """Constructor."""
         ...
@@ -24925,17 +24923,17 @@ class FBEditPropertyModern(FBVisualComponent):
     
     [See sample: PropertyDrop.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_property_drop_8py-example.html)"""
     LargeInc:float
-    """**Read Write Property:** Indicate the large increment applied when click-draging on the property value (usually left-click-dragging)"""
+    """Read Write Property: Indicate the large increment applied when click-draging on the property value (usually left-click-dragging)"""
     Precision:float
-    """**Read Write Property:** Used to specify the width and precision of the value shown. A value of 7.2 indicates to show at minimum 7 numbers, with 2 decimals."""
+    """Read Write Property: Used to specify the width and precision of the value shown. A value of 7.2 indicates to show at minimum 7 numbers, with 2 decimals."""
     Property:property
-    """**Read Write Property:** Property to edit. Set to NULL to disable."""
+    """Read Write Property: Property to edit. Set to NULL to disable."""
     SliderMax:float
-    """**Read Write Property:** Should the property be editable using a slider, set the maximum value atainable with the slider."""
+    """Read Write Property: Should the property be editable using a slider, set the maximum value atainable with the slider."""
     SliderMin:float
-    """**Read Write Property:** Should the property be editable using a slider, set the minimum value atainable with the slider."""
+    """Read Write Property: Should the property be editable using a slider, set the minimum value atainable with the slider."""
     SmallInc:float
-    """**Read Write Property:** Indicate the small increment applied when click-draging on the property value (usually right-click-dragging)"""
+    """Read Write Property: Indicate the small increment applied when click-draging on the property value (usually right-click-dragging)"""
     def SetBackgroundColorIndex(self,Index):
         """Set the background color index.
         
@@ -24968,58 +24966,58 @@ class FBEditProperty(FBVisualComponent):
     ```
     [See sample: PropertyDrop.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_property_drop_8py-example.html)"""
     LargeInc:float
-    """**Read Write Property:** Indicate the large increment applied when click-draging on the property value (usually left-click-dragging)"""
+    """Read Write Property: Indicate the large increment applied when click-draging on the property value (usually left-click-dragging)"""
     Precision:float
-    """**Read Write Property:** Used to specify the width and precision of the value shown. A value of 7.2 indicates to show at minimum 7 numbers, with 2 decimals."""
+    """Read Write Property: Used to specify the width and precision of the value shown. A value of 7.2 indicates to show at minimum 7 numbers, with 2 decimals."""
     Property:property
-    """**Read Write Property:** Property to edit. Set to NULL to disable."""
+    """Read Write Property: Property to edit. Set to NULL to disable."""
     SliderMax:float
-    """**Read Write Property:** Should the property be editable using a slider, set the maximum value atainable with the slider."""
+    """Read Write Property: Should the property be editable using a slider, set the maximum value atainable with the slider."""
     SliderMin:float
-    """**Read Write Property:** Should the property be editable using a slider, set the minimum value atainable with the slider."""
+    """Read Write Property: Should the property be editable using a slider, set the minimum value atainable with the slider."""
     SmallInc:float
-    """**Read Write Property:** Indicate the small increment applied when click-draging on the property value (usually right-click-dragging)"""
+    """Read Write Property: Indicate the small increment applied when click-draging on the property value (usually right-click-dragging)"""
     def __init__(self):
         """Constructor."""
         ...
 class FBEditNumber(FBVisualComponent):
     """Number edit box."""
     LargeStep:float
-    """**Read Write Property:** Large step value."""
+    """Read Write Property: Large step value."""
     Max:float
-    """**Read Write Property:** Maximum value."""
+    """Read Write Property: Maximum value."""
     Min:float
-    """**Read Write Property:** Minimum value."""
+    """Read Write Property: Minimum value."""
     OnChange:FBEvent
-    """**Event:** Number changed."""
+    """Event: Number changed."""
     Precision:float
-    """**Read Write Property:** Precision of value."""
+    """Read Write Property: Precision of value."""
     SmallStep:float
-    """**Read Write Property:** Small step value."""
+    """Read Write Property: Small step value."""
     Value:float
-    """**Read Write Property:** Current value."""
+    """Read Write Property: Current value."""
     def __init__(self):
         """Constructor."""
         ...
 class FBEditColor(FBVisualComponent):
     """Color edit widget."""
     ColorMode:int
-    """**Read Write Property:** 3 for RGB, 4 for RGBA (Default = 3)"""
+    """Read Write Property: 3 for RGB, 4 for RGBA (Default = 3)"""
     OnChange:FBEvent
-    """**Event:** Color changed."""
+    """Event: Color changed."""
     Value:FBColor
-    """**Read Write Property:** Current value of color."""
+    """Read Write Property: Current value of color."""
     def __init__(self):
         """Constructor."""
         ...
 class FBEdit(FBVisualComponent):
     """Text edit box."""
     OnChange:FBEvent
-    """**Event:** Text changed."""
+    """Event: Text changed."""
     PasswordMode:bool
-    """**Read Write Property:** Set password mode for this edit box."""
+    """Read Write Property: Set password mode for this edit box."""
     Text:str
-    """**Read Write Property:** Text displayed."""
+    """Read Write Property: Text displayed."""
     def __init__(self):
         """Constructor."""
         ...
@@ -25030,15 +25028,15 @@ class FBButton(FBVisualComponent):
     
     [See samples: Button.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_button_8py-example.html) [Popup.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_popup_8py-example.html) [RadioButton.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_radio_button_8py-example.html)"""
     Justify:FBTextJustify
-    """**Read Write Property:** Current state of button."""
+    """Read Write Property: Current state of button."""
     Look:FBButtonLook
-    """**Read Write Property:** Current state of button."""
+    """Read Write Property: Current state of button."""
     OnClick:FBEvent
-    """**Event:** Button clicked."""
+    """Event: Button clicked."""
     State:int
-    """**Read Write Property:** Current state of button."""
+    """Read Write Property: Current state of button."""
     Style:FBButtonStyle
-    """**Read Write Property:** Button style."""
+    """Read Write Property: Button style."""
     def GetStateColor(self,State:FBButtonState)->FBColor:
         """Queries the color associated with a button state.
         
@@ -25061,7 +25059,7 @@ class FBButton(FBVisualComponent):
             - FromResources: Add resource path to image path."""
         ...
     def SetStateColor(self,State:FBButtonState,Color:FBColor):
-        """Returns whether or not the item **pIndex** is currently selected.
+        """Returns whether or not the item pIndex is currently selected.
         
         ### Parameters:
         
@@ -25185,7 +25183,7 @@ def FBActionManager_TypeInfo()->int:...
 def FBActorFace_TypeInfo()->int:...
 def FBActor_TypeInfo()->int:...
 def FBAdd(Result:FBVector4d,V1:FBVector4d,V2:FBVector4d):
-    """Add two vectors together (**pResult** = **pV1** **+** **pV2**)
+    """Add two vectors together (pResult = pV1 + pV2)
     
     ### Parameters:
     
@@ -25903,7 +25901,7 @@ def FBLength(V:FBVector4d)->float:
     
     
     ### Returns:
-    Length of vector **pV**."""
+    Length of vector pV."""
     ...
 @overload
 def FBLength(V:FBVertex)->float:
@@ -26134,7 +26132,7 @@ def FBMotionFileExportOptions_TypeInfo()->int:...
 def FBMotionFileImportOptions_TypeInfo()->int:...
 @overload
 def FBMult(Result:FBVector4d,V1:FBVector4d,V2:float):
-    """Multiply **pV2** from **pV1** (**pResult** = **pV1** **\*** **pV2**)
+    """Multiply pV2 from pV1 (pResult = pV1 \* pV2)
     
     ### Parameters:
     
@@ -26251,7 +26249,7 @@ def FBPropertyConnectionEditor_TypeInfo()->int:...
 def FBPropertyViewManager_TypeInfo()->int:...
 def FBProperty_TypeInfo()->int:...
 def FBQAdd(Result:FBVector4d,Q1:FBVector4d,Q2:FBVector4d):
-    """Add two quaternions together (**pResult** = **pQ1** **+** **pQ2**)
+    """Add two quaternions together (pResult = pQ1 + pQ2)
     
     ### Parameters:
     
@@ -26280,11 +26278,11 @@ def FBQLength(Q:FBVector4d)->float:
     
     
     ### Returns:
-    Length of quaternion **pQ**."""
+    Length of quaternion pQ."""
     ...
 @overload
 def FBQMult(Result:FBVector4d,Q1:FBVector4d,Q2:float):
-    """Multiply **pQ2** from **pQ1** (**pResult** = **pQ1** **\*** **pQ2**)
+    """Multiply pQ2 from pQ1 (pResult = pQ1 \* pQ2)
     
     ### Parameters:
     
@@ -26303,7 +26301,7 @@ def FBQMult(Result:FBVector4d,Q1:FBVector4d,Q2:FBVector4d):
         - Q2: 2nd quaternion."""
     ...
 def FBQSub(Result:FBVector4d,Q1:FBVector4d,Q2:FBVector4d):
-    """Subtract **pQ2** from **pQ1** (**pResult** = **pQ1** **-** **pQ2**)
+    """Subtract pQ2 from pQ1 (pResult = pQ1 - pQ2)
     
     ### Parameters:
     
@@ -26473,7 +26471,7 @@ def FBStoryGroupClip_TypeInfo()->int:...
 def FBStoryTrack_TypeInfo()->int:...
 def FBStory_TypeInfo()->int:...
 def FBSub(Result:FBVector4d,V1:FBVector4d,V2:FBVector4d):
-    """Subtract **pV2** from **pV1** (**pResult** = **pV1** **-** **pV2**)
+    """Subtract pV2 from pV1 (pResult = pV1 - pV2)
     
     ### Parameters:
     
