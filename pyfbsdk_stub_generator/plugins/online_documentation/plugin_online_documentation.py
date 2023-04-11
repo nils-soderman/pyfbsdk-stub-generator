@@ -7,7 +7,7 @@ from importlib import reload
 
 from .documentation_scraper import table_of_contents
 
-from .documentation_scraper.page_parser import MemberItem
+from .documentation_scraper.page_parser import MemberItem, GetParameterNiceName
 from ..plugin import PluginBaseClass
 from ...module_types import StubClass, StubFunction, StubParameter, StubProperty
 
@@ -25,7 +25,11 @@ TRANSLATION_TYPE = {
     "FBkReference": "int",
 
     "FBAudioFmt": "int",
+    
+    "FBArrayDouble": "list[float]",
+    "FBArrayUInt": "list[int]",
 
+    "FBVector4[float]": "FBVector4d",
     "FBTVector": "FBVector4d",
     "FBQuaternion": "FBVector4d",
     "FBRVector": "FBVector3d",
@@ -35,6 +39,7 @@ TRANSLATION_TYPE = {
     "AreaLightShapes": "FBLight.EAreaLightShapes",
     "KeyBehavior": "FBModelPath3D.EKeyPropertyBehavior",
     "UnitType": "FBModelPath3D.ELengthUnitType",
+    "Element": "object",
 
     # These are unknown, revert them back to properties
     "FBEventTreeWhy": "property",
@@ -106,7 +111,7 @@ class PluginOnlineDocumentation(PluginBaseClass):
 
             Members = ParsedPage.GetMembersByName(FunctionName)
             if Members:
-                self._PatchFunctionGroupsWithDocumentation(FunctionGroup, Members)
+                self._PatchFunctionGroupsWithDocumentation(FunctionGroup, Members, Class)
 
     def PatchFunctionGroup(self, FunctionGroup: list[StubFunction]):
         if not FunctionGroup:
@@ -121,10 +126,10 @@ class PluginOnlineDocumentation(PluginBaseClass):
     #                                    Patch Functions
     # ---------------------------------------------------------------------------------------------
 
-    def _PatchFunctionGroupsWithDocumentation(self, Functions: list[StubFunction], Members: list[MemberItem]):
+    def _PatchFunctionGroupsWithDocumentation(self, Functions: list[StubFunction], Members: list[MemberItem], ParentClass: StubClass | None = None):
         # If we only have one function and one member, we don't need to figure out which one is the correct one
         if len(Functions) == 1 and len(Members) == 1:
-            self.PatchFunctionWithDocumentation(Functions[0], Members[0])
+            self.PatchFunctionWithDocumentation(Functions[0], Members[0], ParentClass)
             return
 
         # If we have multiple functions and multiple members, we need to figure out which ones to match
@@ -157,7 +162,7 @@ class PluginOnlineDocumentation(PluginBaseClass):
                     MatchedDocMembers.append(Member)
 
         for Function, Member in PerfectMatches:
-            self.PatchFunctionWithDocumentation(Function, Member)
+            self.PatchFunctionWithDocumentation(Function, Member, ParentClass)
 
             # Remove them from the lists so we don't try to match them again
             FunctionsCopy.remove(Function)
@@ -173,7 +178,9 @@ class PluginOnlineDocumentation(PluginBaseClass):
                     Score += 1
 
                 for FunctionParameter, MemberParameter in zip(FunctionParameters, Member.Parameters):
-                    MemberParameterType = EnsureValidType(MemberParameter.Type)
+                    MemberParameterType = self.EnsureValidType(MemberParameter.Type)
+                    if not MemberParameterType or not FunctionParameter.Type:
+                        continue
                     if FunctionParameter.Type == MemberParameterType:
                         Score += 1
                     elif MemberParameterType.startswith("list") and FunctionParameter.Type == "list":
@@ -193,7 +200,7 @@ class PluginOnlineDocumentation(PluginBaseClass):
             if Function in MatchedFunctions or Member in MatchedDocMembers:
                 continue
 
-            self.PatchFunctionWithDocumentation(Function, Member)
+            self.PatchFunctionWithDocumentation(Function, Member, ParentClass)
 
             MatchedDocMembers.append(Member)
             MatchedFunctions.append(Function)
@@ -202,11 +209,15 @@ class PluginOnlineDocumentation(PluginBaseClass):
             FunctionsCopy.remove(Function)
             MembersCopy.remove(Member)
 
-    def PatchFunctionWithDocumentation(self, Function: StubFunction, DocMember: MemberItem):
+    def PatchFunctionWithDocumentation(self, Function: StubFunction, DocMember: MemberItem, ParentClass: StubClass | None = None):
         Function.DocString = DocMember.DocString
+        if Function.Name == "__init__":
+            Function.DocString = Function.DocString.removeprefix("Constructor.")
 
-        if ShouldPatchType(Function.ReturnType, DocMember.Type):
-            Function.ReturnType = EnsureValidType(DocMember.Type)
+        if self.ShouldPatchType(Function.ReturnType, DocMember.Type):
+            NewType = self.EnsureValidType(DocMember.Type)
+            if NewType:
+                Function.ReturnType = NewType
 
         FunctionParameters = Function.GetParameters(bExcludeSelf = True)
         DocumentationParameters = DocMember.Parameters
@@ -230,16 +241,10 @@ class PluginOnlineDocumentation(PluginBaseClass):
 
             # Name
             if DocParameter.Name and FunctionParameter.Name.startswith("arg"):
-                NewName = DocParameter.Name
-
-                # Remove the "p" prefix from the parameter name, since arguments cannot be referenced as keywords
-                if NewName.startswith("p") and not NewName[1].isnumeric():
-                    NewName = NewName.lstrip("p")
-
-                FunctionParameter.Name = NewName
+                FunctionParameter.Name = GetParameterNiceName(DocParameter.Name)
 
             # Type
-            self.PatchParameterType(FunctionParameter, DocParameter.Type)
+            self.PatchParameterType(FunctionParameter, DocParameter.Type, ParentClass)
 
             # Default value
             self.PatchPropertyDefaultValue(FunctionParameter, DocParameter.DefaultValue)
@@ -248,18 +253,27 @@ class PluginOnlineDocumentation(PluginBaseClass):
     #                                    Validate Types
     # ---------------------------------------------------------------------------------------------
 
-    def PatchParameterType(self, Parameter: StubParameter, Type: str) -> str:
-        if not ShouldPatchType(Parameter.Type, Type):
+    def PatchParameterType(self, Parameter: StubParameter, Type: str, ParentClass: StubClass | None = None) -> str:
+        # If the enum is a subclass of the current class, patch the type to include the class name
+        # This is not really needed, though MyPy might want it
+        # if ParentClass and IsTypeDefined(Parameter.Type):
+        #     if Parameter.Type.startswith("E") and Type not in self.AllClassesMap:
+        #         # Check if enum is a subclass of the parent class
+        #         for Enum in ParentClass.StubEnums:
+        #             if Parameter.Type == Enum.Name:
+        #                 Parameter.Type = f"{ParentClass.Name}.{Enum.Name}"
+        #                 print(f"Patched parameter type: {Parameter.Type}")
+        #                 return
+        if not self.ShouldPatchType(Parameter.Type, Type):
             return
 
-        Parameter.Type = EnsureValidType(Type)
+        Parameter.Type = self.EnsureValidType(Type)
 
     def EnsureValidPropertyType(self, Property: StubProperty, Type: str) -> str:
-        Type = EnsureValidType(Type)
 
         # If it's a class, make sure it's a valid class
-        bClassIsValid = Type in self.AllClassesMap
-        if not bClassIsValid:
+        bIsValidFBClass = Type in self.AllClassesMap
+        if not bIsValidFBClass:
             if Type.startswith("FB"):
                 # In the documentation the "Property" part is missing from the class name
                 PropertyType = f"FBProperty{Type[2:]}"
@@ -269,10 +283,10 @@ class PluginOnlineDocumentation(PluginBaseClass):
         # Convert all Events to EventSource
         # The documentation says otherwise, but is wrong.
         if ((Type.startswith("FBEvent") or Property.Name.endswith("Event")) and Property.Name.startswith("On") and Property.DocString.startswith("Event")) or \
-                (not bClassIsValid and Type.startswith("FBEvent")):
+                (not bIsValidFBClass and Type.startswith("FBEvent")):
             Type = EVENT_SOURCE_TYPE
 
-        return Type
+        return self.EnsureValidType(Type)
 
     def PatchPropertyDefaultValue(self, Parameter: StubParameter, DefaultValue: str | None):
         if Parameter.DefaultValue is None or DefaultValue is None:
@@ -290,6 +304,8 @@ class PluginOnlineDocumentation(PluginBaseClass):
 
         if DefaultValue.startswith("FBArrayTemplate"):
             DefaultValue = "[]"
+        elif DefaultValue == "FBString()":
+            DefaultValue = '""'
 
         if DefaultValue.startswith(("FB", "k")) and DefaultValue not in self.AllClassesMap:
             EnumClass = self.AllClassesMap.get(Parameter.Type)
@@ -299,30 +315,59 @@ class PluginOnlineDocumentation(PluginBaseClass):
 
         Parameter.DefaultValue = DefaultValue
 
+    def ShouldPatchType(self, CurrentType: str, NewType: str) -> bool:
+        if not IsTypeDefined(CurrentType):
+            return True
+        
+        ValidatedType = self.EnsureValidType(NewType)
+        if not ValidatedType:
+            return False
 
-def EnsureValidType(Type: str) -> str:
-    Type = TRANSLATION_TYPE.get(Type, Type)
+        if CurrentType == "list" and ValidatedType.startswith("list"):
+            return True
 
-    if "<" in Type:
-        Type = Type.replace("<", "[").replace(">", "]").replace(" ", "")
-        Type = Type.replace("FBArrayTemplate", "list")
+        # TODO: Must check if type is valid as well
+        if CurrentType.startswith(("E", "FB")) and CurrentType not in self.AllClassesMap:
+            return True
 
-    return Type
+        return False
 
+    def EnsureValidType(self, Type: str) -> str | None:
+        if "<" in Type:
+            Type = Type.replace("<", "[").replace(">", "]").replace(" ", "")
+            Type = Type.replace("FBArrayTemplate", "list")
 
-def ShouldPatchType(CurrentType: str, NewType: str) -> bool:
-    if not IsTypeDefined(CurrentType):
-        return True
-    
-    if CurrentType == "list" and EnsureValidType(NewType).startswith("list"):
-        return True
-    
-    # TODO: Must check if type is valid as well
-    
-    return False
+            # Get content between brackets
+            ListTypes = Type[Type.find("[") + 1:Type.find("]")]
+            if ListTypes:
+                ValidatedTypes = []
+                for ListType in ListTypes.split(","):
+                    ListType = self.EnsureValidType(ListType)
+                    if ListType:
+                        ValidatedTypes.append(ListType)
+                TypeBefore = Type
+                Type = Type.replace(ListTypes, ",".join(ValidatedTypes))
+                if Type.endswith("[]"):
+                    Type = Type[:-2]
+                    
+        Type = TRANSLATION_TYPE.get(Type, Type)
+
+        # Replace namespace C++ syntax with Python
+        if "::" in Type:
+            Type = Type.replace("::", ".")
+        
+        if Type.startswith("FB"):
+            ClassName = Type
+            if "." in Type:
+                ClassName = Type.partition(".")[0]
+            if ClassName not in self.AllClassesMap:
+                # print(f"Type not found: {Type}")
+                return None
+            
+        return Type
 
 
 def IsTypeDefined(Type: str | None) -> bool:
-    if not Type:  # TODO: Hmmm ?
-        return True
+    if not Type:
+        return False
     return Type != "object"
