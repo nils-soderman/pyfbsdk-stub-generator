@@ -89,7 +89,6 @@ class FBAssetMngFileOptions(Enumeration):
     kFileCheckOutOnLoad_Ask:FBAssetMngFileOptions
     """Ask for checkout on load."""
     kFileOptionsAll:FBAssetMngFileOptions
-    """"""
     kFileUploadOnSave:FBAssetMngFileOptions
     """Upload file automatically on save."""
     kFileUploadOnSave_Ask:FBAssetMngFileOptions
@@ -265,35 +264,20 @@ class FBBatchProcessType(Enumeration):
 class FBBatchStatus(Enumeration):
     """Different return values of the Batch process."""
     kFBBatchStatusActorInputMarkersetHasNoReferenceModel:FBBatchStatus
-    """"""
     kFBBatchStatusActorInputMarkersetNotCorrectlyAssociated:FBBatchStatus
-    """"""
     kFBBatchStatusActorInputMarkersetNotSpecified:FBBatchStatus
-    """"""
     kFBBatchStatusAsfSkeletonFileNotSpecified:FBBatchStatus
-    """"""
     kFBBatchStatusCantOpenAsfSkeletonFile:FBBatchStatus
-    """"""
     kFBBatchStatusCharacterHasNoReference:FBBatchStatus
-    """"""
     kFBBatchStatusCharacterNotCharacterized:FBBatchStatus
-    """"""
     kFBBatchStatusCharacterNotSpecified:FBBatchStatus
-    """"""
     kFBBatchStatusError:FBBatchStatus
-    """"""
     kFBBatchStatusInputActorNotSpecified:FBBatchStatus
-    """"""
     kFBBatchStatusInputCharacterHasNoReference:FBBatchStatus
-    """"""
     kFBBatchStatusInputCharacterNotCharacterized:FBBatchStatus
-    """"""
     kFBBatchStatusInputDirectoryNotValid:FBBatchStatus
-    """"""
     kFBBatchStatusOutputDirectoryNotValid:FBBatchStatus
-    """"""
     kFBBatchStatusSuccess:FBBatchStatus
-    """"""
 class FBBodyNodeId(Enumeration):
     """All body nodes.
     
@@ -307,17 +291,12 @@ class FBBodyNodeId(Enumeration):
     kFBHipsNodeId:FBBodyNodeId
     """Required."""
     kFBHipsTranslationNodeId:FBBodyNodeId
-    """"""
     kFBInvalidNodeId:FBBodyNodeId
-    """"""
     kFBLastNodeId:FBBodyNodeId
-    """"""
     kFBLastNodeId_Old:FBBodyNodeId
-    """"""
     kFBLeftAnkleNodeId:FBBodyNodeId
     """Required."""
     kFBLeftCollarNodeId:FBBodyNodeId
-    """"""
     kFBLeftElbowNodeId:FBBodyNodeId
     """Required."""
     kFBLeftElbowRollNode1Id:FBBodyNodeId
@@ -331,7 +310,6 @@ class FBBodyNodeId(Enumeration):
     kFBLeftElbowRollNode5Id:FBBodyNodeId
     """New leaf roll bone."""
     kFBLeftElbowRollNodeId:FBBodyNodeId
-    """"""
     kFBLeftExtraFingerANodeId:FBBodyNodeId
     """New extra finger bone."""
     kFBLeftExtraFingerBNodeId:FBBodyNodeId
@@ -353,59 +331,32 @@ class FBBodyNodeId(Enumeration):
     kFBLeftExtraFootFingerInNodeId:FBBodyNodeId
     """New extra finger bone."""
     kFBLeftFootIndexANodeId:FBBodyNodeId
-    """"""
     kFBLeftFootIndexBNodeId:FBBodyNodeId
-    """"""
     kFBLeftFootIndexCNodeId:FBBodyNodeId
-    """"""
     kFBLeftFootIndexDNodeId:FBBodyNodeId
-    """"""
     kFBLeftFootIndexInNodeId:FBBodyNodeId
-    """"""
     kFBLeftFootMiddleANodeId:FBBodyNodeId
-    """"""
     kFBLeftFootMiddleBNodeId:FBBodyNodeId
-    """"""
     kFBLeftFootMiddleCNodeId:FBBodyNodeId
-    """"""
     kFBLeftFootMiddleDNodeId:FBBodyNodeId
-    """"""
     kFBLeftFootMiddleInNodeId:FBBodyNodeId
-    """"""
     kFBLeftFootNodeId:FBBodyNodeId
-    """"""
     kFBLeftFootPinkyANodeId:FBBodyNodeId
-    """"""
     kFBLeftFootPinkyBNodeId:FBBodyNodeId
-    """"""
     kFBLeftFootPinkyCNodeId:FBBodyNodeId
-    """"""
     kFBLeftFootPinkyDNodeId:FBBodyNodeId
-    """"""
     kFBLeftFootPinkyInNodeId:FBBodyNodeId
-    """"""
     kFBLeftFootRingANodeId:FBBodyNodeId
-    """"""
     kFBLeftFootRingBNodeId:FBBodyNodeId
-    """"""
     kFBLeftFootRingCNodeId:FBBodyNodeId
-    """"""
     kFBLeftFootRingDNodeId:FBBodyNodeId
-    """"""
     kFBLeftFootRingInNodeId:FBBodyNodeId
-    """"""
     kFBLeftFootThumbANodeId:FBBodyNodeId
-    """"""
     kFBLeftFootThumbBNodeId:FBBodyNodeId
-    """"""
     kFBLeftFootThumbCNodeId:FBBodyNodeId
-    """"""
     kFBLeftFootThumbDNodeId:FBBodyNodeId
-    """"""
     kFBLeftFootThumbInNodeId:FBBodyNodeId
-    """"""
     kFBLeftHandNodeId:FBBodyNodeId
-    """"""
     kFBLeftHipNodeId:FBBodyNodeId
     """Required."""
     kFBLeftHipRollNode1Id:FBBodyNodeId
@@ -419,17 +370,11 @@ class FBBodyNodeId(Enumeration):
     kFBLeftHipRollNode5Id:FBBodyNodeId
     """New leaf roll bone."""
     kFBLeftHipRollNodeId:FBBodyNodeId
-    """"""
     kFBLeftIndexANodeId:FBBodyNodeId
-    """"""
     kFBLeftIndexBNodeId:FBBodyNodeId
-    """"""
     kFBLeftIndexCNodeId:FBBodyNodeId
-    """"""
     kFBLeftIndexDNodeId:FBBodyNodeId
-    """"""
     kFBLeftIndexInNodeId:FBBodyNodeId
-    """"""
     kFBLeftKneeNodeId:FBBodyNodeId
     """Required."""
     kFBLeftKneeRollNode1Id:FBBodyNodeId
@@ -443,37 +388,21 @@ class FBBodyNodeId(Enumeration):
     kFBLeftKneeRollNode5Id:FBBodyNodeId
     """New leaf roll bone."""
     kFBLeftKneeRollNodeId:FBBodyNodeId
-    """"""
     kFBLeftMiddleANodeId:FBBodyNodeId
-    """"""
     kFBLeftMiddleBNodeId:FBBodyNodeId
-    """"""
     kFBLeftMiddleCNodeId:FBBodyNodeId
-    """"""
     kFBLeftMiddleDNodeId:FBBodyNodeId
-    """"""
     kFBLeftMiddleInNodeId:FBBodyNodeId
-    """"""
     kFBLeftPinkyANodeId:FBBodyNodeId
-    """"""
     kFBLeftPinkyBNodeId:FBBodyNodeId
-    """"""
     kFBLeftPinkyCNodeId:FBBodyNodeId
-    """"""
     kFBLeftPinkyDNodeId:FBBodyNodeId
-    """"""
     kFBLeftPinkyInNodeId:FBBodyNodeId
-    """"""
     kFBLeftRingANodeId:FBBodyNodeId
-    """"""
     kFBLeftRingBNodeId:FBBodyNodeId
-    """"""
     kFBLeftRingCNodeId:FBBodyNodeId
-    """"""
     kFBLeftRingDNodeId:FBBodyNodeId
-    """"""
     kFBLeftRingInNodeId:FBBodyNodeId
-    """"""
     kFBLeftShoulderNodeId:FBBodyNodeId
     """Required."""
     kFBLeftShoulderRollNode1Id:FBBodyNodeId
@@ -487,45 +416,27 @@ class FBBodyNodeId(Enumeration):
     kFBLeftShoulderRollNode5Id:FBBodyNodeId
     """New leaf roll bone."""
     kFBLeftShoulderRollNodeId:FBBodyNodeId
-    """"""
     kFBLeftThumbANodeId:FBBodyNodeId
-    """"""
     kFBLeftThumbBNodeId:FBBodyNodeId
-    """"""
     kFBLeftThumbCNodeId:FBBodyNodeId
-    """"""
     kFBLeftThumbDNodeId:FBBodyNodeId
-    """"""
     kFBLeftThumbInNodeId:FBBodyNodeId
-    """"""
     kFBLeftWristNodeId:FBBodyNodeId
     """Required."""
     kFBNeck1NodeId:FBBodyNodeId
-    """"""
     kFBNeck2NodeId:FBBodyNodeId
-    """"""
     kFBNeck3NodeId:FBBodyNodeId
-    """"""
     kFBNeck4NodeId:FBBodyNodeId
-    """"""
     kFBNeck5NodeId:FBBodyNodeId
-    """"""
     kFBNeck6NodeId:FBBodyNodeId
-    """"""
     kFBNeck7NodeId:FBBodyNodeId
-    """"""
     kFBNeck8NodeId:FBBodyNodeId
-    """"""
     kFBNeck9NodeId:FBBodyNodeId
-    """"""
     kFBNeckNodeId:FBBodyNodeId
-    """"""
     kFBReferenceNodeId:FBBodyNodeId
-    """"""
     kFBRightAnkleNodeId:FBBodyNodeId
     """Required."""
     kFBRightCollarNodeId:FBBodyNodeId
-    """"""
     kFBRightElbowNodeId:FBBodyNodeId
     """Required."""
     kFBRightElbowRollNode1Id:FBBodyNodeId
@@ -539,7 +450,6 @@ class FBBodyNodeId(Enumeration):
     kFBRightElbowRollNode5Id:FBBodyNodeId
     """New leaf roll bone."""
     kFBRightElbowRollNodeId:FBBodyNodeId
-    """"""
     kFBRightExtraFingerANodeId:FBBodyNodeId
     """New extra finger bone."""
     kFBRightExtraFingerBNodeId:FBBodyNodeId
@@ -561,59 +471,32 @@ class FBBodyNodeId(Enumeration):
     kFBRightExtraFootFingerInNodeId:FBBodyNodeId
     """New extra finger bone."""
     kFBRightFootIndexANodeId:FBBodyNodeId
-    """"""
     kFBRightFootIndexBNodeId:FBBodyNodeId
-    """"""
     kFBRightFootIndexCNodeId:FBBodyNodeId
-    """"""
     kFBRightFootIndexDNodeId:FBBodyNodeId
-    """"""
     kFBRightFootIndexInNodeId:FBBodyNodeId
-    """"""
     kFBRightFootMiddleANodeId:FBBodyNodeId
-    """"""
     kFBRightFootMiddleBNodeId:FBBodyNodeId
-    """"""
     kFBRightFootMiddleCNodeId:FBBodyNodeId
-    """"""
     kFBRightFootMiddleDNodeId:FBBodyNodeId
-    """"""
     kFBRightFootMiddleInNodeId:FBBodyNodeId
-    """"""
     kFBRightFootNodeId:FBBodyNodeId
-    """"""
     kFBRightFootPinkyANodeId:FBBodyNodeId
-    """"""
     kFBRightFootPinkyBNodeId:FBBodyNodeId
-    """"""
     kFBRightFootPinkyCNodeId:FBBodyNodeId
-    """"""
     kFBRightFootPinkyDNodeId:FBBodyNodeId
-    """"""
     kFBRightFootPinkyInNodeId:FBBodyNodeId
-    """"""
     kFBRightFootRingANodeId:FBBodyNodeId
-    """"""
     kFBRightFootRingBNodeId:FBBodyNodeId
-    """"""
     kFBRightFootRingCNodeId:FBBodyNodeId
-    """"""
     kFBRightFootRingDNodeId:FBBodyNodeId
-    """"""
     kFBRightFootRingInNodeId:FBBodyNodeId
-    """"""
     kFBRightFootThumbANodeId:FBBodyNodeId
-    """"""
     kFBRightFootThumbBNodeId:FBBodyNodeId
-    """"""
     kFBRightFootThumbCNodeId:FBBodyNodeId
-    """"""
     kFBRightFootThumbDNodeId:FBBodyNodeId
-    """"""
     kFBRightFootThumbInNodeId:FBBodyNodeId
-    """"""
     kFBRightHandNodeId:FBBodyNodeId
-    """"""
     kFBRightHipNodeId:FBBodyNodeId
     """Required."""
     kFBRightHipRollNode1Id:FBBodyNodeId
@@ -627,17 +510,11 @@ class FBBodyNodeId(Enumeration):
     kFBRightHipRollNode5Id:FBBodyNodeId
     """New leaf roll bone."""
     kFBRightHipRollNodeId:FBBodyNodeId
-    """"""
     kFBRightIndexANodeId:FBBodyNodeId
-    """"""
     kFBRightIndexBNodeId:FBBodyNodeId
-    """"""
     kFBRightIndexCNodeId:FBBodyNodeId
-    """"""
     kFBRightIndexDNodeId:FBBodyNodeId
-    """"""
     kFBRightIndexInNodeId:FBBodyNodeId
-    """"""
     kFBRightKneeNodeId:FBBodyNodeId
     """Required."""
     kFBRightKneeRollNode1Id:FBBodyNodeId
@@ -651,37 +528,21 @@ class FBBodyNodeId(Enumeration):
     kFBRightKneeRollNode5Id:FBBodyNodeId
     """New leaf roll bone."""
     kFBRightKneeRollNodeId:FBBodyNodeId
-    """"""
     kFBRightMiddleANodeId:FBBodyNodeId
-    """"""
     kFBRightMiddleBNodeId:FBBodyNodeId
-    """"""
     kFBRightMiddleCNodeId:FBBodyNodeId
-    """"""
     kFBRightMiddleDNodeId:FBBodyNodeId
-    """"""
     kFBRightMiddleInNodeId:FBBodyNodeId
-    """"""
     kFBRightPinkyANodeId:FBBodyNodeId
-    """"""
     kFBRightPinkyBNodeId:FBBodyNodeId
-    """"""
     kFBRightPinkyCNodeId:FBBodyNodeId
-    """"""
     kFBRightPinkyDNodeId:FBBodyNodeId
-    """"""
     kFBRightPinkyInNodeId:FBBodyNodeId
-    """"""
     kFBRightRingANodeId:FBBodyNodeId
-    """"""
     kFBRightRingBNodeId:FBBodyNodeId
-    """"""
     kFBRightRingCNodeId:FBBodyNodeId
-    """"""
     kFBRightRingDNodeId:FBBodyNodeId
-    """"""
     kFBRightRingInNodeId:FBBodyNodeId
-    """"""
     kFBRightShoulderNodeId:FBBodyNodeId
     """Required."""
     kFBRightShoulderRollNode1Id:FBBodyNodeId
@@ -695,35 +556,21 @@ class FBBodyNodeId(Enumeration):
     kFBRightShoulderRollNode5Id:FBBodyNodeId
     """New leaf roll bone."""
     kFBRightShoulderRollNodeId:FBBodyNodeId
-    """"""
     kFBRightThumbANodeId:FBBodyNodeId
-    """"""
     kFBRightThumbBNodeId:FBBodyNodeId
-    """"""
     kFBRightThumbCNodeId:FBBodyNodeId
-    """"""
     kFBRightThumbDNodeId:FBBodyNodeId
-    """"""
     kFBRightThumbInNodeId:FBBodyNodeId
-    """"""
     kFBRightWristNodeId:FBBodyNodeId
     """Required."""
     kFBSpine2NodeId:FBBodyNodeId
-    """"""
     kFBSpine3NodeId:FBBodyNodeId
-    """"""
     kFBSpine4NodeId:FBBodyNodeId
-    """"""
     kFBSpine5NodeId:FBBodyNodeId
-    """"""
     kFBSpine6NodeId:FBBodyNodeId
-    """"""
     kFBSpine7NodeId:FBBodyNodeId
-    """"""
     kFBSpine8NodeId:FBBodyNodeId
-    """"""
     kFBSpine9NodeId:FBBodyNodeId
-    """"""
     kFBWaistNodeId:FBBodyNodeId
     """Required, Spine 0."""
 class FBBodyPartId(Enumeration):
@@ -789,15 +636,10 @@ class FBButtonLook(Enumeration):
     
     [See sample: Button.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_button_8py-example.html)"""
     kFBLookAlphaBackground:FBButtonLook
-    """"""
     kFBLookColorChange:FBButtonLook
-    """"""
     kFBLookFlat:FBButtonLook
-    """"""
     kFBLookNormal:FBButtonLook
-    """"""
     kFBLookPush:FBButtonLook
-    """"""
 class FBButtonState(Enumeration):
     """Possible button states.
     
@@ -940,13 +782,9 @@ class FBCameraSamplingType(Enumeration):
     """Uniform sampling."""
 class FBCameraStereoType(Enumeration):
     kFBCameraStereoConverged:FBCameraStereoType
-    """"""
     kFBCameraStereoNone:FBCameraStereoType
-    """"""
     kFBCameraStereoOff_Axis:FBCameraStereoType
-    """"""
     kFBCameraStereoParallel:FBCameraStereoType
-    """"""
 class FBCameraType(Enumeration):
     """Focus distance types."""
     kFBCameraTypeOrthogonal:FBCameraType
@@ -988,65 +826,40 @@ class FBCellStyle(Enumeration):
 class FBCharacterContactBehaviour(Enumeration):
     """Character Contact Behaviour."""
     kFBLastContactBehaviour:FBCharacterContactBehaviour
-    """"""
     kFBParamContactAlwaysSync:FBCharacterContactBehaviour
-    """"""
     kFBParamContactNeverSync:FBCharacterContactBehaviour
-    """"""
     kFBParamContactSyncOnKey:FBCharacterContactBehaviour
-    """"""
 class FBCharacterExtensionRetargetMode(Enumeration):
     """Character extension Retarget Mode"""
     kFBRetargetModeAuto:FBCharacterExtensionRetargetMode
-    """"""
     kFBRetargetModeManual:FBCharacterExtensionRetargetMode
-    """"""
     kFBRetargetModeOff:FBCharacterExtensionRetargetMode
-    """"""
 class FBCharacterExtensionStancePoseMode(Enumeration):
     """Character Extension Stance Pose mode when the stance pose is activated on a character."""
     kFBStancePose_Always:FBCharacterExtensionStancePoseMode
-    """"""
     kFBStancePose_Never:FBCharacterExtensionStancePoseMode
-    """"""
     kFBStancePose_Reference_Selected:FBCharacterExtensionStancePoseMode
-    """"""
     kFBStancePose_Selected:FBCharacterExtensionStancePoseMode
-    """"""
     kFBStancePose_Self_Or_Reference_Selected:FBCharacterExtensionStancePoseMode
-    """"""
 class FBCharacterHipsTranslationMode(Enumeration):
     """Character Hips Translation modes."""
     kFBLastHipsTranslationMode:FBCharacterHipsTranslationMode
-    """"""
     kFBParamHipsTranslationBodyRigid:FBCharacterHipsTranslationMode
-    """"""
     kFBParamHipsTranslationWorldRigid:FBCharacterHipsTranslationMode
-    """"""
 class FBCharacterInputType(Enumeration):
     """Character Input/Output types."""
     kFBCharacterInputActor:FBCharacterInputType
-    """"""
     kFBCharacterInputCharacter:FBCharacterInputType
-    """"""
     kFBCharacterInputMarkerSet:FBCharacterInputType
-    """"""
     kFBCharacterInputMoCap:FBCharacterInputType
-    """"""
     kFBCharacterInputStance:FBCharacterInputType
-    """"""
     kFBCharacterOutputMarkerSet:FBCharacterInputType
-    """"""
 class FBCharacterKeyingMode(Enumeration):
     """Character keying modes."""
     kFBCharacterKeyingBodyPart:FBCharacterKeyingMode
-    """"""
     kFBCharacterKeyingFullBody:FBCharacterKeyingMode
-    """"""
     kFBCharacterKeyingFullBodyNoPull:FBCharacterKeyingMode
-    """"""
     kFBCharacterKeyingSelection:FBCharacterKeyingMode
-    """"""
 class FBCharacterLoadAnimationMethod(Enumeration):
     """This enumeration is used to choose how to load an animation file on a character."""
     kFBCharacterLoadConnect:FBCharacterLoadAnimationMethod
@@ -1062,57 +875,35 @@ class FBCharacterLoadAnimationMethod(Enumeration):
 class FBCharacterPlotWhere(Enumeration):
     """Where to plot a character."""
     kFBCharacterPlotOnControlRig:FBCharacterPlotWhere
-    """"""
     kFBCharacterPlotOnSkeleton:FBCharacterPlotWhere
-    """"""
 class FBCharacterPoseFlag(Enumeration):
     """Character Pose Options flags."""
     kFBCharacterPoseGravity:FBCharacterPoseFlag
-    """"""
     kFBCharacterPoseMatchFKTranslation:FBCharacterPoseFlag
-    """"""
     kFBCharacterPoseMatchPivot:FBCharacterPoseFlag
-    """"""
     kFBCharacterPoseMatchR:FBCharacterPoseFlag
-    """"""
     kFBCharacterPoseMatchTX:FBCharacterPoseFlag
-    """"""
     kFBCharacterPoseMatchTY:FBCharacterPoseFlag
-    """"""
     kFBCharacterPoseMatchTZ:FBCharacterPoseFlag
-    """"""
     kFBCharacterPoseMirror:FBCharacterPoseFlag
-    """"""
     kFBCharacterPoseNoFlag:FBCharacterPoseFlag
-    """"""
     kFBCharacterPoseUseKeyingGroup:FBCharacterPoseFlag
-    """"""
 class FBCharacterPoseKeyingMode(Enumeration):
     """Character Pose Keying Mode."""
     kFBCharacterPoseKeyingModeBodyPart:FBCharacterPoseKeyingMode
-    """"""
     kFBCharacterPoseKeyingModeCount:FBCharacterPoseKeyingMode
-    """"""
     kFBCharacterPoseKeyingModeFullBody:FBCharacterPoseKeyingMode
-    """"""
     kFBCharacterPoseKeyingModeInvalid:FBCharacterPoseKeyingMode
-    """"""
 class FBCharacterResetProperties(Enumeration):
     """Character Reset Properties Type."""
     kFBCharacterResetPropertiesAll:FBCharacterResetProperties
-    """"""
     kFBCharacterResetPropertiesDefinition:FBCharacterResetProperties
-    """"""
     kFBCharacterResetPropertiesSolving:FBCharacterResetProperties
-    """"""
 class FBCharacterRollSolver(Enumeration):
     """Character Roll Solver version."""
     kFBLastRollSolver:FBCharacterRollSolver
-    """"""
     kFBParamRollSolver70:FBCharacterRollSolver
-    """"""
     kFBParamRollSolver75:FBCharacterRollSolver
-    """"""
 class FBClipEnd(Enumeration):
     """Clip end actions."""
     kFBClipEndEnd:FBClipEnd
@@ -1178,13 +969,11 @@ class FBConnectionAction(Enumeration):
     kFBCandidated:FBConnectionAction
     """Data candidate event, after the data is set."""
     kFBConnect:FBConnectionAction
-    """"""
     kFBConnectDst:FBConnectionAction
     """Connect destination to source."""
     kFBConnectSrc:FBConnectionAction
     """Connect source to destination."""
     kFBConnected:FBConnectionAction
-    """"""
     kFBConnectedDst:FBConnectionAction
     """Connected destination to source."""
     kFBConnectedOwner:FBConnectionAction
@@ -1198,7 +987,6 @@ class FBConnectionAction(Enumeration):
     kFBDetached:FBConnectionAction
     """Component detached from scene."""
     kFBDisconnect:FBConnectionAction
-    """"""
     kFBDisconnectDst:FBConnectionAction
     """Disconnect destination from source."""
     kFBDisconnectOwner:FBConnectionAction
@@ -1206,7 +994,6 @@ class FBConnectionAction(Enumeration):
     kFBDisconnectSrc:FBConnectionAction
     """Disconnect source from destination."""
     kFBDisconnected:FBConnectionAction
-    """"""
     kFBDisconnectedDst:FBConnectionAction
     """Disconnected destination from source."""
     kFBDisconnectedSrc:FBConnectionAction
@@ -1300,11 +1087,8 @@ class FBConstructionHistoryState(Enumeration):
 class FBControlSetType(Enumeration):
     """Character ControlSet type."""
     kFBControlSetTypeFKIK:FBControlSetType
-    """"""
     kFBControlSetTypeIKOnly:FBControlSetType
-    """"""
     kFBControlSetTypeNone:FBControlSetType
-    """"""
 class FBControllerMode(Enumeration):
     """Controller modes for optical model."""
     kFBControllerLabelling:FBControllerMode
@@ -1326,11 +1110,9 @@ class FBDeckTransportMode(Enumeration):
     kFBDeckTransportMain:FBDeckTransportMode
     """Transport main."""
     kFBDeckTransportMaster:FBDeckTransportMode
-    """"""
     kFBDeckTransportNone:FBDeckTransportMode
     """No transport interaction."""
     kFBDeckTransportSlave:FBDeckTransportMode
-    """"""
     kFBDeckTransportSync:FBDeckTransportMode
     """Sync to transport controls."""
 class FBDeformerType(Enumeration):
@@ -1338,11 +1120,8 @@ class FBDeformerType(Enumeration):
     
     kFBDeformerSkeleton Skeleton (Bone) driven skinning deformer.kFBDeformerPointCache Pre-recorded point cache deformer.kFBGeometryMapping\_BY\_POLYGON\_VERTEX There will be one mapping coordinate for each vertex, for each polygon/strip it is part of. This means that a vertex will have as many mapping coordinates as polygons it is part of.kFBGeometryMapping\_BY\_POLYGON There can be only one mapping coordinate for the whole polygon/strip.kFBGeometryMapping\_BY\_EDGE There will be one mapping coordinate for each unique edge in the mesh. This is meant to be used with smoothing layer elements.kFBGeometryMapping\_ALL\_SAME There can be only one mapping coordinate for the whole surface."""
     kFBDeformerPointCache:FBDeformerType
-    """"""
     kFBDeformerSkeleton:FBDeformerType
-    """"""
     kFBDeformerUnkown:FBDeformerType
-    """"""
 class FBDeviceKeyboardKey(Enumeration):
     """Keyboard keys (for input)."""
     kFBDKey0:FBDeviceKeyboardKey
@@ -1478,131 +1257,69 @@ class FBDragAndDropState(Enumeration):
 class FBEffectorId(Enumeration):
     """All effector nodes."""
     kFBChestEndEffectorId:FBEffectorId
-    """"""
     kFBChestOriginEffectorId:FBEffectorId
-    """"""
     kFBHeadEffectorId:FBEffectorId
-    """"""
     kFBHipsEffectorId:FBEffectorId
-    """"""
     kFBInvalidEffectorId:FBEffectorId
-    """"""
     kFBLastEffectorId:FBEffectorId
-    """"""
     kFBLeftAnkleEffectorId:FBEffectorId
-    """"""
     kFBLeftElbowEffectorId:FBEffectorId
-    """"""
     kFBLeftFootEffectorId:FBEffectorId
-    """"""
     kFBLeftFootExtraFingerEffectorId:FBEffectorId
-    """"""
     kFBLeftFootIndexEffectorId:FBEffectorId
-    """"""
     kFBLeftFootMiddleEffectorId:FBEffectorId
-    """"""
     kFBLeftFootPinkyEffectorId:FBEffectorId
-    """"""
     kFBLeftFootRingEffectorId:FBEffectorId
-    """"""
     kFBLeftFootThumbEffectorId:FBEffectorId
-    """"""
     kFBLeftHandEffectorId:FBEffectorId
-    """"""
     kFBLeftHandExtraFingerEffectorId:FBEffectorId
-    """"""
     kFBLeftHandIndexEffectorId:FBEffectorId
-    """"""
     kFBLeftHandMiddleEffectorId:FBEffectorId
-    """"""
     kFBLeftHandPinkyEffectorId:FBEffectorId
-    """"""
     kFBLeftHandRingEffectorId:FBEffectorId
-    """"""
     kFBLeftHandThumbEffectorId:FBEffectorId
-    """"""
     kFBLeftHipEffectorId:FBEffectorId
-    """"""
     kFBLeftKneeEffectorId:FBEffectorId
-    """"""
     kFBLeftShoulderEffectorId:FBEffectorId
-    """"""
     kFBLeftWristEffectorId:FBEffectorId
-    """"""
     kFBRightAnkleEffectorId:FBEffectorId
-    """"""
     kFBRightElbowEffectorId:FBEffectorId
-    """"""
     kFBRightFootEffectorId:FBEffectorId
-    """"""
     kFBRightFootExtraFingerEffectorId:FBEffectorId
-    """"""
     kFBRightFootIndexEffectorId:FBEffectorId
-    """"""
     kFBRightFootMiddleEffectorId:FBEffectorId
-    """"""
     kFBRightFootPinkyEffectorId:FBEffectorId
-    """"""
     kFBRightFootRingEffectorId:FBEffectorId
-    """"""
     kFBRightFootThumbEffectorId:FBEffectorId
-    """"""
     kFBRightHandEffectorId:FBEffectorId
-    """"""
     kFBRightHandExtraFingerEffectorId:FBEffectorId
-    """"""
     kFBRightHandIndexEffectorId:FBEffectorId
-    """"""
     kFBRightHandMiddleEffectorId:FBEffectorId
-    """"""
     kFBRightHandPinkyEffectorId:FBEffectorId
-    """"""
     kFBRightHandRingEffectorId:FBEffectorId
-    """"""
     kFBRightHandThumbEffectorId:FBEffectorId
-    """"""
     kFBRightHipEffectorId:FBEffectorId
-    """"""
     kFBRightKneeEffectorId:FBEffectorId
-    """"""
     kFBRightShoulderEffectorId:FBEffectorId
-    """"""
     kFBRightWristEffectorId:FBEffectorId
-    """"""
 class FBEffectorSetID(Enumeration):
     """Effector ID identifier."""
     EFBffectorSetAux7:FBEffectorSetID
-    """"""
     FBEffectorSetAux1:FBEffectorSetID
-    """"""
     FBEffectorSetAux10:FBEffectorSetID
-    """"""
     FBEffectorSetAux11:FBEffectorSetID
-    """"""
     FBEffectorSetAux12:FBEffectorSetID
-    """"""
     FBEffectorSetAux13:FBEffectorSetID
-    """"""
     FBEffectorSetAux14:FBEffectorSetID
-    """"""
     FBEffectorSetAux2:FBEffectorSetID
-    """"""
     FBEffectorSetAux3:FBEffectorSetID
-    """"""
     FBEffectorSetAux4:FBEffectorSetID
-    """"""
     FBEffectorSetAux5:FBEffectorSetID
-    """"""
     FBEffectorSetAux6:FBEffectorSetID
-    """"""
     FBEffectorSetAux8:FBEffectorSetID
-    """"""
     FBEffectorSetAux9:FBEffectorSetID
-    """"""
     FBEffectorSetDefault:FBEffectorSetID
-    """"""
     FBLastEffectorSetIndex:FBEffectorSetID
-    """"""
 class FBElementAction(Enumeration):
     """[Enumeration](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_enumeration.html "Enumeration mapping.") that describe the different actions available on a scene element depending on the current context."""
     kFBElementActionAppend:FBElementAction
@@ -1618,77 +1335,44 @@ class FBEventAnimationNodeType(Enumeration):
     
     Types of transformation."""
     kFBEventAnimationNodeConstraintChange:FBEventAnimationNodeType
-    """"""
     kFBEventAnimationNodeDataChange:FBEventAnimationNodeType
-    """"""
     kFBEventAnimationNodeNone:FBEventAnimationNodeType
-    """"""
 class FBEventName(Enumeration):
     """These events are used internally by the Python Callback mecanism.
     
     These are not meant to be manipulated by a user."""
     kFBEventActivate:FBEventName
-    """"""
     kFBEventCellChange:FBEventName
-    """"""
     kFBEventChange:FBEventName
-    """"""
     kFBEventColumnClick:FBEventName
-    """"""
     kFBEventDoubleClick:FBEventName
-    """"""
     kFBEventDragAndDrop:FBEventName
-    """"""
     kFBEventEnter:FBEventName
-    """"""
     kFBEventExit:FBEventName
-    """"""
     kFBEventExpose:FBEventName
-    """"""
     kFBEventFileExit:FBEventName
-    """"""
     kFBEventFileMerge:FBEventName
     kFBEventFileNew:FBEventName
-    """"""
     kFBEventFileNewCompleted:FBEventName
-    """"""
     kFBEventFileOpen:FBEventName
-    """"""
     kFBEventFileOpenCompleted:FBEventName
-    """"""
     kFBEventFileSave:FBEventName
-    """"""
     kFBEventFileSaveCompleted:FBEventName
-    """"""
     kFBEventIdle:FBEventName
-    """"""
     kFBEventInput:FBEventName
-    """"""
     kFBEventMenu:FBEventName
-    """"""
     kFBEventOnClick:FBEventName
-    """"""
     kFBEventOnClickCheck:FBEventName
     kFBEventResize:FBEventName
-    """"""
     kFBEventRowClick:FBEventName
-    """"""
     kFBEventShow:FBEventName
-    """"""
     kFBEventTransaction:FBEventName
-    """"""
     kFBEventTreeCollapsed:FBEventName
-    """"""
     kFBEventTreeCollapsing:FBEventName
-    """"""
     kFBEventTreeExpanded:FBEventName
-    """"""
     kFBEventTreeExpanding:FBEventName
-    """"""
     kFBEventTreeSelect:FBEventName
-    """"""
     kFBEventUnbindSDK:FBEventName
-    """"""
 class FBExistingClipAction(Enumeration):
     """Action to perform, when preparing an Audio In object to record, when the action clip associated to the recording path is already in the scene."""
     kFBExistingClipAbortOperation:FBExistingClipAction
@@ -1710,15 +1394,10 @@ class FBExistingFileAction(Enumeration):
 class FBExtrapolationMode(Enumeration):
     """Modes for pre / post extrapolation."""
     kFCurveExtrapolationConst:FBExtrapolationMode
-    """"""
     kFCurveExtrapolationKeepSlope:FBExtrapolationMode
-    """"""
     kFCurveExtrapolationMirrorRepetition:FBExtrapolationMode
-    """"""
     kFCurveExtrapolationRelativeRepetition:FBExtrapolationMode
-    """"""
     kFCurveExtrapolationRepetition:FBExtrapolationMode
-    """"""
 class FBFCurveEventType(Enumeration):
     """This enum indicates what modification was made to a tracked FCurve."""
     kFBFCurveEventTypeDerivativedChanged:FBFCurveEventType
@@ -1823,15 +1502,10 @@ class FBFilterType(Enumeration):
 class FBFloorContactID(Enumeration):
     """Floor contact for the given index."""
     FBLastCharacterMember:FBFloorContactID
-    """"""
     FBLeftFootMemberIndex:FBFloorContactID
-    """"""
     FBLeftHandMemberIndex:FBFloorContactID
-    """"""
     FBRightFootMemberIndex:FBFloorContactID
-    """"""
     FBRightHandMemberIndex:FBFloorContactID
-    """"""
 class FBFogMode(Enumeration):
     """Fog falloff modes."""
     kFBFogModeExponential:FBFogMode
@@ -1863,21 +1537,15 @@ class FBGenerationMode(Enumeration):
 class FBGeometryArrayElementType(Enumeration):
     """Type of data when requesting an array."""
     kFBGeometryArrayElementType_Float:FBGeometryArrayElementType
-    """"""
     kFBGeometryArrayElementType_Float2:FBGeometryArrayElementType
-    """"""
     kFBGeometryArrayElementType_Float3:FBGeometryArrayElementType
     """Each element is an array of 3 float."""
     kFBGeometryArrayElementType_Float4:FBGeometryArrayElementType
     """Each element is an array of 4 float."""
     kFBGeometryArrayElementType_FloatMatrix4x4:FBGeometryArrayElementType
-    """"""
     kFBGeometryArrayElementType_Integer:FBGeometryArrayElementType
-    """"""
     kFBGeometryArrayElementType_IntegerArrayPointer:FBGeometryArrayElementType
-    """"""
     kFBGeometryArrayElementType_Unknown:FBGeometryArrayElementType
-    """"""
 class FBGeometryArrayID(Enumeration):
     """ID to use when requesting a specific array of data for a model.
     
@@ -1899,48 +1567,29 @@ class FBGeometryMappingMode(Enumeration):
     
     kFBGeometryMapping\_NONE The mapping is undetermined.kFBGeometryMapping\_BY\_CONTROL\_POINT There will be one mapping coordinate for each surface control point/vertex.kFBGeometryMapping\_BY\_POLYGON\_VERTEX There will be one mapping coordinate for each vertex, for each polygon/strip it is part of. This means that a vertex will have as many mapping coordinates as polygons it is part of.kFBGeometryMapping\_BY\_POLYGON There can be only one mapping coordinate for the whole polygon/strip.kFBGeometryMapping\_BY\_EDGE There will be one mapping coordinate for each unique edge in the mesh. This is meant to be used with smoothing layer elements.kFBGeometryMapping\_ALL\_SAME There can be only one mapping coordinate for the whole surface."""
     kFBGeometryMapping_ALL_SAME:FBGeometryMappingMode
-    """"""
     kFBGeometryMapping_BY_CONTROL_POINT:FBGeometryMappingMode
-    """"""
     kFBGeometryMapping_BY_EDGE:FBGeometryMappingMode
-    """"""
     kFBGeometryMapping_BY_POLYGON:FBGeometryMappingMode
-    """"""
     kFBGeometryMapping_BY_POLYGON_VERTEX:FBGeometryMappingMode
-    """"""
     kFBGeometryMapping_NONE:FBGeometryMappingMode
-    """"""
 class FBGeometryPrimitiveType(Enumeration):
     kFBGeometry_LINES:FBGeometryPrimitiveType
-    """"""
     kFBGeometry_LINE_LOOP:FBGeometryPrimitiveType
-    """"""
     kFBGeometry_LINE_STRIP:FBGeometryPrimitiveType
-    """"""
     kFBGeometry_POINTS:FBGeometryPrimitiveType
-    """"""
     kFBGeometry_POLYGON:FBGeometryPrimitiveType
-    """"""
     kFBGeometry_QUADS:FBGeometryPrimitiveType
-    """"""
     kFBGeometry_QUADS_STRIP:FBGeometryPrimitiveType
-    """"""
     kFBGeometry_TRIANGLES:FBGeometryPrimitiveType
-    """"""
     kFBGeometry_TRIANGLE_FAN:FBGeometryPrimitiveType
-    """"""
     kFBGeometry_TRIANGLE_STRIP:FBGeometryPrimitiveType
-    """"""
 class FBGeometryReferenceMode(Enumeration):
     """Determine how the mapping information is stored in the array of coordinate.
     
     kFBGeometryReference\_DIRECT This indicates that the mapping information for the n'th element is found in the n'th place of DirectArray.kFBGeometryReference\_INDEX, This indicates that the mapping information for the n'th element is found in the n'th place of IndexArray.kFBGeometryReference\_INDEX\_TO\_DIRECT This indicates that the KLayerElementTemplate::mIndexArray contains, for the n'th element, an index in the KLayerElementTemplate::mDirectArray array of mapping elements. eINDEX\_TO\_DIRECT is usually useful to store coordinates for eBY\_POLYGON\_VERTEX mapping mode elements. Since the same coordinates are usually repeated a large number of times, it saves spaces to store the coordinate only one time and refer to them with an index. Materials and Textures are also referenced with this mode and the actual Material/Texture can be accessed via the KLayerElementTemplate::mDirectArray"""
     kFBGeometryReference_DIRECT:FBGeometryReferenceMode
-    """"""
     kFBGeometryReference_INDEX:FBGeometryReferenceMode
-    """"""
     kFBGeometryReference_INDEX_TO_DIRECT:FBGeometryReferenceMode
-    """"""
 class FBGlobalEvalCallbackTiming(Enumeration):
     """Global Evaluation callback timing.
     
@@ -1984,45 +1633,28 @@ class FBIconPosition(Enumeration):
 class FBImageFormat(Enumeration):
     """Image formats."""
     kFBImageFormatABGR32:FBImageFormat
-    """"""
     kFBImageFormatARGB32:FBImageFormat
-    """"""
     kFBImageFormatBGR16:FBImageFormat
-    """"""
     kFBImageFormatBGR24:FBImageFormat
-    """"""
     kFBImageFormatBGRA32:FBImageFormat
-    """"""
     kFBImageFormatRGB24:FBImageFormat
-    """"""
     kFBImageFormatRGBA32:FBImageFormat
-    """"""
     kFBImageFormatUnknown:FBImageFormat
-    """"""
 class FBImageInterleaveType(Enumeration):
     """Image field interleave types."""
     kFBImageInterleaveTypeAverage:FBImageInterleaveType
-    """"""
     kFBImageInterleaveTypeEven:FBImageInterleaveType
-    """"""
     kFBImageInterleaveTypeFullFrame:FBImageInterleaveType
-    """"""
     kFBImageInterleaveTypeOdd:FBImageInterleaveType
-    """"""
 class FBImageInterpolationType(Enumeration):
     """Image interpolation types."""
     kFBImageInterpolationTypeDuplicate:FBImageInterpolationType
-    """"""
     kFBImageInterpolationTypeLinear:FBImageInterpolationType
-    """"""
     kFBImageInterpolationTypeNone:FBImageInterpolationType
-    """"""
 class FBImageType(Enumeration):
     """Image types."""
     kFBImageTypeField:FBImageType
-    """"""
     kFBImageTypeFrame:FBImageType
-    """"""
 class FBInputKey(Enumeration):
     """Keyboard inputs."""
     kFBKeyBackSpace:FBInputKey
@@ -2138,23 +1770,14 @@ class FBInterpolation(Enumeration):
 class FBInterpolatorCurveType(Enumeration):
     """Types of interpolator for an FCurve."""
     kFBInterpolatorCurveFastIn:FBInterpolatorCurveType
-    """"""
     kFBInterpolatorCurveFastOut:FBInterpolatorCurveType
-    """"""
     kFBInterpolatorCurveLast:FBInterpolatorCurveType
-    """"""
     kFBInterpolatorCurveLinearIn:FBInterpolatorCurveType
-    """"""
     kFBInterpolatorCurveLinearOut:FBInterpolatorCurveType
-    """"""
     kFBInterpolatorCurveSlowIn:FBInterpolatorCurveType
-    """"""
     kFBInterpolatorCurveSlowOut:FBInterpolatorCurveType
-    """"""
     kFBInterpolatorCurveSmoothIn:FBInterpolatorCurveType
-    """"""
     kFBInterpolatorCurveSmoothOut:FBInterpolatorCurveType
-    """"""
 class FBKeyingGroupType(Enumeration):
     """Keying group types."""
     kFBKeyingGroupGlobal:FBKeyingGroupType
@@ -2274,35 +1897,20 @@ class FBMaterialTextureType(Enumeration):
     
     [See samples: LayeredTexture.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_material_and_texture_0c_layered_texture_8py-example.html) [MaterialAndTexture.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_material_and_texture_0c_material_and_texture_8py-example.html) [TextureAnimation.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_material_and_texture_0c_texture_animation_8py-example.html) [VideoInput.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_video_0c_video_input_8py-example.html) [VideoMemory.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_video_0c_video_memory_8py-example.html)"""
     kFBMaterialTextureAmbient:FBMaterialTextureType
-    """"""
     kFBMaterialTextureAmbientFactor:FBMaterialTextureType
-    """"""
     kFBMaterialTextureBump:FBMaterialTextureType
-    """"""
     kFBMaterialTextureDiffuse:FBMaterialTextureType
-    """"""
     kFBMaterialTextureDiffuseFactor:FBMaterialTextureType
-    """"""
     kFBMaterialTextureEmissive:FBMaterialTextureType
-    """"""
     kFBMaterialTextureEmissiveFactor:FBMaterialTextureType
-    """"""
     kFBMaterialTextureNormalMap:FBMaterialTextureType
-    """"""
     kFBMaterialTextureReflection:FBMaterialTextureType
-    """"""
     kFBMaterialTextureReflectionFactor:FBMaterialTextureType
-    """"""
     kFBMaterialTextureShiness:FBMaterialTextureType
-    """"""
     kFBMaterialTextureSpecular:FBMaterialTextureType
-    """"""
     kFBMaterialTextureSpecularFactor:FBMaterialTextureType
-    """"""
     kFBMaterialTextureTransparent:FBMaterialTextureType
-    """"""
     kFBMaterialTextureTransparentFactor:FBMaterialTextureType
-    """"""
 class FBMenuItemType(Enumeration):
     """Types of menu items available."""
     kFBMenuItemMotionExport:FBMenuItemType
@@ -2326,21 +1934,13 @@ class FBMergeLayerMode(Enumeration):
 class FBMirrorPlaneType(Enumeration):
     """Mirror Plane Type."""
     kFBMirrorPlaneTypeAuto:FBMirrorPlaneType
-    """"""
     kFBMirrorPlaneTypeCount:FBMirrorPlaneType
-    """"""
     kFBMirrorPlaneTypeEquation:FBMirrorPlaneType
-    """"""
     kFBMirrorPlaneTypeInvalid:FBMirrorPlaneType
-    """"""
     kFBMirrorPlaneTypeUser:FBMirrorPlaneType
-    """"""
     kFBMirrorPlaneTypeXY:FBMirrorPlaneType
-    """"""
     kFBMirrorPlaneTypeXZ:FBMirrorPlaneType
-    """"""
     kFBMirrorPlaneTypeZY:FBMirrorPlaneType
-    """"""
 class FBModelCullingMode(Enumeration):
     """Model Culling Mode."""
     kFBCullingOff:FBModelCullingMode
@@ -2559,29 +2159,18 @@ class FBObjectFlag(Enumeration):
 class FBObjectPoseMirrorOptionsFlag(Enumeration):
     """ObjectPoseMirrorOptions flags."""
     kFBObjectPoseMirrorOptionsNoFlag:FBObjectPoseMirrorOptionsFlag
-    """"""
     kFBObjectPoseMirrorOptionsUpdateLocal:FBObjectPoseMirrorOptionsFlag
-    """"""
     kFBObjectPoseMirrorOptionsUpdateLocalMirrorParent:FBObjectPoseMirrorOptionsFlag
-    """"""
     kFBObjectPoseMirrorOptionsUpdateLocalRef:FBObjectPoseMirrorOptionsFlag
-    """"""
     kFBObjectPoseMirrorOptionsUpdateLocalRefMirrorRef:FBObjectPoseMirrorOptionsFlag
-    """"""
 class FBObjectPoseOptionsFlag(Enumeration):
     """ObjectPoseOptions flags."""
     kFBObjectPoseOptionsNoFlag:FBObjectPoseOptionsFlag
-    """"""
     kFBObjectPoseOptionsRotation:FBObjectPoseOptionsFlag
-    """"""
     kFBObjectPoseOptionsScaling:FBObjectPoseOptionsFlag
-    """"""
     kFBObjectPoseOptionsTranslationX:FBObjectPoseOptionsFlag
-    """"""
     kFBObjectPoseOptionsTranslationY:FBObjectPoseOptionsFlag
-    """"""
     kFBObjectPoseOptionsTranslationZ:FBObjectPoseOptionsFlag
-    """"""
 class FBObjectStatus(Enumeration):
     """Available lifetime status for any component."""
     kFBStatusClearing:FBObjectStatus
@@ -2676,40 +2265,24 @@ class FBPlayerControlChangeType(Enumeration):
 class FBPlotAllowed(Enumeration):
     """[FBPlotAllowed](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_plot_allowed.html "FBPlotAllowed")"""
     kFBPlotAllowed_Both:FBPlotAllowed
-    """"""
     kFBPlotAllowed_ControlRig:FBPlotAllowed
-    """"""
     kFBPlotAllowed_None:FBPlotAllowed
-    """"""
     kFBPlotAllowed_Skeleton:FBPlotAllowed
-    """"""
 class FBPlotTangentMode(Enumeration):
     """The tangent mode for plotted curve."""
     kFBPlotTangentModeAuto:FBPlotTangentMode
-    """"""
     kFBPlotTangentModeSmooth:FBPlotTangentMode
-    """"""
     kFBPlotTangentModeSmoothClamp:FBPlotTangentMode
-    """"""
     kFBPlotTangentModeSpline:FBPlotTangentMode
-    """"""
     kFBPlotTangentModeSplineClamp:FBPlotTangentMode
-    """"""
 class FBPlugModificationFlag(Enumeration):
     kFBAllConnectionModified:FBPlugModificationFlag
-    """"""
     kFBAllCustomPropertyModified:FBPlugModificationFlag
-    """"""
     kFBAllDataModified:FBPlugModificationFlag
-    """"""
     kFBAllKeyingModified:FBPlugModificationFlag
-    """"""
     kFBAllModifiedMask:FBPlugModificationFlag
-    """"""
     kFBAllStateModified:FBPlugModificationFlag
-    """"""
     kFBContentAllModifiedMask:FBPlugModificationFlag
-    """"""
     kFBContentConnectionModified:FBPlugModificationFlag
     """Owner object/namespace has connection modified property/objects."""
     kFBContentCustomPropertyModified:FBPlugModificationFlag
@@ -2723,13 +2296,11 @@ class FBPlugModificationFlag(Enumeration):
     kFBPlugAllContent:FBPlugModificationFlag
     """None Modified."""
     kFBSelfAllModifiedMask:FBPlugModificationFlag
-    """"""
     kFBSelfConnectionDstObjectModified:FBPlugModificationFlag
     """The dst object of this plug has been modified."""
     kFBSelfConnectionDstPropertyModified:FBPlugModificationFlag
     """The dst property of this plug has been modified."""
     kFBSelfConnectionModifiedMask:FBPlugModificationFlag
-    """"""
     kFBSelfConnectionSrcObjectModified:FBPlugModificationFlag
     """The src object of this plug has been modified."""
     kFBSelfConnectionSrcPropertyModified:FBPlugModificationFlag
@@ -2771,15 +2342,10 @@ class FBPopupInputType(Enumeration):
 class FBPoseTransformType(Enumeration):
     """Transform mode of pose."""
     kFBPoseTransformGlobal:FBPoseTransformType
-    """"""
     kFBPoseTransformInvalid:FBPoseTransformType
-    """"""
     kFBPoseTransformLocal:FBPoseTransformType
-    """"""
     kFBPoseTransformLocalRef:FBPoseTransformType
-    """"""
     kFBPoseTransformTypeCount:FBPoseTransformType
-    """"""
 class FBPoseType(Enumeration):
     """Types of pose."""
     kFBBindPose:FBPoseType
@@ -2829,25 +2395,18 @@ class FBPropertyFlag(Enumeration):
     kFBLoadedUserProperty:FBPropertyFlag
     """This property is loaded from file."""
     kFBPropertyFlagAnimated:FBPropertyFlag
-    """"""
     kFBPropertyFlagDisableProperty:FBPropertyFlag
-    """"""
     kFBPropertyFlagDrivenProperty:FBPropertyFlag
     """This is property is connected and driven by other same type of main property, and it always ask value from its main property."""
     kFBPropertyFlagForceStaticProperty:FBPropertyFlag
-    """"""
     kFBPropertyFlagHideProperty:FBPropertyFlag
     """This flag is used to show/hide the property in the propertiview. However, when turn on/off HidePropertry flag, this property won't show/hide unless you reload the UI. The nodes hidden by this flag are removed from UI."""
     kFBPropertyFlagNotSavable:FBPropertyFlag
     """Should not be saved to or loaded from an FBX file."""
     kFBPropertyFlagNotSet:FBPropertyFlag
-    """"""
     kFBPropertyFlagNotUserDeletable:FBPropertyFlag
-    """"""
     kFBPropertyFlagReadOnly:FBPropertyFlag
-    """"""
     kFBSlaveSetByMaster:FBPropertyFlag
-    """"""
     kFBValueAllocated:FBPropertyFlag
     """The value has been allocated and must be delete in destructor."""
 class FBPropertyStateEventType(Enumeration):
@@ -2964,32 +2523,21 @@ class FBRigidBodyMode(Enumeration):
     """Fast rigid body mode."""
 class FBRootHMode(Enumeration):
     kFBRootHAbsoluteDifference:FBRootHMode
-    """"""
     kFBRootHRelativeDifference:FBRootHMode
-    """"""
 class FBRootRMode(Enumeration):
     kFBRootRAbsoluteDifference:FBRootRMode
-    """"""
     kFBRootRRelativeDifference:FBRootRMode
-    """"""
 class FBRootSpeedMode(Enumeration):
     kFBRootSpeedAbsoluteDifference:FBRootSpeedMode
-    """"""
     kFBRootSpeedRelativeDifference:FBRootSpeedMode
-    """"""
 class FBRootXZMode(Enumeration):
     kFBRootXZAbsoluteDifference:FBRootXZMode
-    """"""
     kFBRootXZRelativeDifference:FBRootXZMode
-    """"""
 class FBRotationFilter(Enumeration):
     """Rotation filters."""
     kFBRotationFilterGimbleKiller:FBRotationFilter
-    """"""
     kFBRotationFilterNone:FBRotationFilter
-    """"""
     kFBRotationFilterUnroll:FBRotationFilter
-    """"""
 class FBRotationOrder(Enumeration):
     """Specify the Euler rotation order."""
     kFBXYZ:FBRotationOrder
@@ -3143,113 +2691,59 @@ class FBSkeletonLook(Enumeration):
 class FBSkeletonNodeId(Enumeration):
     """All Skeleton nodes"""
     kFBSkeletonChestIndex:FBSkeletonNodeId
-    """"""
     kFBSkeletonHeadIndex:FBSkeletonNodeId
-    """"""
     kFBSkeletonHipsIndex:FBSkeletonNodeId
-    """"""
     kFBSkeletonInvalidIndex:FBSkeletonNodeId
-    """"""
     kFBSkeletonLastIndex:FBSkeletonNodeId
-    """"""
     kFBSkeletonLeftAnkleIndex:FBSkeletonNodeId
-    """"""
     kFBSkeletonLeftCollarIndex:FBSkeletonNodeId
-    """"""
     kFBSkeletonLeftElbowIndex:FBSkeletonNodeId
-    """"""
     kFBSkeletonLeftFootIndex:FBSkeletonNodeId
-    """"""
     kFBSkeletonLeftHipIndex:FBSkeletonNodeId
-    """"""
     kFBSkeletonLeftIndexAIndex:FBSkeletonNodeId
-    """"""
     kFBSkeletonLeftIndexBIndex:FBSkeletonNodeId
-    """"""
     kFBSkeletonLeftIndexCIndex:FBSkeletonNodeId
-    """"""
     kFBSkeletonLeftKneeIndex:FBSkeletonNodeId
-    """"""
     kFBSkeletonLeftMiddleAIndex:FBSkeletonNodeId
-    """"""
     kFBSkeletonLeftMiddleBIndex:FBSkeletonNodeId
-    """"""
     kFBSkeletonLeftMiddleCIndex:FBSkeletonNodeId
-    """"""
     kFBSkeletonLeftPinkyAIndex:FBSkeletonNodeId
-    """"""
     kFBSkeletonLeftPinkyBIndex:FBSkeletonNodeId
-    """"""
     kFBSkeletonLeftPinkyCIndex:FBSkeletonNodeId
-    """"""
     kFBSkeletonLeftRingAIndex:FBSkeletonNodeId
-    """"""
     kFBSkeletonLeftRingBIndex:FBSkeletonNodeId
-    """"""
     kFBSkeletonLeftRingCIndex:FBSkeletonNodeId
-    """"""
     kFBSkeletonLeftShoulderIndex:FBSkeletonNodeId
-    """"""
     kFBSkeletonLeftThumbAIndex:FBSkeletonNodeId
-    """"""
     kFBSkeletonLeftThumbBIndex:FBSkeletonNodeId
-    """"""
     kFBSkeletonLeftThumbCIndex:FBSkeletonNodeId
-    """"""
     kFBSkeletonLeftWristIndex:FBSkeletonNodeId
-    """"""
     kFBSkeletonNeckIndex:FBSkeletonNodeId
-    """"""
     kFBSkeletonReferenceIndex:FBSkeletonNodeId
-    """"""
     kFBSkeletonRightAnkleIndex:FBSkeletonNodeId
-    """"""
     kFBSkeletonRightCollarIndex:FBSkeletonNodeId
-    """"""
     kFBSkeletonRightElbowIndex:FBSkeletonNodeId
-    """"""
     kFBSkeletonRightFootIndex:FBSkeletonNodeId
-    """"""
     kFBSkeletonRightHipIndex:FBSkeletonNodeId
-    """"""
     kFBSkeletonRightIndexAIndex:FBSkeletonNodeId
-    """"""
     kFBSkeletonRightIndexBIndex:FBSkeletonNodeId
-    """"""
     kFBSkeletonRightIndexCIndex:FBSkeletonNodeId
-    """"""
     kFBSkeletonRightKneeIndex:FBSkeletonNodeId
-    """"""
     kFBSkeletonRightMiddleAIndex:FBSkeletonNodeId
-    """"""
     kFBSkeletonRightMiddleBIndex:FBSkeletonNodeId
-    """"""
     kFBSkeletonRightMiddleCIndex:FBSkeletonNodeId
-    """"""
     kFBSkeletonRightPinkyAIndex:FBSkeletonNodeId
-    """"""
     kFBSkeletonRightPinkyBIndex:FBSkeletonNodeId
-    """"""
     kFBSkeletonRightPinkyCIndex:FBSkeletonNodeId
-    """"""
     kFBSkeletonRightRingAIndex:FBSkeletonNodeId
-    """"""
     kFBSkeletonRightRingBIndex:FBSkeletonNodeId
-    """"""
     kFBSkeletonRightRingCIndex:FBSkeletonNodeId
-    """"""
     kFBSkeletonRightShoulderIndex:FBSkeletonNodeId
-    """"""
     kFBSkeletonRightThumbAIndex:FBSkeletonNodeId
-    """"""
     kFBSkeletonRightThumbBIndex:FBSkeletonNodeId
-    """"""
     kFBSkeletonRightThumbCIndex:FBSkeletonNodeId
-    """"""
     kFBSkeletonRightWristIndex:FBSkeletonNodeId
-    """"""
     kFBSkeletonWaistIndex:FBSkeletonNodeId
-    """"""
 class FBSkeletonResolutionLevel(Enumeration):
     """Resolution of skeleton sphere, capsule and stick (Quality)."""
     kFBSkeletonHighResolution:FBSkeletonResolutionLevel
@@ -3444,41 +2938,23 @@ class FBStoryGroupClipAlignmentType(Enumeration):
 class FBStoryTrackBodyPart(Enumeration):
     """Body Parts for story track character."""
     kFBStoryTrackBodyPartAll:FBStoryTrackBodyPart
-    """"""
     kFBStoryTrackBodyPartExtensions:FBStoryTrackBodyPart
-    """"""
     kFBStoryTrackBodyPartHead:FBStoryTrackBodyPart
-    """"""
     kFBStoryTrackBodyPartLeftArm:FBStoryTrackBodyPart
-    """"""
     kFBStoryTrackBodyPartLeftFoot:FBStoryTrackBodyPart
-    """"""
     kFBStoryTrackBodyPartLeftHand:FBStoryTrackBodyPart
-    """"""
     kFBStoryTrackBodyPartLeftLeg:FBStoryTrackBodyPart
-    """"""
     kFBStoryTrackBodyPartLeftShoulder:FBStoryTrackBodyPart
-    """"""
     kFBStoryTrackBodyPartLowerBody:FBStoryTrackBodyPart
-    """"""
     kFBStoryTrackBodyPartNone:FBStoryTrackBodyPart
-    """"""
     kFBStoryTrackBodyPartProps:FBStoryTrackBodyPart
-    """"""
     kFBStoryTrackBodyPartRightArm:FBStoryTrackBodyPart
-    """"""
     kFBStoryTrackBodyPartRightFoot:FBStoryTrackBodyPart
-    """"""
     kFBStoryTrackBodyPartRightHand:FBStoryTrackBodyPart
-    """"""
     kFBStoryTrackBodyPartRightLeg:FBStoryTrackBodyPart
-    """"""
     kFBStoryTrackBodyPartRightShoulder:FBStoryTrackBodyPart
-    """"""
     kFBStoryTrackBodyPartSpine:FBStoryTrackBodyPart
-    """"""
     kFBStoryTrackBodyPartUpperBody:FBStoryTrackBodyPart
-    """"""
 class FBStoryTrackGhostShowMode(Enumeration):
     """Ghost Show Modes for story animation tracks."""
     kFBStoryTrackShowAllClips:FBStoryTrackGhostShowMode
@@ -3540,11 +3016,8 @@ class FBSurfaceType(Enumeration):
 class FBSyncActivationAndVisibilityMode(Enumeration):
     """Sync mode for Constraints' Activeness and Models' visibility belonging to the Character Extension."""
     kFBSyncMode_None:FBSyncActivationAndVisibilityMode
-    """"""
     kFBSyncMode_WithContolRig:FBSyncActivationAndVisibilityMode
-    """"""
     kFBSyncMode_WithOthersThanControlRig:FBSyncActivationAndVisibilityMode
-    """"""
 class FBTCPIPSocketType(Enumeration):
     """Types of TCP/IP Sockets."""
     kFBTCPIP_DGRAM:FBTCPIPSocketType
@@ -3556,21 +3029,13 @@ class FBTCPIPSocketType(Enumeration):
 class FBTakeChangeType(Enumeration):
     """Types of take change events."""
     kFBTakeChangeAdded:FBTakeChangeType
-    """"""
     kFBTakeChangeClosed:FBTakeChangeType
-    """"""
     kFBTakeChangeMoved:FBTakeChangeType
-    """"""
     kFBTakeChangeNone:FBTakeChangeType
-    """"""
     kFBTakeChangeOpened:FBTakeChangeType
-    """"""
     kFBTakeChangeRemoved:FBTakeChangeType
-    """"""
     kFBTakeChangeRenamed:FBTakeChangeType
-    """"""
     kFBTakeChangeUpdated:FBTakeChangeType
-    """"""
 class FBTakeSpanOnLoad(Enumeration):
     """This enumeration indicate the how to set the take start and end points on after a load."""
     kFBFrameAnimation:FBTakeSpanOnLoad
@@ -3763,15 +3228,10 @@ class FBTimeReferential(Enumeration):
     """Shot."""
 class FBToolPossibleDockPosition(Enumeration):
     kFBToolPossibleDockPosBottom:FBToolPossibleDockPosition
-    """"""
     kFBToolPossibleDockPosLeft:FBToolPossibleDockPosition
-    """"""
     kFBToolPossibleDockPosNone:FBToolPossibleDockPosition
-    """"""
     kFBToolPossibleDockPosRight:FBToolPossibleDockPosition
-    """"""
     kFBToolPossibleDockPosTop:FBToolPossibleDockPosition
-    """"""
 class FBTransportLoopMode(Enumeration):
     """Available loop modes for the transport control."""
     kFBTransportLoopCurrentTake:FBTransportLoopMode
@@ -3783,53 +3243,37 @@ class FBTransportLoopMode(Enumeration):
 class FBTransportMode(Enumeration):
     """Transport modes."""
     kFBTransportGoto:FBTransportMode
-    """"""
     kFBTransportGotoPrepare:FBTransportMode
     """!< Goto."""
     kFBTransportGotoReady:FBTransportMode
-    """"""
     kFBTransportJog:FBTransportMode
-    """"""
     kFBTransportJogPrepare:FBTransportMode
     """!< Jog."""
     kFBTransportJogReady:FBTransportMode
-    """"""
     kFBTransportPlay:FBTransportMode
-    """"""
     kFBTransportPlayPrepare:FBTransportMode
     """!< Play mode"""
     kFBTransportPlayReady:FBTransportMode
-    """"""
     kFBTransportPlayReverse:FBTransportMode
-    """"""
     kFBTransportPlayReversePrepare:FBTransportMode
     """!< Play reverse."""
     kFBTransportPlayReverseReady:FBTransportMode
-    """"""
     kFBTransportShuttle:FBTransportMode
-    """"""
     kFBTransportShuttlePrepare:FBTransportMode
     """!< Shuttle mode"""
     kFBTransportShuttleReady:FBTransportMode
-    """"""
     kFBTransportStepBackward:FBTransportMode
-    """"""
     kFBTransportStepBackwardPrepare:FBTransportMode
     """!< Step backward."""
     kFBTransportStepBackwardReady:FBTransportMode
-    """"""
     kFBTransportStepForward:FBTransportMode
-    """"""
     kFBTransportStepForwardPrepare:FBTransportMode
     """!< Step forward"""
     kFBTransportStepForwardReady:FBTransportMode
-    """"""
     kFBTransportStop:FBTransportMode
-    """"""
     kFBTransportStopPost:FBTransportMode
     """!< Stop mode"""
     kFBTransportStopReady:FBTransportMode
-    """"""
 class FBTransportPlaySpeed(Enumeration):
     """Available transport control play speed."""
     kFBSpeed_10x:FBTransportPlaySpeed
@@ -3911,25 +3355,15 @@ class FBVideoCodecMode(Enumeration):
 class FBVideoFormat(Enumeration):
     """Video color modes."""
     kFBVideoFormat_422:FBVideoFormat
-    """"""
     kFBVideoFormat_ABGR_32:FBVideoFormat
-    """"""
     kFBVideoFormat_ARGB_32:FBVideoFormat
-    """"""
     kFBVideoFormat_Any:FBVideoFormat
-    """"""
     kFBVideoFormat_BGRA_32:FBVideoFormat
-    """"""
     kFBVideoFormat_BGR_16:FBVideoFormat
-    """"""
     kFBVideoFormat_BGR_24:FBVideoFormat
-    """"""
     kFBVideoFormat_Other:FBVideoFormat
-    """"""
     kFBVideoFormat_RGBA_32:FBVideoFormat
-    """"""
     kFBVideoFormat_RGB_24:FBVideoFormat
-    """"""
 class FBVideoInterlaceMode(Enumeration):
     """Video interlace modes."""
     kFBVideoInterlaceFullFrameEven:FBVideoInterlaceMode
@@ -3997,35 +3431,20 @@ class FBVideoRenderViewingMode(Enumeration):
 class FBVideoResolution(Enumeration):
     """Video Resolution (1D)"""
     kFBVideo_RES_1:FBVideoResolution
-    """"""
     kFBVideo_RES_128:FBVideoResolution
-    """"""
     kFBVideo_RES_16:FBVideoResolution
-    """"""
     kFBVideo_RES_1K:FBVideoResolution
-    """"""
     kFBVideo_RES_2:FBVideoResolution
-    """"""
     kFBVideo_RES_256:FBVideoResolution
-    """"""
     kFBVideo_RES_2K:FBVideoResolution
-    """"""
     kFBVideo_RES_32:FBVideoResolution
-    """"""
     kFBVideo_RES_4:FBVideoResolution
-    """"""
     kFBVideo_RES_4K:FBVideoResolution
-    """"""
     kFBVideo_RES_512:FBVideoResolution
-    """"""
     kFBVideo_RES_64:FBVideoResolution
-    """"""
     kFBVideo_RES_8:FBVideoResolution
-    """"""
     kFBVideo_RES_8K:FBVideoResolution
-    """"""
     kFBVideo_RES_FULL:FBVideoResolution
-    """"""
 class FBVideoStorageMode(Enumeration):
     """Video storage modes."""
     kFBVideoStorageDisk:FBVideoStorageMode
@@ -4106,9 +3525,7 @@ class FBAudioRenderOptions():
     """Property: Rate mode for number of samples per second. 44100 hz default,8000, 11025,12000,16000,22050,24000,32000,44100,48000,64000,88200,96000 available for audio render."""
     TimeSpan:FBTimeSpan
     """Property: Start and stop selection time to render."""
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
 class FBBatchOptions():
     """Option parameters for the batch process."""
     Character:FBCharacter
@@ -4151,9 +3568,7 @@ class FBBatchOptions():
     """Read Write Property: Write frame rate in Acclaim AMC files."""
     WriteTranslation:bool
     """Read Write Property: Write translation animation data included with Acclaim AMC files."""
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
 class FBCallback():
     """This class is used for the internal callback framework and is not meant to be used by clients."""
     Callback:object
@@ -4200,9 +3615,7 @@ class FBCharacterPoseOptions():
             - Flag: Flag to set.
             - Value: Value to set."""
         ...
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
 class FBColor():
     """[FBColor](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_color.html "FBColor class.") class.
     
@@ -4259,27 +3672,19 @@ class FBColor():
     def __imul__(self,arg2)->object:...
     @overload
     def __init__(self):
-        """Constructor.
-        
-        Default constructor, all values within are set to 0.0, except for the Alpha value which is set to 1.0."""
+        """Default constructor, all values within are set to 0.0, except for the Alpha value which is set to 1.0."""
         ...
     @overload
     def __init__(self,Color:FBColor):
-        """Constructor.
-        
-        Copy constructor. Copy values from another instance."""
+        """Copy constructor. Copy values from another instance."""
         ...
     @overload
     def __init__(self,R:float,G:float,B:float):
-        """Constructor.
-        
-        Explicitely construct a vector by specifying its RGBA values. Should the Alpha value not be relevant, just set it to 1.0."""
+        """Explicitely construct a vector by specifying its RGBA values. Should the Alpha value not be relevant, just set it to 1.0."""
         ...
     @overload
     def __init__(self,arg2:tuple[float,float,float]):
-        """Constructor.
-        
-        A vector can be built from any python object with supports the tuple interface and is of a lenght of 3."""
+        """A vector can be built from any python object with supports the tuple interface and is of a lenght of 3."""
         ...
     @overload
     def __init__(self,arg2:list):...
@@ -4366,9 +3771,7 @@ class FBColorAndAlpha():
     def __imul__(self,arg2)->object:...
     @overload
     def __init__(self):
-        """Constructor.
-        
-        Default constructor, all values within are set to 0.0, except for the Alpha value which is set to 1.0."""
+        """Default constructor, all values within are set to 0.0, except for the Alpha value which is set to 1.0."""
         ...
     @overload
     def __init__(self,Vector:FBColorAndAlpha):
@@ -4376,15 +3779,11 @@ class FBColorAndAlpha():
         ...
     @overload
     def __init__(self,R:float,G:float,B:float,Alpha:float|None=None):
-        """Constructor.
-        
-        Explicitely construct a vector by specifying its RGBA values. Should the Alpha value not be relevant, just set it to 1.0."""
+        """Explicitely construct a vector by specifying its RGBA values. Should the Alpha value not be relevant, just set it to 1.0."""
         ...
     @overload
     def __init__(self,Color:FBColor):
-        """Constructor.
-        
-        Copy constructor. Copy values from another instance."""
+        """Copy constructor. Copy values from another instance."""
         ...
     @overload
     def __init__(self,arg2:list):...
@@ -4443,9 +3842,7 @@ class FBComponentList():
         ### Returns:
         [FBComponent](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html "MotionBuilder SDK base class.") element value"""
         ...
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
     def __len__(self)->int:
         """Returns the number of elements.
         
@@ -4508,9 +3905,7 @@ class FBConfigFile():
         ...
     @overload
     def __init__(self,ConfigFileName:str,VirtualMode:bool=False,ClearFile:bool=False):
-        """Constructor.
-        
-        This will open the desired config file from the [APPLICATION]/bin/config folder. The file will be created if it does not exists. By prefixing the character '@' to the file name, this will automatically prepend the current machine name to the config file, the way it is done for the other config files of the application.
+        """This will open the desired config file from the [APPLICATION]/bin/config folder. The file will be created if it does not exists. By prefixing the character '@' to the file name, this will automatically prepend the current machine name to the config file, the way it is done for the other config files of the application.
         ### Parameters:
         
             - ConfigFileName: Name the config file to use.
@@ -4519,9 +3914,7 @@ class FBConfigFile():
         ...
     @overload
     def __init__(self,ConfigFileName:str,ConfigFilePath:str,VirtualMode:bool=False,ClearFile:bool=False):
-        """Constructor.
-        
-        This will open the desired config file in the designed folder. The file will be created if it does not exists. By prefixing the character '@' to the file name, this will automatically prepend the current machine name to the config file, the way it is done for the other config files of the application.
+        """This will open the desired config file in the designed folder. The file will be created if it does not exists. By prefixing the character '@' to the file name, this will automatically prepend the current machine name to the config file, the way it is done for the other config files of the application.
         ### Parameters:
         
             - ConfigFileName: Name the config file to use.
@@ -4549,24 +3942,12 @@ class FBConstructionOperation():
     """[FBConstructionOperation](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_construction_operation.html "FBConstructionOperation is used to represent an operation in the construction history.") is used to represent an operation in the construction history.
     
     The operation can be any valid script. Currently, only python scripts are supported.An instance of this class defaults to the correct value in order to add a new construction history. If the workgroup plugin is loaded, the operation will be replicated on all machine within a session."""
-    def GetCommandId(self)->int:
-        """"""
-        ...
-    def GetExecuteAsLocalOperation(self)->bool:
-        """"""
-        ...
-    def GetLanguage(self)->str:
-        """"""
-        ...
-    def GetLanguageVersion(self)->int:
-        """"""
-        ...
-    def GetOrigin(self)->str:
-        """"""
-        ...
-    def GetScript(self)->str:
-        """"""
-        ...
+    def GetCommandId(self)->int:...
+    def GetExecuteAsLocalOperation(self)->bool:...
+    def GetLanguage(self)->str:...
+    def GetLanguageVersion(self)->int:...
+    def GetOrigin(self)->str:...
+    def GetScript(self)->str:...
     def SetCommandId(self,commandId:int):
         """SetCommandId Set the operation's Id so that operation transactions can be resolved properly (eg: command 1 should go before command 2).
         
@@ -4707,9 +4088,7 @@ class FBEventActivate(FBEvent):
     """Read Write Property: Generic data of event."""
 class FBEventClipChange(FBEvent):
     def __init__(self):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Event: Base event (internal) to obtain information from."""
         ...
@@ -4720,9 +4099,7 @@ class FBEventConnectionDataNotify(FBEvent):
     Plug:FBPlug
     """Read Only Property: The plug involved in the action."""
     def __init__(self):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Event: Base event (internal) to obtain information from."""
         ...
@@ -4733,9 +4110,7 @@ class FBEventConnectionKeyingNotify(FBEvent):
     StartTime:property
     StopTime:property
     def __init__(self):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Event: Base event (internal) to obtain information from."""
         ...
@@ -4754,9 +4129,7 @@ class FBEventConnectionNotify(FBEvent):
     SrcPlug:FBPlug
     """Read Only Property: The source plug involved in the action."""
     def __init__(self):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Event: Base event (internal) to obtain information from."""
         ...
@@ -4767,9 +4140,7 @@ class FBEventConnectionStateNotify(FBEvent):
     Plug:FBPlug
     """Read Only Property: The plug involved in the action."""
     def __init__(self):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Event: Base event (internal) to obtain information from."""
         ...
@@ -4778,9 +4149,7 @@ class FBEventDblClick(FBEvent):
     Selection:int
     """Read Only Property: Id of selection."""
     def __init__(self):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Event: Base event (internal) to obtain information from."""
         ...
@@ -4867,17 +4236,13 @@ class FBEventOverrideFileOpen(FBEvent):
     WillOverride:bool
     """Read Write Property: Set to true for handling the file load, false by default. If the return value is false, MotionBuilder will proceed with the normal file open/merge process."""
     def __init__(self):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Event: Base event (internal) to obtain information from."""
         ...
 class FBEventPlayerControlChange(FBEvent):
     def __init__(self):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Event: Base event (internal) to obtain information from."""
         ...
@@ -4888,9 +4253,7 @@ class FBEventResize(FBEvent):
     Width:int
     """Property: New Width of the window."""
     def __init__(self):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Event: Base event (internal) to obtain information from."""
         ...
@@ -4903,9 +4266,7 @@ class FBEventSceneChange(FBEvent):
     Component:FBComponent
     """Read Only Property: Modified component"""
     def __init__(self):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Event: Base event (internal) to obtain information from."""
         ...
@@ -4928,9 +4289,7 @@ class FBEventTakeChange(FBEvent):
     Take:FBTake
     """Read Only Property: The take modified."""
     def __init__(self):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Event: Base event (internal) to obtain information from."""
         ...
@@ -4949,9 +4308,7 @@ class FBEventTreeSelect(FBEvent):
     TreeNode:FBTreeNode
     """Read Write Property: Selected tree node."""
     def __init__(self):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Event: Base event (internal) to obtain information from."""
         ...
@@ -4967,9 +4324,7 @@ class FBEventVideoFrameRendering(FBEvent):
     eEndRendering:FBEventVideoFrameRendering.EState
     eRendering:FBEventVideoFrameRendering.EState
     def __init__(self):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Event: Base event (internal) to obtain information from."""
         ...
@@ -4993,9 +4348,7 @@ class FBFCurveEvent(FBEvent):
     ParentComponent:property
     ParentProperty:property
     def __init__(self):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Event: Base event (internal) to obtain information from."""
         ...
@@ -5072,9 +4425,7 @@ class FBFilePopup():
         ### Returns:
         true if OK is clicked by user."""
         ...
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
 class FBFilterManager():
     """Filter manager.
     
@@ -5137,9 +4488,7 @@ class FBFilterManager():
         ### Returns:
         A pointer to a filter instance, or a NULL if the type name was invalid."""
         ...
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
 class FBFolderPopup():
     """Folder Popup (for selecting a directory).
     
@@ -5156,9 +4505,7 @@ class FBFolderPopup():
         ### Returns:
         true if OK is clicked by user."""
         ...
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
 class FBMatrix():
     """[FBMatrix](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_matrix.html "FBMatrix class.") class.
     
@@ -5249,11 +4596,7 @@ class FBMatrix():
         ...
     @overload
     def __init__(self,Value:list):
-        """Constructor.
-        
-        
-        
-        ### Parameters:
+        """### Parameters:
         
             - Value: Array to intialize matrix from."""
         ...
@@ -5333,9 +4676,7 @@ class FBModelList():
         ### Returns:
         Model element value"""
         ...
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
     def __len__(self)->int:
         """Returns the number of elements.
         
@@ -5404,9 +4745,7 @@ class FBMultiLangManager():
         ### Warning:
         Setting the current language will affect the lookup done with the functions FBGetMultiLangText, but will not have any effect on the GUI."""
         ...
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
 class FBNormal():
     @overload
     def CopyFrom(self,arg2:FBNormal)->FBNormal:...
@@ -5494,9 +4833,7 @@ class FBObjectPoseMirrorOptions():
             - Flag: Flag to set.
             - Value: Value to set."""
         ...
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
 class FBObjectPoseOptions():
     """[FBObjectPoseOptions](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_object_pose_options.html "FBObjectPoseOptions class.") class.
     
@@ -5531,9 +4868,7 @@ class FBObjectPoseOptions():
             - Flag: Flag to set.
             - Value: Value to set."""
         ...
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
 class FBPickInfosList():
     """[FBPickInfosList](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_pick_infos_list.html "FBPickInfosList class.") class.
     
@@ -5552,9 +4887,7 @@ class FBPickInfosList():
     def GetCount(self)->int:...
     def GetPickedModel(self,arg2)->object:...
     def __getitem__(self,arg2)->tuple:...
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
     def __len__(self)->int:
         """Returns the number of elements.
         
@@ -5591,9 +4924,7 @@ class FBPlotOptions():
     """Read Write Property: The rotation filter to apply."""
     UseConstantKeyReducer:bool
     """Read Write Property: Should we use a constant key reducer with the filter?"""
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
 class FBPlugList():
     def GetCount(self)->int:...
     def __getitem__(self,arg2)->object:...
@@ -5776,9 +5107,7 @@ class FBPropertyStateEvent(FBEvent):
     ParentComponent:property
     Property:property
     def __init__(self):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Event: Base event (internal) to obtain information from."""
         ...
@@ -5840,7 +5169,7 @@ class FBPythonWrapper():
     This class act as a bridge between the ORSDK C++ world and the Python world. Since each Python objects wrap a ORSDK object we need a way to notify Python if the ORSDK object is destroyed.
     
     OnUnbind is used in this way: it notifies the user when the wrapped ORSDK objects is destroyed."""
-    OnUnbind:FBEvent
+    OnUnbind:callbackframework.FBEventSource
     """Event: Will notifier the user when the corresponding ORSDK objects is unbound from the PythonObject."""
 class FBPlug(FBPythonWrapper):
     """Connections Basic Open Reality SDK Element.
@@ -5909,9 +5238,7 @@ class FBRenderOptions():
     def GetRenderingCamera(self)->FBCamera:
         """Get the rendering camera."""
         ...
-    def GetViewerOptions(self)->FBViewingOptions:
-        """"""
-        ...
+    def GetViewerOptions(self)->FBViewingOptions:...
     def IsIDBufferPicking(self)->bool:...
     def IsIDBufferRendering(self)->bool:
         """Get IDBuffer Rendering request status (for display or picking)
@@ -6063,12 +5390,8 @@ class FBProperty(FBPlug):
         ### Returns:
         true if property or any of its members is locked"""
         ...
-    def IsAnimatable(self)->bool:
-        """"""
-        ...
-    def IsInternal(self)->bool:
-        """"""
-        ...
+    def IsAnimatable(self)->bool:...
+    def IsInternal(self)->bool:...
     def IsList(self)->bool:
         """Verify if property is of this type.
         
@@ -6116,15 +5439,9 @@ class FBProperty(FBPlug):
         ### Returns:
         true if property is read-only."""
         ...
-    def IsReferenceProperty(self)->bool:
-        """"""
-        ...
-    def IsTextureConnectableProperty(self)->bool:
-        """"""
-        ...
-    def IsUserProperty(self)->bool:
-        """"""
-        ...
+    def IsReferenceProperty(self)->bool:...
+    def IsTextureConnectableProperty(self)->bool:...
+    def IsUserProperty(self)->bool:...
     def ModifyPropertyFlag(self,Flag:FBPropertyFlag,Value:bool):
         """ModifyPropertyFlag.
         
@@ -6375,7 +5692,6 @@ class FBComponent(FBPlug):
         ...
 class FBPropertyVector4d(FBProperty):
     Data:FBVector4d
-    """"""
     def __getitem__(self,arg2)->float:...
     def __len__(self)->int:...
     def __setitem__(self,arg2,arg3):...
@@ -6444,9 +5760,7 @@ class FBReferenceTime(FBComponent):
             - ReferenceTime: Time to use as reference time.
             - System: System time."""
         ...
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
 class FBPropertyViewManager(FBComponent):
     """[FBProperty](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property.html "Generic application property.") View Manager.
     
@@ -6540,13 +5854,11 @@ class FBPropertyViewManager(FBComponent):
     def __init__(self):...
 class FBPropertyVector3d(FBProperty):
     Data:FBVector3d
-    """"""
     def __getitem__(self,arg2)->float:...
     def __len__(self)->int:...
     def __setitem__(self,arg2,arg3):...
 class FBPropertyVector2d(FBProperty):
     Data:FBVector2d
-    """"""
     def __getitem__(self,arg2)->float:...
     def __len__(self)->int:...
     def __setitem__(self,arg2,arg3):...
@@ -6554,7 +5866,6 @@ class FBPropertyTimeCode(FBProperty):
     Data:FBTimeCode
 class FBPropertyTime(FBProperty):
     Data:FBTime
-    """"""
 class FBPropertyStringList(FBProperty):
     """```python
     # Supported list protocol methods:    
@@ -6688,7 +5999,6 @@ class FBPropertyStringList(FBProperty):
 class FBPropertyString(FBProperty):
     """Property: StringList"""
     Data:str
-    """"""
 class FBPropertyListTreeNode(FBProperty):
     """PropertyList of nodes in the tree view. PropertyList: UserObject.
     
@@ -7088,10 +6398,8 @@ class FBPropertyListConstraint(FBPropertyListComponent):
     def __getitem__(self,arg2)->object:...
 class FBPropertyInt(FBProperty):
     Data:int
-    """"""
 class FBPropertyFloat(FBProperty):
     Data:float
-    """"""
 class FBPropertyEnum(FBProperty):
     """[Enumeration](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_enumeration.html "Enumeration mapping.") property.
     
@@ -7100,10 +6408,8 @@ class FBPropertyEnum(FBProperty):
     """Return the string associated with the index. Will return None when no value is associated."""
 class FBPropertyDouble(FBProperty):
     Data:float
-    """"""
 class FBPropertyComponent(FBProperty):
     Data:FBComponent
-    """"""
 class FBPropertyColorAndAlpha(FBProperty):
     """[FBPropertyColorAndAlpha](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_color_and_alpha.html "FBPropertyColorAndAlpha class.") class.
     
@@ -7121,7 +6427,6 @@ class FBPropertyColorAndAlpha(FBProperty):
     ### Warning:
     Slicing is not supported by this object."""
     Data:FBColorAndAlpha
-    """"""
     def __getitem__(self,Index:int)->float:
         """Returns the ith component Corresponds to python: print c[1].
         
@@ -7163,7 +6468,6 @@ class FBPropertyColor(FBProperty):
     ### Warning:
     Slicing is not supported by this object."""
     Data:FBColor
-    """"""
     def __getitem__(self,Index:int)->float:
         """Returns the ith component Corresponds to python: print c[1].
         
@@ -7190,7 +6494,6 @@ class FBPropertyColor(FBProperty):
         ...
 class FBPropertyBool(FBProperty):
     Data:bool
-    """"""
 class FBPropertyAnimatable(FBProperty):
     """Animatable property base class."""
     Data:object
@@ -7362,22 +6665,18 @@ class FBPropertyAnimatable(FBProperty):
         ...
 class FBPropertyAction(FBProperty):
     Data:bool
-    """"""
 class FBPropertyAnimatableVector4d(FBPropertyAnimatable):
     Data:FBVector4d
-    """"""
     def __getitem__(self,arg2)->float:...
     def __len__(self)->int:...
     def __setitem__(self,arg2,arg3):...
 class FBPropertyAnimatableVector3d(FBPropertyAnimatable):
     Data:FBVector3d
-    """"""
     def __getitem__(self,arg2)->float:...
     def __len__(self)->int:...
     def __setitem__(self,arg2,arg3):...
 class FBPropertyAnimatableVector2d(FBPropertyAnimatable):
     Data:FBVector2d
-    """"""
     def __getitem__(self,arg2)->float:...
     def __len__(self)->int:...
     def __setitem__(self,arg2,arg3):...
@@ -7387,18 +6686,15 @@ class FBPropertyAnimatableTimeCode(FBPropertyAnimatable):
     Data:FBTimeCode
 class FBPropertyAnimatableTime(FBPropertyAnimatable):
     Data:FBTime
-    """"""
 class FBPropertyAnimatableInt64(FBPropertyAnimatable):
     Data:int
 class FBPropertyAnimatableInt(FBPropertyAnimatable):
     Data:int
-    """"""
 class FBPropertyAnimatableEnum(FBPropertyAnimatable):
     Data:Enumeration
     """Return the string associated with the index. Will return None when no value is associated."""
 class FBPropertyAnimatableDouble(FBPropertyAnimatable):
     Data:float
-    """"""
     @overload
     def __add__(self,arg2:FBPropertyAnimatableDouble)->object:...
     @overload
@@ -7422,22 +6718,18 @@ class FBPropertyAnimatableDouble(FBPropertyAnimatable):
     def __truediv__(self,arg2)->object:...
 class FBPropertyAnimatableColorAndAlpha(FBPropertyAnimatable):
     Data:FBColorAndAlpha
-    """"""
     def __getitem__(self,arg2)->float:...
     def __len__(self)->int:...
     def __setitem__(self,arg2,arg3):...
 class FBPropertyAnimatableColor(FBPropertyAnimatable):
     Data:FBColor
-    """"""
     def __getitem__(self,arg2)->float:...
     def __len__(self)->int:...
     def __setitem__(self,arg2,arg3):...
 class FBPropertyAnimatableBool(FBPropertyAnimatable):
     Data:bool
-    """"""
 class FBPropertyAnimatableAction(FBPropertyAnimatable):
     Data:bool
-    """"""
 class FBRenderer(FBComponent):
     """Open Reality renderer interface.
     
@@ -7742,9 +7034,7 @@ class FBRenderer(FBComponent):
         ### Returns:
         true if successful."""
         ...
-    def OGLModelDisplay(self,RenderOptions:FBRenderOptions,Model:FBModel):
-        """"""
-        ...
+    def OGLModelDisplay(self,RenderOptions:FBRenderOptions,Model:FBModel):...
     def OGLSetupSceneLights(self,RenderOptions:FBRenderOptions):
         """Setup the scene lights in OpenGL.
         
@@ -7965,9 +7255,7 @@ class FBProgress(FBComponent):
         
         Must be called in between [ProgressBegin()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_progress.html#a74b65ec9004d7726cb2eb88eac9f0929 "Start progress, must be called before set Text & Percent property.")/ProgressDone()."""
         ...
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
 class FBProfiler(FBComponent):
     """[FBProfiler](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_profiler.html "FBProfiler.").
     
@@ -8093,9 +7381,7 @@ class FBProfiler(FBComponent):
         ### Returns:
         Stop time (in seconds)."""
         ...
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
 class FBPose(FBComponent):
     """Pose class."""
     Type:FBPoseType
@@ -8214,9 +7500,7 @@ class FBPose(FBComponent):
             - Object: Object to associate with this pose node."""
         ...
     def __init__(self,Name:str):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Name: Name of pose."""
         ...
@@ -9050,9 +8334,7 @@ class FBCharacterMarkerSet(FBComponent):
         The property associated with given pNodeId and pWhat."""
         ...
     def __init__(self,Name:str):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Name: Name of new character marker set."""
         ...
@@ -9209,9 +8491,7 @@ class FBBox(FBComponent):
         ### Returns:
         true if node is user data."""
         ...
-    def AnimationNodeOutGet(self)->FBAnimationNode:
-        """"""
-        ...
+    def AnimationNodeOutGet(self)->FBAnimationNode:...
     def FbxGetObjectSubType(self)->str:
         """Returns the class sub type inherited by the class of an object, for example: 'Relations', 'Parent-Child', 'Number to Vector', 'Shot'.
         
@@ -9259,9 +8539,7 @@ class FBBox(FBComponent):
         The number of animation node outputs for this box."""
         ...
     def __init__(self,Name:str):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Name: Box name."""
         ...
@@ -9269,9 +8547,7 @@ class FBAudioOut(FBComponent):
     """Audio Out class.
     
     Properties of this class are work in progress, but you can still list them and get their names."""
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
 class FBBoxPlaceHolder(FBBox):
     """Wrapper around a specific instance of a [FBBox](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_box.html "A box is a fundamental building block in the application architecture.") object.
     
@@ -9292,9 +8568,7 @@ class FBConstraint(FBBox):
     """Read Write Property: Lock state."""
     Weight:FBPropertyAnimatableDouble
     """Read Write Property: Weight of constraint."""
-    def AnimationNodeInCreate(self,UserId:int,Model:FBModel,Attribute:str)->FBAnimationNode:
-        """"""
-        ...
+    def AnimationNodeInCreate(self,UserId:int,Model:FBModel,Attribute:str)->FBAnimationNode:...
     def AnimationNodeOutCreate(self,UserId:int,Model:FBModel,Attribute:str)->FBAnimationNode:
         """Animation Node Creations (IN/OUT).
         
@@ -9327,9 +8601,7 @@ class FBConstraint(FBBox):
         ### Returns:
         true if successful."""
         ...
-    def DeformerUnBind(self,Model:FBModel)->bool:
-        """"""
-        ...
+    def DeformerUnBind(self,Model:FBModel)->bool:...
     def Disable(self,Model:FBModel)->bool:
         """Disable constraint on pModel.
         
@@ -9513,9 +8785,7 @@ class FBCharacterSolver(FBConstraint):
         ...
     def SetTransformationOffset(self,arg2:FBModel,arg3:FBVector3d,arg4:FBVector3d,arg5:FBVector3d):...
     def __init__(self,Name:str,arg3:FBCharacter,arg4:str):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Name: Name of constraint."""
         ...
@@ -9895,9 +9165,7 @@ class FBCharacterFace(FBConstraint):
         True if the operation completed successfully."""
         ...
     def __init__(self,Name:str):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Name: Name of new character."""
         ...
@@ -10222,15 +9490,9 @@ class FBCharacter(FBConstraint):
         ### Returns:
         The model linked to the specified body part."""
         ...
-    def GetParentROffset(self,BodyNodeId:FBBodyNodeId,RVector:FBVector3d):
-        """"""
-        ...
-    def GetROffset(self,BodyNodeId:FBBodyNodeId,RVector:FBVector3d):
-        """"""
-        ...
-    def GetSOffset(self,BodyNodeId:FBBodyNodeId,SVector:FBVector3d):
-        """"""
-        ...
+    def GetParentROffset(self,BodyNodeId:FBBodyNodeId,RVector:FBVector3d):...
+    def GetROffset(self,BodyNodeId:FBBodyNodeId,RVector:FBVector3d):...
+    def GetSOffset(self,BodyNodeId:FBBodyNodeId,SVector:FBVector3d):...
     def GetSkeletonVisibility(self)->FBVisibilityState:
         """Get the skeleton visibility state.
         
@@ -10245,12 +9507,8 @@ class FBCharacter(FBConstraint):
         
             - SkinModelList: List to be filled up. (will not be cleared)"""
         ...
-    def GetTOffset(self,BodyNodeId:FBBodyNodeId,TVector:FBVector4d):
-        """"""
-        ...
-    def GetTransformOffset(self,BodyNodeId:FBBodyNodeId,OffsetMatrix:FBMatrix):
-        """"""
-        ...
+    def GetTOffset(self,BodyNodeId:FBBodyNodeId,TVector:FBVector4d):...
+    def GetTransformOffset(self,BodyNodeId:FBBodyNodeId,OffsetMatrix:FBMatrix):...
     def GoToStancePose(self,PushUndo:bool=False,IncludeCharacterExtensions:bool=True):
         """Set the character in stance pose.
         
@@ -10423,9 +9681,7 @@ class FBCharacter(FBConstraint):
         True if the operation is successful, false otherwise."""
         ...
     def __init__(self,Name:str):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Name: Name of new character."""
         ...
@@ -10897,9 +10153,7 @@ class FBActor(FBConstraint):
             - EvalInfo: Evaluate Info of the Values"""
         ...
     def __init__(self,Name:str):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Name: Name of new actor."""
         ...
@@ -10964,9 +10218,7 @@ class FBConstraintRelation(FBConstraint):
         A boolean value indicating success (True) or failure (False)."""
         ...
     def __init__(self,Name:str|None=None):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Name: Name of constraint."""
         ...
@@ -10982,33 +10234,19 @@ class FBCycleAnalysisNode(FBBox):
     """Read Only Property: Root Speed Mode."""
     RootXZMode:FBRootXZMode
     """Read Only Property: RootXZ Mode."""
-    def GetPoseFCurve(self)->FBFCurve:
-        """"""
-        ...
-    def GetRootHFCurve(self)->FBFCurve:
-        """"""
-        ...
-    def GetRootRFCurve(self)->FBFCurve:
-        """"""
-        ...
-    def GetRootSpeedFCurve(self)->FBFCurve:
-        """"""
-        ...
-    def GetRootXZFCurve(self)->FBFCurve:
-        """"""
-        ...
+    def GetPoseFCurve(self)->FBFCurve:...
+    def GetRootHFCurve(self)->FBFCurve:...
+    def GetRootRFCurve(self)->FBFCurve:...
+    def GetRootSpeedFCurve(self)->FBFCurve:...
+    def GetRootXZFCurve(self)->FBFCurve:...
     def __init__(self,Name:str):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Name: Name of new cycle analysis node."""
         ...
 class FBConstraintSolver(FBConstraint):
     """Base class for constraint solver."""
-    def __init__(self,Name:str|None=None):
-        """"""
-        ...
+    def __init__(self,Name:str|None=None):...
 class FBDevice(FBBox):
     """Base Device class.
     
@@ -11165,9 +10403,7 @@ class FBDeviceOptical(FBDevice):
             - DeviceNotifyInfo: Notification information when thread was called."""
         ...
     def __init__(self,Name:str):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Name: Unique name of optical device."""
         ...
@@ -11211,9 +10447,7 @@ class FBGroup(FBBox):
             - Select: If **true**, group contents will be selected."""
         ...
     def __init__(self,Name:str):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Name: Group name."""
         ...
@@ -11235,7 +10469,7 @@ class FBHUD(FBBox):
     """List: Elements present in the HUD."""
     HUDs:FBPropertyListHUD
     """List: HUDS attached to this HUD."""
-    OnDisplay:FBEvent
+    OnDisplay:callbackframework.FBEventSource
     """Event: Callback just before HUD is displayed to update custom values"""
     Visibility:bool
     """Read Write Property: Indicate if the information will be displayed or not."""
@@ -11271,9 +10505,7 @@ class FBHUD(FBBox):
         The created HUD Element."""
         ...
     def __init__(self,Name:str):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Name: Name of new HUD."""
         ...
@@ -11342,9 +10574,7 @@ class FBHUDFlashElement(FBHUDElement):
     FilePath:str
     """Read Write Property: Path to load the swf file from"""
     def __init__(self,Name:str):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Name: Name of new HUD flash element."""
         ...
@@ -11357,9 +10587,7 @@ class FBHUDRectElement(FBHUDElement):
     Color:FBColorAndAlpha
     """Read Write Property: Color of the rectangluar region."""
     def __init__(self,Name:str):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Name: Name of new HUD rectangle element."""
         ...
@@ -11378,9 +10606,7 @@ class FBHUDBloopSlateElement(FBHUDFlashElement):
     ShowDuration:FBTime
     """Read Write Property: Time that the bloop slate will be displayed."""
     def __init__(self,Name:str):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Name: Name of new HUD flash element."""
         ...
@@ -11407,9 +10633,7 @@ class FBHUDTimelineElement(FBHUDFlashElement):
     TailIdleColor:FBColorAndAlpha
     """Read Write Property: Specifies color of the Tail region when it is idle."""
     def __init__(self,Name:str):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Name: Name of new HUD flash element."""
         ...
@@ -11435,9 +10659,7 @@ class FBHUDTextElement(FBHUDElement):
         """Returns a list of supported fonts."""
         ...
     def __init__(self,Name:str):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Name: Name of new HUD text element."""
         ...
@@ -11450,9 +10672,7 @@ class FBHUDTextureElement(FBHUDElement):
     Texture:FBPropertyListTexture
     """Read Write Property: Texture to display."""
     def __init__(self,Name:str):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Name: Name of new HUD texture element."""
         ...
@@ -11525,9 +10745,7 @@ class FBMaterial(FBBox):
         ...
     def __copy__(self)->object:...
     def __init__(self,Name:str):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Name: Name of material."""
         ...
@@ -11934,9 +11152,7 @@ class FBNote(FBBox):
         A boolean indicating if the operation was successful or not."""
         ...
     def __init__(self,Name:str):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Name: Name of note."""
         ...
@@ -11947,9 +11163,7 @@ class FBModelCube(FBModel):
     
     [See samples: FBGroup.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_f_b_group_8py-example.html) [FBModelCube.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_f_b_model_cube_8py-example.html)"""
     def __init__(self,Name:str):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Name: Name of cube."""
         ...
@@ -12000,9 +11214,7 @@ class FBLight(FBModel):
     eRectangle:FBLight.EAreaLightShapes
     eSphere:FBLight.EAreaLightShapes
     def __init__(self,Name:str):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Name: Name of light."""
         ...
@@ -12029,9 +11241,7 @@ class FBCameraSwitcher(FBModel):
         True if the plot operation has been processed successfully, false otherwise."""
         ...
     def UseEvaluateSwitch(self):...
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
 class FBCamera(FBModel):
     """Creates custom cameras and manages system cameras.
     
@@ -12257,9 +11467,7 @@ class FBCamera(FBModel):
         The world coordinates in 3D space"""
         ...
     def __init__(self,Name:str):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Name: Name of camera."""
         ...
@@ -12284,9 +11492,7 @@ class FBModelMarker(FBModel):
     Type:FBMarkerType
     """Read Write Property: Type of model marker."""
     def __init__(self,Name:str):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Name: Name of model marker. If pObject is not NULL, pName will be ignored."""
         ...
@@ -12320,9 +11526,7 @@ class FBCameraStereo(FBCamera):
     ZeroParallaxPlaneTransparency:float
     """Read Write Property:  Zero parallax plane transparency."""
     def __init__(self,Name:str):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Name: Name of stereo camera."""
         ...
@@ -12331,9 +11535,7 @@ class FBModelNull(FBModel):
     Size:float
     """Read Write Property: Size (not related to scaling)."""
     def __init__(self,Name:str):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Name: Name of null."""
         ...
@@ -12426,9 +11628,7 @@ class FBModelMarkerOptical(FBModelMarker):
             - Optical: New optical model."""
         ...
     def __init__(self,Name:str,Optical:FBModelOptical):
-        """Constructor.
-        
-        If no optical model is given, be sure to add one before accessing the Segments and Gaps properties.
+        """If no optical model is given, be sure to add one before accessing the Segments and Gaps properties.
         ### Parameters:
         
             - Name: Name of optical marker(default=NULL).
@@ -12482,9 +11682,7 @@ class FBModelOptical(FBModel):
         true if successful."""
         ...
     def __init__(self,Name:str):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Name: Name of optical model."""
         ...
@@ -12951,9 +12149,7 @@ class FBModelPath3D(FBModel):
         """Update path geometry explicitly."""
         ...
     def __init__(self,Name:str):
-        """Constructor.
-        
-        Python sample code:
+        """Python sample code:
         
         ```python
         from pyfbsdk import *
@@ -12979,9 +12175,7 @@ class FBModelPath3D(FBModel):
 class FBModelPlane(FBModel):
     """Plane model class."""
     def __init__(self,Name:str):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Name: Name of Plane."""
         ...
@@ -12994,9 +12188,7 @@ class FBModelRoot(FBModel):
     Size:float
     """Read Write Property: Size (not related to scaling)."""
     def __init__(self,Name:str):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Name: Name of root."""
         ...
@@ -13024,9 +12216,7 @@ class FBModelSkeleton(FBModel):
             - SkinModelList: List to be appended with skin models (with no duplicated items)."""
         ...
     def __init__(self,Name:str):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Name: Name of skeleton."""
         ...
@@ -13036,9 +12226,7 @@ class FBPhysicalProperties(FBBox):
     
     
     [See sample: RigiBody.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_rigi_body_8py-example.html)"""
-    def __init__(self,Name:str|None=None):
-        """"""
-        ...
+    def __init__(self,Name:str|None=None):...
 class FBAudioIn(FBComponent):
     """Audio In class.
     
@@ -13218,9 +12406,7 @@ class FBAudioIn(FBComponent):
         ### Returns:
         True if operation is successful, false otherwise."""
         ...
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
 class FBAudioClip(FBComponent):
     """Used to play audio clips and access their properties.
     
@@ -13308,9 +12494,7 @@ class FBAudioClip(FBComponent):
             - Destination: Where the audio clip is playing. If NULL, the default destination will be used."""
         ...
     def __init__(self,FileName:str):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - FileName: The complete file path of the media file to access.
             - SetToDefaultDest: If true and the media file open successfully, it will automatically be connected to an output device."""
@@ -13541,23 +12725,23 @@ class FBApplication(FBComponent):
     """Read Write Property: Indicate the current character, as used by the character tool. Can be NULL. If not null, CurrentActor must be null, as the character tool works on only one item at a time. [See sample: CurrentCharacterGoToStancePose.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_current_character_go_to_stance_pose_8py-example.html)"""
     FBXFileName:str
     """Read Write Property: Current scene filename."""
-    OnFileExit:FBEvent
+    OnFileExit:callbackframework.FBEventSource
     """Event: A File Exit as been requested, nothing has been destroyed yet."""
-    OnFileMerge:FBEvent
+    OnFileMerge:callbackframework.FBEventSource
     """Event: A File Merge has been requested, nothing has been loaded yet."""
-    OnFileNew:FBEvent
+    OnFileNew:callbackframework.FBEventSource
     """Event: A File New has been requested, nothing has been destroyed yet."""
-    OnFileNewCompleted:FBEvent
+    OnFileNewCompleted:callbackframework.FBEventSource
     """Event: A File New has been completed."""
-    OnFileOpen:FBEvent
+    OnFileOpen:callbackframework.FBEventSource
     """Event: A File Open has been requested, nothing has been loaded yet."""
-    OnFileOpenCompleted:FBEvent
+    OnFileOpenCompleted:callbackframework.FBEventSource
     """Event: A File Open has been completed."""
-    OnFileSave:FBEvent
+    OnFileSave:callbackframework.FBEventSource
     """Event: A File Save has been requested, nothing has been saved yet."""
-    OnFileSaveCompleted:FBEvent
+    OnFileSaveCompleted:callbackframework.FBEventSource
     """Event: A File Save has been completed."""
-    OnOverrideFileOpen:FBEventOverrideFileOpen
+    OnOverrideFileOpen:callbackframework.FBEventSource
     """Event: Called when a file is about to be opened/merged. The user can override the process with his own file import system."""
     def AudioRender(self,AudioRenderOptions:FBAudioRenderOptions|None=None)->bool:
         """Render audio of current scene to media file, currently WAV file only.
@@ -14036,9 +13220,7 @@ class FBApplication(FBComponent):
     def UpdateAllWidgets(self):
         """Request to refresh display of all UI widgets."""
         ...
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
 class FBAssetFile(FBAssetItem):
     """Class representing a file stored in a version control database."""
     def GetCheckedOutBy(self)->str:
@@ -14206,9 +13388,7 @@ class FBAnimationLayer(FBComponent):
             - ParentLayer: A pointer to the parent layer or NULL if you want to unparent the layer."""
         ...
     def __init__(self,Name:str,LayerID:int):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Name: Name of the animation layer.
             - LayerID: ID to set for the new layer."""
@@ -14224,9 +13404,7 @@ class FBActorFace(FBComponent):
         True if the operation completed successfully."""
         ...
     def __init__(self,Name:str):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Name: Name of new actor face."""
         ...
@@ -14301,7 +13479,7 @@ class FBConstraintManager(FBComponent):
     def __init__(self):...
 class FBConstructionHistory(FBComponent):
     """Access to global construction history functionality."""
-    OnChange:FBEvent
+    OnChange:callbackframework.FBEventSource
     """Event: History changed."""
     def GetDeltaOperations(self,Operations:list,sinceCommandId:int):
         """GetDeltaOperations Get the list of delta operations in the construction history.
@@ -14447,9 +13625,7 @@ class FBControlSet(FBComponent):
         The reference name associated with the Control Set."""
         ...
     def __init__(self,Name:str):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Name: Name of new control set."""
         ...
@@ -14477,9 +13653,7 @@ class FBCycleCreator(FBComponent):
         ### Returns:
         true if successful."""
         ...
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
 class FBDeck(FBComponent):
     """Interface to a tape deck."""
     CassetteInside:bool
@@ -14561,17 +13735,13 @@ class FBDeck(FBComponent):
     def Stop(self):
         """Stop."""
         ...
-    def ThreadSync(self):
-        """"""
-        ...
+    def ThreadSync(self):...
 class FBDeformer(FBComponent):
     """Base Model deformer class."""
     DeformerType:FBDeformerType
     """Read Only Property: Deformer Type."""
     def __init__(self,Name:str):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Name: Name of deformer."""
         ...
@@ -14604,9 +13774,7 @@ class FBDeviceInstrument(FBComponent):
         true if successful."""
         ...
     def __init__(self,Device:FBDevice):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Device: Parent device."""
         ...
@@ -14633,9 +13801,7 @@ class FBDeformerPointCache(FBDeformer):
     PointCacheFile:FBPointCacheFile
     """Read Write Property: Point Cache File Object."""
     def __init__(self,Name:str):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Name: Name of deformer."""
         ...
@@ -14661,9 +13827,7 @@ class FBDeviceOpticalMarker(FBComponent):
             - Occlusion: Occulsion information for marker(default=0.0)."""
         ...
     def __init__(self,Name:str):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Name: Name of optical marker."""
         ...
@@ -14768,9 +13932,9 @@ class FBFCurveEventManager(FBComponent):
     """FCurve Event Manager Interface to the [FBFCurveEventManager](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_f_curve_event_manager.html "FCurve Event Manager Interface to the FBFCurveEventManager.").
     
     This class is used to track the changes on a FCurve of a property."""
-    OnFCurveEvent:property
+    OnFCurveEvent:callbackframework.FBEventSource
     """Event: Called when a registered FCurve is modified."""
-    OnPropertyEvent:property
+    OnPropertyEvent:callbackframework.FBEventSource
     """Event: Called when a registered property state is modified (detached, destroyed...)."""
     def RegisterProperty(self,Property:FBPropertyAnimatable)->bool:
         """Register a property to the FCurve Event Manager.
@@ -15118,9 +14282,7 @@ class FBFbxOptions(FBComponent):
     def __init__(self,arg2):...
     @overload
     def __init__(self,Load:bool,FilePathToLoad:str):
-        """Constructor.
-        
-        Create a FBFbxOption to be used in [FBApplication](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_application.html "FBApplication is used mainly to manage files.") Save/Load with default settings.
+        """Create a FBFbxOption to be used in [FBApplication](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_application.html "FBApplication is used mainly to manage files.") Save/Load with default settings.
         ### Parameters:
         
             - Load: If true, will init option for a default Load (Append all elements and animation). If false will initialized options for a default Save (Save all elements and animation).
@@ -15128,13 +14290,13 @@ class FBFbxOptions(FBComponent):
         ...
 class FBFileMonitoringManager(FBComponent):
     """File Change Monitoring Interface to the file change monitoring."""
-    OnFileChangeAnimationClip:FBEvent
+    OnFileChangeAnimationClip:callbackframework.FBEventSource
     """Event: Animation clip file change event."""
-    OnFileChangeFileReference:FBEvent
+    OnFileChangeFileReference:callbackframework.FBEventSource
     """Event: File Reference file change event."""
-    OnFileChangeMainScene:FBEvent
+    OnFileChangeMainScene:callbackframework.FBEventSource
     """Event: Main scene file change event."""
-    OnFileChangePythonEditorScript:FBEvent
+    OnFileChangePythonEditorScript:callbackframework.FBEventSource
     """Event: Python Editor Script file change event."""
     def AddFileToMonitor(self,FilePath:str,FileMonitoringType:FBFileMonitoringType):
         """Add file to monitor.
@@ -15259,9 +14421,7 @@ class FBFolder(FBComponent):
     Items:FBPropertyListComponent
     """List: List of components in the folder."""
     def __init__(self,Name:str,Component:FBComponent):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Name: Name to assign to new folder.
             - Component: Object used to determine folder's category."""
@@ -15307,7 +14467,7 @@ class FBGenericMenu(FBComponent):
     You can also delete a Menu item: this will remove the item from the menu as well as freeing its memory.To be notified when a menuitem is clicked, you can register using OnMenuActivate. This will send a [FBEventMenu](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_event_menu.html "Menu event.") containing the name and the Id of the menu item that was clicked.
     
     [See sample: FBMenu.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_f_b_menu_8py-example.html)"""
-    OnMenuActivate:FBEvent
+    OnMenuActivate:callbackframework.FBEventSource
     """Event Property: Register on this property to be notified when a menu item is clicked by the user."""
     def DeleteItem(self,ToDelete:FBGenericMenuItem):
         """Remove a menu item from the menu and delete it.
@@ -16158,9 +15318,7 @@ class FBMesh(FBGeometry):
         The indexes' value in input pIndexArray won't be validated, and the behavior is undefined if out of range."""
         ...
     def __init__(self,Name:str):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Name: Name of Mesh."""
         ...
@@ -16241,9 +15399,7 @@ class FBImage(FBComponent):
         ...
     def WriteToTif(self,arg2:str,arg3:str,arg4)->bool:...
     def __init__(self,FileName:str):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - FileName: Path to the image file. If pObject is not NULL, pFileName will be ignored."""
         ...
@@ -16271,9 +15427,7 @@ class FBKeyControl(FBComponent):
             - Time: The time at which the transformation values are applied to the pivot object
             - ModelList: List of models for which the animation will be modified. Optional parameter. If not supplied, the models in the current keying group will be used"""
         ...
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
 class FBKeyingGroup(FBComponent):
     """KeyingGroup class.
     
@@ -16458,9 +15612,7 @@ class FBKeyingGroup(FBComponent):
             - Object: Object that will be used to set the keying group object type. Use NULL to remove the filter."""
         ...
     def __init__(self,Name:str,Type:FBKeyingGroupType):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Name: Group name.
             - Type: Keying group type."""
@@ -16663,9 +15815,7 @@ class FBCharacterExtension(FBKeyingGroup):
         """Update the stance pose to the current position of the character extension element."""
         ...
     def __init__(self,Name:str):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Name: Group name."""
         ...
@@ -16845,9 +15995,7 @@ class FBMarkerSet(FBComponent):
             - MarkerIndex: Index of marker to access.
             - IsOriented: Oriented or not."""
         ...
-    def SetMarkerROffset(self,NodeId:FBSkeletonNodeId,MarkerIndex:int,ROffset:FBVector3d):
-        """"""
-        ...
+    def SetMarkerROffset(self,NodeId:FBSkeletonNodeId,MarkerIndex:int,ROffset:FBVector3d):...
     def SetMarkerSetVisibility(self,Visibility:bool):
         """Set the marker set visibility.
         
@@ -16855,9 +16003,7 @@ class FBMarkerSet(FBComponent):
         
             - Visibility: True will make to markers visible, false will hide them."""
         ...
-    def SetMarkerTOffset(self,NodeId:FBSkeletonNodeId,MarkerIndex:int,TOffset:FBVector3d):
-        """"""
-        ...
+    def SetMarkerTOffset(self,NodeId:FBSkeletonNodeId,MarkerIndex:int,TOffset:FBVector3d):...
     def SetMarkerUsed(self,NodeId:FBSkeletonNodeId,MarkerIndex:int,Used:bool):
         """Set marker to be used or not.
         
@@ -16886,9 +16032,7 @@ class FBMarkerSet(FBComponent):
             - ReferenceModel: Model to be associated to the marker."""
         ...
     def __init__(self,Name:str):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Name: Name of new marker set."""
         ...
@@ -17023,9 +16167,7 @@ class FBMenuManager(FBComponent):
             - Enable: Enable (true) or disable (false) a menu item."""
         ...
     def __init__(self):
-        """Constructor.
-        
-        There is only one MenuManager in MotionBuilder, creating multiple [FBMenuManager](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_menu_manager.html "The menu manager allows access to MotionBuilder menu bar.") always return the same handle to the same global menu manager."""
+        """There is only one MenuManager in MotionBuilder, creating multiple [FBMenuManager](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_menu_manager.html "The menu manager allows access to MotionBuilder menu bar.") always return the same handle to the same global menu manager."""
         ...
 class FBModelOpticalAdvanced(FBComponent):
     """Advanced optical model information."""
@@ -17067,9 +16209,7 @@ class FBModelOpticalAdvanced(FBComponent):
         """Skip segment."""
         ...
     def __init__(self,Optical:FBModelOptical):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Optical: Optical model."""
         ...
@@ -17662,9 +16802,7 @@ class FBMotionBlendEdit(FBComponent):
         True if the operation is successful, false otherwise."""
         ...
     def __init__(self,Name:str|None=None,SetAsCurrent:bool=True):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Name: The new Edit name. If unset, the name "Edit" will be set.
             - SetAsCurrent: True (default) to set the new Edit as the current Edit to be used in the Motion Blend."""
@@ -17682,9 +16820,7 @@ class FBMotionClip(FBComponent):
     Stop:FBTime
     """Read Only Property: Stop time of clip."""
     def __init__(self,FileName:str):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - FileName: The complete file path of the media file to access."""
         ...
@@ -17870,9 +17006,7 @@ class FBMotionFileExportOptions(FBComponent):
         If the OneTakePerFile property is false, changing the time mode/frame rate for one take will modify the time mode/frame rate of all the other takes at once."""
         ...
     def __init__(self,FilePath:str):
-        """Constructor.
-        
-        Create an [FBMotionFileExportOptions](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_motion_file_export_options.html "Customize motion file exporting.") object to be used when exporting a motion file. Pass the file path for the motion file(s) to create, modify the options and then call the file export process. Only the FBX file format is supported for now.
+        """Create an [FBMotionFileExportOptions](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_motion_file_export_options.html "Customize motion file exporting.") object to be used when exporting a motion file. Pass the file path for the motion file(s) to create, modify the options and then call the file export process. Only the FBX file format is supported for now.
         ### Parameters:
         
             - FilePath: The file path for the motion file(s) to create."""
@@ -18066,9 +17200,7 @@ class FBMotionFileImportOptions(FBComponent):
         Changing the stop time of the take will also change the start time, since the duration is constant. Please change the samples count to change the length of the motion."""
         ...
     def __init__(self,StringList:FBStringList):
-        """Constructor.
-        
-        Create an [FBMotionFileImportOptions](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_motion_file_import_options.html "Customize motion file loading.") object to be used when importing a motion file. Pass file paths to get the appropriate information about those files, modify the options and then call the file import process. Not all options are usable at the same time, some of them are for specific motion type. You can see the valid configuration by looking at the motion file dialog (accessible from File/Motion File Import...).
+        """Create an [FBMotionFileImportOptions](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_motion_file_import_options.html "Customize motion file loading.") object to be used when importing a motion file. Pass file paths to get the appropriate information about those files, modify the options and then call the file import process. Not all options are usable at the same time, some of them are for specific motion type. You can see the valid configuration by looking at the motion file dialog (accessible from File/Motion File Import...).
         ### Parameters:
         
             - StringList: The client needs to pass a list of files path to load to collect the motion file information."""
@@ -18106,9 +17238,7 @@ class FBNamespace(FBComponent):
             - ExactTypeMatch: if **True**, the derived typeInfo won't be considered (For example, [FBCamera](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_camera.html "Creates custom cameras and manages system cameras.") won't be considered when passing [FBModel::TypeInfo](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html#a9b39fba51413fa925a0d94d2feb13bf9 "Contains the Type information of the object."))."""
         ...
     def __init__(self,SingleLevelNamespace:str,ParentNSObj:FBNamespace):
-        """Constructor.
-        
-        Create a new direct children namespace object
+        """Create a new direct children namespace object
         ### Parameters:
         
             - SingleLevelNamespace: [FBNamespace](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_namespace.html "Objects Containing class.") name. This name will be used as namespace itself. this name string shouldn't contain namespace string separator ":".
@@ -18136,9 +17266,7 @@ class FBOpticalGap(FBComponent):
         true if segment is valid."""
         ...
     def __init__(self,Marker:FBModelMarkerOptical):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Marker: Model marker(default=NULL)."""
         ...
@@ -18247,9 +17375,7 @@ class FBFileReference(FBNamespace):
         True if swap successfully."""
         ...
     def __init__(self,SingleLevelNamespace:str,ParentNSObj:FBNamespace):
-        """Constructor.
-        
-        Create a new direct children FileReference object
+        """Create a new direct children FileReference object
         ### Parameters:
         
             - SingleLevelNamespace: FileReference name. This name will be used as namespace itself. this name string shouldn't contain namespace string separator ":".
@@ -18286,9 +17412,7 @@ class FBOpticalSegment(FBComponent):
         """Reset the marker segment."""
         ...
     def __init__(self,Optical:FBModelOptical):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Optical: Optical model(default=NULL)."""
         ...
@@ -18319,7 +17443,7 @@ class FBPlayerControl(FBComponent):
     """Read Write Property: Loop end time."""
     NextMarker:FBTime
     """Read Only Property: Next marked time."""
-    OnChange:FBEvent
+    OnChange:callbackframework.FBEventSource
     """Event Property: Fired when something in the player control has changed. (see [FBEventPlayerControlChange](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_event_player_control_change.html))"""
     PlotSamplingPeriod:FBTime
     """Read Write Property: Sampling period for the model plotting."""
@@ -18725,9 +17849,7 @@ class FBPlayerControl(FBComponent):
         ### Returns:
         true if successful."""
         ...
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
 class FBPointCacheFile(FBComponent):
     """Base Model deformer class."""
     CacheFileName:str
@@ -18747,9 +17869,7 @@ class FBPointCacheFile(FBComponent):
     StopTime:FBTime
     """Read Write Property: Stop Time."""
     def __init__(self,Name:str):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Name: Name of Point Cache File Object."""
         ...
@@ -18765,9 +17885,7 @@ class FBRendererCallback(FBComponent):
     """Read write Property: Set true to use default light volume rendering; set false to disable it."""
     SupportIDBufferPicking:bool
     """Read write Property: Can this Renderer Callback support IDBuffer Picking."""
-    def __init__(self,Name:str):
-        """Constructor."""
-        ...
+    def __init__(self,Name:str):...
 class FBRigidBody(FBComponent):
     """Rigid body class."""
     Done:bool
@@ -18795,9 +17913,7 @@ class FBRigidBody(FBComponent):
         """Snap the rigid body."""
         ...
     def __init__(self,Optical:FBModelOptical):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Optical: Optical model(default=NULL)."""
         ...
@@ -18836,16 +17952,12 @@ class FBSVector():
     @overload
     def __imul__(self,arg2)->object:...
     @overload
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
     @overload
     def __init__(self,arg2:FBSVector):...
     @overload
     def __init__(self,p1:float,p2:float,p3:float):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - p1: First element
             - p2: Second element.
@@ -18949,9 +18061,9 @@ class FBScene(FBComponent):
     """List: Notes in scene."""
     ObjectPoses:FBPropertyListObjectPose
     """List: ObjectPoses in scene."""
-    OnChange:FBEvent
+    OnChange:callbackframework.FBEventSource
     """Event: Something in the scene has happened.([FBEventSceneChange](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_event_scene_change.html "Select model event class."))"""
-    OnTakeChange:FBEvent
+    OnTakeChange:callbackframework.FBEventSource
     """Event: Something related to a take has happened.([FBEventTakeChange](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_event_take_change.html "Take change event class."))"""
     PhysicalProperties:FBPropertyListPhysicalProperties
     """List: PhysicalProperties present in the scene."""
@@ -19265,9 +18377,7 @@ class FBSet(FBBox):
             - Select: If **true**, set contents will be selected."""
         ...
     def __init__(self,Name:str):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Name: Set name."""
         ...
@@ -19374,9 +18484,7 @@ class FBShaderLighted(FBShader):
     UseSpecular:bool
     """Read Write Property: Activate the Specularity option."""
     def __init__(self,Name:str|None=None):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Name: Name of shader."""
         ...
@@ -19460,9 +18568,7 @@ class FBShaderManager():
         ### Returns:
         A pointer to the newly created shader object, or a NULL pointer if the type name was not recognised."""
         ...
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
 class FBShaderModelInfo():
     Model:FBModel
     """Read Write Property: Shader mModel"""
@@ -19515,9 +18621,7 @@ class FBShaderShadowLive(FBShader):
     UseGobo:bool
     """Read Write Property: Includes the gobo in the shadow map calculation."""
     def __init__(self,Name:str|None=None):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Name: Name of shader."""
         ...
@@ -19621,9 +18725,7 @@ class FBStory(FBComponent):
         ### Remarks:
         To plot a single Shot Track to the Camera Switcher, use the [FBStoryTrack.PlotToCameraSwitcher](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_story_track.html#a64eff4284838a7d6da67221ce45ba8e5 "PlotToCameraSwitcher Plot the Shot Track to the Camera Switcher on the given Take.") method."""
         ...
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
 class FBStoryClip(FBComponent):
     """Story Clip class.
     
@@ -19686,7 +18788,7 @@ class FBStoryClip(FBComponent):
     """Read Write Property: Several mirror planes to mirror animation. See [FBStoryClipMirrorPlane](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_story_clip_mirror_plane.html "Several mirror planes to mirror animation.")"""
     Offset:FBTime
     """Read Write Property: First loop time offset."""
-    OnChange:FBEvent
+    OnChange:callbackframework.FBEventSource
     """Event: Something in the clip has changed. (FBEventClip)"""
     Pivots:FBPropertyListPivot
     """List: Pivots models (Generally, only one model is necessary)"""
@@ -19947,9 +19049,7 @@ class FBStoryClip(FBComponent):
         ...
     @overload
     def __init__(self,ClipObject:FBComponent,Track:FBStoryTrack,Time:FBTime):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - ClipObject: Object (media data) for the clip.
             - Track: The track in which we create the clip.
@@ -19957,9 +19057,7 @@ class FBStoryClip(FBComponent):
         ...
     @overload
     def __init__(self,FilePath:str,Track:FBStoryTrack,Time:FBTime):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - FilePath: Media file path to create clip with.
             - Track: The track in which we create the clip.
@@ -19967,9 +19065,7 @@ class FBStoryClip(FBComponent):
         ...
     @overload
     def __init__(self,FilePath:str,Track:FBStoryTrack,Time:FBTime,TimeOffset:FBTime):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - FilePath: Media file path to create clip with.
             - Track: The track in which we create the clip.
@@ -20047,9 +19143,7 @@ class FBStoryFolder(FBComponent):
         Currently only animation clips are supported."""
         ...
     def __init__(self,ParentFolder:FBStoryFolder|None=None):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - ParentFolder: If NULL, parent will be the global root folder, according to its type.
         
@@ -20104,9 +19198,7 @@ class FBStoryGroupClip(FBComponent):
             - Time: Time where to cut. This time is local to the track, not to the clip."""
         ...
     def __init__(self,AffectedClipObject:list[FBStoryClip]):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - AffectedClipObject: Clips that will be controlled by the group clip."""
         ...
@@ -20262,18 +19354,14 @@ class FBStoryTrack(FBConstraint):
         ...
     @overload
     def __init__(self,TrackType:FBStoryTrackType,Folder:FBStoryFolder|None=None):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - TrackType: Type of the track to be created.
             - Folder: If NULL, parent will be the global root folder."""
         ...
     @overload
     def __init__(self,Source:FBComponent,Folder:FBStoryFolder|None=None):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Source: Source of the track to be created based on media component type.
             - Folder: If NULL, parent will be the global root folder."""
@@ -20425,14 +19513,10 @@ class FBStringList():
         ...
     def __getitem__(self,arg2)->str:...
     @overload
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
     @overload
     def __init__(self,String:str,Separator:str='~'):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - String: String to set for list.
             - Separator: the string list separator."""
@@ -20455,33 +19539,15 @@ class FBSurface(FBGeometry):
     """Read Write Property: Size in V directions."""
     VStep:int
     """Read Write Property: Step in V directions."""
-    def ControlPointsBegin(self):
-        """"""
-        ...
-    def ControlPointsEnd(self):
-        """"""
-        ...
-    def GetControlPoint(self,Index:int,X:float,Y:float,Z:float,W:float):
-        """"""
-        ...
-    def GetSurfaceCapped(self,UorV:int,Direction:int)->bool:
-        """"""
-        ...
-    def SetControlPoint(self,Index:int,X:float,Y:float,Z:float,W:float):
-        """"""
-        ...
-    def SurfaceBegin(self):
-        """"""
-        ...
-    def SurfaceEditBegin(self):
-        """"""
-        ...
-    def SurfaceEditEnd(self):
-        """"""
-        ...
-    def SurfaceEnd(self):
-        """"""
-        ...
+    def ControlPointsBegin(self):...
+    def ControlPointsEnd(self):...
+    def GetControlPoint(self,Index:int,X:float,Y:float,Z:float,W:float):...
+    def GetSurfaceCapped(self,UorV:int,Direction:int)->bool:...
+    def SetControlPoint(self,Index:int,X:float,Y:float,Z:float,W:float):...
+    def SurfaceBegin(self):...
+    def SurfaceEditBegin(self):...
+    def SurfaceEditEnd(self):...
+    def SurfaceEnd(self):...
 class FBSystem(FBComponent):
     """Provides access to the underlying system, and the MotionBuilder scene.
     
@@ -20516,7 +19582,6 @@ class FBSystem(FBComponent):
     ComputerName:str
     """Read Only Property: Computer name. [See sample: ShowMachineNameAndCameraNamePlusResolution.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_show_machine_name_and_camera_name_plus_resolution_8py-example.html)"""
     ConfigPath:str
-    """"""
     ConstructionHistory:FBConstructionHistory
     """Read Only Property: Construction History."""
     CurrentTake:FBTake
@@ -20530,17 +19595,17 @@ class FBSystem(FBComponent):
     """Read Only Property: Local time in take."""
     Manipulators:FBPropertyListManipulator
     """List: of manipulators."""
-    OnConnectionDataNotify:FBEventConnectionDataNotify
+    OnConnectionDataNotify:callbackframework.FBEventSource
     """Event: A data event occurred between objects in the system."""
-    OnConnectionKeyingNotify:FBEventConnectionKeyingNotify
+    OnConnectionKeyingNotify:callbackframework.FBEventSource
     """Event: A keying event occurred when objects are being keyed."""
-    OnConnectionNotify:FBEventConnectionNotify
+    OnConnectionNotify:callbackframework.FBEventSource
     """Event: A connection event occurred between objects in the system. [See sample: FBSystemEvents.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_f_b_system_events_8py-example.html)"""
-    OnConnectionStateNotify:FBEventConnectionStateNotify
+    OnConnectionStateNotify:callbackframework.FBEventSource
     """Event: A state change event occurred between objects in the system."""
     OnUIIdle:callbackframework.FBEventSource
     """Event: User-interface idle event. Useful callback for less frequent GUI refresh and etc. lightweight tasks (occur once per several frames)."""
-    OnVideoFrameRendering:FBEventVideoFrameRendering
+    OnVideoFrameRendering:callbackframework.FBEventSource
     """Event: A video frame rendering event occurred when the scene is being off-line rendered into video files."""
     PathImages:str
     """Read Only Property: Path to images."""
@@ -20565,7 +19630,6 @@ class FBSystem(FBComponent):
     SystemTime:FBTime
     """Read Only Property: System time."""
     UserConfigPath:str
-    """"""
     Version:float
     """Read Only Property: Application version."""
     VideoInputs:FBPropertyListVideoIn
@@ -20632,9 +19696,7 @@ class FBSystem(FBComponent):
         ### Returns:
         Full file path based on combining the current directory"""
         ...
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
 class FBPatch(FBSurface):
     """Patch class."""
     USurfaceType:FBSurfaceType
@@ -20642,9 +19704,7 @@ class FBPatch(FBSurface):
     VSurfaceType:FBSurfaceType
     """Read Write Property: Patch mode for V direction."""
     def __init__(self,Name:str):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Name: Name of Patch."""
         ...
@@ -20723,9 +19783,7 @@ class FBNurbs(FBSurface):
             - Weight: Weight of control point."""
         ...
     def __init__(self,Name:str):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Name: Name of Nurbs."""
         ...
@@ -20762,14 +19820,10 @@ class FBTexture(FBBox):
         ### Returns:
         Newly created texture."""
         ...
-    def OGLInit(self):
-        """"""
-        ...
+    def OGLInit(self):...
     def __copy__(self)->object:...
     def __init__(self,Name:str):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Name: Name of the texture media. If pName is a valid path, [FBTexture](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_texture.html "See samples: HUDElements.py, MaterialAndTexture.py, TextureAnimation.py, VideoInput....") will create a [FBVideo](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_video.html "Video media class.") object which is used in the Video property; else just a ordinary name."""
         ...
@@ -20787,9 +19841,7 @@ class FBLayeredTexture(FBTexture):
         """Set layer config dirty to trigger new composition."""
         ...
     def __init__(self,Name:str):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Name: Name of texture media. Can be a NULL pointer. If set, this will create a [FBVideo](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_video.html "Video media class.") object used as the Video property."""
         ...
@@ -20913,14 +19965,10 @@ class FBTime():
     @overload
     def __add__(self,arg2)->object:...
     @overload
-    def __init__(self,Time:int=0):
-        """"""
-        ...
+    def __init__(self,Time:int=0):...
     @overload
     def __init__(self,Hour:int,Minute:int,Second:int=0,Frame:int=0,Field:int=0,TimeMode:FBTimeMode=FBTimeMode.kFBTimeModeDefault):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Hour: Hour value.
             - Minute: Minute value.
@@ -21023,9 +20071,7 @@ class FBTimeCode():
     def __init__(self):...
     @overload
     def __init__(self,Rate:float=FRAMES_30):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Rate: Framerate value."""
         ...
@@ -21542,9 +20588,7 @@ class FBTake(FBComponent):
         The new index of the modified time mark."""
         ...
     def __init__(self,Name:str):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Name: Name of take."""
         ...
@@ -22134,9 +21178,7 @@ class FBFCurve(FBComponent):
     def SetPreExtrapolationMode(self,ExtrapolationMode:FBExtrapolationMode):
         """Set modes for pre extrapolation."""
         ...
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
 class FBAnimationNode(FBComponent):
     """[See samples: CopyAnimation.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_f_curve_0c_copy_animation_8py-example.html) [ClearKeysOnSelectedModels.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_clear_keys_on_selected_models_8py-example.html) [TraversingRelationConstraint.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_traversing_relation_constraint_8py-example.html) [FCurveEditor.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_f_curve_editor_8py-example.html)"""
     ConnectorType:FBAnimationNodeConnectorType
@@ -22278,9 +21320,7 @@ class FBAnimationNode(FBComponent):
         true if successful."""
         ...
     def __init__(self,Name:str):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Name: Name of animation node (default is NULL)."""
         ...
@@ -22311,9 +21351,7 @@ class FBTimeSpan():
         ### Returns:
         Start/Stop time."""
         ...
-    def GetStop(self)->FBTime:
-        """"""
-        ...
+    def GetStop(self)->FBTime:...
     def Set(self,Start:FBTime,Stop:FBTime):
         """Set the TimeSpan.
         
@@ -22323,9 +21361,7 @@ class FBTimeSpan():
             - Stop: Stop time."""
         ...
     def __init__(self,Start:FBTime|None=None,Stop:FBTime|None=None):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Start: Start time(default=0).
             - Stop: Stop time(default=0)."""
@@ -22518,9 +21554,7 @@ class FBTimeWarpManager(FBComponent):
         """Call registered callbacks when changes related to TimeWarp happen."""
         ...
     def __init__(self):
-        """Constructor.
-        
-        ### Note:
+        """### Note:
         protect"""
         ...
 class FBToolLayoutManager(FBComponent):
@@ -22890,13 +21924,13 @@ class FBUndoManager(FBComponent):
     Users have the possibility of undoing and redoing actions performed using the GUI, and interacting with the undo and redo stacks with custom actions.All undo/redo related functions should only be called inside UI event callback. Users should call [TransactionBegin()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_undo_manager.html#af7427e75659bfb18a593655de6170fa9 "Open transaction stack for adding transactions.")/TransactionEnd() in pairs, Transaction stack must be closed before UI event callback return.This class cannot be used as a base class.
     
     [See sample: IndividualUndoCalls.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_individual_undo_calls_8py-example.html)"""
-    OnRedo:FBEvent
+    OnRedo:callbackframework.FBEventSource
     """Event: A redo operation will be executed."""
-    OnRedoCompleted:FBEvent
+    OnRedoCompleted:callbackframework.FBEventSource
     """Event: A redo operation has been executed."""
-    OnUndo:FBEvent
+    OnUndo:callbackframework.FBEventSource
     """Event: An undo operation will be executed."""
-    OnUndoCompleted:FBEvent
+    OnUndoCompleted:callbackframework.FBEventSource
     """Event: An undo operation has been executed."""
     def ActiveOperation(self)->bool:
         """Determine if an undo operation is in action.
@@ -22981,14 +22015,10 @@ class FBUndoManager(FBComponent):
         
             - NoRedo: If true, once the action is undone, it cannot be redone."""
         ...
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
 class FBUserObject(FBBox):
     def __init__(self,Name:str):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Name: User object name."""
         ...
@@ -23044,27 +22074,19 @@ class FBVector2d():
     def __imul__(self,arg2)->object:...
     @overload
     def __init__(self):
-        """Constructor.
-        
-        Default constructor, both values within are set to 0.0."""
+        """Default constructor, both values within are set to 0.0."""
         ...
     @overload
     def __init__(self,Vector2d:FBVector2d):
-        """Constructor.
-        
-        Copy constructor. Copy values from another instance."""
+        """Copy constructor. Copy values from another instance."""
         ...
     @overload
     def __init__(self,X:float,Y:float):
-        """Constructor.
-        
-        Explicitely construct a vector by specifying its values."""
+        """Explicitely construct a vector by specifying its values."""
         ...
     @overload
     def __init__(self,arg2:tuple[float,float]):
-        """Constructor.
-        
-        A vector can be built from any python object with supports the tuple interface and is of a lenght of 2."""
+        """A vector can be built from any python object with supports the tuple interface and is of a lenght of 2."""
         ...
     @overload
     def __init__(self,arg2:list):...
@@ -23156,27 +22178,19 @@ class FBVector3d():
     def __imul__(self,arg2)->object:...
     @overload
     def __init__(self):
-        """Constructor.
-        
-        Default constructor, all 3 values within are set to 0.0."""
+        """Default constructor, all 3 values within are set to 0.0."""
         ...
     @overload
     def __init__(self,Vector3d:FBVector3d):
-        """Constructor.
-        
-        Copy constructor. Copy values from another instance."""
+        """Copy constructor. Copy values from another instance."""
         ...
     @overload
     def __init__(self,X:float,Y:float,Z:float):
-        """Constructor.
-        
-        Explicitely construct a vector by specifying its values."""
+        """Explicitely construct a vector by specifying its values."""
         ...
     @overload
     def __init__(self,arg2:tuple[float,float,float]):
-        """Constructor.
-        
-        A vector can be built from any python object with supports the tuple interface and is of a lenght of 3."""
+        """A vector can be built from any python object with supports the tuple interface and is of a lenght of 3."""
         ...
     @overload
     def __init__(self,arg2:list):...
@@ -23268,27 +22282,19 @@ class FBVector4d():
     def __imul__(self,arg2)->object:...
     @overload
     def __init__(self):
-        """Constructor.
-        
-        Default constructor, all 4 values within are set to 0.0."""
+        """Default constructor, all 4 values within are set to 0.0."""
         ...
     @overload
     def __init__(self,Vector4d:FBVector4d):
-        """Constructor.
-        
-        Copy constructor. Copy values from another instance."""
+        """Copy constructor. Copy values from another instance."""
         ...
     @overload
     def __init__(self,X:float,Y:float,Z:float,A:float):
-        """Constructor.
-        
-        Explicitely construct a vector by specifying its values."""
+        """Explicitely construct a vector by specifying its values."""
         ...
     @overload
     def __init__(self,arg2:tuple[float,float,float,float]):
-        """Constructor.
-        
-        A vector can be built from any python object with supports the tuple interface and is of a lenght of 4."""
+        """A vector can be built from any python object with supports the tuple interface and is of a lenght of 4."""
         ...
     @overload
     def __init__(self,arg2:list):...
@@ -23378,13 +22384,9 @@ class FBVertex():
     @overload
     def __imul__(self,arg2)->object:...
     @overload
-    def __init__(self):
-        """"""
-        ...
+    def __init__(self):...
     @overload
-    def __init__(self,arg2:FBVertex):
-        """"""
-        ...
+    def __init__(self,arg2:FBVertex):...
     @overload
     def __init__(self,arg2:float,arg3:float,arg4:float,arg5:float):...
     @overload
@@ -23430,9 +22432,7 @@ class FBVideo(FBBox):
     KeepOnGPU:bool
     """Read Write Property: Don't auto flush from GPU if true. session runtime flag, won't be saved."""
     def __init__(self,Name:str):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Name: Name of video media.
         
@@ -23534,9 +22534,7 @@ class FBVideoClip(FBVideo):
         true if data is valid."""
         ...
     def __init__(self,Name:str):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Name: Name of video media.
         
@@ -23555,18 +22553,14 @@ class FBVideoClipImage(FBVideoClip):
     UseSystemFrameRate:bool
     """Read Write Property: Clip is using system frame rate?"""
     def __init__(self,Name:str):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Name: Name of image file."""
         ...
 class FBVideoClipImageDDS(FBVideoClipImage):
     """Video clip image media class for DDS images."""
     def __init__(self,Name:str):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Name: Name of DDS image file."""
         ...
@@ -23727,9 +22721,7 @@ class FBVideoGrabber(FBComponent):
         
             - Options: Struct that contain all grabbing options."""
         ...
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
 class FBVideoIn(FBVideo):
     """Basic video input class, supporting webcam and DV device.
     
@@ -23809,9 +22801,7 @@ class FBVideoIn(FBVideo):
         
             - Index: Index of the resolution and frame rate."""
         ...
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
 class FBVideoMemory(FBVideo):
     """[FBVideoMemory](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_video_memory.html "FBVideoMemory allow external media source (which can't be supported by MoBu natively)   User could cr...") allow external media source (which can't be supported by MoBu natively)   
     
@@ -23832,9 +22822,7 @@ class FBVideoMemory(FBVideo):
             - H: Height of image."""
         ...
     def __init__(self,Name:str):
-        """Constructor.
-        
-        ### Parameters:
+        """### Parameters:
         
             - Name: Name of video media."""
         ...
@@ -23846,9 +22834,7 @@ class FBVideoOut(FBVideo):
     [See sample: VideoOutput.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_video_0c_video_output_8py-example.html)"""
     Online:bool
     """Read Write Property: If true, the device is online and will output display."""
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
 class FBViewingOptions():
     """Viewing options for rendering.
     
@@ -24037,11 +23023,11 @@ class FBVisualContainer(FBVisualComponent):
     """Read Write Property: Are items wrapped when enough space is available?"""
     Items:FBStringList
     """List: Names of items in container."""
-    OnChange:FBEvent
+    OnChange:callbackframework.FBEventSource
     """Event: Container contents changed."""
-    OnDblClick:FBEvent
+    OnDblClick:callbackframework.FBEventSource
     """Event: Double click."""
-    OnDragAndDrop:FBEvent
+    OnDragAndDrop:callbackframework.FBEventSource
     """Event: Drag and Drop event."""
     Orientation:FBOrientation
     """Read Write Property: Orientation of container."""
@@ -24089,9 +23075,7 @@ class FBVisualContainer(FBVisualComponent):
         ### Returns:
         Operation was successful (true or false)."""
         ...
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
 class FBView(FBVisualComponent):
     """Generic view."""
     DoubleBuffer:bool
@@ -24122,9 +23106,7 @@ class FBView(FBVisualComponent):
         ### Returns:
         Operation was successful (true or false)."""
         ...
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
 class FBTree(FBVisualComponent):
     """Tree list view.
     
@@ -24163,25 +23145,25 @@ class FBTree(FBVisualComponent):
     """Read Write Property: Tells whether node are selected if drag is start and node is not already selected."""
     NoSelectOnRightClick:bool
     """Read Write Property: Tells whether node are selected if right click on node."""
-    OnChange:FBEvent
+    OnChange:callbackframework.FBEventSource
     """Event: Change of the selection."""
-    OnClick:FBEvent
+    OnClick:callbackframework.FBEventSource
     """Event: Click on a node of the tree. Use OnSelect."""
-    OnClickCheck:FBEvent
+    OnClickCheck:callbackframework.FBEventSource
     """Event: Click on a node checkbox of the tree."""
-    OnCollapsed:FBEvent
+    OnCollapsed:callbackframework.FBEventSource
     """Event: Click on the "-" sign before a non-leaf node."""
-    OnCollapsing:FBEvent
+    OnCollapsing:callbackframework.FBEventSource
     """Event: Fired before the node collapse. To refuse collapsing, set AllowCollapse to false."""
-    OnDblClick:FBEvent
+    OnDblClick:callbackframework.FBEventSource
     """Event: Double-Click on a node of the tree. Use [FBEventTreeSelect](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_event_tree_select.html "FBTree selection event. Event: Video Frame offline Rendering Event.") to cast event."""
-    OnDragAndDrop:FBEvent
+    OnDragAndDrop:callbackframework.FBEventSource
     """Event: Drag and drop of an element."""
-    OnExpanded:FBEvent
+    OnExpanded:callbackframework.FBEventSource
     """Event: Click on the "+" sign before a non-leaf node"""
-    OnExpanding:FBEvent
+    OnExpanding:callbackframework.FBEventSource
     """Event: Is fired before the node expand. To refuse expanding set AllowExpansion to false."""
-    OnSelect:FBEvent
+    OnSelect:callbackframework.FBEventSource
     """Event: A node was selected. Use [FBEventTreeSelect](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_event_tree_select.html "FBTree selection event. Event: Video Frame offline Rendering Event.") to cast event."""
     SelectedCount:int
     """Read Only Property: Count of selected items."""
@@ -24218,9 +23200,7 @@ class FBTree(FBVisualComponent):
         ### Returns:
         the newly created node."""
         ...
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
 class FBThermometer(FBVisualComponent):
     """Thermometer.
     
@@ -24236,9 +23216,7 @@ class FBThermometer(FBVisualComponent):
     def Clear(self):
         """Reset bounds and value."""
         ...
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
 class FBTabPanel(FBVisualComponent):
     """Tab panel.
     
@@ -24251,13 +23229,11 @@ class FBTabPanel(FBVisualComponent):
     """List: Names for tab panels."""
     Layout:FBLayout
     """Read Write Property: Layout for current tab panel."""
-    OnChange:FBEvent
+    OnChange:callbackframework.FBEventSource
     """Event: Tab panel change."""
     TabStyle:int
     """Read Write Property: Style of the tab panel, 0 creates normal tabs, 1 creates buttons to activate tabs."""
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
 class FBSpread(FBVisualComponent):
     """Base spreadsheet class.
     
@@ -24268,13 +23244,13 @@ class FBSpread(FBVisualComponent):
     """Read Write Property: Current column."""
     MultiSelect:bool
     """Read Write Property: Can there be multiple selections?"""
-    OnCellChange:FBEvent
+    OnCellChange:callbackframework.FBEventSource
     """Event: Cell value changed."""
-    OnColumnClick:FBEvent
+    OnColumnClick:callbackframework.FBEventSource
     """Event: Column clicked."""
-    OnDragAndDrop:FBEvent
+    OnDragAndDrop:callbackframework.FBEventSource
     """Event: Drag and drop event."""
-    OnRowClick:FBEvent
+    OnRowClick:callbackframework.FBEventSource
     """Event: Row clicked."""
     Row:int
     """Read Write Property: Current row."""
@@ -24403,9 +23379,7 @@ class FBSpread(FBVisualComponent):
             - Column: Column of cell.
             - View: View to use to set cell's view."""
         ...
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
 class FBSlider(FBVisualComponent):
     """Slider.
     
@@ -24416,17 +23390,15 @@ class FBSlider(FBVisualComponent):
     """Read Write Property: Maximum value."""
     Min:float
     """Read Write Property: Minimum value."""
-    OnChange:FBEvent
+    OnChange:callbackframework.FBEventSource
     """Event: Slider value changed."""
-    OnTransaction:FBEvent
+    OnTransaction:callbackframework.FBEventSource
     """Event: Transaction begin/end (continuous value changes). This event property doesn't exist in pyfbsdk."""
     Orientation:FBOrientation
     """Read Write Property: Slider orientation."""
     Value:float
     """Read Write Property: Current value."""
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
 class FBScrollBox(FBVisualComponent):
     """Scroll Box.
     
@@ -24436,9 +23408,7 @@ class FBScrollBox(FBVisualComponent):
     Content:FBLayout
     """Read Property: an empty layout in which you can add scrollable content."""
     def SetContentSize(self,arg2,arg3):...
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
 class FBPropertyConnectionEditor(FBVisualComponent):
     """Property Connection Editor."""
     Property:property
@@ -24449,9 +23419,7 @@ class FBPropertyConnectionEditor(FBVisualComponent):
     def PopupTree(self):
         """Launch a tree of object connections."""
         ...
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
 class FBPlotPopup(FBVisualComponent):
     """Plot Popup (for setting options only).
     
@@ -24489,9 +23457,7 @@ class FBPlotPopup(FBVisualComponent):
         
             - PlotOptions: Set the plot options that will be used when displaying the plot popup. First use the [GetPlotOptions()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_plot_popup.html#a2f79e68857f65fe637c98616b4b24a97 "Get plot options."), change the options and use the [SetPlotOptions()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_plot_popup.html#aaf85452e3a2fd43906744348fdc4e684 "Set plot options.") to set them before calling the [Popup()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_plot_popup.html#a0138b8dc2bd5bd5715e3d361aaaee3af "Execute plot popup.") function."""
         ...
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
 class FBList(FBVisualComponent):
     """List of items.
     
@@ -24506,9 +23472,9 @@ class FBList(FBVisualComponent):
     """List: Names of items in list."""
     MultiSelect:bool
     """Read Write Property: Can multiple items be selected?"""
-    OnChange:FBEvent
+    OnChange:callbackframework.FBEventSource
     """Event: List changed."""
-    OnDragAndDrop:FBEvent
+    OnDragAndDrop:callbackframework.FBEventSource
     """Event: Drag and drop event."""
     Style:FBListStyle
     """Read Write Property: Style or direction of list."""
@@ -24523,29 +23489,25 @@ class FBList(FBVisualComponent):
         ### Returns:
         true if item at pIndex is selected."""
         ...
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
 class FBLayoutRegion(FBVisualComponent):
     """Layout region."""
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
 class FBLayout(FBVisualComponent):
     """Used to build the user interface.
     
     Layouts manage areas of the screen called regions. Regions contain UI components such as buttons, viewers, and edit boxes. Regions are added to layouts. When a UI component is bound to a region, the region defines how big it is and how it behaves when the layout is resized.Types of Layouts Device Constraint Manipulator Shader A region is first defined using the [FBLayout::AddRegion()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_layout.html#ada9608d3cc29bcfcb802803c582c7e82 "Add a region to the layout.") function. Once a region is defined and the corresponding UI component is created, and the component is bound to its region with [FBLayout::SetControl()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_layout.html#a037812ff1eb73124773acd374351edbe "Set control of a region to a visual component."). You can use the [FBSystem::OnUIIdle()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_system.html#a51d224fe3663c140eb8971ed9250a7cf "Event: User-interface idle event. Useful callback for less frequent GUI refresh and etc....") in your layout to update real-time UI components such as guages and status indicators. In Python, FBBoxLayout and FBGridLayout take care of most of the region handling. They are used to create basic control layouts for simple tools. If you have a lot of content you can use [FBScrollBox](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_scroll_box.html "Scroll Box.") to manage it. For an example, see the Python sample Scrollbox.py.\* Also see the Python sample Layout.py, and the C++ sample ortooluidemo.
     
     [See samples: ShotTrackSetupTool.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_complex_tools_0c_shot_track_setup_tool_8py-example.html) [Attach.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_attach_8py-example.html) [Border.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_border_8py-example.html) [Layout.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_layout_8py-example.html)"""
-    OnIdle:FBEvent
+    OnIdle:callbackframework.FBEventSource
     """Event: Idle."""
-    OnInput:FBEvent
+    OnInput:callbackframework.FBEventSource
     """Event: Input."""
-    OnPaint:FBEvent
+    OnPaint:callbackframework.FBEventSource
     """Event: Paint layout."""
-    OnResize:FBEvent
+    OnResize:callbackframework.FBEventSource
     """Event: Resize layout."""
-    OnShow:FBEvent
+    OnShow:callbackframework.FBEventSource
     """Event: Show layout."""
     def AddRegion(self,Name:str,Title:str,arg4:FBAddRegionParam,arg5:FBAddRegionParam,arg6:FBAddRegionParam,arg7:FBAddRegionParam)->bool:
         """Add a region to the layout.
@@ -24756,9 +23718,7 @@ class FBLayout(FBVisualComponent):
         ### Returns:
         Operation was successful (true or false)."""
         ...
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
 class FBLabel(FBVisualComponent):
     """Text label.
     
@@ -24771,9 +23731,7 @@ class FBLabel(FBVisualComponent):
     """Read Write Property: Text style appearance."""
     WordWrap:bool
     """Read Write Property: Enable wordwrap on text drawing."""
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
 class FBTool(FBLayout):
     """Tool class.
     
@@ -24848,9 +23806,7 @@ class FBPopup(FBLayout):
         ### Returns:
         Operation was successful (true or false)."""
         ...
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
 class FBImageContainer(FBVisualComponent):
     """Image.
     
@@ -24859,13 +23815,11 @@ class FBImageContainer(FBVisualComponent):
     [See sample: ImageContainer.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_image_container_8py-example.html)"""
     Filename:str
     """Read Write Property: Filename for image."""
-    OnDragAndDrop:FBEvent
+    OnDragAndDrop:callbackframework.FBEventSource
     """Event: Drag and drop."""
     UseTransparentBackground:bool
     """Read Write Property: True to specify that the image is using a transparent background, false otherwise."""
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
 class FBFCurveEditor(FBVisualComponent):
     """FCurve editor.
     
@@ -24896,26 +23850,20 @@ class FBFCurveEditor(FBVisualComponent):
         
             - Node: Animation node to hide from editor."""
         ...
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
 class FBEditVector(FBVisualComponent):
     """Vector edit widget."""
-    OnChange:FBEvent
+    OnChange:callbackframework.FBEventSource
     """Event: Vector value changed."""
     Value:FBVector3d
     """Read Write Property: Current value of vector."""
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
 class FBEditTimeCode(FBVisualComponent):
-    OnChange:FBEvent
+    OnChange:callbackframework.FBEventSource
     """Event: Timecode changed."""
     Value:FBTime
     """Read Write Property: Current timecode value."""
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
 class FBEditPropertyModern(FBVisualComponent):
     """Property editor widget.
     
@@ -24939,9 +23887,7 @@ class FBEditPropertyModern(FBVisualComponent):
         
         Use the system-defined color palette to set the backgound color. By default the color used is kFBColorIndexStdListBg1"""
         ...
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
 class FBEditProperty(FBVisualComponent):
     """Property editor widget.
     
@@ -24977,9 +23923,7 @@ class FBEditProperty(FBVisualComponent):
     """Read Write Property: Should the property be editable using a slider, set the minimum value atainable with the slider."""
     SmallInc:float
     """Read Write Property: Indicate the small increment applied when click-draging on the property value (usually right-click-dragging)"""
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
 class FBEditNumber(FBVisualComponent):
     """Number edit box."""
     LargeStep:float
@@ -24988,7 +23932,7 @@ class FBEditNumber(FBVisualComponent):
     """Read Write Property: Maximum value."""
     Min:float
     """Read Write Property: Minimum value."""
-    OnChange:FBEvent
+    OnChange:callbackframework.FBEventSource
     """Event: Number changed."""
     Precision:float
     """Read Write Property: Precision of value."""
@@ -24996,31 +23940,25 @@ class FBEditNumber(FBVisualComponent):
     """Read Write Property: Small step value."""
     Value:float
     """Read Write Property: Current value."""
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
 class FBEditColor(FBVisualComponent):
     """Color edit widget."""
     ColorMode:int
     """Read Write Property: 3 for RGB, 4 for RGBA (Default = 3)"""
-    OnChange:FBEvent
+    OnChange:callbackframework.FBEventSource
     """Event: Color changed."""
     Value:FBColor
     """Read Write Property: Current value of color."""
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
 class FBEdit(FBVisualComponent):
     """Text edit box."""
-    OnChange:FBEvent
+    OnChange:callbackframework.FBEventSource
     """Event: Text changed."""
     PasswordMode:bool
     """Read Write Property: Set password mode for this edit box."""
     Text:str
     """Read Write Property: Text displayed."""
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
 class FBButton(FBVisualComponent):
     """Used to create and manage buttons in a user interface.
     
@@ -25031,7 +23969,7 @@ class FBButton(FBVisualComponent):
     """Read Write Property: Current state of button."""
     Look:FBButtonLook
     """Read Write Property: Current state of button."""
-    OnClick:FBEvent
+    OnClick:callbackframework.FBEventSource
     """Event: Button clicked."""
     State:int
     """Read Write Property: Current state of button."""
@@ -25066,9 +24004,7 @@ class FBButton(FBVisualComponent):
             - State: The state to be set.
             - Color: The desired color vector."""
         ...
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
 class FBMemo(FBEdit):
     """Multi-line text input.
     
@@ -25089,9 +24025,7 @@ class FBMemo(FBEdit):
         
             - Lines: Content of the memo from will be set to it."""
         ...
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
 class FBBrowsingProperty(FBVisualComponent):
     """Property browsing.
     
@@ -25129,9 +24063,7 @@ class FBBrowsingProperty(FBVisualComponent):
         
             - Object: Object to remove."""
         ...
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
 class FBArrowButton(FBVisualComponent):
     """Creates a button which opens a layout to display content.
     
@@ -25149,9 +24081,7 @@ class FBArrowButton(FBVisualComponent):
             - ContentWidth: Width of the content
             - ContentHeight: Height of the content"""
         ...
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
 class FBWebView(FBVisualComponent):
     """Web viewer.
     
@@ -25165,18 +24095,14 @@ class FBWebView(FBVisualComponent):
         
             - URL: url to load in the WebView."""
         ...
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
 class FBWidgetHolder(FBVisualComponent):
     """Native Widget Holder (can be used to embed native Qt Widget inside MoBu UI elements) A Widget holder provides a bridge to instantiate a Native Qt widget into MB framework.
     
     This will be used to allow user to create UI with QT designer and hook their created UI into MB. To allow a [FBWidgetHolder](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_widget_holder.html "Native Widget Holder (can be used to embed native Qt Widget inside MoBu UI elements) A Widget holder ...") to work properly, you need to specify a Creator function. This function will be called when needed to instantiate the native Widget.Or override WidgetCreate(QWidget\* pParent) function in the subclass./bin/config/Scripts/UI/ToolNativeWidgetHolder.py for python usage example.
     
     [See samples: MBFileRefDemo.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_referencing_0c_m_b_file_ref_demo_8py-example.html) [ToolNativeWidgetHolder.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_tool_native_widget_holder_8py-example.html)"""
-    def __init__(self):
-        """Constructor."""
-        ...
+    def __init__(self):...
 def CloseTool(arg1:FBTool)->bool:...
 def CloseToolByName(arg1:str)->bool:...
 def FBActionManager_TypeInfo()->int:...
@@ -26183,30 +25109,16 @@ def FBObjectPrintLivings(StartUniqueId:int):
     
         - StartUniqueId: Any living object has been logged and with its uniqueId no less than pStartUniqueId will be printed out."""
     ...
-def FBObject_GetEntryCount(GroupIndex:int)->int:
-    """"""
-    ...
-def FBObject_GetEntryDLLName(GroupIndex:int,Index:int,nth:int=0)->str:
-    """"""
-    ...
-def FBObject_GetEntryDescription(GroupIndex:int,Index:int,nth:int=0)->str:
-    """"""
-    ...
-def FBObject_GetEntryName(GroupIndex:int,Index:int)->str:
-    """"""
-    ...
+def FBObject_GetEntryCount(GroupIndex:int)->int:...
+def FBObject_GetEntryDLLName(GroupIndex:int,Index:int,nth:int=0)->str:...
+def FBObject_GetEntryDescription(GroupIndex:int,Index:int,nth:int=0)->str:...
+def FBObject_GetEntryName(GroupIndex:int,Index:int)->str:...
 def FBObject_GetGroupCount()->int:
     """A set of functions to query the registration table."""
     ...
-def FBObject_GetGroupName(GroupIndex:int)->str:
-    """"""
-    ...
-def FBObject_GetIconName(GroupIndex:int,Index:int,nth:int=0)->str:
-    """"""
-    ...
-def FBObject_GetMultiplicity(GroupIndex:int,Index:int,nth:int=0)->bool:
-    """"""
-    ...
+def FBObject_GetGroupName(GroupIndex:int)->str:...
+def FBObject_GetIconName(GroupIndex:int,Index:int,nth:int=0)->str:...
+def FBObject_GetMultiplicity(GroupIndex:int,Index:int,nth:int=0)->bool:...
 def FBOpticalGap_TypeInfo()->int:...
 def FBOpticalSegment_TypeInfo()->int:...
 def FBPatch_TypeInfo()->int:...

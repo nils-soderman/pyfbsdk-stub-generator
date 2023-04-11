@@ -156,7 +156,7 @@ class DocstringMarkdownConverter(markdownify.MarkdownConverter):
         DocString = self.convert(str(DescriptionHtml))
 
         # There are some (what I guess is) broken <b> tags scattered around in the docstrings. Remove them.
-        DocString = DocString.replace("b>", " ")
+        DocString = DocString.replace("b>", " ").strip()
 
         # Lines = []
         # for Line in DocString.split("\n"):

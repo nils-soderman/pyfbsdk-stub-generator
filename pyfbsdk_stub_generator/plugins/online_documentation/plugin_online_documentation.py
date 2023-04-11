@@ -211,6 +211,8 @@ class PluginOnlineDocumentation(PluginBaseClass):
 
     def PatchFunctionWithDocumentation(self, Function: StubFunction, DocMember: MemberItem, ParentClass: StubClass | None = None):
         Function.DocString = DocMember.DocString
+        if Function.Name == "__init__":
+            Function.DocString = Function.DocString.removeprefix("Constructor.")
 
         if self.ShouldPatchType(Function.ReturnType, DocMember.Type):
             NewType = self.EnsureValidType(DocMember.Type)
