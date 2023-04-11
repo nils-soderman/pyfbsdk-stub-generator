@@ -2607,7 +2607,7 @@ class FBOneClickApplication(Enumeration):
     kFBOneClickSoftimage:FBOneClickApplication
     """Softimage."""
 class FBOrientation(Enumeration):
-    """General directions for UI components.b> DEPRICATED use ParallelEvaluation on [FBEvaluateManager](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_evaluate_manager.html) insteadAvailable DAG parallel schedule algorithm
+    """General directions for UI components.  DEPRICATED use ParallelEvaluation on [FBEvaluateManager](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_evaluate_manager.html) insteadAvailable DAG parallel schedule algorithm
     
     
     
@@ -2815,7 +2815,7 @@ class FBPropertyComponents(Enumeration):
     kFBPropertyComponentAll:FBPropertyComponents
     """All components."""
 class FBPropertyFlag(Enumeration):
-    """Available flags for [FBProperty](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property.html "Generic application property.") objects.b>PropertyList: Actor.
+    """Available flags for [FBProperty](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property.html "Generic application property.") objects. PropertyList: Actor.
     
     Property flags are not saved into FBX files.
     
@@ -2851,7 +2851,7 @@ class FBPropertyFlag(Enumeration):
     kFBValueAllocated:FBPropertyFlag
     """The value has been allocated and must be delete in destructor."""
 class FBPropertyStateEventType(Enumeration):
-    """This enum indicates what modification was made to the animation of a tracked property.b>Property class: const char \* (String)."""
+    """This enum indicates what modification was made to the animation of a tracked property. Property class: const char \* (String)."""
     kFBPropertyStateEventTypeAttached:FBPropertyStateEventType
     """Property connector was added (can happen when undoing a delete operation, which set back the property active in the scene)"""
     kFBPropertyStateEventTypeDestroyed:FBPropertyStateEventType
@@ -2864,6 +2864,8 @@ class FBPropertyStateEventType(Enumeration):
     """Invalid event."""
 class FBPropertyType(Enumeration):
     """Property types.
+    
+    
     
     [See sample: CustomProperty.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_custom_property_8py-example.html)"""
     kFBPT_Action:FBPropertyType
@@ -4783,7 +4785,7 @@ class FBEventDblClick(FBEvent):
             - Event: Base event (internal) to obtain information from."""
         ...
 class FBEventDragAndDrop(FBEvent):
-    """Drag and drop interface.b>Event: Global Evaluation pipeline critical timing callback event."""
+    """Drag and drop interface. Event: Global Evaluation pipeline critical timing callback event."""
     Components:list
     """**Read Property:** List of components drop. (it acces the same data as [FBEventDragAndDrop.Get](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_event_drag_and_drop.html#a642fa6de110af053123bb85b527945fc "Get the FBComponent specified by pIndex from the Drag and Drop list."))"""
     Data:int
@@ -4943,7 +4945,7 @@ class FBEventTree(FBEvent):
     Why:callbackframework.FBEventSource
     """**Read Write Property:** Reason of the event."""
 class FBEventTreeSelect(FBEvent):
-    """[FBTree](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_tree.html "Tree list view.") selection event.b>Event: Video Frame offline Rendering Event."""
+    """[FBTree](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_tree.html "Tree list view.") selection event. Event: Video Frame offline Rendering Event."""
     TreeNode:FBTreeNode
     """**Read Write Property:** Selected tree node."""
     def __init__(self):
@@ -5671,7 +5673,7 @@ class FBProfileTimeEvent():
         Some actions that takes more time to execute or when other events can occur inbetween are collected with start time event at begin and end time event at finish."""
         ...
 class FBPropertyListAnimationNode():
-    """List of animation nodes.b>List: AudioClip"""
+    """List of animation nodes. List: AudioClip"""
     def FindByLabel(self,NodeLabel:str)->FBAnimationNode:
         """Returns the animation node from its label.
         
@@ -5686,14 +5688,14 @@ class FBPropertyListAnimationNode():
     def __getitem__(self,arg2)->object:...
     def __len__(self)->int:...
 class FBPropertyListDeviceInstrument():
-    """List of instruments.b>PropertyList: Device optical marker"""
+    """List of instruments. PropertyList: Device optical marker"""
     def __getitem__(self,arg2)->object:...
     def __len__(self)->int:...
 class FBPropertyListDeviceOpticalMarker():
     def __getitem__(self,arg2)->object:...
     def __len__(self)->int:...
 class FBPropertyListFCurveKey():
-    """List of FCurveKey.b>List: FileReference"""
+    """List of FCurveKey. List: FileReference"""
     def __getitem__(self,arg2)->FBFCurveKey:...
     def __len__(self)->int:...
 class FBPropertyListManipulator():
@@ -5926,7 +5928,7 @@ class FBRenderOptions():
 class FBProperty(FBPlug):
     """Generic application property.
     
-    b>Property: Action Action property to trigger function.
+     Property: Action Action property to trigger function.
     
     [FBProperty](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property.html "Generic application property.") objects cannot be instantiated by the user. Reference to a property can be obtained either via an instance of a [FBComponent](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html "MotionBuilder SDK base class.") object, or by calling the method 'Find()' of a [FBPropertyManager](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_manager.html "Property Manager."). The class [FBComponent](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html "MotionBuilder SDK base class.") has a [FBPropertyManager](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_manager.html "Property Manager.") data member named 'PropertyList'.
     
@@ -6688,7 +6690,7 @@ class FBPropertyString(FBProperty):
     Data:str
     """"""
 class FBPropertyListTreeNode(FBProperty):
-    """PropertyList of nodes in the tree view.b>PropertyList: UserObject.
+    """PropertyList of nodes in the tree view. PropertyList: UserObject.
     
     **These classes are under development and may change dramatically between versions.**"""
     Data:FBTreeNode
@@ -6922,7 +6924,7 @@ class FBPropertyListObjectPose(FBPropertyListComponent):
 class FBPropertyListObject(FBPropertyListComponent):
     """List-like structure fo system elements.
     
-    b>PropertyList: ObjectPose.
+     PropertyList: ObjectPose.
     
     This container supports most of the list interface, but is limited to contain only [FBComponent](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html "MotionBuilder SDK base class.") objects. New objects can be added, or objects in the list can be removed. The cardinality of the list and the use of the contained object will vary according the container object type. This class supports slice access for query, but not for assignment."""
     Data:Any
@@ -7061,7 +7063,7 @@ class FBPropertyListCharacter(FBPropertyListComponent):
     Data:FBCharacter
     def __getitem__(self,arg2)->object:...
 class FBPropertyListCharacterExtension(FBPropertyListComponent):
-    """Character extension property list.b>PropertyList: Character face.
+    """Character extension property list. PropertyList: Character face.
     
     **These classes are under development and may change dramatically between versions.**"""
     Data:FBCharacterExtension
@@ -7930,7 +7932,7 @@ class FBRenderer(FBComponent):
         True if the operation is successful, false otherwise. False is returned if there is no current bookmark."""
         ...
 class FBProgress(FBComponent):
-    """Progress bar.b>Property: Base property class.
+    """Progress bar. Property: Base property class.
     
     
     
@@ -24172,7 +24174,7 @@ class FBTree(FBVisualComponent):
     OnCollapsing:FBEvent
     """**Event:** Fired before the node collapse. To refuse collapsing, set AllowCollapse to false."""
     OnDblClick:FBEvent
-    """**Event:** Double-Click on a node of the tree. Use [FBEventTreeSelect](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_event_tree_select.html "FBTree selection event.b>Event: Video Frame offline Rendering Event.") to cast event."""
+    """**Event:** Double-Click on a node of the tree. Use [FBEventTreeSelect](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_event_tree_select.html "FBTree selection event. Event: Video Frame offline Rendering Event.") to cast event."""
     OnDragAndDrop:FBEvent
     """**Event:** Drag and drop of an element."""
     OnExpanded:FBEvent
@@ -24180,7 +24182,7 @@ class FBTree(FBVisualComponent):
     OnExpanding:FBEvent
     """**Event:** Is fired before the node expand. To refuse expanding set AllowExpansion to false."""
     OnSelect:FBEvent
-    """**Event:** A node was selected. Use [FBEventTreeSelect](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_event_tree_select.html "FBTree selection event.b>Event: Video Frame offline Rendering Event.") to cast event."""
+    """**Event:** A node was selected. Use [FBEventTreeSelect](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_event_tree_select.html "FBTree selection event. Event: Video Frame offline Rendering Event.") to cast event."""
     SelectedCount:int
     """**Read Only Property:** Count of selected items."""
     SelectedNodes:FBPropertyListTreeNode
