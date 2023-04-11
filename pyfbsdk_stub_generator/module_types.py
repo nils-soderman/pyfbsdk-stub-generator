@@ -208,6 +208,7 @@ class StubParameter(StubBase):
         return []
 
     def GetNiceName(self):
+        return self.Name
         ReturnValue = self.Name
         if self.Type == "bool" and not ReturnValue.startswith("b"):
             ReturnValue = f"b{ReturnValue}"

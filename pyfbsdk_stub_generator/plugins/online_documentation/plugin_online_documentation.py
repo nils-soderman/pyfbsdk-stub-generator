@@ -7,7 +7,7 @@ from importlib import reload
 
 from .documentation_scraper import table_of_contents
 
-from .documentation_scraper.page_parser import MemberItem
+from .documentation_scraper.page_parser import MemberItem, GetParameterNiceName
 from ..plugin import PluginBaseClass
 from ...module_types import StubClass, StubFunction, StubParameter, StubProperty
 
@@ -239,13 +239,7 @@ class PluginOnlineDocumentation(PluginBaseClass):
 
             # Name
             if DocParameter.Name and FunctionParameter.Name.startswith("arg"):
-                NewName = DocParameter.Name
-
-                # Remove the "p" prefix from the parameter name, since arguments cannot be referenced as keywords
-                if NewName.startswith("p") and not NewName[1].isnumeric():
-                    NewName = NewName.lstrip("p")
-
-                FunctionParameter.Name = NewName
+                FunctionParameter.Name = GetParameterNiceName(DocParameter.Name)
 
             # Type
             self.PatchParameterType(FunctionParameter, DocParameter.Type, ParentClass)

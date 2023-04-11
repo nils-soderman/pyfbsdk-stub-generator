@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import keyword
 import string
 import re
 
@@ -15,6 +16,8 @@ from . import documentation_cache as cache
 reload(cache)
 reload(urls)
 
+PY2_TO_PY3_PRINT_PATTERN = re.compile(r"(?<!\w)print\s+(.*)\s*(?<!\\)(?:\n|$)")
+
 
 class ClassNames:
     Items = "memitem"
@@ -24,6 +27,7 @@ class ClassNames:
     ParameterType = "paramtype"
     TextBlockDescription = "textblock"
     ParameterTalble = "params"
+    CodeBlock = "fragment"
 
 
 @dataclass
@@ -61,6 +65,16 @@ class DocumentationParsedPage():
         return [x for x in self.Members if x.Name == Name]
 
 
+def GetParameterNiceName(VariableName: str) -> str:
+    # Remove the "p" prefix from the parameter name, since arguments cannot be referenced as keywords
+    if VariableName.startswith("p") and not VariableName[1].isnumeric():
+        PatchedVariableName = VariableName.lstrip("p")
+        if PatchedVariableName not in keyword.kwlist:  # Make sure the patched variable name is not a keyword, e.g. 'True', 'None' etc.
+            VariableName = PatchedVariableName
+
+    return VariableName
+
+
 def ParsePage(PageName: str, PageHtmlContent: str, BaseURL: str) -> DocumentationParsedPage:
     """
     Parse the HTML content of a page and return a DocumentationParsedPage object.
@@ -70,11 +84,11 @@ def ParsePage(PageName: str, PageHtmlContent: str, BaseURL: str) -> Documentatio
         - `PageHtmlContent`: The HTML content of the page.
         - `BaseURL`: The base URL to be used to resolve relative URLs.
     """
-    DocStringParser = DocstringParser(BaseURL)
+    DocStringMdConverter = DocstringMarkdownConverter(BaseURL)
     Parser = BeautifulSoup(PageHtmlContent, "html.parser")
 
     DescriptionHtml = Parser.find("div", class_ = ClassNames.TextBlockDescription)
-    Description = DocStringParser.ParseDocString(DescriptionHtml) if DescriptionHtml else ""
+    Description = DocStringMdConverter.ConvertDocString(DescriptionHtml) if DescriptionHtml else ""
 
     MemberItems = []
     Item: Tag | NavigableString
@@ -85,7 +99,7 @@ def ParsePage(PageName: str, PageHtmlContent: str, BaseURL: str) -> Documentatio
 
         DocumentationHtml = Item.find("div", class_ = ClassNames.Doc)
         if DocumentationHtml:
-            ItemDocumentation: str = DocStringParser.ParseDocString(DocumentationHtml)
+            ItemDocumentation: str = DocStringMdConverter.ConvertDocString(DocumentationHtml)
 
         NameTable = Item.find("table", class_ = ClassNames.ItemName)
         if NameTable:
@@ -96,9 +110,6 @@ def ParsePage(PageName: str, PageHtmlContent: str, BaseURL: str) -> Documentatio
                     ItemType, _, ItemName = ItemName.partition(" ")
                     ItemName = ItemName.strip()
                     ItemType = ItemType.strip()
-
-            if ItemName == "PlotToCameraSwitcher":
-                print(DocumentationHtml.prettify())
 
             # Find all parameters
             Parameters = []
@@ -131,17 +142,29 @@ def ParsePage(PageName: str, PageHtmlContent: str, BaseURL: str) -> Documentatio
 
 def GetSafeText(Text: str):
     # Remove any non-breaking spaces and strip the text of whitespace and commas
-    return Text.replace('\xa0', ' ').strip(string.whitespace + ",")
+    return Text.replace('\xa0', ' ').strip(string.whitespace + ",").replace("\\", "\\\\")
 
 
-class DocstringParser(markdownify.MarkdownConverter):
-    def __init__(self, UrlBase: str, **options):
+class DocstringMarkdownConverter(markdownify.MarkdownConverter):
+    def __init__(self, UrlBase: str, bParamNiceName = True, **options):
         super().__init__(**options)
 
         self.UrlBase = UrlBase  # Base for any relative url's found
+        self.bParamNiceName = bParamNiceName
 
-    def ParseDocString(self, DescriptionHtml: Tag | NavigableString):
-        return self.convert(str(DescriptionHtml))
+    def ConvertDocString(self, DescriptionHtml: Tag | NavigableString):
+        DocString = self.convert(str(DescriptionHtml))
+
+        # There are some (what I guess is) broken <b> tags scattered around in the docstrings. Remove them.
+        DocString = DocString.replace("b>", " ")
+        
+        # Lines = []
+        # for Line in DocString.split("\n"):
+        #     if Line.startswith("    "):
+        #         DocString = DocString.replace(Line, "    " + Line.strip())
+        # DocString = "\n".join(Lines)
+
+        return DocString
 
     def convert_a(self, el: Tag, text, convert_as_inline):
         """ Make sure all <a> tags have a full URL. """
@@ -166,6 +189,9 @@ class DocstringParser(markdownify.MarkdownConverter):
 
         return markdownify.markdownify(str(el))
 
+    def convert_p(self, el, text, convert_as_inline):
+        return super().convert_p(el, text, convert_as_inline).strip() + "\n"
+
     # -------------------------
     #      Parameter Lists
     # -------------------------
@@ -187,7 +213,10 @@ class DocstringParser(markdownify.MarkdownConverter):
                 Cell: Tag
                 for Index, Cell in enumerate(Row.find_all("td")):
                     if Index == 0 and ClassNames.ParameterName in Cell.get("class"):
-                        Text = f"    - {GetSafeText(Cell.get_text())}: "
+                        ParameterName = GetSafeText(Cell.get_text())
+                        if self.bParamNiceName:
+                            ParameterName = GetParameterNiceName(ParameterName)
+                        Text = f"    - {ParameterName}: "
                     else:
                         # TODO: Might not ned to run mardkdownify on the cell text, just use the text instead
                         Text += markdownify.markdownify(str(Cell)).strip(string.whitespace + "|")
@@ -196,3 +225,47 @@ class DocstringParser(markdownify.MarkdownConverter):
             return "\n".join(ParameterLines)
 
         return super().convert_table(el, text, convert_as_inline)
+
+    # -------------------------
+    #      Code Blocks
+    # -------------------------
+
+    def convert_div(self, el: Tag, text, convert_as_inline):
+        """ Convert all <div> tags to a code block. """
+        ElementClassNames = el.get("class")
+        if ElementClassNames and ClassNames.CodeBlock in ElementClassNames:
+            # Exclude any <div> tags that have class names "ttc"
+            for Child in el.find_all('div', class_='ttc'):
+                Child.decompose()
+
+            Code = GetSafeText(el.get_text())
+            LanguageType = GetLanguageFromCode(Code)
+
+            if LanguageType == "python":
+                # Replace Python 2 print statements with Python 3 print functions
+                Code = re.sub(PY2_TO_PY3_PRINT_PATTERN, r"print(\1)\n", Code).strip()
+
+            return f"\n```{LanguageType}\n{Code}\n```\n"
+
+        return text
+
+
+def GetLanguageFromCode(Code: str):
+    """ Determine the language of some code """
+    PythonScore = 0
+    CPlusPlusScore = 0
+    for Line in Code.split("\n"):
+        # Look for comment syntax
+        if Line.startswith("//"):
+            CPlusPlusScore += 1
+        elif Line.startswith("#"):
+            PythonScore += 1
+
+        # Look for line endings
+        StrippedLine = Line.strip()
+        if StrippedLine.endswith(":"):
+            PythonScore += 1
+        elif StrippedLine.endswith(";"):
+            CPlusPlusScore += 1
+
+    return "python" if PythonScore >= CPlusPlusScore else "c++"
