@@ -74,7 +74,7 @@ def GetBaseContent(Module: ModuleType):
     return Content
 
 
-def SortClasses(Classes: list):
+def SortClasses(Classes: list[StubClass]):
     """ 
     Sort classes based on their parent class
     If a class has another class as their parent class, it'll be placed later in the list
@@ -127,33 +127,6 @@ class StubGenerator():
             self._AllClassNames = [x.__name__ for x in Classes + Enums]
         return self._AllClassNames
 
-    # ---------------------------------------------------
-    #                   Final Patch
-    # ---------------------------------------------------
-
-    def FinalPatchClass(self, Class: StubClass, Classes: list[StubClass]):
-        for Function in Class.StubFunctions:
-            self.FinalPatchFunction(Function, Classes)
-
-    def FinalPatchFunction(self, Function: StubFunction, Classes: list[StubClass]):
-        for Parameter in Function.GetParameters():
-            self.FinalPatchParameter(Parameter, Classes)
-
-    def FinalPatchParameter(self, Parameter: StubParameter, Classes: list[StubClass]):
-        # Patch the type if it's an enum that lives as a subclass
-        if Parameter.Type and Parameter.Type.startswith("E"):
-            if Parameter.Type not in self.GetAllClassNames():
-                # Find the class that the enum is a part of
-                for Class in Classes:
-                    if hasattr(Class.Ref, Parameter.Type):
-                        Parameter.Type = f"{Class.Name}.{Parameter.Type}"
-                        if Parameter.DefaultValue and "." not in Parameter.DefaultValue:
-                            Parameter.DefaultValue = f"{Parameter.Type}.{Parameter.DefaultValue}"
-                        break
-
-        if Parameter.DefaultValue in TranslationDefaultValues:
-            Parameter.DefaultValue = TranslationDefaultValues[Parameter.DefaultValue]
-
     def GenerateString(self) -> str:
         """
         Returns: The stub file as a string
@@ -165,12 +138,6 @@ class StubGenerator():
         for PluginType in self.Plugins:
             Plugin = PluginType(self.Version, self.Module, Enums, Classes, FunctionGroupList)
             Plugin.Run()
-
-        # Do a final patch before generating the docstring
-        # for StubClassInstance in Classes:
-        #     self.FinalPatchClass(StubClassInstance, Classes)
-        # for StubFunctionInstance in Functions:
-        #     self.FinalPatchFunction(StubFunctionInstance, Classes)
 
         # Sort classes after all patches are done and we know their requirements
         Classes = SortClasses(Classes)
