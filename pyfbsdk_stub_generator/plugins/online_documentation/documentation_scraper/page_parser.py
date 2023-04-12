@@ -195,6 +195,7 @@ class DocstringMarkdownConverter(markdownify.MarkdownConverter):
     def convert_b(self, el, text, convert_as_inline):
         """ Skip adding ** around bold text. Since PyLance doesn't support bold text markdown atm."""
         return text
+    
 
     # -------------------------
     #      Parameter Lists
@@ -204,6 +205,13 @@ class DocstringMarkdownConverter(markdownify.MarkdownConverter):
         """ Convert all <dt> tags to a headers. """
         HeaderText = markdownify.markdownify(str(el))
         return f"### {HeaderText}:\n"
+    
+    def convert_dd(self, el: Tag, text: str, convert_as_inline):
+        # Only strip new lines
+        return text.strip("\n")
+    
+    # def convert_dl(self, el: Tag, text, convert_as_inline):
+    #     return text
 
     def convert_table(self, el: Tag, text, convert_as_inline):
         # Check if element has the class name for a parameter list

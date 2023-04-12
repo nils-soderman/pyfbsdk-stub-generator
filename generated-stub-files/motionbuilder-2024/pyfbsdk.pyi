@@ -3503,7 +3503,6 @@ class FBAddRegionParam():
         """Initialize a region params.
         
         ### Parameters:
-        
             - Pos: Offset in pixel according depending on the use of [FBAddRegionParam](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_add_region_param.html "This class provide a placeholder to put values necessary to create a Region with FBLayout....") (X, Y, W or H)
             - Type: Type of Attachment.
             - Relative: Name of Region to attach relative to.
@@ -3600,9 +3599,7 @@ class FBCharacterPoseOptions():
         """Get a flag value.
         
         ### Parameters:
-        
             - Flag: Flag to get.
-        
         
         ### Returns:
         Value of the flag."""
@@ -3611,7 +3608,6 @@ class FBCharacterPoseOptions():
         """Set a flag value.
         
         ### Parameters:
-        
             - Flag: Flag to set.
             - Value: Value to set."""
         ...
@@ -3651,9 +3647,7 @@ class FBColor():
         """Returns the ith component Corresponds to python: print color[1].
         
         ### Parameters:
-        
             - Index: Index of the components to get (0:Red, 1:Green, 2:Blue)
-        
         
         ### Returns:
         Color component value."""
@@ -3706,7 +3700,6 @@ class FBColor():
         """Sets the ith components Corresponds to python: color[1] = 0.5.
         
         ### Parameters:
-        
             - Index: Index of the components to set (0:Red, 1:Green, 2:Blue)
             - ComponentValue: Value of component to set"""
         ...
@@ -3750,9 +3743,7 @@ class FBColorAndAlpha():
         """Returns the ith component Corresponds to python: print color[1].
         
         ### Parameters:
-        
             - Index: Index of the components to get (0:Red, 1:Green, 2:Blue)
-        
         
         ### Returns:
         Color component value."""
@@ -3805,7 +3796,6 @@ class FBColorAndAlpha():
         """Sets the ith components Corresponds to python: color[1] = 0.5.
         
         ### Parameters:
-        
             - Index: Index of the components to set (0:Red, 1:Green, 2:Blue)
             - ComponentValue: Value of component to set"""
         ...
@@ -3835,9 +3825,7 @@ class FBComponentList():
         """Returns the ith component Corresponds to python: print l[1].
         
         ### Parameters:
-        
             - Index: Index of the components to get
-        
         
         ### Returns:
         [FBComponent](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html "MotionBuilder SDK base class.") element value"""
@@ -3865,11 +3853,9 @@ class FBConfigFile():
         
         Get an item's value by looking inside a specific section of the config file.
         ### Parameters:
-        
             - SectionName: Name of the section.
             - ItemName: Name of the item.
             - DefaultValue: Default value that will be returned if the item is not found.
-        
         
         ### Returns:
         The value assigned to the item in the specified section of the config file, or the default value if not found."""
@@ -3878,12 +3864,10 @@ class FBConfigFile():
         """Get a value from the config file and set it if it was not found.
         
         ### Parameters:
-        
             - SectionName: Name of the section.
             - ItemName: Name of the item.
             - Value: Reference the the string that will contain the value of the item. If the item is not found in the file, it will be added with the initial value in this string.
             - Comment: Optional parameter that can be used to add a comment.
-        
         
         ### Returns:
         true if the value was found or added, or false if the item was not found and could not be added to the file."""
@@ -3893,12 +3877,10 @@ class FBConfigFile():
         
         Assign a value to an item in the config file. If the item does not exist, it will be created.
         ### Parameters:
-        
             - SectionName: Name of the section.
             - ItemName: Name of the item.
             - Value: Value assigned to the item.
             - Comment: Optional parameter that can be used to add a comment.
-        
         
         ### Returns:
         true if the item was written to the config file, false otherwise."""
@@ -3907,7 +3889,6 @@ class FBConfigFile():
     def __init__(self,ConfigFileName:str,VirtualMode:bool=False,ClearFile:bool=False):
         """This will open the desired config file from the [APPLICATION]/bin/config folder. The file will be created if it does not exists. By prefixing the character '@' to the file name, this will automatically prepend the current machine name to the config file, the way it is done for the other config files of the application.
         ### Parameters:
-        
             - ConfigFileName: Name the config file to use.
             - VirtualMode: Enable this to limit disk access, file will only be read at construction and written at destruction.
             - ClearFile: Remove all existing content from the config file."""
@@ -3916,7 +3897,6 @@ class FBConfigFile():
     def __init__(self,ConfigFileName:str,ConfigFilePath:str,VirtualMode:bool=False,ClearFile:bool=False):
         """This will open the desired config file in the designed folder. The file will be created if it does not exists. By prefixing the character '@' to the file name, this will automatically prepend the current machine name to the config file, the way it is done for the other config files of the application.
         ### Parameters:
-        
             - ConfigFileName: Name the config file to use.
             - ConfigFilePath: Location where the file should reside. Missing directories will not be created.
             - VirtualMode: Enable this to limit disk access, file will only be read at construction and written at destruction.
@@ -3953,7 +3933,6 @@ class FBConstructionOperation():
         
         Set this to -1 for new operations.
         ### Parameters:
-        
             - commandId: Command Id. Defaults to -1."""
         ...
     def SetExecuteAsLocalOperation(self,bIsLocal:bool):
@@ -3961,7 +3940,6 @@ class FBConstructionOperation():
         
         If this is set to false (remote) and an operation is sent to the construction history, it will also execute locally on this motionbuilder.
         ### Parameters:
-        
             - bIsLocal: Defaults to true (local)."""
         ...
     def SetLanguage(self,language:str):
@@ -3969,14 +3947,12 @@ class FBConstructionOperation():
         
         Currently only "python" is supported.
         ### Parameters:
-        
             - language: Langugage string. Default to construction history's code generator's language (Currently "python")."""
         ...
     def SetLanguageVersion(self,version:int):
         """SetLanguageVersion Set the script language interpreter's version that this operation should be interpreted with.
         
         ### Parameters:
-        
             - version: Version number. Defaults to construction history's code generator's version (Currently 1)."""
         ...
     def SetOrigin(self,origin:str):
@@ -3984,14 +3960,12 @@ class FBConstructionOperation():
         
         For instance "localhost" or . Should mostly be "localhost" for new operations.
         ### Parameters:
-        
             - origin: Operation's Origin. Defaults to "localhost"."""
         ...
     def SetScript(self,script:str):
         """SetScript Set the script content for this operation.
         
         ### Parameters:
-        
             - script: Script content as a string. Defaults to empty."""
         ...
     def __init__(self,arg2:str|None=None):...
@@ -4040,7 +4014,6 @@ class FBDirMap():
         
         If one of the mapped directory's source is found in the given path, that part of the path will be replaced by the mapped directory's target. Only the first occurrence is processed.
         ### Parameters:
-        
             - Path: The path to process"""
         ...
     def __init__(self):...
@@ -4089,7 +4062,6 @@ class FBEventActivate(FBEvent):
 class FBEventClipChange(FBEvent):
     def __init__(self):
         """### Parameters:
-        
             - Event: Base event (internal) to obtain information from."""
         ...
 class FBEventConnectionDataNotify(FBEvent):
@@ -4100,7 +4072,6 @@ class FBEventConnectionDataNotify(FBEvent):
     """Read Only Property: The plug involved in the action."""
     def __init__(self):
         """### Parameters:
-        
             - Event: Base event (internal) to obtain information from."""
         ...
 class FBEventConnectionKeyingNotify(FBEvent):
@@ -4111,7 +4082,6 @@ class FBEventConnectionKeyingNotify(FBEvent):
     StopTime:property
     def __init__(self):
         """### Parameters:
-        
             - Event: Base event (internal) to obtain information from."""
         ...
 class FBEventConnectionNotify(FBEvent):
@@ -4130,7 +4100,6 @@ class FBEventConnectionNotify(FBEvent):
     """Read Only Property: The source plug involved in the action."""
     def __init__(self):
         """### Parameters:
-        
             - Event: Base event (internal) to obtain information from."""
         ...
 class FBEventConnectionStateNotify(FBEvent):
@@ -4141,7 +4110,6 @@ class FBEventConnectionStateNotify(FBEvent):
     """Read Only Property: The plug involved in the action."""
     def __init__(self):
         """### Parameters:
-        
             - Event: Base event (internal) to obtain information from."""
         ...
 class FBEventDblClick(FBEvent):
@@ -4150,7 +4118,6 @@ class FBEventDblClick(FBEvent):
     """Read Only Property: Id of selection."""
     def __init__(self):
         """### Parameters:
-        
             - Event: Base event (internal) to obtain information from."""
         ...
 class FBEventDragAndDrop(FBEvent):
@@ -4174,7 +4141,6 @@ class FBEventDragAndDrop(FBEvent):
         """Add an item to the drag and drop list.
         
         ### Parameters:
-        
             - Component: Item to add to the list.
             - Id: User-defined reference for the item (default = 0 )."""
         ...
@@ -4185,9 +4151,7 @@ class FBEventDragAndDrop(FBEvent):
         """Get the [FBComponent](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html "MotionBuilder SDK base class.") specified by pIndex from the Drag and Drop list.
         
         ### Parameters:
-        
             - Index: Index in list where to get [FBComponent](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html "MotionBuilder SDK base class.").
-        
         
         ### Returns:
         Handle to [FBComponent](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html "MotionBuilder SDK base class.") in list at pIndex."""
@@ -4237,13 +4201,11 @@ class FBEventOverrideFileOpen(FBEvent):
     """Read Write Property: Set to true for handling the file load, false by default. If the return value is false, MotionBuilder will proceed with the normal file open/merge process."""
     def __init__(self):
         """### Parameters:
-        
             - Event: Base event (internal) to obtain information from."""
         ...
 class FBEventPlayerControlChange(FBEvent):
     def __init__(self):
         """### Parameters:
-        
             - Event: Base event (internal) to obtain information from."""
         ...
 class FBEventResize(FBEvent):
@@ -4254,7 +4216,6 @@ class FBEventResize(FBEvent):
     """Property: New Width of the window."""
     def __init__(self):
         """### Parameters:
-        
             - Event: Base event (internal) to obtain information from."""
         ...
 class FBEventSceneChange(FBEvent):
@@ -4267,7 +4228,6 @@ class FBEventSceneChange(FBEvent):
     """Read Only Property: Modified component"""
     def __init__(self):
         """### Parameters:
-        
             - Event: Base event (internal) to obtain information from."""
         ...
 class FBEventShow(FBEvent):
@@ -4290,7 +4250,6 @@ class FBEventTakeChange(FBEvent):
     """Read Only Property: The take modified."""
     def __init__(self):
         """### Parameters:
-        
             - Event: Base event (internal) to obtain information from."""
         ...
 class FBEventTransaction(FBEvent):
@@ -4309,7 +4268,6 @@ class FBEventTreeSelect(FBEvent):
     """Read Write Property: Selected tree node."""
     def __init__(self):
         """### Parameters:
-        
             - Event: Base event (internal) to obtain information from."""
         ...
 class FBEventVideoFrameRendering(FBEvent):
@@ -4325,7 +4283,6 @@ class FBEventVideoFrameRendering(FBEvent):
     eRendering:FBEventVideoFrameRendering.EState
     def __init__(self):
         """### Parameters:
-        
             - Event: Base event (internal) to obtain information from."""
         ...
 class FBFCurveEvent(FBEvent):
@@ -4349,7 +4306,6 @@ class FBFCurveEvent(FBEvent):
     ParentProperty:property
     def __init__(self):
         """### Parameters:
-        
             - Event: Base event (internal) to obtain information from."""
         ...
 class FBFCurveKey():
@@ -4481,9 +4437,7 @@ class FBFilterManager():
         """Create a filter instance according to the filter type requested.
         
         ### Parameters:
-        
             - FilterTypeName: String describing the type of the desired filter, as obtained from list FilterTypeNames.
-        
         
         ### Returns:
         A pointer to a filter instance, or a NULL if the type name was invalid."""
@@ -4522,8 +4476,6 @@ class FBMatrix():
     ```
      ### Warning:
     The implementation of this 4x4 matrix uses a simple list of 16 elements, not a list of 4 vectors of 4 elements.\* 
-    
-    
     Slicing is not supported by this object.
     
     
@@ -4543,9 +4495,7 @@ class FBMatrix():
         """InverseProduct Matrix.
         
         ### Parameters:
-        
             - Matrix: Matrix to Product.
-        
         
         ### Returns:
         result matrix."""
@@ -4558,7 +4508,6 @@ class FBMatrix():
         
         
         ### Parameters:
-        
             - Value: Array to intialize matrix from."""
         ...
     def Transpose(self):
@@ -4578,9 +4527,7 @@ class FBMatrix():
         """Returns the ith component Corresponds to python: print matrix[1].
         
         ### Parameters:
-        
             - Index: Index of the components to get (0 to 15)
-        
         
         ### Returns:
         Matrix element value"""
@@ -4597,7 +4544,6 @@ class FBMatrix():
     @overload
     def __init__(self,Value:list):
         """### Parameters:
-        
             - Value: Array to intialize matrix from."""
         ...
     @overload
@@ -4607,7 +4553,6 @@ class FBMatrix():
         
         
         ### Parameters:
-        
             - Matrix: Matrix to copy."""
         ...
     def __isub__(self,arg2:FBMatrix)->object:...
@@ -4625,7 +4570,6 @@ class FBMatrix():
         """Sets the ith components Corresponds to python: color[1] = 0.5.
         
         ### Parameters:
-        
             - Index: Index of the components to set (0 to 15)
             - ComponentValue: Value of component to set"""
         ...
@@ -4645,7 +4589,6 @@ class FBModelList():
         """Append a new modle at the end of the list.
         
         ### Parameters:
-        
             - Model: model to add to the list."""
         ...
     def Clear(self):
@@ -4658,9 +4601,7 @@ class FBModelList():
         """Get the ith model in list.
         
         ### Parameters:
-        
             - Index: index of modle to get (0 based).
-        
         
         ### Returns:
         The pIndex model"""
@@ -4669,9 +4610,7 @@ class FBModelList():
         """Returns the ith component Corresponds to python: print l[1].
         
         ### Parameters:
-        
             - Index: Index of the components to get
-        
         
         ### Returns:
         Model element value"""
@@ -4686,7 +4625,6 @@ class FBModelList():
         """Append a new modle at the end of the list.
         
         ### Parameters:
-        
             - Model: model to add to the list."""
         ...
     def count(self)->int:
@@ -4736,9 +4674,7 @@ class FBMultiLangManager():
         
         Change the current language to another available language.
         ### Parameters:
-        
             - Language: The string corresponding to the desired language, as defined in property Languages.
-        
         
         ### Returns:
         Indicate if the change of language was successful. 
@@ -4818,9 +4754,7 @@ class FBObjectPoseMirrorOptions():
         """Get a flag value.
         
         ### Parameters:
-        
             - Flag: Flag to get.
-        
         
         ### Returns:
         Value of the flag."""
@@ -4829,7 +4763,6 @@ class FBObjectPoseMirrorOptions():
         """Set a flag value.
         
         ### Parameters:
-        
             - Flag: Flag to set.
             - Value: Value to set."""
         ...
@@ -4853,9 +4786,7 @@ class FBObjectPoseOptions():
         """Get a flag value.
         
         ### Parameters:
-        
             - Flag: Flag to get.
-        
         
         ### Returns:
         Value of the flag."""
@@ -4864,7 +4795,6 @@ class FBObjectPoseOptions():
         """Set a flag value.
         
         ### Parameters:
-        
             - Flag: Flag to set.
             - Value: Value to set."""
         ...
@@ -4939,7 +4869,6 @@ class FBProfileTaskCycle():
         
         Results will vary on buffer size. When profiling is disabled all values are set to 1.
         ### Parameters:
-        
             - Avg: Average time spend for computation of task (in micro seconds).
             - Min: Minimum time spend for computation of task (in micro seconds).
             - Max: Maximum time spend for computation of task (in micro seconds)."""
@@ -4949,9 +4878,7 @@ class FBProfileTaskCycle():
         
         Can return NULL if child index is not used.
         ### Parameters:
-        
             - Index: Child index.
-        
         
         ### Returns:
         Child at given index."""
@@ -5009,9 +4936,7 @@ class FBPropertyListAnimationNode():
         """Returns the animation node from its label.
         
         ### Parameters:
-        
             - NodeLabel: Label of the searched animation node.
-        
         
         ### Returns:
         AnimationNode found."""
@@ -5077,10 +5002,8 @@ class FBPropertyManager():
         """Find a property, based on its name.
         
         ### Parameters:
-        
             - PropertyName: Name of property to look for.
             - MultilangLookup: When searching, indicate if the name lookup should also be done on the property name as shown in the GUI. (default = true)
-        
         
         ### Returns:
         Handle to property found."""
@@ -5089,11 +5012,9 @@ class FBPropertyManager():
         """This function will query the property list for properties fulfilling a particular name pattern.
         
         ### Parameters:
-        
             - PropertyNamePattern: Indicate the name pattern to search. This pattern can contain any amount of \*. (ex: \*tr\*mod\*scene )
             - PropList: List that contains the resulting properties matching the pattern
             - MultilangLookup: When searching, indicate if the name lookup should also be done on the property name as shown in the GUI. (default = true)
-        
         
         ### Note:
         The script FindPropertiesWithWildcard.py shows how to use this function."""
@@ -5108,7 +5029,6 @@ class FBPropertyStateEvent(FBEvent):
     Property:property
     def __init__(self):
         """### Parameters:
-        
             - Event: Base event (internal) to obtain information from."""
         ...
 class FBPropertyViewDefinition():
@@ -5138,10 +5058,8 @@ class FBPropertyViewList():
         """Add property view.
         
         ### Parameters:
-        
             - Property: Property to add.
             - Hierarchy: Hierarchy under which property view should be created, each level name is separated by dot (for example "Degrees of Freedom.Translation").
-        
         
         ### Returns:
         created object (should not be called on non editable view list)."""
@@ -5156,9 +5074,7 @@ class FBPropertyViewList():
         """Remove property view from view list.
         
         ### Parameters:
-        
             - PropertyViewDefinition: Property view definition to destroy.
-        
         
         ### Returns:
         true when pPropertyViewDefinition got removed and free (should not be called on non editable view list)."""
@@ -5294,9 +5210,7 @@ class FBProperty(FBPlug):
         """Get the property value as a string.
         
         ### Parameters:
-        
             - Flag: Indicates the returned string to be used for UI or storage. It defaults to kFBDataAsStringUI.
-        
         
         ### Returns:
         The string version of the property."""
@@ -5305,9 +5219,7 @@ class FBProperty(FBPlug):
         """Return the string of an enum value.
         
         ### Parameters:
-        
             - Index: Enum value to get string for.
-        
         
         ### Returns:
         String value of enum specified by pIndex."""
@@ -5316,9 +5228,7 @@ class FBProperty(FBPlug):
         """String list for enum properties.
         
         ### Parameters:
-        
             - CreateIt: Create a new list if necessary.
-        
         
         ### Returns:
         the pointer to the string list.."""
@@ -5345,9 +5255,7 @@ class FBProperty(FBPlug):
         """GetPropertyFlag.
         
         ### Parameters:
-        
             - Flag: Flag to test if it is True or False.
-        
         
         ### Returns:
         If the flag is True, the function returns True and vice-versa. 
@@ -5414,9 +5322,7 @@ class FBProperty(FBPlug):
         """IsMemberLocked.
         
         ### Parameters:
-        
             - Index: Index of the sub-member of the property to check.
-        
         
         ### Returns:
         true if property sub-member is locked"""
@@ -5446,10 +5352,8 @@ class FBProperty(FBPlug):
         """ModifyPropertyFlag.
         
         ### Parameters:
-        
             - Flag: The flag to switch to True or False.
             - Value: The value to set about this flag.
-        
         
         ### Warning:
         Flags are not saved into or read from a FBX file."""
@@ -5467,14 +5371,12 @@ class FBProperty(FBPlug):
         """SetLocked.
         
         ### Parameters:
-        
             - Locked: True if the property is to be locked, false if it is to be unlocked."""
         ...
     def SetMax(self,Max:float,ForceMaxClamp:bool=False):
         """SetMax.
         
         ### Parameters:
-        
             - Max: Maximum value of the property.
             - ForceMaxClamp: Force clamping to maximum value of the property."""
         ...
@@ -5482,7 +5384,6 @@ class FBProperty(FBPlug):
         """SetMemberLocked.
         
         ### Parameters:
-        
             - Index: Index of the sub-member of the property to lock or unlock.
             - Locked: True if the sub-member is to be locked, false if it is to be unlocked."""
         ...
@@ -5490,7 +5391,6 @@ class FBProperty(FBPlug):
         """SetMin.
         
         ### Parameters:
-        
             - Min: Minimum value of the property.
             - ForceMinClamp: Force clamping to minimum value of the property."""
         ...
@@ -5498,16 +5398,13 @@ class FBProperty(FBPlug):
         """Set the property's name.
         
         ### Parameters:
-        
             - Name: New name for the property."""
         ...
     def SetString(self,String:str)->bool:
         """Set the property value from a string.
         
         ### Parameters:
-        
             - String: String to set property value from, with format same as AsString(kFBDataAsStringPersistence)
-        
         
         ### Returns:
         True if it was possible."""
@@ -5536,14 +5433,12 @@ class FBComponent(FBPlug):
         """Disable a specific Object Flags.
         
         ### Parameters:
-        
             - Flags: Flags to disable."""
         ...
     def EnableObjectFlags(self,Flags:FBObjectFlag):
         """Enable a specific Object Flags.
         
         ### Parameters:
-        
             - Flags: Flags to enable."""
         ...
     def FBCreate(self)->bool:
@@ -5570,7 +5465,6 @@ class FBComponent(FBPlug):
         """Check to see if an object status is enabled.
         
         ### Parameters:
-        
             - Status: Status to query."""
         ...
     def GetOwnerFileReference(self)->FBFileReference:
@@ -5588,9 +5482,7 @@ class FBComponent(FBPlug):
         """Check whether a specific object flag is enabled.
         
         ### Parameters:
-        
             - Flags: Flags to check if they are present.
-        
         
         ### Returns:
         True if all flags in pFlags are enabled."""
@@ -5600,12 +5492,10 @@ class FBComponent(FBPlug):
         
         New Namespace name should only contains alphabet, digit and '\_', Can't start with digit. This recursive function goes through the whole hierarchy (children) to add/replace the prefix. If you need to work on a single object, use the ProcessObjectPrefix function.
         ### Parameters:
-        
             - NamespaceAction: Which operation to do on the hierarchy (children).
             - NamespaceName: The Namespace name on Add/Delete or the prefix to replace in case of replace.
             - ReplaceTo: The new Namespace Name or NULL in case of add or delete.
             - AddRight: Whether to add the namespace on right-most or left-most side or other namespace.
-        
         
         ### Returns:
         return true if process successful."""
@@ -5615,12 +5505,10 @@ class FBComponent(FBPlug):
         
         New Namespace name should only contains alphabet, digit and '\_', Can't start with digit. This function is the same as ProcessNamespaceHierarchy except that it applies only on the current object and not to the object's children.
         ### Parameters:
-        
             - NamespaceAction: Which operation to do on the hierarchy (children).
             - NamespaceName: The Namespace name on Add/Delete or the prefix to replace in case of replace.
             - ReplaceTo: The new Namespace Name or NULL in case of add or delete.
             - AddRight: Whether to add the namespace on right-most or left-most side or other namespace.
-        
         
         ### Returns:
         return true if process successful."""
@@ -5629,9 +5517,7 @@ class FBComponent(FBPlug):
         """Add a property to the component's property manager.
         
         ### Parameters:
-        
             - Property: The property to add to the property manager.
-        
         
         ### Returns:
         Index in the property array where property was inserted."""
@@ -5640,9 +5526,7 @@ class FBComponent(FBPlug):
         """Add a reference property to the component's property manager.
         
         ### Parameters:
-        
             - ReferenceProperty: The property to from an other object to add a reference to (property cannot be a custom ORSDK property).
-        
         
         ### Returns:
         True if the reference property could be added."""
@@ -5651,7 +5535,6 @@ class FBComponent(FBPlug):
         """Create user or dynamic property.
         
         ### Parameters:
-        
             - Name: The name of the property.
             - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_type.html "Property types.").
             - DataType: DataType of the property.
@@ -5663,7 +5546,6 @@ class FBComponent(FBPlug):
         """Get list of properties which have been modified since last loading.
         
         ### Parameters:
-        
             - PropList: property list to hold the modified properties.
             - ModificationFlags: type of modification to query."""
         ...
@@ -5672,21 +5554,18 @@ class FBComponent(FBPlug):
         
         If the property was dynamically allocated, it is deleted.
         ### Parameters:
-        
             - Property: The property to remove from the property manager."""
         ...
     def SetObjectFlags(self,Flags:FBObjectFlag):
         """SetObjectFlags.
         
         ### Parameters:
-        
             - Flags: Set flag values. Note: this function overwrites all flags with those passed in parameter."""
         ...
     def SetObjectStatus(self,Status:FBObjectStatus,Value:bool):
         """Enable/Disable a specific Object Status.
         
         ### Parameters:
-        
             - Status: Status to change.
             - Value: Value to change the status to."""
         ...
@@ -5707,9 +5586,7 @@ class FBReferenceTime(FBComponent):
         """Add a reference time to list.
         
         ### Parameters:
-        
             - Name: Name of time to add the list.
-        
         
         ### Returns:
         Unique ID of the reference time, use this ID to access the reference time in the future."""
@@ -5718,9 +5595,7 @@ class FBReferenceTime(FBComponent):
         """Get the name of a time reference.
         
         ### Parameters:
-        
             - ID: ID of the time reference whose name will be returned.
-        
         
         ### Returns:
         Name of reference time with the pID."""
@@ -5729,10 +5604,8 @@ class FBReferenceTime(FBComponent):
         """Get a reference time.
         
         ### Parameters:
-        
             - ID: ID of reference to get.
             - System: System time.
-        
         
         ### Returns:
         Reference time at pIndex."""
@@ -5741,21 +5614,18 @@ class FBReferenceTime(FBComponent):
         """Get list of currently available IDs.
         
         ### Parameters:
-        
             - IDArray: Array that will be filled with the requested IDs."""
         ...
     def Remove(self,ID:int):
         """Remove a reference time from the list.
         
         ### Parameters:
-        
             - ID: ID of reference time to remove."""
         ...
     def SetTime(self,ID:int,ReferenceTime:FBTime,System:FBTime):
         """Set a reference time.
         
         ### Parameters:
-        
             - ID: ID of reference time set.
             - ReferenceTime: Time to use as reference time.
             - System: System time."""
@@ -5771,11 +5641,9 @@ class FBPropertyViewManager(FBComponent):
         """Add property view to global ('All') view set.
         
         ### Parameters:
-        
             - ClassName: Property owner class name (pClassName if won't be found, a new entry for this class is created).
             - PropertyName: Property name.
             - Hierarchy: Hierarchy under which property view should be created, each level name is separated by dot (for example "Degrees of Freedom.Translation").
-        
         
         ### Returns:
         created object. 
@@ -5786,11 +5654,9 @@ class FBPropertyViewManager(FBComponent):
         """Create new property view list.
         
         ### Parameters:
-        
             - Object: Property view set attached to.
             - ViewType: Property view set type.
             - Name: Name for new view list.
-        
         
         ### Returns:
         created object."""
@@ -5799,11 +5665,9 @@ class FBPropertyViewManager(FBComponent):
         """Find property view list.
         
         ### Parameters:
-        
             - Object: Property view set attached to.
             - ViewType: Property view set type.
             - Name: Name of view set.
-        
         
         ### Returns:
         Found property view set object or NULL."""
@@ -5812,11 +5676,9 @@ class FBPropertyViewManager(FBComponent):
         """Hide property view in global ('All') view set.
         
         ### Parameters:
-        
             - ClassName: Property owner class name.
             - PropertyName: Property name.
             - Hide: Show/Hide.
-        
         
         ### Note:
         This call should be used on library registration, doesn't cause tool refresh."""
@@ -5828,11 +5690,9 @@ class FBPropertyViewManager(FBComponent):
         """Remove property view list (only if editable).
         
         ### Parameters:
-        
             - Object: Property view set attached to.
             - ViewType: Property view set type.
             - Name: Name for property view list.
-        
         
         ### Returns:
         True if successful."""
@@ -5841,10 +5701,8 @@ class FBPropertyViewManager(FBComponent):
         """Remove property view from global ('All') view set.
         
         ### Parameters:
-        
             - ClassName: Property owner class name.
             - PropertyName: Property name.
-        
         
         ### Returns:
         true if succeed (should not be call on system views). 
@@ -5882,9 +5740,7 @@ class FBPropertyStringList(FBProperty):
         """Check if a FCComponent is already in PropertyList Corresponds to python: if object in propertyList:
         
         ### Parameters:
-        
             - Value: Component to check for inclusion
-        
         
         ### Returns:
         Is the String contained or not?"""
@@ -5894,9 +5750,7 @@ class FBPropertyStringList(FBProperty):
         """Returns the ith component Corresponds to python: print v[1].
         
         ### Parameters:
-        
             - Index: Index of the components to get (0 to 2)
-        
         
         ### Returns:
         str component value."""
@@ -5912,7 +5766,6 @@ class FBPropertyStringList(FBProperty):
         """Sets the ith components Corresponds to python: v[1] = my\_component.
         
         ### Parameters:
-        
             - Index: Index of the components to set
             - Value: a str to set"""
         ...
@@ -5920,7 +5773,6 @@ class FBPropertyStringList(FBProperty):
         """Append new str at end of list.
         
         ### Parameters:
-        
             - Value: to append"""
         ...
     def count(self,arg2)->int:
@@ -5934,9 +5786,7 @@ class FBPropertyStringList(FBProperty):
         """Find the index of an element from its attached reference.
         
         ### Parameters:
-        
             - Reference: Reference of searched object.
-        
         
         ### Returns:
         Returns the index of the element corresponding to reference."""
@@ -5945,9 +5795,7 @@ class FBPropertyStringList(FBProperty):
         """Retrieve the reference of an object at ith position.
         
         ### Parameters:
-        
             - Index: Index of the object to find reference.
-        
         
         ### Returns:
         Returns the reference of the object."""
@@ -5956,7 +5804,6 @@ class FBPropertyStringList(FBProperty):
         """Insert a new element in list.
         
         ### Parameters:
-        
             - Index: Index where to insert string
             - Value: String to append"""
         ...
@@ -5972,9 +5819,7 @@ class FBPropertyStringList(FBProperty):
         """Remove an element in list.
         
         ### Parameters:
-        
             - Index: Index where to remove element.
-        
         
         ### Returns:
         Returns the element that was removed."""
@@ -5983,7 +5828,6 @@ class FBPropertyStringList(FBProperty):
         """Remove an element in list.
         
         ### Parameters:
-        
             - Index: Index where to remove element."""
         ...
     def removeAll(self):
@@ -5993,7 +5837,6 @@ class FBPropertyStringList(FBProperty):
         """Sets the reference value of an object.
         
         ### Parameters:
-        
             - Reference: Reference of the object."""
         ...
 class FBPropertyString(FBProperty):
@@ -6037,9 +5880,7 @@ class FBPropertyListComponent(FBProperty):
         """Check if a FCComponent is already in PropertyList Corresponds to python: if object in propertyList:
         
         ### Parameters:
-        
             - Component: Component to check for inclusion
-        
         
         ### Returns:
         Is the Component contain or not?"""
@@ -6049,9 +5890,7 @@ class FBPropertyListComponent(FBProperty):
         """Returns the ith component Corresponds to python: print v[1].
         
         ### Parameters:
-        
             - Index: Index of the components to get (0 to 2)
-        
         
         ### Returns:
         [FBComponent](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html "MotionBuilder SDK base class.") component value."""
@@ -6067,7 +5906,6 @@ class FBPropertyListComponent(FBProperty):
         """Sets the ith components Corresponds to python: v[1] = my\_component.
         
         ### Parameters:
-        
             - Index: Index of the components to set
             - ComponentValue: a [FBComponent](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html "MotionBuilder SDK base class.") to set"""
         ...
@@ -6075,7 +5913,6 @@ class FBPropertyListComponent(FBProperty):
         """Append new [FBComponent](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html "MotionBuilder SDK base class.") at end of list.
         
         ### Parameters:
-        
             - Comp: to append"""
         ...
     def count(self,arg2)->int:
@@ -6089,7 +5926,6 @@ class FBPropertyListComponent(FBProperty):
         """Insert a new element in list.
         
         ### Parameters:
-        
             - Index: Index where to insert component
             - Comp: Component to append"""
         ...
@@ -6105,9 +5941,7 @@ class FBPropertyListComponent(FBProperty):
         """Remove an element in list.
         
         ### Parameters:
-        
             - Index: Index where to remove element.
-        
         
         ### Returns:
         Returns the element that was removed."""
@@ -6116,7 +5950,6 @@ class FBPropertyListComponent(FBProperty):
         """Remove an element in list.
         
         ### Parameters:
-        
             - Index: Index where to remove element."""
         ...
     def removeAll(self):
@@ -6139,9 +5972,7 @@ class FBPropertyList(FBProperty):
         """Returns the ith component Corresponds to python: print l[1].
         
         ### Parameters:
-        
             - Index: Index of the components to get
-        
         
         ### Returns:
         Element contain in property list"""
@@ -6248,7 +6079,6 @@ class FBPropertyListObject(FBPropertyListComponent):
         """Set if the connection is single or multiple.
         
         ### Parameters:
-        
             - SingleConnect: set to true for only one connection allowed."""
         ...
     def __getitem__(self,arg2)->object:...
@@ -6431,9 +6261,7 @@ class FBPropertyColorAndAlpha(FBProperty):
         """Returns the ith component Corresponds to python: print c[1].
         
         ### Parameters:
-        
             - Index: Index of the components to get (0 to 1)
-        
         
         ### Returns:
         Color component value."""
@@ -6447,7 +6275,6 @@ class FBPropertyColorAndAlpha(FBProperty):
         """Sets the ith components Corresponds to python: c[1] = 0.5.
         
         ### Parameters:
-        
             - Index: Index of the components to set (0 to 1)
             - ComponentValue: Value of component to set"""
         ...
@@ -6472,9 +6299,7 @@ class FBPropertyColor(FBProperty):
         """Returns the ith component Corresponds to python: print c[1].
         
         ### Parameters:
-        
             - Index: Index of the components to get (0 to 1)
-        
         
         ### Returns:
         Color component value."""
@@ -6488,7 +6313,6 @@ class FBPropertyColor(FBProperty):
         """Sets the ith components Corresponds to python: c[1] = 0.5.
         
         ### Parameters:
-        
             - Index: Index of the components to set (0 to 1)
             - ComponentValue: Value of component to set"""
         ...
@@ -6520,9 +6344,7 @@ class FBPropertyAnimatable(FBProperty):
         """Get the color of a particular FCurve of the property.
         
         ### Parameters:
-        
             - Index: Index of the FCurve to get the color.
-        
         
         ### Returns:
         The color of the FCurve at the specified index, a default [FBColor](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_color.html "FBColor class.") object if the index is invalid."""
@@ -6556,9 +6378,7 @@ class FBPropertyAnimatable(FBProperty):
         """Get the focus (keyable) state of child component.
         
         ### Parameters:
-        
             - Index: Index of the child FCurve component.
-        
         
         ### Returns:
         true if the component is in focus, false otherwise"""
@@ -6567,9 +6387,7 @@ class FBPropertyAnimatable(FBProperty):
         """IsMemberMuted.
         
         ### Parameters:
-        
             - Index: Index of the sub-member of the property to check.
-        
         
         ### Returns:
         true if property sub-member is muted"""
@@ -6587,14 +6405,12 @@ class FBPropertyAnimatable(FBProperty):
         """Key the property at time (t).
         
         ### Parameters:
-        
             - Time: Time at which to insert the key."""
         ...
     def KeyRemoveAt(self,Time:FBTime):
         """Remove the key at time (t).
         
         ### Parameters:
-        
             - Time: Time at which to insert the key."""
         ...
     def OriIsAnimated(self)->bool:...
@@ -6602,9 +6418,7 @@ class FBPropertyAnimatable(FBProperty):
         """Revert the FCurves to their default color.
         
         ### Parameters:
-        
             - Index: Index of the FCurve to reset the color, use -1 to reset the color for all FCurves of the property.
-        
         
         ### Returns:
         true if the color was reverted to its default value, false otherwise"""
@@ -6613,7 +6427,6 @@ class FBPropertyAnimatable(FBProperty):
         """Set the animation state of the property.
         
         ### Parameters:
-        
             - State: State of animation for property, true to animate, false to remove curves.
             - CheckLocked: Decides whether to check the locked status."""
         ...
@@ -6621,10 +6434,8 @@ class FBPropertyAnimatable(FBProperty):
         """Set the color of the FCurves for the property.
         
         ### Parameters:
-        
             - Color: Color to set for the FCurve(s).
             - Index: Index of the FCurve to set the new color, use -1 to set the color for all FCurves.
-        
         
         ### Returns:
         true if the color was changed, false otherwise"""
@@ -6633,17 +6444,14 @@ class FBPropertyAnimatable(FBProperty):
         """Set the property's focus (keyable) state.
         
         ### Parameters:
-        
             - State: Focus (keyable) state to set for the property."""
         ...
     def SetFocusChild(self,Index:int,State:bool)->bool:
         """Set the focus (keyable) state of child component.
         
         ### Parameters:
-        
             - Index: Index of the child FCurve component.
             - State: Focus (keyable) state to set for the property component.
-        
         
         ### Returns:
         true if the operation was successful, false otherwise"""
@@ -6652,7 +6460,6 @@ class FBPropertyAnimatable(FBProperty):
         """SetMemberMuted.
         
         ### Parameters:
-        
             - Index: Index of the sub-member of the property to mute or unmute.
             - Muted: True if the sub-member is to be muted, false if it is to be unmuted."""
         ...
@@ -6660,7 +6467,6 @@ class FBPropertyAnimatable(FBProperty):
         """SetMuted.
         
         ### Parameters:
-        
             - Muted: True if the property is to be muted, false if it is to be unmuted."""
         ...
 class FBPropertyAction(FBProperty):
@@ -6792,16 +6598,13 @@ class FBRenderer(FBComponent):
         """Request to arrange all objects in schematic view .
         
         ### Parameters:
-        
             - Mode: Arrange mode."""
         ...
     def ArrangeObjectsInSchematicFromModel(self,Model:FBModel)->bool:
         """Request to arrange a node's tree in the Schematic View, given a starting node.
         
         ### Parameters:
-        
             - Model: The starting node from which the arrange operation is requested.
-        
         
         ### Returns:
         True if the operation is successful, false otherwise."""
@@ -6813,9 +6616,7 @@ class FBRenderer(FBComponent):
         """Create a new bookmark in the Schematic View.
         
         ### Parameters:
-        
             - BookmarkName: The new bookmark name.
-        
         
         ### Returns:
         True if the operation is successful, false otherwise. False is returned if the bookmark name is empty or if a bookmark with the given name already exists."""
@@ -6824,9 +6625,7 @@ class FBRenderer(FBComponent):
         """Delete a bookmark from the Schematic View.
         
         ### Parameters:
-        
             - BookmarkName: The bookmark name to delete.
-        
         
         ### Returns:
         True if the operation is successful, false otherwise. False is returned if the bookmark name is empty or if no bookmark exists with the given name."""
@@ -6835,9 +6634,7 @@ class FBRenderer(FBComponent):
         """Frame the current camera either with all models or with the currently selected models.
         
         ### Parameters:
-        
             - All: true to frame with all models.
-        
         
         ### Returns:
         true if successful."""
@@ -6847,9 +6644,7 @@ class FBRenderer(FBComponent):
         
         If the Schematic View is displayed in the pane associated with the given pane index, the returned camera is the camera that would be displayed if the Schematic View was deactivated. If the Camera Switcher is on in the pane associated with the given pane index, the returned camera is the switcher's current camera.Note: To operate current camera in Camera Switcher, it is recommended to use [FBCameraSwitcher()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/class_f_b_camera_switcher.html "Camera switcher.").
         ### Parameters:
-        
             - PaneIndex: The pane index.
-        
         
         ### Returns:
         The camera used in the given pane index, NULL if the pane index is invalid."""
@@ -6865,9 +6660,7 @@ class FBRenderer(FBComponent):
         
         Those geometry models which have Show property ON are considered as "displayable".
         ### Parameters:
-        
             - Index: displayable geometry model index to query.
-        
         
         ### Returns:
         displayable geometry model."""
@@ -6877,10 +6670,8 @@ class FBRenderer(FBComponent):
         
         This function will return conservative result. It's possible for some geometry outside of the frustum will be considered to be visible, but it will not skip any real visible geometry. This function should only be called in the main rendering thread.
         ### Parameters:
-        
             - ModelList: ModelList holding the return models.
             - Camera: use current camera if NULL.
-        
         
         ### Returns:
         Reference to pModelList. if pModelList is NULL return a const reference to internal static [FBModelList](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_model_list.html "FBModelList class.") and consecutive call to this function will invalidate the result of previous call."""
@@ -6890,9 +6681,7 @@ class FBRenderer(FBComponent):
         
         Those light models which have Show property ON are considered as "displayable".
         ### Parameters:
-        
             - Index: displayable light index to query.
-        
         
         ### Returns:
         displayable light."""
@@ -6901,9 +6690,7 @@ class FBRenderer(FBComponent):
         """Return the last picking info list in the current view pane.
         
         ### Parameters:
-        
             - PickInfosList: The list of pick infos.
-        
         
         ### Returns:
         number of item in the list."""
@@ -6919,13 +6706,11 @@ class FBRenderer(FBComponent):
         """Returns the bounding box (top, left, bottom, right) used by all the Schematic View nodes.
         
         ### Parameters:
-        
             - ConsiderCollapsedNodes: True to also consider nodes which are not visible because collapsed, false otherwise.
             - Top: Top value of the bounding box. Will be filled once the method returns.
             - Left: Left value of the bounding box. Will be filled once the method returns.
             - Bottom: Bottom value of the bounding box. Will be filled once the method returns.
             - Right: Right value of the bounding box. Will be filled once the method returns.
-        
         
         ### Returns:
         True if the operation is successful, false otherwise (e.g. the Schematic View has any node in it, etc.)."""
@@ -6934,14 +6719,12 @@ class FBRenderer(FBComponent):
         """Returns the bounding box (top, left, bottom, right) of a node's tree in the Schematic View, given a starting node.
         
         ### Parameters:
-        
             - Model: The starting node from which the bounding box tree is requested.
             - ConsiderCollapsedNodes: True to also consider nodes which are not visible because collapsed, false otherwise.
             - Top: Top value of the bounding box. Will be filled once the method returns.
             - Left: Left value of the bounding box. Will be filled once the method returns.
             - Bottom: Bottom value of the bounding box. Will be filled once the method returns.
             - Right: Right value of the bounding box. Will be filled once the method returns.
-        
         
         ### Returns:
         True if the operation is successful, false otherwise (e.g. the starting node is not in the Schematic View, etc.)."""
@@ -6964,9 +6747,7 @@ class FBRenderer(FBComponent):
         
         If the Schematic View is displayed in the pane associated with the given pane index, the returned value is the value that would be returned if the Schematic View was deactivated.
         ### Parameters:
-        
             - PaneIndex: The pane index.
-        
         
         ### Returns:
         True if the Camera Switcher is active in the pane associated with the given pane index, False otherwise."""
@@ -6982,10 +6763,8 @@ class FBRenderer(FBComponent):
         
         This function will return conservative result. It's possible for some geometry outside of the frustum will be considered to be visible, but it will not skip any real visible geometry. This function should only be called in the main rendering thread.
         ### Parameters:
-        
             - Geometry: the geometry to be queried.
             - Camera: use current camera if NULL.
-        
         
         ### Returns:
         true if Model is inside camera frustum."""
@@ -6994,7 +6773,6 @@ class FBRenderer(FBComponent):
         """Keyboard input.
         
         ### Parameters:
-        
             - KeyIndex: Key index. (See "enum FBDeviceKeyboardKey" above for supported keys)
             - KeyState: Key state. (True == key is down, False == key is up)
             - IsTrigger: When setting pKeyState to True, resets key state to False right after operation."""
@@ -7003,7 +6781,6 @@ class FBRenderer(FBComponent):
         """Mouse input.
         
         ### Parameters:
-        
             - X: X position.
             - Y: Y position.
             - InputType: Type of input.
@@ -7012,7 +6789,6 @@ class FBRenderer(FBComponent):
             - WheelDeltaValue: Mouse wheel delta value
             - Layer: Rendering layer ID(default=-1).
         
-        
         ### Returns:
         true if successful."""
         ...
@@ -7020,7 +6796,6 @@ class FBRenderer(FBComponent):
         """Mouse input.
         
         ### Parameters:
-        
             - X: X position, normalized to the range of [0, 1] in the view port dimension.
             - Y: Y position, normalized to the range of [0, 1] in the view port dimension.
             - InputType: Type of input.
@@ -7030,7 +6805,6 @@ class FBRenderer(FBComponent):
             - Layer: Rendering layer ID(default=-1).
             - PaneId: specify which pane's dimension used for normalization, default (-1) for the whole viewer.
         
-        
         ### Returns:
         true if successful."""
         ...
@@ -7039,14 +6813,12 @@ class FBRenderer(FBComponent):
         """Setup the scene lights in OpenGL.
         
         ### Parameters:
-        
             - RenderOptions: See [FBRenderOptions](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_render_options.html) for more detail."""
         ...
     def Pick(self,arg2,arg3,PickInfosList:FBPickInfosList)->bool:
         """Object picking selection.
         
         ### Parameters:
-        
             - X: X position.
             - Y: Y position.
             - PickInfosList: The list of pick infos.
@@ -7056,7 +6828,6 @@ class FBRenderer(FBComponent):
         """Object picking selection.
         
         ### Parameters:
-        
             - X: X position, normalized to the range of [0, 1] in the view port dimension.
             - Y: Y position, normalized to the range of [0, 1] in the view port dimension.
             - PickInfosList: The list of pick infos.
@@ -7067,9 +6838,7 @@ class FBRenderer(FBComponent):
         """PreRenders one frame (needed for some shaders) This functions destroys the frame buffer content and must be called every time a render is called the typical order of call must be Renderer->Prerender // at this point the frame buffer is garbage -Clear the ogl -Do your render functions Renderer->Render.
         
         ### Parameters:
-        
             - Layer: Rendering layer ID(default=-1).
-        
         
         ### Returns:
         true if successful."""
@@ -7078,7 +6847,6 @@ class FBRenderer(FBComponent):
         """Object rectangle selection.
         
         ### Parameters:
-        
             - X1: Left upper corner X position.
             - Y1: Left upper corner y position.
             - X2: Right bottom corner X position.
@@ -7089,7 +6857,6 @@ class FBRenderer(FBComponent):
         """Object rectangle selection.
         
         ### Parameters:
-        
             - X1: Left upper corner X position, normalized to the range of [0, 1] in the viewport dimension.
             - Y1: Left upper corner y position, normalized to the range of [0, 1] in the viewport dimension.
             - X2: Right bottom corner X position, normalized to the range of [0, 1] in the viewport dimension.
@@ -7101,10 +6868,8 @@ class FBRenderer(FBComponent):
         """Rename a bookmark in the Schematic View.
         
         ### Parameters:
-        
             - OldBookmarkName: The bookmark name to rename.
             - NewBookmarkName: The new bookmark name.
-        
         
         ### Returns:
         True if the operation is successful, false otherwise. False is returned if the old/new bookmark name is empty, if the old bookmark doesn't exist or if a bookmark with the new given name already exists."""
@@ -7113,9 +6878,7 @@ class FBRenderer(FBComponent):
         """Renders one frame.
         
         ### Parameters:
-        
             - Layer: Rendering layer ID(default=-1).
-        
         
         ### Returns:
         true if successful."""
@@ -7125,7 +6888,6 @@ class FBRenderer(FBComponent):
         
         must be called before rendering can happen
         ### Parameters:
-        
             - X: X position where to render.
             - Y: Y position where to render.
             - W: Width of render area.
@@ -7135,9 +6897,7 @@ class FBRenderer(FBComponent):
         """RenderEnd.
         
         ### Parameters:
-        
             - View: If you want the renderer to draw artifacts, such as TimeCode, CameraLabel or SafeArea, you must provide the [FBView](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_view.html "Generic view.") on which the renderer draws on.
-        
         
         ### Remarks:
         Must be called at the end of rendering."""
@@ -7146,9 +6906,7 @@ class FBRenderer(FBComponent):
         """Select an existing bookmark in the Schematic View and use it as the current bookmark.
         
         ### Parameters:
-        
             - BookmarkName: The bookmark name to select.
-        
         
         ### Returns:
         True if the operation is successful, false otherwise. False is returned if the bookmark name is empty or if no bookmark exists with the given name."""
@@ -7158,7 +6916,6 @@ class FBRenderer(FBComponent):
         
         If the Schematic View is displayed in the pane associated with the given pane index, the camera will be displayed when the Schematic View will be deactivated from this pane.Note: If current pane uses Camera Switcher, it will be set to use Camera, rather than old behavior that still uses Camera Switcher and sets Camera to be Camera Switcher's current camera, which introduce a Zombie Camera Switcher problem. By using Camera, the problem is gone.Note: To operate current camera in Camera Switcher, it is recommended to use [FBCameraSwitcher()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/class_f_b_camera_switcher.html "Camera switcher.").
         ### Parameters:
-        
             - Camera: The camera to set.
             - PaneIndex: The pane index."""
         ...
@@ -7167,7 +6924,6 @@ class FBRenderer(FBComponent):
         
         To specify which camera the Camera Switcher should be displaying, use the SetCameraInPane method. If the Schematic View is displayed in the pane associated with the given pane index, the camera switcher will be displayed (if activated) when the Schematic View will be deactivated from this pane.
         ### Parameters:
-        
             - PaneIndex: The pane index.
             - Active: True to activate the Camera Switcher in the given pane, False to remove it."""
         ...
@@ -7175,7 +6931,6 @@ class FBRenderer(FBComponent):
         """Set the number of panes to display in the viewer's layout.
         
         ### Parameters:
-        
             - PaneCount: The number of panes to display."""
         ...
     def SetSchematicViewInPane(self,PaneIndex:int,Active:bool):
@@ -7183,7 +6938,6 @@ class FBRenderer(FBComponent):
         
         When activating the Schematic View in the pane, if the Schematic View is already activated in another pane, the Schematic View will be removed from latter before being activated into the new pane.
         ### Parameters:
-        
             - PaneIndex: The pane index.
             - Active: True to activate the Schematic View in the given pane, False to remove it."""
         ...
@@ -7191,9 +6945,7 @@ class FBRenderer(FBComponent):
         """Select the pane associated with the given pane index in the active viewer's layout.
         
         ### Parameters:
-        
             - PaneIndex: The pane index.
-        
         
         ### Returns:
         True if the operation is successful, False otherwise."""
@@ -7202,14 +6954,12 @@ class FBRenderer(FBComponent):
         """Set the viewing options.
         
         ### Parameters:
-        
             - Options: See [FBViewingOptions](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_viewing_options.html "Viewing options for rendering.") for more detail."""
         ...
     def SetViewport(self,X:int,Y:int,W:int,H:int):
         """Must be called before inputing if the same renderer is used on multiple views/cameras in the same application.
         
         ### Parameters:
-        
             - X: X position where to render.
             - Y: Y position where to render.
             - W: Width of render area.
@@ -7277,9 +7027,7 @@ class FBProfiler(FBComponent):
         
         This function and [FBProfileTimeEvent.IsSingleEvent](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_profile_time_event.html#ade7a7e9faef91891c22be75fcc97a0cc "Three types of events exits: single, start and end.") are useful to identify duration of event action.
         ### Parameters:
-        
             - Index: Sample index.
-        
         
         ### Returns:
         Sample object if sample at given index is start sample."""
@@ -7288,9 +7036,7 @@ class FBProfiler(FBComponent):
         """Only possible way to query collected [FBProfileTimeEvent](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_profile_time_event.html "FBProfileTimeEvent.").
         
         ### Parameters:
-        
             - Index: Sample index.
-        
         
         ### Returns:
         Sample object."""
@@ -7312,9 +7058,7 @@ class FBProfiler(FBComponent):
         """Get aditional information about what action is stat refering to.
         
         ### Parameters:
-        
             - Index: Index of stat.
-        
         
         ### Returns:
         Stat comment."""
@@ -7330,9 +7074,7 @@ class FBProfiler(FBComponent):
         """Get time that was spend on execution of action.
         
         ### Parameters:
-        
             - Index: Index of stat.
-        
         
         ### Returns:
         Stat duration (in seconds)."""
@@ -7341,9 +7083,7 @@ class FBProfiler(FBComponent):
         """Search for index of given stat name.
         
         ### Parameters:
-        
             - Name: Name of the sample that we are looking for.
-        
         
         ### Returns:
         Stat index if found, -1 if not in the list."""
@@ -7352,9 +7092,7 @@ class FBProfiler(FBComponent):
         """Get information about what action is stat refering to.
         
         ### Parameters:
-        
             - Index: Index of stat.
-        
         
         ### Returns:
         Stat name."""
@@ -7363,9 +7101,7 @@ class FBProfiler(FBComponent):
         """Get start time of action.
         
         ### Parameters:
-        
             - Index: Index of stat.
-        
         
         ### Returns:
         Start time (in seconds)."""
@@ -7374,9 +7110,7 @@ class FBProfiler(FBComponent):
         """Get stop time of action.
         
         ### Parameters:
-        
             - Index: Index of stat.
-        
         
         ### Returns:
         Stop time (in seconds)."""
@@ -7390,7 +7124,6 @@ class FBPose(FBComponent):
         """Add a new pose node.
         
         ### Parameters:
-        
             - Object: The object for which we are creating the pose information.
             - Matrix: The transformation of the object we want to save.
             - IsLocalMatrix: Is the matrix a local matrix?"""
@@ -7402,9 +7135,7 @@ class FBPose(FBComponent):
         """Look in this pose if the given node is present.
         
         ### Parameters:
-        
             - NodeName: Name of the node we are looking for.
-        
         
         ### Returns:
         -1 if the node is not in the list or it's position."""
@@ -7416,39 +7147,29 @@ class FBPose(FBComponent):
         """Get the pose node matrix.
         
         ### Parameters:
-        
             - Index: Index of the node.
-        
         
         ### Returns:
         a reference to the node's Matrix. 
         ### Remarks:
         if the index is invalid a reference to an identiy matrix is returned. 
-        
-        
         The reference will become undefined if this object is destroyed."""
         ...
     def GetNodeName(self,Index:int)->str:
         """Get the pose node at specified index.
         
         ### Parameters:
-        
             - Index: Index of the node.
-        
         
         ### Remarks:
         if the index is invalid a reference to an empty string is returned. 
-        
-        
         The reference will become undefined if this object is destroyed."""
         ...
     def GetNodeObject(self,Index:int)->FBModel:
         """Get the pose node object.
         
         ### Parameters:
-        
             - Index: Index of the node.
-        
         
         ### Returns:
         a pointer to the node's Object. 
@@ -7459,9 +7180,7 @@ class FBPose(FBComponent):
         """Get the type of the Matrix for a given node.
         
         ### Parameters:
-        
             - Index: Index of the node.
-        
         
         ### Returns:
         true if the matrix is defined in Local coordinate space. 
@@ -7472,14 +7191,12 @@ class FBPose(FBComponent):
         """Remove the pose node at specified index.
         
         ### Parameters:
-        
             - Index: Index of the node to be removed."""
         ...
     def SetIsNodeLocalMatrix(self,Index:int,IsNodeLocalMatrix:bool):
         """Set the type of the Matrix for a given node.
         
         ### Parameters:
-        
             - Index: Index of the node.
             - IsNodeLocalMatrix: True if the matrix of the node is a local matrix."""
         ...
@@ -7487,7 +7204,6 @@ class FBPose(FBComponent):
         """Set the pose node matrix.
         
         ### Parameters:
-        
             - Index: Index of the node.
             - Matrix: Matrix to set for this pose node."""
         ...
@@ -7495,13 +7211,11 @@ class FBPose(FBComponent):
         """Set the pose node object.
         
         ### Parameters:
-        
             - Index: Index of the node.
             - Object: Object to associate with this pose node."""
         ...
     def __init__(self,Name:str):
         """### Parameters:
-        
             - Name: Name of pose."""
         ...
 class FBPointCacheManager(FBComponent):
@@ -7560,9 +7274,7 @@ class FBCharacterPose(FBPose):
         """Copy everything from a given object.
         
         ### Parameters:
-        
             - FromPose: Pose from which to copy.
-        
         
         ### Remarks:
         Will copy everything, including the object name, properties, data etc. Objects will be identical."""
@@ -7571,51 +7283,43 @@ class FBCharacterPose(FBPose):
         """Copy the pose of a character and its extensions.
         
         ### Parameters:
-        
             - Character: Character to copy the pose from."""
         ...
     def CopyPoseCharacter(self,Character:FBCharacter):
         """Copy the pose of only the character (omit the extensions).
         
         ### Parameters:
-        
             - Character: Character to copy the pose from."""
         ...
     def CopyPoseCharacterExtension(self,CharacterExtension:FBCharacterExtension):
         """Copy the pose of a single character extension.
         
         ### Parameters:
-        
             - CharacterExtension: Character extension to copy the pose from."""
         ...
     def CopyPoseCharacterExtensions(self,Character:FBCharacter):
         """Copy the pose of only the character extensions (omit the character).
         
         ### Parameters:
-        
             - Character: Character to copy the pose of the extensions from."""
         ...
     def CopyPoseCharacterExtensionsFrom(self,FromPose:FBCharacterPose):
         """Copy the pose data of only the character extensions from a given pose.
         
         ### Parameters:
-        
             - FromPose: Pose from which to copy the data."""
         ...
     def CopyPoseCharacterFrom(self,FromPose:FBCharacterPose):
         """Copy the pose data of only the character from a given pose.
         
         ### Parameters:
-        
             - FromPose: Pose from which to copy the data."""
         ...
     def CopyPoseDataFrom(self,FromPose:FBCharacterPose):
         """Copy all the pose data from a given pose.
         
         ### Parameters:
-        
             - FromPose: Pose from which to copy the data.
-        
         
         ### Remarks:
         Will copy all the data of the pose."""
@@ -7624,9 +7328,7 @@ class FBCharacterPose(FBPose):
         """Get the name of the character extension for the specified pose.
         
         ### Parameters:
-        
             - CharacterExtensionPose: Pose of a character extension to check its name.
-        
         
         ### Returns:
         The name of the character extension (It is the label name of the character extension)."""
@@ -7635,9 +7337,7 @@ class FBCharacterPose(FBPose):
         """Get the pose of a character extension.
         
         ### Parameters:
-        
             - CharacterExtensionName: Name of the character extension pose to get (It is the label name of the character extension).
-        
         
         ### Returns:
         The pose of the character extension, NULL if not found."""
@@ -7646,9 +7346,7 @@ class FBCharacterPose(FBPose):
         """Get the pose of a character extension.
         
         ### Parameters:
-        
             - Index: Index of the character extension pose to get.
-        
         
         ### Returns:
         The pose of the character extension."""
@@ -7663,7 +7361,6 @@ class FBCharacterPose(FBPose):
         """Get the extra bone transformation offset.
         
         ### Parameters:
-        
             - R: A vector that will contains the parent rotation offset value on return.
             - Index: Index of the extra bone to get."""
         ...
@@ -7671,7 +7368,6 @@ class FBCharacterPose(FBPose):
         """Get the extra bone transformation.
         
         ### Parameters:
-        
             - T: A vector that will contains the translation value on return.
             - R: A vector that will contains the rotation value on return.
             - S: A vector that will contains the scale value on return.
@@ -7681,7 +7377,6 @@ class FBCharacterPose(FBPose):
         """Get the extra bone transformation offset.
         
         ### Parameters:
-        
             - T: A vector that will contains the translation offset value on return.
             - R: A vector that will contains the rotation offset value on return.
             - S: A vector that will contains the scale offset value on return.
@@ -7692,7 +7387,6 @@ class FBCharacterPose(FBPose):
         """Get the mirror plane equation that would be used to mirror according to the CharacterPoseOptions.
         
         ### Parameters:
-        
             - MirrorPlaneEquation: Out: Mirror plane equation.
             - Character: Character to receive the pose.
             - CharacterPoseOptions: Options used to paste the pose."""
@@ -7701,9 +7395,7 @@ class FBCharacterPose(FBPose):
         """Get the pose of a character extension and create it if necessary.
         
         ### Parameters:
-        
             - CharacterExtensionName: Name of the character extension pose to get (It is the label name of the character extension).
-        
         
         ### Returns:
         The pose of the character extension. 
@@ -7714,9 +7406,7 @@ class FBCharacterPose(FBPose):
         """Is the pose of the character extension stored in the pose?
         
         ### Parameters:
-        
             - CharacterExtensionName: Name of the character extension.
-        
         
         ### Returns:
         true if the pose of the character extension stored in the pose."""
@@ -7731,25 +7421,19 @@ class FBCharacterPose(FBPose):
         """Paste the pose of a character and its extensions.
         
         ### Parameters:
-        
             - Character: Character to paste the pose to.
             - CharacterPoseOptions: Options used to specify how to paste.
         
-        
         ### Remarks:
         Supports the match and mirror options. 
-        
-        
         When pasting in body part, the selected parts and extensions of the character will be pasted."""
         ...
     def PastePoseCharacter(self,Character:FBCharacter,CharacterPoseOptions:FBCharacterPoseOptions):
         """Paste the pose of only the character (omit the extensions).
         
         ### Parameters:
-        
             - Character: Character to paste the pose to.
             - CharacterPoseOptions: Options used to specify how to paste.
-        
         
         ### Remarks:
         Does not support the match and mirror options."""
@@ -7758,10 +7442,8 @@ class FBCharacterPose(FBPose):
         """Paste the pose of a single character extension.
         
         ### Parameters:
-        
             - CharacterExtension: Character extension to paste the pose to.
             - CharacterPoseOptions: Options used to specify how to paste.
-        
         
         ### Remarks:
         Does not support the match and mirror options."""
@@ -7770,10 +7452,8 @@ class FBCharacterPose(FBPose):
         """Paste the pose of only the character extensions (omit the character).
         
         ### Parameters:
-        
             - Character: Character to paste the pose of the extensions to.
             - CharacterPoseOptions: Options used to specify how to paste.
-        
         
         ### Remarks:
         Does not support the match and mirror options."""
@@ -7782,14 +7462,12 @@ class FBCharacterPose(FBPose):
         """Remove the pose of a character extension.
         
         ### Parameters:
-        
             - CharacterExtensionName: Name of the character extension pose to remove (It is the label name of the character extension)."""
         ...
     def RemoveCharacterExtensionPoseAt(self,Index:int):
         """Remove the pose of a character extension.
         
         ### Parameters:
-        
             - Index: Index of the character extension pose to remove."""
         ...
     def __init__(self,Name:str):
@@ -7797,7 +7475,6 @@ class FBCharacterPose(FBPose):
         
         This constructor is used to create a new object.
         ### Parameters:
-        
             - Name: Object name."""
         ...
 class FBObjectPose(FBPose):
@@ -7808,31 +7485,23 @@ class FBObjectPose(FBPose):
         """Add the StanceOffset to an object in the pose.
         
         ### Parameters:
-        
             - ObjectName: Name of the object.
             - StancePose: Pose representing the stance of all objects.
             - PoseTransformType: Transform type in which to add the offset (Local, Global or LocalRef).
         
-        
         ### Remarks:
         Working with poses with their StanceOffset removed is usefull for retargetting. 
-        
-        
         If pPoseTransformType is set to kFBPoseTransformInvalid, offsets will be added in all TransformTypes."""
         ...
     def AddStanceOffsetAllObjects(self,StancePose:FBObjectPose,PoseTransformType:FBPoseTransformType=FBPoseTransformType.kFBPoseTransformInvalid):
         """Add the StanceOffset to all the objects in the pose.
         
         ### Parameters:
-        
             - StancePose: Pose representing the stance of all objects.
             - PoseTransformType: Transform type in which to add the offset (Local, Global or LocalRef).
         
-        
         ### Remarks:
         Working with poses with their StanceOffset removed is usefull for retargetting. 
-        
-        
         If pPoseTransformType is set to kFBPoseTransformInvalid, offsets will be added in all TransformTypes."""
         ...
     def ClearPose(self):
@@ -7842,9 +7511,7 @@ class FBObjectPose(FBPose):
         """Copy everything from a given object.
         
         ### Parameters:
-        
             - FromPose: Pose from which to copy.
-        
         
         ### Remarks:
         Will copy everything, including the object name, properties, data etc. Objects will be identical."""
@@ -7853,10 +7520,8 @@ class FBObjectPose(FBPose):
         """Copy the pose of all the properties of an object.
         
         ### Parameters:
-        
             - ObjectName: Name of the object to store in the pose.
             - Object: Object from which we'll read all the property values to store in the pose.
-        
         
         ### Remarks:
         You can specify a pObjectName different from the name of pObject."""
@@ -7865,10 +7530,8 @@ class FBObjectPose(FBPose):
         """Copy all the transforms from a given pose.
         
         ### Parameters:
-        
             - FromPose: Pose from which to copy the data.
             - PoseTransformType: Transform type from which to copy the transform (Local, Global or LocalRef).
-        
         
         ### Remarks:
         If pPoseTransformType is set to kFBPoseTransformInvalid, copy all TransformTypes."""
@@ -7877,9 +7540,7 @@ class FBObjectPose(FBPose):
         """Copy all the pose data from a given pose.
         
         ### Parameters:
-        
             - FromPose: Pose from which to copy the data.
-        
         
         ### Remarks:
         Will copy all the data of the pose including the transforms."""
@@ -7888,11 +7549,9 @@ class FBObjectPose(FBPose):
         """Copy the transforms of an object from a given pose.
         
         ### Parameters:
-        
             - FromPose: Pose from which to copy the data.
             - ObjectName: Name of object to copy the transform from.
             - PoseTransformType: Transform type from which to copy the transform (Local, Global or LocalRef).
-        
         
         ### Remarks:
         If pPoseTransformType is set to kFBPoseTransformInvalid, copy all TransformTypes."""
@@ -7901,10 +7560,8 @@ class FBObjectPose(FBPose):
         """Copy the pose of a property of an object.
         
         ### Parameters:
-        
             - ObjectName: Name of the object to store in the pose.
             - Property: Property from which we'll read the value to store in the pose.
-        
         
         ### Remarks:
         You can specify a pObjectName different from the name of pObject."""
@@ -7913,11 +7570,9 @@ class FBObjectPose(FBPose):
         """Copy the transform of an object.
         
         ### Parameters:
-        
             - ObjectName: Name of the object to store in the pose.
             - Object: Object from which we'll evaluate the transform values to store in the pose.
             - ObjectPoseOptions: PoseOptions used to specify the transform of the reference object (Default: Identity).
-        
         
         ### Remarks:
         This function will always copy all the TransformAttributes (T,R,S) in all TransformType (Local, Global, LocalRef)."""
@@ -7926,7 +7581,6 @@ class FBObjectPose(FBPose):
         """Get the value of a property stored in the pose.
         
         ### Parameters:
-        
             - Value: Value to get.
             - Size: Number of elements in pValue.
             - ObjectName: Name of the object to get the value.
@@ -7942,13 +7596,11 @@ class FBObjectPose(FBPose):
         """Get the transform of an object in the pose.
         
         ### Parameters:
-        
             - T: Translation to get.
             - RM: Rotation to get.
             - SM: Scaling to get.
             - ObjectName: Name of the object to get the transform.
             - PoseTransformType: Transform type in which to set the transform (Local, Global or LocalRef).
-        
         
         ### Returns:
         True if the transform was found in the pose."""
@@ -7963,10 +7615,8 @@ class FBObjectPose(FBPose):
         """Is the property stored in the pose?
         
         ### Parameters:
-        
             - ObjectName: Name of the object.
             - PropertyName: Name of the property.
-        
         
         ### Returns:
         True if the property is stored in the pose."""
@@ -7975,10 +7625,8 @@ class FBObjectPose(FBPose):
         """Is the transform of this object stored in the specified TransformType?
         
         ### Parameters:
-        
             - ObjectName: Name of the object.
             - PoseTransformType: Transform type in which to check.
-        
         
         ### Returns:
         True if the transform of this object is stored in the specified TransformType (Local, Global and LocalRef). 
@@ -7989,7 +7637,6 @@ class FBObjectPose(FBPose):
         """Mirror the transform of an object in the pose.
         
         ### Parameters:
-        
             - ObjectName: Name of the object to mirror.
             - ObjectPoseMirrorOptions: MirrorOptions used to specify the mirror plane."""
         ...
@@ -7997,14 +7644,12 @@ class FBObjectPose(FBPose):
         """Mirror the transform of all objects in the pose.
         
         ### Parameters:
-        
             - ObjectPoseMirrorOptions: MirrorOptions used to specify the mirror plane."""
         ...
     def MultTransform(self,ObjectName:str,GX:FBMatrix,TransformAttribute:FBModelTransformationType,PoseTransformType:FBPoseTransformType):
         """Multiply the transform of an objects in the pose.
         
         ### Parameters:
-        
             - ObjectName: Name of the object.
             - GX: Transformation matrix to apply.
             - TransformAttribute: Transform attribute to affect. Supported: T,R,S and Transformation.
@@ -8014,7 +7659,6 @@ class FBObjectPose(FBPose):
         """Multiply the transform of all objects in the pose.
         
         ### Parameters:
-        
             - GX: Transformation matrix to apply.
             - TransformAttribute: Transform attribute to affect. Supported: T,R,S and Transformation.
             - PoseTransformType: Transform type in which to mult the transform (Local, Global or LocalRef)."""
@@ -8023,42 +7667,32 @@ class FBObjectPose(FBPose):
         """Paste the pose of all the properties of an object.
         
         ### Parameters:
-        
             - ObjectName: Name of the object stored in the pose.
             - Object: Object which will receive the values stored in the pose.
         
-        
         ### Remarks:
         You can specify a pObjectName different from the name of pObject. 
-        
-        
         Properties that were not stored in the pose will not be affected."""
         ...
     def PastePropertyPose(self,ObjectName:str,Property:FBProperty):
         """Paste the pose of a property of an object.
         
         ### Parameters:
-        
             - ObjectName: Name of the object stored in the pose.
             - Property: Property which will receive the value stored in the pose.
         
-        
         ### Remarks:
         You can specify a pObjectName different from the name of pObject. 
-        
-        
         The property will not be affected if it was not stored in the pose."""
         ...
     def PasteTransform(self,ObjectName:str,Object:FBComponent,ObjectPoseOptions:FBObjectPoseOptions):
         """Paste the transform of an object.
         
         ### Parameters:
-        
             - ObjectName: Name of the object stored in the pose.
             - Object: Object which will receive the transform values stored in the pose.
             - ObjectPoseOptions: PoseOptions used to specify the transform of the reference object, the TransformType and TransformAttributes to paste.
             - EvaluateInfo: Information concerning the evaluation of the animation (time, etc.)
-        
         
         ### Remarks:
         Use the pObjectPoseOptions to specify which TransformType to use when pasting."""
@@ -8067,38 +7701,29 @@ class FBObjectPose(FBPose):
         """Remove the StanceOffset from an object in the pose.
         
         ### Parameters:
-        
             - ObjectName: Name of the object.
             - StancePose: Pose representing the stance of all objects.
             - PoseTransformType: Transform type in which to remove the offset (Local, Global or LocalRef).
         
-        
         ### Remarks:
         Working with poses with their StanceOffset removed is usefull for retargetting. 
-        
-        
         If pPoseTransformType is set to kFBPoseTransformInvalid, offsets will be removed in all TransformTypes."""
         ...
     def RemoveStanceOffsetAllObjects(self,StancePose:FBObjectPose,PoseTransformType:FBPoseTransformType=FBPoseTransformType.kFBPoseTransformInvalid):
         """Remove the StanceOffset from all the objects in the pose.
         
         ### Parameters:
-        
             - StancePose: Pose representing the stance of all objects.
             - PoseTransformType: Transform type in which to remove the offset (Local, Global or LocalRef).
         
-        
         ### Remarks:
         Working with poses with their StanceOffset removed is usefull for retargetting. 
-        
-        
         If pPoseTransformType is set to kFBPoseTransformInvalid, offsets will be removed in all TransformTypes."""
         ...
     def SetPropertyValue(self,ObjectName:str,PropertyName:str,Value:float,Size:int):
         """Set the value of a property in the pose.
         
         ### Parameters:
-        
             - ObjectName: Name of the object to set the value.
             - PropertyName: Name of the property to set the value.
             - Value: Value to set.
@@ -8108,7 +7733,6 @@ class FBObjectPose(FBPose):
         """Set the transform of an object in the pose.
         
         ### Parameters:
-        
             - T: Translation to set.
             - RM: Rotation to set.
             - SM: Scaling to set.
@@ -8120,7 +7744,6 @@ class FBObjectPose(FBPose):
         
         This constructor is used to create a new object.
         ### Parameters:
-        
             - Name: Object name. If pObject is not NULL, pName will be ignored."""
         ...
 class FBCluster(FBComponent):
@@ -8137,9 +7760,7 @@ class FBCluster(FBComponent):
         """Begin cluster definition.
         
         ### Parameters:
-        
             - Index: Link index.
-        
         
         ### Returns:
         Index of last item(default=-1)."""
@@ -8154,16 +7775,13 @@ class FBCluster(FBComponent):
         """Remove all unused links.
         
         ### Parameters:
-        
             - Threshold: Weight value under which links are considered unused (default=-1)."""
         ...
     def LinkGetAssociateModel(self,LinkNumber:int)->FBModel:
         """Get model associated with link.
         
         ### Parameters:
-        
             - LinkNumber: Number value of link to get associated model from.
-        
         
         ### Returns:
         Model associated to link number pLinkNumber."""
@@ -8178,9 +7796,7 @@ class FBCluster(FBComponent):
         """Get model from a link.
         
         ### Parameters:
-        
             - LinkNumber: Number value of link to get model from.
-        
         
         ### Returns:
         Model at link number pLinkNumber."""
@@ -8189,9 +7805,7 @@ class FBCluster(FBComponent):
         """Get the name of a link.
         
         ### Parameters:
-        
             - LinkNumber: Number value of link to get name from.
-        
         
         ### Returns:
         Name of link number pLinkNumber."""
@@ -8200,9 +7814,7 @@ class FBCluster(FBComponent):
         """Get current vertex at link.
         
         ### Parameters:
-        
             - Index: Index of link to get vertex from.
-        
         
         ### Returns:
         Index value of the current vertex associated to link at index number pIndex"""
@@ -8211,14 +7823,12 @@ class FBCluster(FBComponent):
         """Remove a link.
         
         ### Parameters:
-        
             - LinkNumber: Number value of link to rename."""
         ...
     def LinkSetCurrentVertex(self,LinkIndex:int,PointIndex:int):
         """Link at current vertex.
         
         ### Parameters:
-        
             - LinkIndex: Index of link to add vertex to.
             - PointIndex: Index of vertex to add."""
         ...
@@ -8226,14 +7836,12 @@ class FBCluster(FBComponent):
         """Set model to a link.
         
         ### Parameters:
-        
             - Model: Model to set."""
         ...
     def LinkSetName(self,Name:str,LinkNumber:int):
         """Set the name of a link.
         
         ### Parameters:
-        
             - Name: Name of the link.
             - LinkNumber: Number value of link to name."""
         ...
@@ -8241,7 +7849,6 @@ class FBCluster(FBComponent):
         """Add a vertex to a cluster.
         
         ### Parameters:
-        
             - VertexIndex: Index of vertex to add.
             - Weight: Weight to give to vertex."""
         ...
@@ -8258,9 +7865,7 @@ class FBCluster(FBComponent):
         """Get vertex number.
         
         ### Parameters:
-        
             - Index: Index of link to get vertex from.
-        
         
         ### Returns:
         Number value of vertex at link number pIndex"""
@@ -8269,7 +7874,6 @@ class FBCluster(FBComponent):
         """Get transform of a cluster set.
         
         ### Parameters:
-        
             - Position: Position transform.
             - Rotation: Rotation transform.
             - Scaling: Scaling transform."""
@@ -8278,9 +7882,7 @@ class FBCluster(FBComponent):
         """Get vertex weight.
         
         ### Parameters:
-        
             - Index: Index of link to get vertex from.
-        
         
         ### Returns:
         Weight of vertex found at link number pIndex."""
@@ -8289,14 +7891,12 @@ class FBCluster(FBComponent):
         """Remove a vertex from a cluster.
         
         ### Parameters:
-        
             - VertexIndex: Index of vertex to remove."""
         ...
     def VertexSetTransform(self,Position:FBVector3d,Rotation:FBVector3d,Scaling:FBVector3d):
         """Set transform of a cluster set.
         
         ### Parameters:
-        
             - Position: Position transform.
             - Rotation: Rotation transform.
             - Scaling: Scaling transform."""
@@ -8305,7 +7905,6 @@ class FBCluster(FBComponent):
         """Set vertex weight.
         
         ### Parameters:
-        
             - Weight: Weight to give to vertex.
             - Index: Index of link to get vertex from."""
         ...
@@ -8335,7 +7934,6 @@ class FBCharacterMarkerSet(FBComponent):
         ...
     def __init__(self,Name:str):
         """### Parameters:
-        
             - Name: Name of new character marker set."""
         ...
 class FBCameraSwitcherAudioManager(FBComponent):
@@ -8388,9 +7986,7 @@ class FBCameraSwitcherAudioManager(FBComponent):
         """Set the Audio Clip to display on the Camera Switcher.
         
         ### Parameters:
-        
             - AudioClip: The Audio Clip to display.
-        
         
         ### Returns:
         True if the operation is successful, false otherwise."""
@@ -8399,9 +7995,7 @@ class FBCameraSwitcherAudioManager(FBComponent):
         """Set the Audio Track to display on the Camera Switcher.
         
         ### Parameters:
-        
             - AudioTrack: The Audio Track to display.
-        
         
         ### Returns:
         True if the operation is successful, false otherwise."""
@@ -8410,9 +8004,7 @@ class FBCameraSwitcherAudioManager(FBComponent):
         """Set the 'Lock Pitch to Speed' state.
         
         ### Parameters:
-        
             - Lock: True to lock pitch to speed, false otherwise.
-        
         
         ### Returns:
         True if the operation is successful, false otherwise."""
@@ -8421,9 +8013,7 @@ class FBCameraSwitcherAudioManager(FBComponent):
         """Set the 'Show Audio' state.
         
         ### Parameters:
-        
             - Show: True to show the Audio waveform, false otherwise.
-        
         
         ### Returns:
         True if the operation is successful, false otherwise."""
@@ -8432,9 +8022,7 @@ class FBCameraSwitcherAudioManager(FBComponent):
         """Set the 'Show Left Channel' state.
         
         ### Parameters:
-        
             - Show: True to show the left channel, false otherwise.
-        
         
         ### Returns:
         True if the operation is successful, false otherwise."""
@@ -8443,9 +8031,7 @@ class FBCameraSwitcherAudioManager(FBComponent):
         """Set the 'Show Right Channel' state.
         
         ### Parameters:
-        
             - Show: True to show the right channel, false otherwise.
-        
         
         ### Returns:
         True if the operation is successful, false otherwise."""
@@ -8467,9 +8053,7 @@ class FBBox(FBComponent):
         """Destroy an animation node.
         
         ### Parameters:
-        
             - AnimationNode: Handle to the animation node to be destroyed.
-        
         
         ### Returns:
         true if destruction was successful."""
@@ -8484,9 +8068,7 @@ class FBBox(FBComponent):
         """Is the animation node user data?
         
         ### Parameters:
-        
             - AnimationNode: Handle to the animation to be queried.
-        
         
         ### Returns:
         true if node is user data."""
@@ -8508,9 +8090,7 @@ class FBBox(FBComponent):
         """Get the animation node input associated with the given index.
         
         ### Parameters:
-        
             - Index: The animation node input associated with the given index.
-        
         
         ### Returns:
         The animation node input, or NULL if the pIndex value is invalid."""
@@ -8525,9 +8105,7 @@ class FBBox(FBComponent):
         """Get the animation node output associated with the given index.
         
         ### Parameters:
-        
             - Index: The animation node output associated with the given index.
-        
         
         ### Returns:
         The animation node output, or NULL if the pIndex value is invalid."""
@@ -8540,7 +8118,6 @@ class FBBox(FBComponent):
         ...
     def __init__(self,Name:str):
         """### Parameters:
-        
             - Name: Box name."""
         ...
 class FBAudioOut(FBComponent):
@@ -8574,11 +8151,9 @@ class FBConstraint(FBBox):
         
         Used to create the connectors (in or out) on an animation node. This function will return a newly created animation node, connected to the model specified by pModel.
         ### Parameters:
-        
             - UserId: User specified reference number.
             - Model: Model to associate with animation node.
             - Attribute: Attribute of model to animate (i.e. Translation, Lcl Translation, etc.)
-        
         
         ### Returns:
         Newly created IN/OUT animation node."""
@@ -8594,9 +8169,7 @@ class FBConstraint(FBBox):
         
         These functions are used for adding/removing a deformation binding to/from pModel if the constraint is a deformation constraint.
         ### Parameters:
-        
             - Model: Model to bind/unbind.
-        
         
         ### Returns:
         true if successful."""
@@ -8606,9 +8179,7 @@ class FBConstraint(FBBox):
         """Disable constraint on pModel.
         
         ### Parameters:
-        
             - Model: Model on which constraint should be disabled.
-        
         
         ### Returns:
         true if successful."""
@@ -8617,7 +8188,6 @@ class FBConstraint(FBBox):
         """Freeze current model state.
         
         ### Parameters:
-        
             - Model: Model to freeze constraint on.
             - S: Scaling freeze?
             - R: Rotation freeze?
@@ -8630,10 +8200,8 @@ class FBConstraint(FBBox):
         """Add a reference to a specified group.
         
         ### Parameters:
-        
             - GroupIndex: Group to add reference to.
             - Model: Model to place at new reference.
-        
         
         ### Returns:
         true if successful. 
@@ -8644,10 +8212,8 @@ class FBConstraint(FBBox):
         """Get a reference.
         
         ### Parameters:
-        
             - GroupIndex: Index of reference group containing desired reference.
             - ItemIndex: Index of reference in group to get (default is 0).
-        
         
         ### Returns:
         Model at specified reference."""
@@ -8656,9 +8222,7 @@ class FBConstraint(FBBox):
         """Get number of references in a specified group.
         
         ### Parameters:
-        
             - GroupIndex: Index of group to query the number of references.
-        
         
         ### Returns:
         Number of references in specified group."""
@@ -8667,10 +8231,8 @@ class FBConstraint(FBBox):
         """Add a group of references.
         
         ### Parameters:
-        
             - GroupName: Name of reference group to add.
             - MaxItemCount: Maximum number of items in **pGroupName**.
-        
         
         ### Returns:
         Index of new reference group."""
@@ -8685,9 +8247,7 @@ class FBConstraint(FBBox):
         """Get the maximum number of items that can exist in the reference group in question.
         
         ### Parameters:
-        
             - GroupIndex: Index of reference group.
-        
         
         ### Returns:
         Maximum number of items that can be added to the reference group."""
@@ -8696,9 +8256,7 @@ class FBConstraint(FBBox):
         """Get the name of the reference group.
         
         ### Parameters:
-        
             - GroupIndex: Index of the reference group to get the name for.
-        
         
         ### Returns:
         The name of the reference group pGroupIndex."""
@@ -8707,10 +8265,8 @@ class FBConstraint(FBBox):
         """Remove a reference to pModel from the group at pGroupIndex.
         
         ### Parameters:
-        
             - GroupIndex: Index to remove reference from.
             - Model: Model to remove reference from.
-        
         
         ### Returns:
         true if successful."""
@@ -8722,14 +8278,12 @@ class FBConstraint(FBBox):
         """Restore the saved model state onto pModel.
         
         ### Parameters:
-        
             - Model: Model to affect with previous state."""
         ...
     def SaveModelState(self,Model:FBModel,S:bool,R:bool,T:bool):
         """Save current state of pModel.
         
         ### Parameters:
-        
             - Model: Model to save.
             - S: Scaling information?
             - R: Rotation information?
@@ -8766,7 +8320,6 @@ class FBCharacterSolver(FBConstraint):
         
         The rotation Offset if extracted at Characterisation (in Stance Pose). You don't need this value if the parent of the bone is characterized too.
         ### Parameters:
-        
             - R: Offset Rotation between the Bone and is parent at Stance Pose.
             - Index: Index of extra Bone to get."""
         ...
@@ -8779,14 +8332,12 @@ class FBCharacterSolver(FBConstraint):
         
         The rotation Offset if extracted at Characterisation (in Stance Pose). You don't need this value if the parent of the bone is characterized too.
         ### Parameters:
-        
             - R: Offset Rotation between the Bone and is parent at Stance Pose.
             - Index: Index of extra Bone to get."""
         ...
     def SetTransformationOffset(self,arg2:FBModel,arg3:FBVector3d,arg4:FBVector3d,arg5:FBVector3d):...
     def __init__(self,Name:str,arg3:FBCharacter,arg4:str):
         """### Parameters:
-        
             - Name: Name of constraint."""
         ...
 class FBCharacterFace(FBConstraint):
@@ -8801,10 +8352,8 @@ class FBCharacterFace(FBConstraint):
         """Add a cluster group to the character face.
         
         ### Parameters:
-        
             - List: List of clusters to add to this group.
             - Name: Optional name to assign to this cluster group.
-        
         
         ### Returns:
         Index of the new cluster group -1 if the operation failed to complete."""
@@ -8813,9 +8362,7 @@ class FBCharacterFace(FBConstraint):
         """Find a cluster group by name.
         
         ### Parameters:
-        
             - Name: Name to search for on the face.
-        
         
         ### Returns:
         Index of the matching cluster group. -1 if not found."""
@@ -8830,9 +8377,7 @@ class FBCharacterFace(FBConstraint):
         """Retrieve the name of a cluster group.
         
         ### Parameters:
-        
             - ClusterGrpId: Index of the cluster group to query.
-        
         
         ### Returns:
         Name of the specified cluster group."""
@@ -8841,9 +8386,7 @@ class FBCharacterFace(FBConstraint):
         """Remove a cluster group from the character face.
         
         ### Parameters:
-        
             - ClusterGrpId: Index of the cluster group to remove.
-        
         
         ### Returns:
         True if the operation completed successfully."""
@@ -8852,10 +8395,8 @@ class FBCharacterFace(FBConstraint):
         """Set the name of a cluster group.
         
         ### Parameters:
-        
             - ClusterGrpId: Index of the cluster group to modify.
             - Name: New name for the cluster group.
-        
         
         ### Returns:
         True of the operation completed successfully."""
@@ -8864,9 +8405,7 @@ class FBCharacterFace(FBConstraint):
         """Set a cluster group's rest pose to the current pose.
         
         ### Parameters:
-        
             - ClusterGrpId: Index of the cluster group to modify.
-        
         
         ### Returns:
         True if the operation completed succesfully."""
@@ -8875,10 +8414,8 @@ class FBCharacterFace(FBConstraint):
         """Add a cluster shape to a cluster group.
         
         ### Parameters:
-        
             - ClusterGrpId: Index of the cluster group to modify.
             - Name: Optional name to assign to the shape.
-        
         
         ### Returns:
         Index of the new shape. -1 if the operation failed to complete."""
@@ -8887,10 +8424,8 @@ class FBCharacterFace(FBConstraint):
         """Find a cluster shape in a cluster group by name.
         
         ### Parameters:
-        
             - ClusterGrpId: Index of the cluster group to search.
             - Name: Name to search for in the cluster group.
-        
         
         ### Returns:
         Index of the matching shape. -1 if not found."""
@@ -8899,9 +8434,7 @@ class FBCharacterFace(FBConstraint):
         """Retrieve the total number of shapes in a cluster group.
         
         ### Parameters:
-        
             - ClusterGrpId: Index of the cluster group to query.
-        
         
         ### Returns:
         Number of shapes in the specified cluster group."""
@@ -8910,10 +8443,8 @@ class FBCharacterFace(FBConstraint):
         """Retrieve the name of a shape in a cluster group.
         
         ### Parameters:
-        
             - ClusterGrpId: Index of the cluster group to query.
             - ClusterShapeId: Index of the cluster shape to query.
-        
         
         ### Returns:
         Name of the specified shape."""
@@ -8922,10 +8453,8 @@ class FBCharacterFace(FBConstraint):
         """Remove a cluster shape from a cluster group.
         
         ### Parameters:
-        
             - ClusterGrpId: Index of the cluster group to modify.
             - ClusterShapeId: Index of the shape in the cluster group to remove.
-        
         
         ### Returns:
         True of the operation completed succesfully."""
@@ -8934,11 +8463,9 @@ class FBCharacterFace(FBConstraint):
         """Set the name of a shape in a cluster group.
         
         ### Parameters:
-        
             - ClusterGrpId: Index of the cluster group to modify.
             - ClusterShapeId: Index of the cluster shape to modify.
             - Name: Name to assign to the cluster shape.
-        
         
         ### Returns:
         True if the operation completed successfully."""
@@ -8947,10 +8474,8 @@ class FBCharacterFace(FBConstraint):
         """Record the current pose of the cluster group to a cluster shape.
         
         ### Parameters:
-        
             - ClusterGrpId: Index of the cluster group to record.
             - ClusterShapeId: Index of the cluster shape to record the pose.
-        
         
         ### Returns:
         True if the operation completed successfully."""
@@ -8959,9 +8484,7 @@ class FBCharacterFace(FBConstraint):
         """Add an expression to the face.
         
         ### Parameters:
-        
             - Name: Optional name to assign to the new expression.
-        
         
         ### Returns:
         Index of the new expression. -1 if the operation failed to complete."""
@@ -8970,9 +8493,7 @@ class FBCharacterFace(FBConstraint):
         """Find an expression on the face by name.
         
         ### Parameters:
-        
             - Name: Name of the expression to search for.
-        
         
         ### Returns:
         Index of the matching expression. -1 if not found."""
@@ -8987,9 +8508,7 @@ class FBCharacterFace(FBConstraint):
         """Retrieve the name of an expression.
         
         ### Parameters:
-        
             - ExpressionId: Index of the expression to query.
-        
         
         ### Returns:
         Name of the specified expression."""
@@ -8998,11 +8517,9 @@ class FBCharacterFace(FBConstraint):
         """Retrieve the weight of a shape to an expression.
         
         ### Parameters:
-        
             - ExpressionId: Index of the expression.
             - GrpId: Index of the blendshape or cluster group containing the shape of interest.
             - ShapeId: Index of the blendshape or cluster shape.
-        
         
         ### Returns:
         Weight of the desired shape to an expression. A weight of 0.0 represents 0%, while a weight of 1.0 represents 100%. Returns 0.0 if the weight cannot be found."""
@@ -9011,9 +8528,7 @@ class FBCharacterFace(FBConstraint):
         """Remove an expression from the face.
         
         ### Parameters:
-        
             - ExpressionId: Index of the expression to remove.
-        
         
         ### Returns:
         True if the operation completed successfully."""
@@ -9022,10 +8537,8 @@ class FBCharacterFace(FBConstraint):
         """Set the name of an expression.
         
         ### Parameters:
-        
             - ExpressionId: Index of the expression to modify.
             - Name: Name to assign to the expression.
-        
         
         ### Returns:
         True if the operation completed successfully."""
@@ -9034,12 +8547,10 @@ class FBCharacterFace(FBConstraint):
         """Assign the weight of a shape to an expression.
         
         ### Parameters:
-        
             - ExpressionId: Index of the expression to modify.
             - GrpId: Index of the blendshape or cluster group containing the shape of interest.
             - ShapeId: Index of the blendshape or cluster shape to weight.
             - Value: Weight of the shape to assign to this expression. A weight of 0.0 represents 0%, while a weight of 1.5 represents 150%. The weight cannot be less than 0.0; if so, the weight will be clamped to 0.0.
-        
         
         ### Returns:
         True if the operation completed successfully."""
@@ -9057,10 +8568,8 @@ class FBCharacterFace(FBConstraint):
         """Find a shape in a blendshape group by name.
         
         ### Parameters:
-        
             - ShapeGrpId: Index of the blendshape group to search.
             - Name: Name to search for.
-        
         
         ### Returns:
         Index of the shape, -1 if not found."""
@@ -9069,9 +8578,7 @@ class FBCharacterFace(FBConstraint):
         """Retrieve the total number of shapes in a blendshape group.
         
         ### Parameters:
-        
             - ShapeGrpId: Index of the blendshape group to query.
-        
         
         ### Returns:
         Number of shapes in the specified blendshape group."""
@@ -9080,10 +8587,8 @@ class FBCharacterFace(FBConstraint):
         """Retrieve the name of the shape in a blendshape group.
         
         ### Parameters:
-        
             - ShapeGrpId: Index of the blendshape group to query.
             - ShapeId: Index of the shape in the blendshape group to query.
-        
         
         ### Returns:
         Name of the specified shape."""
@@ -9092,10 +8597,8 @@ class FBCharacterFace(FBConstraint):
         """Add a blendshape model group for each input model.
         
         ### Parameters:
-        
             - List: List of models to create a blendshape model group.
             - Name: Unused. Instead, use the ShapeGroupGetName member function to set the name of each added blendshape model group individually.
-        
         
         ### Returns:
         True if the operation completed successfully, false otherwise."""
@@ -9104,9 +8607,7 @@ class FBCharacterFace(FBConstraint):
         """Find a blendshape group by name.
         
         ### Parameters:
-        
             - Name: Name to search for.
-        
         
         ### Returns:
         Index of the blendshape group, -1 if not found."""
@@ -9121,9 +8622,7 @@ class FBCharacterFace(FBConstraint):
         """Retrieve the name of a blendshape group.
         
         ### Parameters:
-        
             - ShapeGrpId: Index of the blendshape group to query.
-        
         
         ### Returns:
         Name of the blendshape group."""
@@ -9132,9 +8631,7 @@ class FBCharacterFace(FBConstraint):
         """Remove a blendshape model group.
         
         ### Parameters:
-        
             - ShapeGrpId: Index of the blendshape group to remove.
-        
         
         ### Returns:
         True if the operation completed successfully."""
@@ -9143,10 +8640,8 @@ class FBCharacterFace(FBConstraint):
         """Set the name of a blendshape group.
         
         ### Parameters:
-        
             - ShapeGrpId: Index of the blendshape group to modify.
             - Name: Name to set on the blendshape group.
-        
         
         ### Returns:
         True if the operation completed successfully."""
@@ -9155,18 +8650,15 @@ class FBCharacterFace(FBConstraint):
         """Set the name of the shape in a blendshape group.
         
         ### Parameters:
-        
             - ShapeGrpId: Index of the blendshape group to query.
             - ShapeId: Index of the shape in the blendshape group to set.
             - Name: Name to set on the shape.
-        
         
         ### Returns:
         True if the operation completed successfully."""
         ...
     def __init__(self,Name:str):
         """### Parameters:
-        
             - Name: Name of new character."""
         ...
 class FBCharacter(FBConstraint):
@@ -9321,14 +8813,12 @@ class FBCharacter(FBConstraint):
         """AddCharacterExtension.
         
         ### Parameters:
-        
             - Ext: extension to be added to the character."""
         ...
     def ConnectControlRig(self,ControlSet:FBControlSet,UpdateLimit:bool,ResetHierarchy:bool):
         """Connect a Control-Rig to the character.
         
         ### Parameters:
-        
             - ControlSet: The control set to connect. NULL will disconnect the Control-Rig from the character.
             - UpdateLimit: Whether to update the models' limit for a character. E.g. the Pre rotation and post rotation.
             - ResetHierarchy: Whether to reset hierarchy for a character."""
@@ -9340,12 +8830,10 @@ class FBCharacter(FBConstraint):
         """Create auxiliary on effector.
         
         ### Parameters:
-        
             - EffectorId: The effector ID.
             - Pivot: Create effector or pivot (pivot offset should be set on IKPivot property, at creation default values are set).
             - AuxReachT: Default auxiliary effector reach for translation (IK Blend T since MotionBuilder 2013).
             - AuxReachR: Default auxiliary effector reach for rotation (IK Blend R since MotionBuilder 2013).
-        
         
         ### Returns:
         True if auxiliary was created (can fail if FBLastEffectorSetIndex limit reached)."""
@@ -9354,9 +8842,7 @@ class FBCharacter(FBConstraint):
         """Create the Character Marker Set.
         
         ### Parameters:
-        
             - SetActive: True when new input should be set and active.
-        
         
         ### Returns:
         True when marker got created and connected to character."""
@@ -9365,9 +8851,7 @@ class FBCharacter(FBConstraint):
         """Create the Control-Rig.
         
         ### Parameters:
-        
             - SetFKIK: true to use FK/IK or false to use IK only.
-        
         
         ### Returns:
         current state of the flag after the operation (true if it did succeed)."""
@@ -9382,16 +8866,13 @@ class FBCharacter(FBConstraint):
         """Get the active body part array.
         
         ### Parameters:
-        
             - ActivePart: A pointer to an array of bool. On return, the index with a "true" value are active part."""
         ...
     def GetCharacterMarkerSet(self,Force:bool)->FBCharacterMarkerSet:
         """Obtain Input CharacterMarkerSet.
         
         ### Parameters:
-        
             - Force: If True, will return the current CharacterMarkerSet even if the character is not in CharacterMarkerSet Input.
-        
         
         ### Returns:
         Return current Active CharacterMarkerSet, NULL if none."""
@@ -9418,9 +8899,7 @@ class FBCharacter(FBConstraint):
         """Obtain Input ControlSet.
         
         ### Parameters:
-        
             - Force: If True, will return the current ControlSet even if the character is not in ControlSet Input.
-        
         
         ### Returns:
         Return current Active ControlSet, NULL if none."""
@@ -9435,10 +8914,8 @@ class FBCharacter(FBConstraint):
         """Get the model associated with each effector in the Control Rig of the character.
         
         ### Parameters:
-        
             - EffectorId: The effector ID.
             - EffectorSetID: Id of the ControlSet to obtain, if not specified the current one is taken.
-        
         
         ### Returns:
         The model in the Control Rig corresponding to the specified Effector."""
@@ -9459,9 +8936,7 @@ class FBCharacter(FBConstraint):
         """Get the model associated with the floor contact ID.
         
         ### Parameters:
-        
             - MemberIndex: Id of the floor contact
-        
         
         ### Returns:
         The model associated with the floor contact ID"""
@@ -9504,7 +8979,6 @@ class FBCharacter(FBConstraint):
         
         Could be deformable model connected to bone via cluster, or non deformable model parented directly under the bones.
         ### Parameters:
-        
             - SkinModelList: List to be filled up. (will not be cleared)"""
         ...
     def GetTOffset(self,BodyNodeId:FBBodyNodeId,TVector:FBVector4d):...
@@ -9513,7 +8987,6 @@ class FBCharacter(FBConstraint):
         """Set the character in stance pose.
         
         ### Parameters:
-        
             - PushUndo: Should we push an undo transaction on the undo stack? Don't push undo in non UI thread.
             - IncludeCharacterExtensions: Should the character extensions go to stance pose too?"""
         ...
@@ -9521,9 +8994,7 @@ class FBCharacter(FBConstraint):
         """Check if there is an offset on Parent.
         
         ### Parameters:
-        
             - NodeId: Node Id to Check.
-        
         
         ### Returns:
         True if there is an offset on Parent."""
@@ -9532,9 +9003,7 @@ class FBCharacter(FBConstraint):
         """Return true if the object is Pinned in Rotation (Manipulation).
         
         ### Parameters:
-        
             - EffectorIndex: Given Index to obtain Model
-        
         
         ### Returns:
         True if the effector is pinned in Rotation"""
@@ -9543,9 +9012,7 @@ class FBCharacter(FBConstraint):
         """Return true if the object is Pinned in Translation (Manipulation).
         
         ### Parameters:
-        
             - EffectorIndex: Given Index to obtain Model
-        
         
         ### Returns:
         True if the effector is pinned in Translation"""
@@ -9555,10 +9022,8 @@ class FBCharacter(FBConstraint):
         
         When plotting onto Control Rig while the Control Rig being the source of the Character, only the selected properties, based on the active keying group, will be plotted.
         ### Parameters:
-        
             - PlotWhere: Where to plot a character, control rig or Skeleton
             - PlotOptions: Option parameters for plotting
-        
         
         ### Returns:
         True if the operation completed successfully."""
@@ -9573,28 +9038,24 @@ class FBCharacter(FBConstraint):
         """Get the model associated with each body part of the character.
         
         ### Parameters:
-        
             - Ext: extension to be removed to the character."""
         ...
     def ResetProperties(self,Type:FBCharacterResetProperties):
         """Reset the properties of the character.
         
         ### Parameters:
-        
             - Type: Speficy which properties will be reset."""
         ...
     def Retarget(self,OnBaseLayer:bool):
         """Retarget the animation from the input character to us.
         
         ### Parameters:
-        
             - OnBaseLayer: if true, keys corrections will be made on base layer; else they will be made on another layer."""
         ...
     def SelectModels(self,Select:bool,ApplyToCharacter:bool,ApplyToRig:bool,ApplyToExtensions:bool):
         """Select the objects that make a character.
         
         ### Parameters:
-        
             - Select: True to select, false to deselect.
             - ApplyToCharacter: Should the character constraint be selected ?
             - ApplyToRig: should The rig (and its children) be selected ?
@@ -9607,9 +9068,7 @@ class FBCharacter(FBConstraint):
         """Set the Characterize flag on.
         
         ### Parameters:
-        
             - SetAsBiped: true to use biped characterization or false to use quadruped.
-        
         
         ### Returns:
         current state of the flag after the operation (true if it did succeed).
@@ -9619,7 +9078,6 @@ class FBCharacter(FBConstraint):
         """Set character solver.
         
         ### Parameters:
-        
             - Solver: Character solver that will be used by the character."""
         ...
     def SetExternalSolverWithIndex(self,arg2):...
@@ -9627,9 +9085,7 @@ class FBCharacter(FBConstraint):
         """Set the FK visibility state.
         
         ### Parameters:
-        
             - State: The FK visibility state.
-        
         
         ### Returns:
         True if the operation is successful, false otherwise."""
@@ -9638,9 +9094,7 @@ class FBCharacter(FBConstraint):
         """Set the IK visibility state.
         
         ### Parameters:
-        
             - State: The IK visibility state.
-        
         
         ### Returns:
         True if the operation is successful, false otherwise."""
@@ -9649,10 +9103,8 @@ class FBCharacter(FBConstraint):
         """Set the object Pinned in Rotation (Manipulation) status.
         
         ### Parameters:
-        
             - EffectorIndex: Given Index to obtain Model.
             - Value: The object Pinned in Rotation status.
-        
         
         ### Returns:
         True if the operation is successful, false otherwise."""
@@ -9661,9 +9113,7 @@ class FBCharacter(FBConstraint):
         """Set the skeleton visibility state.
         
         ### Parameters:
-        
             - State: The skeleton visibility state.
-        
         
         ### Returns:
         True if the operation is successful, false otherwise."""
@@ -9672,17 +9122,14 @@ class FBCharacter(FBConstraint):
         """Set the object Pinned in Translation (Manipulation) status.
         
         ### Parameters:
-        
             - EffectorIndex: Given Index to obtain Model
             - Value: The object Pinned in Translation status.
-        
         
         ### Returns:
         True if the operation is successful, false otherwise."""
         ...
     def __init__(self,Name:str):
         """### Parameters:
-        
             - Name: Name of new character."""
         ...
 class FBActor(FBConstraint):
@@ -10067,9 +9514,7 @@ class FBActor(FBConstraint):
         """Return the Current Skeleton State.
         
         ### Parameters:
-        
             - ResetOrientation: When set to true, all rotations in the state will be reset to characterization values.
-        
         
         ### Returns:
         Current Skeleton State 
@@ -10087,7 +9532,6 @@ class FBActor(FBConstraint):
         
         Only effective when IKManip property is set to false.
         ### Parameters:
-        
             - SkeletonId: Skeleton Node Id
             - RotationVector: Actor Rotation Definition for the given ID"""
         ...
@@ -10095,7 +9539,6 @@ class FBActor(FBConstraint):
         """Get Actor Scaling Definition.
         
         ### Parameters:
-        
             - SkeletonId: Skeleton Node Id
             - ScaleVector: Actor Scaling Definition for the given ID"""
         ...
@@ -10104,7 +9547,6 @@ class FBActor(FBConstraint):
         
         Only effective when IKManip property is set to false.
         ### Parameters:
-        
             - SkeletonId: Skeleton Node Id
             - TranslationVector: Actor Translation Definition for the given ID"""
         ...
@@ -10113,7 +9555,6 @@ class FBActor(FBConstraint):
         
         Only effective when IKManip property is set to false.
         ### Parameters:
-        
             - TranslationVector: Will move the entire Actor to pTranslationVector coordinate"""
         ...
     def SetDefinitionRotationVector(self,SkeletonId:FBSkeletonNodeId,RotationVector:FBVector3d,SymmetricUpdate:bool=True):
@@ -10121,7 +9562,6 @@ class FBActor(FBConstraint):
         
         Only effective when IKManip property is set to false.
         ### Parameters:
-        
             - SkeletonId: Skeleton Node Id
             - RotationVector: Actor Rotation value for the given ID
             - SymmetricUpdate: Update right and left part at the same time"""
@@ -10130,7 +9570,6 @@ class FBActor(FBConstraint):
         """Set Actor Scaling Definition.
         
         ### Parameters:
-        
             - SkeletonId: Skeleton Node Id
             - ScaleVector: Actor Scaling value for the given ID
             - SymmetricUpdate: Update right and left part at the same time"""
@@ -10140,7 +9579,6 @@ class FBActor(FBConstraint):
         
         Only effective when IKManip property is set to false.
         ### Parameters:
-        
             - SkeletonId: Skeleton Node Id
             - TranslationVector: Actor Translation value for the given ID
             - SymmetricUpdate: Update right and left part at the same time"""
@@ -10149,12 +9587,10 @@ class FBActor(FBConstraint):
         """Update Internal Values to be corresponding to the Given Evaluate Information.
         
         ### Parameters:
-        
             - EvalInfo: Evaluate Info of the Values"""
         ...
     def __init__(self,Name:str):
         """### Parameters:
-        
             - Name: Name of new actor."""
         ...
 class FBConstraintRelation(FBConstraint):
@@ -10170,9 +9606,7 @@ class FBConstraintRelation(FBConstraint):
         
         Use an existing [FBBox](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_box.html "A box is a fundamental building block in the application architecture.") object to create a receiver in the relation.
         ### Parameters:
-        
             - ConstrainedObject: Destination box to insert in the constraint.
-        
         
         ### Returns:
         A place holder box for the object."""
@@ -10182,10 +9616,8 @@ class FBConstraintRelation(FBConstraint):
         
         Ask the constraint to create new function box.
         ### Parameters:
-        
             - Group: Name of the group under which the function is located in the Constraint Relation GUI (case-sensitive!).
             - Name: Name of the function, as seen in the GUI (case-sensitive!).
-        
         
         ### Returns:
         The newly created function box, or NULL if the name/group combination was invalid."""
@@ -10196,9 +9628,7 @@ class FBConstraintRelation(FBConstraint):
         
         Use an existing [FBBox](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_box.html "A box is a fundamental building block in the application architecture.") object to create a sender in the relation.
         ### Parameters:
-        
             - Source: Source box to insert in the constraint.
-        
         
         ### Returns:
         A place holder box for the object."""
@@ -10208,18 +9638,15 @@ class FBConstraintRelation(FBConstraint):
         
         Set the position of a box within the constraint layout view.
         ### Parameters:
-        
             - Box: Box which needs to be moved.
             - X: New X position.
             - Y: New Y position.
-        
         
         ### Returns:
         A boolean value indicating success (True) or failure (False)."""
         ...
     def __init__(self,Name:str|None=None):
         """### Parameters:
-        
             - Name: Name of constraint."""
         ...
 class FBCycleAnalysisNode(FBBox):
@@ -10241,7 +9668,6 @@ class FBCycleAnalysisNode(FBBox):
     def GetRootXZFCurve(self)->FBFCurve:...
     def __init__(self,Name:str):
         """### Parameters:
-        
             - Name: Name of new cycle analysis node."""
         ...
 class FBConstraintSolver(FBConstraint):
@@ -10306,9 +9732,7 @@ class FBDevice(FBBox):
         
         This is an operation such as Init, Start, Done, Reset, etc.
         ### Parameters:
-        
             - Operation: Operation to have device perform.
-        
         
         ### Returns:
         Current state : <b true if online."""
@@ -10318,7 +9742,6 @@ class FBDevice(FBBox):
         
         This function will send the Init, Start, etc. commands to the device.
         ### Parameters:
-        
             - Operation: Operation for device to perform."""
         ...
     def ModelBindingCreate(self)->FBModel:
@@ -10331,21 +9754,18 @@ class FBDevice(FBBox):
         """Get the list of all the possible root models for binding.
         
         ### Parameters:
-        
             - List: List to add found models to."""
         ...
     def RecordingDoneAnimation(self,AnimationNode:FBAnimationNode):
         """When recording, finish animation.
         
         ### Parameters:
-        
             - AnimationNode: Animation node to write information to."""
         ...
     def RecordingInitAnimation(self,AnimationNode:FBAnimationNode):
         """When recording, initialize animation.
         
         ### Parameters:
-        
             - AnimationNode: Animation node to read information from."""
         ...
 class FBGlobalLight(FBBox):
@@ -10398,13 +9818,11 @@ class FBDeviceOptical(FBDevice):
         
         Virtual function that derived class may overide
         ### Parameters:
-        
             - Time: Time of evaluation.
             - DeviceNotifyInfo: Notification information when thread was called."""
         ...
     def __init__(self,Name:str):
         """### Parameters:
-        
             - Name: Unique name of optical device."""
         ...
 class FBGroup(FBBox):
@@ -10432,9 +9850,7 @@ class FBGroup(FBBox):
         """Contains.
         
         ### Parameters:
-        
             - Component: Component to verify if it is in the Group
-        
         
         ### Returns:
         True if the object is in the Group"""
@@ -10443,12 +9859,10 @@ class FBGroup(FBBox):
         """Select.
         
         ### Parameters:
-        
             - Select: If **true**, group contents will be selected."""
         ...
     def __init__(self,Name:str):
         """### Parameters:
-        
             - Name: Group name."""
         ...
 class FBHUD(FBBox):
@@ -10484,10 +9898,8 @@ class FBHUD(FBBox):
         """Creates a custom HUD Element.
         
         ### Parameters:
-        
             - HUDElementClassName: The HUD Element class name (mainly, the ClassName parameter of the FBStorableCustomHUDElementImplementation macro).
             - Name: Name for the custom HUD Element to create.
-        
         
         ### Returns:
         The created custom HUD Element."""
@@ -10496,17 +9908,14 @@ class FBHUD(FBBox):
         """Creates a stock HUD Element.
         
         ### Parameters:
-        
             - Type: View to be called for expose.
             - Name: Name for the HUD Element to create.
-        
         
         ### Returns:
         The created HUD Element."""
         ...
     def __init__(self,Name:str):
         """### Parameters:
-        
             - Name: Name of new HUD."""
         ...
 class FBHUDElement(FBBox):
@@ -10562,7 +9971,6 @@ class FBHandle(FBBox):
         
         This constructor is used to create a new object.
         ### Parameters:
-        
             - Name: Object name."""
         ...
 class FBHUDFlashElement(FBHUDElement):
@@ -10575,7 +9983,6 @@ class FBHUDFlashElement(FBHUDElement):
     """Read Write Property: Path to load the swf file from"""
     def __init__(self,Name:str):
         """### Parameters:
-        
             - Name: Name of new HUD flash element."""
         ...
 class FBHUDRectElement(FBHUDElement):
@@ -10588,7 +9995,6 @@ class FBHUDRectElement(FBHUDElement):
     """Read Write Property: Color of the rectangluar region."""
     def __init__(self,Name:str):
         """### Parameters:
-        
             - Name: Name of new HUD rectangle element."""
         ...
 class FBHUDBloopSlateElement(FBHUDFlashElement):
@@ -10607,7 +10013,6 @@ class FBHUDBloopSlateElement(FBHUDFlashElement):
     """Read Write Property: Time that the bloop slate will be displayed."""
     def __init__(self,Name:str):
         """### Parameters:
-        
             - Name: Name of new HUD flash element."""
         ...
 class FBHUDTimelineElement(FBHUDFlashElement):
@@ -10634,7 +10039,6 @@ class FBHUDTimelineElement(FBHUDFlashElement):
     """Read Write Property: Specifies color of the Tail region when it is idle."""
     def __init__(self,Name:str):
         """### Parameters:
-        
             - Name: Name of new HUD flash element."""
         ...
 class FBHUDTextElement(FBHUDElement):
@@ -10660,7 +10064,6 @@ class FBHUDTextElement(FBHUDElement):
         ...
     def __init__(self,Name:str):
         """### Parameters:
-        
             - Name: Name of new HUD text element."""
         ...
 class FBHUDTextureElement(FBHUDElement):
@@ -10673,7 +10076,6 @@ class FBHUDTextureElement(FBHUDElement):
     """Read Write Property: Texture to display."""
     def __init__(self,Name:str):
         """### Parameters:
-        
             - Name: Name of new HUD texture element."""
         ...
 class FBMaterial(FBBox):
@@ -10729,7 +10131,6 @@ class FBMaterial(FBBox):
         """Retrieve associated texture.
         
         ### Parameters:
-        
             - Type: MaterialTextureType to get connected texture from (default is Diffuse is not specified)."""
         ...
     def OGLInit(self):
@@ -10739,14 +10140,12 @@ class FBMaterial(FBBox):
         """Set associated texture.
         
         ### Parameters:
-        
             - Texture: texture to be connected.
             - Type: MaterialTextureType to set connected texture to."""
         ...
     def __copy__(self)->object:...
     def __init__(self,Name:str):
         """### Parameters:
-        
             - Name: Name of material."""
         ...
 class FBModel(FBBox):
@@ -10798,9 +10197,7 @@ class FBModel(FBBox):
     
     Note. this query will consider self Visibility property, plus parent node/set Visibility. The visibility of a model is affected by 4 parameters:
     ### Parameters:
-    
         - EvaluateInfo: evaluate info,
-    
     
     ### Returns:
     true if visible for the given evaluate info."""
@@ -10894,10 +10291,8 @@ class FBModel(FBBox):
         """Convert object space vector to local matrix.
         
         ### Parameters:
-        
             - LM: Resulting local rotation matrix.
             - Dof: Vector to convert
-        
         
         ### Note:
         Use this function when you want to convert euler to local rotation with proper pre/post transformation and rotation order applied from this model."""
@@ -10914,9 +10309,7 @@ class FBModel(FBBox):
         """Get Additional Unique Color Id.
         
         ### Parameters:
-        
             - Index: the requested unique color id index, can't be larger than GetAdditionalColorIDCount()
-        
         
         ### Returns:
         Additional Unique ColorId."""
@@ -10927,7 +10320,6 @@ class FBModel(FBBox):
         
         Note. for deformable model, this function will provide the approximated (larger than the smallest) bounding box for performance consideration.
         ### Parameters:
-        
             - Min: Output parameter. Minimum value of the bounding box.
             - Max: Output parameter. Maximum value of the bounding box."""
         ...
@@ -10937,7 +10329,6 @@ class FBModel(FBBox):
         
         The GetMatrix method was previously wrongly returning the local transformation (and local inverse transformation) matrices with global Rotation DoF values. The GetMatrix method implementation has been updated to not include the global Rotation DoF values. This method returns the same matrix values returned by the legacy GetMatrix implementation when retrieving the local transformation (and local inverse transformation) matrices.
         ### Parameters:
-        
             - Matrix: Matrix to fill with requested information.
             - Inverse: False for the transformation matrix, true for the inverse transformation matrix.
             - EvaluateInfo: EvaluateInfo, Take Display if none specified."""
@@ -10946,7 +10337,6 @@ class FBModel(FBBox):
         """Get a matrix from the model.
         
         ### Parameters:
-        
             - Matrix: Matrix to fill with requested information.
             - What: Type of information requested (default=transformation).
             - GlobalInfo: **true** if it is GlobalInfo, **false** if Local (default=true).
@@ -10968,7 +10358,6 @@ class FBModel(FBBox):
         """Get a vector from the model.
         
         ### Parameters:
-        
             - Vector: Vector to fill with requested values.
             - What: Type of information requested (default=translation, inverses not supported).
             - GlobalInfo: **true** if it is GlobalInfo, **false** if Local (default=true).
@@ -10985,7 +10374,6 @@ class FBModel(FBBox):
         
         b true if the evaluation task result is ready in place.
         ### Parameters:
-        
             - What: Type of evaluation task.
             - EvaluateInfo: EvaluateInfo, Take Display if none specified"""
         ...
@@ -10996,10 +10384,8 @@ class FBModel(FBBox):
         """Convert local matrix to object space vector.
         
         ### Parameters:
-        
             - Dof: Resulting object space vector.
             - LM: Local rotation matrix to convert
-        
         
         ### Note:
         Use this function when you want to convert local rotation to euler with proper pre/post transformation and rotation order applied from this model."""
@@ -11008,7 +10394,6 @@ class FBModel(FBBox):
         """Convert Rotation Matrix to Euler Vector based on model's rotation order.
         
         ### Parameters:
-        
             - Rotation: Resulting euler vector, whose angles are stored in [X,Y,Z] order.
             - Matrix: Matrix to convert."""
         ...
@@ -11028,13 +10413,11 @@ class FBModel(FBBox):
         """Ray cast test.
         
         ### Parameters:
-        
             - Camera: Camera to use for casting.
             - MouseX: Mouse X position.
             - MouseY: Mouse Y position.
             - HitPosition: Ray cast position on the object.
             - HitNormal: Normal at the ray cast position on the object.
-        
         
         ### Returns:
         true if it hit the meshes, hit would contains the precise position & normal."""
@@ -11043,7 +10426,6 @@ class FBModel(FBBox):
         """Convert Euler Vector to Rotation Matrix based on model's rotation order.
         
         ### Parameters:
-        
             - Matrix: Resulting rotation matrix.
             - Rotation: Object space rotation vector to convert, whose angles are stored in [X,Y,Z] order."""
         ...
@@ -11051,9 +10433,7 @@ class FBModel(FBBox):
         """Request additional Unique color IDs.
         
         ### Parameters:
-        
             - Count: User should note that Unique Color ID resource is limited (only 24 bits), hence should avoid to use unnecessary large number.
-        
         
         ### Returns:
         True if Unique ColorId resource is available."""
@@ -11062,7 +10442,6 @@ class FBModel(FBBox):
         """Set a matrix for the model.
         
         ### Parameters:
-        
             - Matrix: Information to use to set the model's matrix.
             - What: Type of matrix to set (default=transformation).
             - GlobalInfo: **true** if it is GlobalInfo, **false** if Local (default=true).
@@ -11073,7 +10452,6 @@ class FBModel(FBBox):
         """Set a matrix for the model.
         
         ### Parameters:
-        
             - Matrix: Information to use to set the model's matrix.
             - What: Type of matrix to set (default=transformation).
             - GlobalInfo: **true** if it is GlobalInfo, **false** if Local (default=true).
@@ -11086,7 +10464,6 @@ class FBModel(FBBox):
         """Set the position in the schematic view for the model.
         
         ### Parameters:
-        
             - X: X position to set.
             - Y: Y position to set."""
         ...
@@ -11095,14 +10472,12 @@ class FBModel(FBBox):
         """Set the position in the schematic view for the model.
         
         ### Parameters:
-        
             - Vector2d: Position to set."""
         ...
     def SetVector(self,Vector:FBVector3d,What:FBModelTransformationType=FBModelTransformationType.kModelTranslation,arg4=None,arg5:FBEvaluateInfo|None=None):
         """Set a vector for the model.
         
         ### Parameters:
-        
             - Vector: Vector to use to set values.
             - What: Type of information to set (default=translation, inverses not supported).
             - GlobalInfo: **true** if it is GlobalInfo, **false** if Local (default=true).
@@ -11132,9 +10507,7 @@ class FBNote(FBBox):
         
         Will attach the note to the component. If pComp is NULL, the note will only be added to the scene.
         ### Parameters:
-        
             - Comp: Component on which to attach note.
-        
         
         ### Returns:
         A boolean indicating if the operation was successful or not."""
@@ -11144,16 +10517,13 @@ class FBNote(FBBox):
         
         Will detach the note from the component. If pComp is NULL, the note will be removed from the scene and detached from all components.
         ### Parameters:
-        
             - Comp: Component from which to detach note.
-        
         
         ### Returns:
         A boolean indicating if the operation was successful or not."""
         ...
     def __init__(self,Name:str):
         """### Parameters:
-        
             - Name: Name of note."""
         ...
 class FBModelCube(FBModel):
@@ -11164,7 +10534,6 @@ class FBModelCube(FBModel):
     [See samples: FBGroup.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_f_b_group_8py-example.html) [FBModelCube.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_f_b_model_cube_8py-example.html)"""
     def __init__(self,Name:str):
         """### Parameters:
-        
             - Name: Name of cube."""
         ...
 class FBLight(FBModel):
@@ -11215,7 +10584,6 @@ class FBLight(FBModel):
     eSphere:FBLight.EAreaLightShapes
     def __init__(self,Name:str):
         """### Parameters:
-        
             - Name: Name of light."""
         ...
 class FBCameraSwitcher(FBModel):
@@ -11233,9 +10601,7 @@ class FBCameraSwitcher(FBModel):
         
         The destination camera cannot be a system camera nor a camera currently used by the Camera Switcher.
         ### Parameters:
-        
             - Camera: Destination camera to plot on.
-        
         
         ### Returns:
         True if the plot operation has been processed successfully, false otherwise."""
@@ -11444,7 +10810,6 @@ class FBCamera(FBModel):
         """Obtains the camera's matrix.
         
         ### Parameters:
-        
             - Matrix: Matrix to fill with requested information.
             - Type: Camera Matrix type to obtain.
             - EvalInfo: Take Display if none specified."""
@@ -11456,19 +10821,16 @@ class FBCamera(FBModel):
         """Returns the world coordinates based on screen coordinates and input distance from the camera.
         
         ### Parameters:
-        
             - X: Screen horizontal coordinate in pixel. When pRelativeToViewport is false, the range is between 0 and (WindowWidth - 1). When pRelativeToViewport is true, the range is between 0 to (CameraViewportWidth - 1). The coordinate starts at left of the region.
             - Y: Screen vertical coordinate in pixel. When pRelativeToViewport is false, the range is between 0 and (WindowHeight - 1). When pRelativeToViewport is true, the range is between 0 to (CameraViewportHeight - 1). The coordinate starts at top of the region.
             - DistanceFromCamera: Distance from the camera to the resulting world coordinate position
             - RelativeToViewport: true indicates (pX,pY) is relative to the window; false indicates (pX,pY) is relative to the viewport of the camera.
-        
         
         ### Returns:
         The world coordinates in 3D space"""
         ...
     def __init__(self,Name:str):
         """### Parameters:
-        
             - Name: Name of camera."""
         ...
 class FBModelMarker(FBModel):
@@ -11493,7 +10855,6 @@ class FBModelMarker(FBModel):
     """Read Write Property: Type of model marker."""
     def __init__(self,Name:str):
         """### Parameters:
-        
             - Name: Name of model marker. If pObject is not NULL, pName will be ignored."""
         ...
 class FBCameraStereo(FBCamera):
@@ -11527,7 +10888,6 @@ class FBCameraStereo(FBCamera):
     """Read Write Property:  Zero parallax plane transparency."""
     def __init__(self,Name:str):
         """### Parameters:
-        
             - Name: Name of stereo camera."""
         ...
 class FBModelNull(FBModel):
@@ -11536,7 +10896,6 @@ class FBModelNull(FBModel):
     """Read Write Property: Size (not related to scaling)."""
     def __init__(self,Name:str):
         """### Parameters:
-        
             - Name: Name of null."""
         ...
 class FBModelMarkerOptical(FBModelMarker):
@@ -11568,12 +10927,10 @@ class FBModelMarkerOptical(FBModelMarker):
         """Export a key of optical data.
         
         ### Parameters:
-        
             - X: X position.
             - Y: Y position.
             - Z: Z position(default=NULL).
             - Occlusion: Occlusion value(default=NULL).
-        
         
         ### Returns:
         true if successful."""
@@ -11602,12 +10959,10 @@ class FBModelMarkerOptical(FBModelMarker):
         """Import a key of optical data.
         
         ### Parameters:
-        
             - X: X position.
             - Y: Y position.
             - Z: Z position(default=0.0).
             - Occlusion: Occlusion value(default=0.0).
-        
         
         ### Returns:
         true if successful."""
@@ -11616,7 +10971,6 @@ class FBModelMarkerOptical(FBModelMarker):
         """Insert segmented data.
         
         ### Parameters:
-        
             - TData: Translation data.
             - OData: Occlusion data."""
         ...
@@ -11624,13 +10978,11 @@ class FBModelMarkerOptical(FBModelMarker):
         """Set the current optical model.
         
         ### Parameters:
-        
             - Optical: New optical model."""
         ...
     def __init__(self,Name:str,Optical:FBModelOptical):
         """If no optical model is given, be sure to add one before accessing the Segments and Gaps properties.
         ### Parameters:
-        
             - Name: Name of optical marker(default=NULL).
             - Optical: Optical model(default=NULL)."""
         ...
@@ -11654,17 +11006,14 @@ class FBModelOptical(FBModel):
         """Clear the segments (by default only the unused).
         
         ### Parameters:
-        
             - UnUsedOnly: Clear only the unused segments if **true**(default=true)."""
         ...
     def CreateRigidBody(self,RigidBodyName:str,Markers:list[FBModelMarkerOptical])->FBRigidBody:
         """Create a new rigid body from the given optical markers.
         
         ### Parameters:
-        
             - RigidBodyName: The name for the new rigid body to create. If left empty, the default "Rigid Body" name will be used.
             - Markers: The optical markers for creating the new rigid body.
-        
         
         ### Returns:
         The created rigid body if successful, and invalid rigid body otherwise. You can use the [FBRigidBody.IsValid()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_rigid_body.html#a9dcb9b43a3d0fa9003d4c1c9d921f6b2 "Check if valid (if item exists).") method to test if the returned rigid body object is valid or not."""
@@ -11683,7 +11032,6 @@ class FBModelOptical(FBModel):
         ...
     def __init__(self,Name:str):
         """### Parameters:
-        
             - Name: Name of optical model."""
         ...
 class FBModelPath3D(FBModel):
@@ -11735,9 +11083,7 @@ class FBModelPath3D(FBModel):
         """Converting one key type Segment (time) to Total (percent).
         
         ### Parameters:
-        
             - Percent: Double value (as time)
-        
         
         ### Returns:
         Double value which represents the corresponding percentage"""
@@ -11758,9 +11104,7 @@ class FBModelPath3D(FBModel):
         """Converting one key type Total (percent) to Segment (time).
         
         ### Parameters:
-        
             - Percent: Double value (as percentage)
-        
         
         ### Returns:
         Double value which represents the corresponding time."""
@@ -11791,9 +11135,7 @@ class FBModelPath3D(FBModel):
         
         The derivative value for the new key is copied from the left tangent of the last key.
         ### Parameters:
-        
             - TLocal: Vector value for the new added Key
-        
         
         ### Returns:
         Returns (N) where (N+1) is the new total number of keys, and since the new key becomes the Nth key (index starts from 0). If path is invalid, returns 0."""
@@ -11802,9 +11144,7 @@ class FBModelPath3D(FBModel):
         """Get path's key vector for at a particular key index.
         
         ### Parameters:
-        
             - KeyIndex: Key ID to set with
-        
         
         ### Returns:
         Return the vector containing the value of the path key."""
@@ -11814,9 +11154,7 @@ class FBModelPath3D(FBModel):
         
         Only works when KeyPropertyBehavior is eVector.
         ### Parameters:
-        
             - KeyIndex: Key ID to get
-        
         
         ### Returns:
         Path key's corresponding control node if successful, otherwise NULL."""
@@ -11831,9 +11169,7 @@ class FBModelPath3D(FBModel):
         """Get the path key left tangent's vector value for designated index.
         
         ### Parameters:
-        
             - KeyIndex: Key ID at which left tangent value is required
-        
         
         ### Returns:
         Vector containing value of left tangent"""
@@ -11842,9 +11178,7 @@ class FBModelPath3D(FBModel):
         """Query the length of the left tangent.
         
         ### Parameters:
-        
             - KeyIndex: Key ID to set with
-        
         
         ### Returns:
         Double value of the length of left tangent"""
@@ -11854,9 +11188,7 @@ class FBModelPath3D(FBModel):
         
         Only works when KeyPropertyBehavior is eVector.
         ### Parameters:
-        
             - KeyIndex: Key ID to get
-        
         
         ### Returns:
         Path key's corresponding property if successful, otherwise NULL."""
@@ -11865,9 +11197,7 @@ class FBModelPath3D(FBModel):
         """Get the path key right tangent's vector value for designated index.
         
         ### Parameters:
-        
             - KeyIndex: Key ID to set with
-        
         
         ### Returns:
         Vector containing value of left tangent"""
@@ -11876,9 +11206,7 @@ class FBModelPath3D(FBModel):
         """Query the value of the right tangent.
         
         ### Parameters:
-        
             - KeyIndex: Key ID to set with
-        
         
         ### Returns:
         Double value of the length of right tangent"""
@@ -11888,9 +11216,7 @@ class FBModelPath3D(FBModel):
         
         This works only if key interpolation type is CUBIC and tangent mode is User, Break or Auto.
         ### Parameters:
-        
             - KeyIndex: Key ID to set with
-        
         
         ### Returns:
         Vector with value for path's tangent XYZ derivatives"""
@@ -11900,10 +11226,8 @@ class FBModelPath3D(FBModel):
         
         The following keys are all shifted by 1 sec.
         ### Parameters:
-        
             - KeyIndex: Key ID to insert after. If key ID < 0 then the behavior is the same as PathKeyStartAdd. If key ID >= PathKeyGetCount-1 then the behavior is the same as PathKeyEndAdd.
             - TLocal: Vector value for the new added Key
-        
         
         ### Returns:
         Returns the newly inserted key ID."""
@@ -11912,7 +11236,6 @@ class FBModelPath3D(FBModel):
         """Remove key at a particular index.
         
         ### Parameters:
-        
             - KeyIndex: Key ID at which key is to be removed."""
         ...
     def PathKeyRemoveSelected(self):
@@ -11922,7 +11245,6 @@ class FBModelPath3D(FBModel):
         """Set the local coordinate vector values for path at a particular key index.
         
         ### Parameters:
-        
             - KeyIndex: Key ID to set with
             - TLocal: Vector to use to set values to Key
             - Update: **true** if geometry update is required, **false** if not required (default=true)"""
@@ -11932,10 +11254,8 @@ class FBModelPath3D(FBModel):
         
         Only works when KeyPropertyBehavior is eVector and AutoControlNode is disabled.
         ### Parameters:
-        
             - KeyIndex: Key ID to set
             - ControlNode: Model to set as path key's control node.
-        
         
         ### Returns:
         True if successful, otherwise false."""
@@ -11944,7 +11264,6 @@ class FBModelPath3D(FBModel):
         """Set path's vectors for key, left tangent and right tangent at a particular key index.
         
         ### Parameters:
-        
             - KeyIndex: Key ID to set key for left and right tangents
             - KeyTLocal: Vector to use to set values to Key
             - LeftTangentTLocal: Vector to use to set values to Key Left Tangent
@@ -11955,7 +11274,6 @@ class FBModelPath3D(FBModel):
         """Set path's key left tangent vector for designated index.
         
         ### Parameters:
-        
             - KeyIndex: Key ID at which left tangent is to be set
             - TLocal: Vector to use to set values to Key
             - Update: **true** if geometry update is required, **false** if not required (default=true)"""
@@ -11964,7 +11282,6 @@ class FBModelPath3D(FBModel):
         """Set 3D path's key right tangent vector for designated index.
         
         ### Parameters:
-        
             - KeyIndex: Key ID at which right tangent is to be set
             - TLocal: Vector to use to set values to Key
             - Update: **true** if geometry update is required, **false** if not required (default=true)"""
@@ -11974,7 +11291,6 @@ class FBModelPath3D(FBModel):
         
         This works only if key interpolation type is CUBIC and tangent mode is User, Break or Auto.
         ### Parameters:
-        
             - KeyIndex: Key ID to set with
             - Derivative: Value of the derivative to apply to tangent
             - Update: **true** if geometry update is required, **false** if not required (default=true)"""
@@ -11984,7 +11300,6 @@ class FBModelPath3D(FBModel):
         
         This works only if key interpolation type is CUBIC and tangent mode is User, Break or Auto.
         ### Parameters:
-        
             - KeyIndex: Key ID to set with
             - Derivative: Value of the derivative to apply to tangent
             - Update: **true** if geometry update is required, **false** if not required (default=true)"""
@@ -11994,7 +11309,6 @@ class FBModelPath3D(FBModel):
         
         This works only if key interpolation type is CUBIC and tangent mode is User, Break or Auto.
         ### Parameters:
-        
             - KeyIndex: Key ID to set with
             - Derivative: Value of the derivative to apply to tangent
             - Update: **true** if geometry update is required, **false** if not required (default=true)"""
@@ -12004,7 +11318,6 @@ class FBModelPath3D(FBModel):
         
         This works only if key interpolation type is CUBIC and tangent mode is User, Break or Auto.
         ### Parameters:
-        
             - KeyIndex: Key ID to set with
             - Derivative: Value of the derivative to apply to tangent
             - Update: **true** if geometry update is required, **false** if not required (default=true)"""
@@ -12014,9 +11327,7 @@ class FBModelPath3D(FBModel):
         
         The derivative value for the new key is copied from the right tangent of the first key.
         ### Parameters:
-        
             - TLocal: Vector value for the new added Key
-        
         
         ### Returns:
         Returns 0 since the new key becomes the first key. If path is invalid, returns 0."""
@@ -12025,9 +11336,7 @@ class FBModelPath3D(FBModel):
         """Get the path's vector at a particular point within the curve, in global coordinates.
         
         ### Parameters:
-        
             - SegmentPercent: Double value (as time) at which the path vector would be computed
-        
         
         ### Returns:
         Vector value at the required point in the path"""
@@ -12036,9 +11345,7 @@ class FBModelPath3D(FBModel):
         """Get the path's derivative at a particular point within the curve, in global coordinates.
         
         ### Parameters:
-        
             - SegmentPercent: Double value (as time) at which the path derivative would be computed
-        
         
         ### Returns:
         Vector value at the required point in the path"""
@@ -12047,9 +11354,7 @@ class FBModelPath3D(FBModel):
         """Query whether a percentage value has a key associated at that point in the path.
         
         ### Parameters:
-        
             - SegmentPercent: Double value (as time) at which the path would be queried for existence of key
-        
         
         ### Returns:
         A valid key index in integer if key is present, otherwise -1"""
@@ -12058,9 +11363,7 @@ class FBModelPath3D(FBModel):
         """Get the path's vector at a particular point within the curve, in local coordinates.
         
         ### Parameters:
-        
             - SegmentPercent: Double value (as time) at which the path vector would be computed
-        
         
         ### Returns:
         Vector value at the required point in the path"""
@@ -12069,9 +11372,7 @@ class FBModelPath3D(FBModel):
         """Get the path's derivative at a particular point within the curve, in local coordinates.
         
         ### Parameters:
-        
             - SegmentPercent: Double value (as time) at which the path derivative would be computed
-        
         
         ### Returns:
         Vector value at the required point in the path"""
@@ -12080,23 +11381,19 @@ class FBModelPath3D(FBModel):
         """Enable or disable displaying Curve Controls for the 3D model path.
         
         ### Parameters:
-        
             - Show: **true** if curve controls are to be displayed **false** if not required"""
         ...
     def ShowCurvePoints(self,Show:bool):
         """Enable or disable displaying Curve Points for the 3D model path.
         
         ### Parameters:
-        
             - Show: **true** if curve points are to be displayed **false** if not required"""
         ...
     def Total_GlobalPathEvaluate(self,TotalPercent:float,EvaluateInfo:FBEvaluateInfo|None=None)->FBVector4d:
         """Get the path's vector at a particular point within the curve, in global coordinates.
         
         ### Parameters:
-        
             - TotalPercent: Double value (as percentage) at which the path vector would be computed
-        
         
         ### Returns:
         Vector value at the required point in the path"""
@@ -12105,9 +11402,7 @@ class FBModelPath3D(FBModel):
         """Get the path's derivative at a particular point within the curve, in global coordinates.
         
         ### Parameters:
-        
             - TotalPercent: Double value (as percentage) at which the path derivative would be computed
-        
         
         ### Returns:
         Derivative value at the required point in the path"""
@@ -12116,9 +11411,7 @@ class FBModelPath3D(FBModel):
         """Query whether a percentage value has a key associated at that point in the path.
         
         ### Parameters:
-        
             - TotalPercent: Double value (as percentage) at which the path would be queried for existence of key
-        
         
         ### Returns:
         A valid key index in integer if key is present, otherwise -1"""
@@ -12127,9 +11420,7 @@ class FBModelPath3D(FBModel):
         """Get the path's vector at a particular point within the curve, in local coordinates.
         
         ### Parameters:
-        
             - TotalPercent: Double value (as percentage) at which the path vector would be computed
-        
         
         ### Returns:
         Vector value at the required point in the path"""
@@ -12138,9 +11429,7 @@ class FBModelPath3D(FBModel):
         """Get the path's derivative at a particular point within the curve, in local coordinates.
         
         ### Parameters:
-        
             - TotalPercent: Double value (as percentage) at which the path derivative would be computed
-        
         
         ### Returns:
         Derivative value at the required point in the path"""
@@ -12169,14 +11458,12 @@ class FBModelPath3D(FBModel):
         path.PathKeyInsertAfter(2,FBVector4d(50,25,0,0))
         ```
          ### Parameters:
-        
             - Name: Name of Path 3D."""
         ...
 class FBModelPlane(FBModel):
     """Plane model class."""
     def __init__(self,Name:str):
         """### Parameters:
-        
             - Name: Name of Plane."""
         ...
 class FBModelRoot(FBModel):
@@ -12189,7 +11476,6 @@ class FBModelRoot(FBModel):
     """Read Write Property: Size (not related to scaling)."""
     def __init__(self,Name:str):
         """### Parameters:
-        
             - Name: Name of root."""
         ...
 class FBModelSkeleton(FBModel):
@@ -12212,12 +11498,10 @@ class FBModelSkeleton(FBModel):
         """Return the list of skin model associated with this Skeleton(Bone), which could be the deformable skins connected via cluster, or non deformable skins which are parented directly under this bone.
         
         ### Parameters:
-        
             - SkinModelList: List to be appended with skin models (with no duplicated items)."""
         ...
     def __init__(self,Name:str):
         """### Parameters:
-        
             - Name: Name of skeleton."""
         ...
 class FBPhysicalProperties(FBBox):
@@ -12344,11 +11628,9 @@ class FBAudioIn(FBComponent):
         
         If the Audio In is not already online, it will turn it online automatically. If the Audio In is already ready to record, it will turn it off first automatically.
         ### Parameters:
-        
             - RecordingPath: The file path for the desired output wav file. The file must have the .wav extension.
             - ExistingClipAction: The action to perform when the action clip associated to the recording path is already in the scene.
             - ExistingFileAction: The action to perform when the file associated to the recording path already exists on disk and it not empty.
-        
         
         ### Returns:
         True if operation is successful, false otherwise. It could fail for different reasons (e.g. the specified file is not a WAV file or is invalid, the operation is abort by the user, etc.)."""
@@ -12358,9 +11640,7 @@ class FBAudioIn(FBComponent):
         
         The Audio In must be offline when this method is called. (Windows only).
         ### Parameters:
-        
             - Delay: The delay to use. To mimic the UI, the [FBTime](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_time.html "Time data structure.") should refer to a frame number.
-        
         
         ### Returns:
         True if operation is successful, false otherwise."""
@@ -12370,9 +11650,7 @@ class FBAudioIn(FBComponent):
         
         The Audio In must be offline when this method is called. (Windows only).
         ### Parameters:
-        
             - AudioOut: The Audio Out object to be used as the destination. Use a NULL pointer (None in Python) to unset the destination.
-        
         
         ### Returns:
         True if operation is successful, false otherwise."""
@@ -12381,9 +11659,7 @@ class FBAudioIn(FBComponent):
         """Turns Audio In online or offline.
         
         ### Parameters:
-        
             - Online: True to turn the Audio In online, false to turn it offline.
-        
         
         ### Returns:
         True if operation is successful, false otherwise."""
@@ -12393,9 +11669,7 @@ class FBAudioIn(FBComponent):
         
         Bit Depth, Rate and Channel(s)) to use. The Audio In must be offline when this method is called.
         ### Parameters:
-        
             - AudioFormat: The audio format to use for recording. It must specify a unique Bit Depth, Rate and Channels.
-        
         
         ### Returns:
         True if operation is successful, false otherwise. It could fail for different reasons (e.g. the specified audio format is not supported, more than one Bit Depth is specified, etc.)."""
@@ -12461,9 +11735,7 @@ class FBAudioClip(FBComponent):
         """Load an audio clip file.
         
         ### Parameters:
-        
             - Path: The filesystem path of the audio clip file to load.
-        
         
         ### Returns:
         true if the audio clip loaded successfully."""
@@ -12478,10 +11750,8 @@ class FBAudioClip(FBComponent):
         """Play audio clip now.
         
         ### Parameters:
-        
             - Style: How the audio clip should be triggered.
             - Destination: Where the audio clip should be played. If NULL, it will play on the default destination.
-        
         
         ### Returns:
         Return true if the buffer for the audio clip was successfully allocated so that you can hear the sound."""
@@ -12490,12 +11760,10 @@ class FBAudioClip(FBComponent):
         """Stop any playing triggered audio clip on a specified destination.
         
         ### Parameters:
-        
             - Destination: Where the audio clip is playing. If NULL, the default destination will be used."""
         ...
     def __init__(self,FileName:str):
         """### Parameters:
-        
             - FileName: The complete file path of the media file to access.
             - SetToDefaultDest: If true and the media file open successfully, it will automatically be connected to an output device."""
         ...
@@ -12526,9 +11794,7 @@ class FBAssetMng(FBComponent):
         """Create a folder path on the server side by adding each missing folders.
         
         ### Parameters:
-        
             - ServerPath: The path to create on the server side.
-        
         
         ### Returns:
         A FBAssetFolder\* object representing the deepest folder of the path."""
@@ -12538,9 +11804,7 @@ class FBAssetMng(FBComponent):
         
         also present in the database).
         ### Parameters:
-        
             - Filename: Path to the file on the local disk.
-        
         
         ### Returns:
         A boolean indicating if the file is managed or not."""
@@ -12549,9 +11813,7 @@ class FBAssetMng(FBComponent):
         """Get a file object using it's server path.
         
         ### Parameters:
-        
             - ServerFilename: Path to the file on the server.
-        
         
         ### Returns:
         An FBAssetFile\* object, or NULL if the file was not found."""
@@ -12560,9 +11822,7 @@ class FBAssetMng(FBComponent):
         """Get a file object using it's local path.
         
         ### Parameters:
-        
             - LocalFilename: Path to the file on the local disk.
-        
         
         ### Returns:
         An FBAssetFile\* object, or NULL if the file was not found or no mapping could be done."""
@@ -12571,9 +11831,7 @@ class FBAssetMng(FBComponent):
         """Get a folder object using it's server path.
         
         ### Parameters:
-        
             - ServerPath: Path the the folder on the server.
-        
         
         ### Returns:
         An FBAssetFolder\* object, or NULL if the folder was not found."""
@@ -12582,9 +11840,7 @@ class FBAssetMng(FBComponent):
         """Get a folder object using it's local path.
         
         ### Parameters:
-        
             - LocalPath: Path to the folder on the local disk.
-        
         
         ### Returns:
         An FBAssetFolder\* object, or NULL if the folder was not found or no mapping could be done."""
@@ -12606,9 +11862,7 @@ class FBAssetMng(FBComponent):
         """Convert the local path to a server path by using managed paths mapping.
         
         ### Parameters:
-        
             - LocalPath: Local path to be mapped.
-        
         
         ### Returns:
         A string with the resulting server path, will be empty if the mapping fail."""
@@ -12620,9 +11874,7 @@ class FBAssetMng(FBComponent):
         """Is the specified local path below a managed path.
         
         ### Parameters:
-        
             - LocalPath: Local path to be checked.
-        
         
         ### Returns:
         A boolean indicating if the path is within a managed path or not."""
@@ -12635,11 +11887,9 @@ class FBAssetItem(FBComponent):
         """Checks in this item and all its children (if this is a folder item).
         
         ### Parameters:
-        
             - Comment: Comment to be applied for the check in.
             - KeepCheckedOut: Flag that indicates whether the item will be kept checked out.
             - Silent: If pSilent is set to true, no dialog will be displayed by this method.
-        
         
         ### Returns:
         A boolean indicating if the operation was successful."""
@@ -12648,11 +11898,9 @@ class FBAssetItem(FBComponent):
         """Checks out this item and it's childs (if this is a folder item) and makes them writeable on the local disk.
         
         ### Parameters:
-        
             - Comment: Comment to be applied for the check out.
             - DontGetLocal: Indicate if local copy should retrieved or not.
             - Silent: If pSilent is set to true, no dialog will be displayed by this method.
-        
         
         ### Returns:
         A boolean indicating if the operation was successful."""
@@ -12661,10 +11909,8 @@ class FBAssetItem(FBComponent):
         """Obtain the latest version of the item from the server.
         
         ### Parameters:
-        
             - ReplaceCheckedOut: Whether to replace the checked out file or not.
             - Silent: If pSilent is set to true, no dialog will be displayed by this method.
-        
         
         ### Returns:
         A boolean indicating if the operation was successful."""
@@ -12703,10 +11949,8 @@ class FBAssetItem(FBComponent):
         """Cancel the last check out operation.
         
         ### Parameters:
-        
             - ReplaceLocalFile: Flag indicating if the local item(s) should be replaced by the server version.
             - Silent: If pSilent is set to true, no dialog will be displayed by this method.
-        
         
         ### Returns:
         A boolean indicating if the operation was successful."""
@@ -12747,9 +11991,7 @@ class FBApplication(FBComponent):
         """Render audio of current scene to media file, currently WAV file only.
         
         ### Parameters:
-        
             - AudioRenderOptions: The options used when rendering audio of the scene. Default value: 2 channels, 16 bits, 44100 hz, the begin and end time span for current time referential, Default file name is "Output.wav" in the last audio output path, ro the default document path if the last path doesn't exist.
-        
         
         ### Returns:
         True if the file was rendered successfully 
@@ -12761,9 +12003,7 @@ class FBApplication(FBComponent):
         
         See the FBPython class for advanced capabilities. Same as calling the FBPython.ExecuteScript method.
         ### Parameters:
-        
             - Filename: The script file to execute.
-        
         
         ### Returns:
         True if the script file was found and executed. 
@@ -12775,11 +12015,9 @@ class FBApplication(FBComponent):
         
         Same as File->Merge in the menus with all options set to append. In earlier versions of MotionBuilder, a namespace could be specified with a parameter in this function, or FBFbxOptions::CustomImportNamespace, Now this is now done with [FBFbxOptions::NamespaceList](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_fbx_options.html#a0a39e5fc1811f92fa35ed80c332bb75f "Read Write Property: A list of namespaces separated by '~'. On Load, duplicate the loaded objects int...").
         ### Parameters:
-        
             - Filename: File(s) to merge. For multiple files, use a list of files separated by '~'.
             - ShowUIMsg: Set false if don't want to popup any UI dialog or messages (default=false).
             - Options: Provide finer control on file open options (default=NULL). if not null, Option dialog will only show if both option's ShowOptionsDialog property and pShowUIMsg are true. It is possible to append multiple scenes, each one within its own user specified namespace, by calling the [FBFbxOptions::SetMultiLoadNamespaceList](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_fbx_options.html#a3d8bb25ae4070d38ebaf3b96937dc9e2 "Sets the list of namespaces that will be used when merging multiple scenes (see FBApplication::FileMe...") method first. When doing so though, the FBFbxOption.NamespaceList property is then ignored.
-        
         
         ### Returns:
         true if successful."""
@@ -12789,10 +12027,8 @@ class FBApplication(FBComponent):
         
         Command File->Batch... in the menus.
         ### Parameters:
-        
             - BatchOptions: The options for the batch process (same as in the batch UI).
             - PlotOptions: The options for plotting (same as in the plot UI)(default=NULL).
-        
         
         ### Returns:
         The status of the operation."""
@@ -12802,7 +12038,6 @@ class FBApplication(FBComponent):
         
         Command File->Exit in the menus.
         ### Parameters:
-        
             - Save: true if file is saved on exit(default=false).
             - ExitCode: Exit code of the application(default=0)."""
         ...
@@ -12811,22 +12046,14 @@ class FBApplication(FBComponent):
         
         Command File->Motion File Export... in the menus.
         ### Parameters:
-        
             - Filename: The file to create. To create two files at the same time (ex: .amc & .asf), separate the two files path with a comma ("Path1,Path2").
-        
         
         ### Returns:
         True if the export succeeded. 
         ### Remarks:
         If the file exists, it will be overwritten. 
-        
-        
         Only current take is exported. 
-        
-        
         For now, you cannot export custom file types. 
-        
-        
         Currently, only the default export options are used. 
         ### Warning:
         The signature of this function might change in the future to support export options."""
@@ -12836,12 +12063,10 @@ class FBApplication(FBComponent):
         
         Export used for saving files in batch process.
         ### Parameters:
-        
             - Name: The name of the file without extension. Extension and path will be taken from batch options.
             - Take: Animation take to the export.
             - BatchOptions: The options for the export.
             - ExportModels: Models to the export.
-        
         
         ### Returns:
         True if the export succeeded. 
@@ -12853,19 +12078,13 @@ class FBApplication(FBComponent):
         
         Command File->Motion File Export... in the menus.
         ### Parameters:
-        
             - Options: An [FBMotionFileExportOptions](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_motion_file_export_options.html "Customize motion file exporting.") object that contains the file path of the motion file(s) to export, as well as the options to export those motion files.
-        
         
         ### Returns:
         True if the export succeeded. Returns false if some files were not written (file not overwritten, invalid path, etc.). Returns false if the given options object is not valid. See the [FBMotionFileExportOptions::IsValid](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_motion_file_export_options.html#a9dcb9b43a3d0fa9003d4c1c9d921f6b2 "Is this object valid?") method. 
         ### Remarks:
         Based on the values of the various options, multiple motion files could be created with file paths based on the initial file path provided. See the documentation of [FBMotionFileExportOptions](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_motion_file_export_options.html "Customize motion file exporting.") for more details. 
-        
-        
         For now, only the FBX motion file type is supported. 
-        
-        
         For now, you cannot export custom file types."""
         ...
     def FileImport(self,Filename:str,MatchModels:bool=False,CreateUnmatchedModels:bool=True)->bool:
@@ -12873,33 +12092,19 @@ class FBApplication(FBComponent):
         
         Command File->Motion File Import... in the menus.
         ### Parameters:
-        
             - Filename: The file to import. To import two files at the same time (ex: .amc & .asf), separate the two files path with a comma ("Path1,Path2").
             - MatchModels: If there is already a model in the scene with the same name, the model will not be created and we replace the animation of the given model.
             - CreateUnmatchedModels: Whether unmatched models will be created. This flag matters only when pMatchModels is true. when pMatchModels is false, all the models are created.
-        
         
         ### Returns:
         True if the import succeeded. 
         ### Remarks:
         No models selected, all the models in the scene will be checked for a potential name match. 
-        
-        
         If there are models selected in the scene, only these models will be checked for a potential name match. 
-        
-        
         If only one model is selected (ex: hips), this models and its hierarchy will be used. 
-        
-        
         The data will be imported in the current take. 
-        
-        
         The last two parameter are only used for motion files. 
-        
-        
         For now, you cannot import custom file types. 
-        
-        
         Currently, only the default import options are used. 
         ### Warning:
         The signature of this function might change in the future to support import options."""
@@ -12909,11 +12114,9 @@ class FBApplication(FBComponent):
         
         Import used for loading files in batch process.
         ### Parameters:
-        
             - Name: The name of the file without extension. Extension and path will be taken from batch options.
             - BatchOptions: The options for the import.
             - Reference: Reference model for the import.
-        
         
         ### Returns:
         True if the import succeeded. 
@@ -12925,19 +12128,13 @@ class FBApplication(FBComponent):
         
         Command File->Motion File Import... in the menus.
         ### Parameters:
-        
             - Options: An [FBMotionFileImportOptions](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_motion_file_import_options.html "Customize motion file loading.") object that contains the path to the files, as well as the options to load those motion files.
-        
         
         ### Returns:
         True if the import succeeded. 
         ### Remarks:
         The import will only work if you open files of the same type. 
-        
-        
         For now, you cannot import custom file types. 
-        
-        
         Not all options can be applied to a particular motion file type, please use the Motion File Import UI as a reference."""
         ...
     @overload
@@ -12946,11 +12143,9 @@ class FBApplication(FBComponent):
         
         Command File->Merge in the menus.
         ### Parameters:
-        
             - Filename: File(s) to merge. For multiple files, use a list of files separated by '~'.
             - ShowUIMsg: Set false if don't want to popup any UI dialog or messages (default=false).
             - Options: Provide finer control on file open options (default=NULL). if not null, Option dialog will only show if both option's ShowOptionsDialog property and pShowUIMsg are true. It is possible to merge multiple scenes, each one within its own user specified namespace, by calling the [FBFbxOptions::SetMultiLoadNamespaceList](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_fbx_options.html#a3d8bb25ae4070d38ebaf3b96937dc9e2 "Sets the list of namespaces that will be used when merging multiple scenes (see FBApplication::FileMe...") method first. When doing so though, the FBFbxOption.NamespaceList property is then ignored.
-        
         
         ### Returns:
         true if successful."""
@@ -12961,11 +12156,9 @@ class FBApplication(FBComponent):
         
         Command File->Merge in the menus.
         ### Parameters:
-        
             - Pathlist: Files to merge.
             - ShowUIMsg: Set false if don't want to popup any UI dialog or messages (default=false).
             - Options: Provide finer control on file open options (default=NULL). if not null, Option dialog will only show if both option's ShowOptionsDialog property and pShowUIMsg are true. It is possible to merge multiple scenes, each one within its own user specified namespace, by calling the [FBFbxOptions::SetMultiLoadNamespaceList](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_fbx_options.html#a3d8bb25ae4070d38ebaf3b96937dc9e2 "Sets the list of namespaces that will be used when merging multiple scenes (see FBApplication::FileMe...") method first. When doing so though, the FBFbxOption.NamespaceList property is then ignored.
-        
         
         ### Returns:
         true if successful."""
@@ -12974,10 +12167,8 @@ class FBApplication(FBComponent):
         """Command File->New in the menus.
         
         ### Parameters:
-        
             - AskUser: Set to true to cause a save dialog to popup. Default is false.
             - ClearSceneName: Set to true to clear the scene name, set to false to retain it. Default is true.
-        
         
         ### Returns:
         true if successful."""
@@ -12988,11 +12179,9 @@ class FBApplication(FBComponent):
         
         Command File->Open in the menus.
         ### Parameters:
-        
             - Filename: File to open.
             - ShowUIMsg: Set false if don't want to popup any UI dialog or messages (default=false).
             - Options: Provide finer control on file open options (default=NULL). if not null, Option dialog will only show if both option's ShowOptionsDialog property and pShowUIMsg are true.
-        
         
         ### Returns:
         true if file open successfully.
@@ -13003,10 +12192,8 @@ class FBApplication(FBComponent):
         """Open a file from memory.
         
         ### Parameters:
-        
             - Buffer: the memory buffer for the file. Raw memory address is expected in Python.
             - BufferLength: the memory buffer size.
-        
         
         ### Returns:
         true if file opened successfully. 
@@ -13018,9 +12205,7 @@ class FBApplication(FBComponent):
         
         Command File->Render in the menus.
         ### Parameters:
-        
             - RenderOptions: The options used when rendering the scene. If you don't specify them, current one are used.
-        
         
         ### Returns:
         True if the file was rendered successfully otherwise False and [FBVideoGrabber.GetLastErrorMsg()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_video_grabber.html#af2af6435ec300fc0b187059a5d762b9c "GetLastErrorMsg.") contains the description of the error. 
@@ -13034,10 +12219,8 @@ class FBApplication(FBComponent):
         
         Command File->SaveAs in the menus.
         ### Parameters:
-        
             - Filename: Save file as pFilename. A value of NULL will use the current file name.
             - Options: Provide finer control on file save options (default=NULL)
-        
         
         ### Returns:
         true if successful.
@@ -13052,12 +12235,10 @@ class FBApplication(FBComponent):
         """Get max frame count from a scene file in memory.
         
         ### Parameters:
-        
             - Buffer: the memory buffer for the file. Raw memory address is expected in Python.
             - BufferLength: the memory buffer size.
             - FrameCount: (C++ only) out parameter to hold max frame count.
             - TimeScale: Time scale.
-        
         
         ### Returns:
         (C++ only) True if file opened successfully. (Python only) A tuple with 2 values: (bool return value, pFrameCount). 
@@ -13092,9 +12273,7 @@ class FBApplication(FBComponent):
         """Verify motion file readability.
         
         ### Parameters:
-        
             - Filename: The file to test.
-        
         
         ### Returns:
         True if file was opened successfully (file is closed at the end)."""
@@ -13103,12 +12282,10 @@ class FBApplication(FBComponent):
         """Load a rig and its animation from a file.
         
         ### Parameters:
-        
             - FileName: File name.
             - Character: Target character.
             - FbxOptions: The options for the character rig and animation load
             - PlotOptions: If the animation should be plotted on the target rig, these plot options will be used. Set to NULL if animation will not be plotted.
-        
         
         ### Returns:
         true if successful."""
@@ -13123,9 +12300,7 @@ class FBApplication(FBComponent):
         """Minimize window.
         
         ### Parameters:
-        
             - Blocking: Is the minimization blocking operation (default = true).
-        
         
         ### Returns:
         Operation was successful (true or false)."""
@@ -13149,9 +12324,7 @@ class FBApplication(FBComponent):
         """Send the current scene as a new scene in the specified application.
         
         ### Parameters:
-        
             - Application: The application that will receive the scene.
-        
         
         ### Returns:
         True if transfer successful."""
@@ -13166,11 +12339,9 @@ class FBApplication(FBComponent):
         """Save the rig and its animation in a file.
         
         ### Parameters:
-        
             - FileName: File name.
             - Character: Character to save.
             - FbxOptions: The options for the character rig and animation export
-        
         
         ### Warning:
         After save, the current scene selection will be reset."""
@@ -13179,42 +12350,36 @@ class FBApplication(FBComponent):
         """Set the scene author.
         
         ### Parameters:
-        
             - Author: The author to set in the scene properties."""
         ...
     def SetSceneComment(self,Comment:str):
         """Set the scene comment.
         
         ### Parameters:
-        
             - Comment: The comment to set in the scene properties."""
         ...
     def SetSceneKeywords(self,Keywords:str):
         """Set the scene keywords.
         
         ### Parameters:
-        
             - Keywords: The keywords to set in the scene properties."""
         ...
     def SetSceneRevisionNumber(self,RevNumber:str):
         """Set the scene revision number.
         
         ### Parameters:
-        
             - RevNumber: The revision number to set in the scene properties."""
         ...
     def SetSceneSubject(self,Subject:str):
         """Set the scene subject.
         
         ### Parameters:
-        
             - Subject: The subject to set in the scene properties."""
         ...
     def SetSceneTitle(self,Title:str):
         """Set the scene title.
         
         ### Parameters:
-        
             - Title: The title to set in the scene properties."""
         ...
     def UpdateAllWidgets(self):
@@ -13248,12 +12413,10 @@ class FBAssetFolder(FBAssetItem):
         
         It will be added in this folder.
         ### Parameters:
-        
             - LocalPath: The full path to the file on the local disk.
             - Comment: Comment to be applied for the operation.
             - CheckOut: Whether the file should be checked out or not.
             - Silent: If pSilent is set to true, no dialog will be displayed by this method.
-        
         
         ### Returns:
         An FBAssetfile\* object representing the newly added file."""
@@ -13263,11 +12426,9 @@ class FBAssetFolder(FBAssetItem):
         
         It will be added in this folder.
         ### Parameters:
-        
             - Name: Name of the folder to be created.
             - Comment: Comment to be applied for the operation.
             - Silent: If pSilent is set to true, no dialog will be displayed by this method.
-        
         
         ### Returns:
         An FBAssetFolder\* object representing the newly added folder."""
@@ -13321,7 +12482,6 @@ class FBAnimationLayer(FBComponent):
         
         Layer ID of the new child layer might change after parenting depending where the child layer was originally located.
         ### Parameters:
-        
             - AnimationLayer: Layer to set as a child."""
         ...
     def GetChildCount(self)->int:
@@ -13335,9 +12495,7 @@ class FBAnimationLayer(FBComponent):
         """Get the nth child layer of this layer.
         
         ### Parameters:
-        
             - Index: Index of the child layer to get.
-        
         
         ### Returns:
         Child animation layer located at pIndex"""
@@ -13346,9 +12504,7 @@ class FBAnimationLayer(FBComponent):
         """Get the all the children hierarchy of the layer, including children not directly connected to this layer.
         
         ### Parameters:
-        
             - ChildArray: Array of child layers, will be filled by the function.
-        
         
         ### Python:
         The function takes no parameter and returns a Python list. ex : lArray = lAnimationLayer.GetCompleteChildHierarchy()"""
@@ -13376,7 +12532,6 @@ class FBAnimationLayer(FBComponent):
         
         This is the equivalent of selecting the layer in the UI in the Animation Layer Editor tool
         ### Parameters:
-        
             - Value: True if the layer will be selected, false otherwise.
             - ExclusiveSelect: If pValue is true, passing true will deselect all the other layers, creating an exclusive selection, it will also set the layer as the current layer."""
         ...
@@ -13384,12 +12539,10 @@ class FBAnimationLayer(FBComponent):
         """Set the parent layer.
         
         ### Parameters:
-        
             - ParentLayer: A pointer to the parent layer or NULL if you want to unparent the layer."""
         ...
     def __init__(self,Name:str,LayerID:int):
         """### Parameters:
-        
             - Name: Name of the animation layer.
             - LayerID: ID to set for the new layer."""
         ...
@@ -13405,7 +12558,6 @@ class FBActorFace(FBComponent):
         ...
     def __init__(self,Name:str):
         """### Parameters:
-        
             - Name: Name of new actor face."""
         ...
 class FBActionManager(FBComponent):
@@ -13438,9 +12590,7 @@ class FBConstraintManager(FBComponent):
         
         Given the index in the registry, this function create an instance of this constraint. The newly created constraint will be automatically added to the scene.
         ### Parameters:
-        
             - TypeIndex: Index of constraint type, must in range [0, [TypeGetCount()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_constraint_manager.html#aec594578e960089aa1e313e10404c668 "Get the number of registered constraint types.") ).
-        
         
         ### Returns:
         The newly created constraint, or NULL if pIndex is out of range."""
@@ -13451,9 +12601,7 @@ class FBConstraintManager(FBComponent):
         
         Given the constraint type name in the registry, this function create an instance of this constraint. The newly created constraint will be automatically added to the scene.
         ### Parameters:
-        
             - Name: the name of the constraint to be created.
-        
         
         ### Returns:
         The newly created constraint, or NULL if pName doesn't match any registered constraints."""
@@ -13469,9 +12617,7 @@ class FBConstraintManager(FBComponent):
         
         This will search in the registry for a constraint at the index pTypeIndex.
         ### Parameters:
-        
             - TypeIndex: Index of a constraint type.
-        
         
         ### Returns:
         Name of constraint type."""
@@ -13485,14 +12631,12 @@ class FBConstructionHistory(FBComponent):
         """GetDeltaOperations Get the list of delta operations in the construction history.
         
         ### Parameters:
-        
             - Operations: Array of operations, will be filled by the function."""
         ...
     def GetScriptOutput(self,script:list,errors:list):
         """GetScriptOutput Returns the output from the scripting engine.
         
         ### Parameters:
-        
             - script: the script text
             - errors: the error outputted from the scripting engine"""
         ...
@@ -13506,21 +12650,18 @@ class FBConstructionHistory(FBComponent):
         """NetDelete Network delete with support for Network Undo.
         
         ### Parameters:
-        
             - key: A key that uniquely identifies the operation"""
         ...
     def NetUndo(self,key:int):
         """NetUndo Perform network undo operation.
         
         ### Parameters:
-        
             - key: The operation to undo"""
         ...
     def RunOperation(self,operation:FBConstructionOperation,out_errors:list)->int:
         """RunOperation Runs an operation.
         
         ### Parameters:
-        
             - operation: The operation to run
             - out_errors: A string containing the text of errors generated by running the operations (if any)"""
         ...
@@ -13536,9 +12677,7 @@ class FBControlSet(FBComponent):
         """Return the index of the given FK model.
         
         ### Parameters:
-        
             - Model: FK Model to obtain index.
-        
         
         ### Returns:
         The index of the given FK model in the internal array or -1 if the model is not an FK model."""
@@ -13548,9 +12687,7 @@ class FBControlSet(FBComponent):
         
         The index is from the internal array and is not guaranteed to be matching the [FBBodyNodeId](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_body_node_id.html "All body nodes.") enum values.
         ### Parameters:
-        
             - Index: Index associated to the FK model.
-        
         
         ### Returns:
         The FK model at the specified index or nullptr (None in Python) if no model is found."""
@@ -13560,9 +12697,7 @@ class FBControlSet(FBComponent):
         
         The index is from the internal array and is not guaranteed to be matching the [FBBodyNodeId](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_body_node_id.html "All body nodes.") enum values.
         ### Parameters:
-        
             - Index: Index to obtain name.
-        
         
         ### Returns:
         The name of FK model or nullptr (Empty string in Python) if the index is invalid."""
@@ -13571,9 +12706,7 @@ class FBControlSet(FBComponent):
         """Return the index of the given IK Effector model.
         
         ### Parameters:
-        
             - Model: IK Effector model to obtain index.
-        
         
         ### Returns:
         The index of the given IK Effector model (matches the [FBEffectorId](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_effector_id.html "All effector nodes.") enum values) or -1 if the model is not an IK Effector."""
@@ -13582,10 +12715,8 @@ class FBControlSet(FBComponent):
         """Return the IK Effector model associated to the given indices.
         
         ### Parameters:
-        
             - EffectorIndex: Index of the IK Effector.
             - PivotIndex: Index of the IK Effector pivot.
-        
         
         ### Returns:
         The IK Effector model at the specified indices or nullptr (None in Python) if no model is found."""
@@ -13594,9 +12725,7 @@ class FBControlSet(FBComponent):
         """Return the name of the IK Effector.
         
         ### Parameters:
-        
             - EffectorIndex: Index of the IK Effector.
-        
         
         ### Returns:
         The name of the IK Effector or nullptr (Empty string in Python) if the index is invalid."""
@@ -13605,9 +12734,7 @@ class FBControlSet(FBComponent):
         """Return the number of IK Effector pivot.
         
         ### Parameters:
-        
             - EffectorIndex: Index of the IK Effector.
-        
         
         ### Returns:
         The number of IK Effector pivot or 0 if the index is invalid."""
@@ -13626,7 +12753,6 @@ class FBControlSet(FBComponent):
         ...
     def __init__(self,Name:str):
         """### Parameters:
-        
             - Name: Name of new control set."""
         ...
 class FBCycleCreator(FBComponent):
@@ -13635,7 +12761,6 @@ class FBCycleCreator(FBComponent):
         """Create animation cycle for current character if pChar is NULL, else for the character assigned by pChar; during the time scope between pStartTime and pEndTime.
         
         ### Parameters:
-        
             - StartTime: Start time of the cycle
             - EndTime: End time of the cycle
             - Char: Target character, if it is NULL, try to use current character
@@ -13648,7 +12773,6 @@ class FBCycleCreator(FBComponent):
             - PasteTz: Whether consider Translation Z on referenced IK when doing pose pasting
             - PasteR: Whether consider Rotation on referenced IK when doing pose pasting
             - PasteG: Whether respect Gravity when doing pose pasting (Translation = Global XZ / Rotation = Global Y). Note: if G is true then Ty will be forced changed to false.
-        
         
         ### Returns:
         true if successful."""
@@ -13686,7 +12810,6 @@ class FBDeck(FBComponent):
         """Cue deck at a given time.
         
         ### Parameters:
-        
             - Time: Time to cue deck at."""
         ...
     def DeckAutoCommandsNotify(self):
@@ -13713,14 +12836,12 @@ class FBDeck(FBComponent):
         """Play forwards.
         
         ### Parameters:
-        
             - Speed: Playback speed (default is 1.0)."""
         ...
     def ReversePlay(self,Speed:float=1.0):
         """Play backwards.
         
         ### Parameters:
-        
             - Speed: Playback speed(default is 1.0)."""
         ...
     def Rewind(self):
@@ -13742,7 +12863,6 @@ class FBDeformer(FBComponent):
     """Read Only Property: Deformer Type."""
     def __init__(self,Name:str):
         """### Parameters:
-        
             - Name: Name of deformer."""
         ...
 class FBDeviceInstrument(FBComponent):
@@ -13757,7 +12877,6 @@ class FBDeviceInstrument(FBComponent):
         """Record the data to the function curves for the instrument.
         
         ### Parameters:
-        
             - RecordTime: Time to record data at.
             - NotifyInfo: Device notification information structure."""
         ...
@@ -13766,16 +12885,13 @@ class FBDeviceInstrument(FBComponent):
         
         In the evaluation engine callback, this will take the data in the instrument's temporary data holders and write it to the connectors.
         ### Parameters:
-        
             - EvaluateInfo: Evaluation information structure.
-        
         
         ### Returns:
         true if successful."""
         ...
     def __init__(self,Device:FBDevice):
         """### Parameters:
-        
             - Device: Parent device."""
         ...
 class FBDeformerPointCache(FBDeformer):
@@ -13802,7 +12918,6 @@ class FBDeformerPointCache(FBDeformer):
     """Read Write Property: Point Cache File Object."""
     def __init__(self,Name:str):
         """### Parameters:
-        
             - Name: Name of deformer."""
         ...
 class FBDeviceOpticalMarker(FBComponent):
@@ -13820,7 +12935,6 @@ class FBDeviceOpticalMarker(FBComponent):
         """Set data for optical marker.
         
         ### Parameters:
-        
             - X: X position for marker.
             - Y: Y position for marker.
             - Z: Z position for marker(default=0.0).
@@ -13828,7 +12942,6 @@ class FBDeviceOpticalMarker(FBComponent):
         ...
     def __init__(self,Name:str):
         """### Parameters:
-        
             - Name: Name of optical marker."""
         ...
 class FBEvaluateManager(FBComponent):
@@ -13870,10 +12983,8 @@ class FBFCurveEditorUtility(FBComponent):
         """Frame keys in the FCurve Editor interface.
         
         ### Parameters:
-        
             - SelectedKeysOnly: If true, only the selected keys will be framed, otherwise all keys will be framed.
             - Editor: Pointer to a [FBFCurveEditor](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_f_curve_editor.html "FCurve editor.") for framing the keys in that custom editor, NULL to frame in the default editor.
-        
         
         ### Returns:
         True if successful, false otherwise. 
@@ -13884,9 +12995,7 @@ class FBFCurveEditorUtility(FBComponent):
         """Get all the objects displayed in the left pane of the FCurve Editor.
         
         ### Parameters:
-        
             - ObjectList: A list that will be filled with the objects displayed in the FCurve Editor.
-        
         
         ### Returns:
         True if successful, false otherwise."""
@@ -13895,11 +13004,9 @@ class FBFCurveEditorUtility(FBComponent):
         """Get the displayed properties.
         
         ### Parameters:
-        
             - Properties: Array that will contain the properties displayed.
             - SelectedOnly: If true, only the selected properties will be returned.
             - Editor: Pointer to a [FBFCurveEditor](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_f_curve_editor.html "FCurve editor.") for getting the properties in that custom editor, NULL to frame in the default editor.
-        
         
         ### Returns:
         True if successful, false otherwise."""
@@ -13908,9 +13015,7 @@ class FBFCurveEditorUtility(FBComponent):
         """Get the displayed time range of the FCurve Editor.
         
         ### Parameters:
-        
             - Editor: Pointer to a [FBFCurveEditor](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_f_curve_editor.html "FCurve editor.") where the time span will be get, NULL to get the time span from the default editor.
-        
         
         ### Returns:
         FCurve Editor time span, default [FBTimeSpan](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_time_span.html "TimeSpan class.") if not successful."""
@@ -13919,10 +13024,8 @@ class FBFCurveEditorUtility(FBComponent):
         """Set the displayed time range of the FCurve Editor.
         
         ### Parameters:
-        
             - TimeSpan: The time span that will be set.
             - Editor: Pointer to a [FBFCurveEditor](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_f_curve_editor.html "FCurve editor.") where the time span will be set, NULL to set the time span on the default editor.
-        
         
         ### Returns:
         True if successful, false otherwise."""
@@ -13941,9 +13044,7 @@ class FBFCurveEventManager(FBComponent):
         
         Properties that are registered will receive events with the OnFCurveEvent/OnPropertyEvent properties when their FCurves are modified.
         ### Parameters:
-        
             - Property: The property to track.
-        
         
         ### Returns:
         True if the registration was successful, False otherwise."""
@@ -13953,9 +13054,7 @@ class FBFCurveEventManager(FBComponent):
         
         Those properties will not be tracked and no update will be sent with the OnFCurveEvent/OnPropertyEvent properties anymore.
         ### Parameters:
-        
             - Property: The property to stop tracking.
-        
         
         ### Returns:
         True if the unregistration was successful, False otherwise."""
@@ -14138,23 +13237,19 @@ class FBFbxOptions(FBComponent):
         """Take Description.
         
         ### Parameters:
-        
             - TakeIndex: index of take to get."""
         ...
     def GetTakeDestinationName(self,TakeIndex:int)->str:
         """Take Destination Name upon save or load.
         
         ### Parameters:
-        
             - TakeIndex: index of take to get."""
         ...
     def GetTakeKeyRange(self,TakeIndex:int)->FBTimeSpan:
         """Get take key range.
         
         ### Parameters:
-        
             - TakeIndex: index of take to get.
-        
         
         ### Returns:
         A time range, keys inside that time range will be kept. Keys outside that time range will be removed when importing the animation, by default the time range is [FBTime::MinusInfinity](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_time.html#a7840cbd8a5f56768e40783609ff0f946 "Time constant: Minus Infinity, the lowest negative time value.") -> [FBTime::Infinity](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_time.html#ad4cdfb3a31e984e36d78499115839636 "Time constant: Infinity, the largest time value.") 
@@ -14165,21 +13260,18 @@ class FBFbxOptions(FBComponent):
         """Take Original Name.
         
         ### Parameters:
-        
             - TakeIndex: index of take to get."""
         ...
     def GetTakeSelect(self,TakeIndex:int)->bool:
         """Return if true if the take will be saved or Loaded.
         
         ### Parameters:
-        
             - TakeIndex: index of take to get."""
         ...
     def SaveToString(self)->str:
         """Serialize all options to a string Serialize all options to a string specifying a context.
         
         ### Parameters:
-        
             - String: The string containing all settings, target of serializing
             - context: The context to be used when serializing"""
         ...
@@ -14188,7 +13280,6 @@ class FBFbxOptions(FBComponent):
         
         Initialize all loading/saving properties to ElementAction and animation specified.
         ### Parameters:
-        
             - ElementAction: Default value for all FBPropertyElementAction properties.
             - Animation: Default value for all Animation properties."""
         ...
@@ -14196,7 +13287,6 @@ class FBFbxOptions(FBComponent):
         """Set all options from string Set all parameters from a formatted string (previously serialized with SaveToString)
         
         ### Parameters:
-        
             - String: The string containing all settings. See SaveToFile
             - context: The context to be used when de-serializing"""
         ...
@@ -14223,7 +13313,6 @@ class FBFbxOptions(FBComponent):
         print(FBApplication().FileMerge( myScenesToMerge, False, fbxLoadOptions ))
         ```
          ### Parameters:
-        
             - MultiLoadNamespaceList: The multi load namespace list to set."""
         ...
     def SetObjectsToSave(self,ObjectsToSave:list[FBComponent]):
@@ -14231,14 +13320,12 @@ class FBFbxOptions(FBComponent):
         
         This needs to be set before calling [FBApplication::FileSave](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_application.html#af8c039b1b182fa56ef15e22d4557157d "Save the file under another name."). The list is affecting only one save operation. Once the save is completed, the list is cleared.
         ### Parameters:
-        
             - ObjectsToSave: The objects to save."""
         ...
     def SetTakeDescription(self,TakeIndex:int,Description:str):
         """Take Description.
         
         ### Parameters:
-        
             - TakeIndex: index of take to set.
             - Description: take description to set"""
         ...
@@ -14246,7 +13333,6 @@ class FBFbxOptions(FBComponent):
         """Take Destination Name upon save or load.
         
         ### Parameters:
-        
             - TakeIndex: index of take to set.
             - DestinationName: take description to set"""
         ...
@@ -14254,10 +13340,8 @@ class FBFbxOptions(FBComponent):
         """Set take key range.
         
         ### Parameters:
-        
             - TakeIndex: index of take to set.
             - KeyTimeSpan: Timespan indicating the time range to keep the keys. Keys that are outside the time range for this take will be removed, by default the time range is [FBTime::MinusInfinity](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_time.html#a7840cbd8a5f56768e40783609ff0f946 "Time constant: Minus Infinity, the lowest negative time value.") -> [FBTime::Infinity](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_time.html#ad4cdfb3a31e984e36d78499115839636 "Time constant: Infinity, the largest time value.")
-        
         
         ### Remarks:
         Valid only on load/merge, not when saving a file."""
@@ -14266,7 +13350,6 @@ class FBFbxOptions(FBComponent):
         """Take Original Name.
         
         ### Parameters:
-        
             - TakeIndex: index of take to set.
             - Name: take name to set"""
         ...
@@ -14274,7 +13357,6 @@ class FBFbxOptions(FBComponent):
         """Return if true if the take will be saved or Loaded.
         
         ### Parameters:
-        
             - TakeIndex: index of take to set
             - Select: set true if should be saved or loaded."""
         ...
@@ -14284,7 +13366,6 @@ class FBFbxOptions(FBComponent):
     def __init__(self,Load:bool,FilePathToLoad:str):
         """Create a FBFbxOption to be used in [FBApplication](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_application.html "FBApplication is used mainly to manage files.") Save/Load with default settings.
         ### Parameters:
-        
             - Load: If true, will init option for a default Load (Append all elements and animation). If false will initialized options for a default Save (Save all elements and animation).
             - FilePathToLoad: If pLoad is true, the client code should pass the file path to load to collect the take info; ignore when pLoad is false."""
         ...
@@ -14302,7 +13383,6 @@ class FBFileMonitoringManager(FBComponent):
         """Add file to monitor.
         
         ### Parameters:
-        
             - FilePath: The file path to monitor.
             - FileMonitoringType: The monitor type of this file."""
         ...
@@ -14310,21 +13390,18 @@ class FBFileMonitoringManager(FBComponent):
         """Clean files and directories currently been monitored.
         
         ### Parameters:
-        
             - IncludePythonEditorScripts: True to also clean the monitoring of Python Editor script files loaded, false otherwise."""
         ...
     def PauseFileMonitoring(self,Pause:bool=True):
         """Pause file from monitoring, except for Python Editor script files loaded.
         
         ### Parameters:
-        
             - Pause: True to pause the file monitoring, false to resume."""
         ...
     def RemoveFileFromMonitor(self,FilePath:str):
         """Remove file from monitoring.
         
         ### Parameters:
-        
             - FilePath: The file path to be removed."""
         ...
     def __init__(self):...
@@ -14385,10 +13462,8 @@ class FBFilter(FBComponent):
         
         This is the other apply method and it can be used on an object's animation node.
         ### Parameters:
-        
             - Node: Node to apply filter to.
             - Recursive: Recursively apply filter on child nodes?
-        
         
         ### Returns:
         true if successful."""
@@ -14399,9 +13474,7 @@ class FBFilter(FBComponent):
         
         This is one of the two apply method that is meant to be called by client code. The FCurve can be a standalone independant FCurve, or can be associated to an object's animated property.
         ### Parameters:
-        
             - Curve: FCurve to apply filter to.
-        
         
         ### Returns:
         true if successful."""
@@ -14422,7 +13495,6 @@ class FBFolder(FBComponent):
     """List: List of components in the folder."""
     def __init__(self,Name:str,Component:FBComponent):
         """### Parameters:
-        
             - Name: Name to assign to new folder.
             - Component: Object used to determine folder's category."""
         ...
@@ -14473,7 +13545,6 @@ class FBGenericMenu(FBComponent):
         """Remove a menu item from the menu and delete it.
         
         ### Parameters:
-        
             - ToDelete: The item to remove."""
         ...
     def Execute(self,X:int,Y:int,RightAlign:bool=True)->FBGenericMenuItem:
@@ -14481,11 +13552,9 @@ class FBGenericMenu(FBComponent):
         
         It returns the item that was clicked by the user.
         ### Parameters:
-        
             - X: X location in pixel on screen where the menu is to be popped.
             - Y: Y location in pixel on screen where the menu is to be popped.
             - RightAlign: All menu item will be align to the right justified (if true) or left justified (if false)
-        
         
         ### Returns:
         The selected item by the user. Null if the user clicks outside the menu."""
@@ -14501,9 +13570,7 @@ class FBGenericMenu(FBComponent):
         """Returns the menu item corresponding to an id.
         
         ### Parameters:
-        
             - ItemId: Id of the item we are looking for.
-        
         
         ### Returns:
         Will return the Item corresponding to an id (null if not found)."""
@@ -14520,9 +13587,7 @@ class FBGenericMenu(FBComponent):
         
         Returns null if this is the last item in menu.
         ### Parameters:
-        
             - Item: Will return the item after pItem
-        
         
         ### Returns:
         Will return the item after pItem. Null if pItem is the last item."""
@@ -14532,9 +13597,7 @@ class FBGenericMenu(FBComponent):
         
         Returns null if this is the first item in menu.
         ### Parameters:
-        
             - Item: Will return the item BEFORE pItem
-        
         
         ### Returns:
         Will return the item BEFORE pItem. Null if pItem is the first item."""
@@ -14543,12 +13606,10 @@ class FBGenericMenu(FBComponent):
         """Inserts a new menu Item AFTER another item.
         
         ### Parameters:
-        
             - BeforeItem: The reference item. We will create a new item AFTER this one.
             - ItemName: Caption of the newly added item.
             - ItemId: Unique id of this menu item.
             - Menu: Optional. If this Item leads to another menu (embedded) it can be specified here.
-        
         
         ### Returns:
         Will return the menu item created from this insertion."""
@@ -14557,12 +13618,10 @@ class FBGenericMenu(FBComponent):
         """Inserts a new menu Item BEFORE another item.
         
         ### Parameters:
-        
             - AfterItem: The reference item. We will create a new item BEFORE this one.
             - ItemName: Caption of the newly added item.
             - ItemId: Unique id of this menu item.
             - Menu: Optional. If this Item leads to another menu (embedded) it can be specified here.
-        
         
         ### Returns:
         Will return the menu item created from this insertion."""
@@ -14571,11 +13630,9 @@ class FBGenericMenu(FBComponent):
         """Inserts a new menu Item at the first position in the menu list.
         
         ### Parameters:
-        
             - ItemName: Caption of the newly added item.
             - ItemId: Unique id of this menu item.
             - Menu: Optional. If this Item leads to another menu (embedded) it can be specified here.
-        
         
         ### Returns:
         Will return the menu item created from this insertion."""
@@ -14584,11 +13641,9 @@ class FBGenericMenu(FBComponent):
         """Inserts a new menu Item at the last position in the menu list.
         
         ### Parameters:
-        
             - ItemName: Caption of the newly added item.
             - ItemId: Unique id of this menu item.
             - Menu: Optional. If this Item leads to another menu (embedded) it can be specified here.
-        
         
         ### Returns:
         Will return the menu item created from this insertion."""
@@ -14653,9 +13708,7 @@ class FBGeometry(FBComponent):
         
         Modify array value will be only effective when geometry editing is enabled.
         ### Parameters:
-        
             - OutArrayCount: To return the length the array.
-        
         
         ### Returns:
         Pointer to direct array of binormals, or NULL if the array hasn't been allocated yet. 
@@ -14667,9 +13720,7 @@ class FBGeometry(FBComponent):
         
         Modify array value will be only effective when geometry editing is enabled.
         ### Parameters:
-        
             - OutArrayCount: To return the length the array.
-        
         
         ### Returns:
         Pointer to index array of binormals, or NULL if the array hasn't been allocated yet. 
@@ -14681,9 +13732,7 @@ class FBGeometry(FBComponent):
         
         Modify array value will be only effective when geometry editing is enabled.
         ### Parameters:
-        
             - OutArrayCount: To return the length the array.
-        
         
         ### Returns:
         Pointer to index array of Material, or NULL if the array hasn't been allocated yet. 
@@ -14695,9 +13744,7 @@ class FBGeometry(FBComponent):
         
         Modify array value will be only effective when geometry editing is enabled.
         ### Parameters:
-        
             - OutArrayCount: To return the length the array.
-        
         
         ### Returns:
         Pointer to direct array of normals, or NULL if the array hasn't been allocated yet. 
@@ -14709,9 +13756,7 @@ class FBGeometry(FBComponent):
         
         Modify array value will be only effective when geometry editing is enabled.
         ### Parameters:
-        
             - OutArrayCount: To return the length the array.
-        
         
         ### Returns:
         Pointer to index array of normals, or NULL if the array hasn't been allocated yet. 
@@ -14723,9 +13768,7 @@ class FBGeometry(FBComponent):
         
         Modify array value will be only effective when geometry editing is enabled.
         ### Parameters:
-        
             - OutArrayCount: To return the length the array.
-        
         
         ### Returns:
         Pointer to index array of normals, or NULL if the array hasn't been allocated yet. 
@@ -14737,9 +13780,7 @@ class FBGeometry(FBComponent):
         
         Modify array value will be only effective when geometry editing is enabled.
         ### Parameters:
-        
             - OutArrayCount: To return the length the array.
-        
         
         ### Returns:
         Pointer to direct array of tangents, or NULL if the array hasn't been allocated yet. 
@@ -14751,9 +13792,7 @@ class FBGeometry(FBComponent):
         
         Modify array value will be only effective when geometry editing is enabled.
         ### Parameters:
-        
             - OutArrayCount: To return the length the array.
-        
         
         ### Returns:
         Pointer to index array of tangents, or NULL if the array hasn't been allocated yet. 
@@ -14764,10 +13803,8 @@ class FBGeometry(FBComponent):
         """Get a pointer to the direct array of UVset Modify array value will be only effective when geometry editing is enabled.
         
         ### Parameters:
-        
             - OutArrayCount: To return the length the array.
             - UVSetName: The name of UVset, NULL for the first UVset.
-        
         
         ### Returns:
         pointer to the array of UV, or NULL is the array hasn't been allocated yet. 
@@ -14779,10 +13816,8 @@ class FBGeometry(FBComponent):
         
         Modify array value will be only effective when geometry editing is enabled.
         ### Parameters:
-        
             - OutArrayCount: To return the length the array.
             - UVSetName: The name of UVset, NULL for the first UVset.
-        
         
         ### Returns:
         Pointer to index array of UVSet, or NULL if the array hasn't been allocated yet. 
@@ -14793,9 +13828,7 @@ class FBGeometry(FBComponent):
         """Get UVSet mapping mode.
         
         ### Parameters:
-        
             - UVSetName: The name of UVset, NULL for the first UVset.
-        
         
         ### Returns:
         Mapping mode of the UVset."""
@@ -14804,9 +13837,7 @@ class FBGeometry(FBComponent):
         """Get UVSet reference mode.
         
         ### Parameters:
-        
             - UVSetName: The name of UVset, NULL for the first UVset.
-        
         
         ### Returns:
         Reference mode of the UVset."""
@@ -14822,9 +13853,7 @@ class FBGeometry(FBComponent):
         
         Modify array value will be only effective when geometry editing is enabled.
         ### Parameters:
-        
             - OutArrayCount: To return the length the array.
-        
         
         ### Returns:
         Pointer to direct array of vertex colors, or NULL if the array hasn't been allocated yet. 
@@ -14836,9 +13865,7 @@ class FBGeometry(FBComponent):
         
         Modify array value will be only effective when geometry editing is enabled.
         ### Parameters:
-        
             - OutArrayCount: To return the length the array.
-        
         
         ### Returns:
         Pointer to index array of vertex color, or NULL if the array hasn't been allocated yet. 
@@ -14861,9 +13888,7 @@ class FBGeometry(FBComponent):
         """Add new shape.
         
         ### Parameters:
-        
             - Name: the shape name
-        
         
         ### Returns:
         the index of the new shape, -1 if the shape adding fail."""
@@ -14882,7 +13907,6 @@ class FBGeometry(FBComponent):
         """Init the shape.
         
         ### Parameters:
-        
             - ShapeIdx: The index of the shape to be initialized
             - DiffSize: Total number of different point (pos or normal) compared to base geometry.
             - WithNormal: Currently normal won't be considered during shape blending."""
@@ -14891,7 +13915,6 @@ class FBGeometry(FBComponent):
         """Set the differentiate point.
         
         ### Parameters:
-        
             - ShapeIdx: The index of the shape
             - DiffIndex: The index of the diff point in this shape.
             - OriIndex: The index of the diff point in the original geometry.
@@ -14903,9 +13926,7 @@ class FBGeometry(FBComponent):
         """Add a vertex.
         
         ### Parameters:
-        
             - Vertex: Vertex values used to add vertex.
-        
         
         ### Returns:
         Index where vertex was added. 
@@ -14917,11 +13938,9 @@ class FBGeometry(FBComponent):
         """Add a vertex.
         
         ### Parameters:
-        
             - Vertex: Vertex values used to add vertex.
             - Normal: Normal values used to add vertex.
             - UV: UV values used to add vertex.
-        
         
         ### Returns:
         Index where vertex was added."""
@@ -14938,7 +13957,6 @@ class FBGeometry(FBComponent):
         
         Init position, normal and UV arrays (tangent, bi-normal and color on demand) with kFBGeometryMapping\_BY\_CONTROL\_POINT / kFBGeometryReference\_DIRECT mode. Will call [VertexArrayClear()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_geometry.html#ab43f405ea6d82de3484e00b77cb209d1 "Clear all geometry vertex arrays.") internally. User should then call GetXXXDirectyArray() to edit the vertex attributes directly.
         ### Parameters:
-        
             - Vertexcount: number of control points (vertex)
             - UniqueMaterial: User could specify per polygon mapping mode for mesh
             - FBGeometryArrayIDs: Request to init other attribute arrays, bitwise combined value of [FBGeometryArrayID](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_geometry_array_i_d.html "ID to use when requesting a specific array of data for a model.") enum items, currently support Tangent, Binormal and VertexColor. Only useful for mesh."""
@@ -14954,9 +13972,7 @@ class FBGeometry(FBComponent):
         """Get a Vertex Color.
         
         ### Parameters:
-        
             - Index: Index of Vertex to get Color for(default=-1).
-        
         
         ### Returns:
         Color of vertex at UVSetIndex."""
@@ -14968,13 +13984,11 @@ class FBGeometry(FBComponent):
         """Set a UV coordinate.
         
         ### Parameters:
-        
             - Red: Red Color Channel to set, range [0, 1].
             - Green: Green Color Channel to set, range [0, 1].
             - Blue: Blue Color Channel to set, range [0, 1].
             - Alpha: Alpha Color Channel to set, range [0, 1].
             - Index: Index of Vertex to affect with Red, Green, Blue and Alpha (default=-1).
-        
         
         ### Returns:
         true if successful."""
@@ -14989,9 +14003,7 @@ class FBGeometry(FBComponent):
         """Get a vertex.
         
         ### Parameters:
-        
             - Index: Index of vertex to get.
-        
         
         ### Returns:
         Vertex stored at pIndex."""
@@ -15000,9 +14012,7 @@ class FBGeometry(FBComponent):
         """Get the selected state of a vertex.
         
         ### Parameters:
-        
             - Index: The index of the vertex
-        
         
         ### Returns:
         true if the vertex is selected, false if not"""
@@ -15011,9 +14021,7 @@ class FBGeometry(FBComponent):
         """Get the Transformable state of a vertex.
         
         ### Parameters:
-        
             - Index: The index of the vertex
-        
         
         ### Returns:
         true if the vertex is Transformable, false if not"""
@@ -15022,9 +14030,7 @@ class FBGeometry(FBComponent):
         """Get the visible state of a vertex.
         
         ### Parameters:
-        
             - Index: The index of the vertex
-        
         
         ### Returns:
         true if the vertex is visible, false if not"""
@@ -15033,7 +14039,6 @@ class FBGeometry(FBComponent):
         """Resize or Reserve vertex, normal and UV array for performance.
         
         ### Parameters:
-        
             - Size: Number of vertices to resize or reserve.
             - Resize: **True**, for the geometry with known vertex count, we should resize the arrays to fixed size, and call [VertexSet()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_geometry.html#a2e5951370a3f25f2ce5683cb2fc6159a "Set a vertex.") afterwards; **False**, While for dynamic size geometry, we should only reserve the arrays with the estimated optimal size, then call [VertexAdd()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_geometry.html#a41b4845445d2656130fac19d9fb64c51 "Add a vertex.") to dynamically increase the vertex count.
             - InitUV: init Vertex UV array if true
@@ -15043,9 +14048,7 @@ class FBGeometry(FBComponent):
         """Get a normal at a vertex.
         
         ### Parameters:
-        
             - Index: Vertex to get normal at(default=-1).
-        
         
         ### Returns:
         Normal of vertex at pIndex."""
@@ -15055,10 +14058,8 @@ class FBGeometry(FBComponent):
         """Set a normal at a vertex.
         
         ### Parameters:
-        
             - Vertex: Normal to set.
             - Index: Index of vertex to set Normal at(default=-1).
-        
         
         ### Returns:
         true if successful."""
@@ -15068,12 +14069,10 @@ class FBGeometry(FBComponent):
         """Set a normal at a vertex.
         
         ### Parameters:
-        
             - x: X coordinate of normal.
             - y: Y coordinate of normal.
             - z: Z coordinate of normal.
             - Index: Index of vertex to set Normal at(default=-1).
-        
         
         ### Returns:
         true if successful."""
@@ -15083,10 +14082,8 @@ class FBGeometry(FBComponent):
         """Set a vertex.
         
         ### Parameters:
-        
             - Vertex: Vertex values used to set vertex.
             - Index: Index of vertex to affect (default=-1).
-        
         
         ### Returns:
         true if successful."""
@@ -15096,12 +14093,10 @@ class FBGeometry(FBComponent):
         """Set a vertex.
         
         ### Parameters:
-        
             - x: X coordinate to set.
             - y: Y coordinate to set.
             - z: Z coordinate to set.
             - Index: Index of vertex to set(default=-1).
-        
         
         ### Returns:
         true if successful."""
@@ -15110,10 +14105,8 @@ class FBGeometry(FBComponent):
         """Set the selected state of a vertex.
         
         ### Parameters:
-        
             - Index: The index of the vertex
             - State: The true to selected, false to deselect
-        
         
         ### Returns:
         true if the vertex is selected, false if not"""
@@ -15122,10 +14115,8 @@ class FBGeometry(FBComponent):
         """Set the visible state of a vertex.
         
         ### Parameters:
-        
             - Index: The index of the vertex
             - State: true to be visible
-        
         
         ### Returns:
         true if the vertex is visible, false if not"""
@@ -15134,9 +14125,7 @@ class FBGeometry(FBComponent):
         """Get a UV coordinate.
         
         ### Parameters:
-        
             - Index: Index of Vertex to get UV coordinate for(default=-1).
-        
         
         ### Returns:
         UV coordinate of vertex at UVSetIndex."""
@@ -15146,10 +14135,8 @@ class FBGeometry(FBComponent):
         """Set a UV coordinate.
         
         ### Parameters:
-        
             - UV: UV coordinate to set.
             - Index: Index of Vertex to affect with UV coordinate(default=-1).
-        
         
         ### Returns:
         true if successful."""
@@ -15159,11 +14146,9 @@ class FBGeometry(FBComponent):
         """Set a UV coordinate.
         
         ### Parameters:
-        
             - U: U coordinate to set.
             - V: V coordinate to set.
             - Index: Index of Vertex to affect with UV coordinate(default=-1).
-        
         
         ### Returns:
         true if successful."""
@@ -15182,7 +14167,6 @@ class FBMesh(FBGeometry):
         """Compute Mesh Vertex Normal.
         
         ### Parameters:
-        
             - CW: **True** for clock wise normal, otherwise for counter-clock wise"""
         ...
     def InverseNormal(self):
@@ -15198,9 +14182,7 @@ class FBMesh(FBGeometry):
         """Begin Polygon definition.
         
         ### Parameters:
-        
             - MaterialId: Index of material for this polygon. Only effective when MaterialMappingMode is kFBGeometryMapping\_BY\_POLYGON mode.
-        
         
         ### Returns:
         Number of existing polygons in Mesh"""
@@ -15224,12 +14206,10 @@ class FBMesh(FBGeometry):
         """Add Polygon List Must be called in-between [FBGeometry::GeometryBegin()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_geometry.html#a137880b95679600966415dc2f6cf3916 "Begin geometry editing.") / [GeometryEnd()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_geometry.html#a1128c32125a8b7347c4990462a8d86cf "End geometry editing.") It's user's responsibility to make sure to input valid index values, otherwise afterwards behavior will be undefined.
         
         ### Parameters:
-        
             - PolygonSize: Size of polygon, 3 mean triangle, 4 for quadrilateral, and so on. minimum input value is 3.
             - IndexArraySize: Size of pIndexArray, Added polygon count is floor(max(pIndexArraySize, 0) / pPolygonSize)
             - IndexArray: Index array of triangle strip.
             - MaterialId: Index of material for this polygon. Only effective when MaterialMappingMode is kFBGeometryMapping\_BY\_POLYGON mode.
-        
         
         ### Note:
         The indexes' value in input pIndexArray won't be validated, and the behavior is undefined if out of range."""
@@ -15238,9 +14218,7 @@ class FBMesh(FBGeometry):
         """Get a Material ID for the given Polygon index.
         
         ### Parameters:
-        
             - Index: Polygon's index to get material ID at (default=-1).
-        
         
         ### Returns:
         ID of material of vertex at pIndex."""
@@ -15249,9 +14227,7 @@ class FBMesh(FBGeometry):
         """Add a vertex.
         
         ### Parameters:
-        
             - Vertex: Index in mesh of vertex to add to polygon, must be in range of [0, ControlPointCount)
-        
         
         ### Returns:
         true if successful."""
@@ -15261,9 +14237,7 @@ class FBMesh(FBGeometry):
         
         index to control points). This array is a concatenation of the list of polygon vertices of all the polygons. Example: a mesh made of 2 triangles [1,2,3] and [2,3,4] results in [1,2,3,2,3,4]. The first polygon starts at position 0 and the second at position 3.
         ### Parameters:
-        
             - ArraySize: Polygon vertex array size.
-        
         
         ### Returns:
         Readonly polygon vertex array."""
@@ -15272,9 +14246,7 @@ class FBMesh(FBGeometry):
         """Get Polygon vertex count.
         
         ### Parameters:
-        
             - PolygonIndex: Index of polygon to get vertex count from.
-        
         
         ### Returns:
         Number of vertices in polygon at pPolygonIndex."""
@@ -15283,10 +14255,8 @@ class FBMesh(FBGeometry):
         """Get global (for the mesh) index of a vertex from a polygon.
         
         ### Parameters:
-        
             - PolygonIndex: Index of polygon in question.
             - VertexPolygonIndex: Polygon vertex index.
-        
         
         ### Returns:
         Index in mesh of vertex."""
@@ -15295,11 +14265,9 @@ class FBMesh(FBGeometry):
         """Add Triangle List, Must be called in-between [FBGeometry::GeometryBegin()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_geometry.html#a137880b95679600966415dc2f6cf3916 "Begin geometry editing.") / [GeometryEnd()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_geometry.html#a1128c32125a8b7347c4990462a8d86cf "End geometry editing.") It's user's responsibility to make sure to input valid index values, otherwise afterwards behavior will be undefined.
         
         ### Parameters:
-        
             - IndexArraySize: Size of pIndexArray, Added triangle count is floor(max(pIndexArraySize, 0) / 3)
             - IndexArray: Index array of triangle list.
             - MaterialId: Index of material for this polygon. Only effective when MaterialMappingMode is kFBGeometryMapping\_BY\_POLYGON mode.
-        
         
         ### Note:
         The indexes' value in input pIndexArray won't be validated, and the behavior is undefined if out of range."""
@@ -15308,18 +14276,15 @@ class FBMesh(FBGeometry):
         """Add Triangle Strip Must be called in-between [FBGeometry::GeometryBegin()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_geometry.html#a137880b95679600966415dc2f6cf3916 "Begin geometry editing.") / [GeometryEnd()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_geometry.html#a1128c32125a8b7347c4990462a8d86cf "End geometry editing.") It's user's responsibility to make sure to input valid index values, otherwise afterwards behavior will be undefined.
         
         ### Parameters:
-        
             - IndexArraySize: Size of pIndexArray, Added triangle count is max(pIndexArraySize - 2, 0)
             - IndexArray: Index array of triangle strip.
             - MaterialId: Index of material for this polygon. Only effective when MaterialMappingMode is kFBGeometryMapping\_BY\_POLYGON mode.
-        
         
         ### Note:
         The indexes' value in input pIndexArray won't be validated, and the behavior is undefined if out of range."""
         ...
     def __init__(self,Name:str):
         """### Parameters:
-        
             - Name: Name of Mesh."""
         ...
 class FBImage(FBComponent):
@@ -15349,9 +14314,7 @@ class FBImage(FBComponent):
         """Convert the image data format to another format.
         
         ### Parameters:
-        
             - NewFormat: The new format to convert the image to.
-        
         
         ### Returns:
         Return true if the convert was successful."""
@@ -15360,10 +14323,8 @@ class FBImage(FBComponent):
         """Convert the image size.
         
         ### Parameters:
-        
             - Width: New width of the image.
             - Height: New height of the image.
-        
         
         ### Returns:
         Return true if the convert was successful."""
@@ -15373,7 +14334,6 @@ class FBImage(FBComponent):
         """Init.
         
         ### Parameters:
-        
             - Format: Image format used to initialize data buffer.
             - Width: Image width in pixels.
             - Height: Image height in pixels."""
@@ -15387,12 +14347,10 @@ class FBImage(FBComponent):
         
         The image format used is determined by the file extension of the given filename.
         ### Parameters:
-        
             - FileName: Full file path name of the image file to write.
             - Comments: Comments appended to the file for image formats that support it.
             - Quality: Quality of the image for image formats that support it. Depends on the image format. For "jpeg": 0-100 where 0=(low visual quality, high compression), 100=(high visual quality, low compression).
             - CompressionType: Compression type of image for image formats that support it. Depends on the image format. For "tif": 0 = ( no compression ), 1 = ( LZW-compression ).
-        
         
         ### Returns:
         Return true if the image was successfully written on disk."""
@@ -15400,7 +14358,6 @@ class FBImage(FBComponent):
     def WriteToTif(self,arg2:str,arg3:str,arg4)->bool:...
     def __init__(self,FileName:str):
         """### Parameters:
-        
             - FileName: Path to the image file. If pObject is not NULL, pFileName will be ignored."""
         ...
 class FBKeyControl(FBComponent):
@@ -15418,7 +14375,6 @@ class FBKeyControl(FBComponent):
         
         Equivalent to using the "Move Keys" button in the Key Controls panel. Only keys that are part of the current animation layer will get affected.
         ### Parameters:
-        
             - TimeSpan: The time span in which the animation keys will be modified
             - Pivot: The pivot object to use as a reference. The pivot needs to be part of pModelList (or the current keying group) otherwise the move keys operation will abort
             - T: The global translation to apply to the pivot
@@ -15436,14 +14392,12 @@ class FBKeyingGroup(FBComponent):
         """AddObjectDependency An object dependency is the content of a keying group and will activate keying group when selected (activation only works if the keying group is a character extension).
         
         ### Parameters:
-        
             - Obj: a Dependency of the keying group."""
         ...
     def AddProperty(self,Prop:FBProperty):
         """Add property to be keyed when current keying group is active.
         
         ### Parameters:
-        
             - Prop: Property to be added."""
         ...
     def ClearAllItems(self):
@@ -15457,9 +14411,7 @@ class FBKeyingGroup(FBComponent):
         """FindPropertyIndex.
         
         ### Parameters:
-        
             - Prop: must be in the list (return -1 if not).
-        
         
         ### Returns:
         the index of pProp in the keyinggroup property list."""
@@ -15468,10 +14420,8 @@ class FBKeyingGroup(FBComponent):
         """GetCumulativeProperty Same as GetSubKeyingGroup but recursive in child keying group.
         
         ### Parameters:
-        
             - Index: index in the content Object Dependency list
             - StopAtVisible: consider all keying group and stop to the first visible keying group.
-        
         
         ### Returns:
         he number of ObjectDependency of the keying group."""
@@ -15480,9 +14430,7 @@ class FBKeyingGroup(FBComponent):
         """GetCumulativePropertyCount Same as GetSubKeyingGroupCount but recursive in child keying group.
         
         ### Parameters:
-        
             - StopAtVisible: consider all keying group and stop to the first visible keying group.
-        
         
         ### Returns:
         he number of ObjectDependency of the keying group."""
@@ -15491,9 +14439,7 @@ class FBKeyingGroup(FBComponent):
         """GetParentKeyingGroup.
         
         ### Parameters:
-        
             - Index: is the index of the parent list of the current keying group.
-        
         
         ### Returns:
         the parent keying group."""
@@ -15508,9 +14454,7 @@ class FBKeyingGroup(FBComponent):
         """GetProperty from the keyinggroup list.
         
         ### Parameters:
-        
             - Index: index of the desired property.
-        
         
         ### Returns:
         property coresponding to pIndex."""
@@ -15525,9 +14469,7 @@ class FBKeyingGroup(FBComponent):
         """GetSubKeyingGroup.
         
         ### Parameters:
-        
             - Index: index of the desired keying group child.
-        
         
         ### Returns:
         the the child at the index."""
@@ -15542,9 +14484,7 @@ class FBKeyingGroup(FBComponent):
         """GetSubObject.
         
         ### Parameters:
-        
             - Index: index in the content Object Dependency list
-        
         
         ### Returns:
         the desired object at pIndex."""
@@ -15559,9 +14499,7 @@ class FBKeyingGroup(FBComponent):
         """IsObjectDependency determine if the pObj is a dependency.
         
         ### Parameters:
-        
             - Obj: an object to test the Dependency.
-        
         
         ### Returns:
         true if it depend."""
@@ -15585,14 +14523,12 @@ class FBKeyingGroup(FBComponent):
         """RemoveObjectDependency An object dependency is the content of a keying group and will activate keying group when selected (activation only works if the keying group is a character extension).
         
         ### Parameters:
-        
             - Obj: a Dependency of the keying group."""
         ...
     def RemoveProperty(self,Prop:FBProperty):
         """RemoveProperty from the keyinggroup list.
         
         ### Parameters:
-        
             - Prop: Property to be removed."""
         ...
     def SetActive(self,Active:bool):
@@ -15608,12 +14544,10 @@ class FBKeyingGroup(FBComponent):
         """Set the object type filter for and object type keying group.
         
         ### Parameters:
-        
             - Object: Object that will be used to set the keying group object type. Use NULL to remove the filter."""
         ...
     def __init__(self,Name:str,Type:FBKeyingGroupType):
         """### Parameters:
-        
             - Name: Group name.
             - Type: Keying group type."""
         ...
@@ -15654,7 +14588,6 @@ class FBCharacterExtension(FBKeyingGroup):
         """Add TR Properties from Object.
         
         ### Parameters:
-        
             - Obj: Object to add TR properties."""
         ...
     def GetCharacter(self)->FBCharacter:
@@ -15667,9 +14600,7 @@ class FBCharacterExtension(FBKeyingGroup):
         """Find stored object based on label name.
         
         ### Parameters:
-        
             - LabelName: The label name.
-        
         
         ### Returns:
         The extension object."""
@@ -15678,7 +14609,6 @@ class FBCharacterExtension(FBKeyingGroup):
         """Find the label name that was used to store object pose.
         
         ### Parameters:
-        
             - LabelName: The label name that was used to store object pose.
             - Obj: The extension object.
             - ReturnObjectNameIfNotFound: If the value is true, if the object is not found, pLabelName will be set to the object name; otherwise pLabelName will be set to empty string. By default the value is false."""
@@ -15699,9 +14629,7 @@ class FBCharacterExtension(FBKeyingGroup):
         """Return the reference property of the given index.
         
         ### Parameters:
-        
             - PropIndex: Index to query.
-        
         
         ### Returns:
         Reference property of the given index."""
@@ -15710,9 +14638,7 @@ class FBCharacterExtension(FBKeyingGroup):
         """Return the source property of the given index (the source property is the property that drives the reference property during retargeting).
         
         ### Parameters:
-        
             - PropIndex: Index to query.
-        
         
         ### Returns:
         Source property (the property that drives the reference property during retargeting) of the given index."""
@@ -15748,9 +14674,7 @@ class FBCharacterExtension(FBKeyingGroup):
         """Return true if the property is in character extension.
         
         ### Parameters:
-        
             - Prop: Property to check.
-        
         
         ### Returns:
         true if the property is in character extension."""
@@ -15759,7 +14683,6 @@ class FBCharacterExtension(FBKeyingGroup):
         """Remove TR Properties from Object.
         
         ### Parameters:
-        
             - Obj: Object to remove TR properties."""
         ...
     def RemoveRetargetSourceProperty(self,PropIndex:int):
@@ -15767,9 +14690,7 @@ class FBCharacterExtension(FBKeyingGroup):
         
         Only applicable if RetargetMode is Manually Assign.
         ### Parameters:
-        
             - PropIndex: Index to remove.
-        
         
         ### Remarks:
         Only applicable if RetargetMode is Manually Assign."""
@@ -15779,10 +14700,8 @@ class FBCharacterExtension(FBKeyingGroup):
         
         Only applicable if RetargetMode is Manually Assign.
         ### Parameters:
-        
             - PropIndex: Index to set.
             - SourceProp: Source property to set.
-        
         
         ### Remarks:
         Only applicable if RetargetMode is Manually Assign."""
@@ -15792,9 +14711,7 @@ class FBCharacterExtension(FBKeyingGroup):
         
         Only applicable if RetargetMode is Assign.
         ### Parameters:
-        
             - SourceExtension: The source extension to drive this extension during retargeting.
-        
         
         ### Remarks:
         Only applicable if RetargetMode is Assign."""
@@ -15804,9 +14721,7 @@ class FBCharacterExtension(FBKeyingGroup):
         
         Only applicable if RetargetMode is Manually Assign.
         ### Parameters:
-        
             - SrcExtIndex: Enum that indicate which extension is used as a source during retargeting, 0 is none, 1-n represent the (ith - 1)character extension in the source character.
-        
         
         ### Remarks:
         Only applicable if RetargetMode is Manually Assign."""
@@ -15816,7 +14731,6 @@ class FBCharacterExtension(FBKeyingGroup):
         ...
     def __init__(self,Name:str):
         """### Parameters:
-        
             - Name: Group name."""
         ...
 class FBManipulator(FBComponent):
@@ -15841,11 +14755,9 @@ class FBMarkerSet(FBComponent):
         """Add a marker to the marker set.
         
         ### Parameters:
-        
             - NodeId: Id of Actor skeleton node. For hand, use the "C" index (ex:kFBSkeletonLeftThumbCIndex, kFBSkeletonLeftMiddleCIndex...)
             - Model: The model to be associated with the marker (Optional).
             - IsOriented: Set marker to be oriented or not (Optional).
-        
         
         ### Returns:
         Index of the new marker."""
@@ -15872,9 +14784,7 @@ class FBMarkerSet(FBComponent):
         """Get the number of marker in the set.
         
         ### Parameters:
-        
             - NodeId: If specified, obtain the number of marker for the specific node.
-        
         
         ### Returns:
         Total number of marker."""
@@ -15883,10 +14793,8 @@ class FBMarkerSet(FBComponent):
         """Get the model associated with a marker.
         
         ### Parameters:
-        
             - NodeId: Id of Actor skeleton node.
             - MarkerIndex: Index of marker.
-        
         
         ### Returns:
         The model associated with the marker."""
@@ -15895,10 +14803,8 @@ class FBMarkerSet(FBComponent):
         """Get the name of marker at index pMarkerIndex.
         
         ### Parameters:
-        
             - NodeId: Id of Actor skeleton node.
             - MarkerIndex: Index of marker to access.
-        
         
         ### Returns:
         Name of marker at index pMarkerIndex."""
@@ -15907,10 +14813,8 @@ class FBMarkerSet(FBComponent):
         """Is marker orientated ?
         
         ### Parameters:
-        
             - NodeId: Id of Actor body node.
             - MarkerIndex: Index of marker to access.
-        
         
         ### Returns:
         True if marker is oriented, false otherwise."""
@@ -15919,7 +14823,6 @@ class FBMarkerSet(FBComponent):
         """Get/Set a marker rotation.
         
         ### Parameters:
-        
             - NodeId: Id of Actor skeleton node.
             - MarkerIndex: Index of marker to access.
             - ROffset: Current or new value of the marker rotation."""
@@ -15934,7 +14837,6 @@ class FBMarkerSet(FBComponent):
         """Get/Set a marker translation.
         
         ### Parameters:
-        
             - NodeId: Id of Actor skeleton node.
             - MarkerIndex: Index of marker to access.
             - TOffset: Current or new value of the marker translation."""
@@ -15943,10 +14845,8 @@ class FBMarkerSet(FBComponent):
         """Is marker used ?
         
         ### Parameters:
-        
             - NodeId: Id of Actor skeleton node.
             - MarkerIndex: Index of marker to access.
-        
         
         ### Returns:
         True if marker is used, false otherwise."""
@@ -15961,9 +14861,7 @@ class FBMarkerSet(FBComponent):
         """Get the number of used marker in the set.
         
         ### Parameters:
-        
             - NodeId: If specified, obtain the number of used marker for the specific node.
-        
         
         ### Returns:
         Total number of used marker."""
@@ -15972,7 +14870,6 @@ class FBMarkerSet(FBComponent):
         """Associate a model to a marker.
         
         ### Parameters:
-        
             - NodeId: Id of Actor skeleton node.
             - MarkerIndex: Index of marker.
             - Model: Model to be associated to the marker."""
@@ -15981,7 +14878,6 @@ class FBMarkerSet(FBComponent):
         """Set the name of marker at index pMarkerIndex.
         
         ### Parameters:
-        
             - NodeId: Id of Actor skeleton node.
             - MarkerIndex: Index of marker to access.
             - MarkerName: New name to give to the marker."""
@@ -15990,7 +14886,6 @@ class FBMarkerSet(FBComponent):
         """Set marker to be oriented or not.
         
         ### Parameters:
-        
             - NodeId: Id of Actor skeleton node.
             - MarkerIndex: Index of marker to access.
             - IsOriented: Oriented or not."""
@@ -16000,7 +14895,6 @@ class FBMarkerSet(FBComponent):
         """Set the marker set visibility.
         
         ### Parameters:
-        
             - Visibility: True will make to markers visible, false will hide them."""
         ...
     def SetMarkerTOffset(self,NodeId:FBSkeletonNodeId,MarkerIndex:int,TOffset:FBVector3d):...
@@ -16008,7 +14902,6 @@ class FBMarkerSet(FBComponent):
         """Set marker to be used or not.
         
         ### Parameters:
-        
             - NodeId: Id of Actor skeleton node.
             - MarkerIndex: Index of marker to access.
             - Used: Used or not."""
@@ -16017,9 +14910,7 @@ class FBMarkerSet(FBComponent):
         """Associate multiple models to markers, matching them by name.
         
         ### Parameters:
-        
             - ModelList: A list of models to be matched with marker names.
-        
         
         ### Returns:
         True if at least one marker was matched."""
@@ -16028,12 +14919,10 @@ class FBMarkerSet(FBComponent):
         """Associate a model to a marker.
         
         ### Parameters:
-        
             - ReferenceModel: Model to be associated to the marker."""
         ...
     def __init__(self,Name:str):
         """### Parameters:
-        
             - Name: Name of new marker set."""
         ...
 class FBMenuManager(FBComponent):
@@ -16056,10 +14945,8 @@ class FBMenuManager(FBComponent):
         
         The menu path specifies the menu containing the menu item to execute. The ID specifies which menu item to execute in the menu.
         ### Parameters:
-        
             - MenuPath: Path containing the menu item to execute.
             - MenuItemID: Unique ID of the menu item to execute.
-        
         
         ### Returns:
         True if the menu item has been executed, false otherwise. It could returns false if the menu item cannot be found or if the menu item is found but is disabled or is a separator."""
@@ -16076,9 +14963,7 @@ class FBMenuManager(FBComponent):
         menuManager.ExecuteMenuItemFromFullPath( aboutBoxFullPath )
         ```
          ### Parameters:
-        
             - MenuItemFullPath: Path of the menu item to execute.
-        
         
         ### Returns:
         True if the menu item has been executed, false otherwise. It could returns false if the menu item cannot be found or if the menu item is found but is disabled or is a separator."""
@@ -16088,9 +14973,7 @@ class FBMenuManager(FBComponent):
         
         Don't forget that most menu path already in MotionBuilder have a "&" character as the first letter of their name. You have to use the "/" character as a separator in the specified menu path (ex: "Help/&Communities").
         ### Parameters:
-        
             - Path: Path of the menu to retrieve
-        
         
         ### Returns:
         the [FBGenericMenu](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_generic_menu.html "A GenericMenu class.") at this path./"""
@@ -16099,10 +14982,8 @@ class FBMenuManager(FBComponent):
         """Insert a new menu at a specific path AFTER another item.
         
         ### Parameters:
-        
             - MenuPath: Path where to insert the menu. If this is NULL (None) it will insert a new root menu.
             - BeforeMenuName: Name of the menu item AFTER which we will insert the new item.
-        
         
         ### Returns:
         Returns the menu item corresponding to the newly inserted menu."""
@@ -16111,10 +14992,8 @@ class FBMenuManager(FBComponent):
         """Insert a new menu at a specific path BEFORE another item.
         
         ### Parameters:
-        
             - MenuPath: Path where to insert the menu. If this is NULL (None) it will insert a new root menu.
             - AfterMenuName: Name of the menu item BEFORE which we will insert the new item.
-        
         
         ### Returns:
         Returns the menu item corresponding to the newly inserted menu."""
@@ -16123,10 +15002,8 @@ class FBMenuManager(FBComponent):
         """Insert a new menu at the first position of a specific path.
         
         ### Parameters:
-        
             - MenuPath: Path where to insert the menu. If this is NULL (None) it will insert a new root menu.
             - MenuName: Name (Caption) of the newly inserted menu.
-        
         
         ### Returns:
         Returns the menu item corresponding to the newly inserted menu."""
@@ -16135,10 +15012,8 @@ class FBMenuManager(FBComponent):
         """Insert a new menu at the last position of a specific path.
         
         ### Parameters:
-        
             - MenuPath: Path where to insert the menu. If this is NULL (None) it will insert a new root menu.
             - MenuName: Name (Caption) of the newly inserted menu.
-        
         
         ### Returns:
         Returns the menu item corresponding to the newly inserted menu."""
@@ -16148,10 +15023,8 @@ class FBMenuManager(FBComponent):
         
         The menu path specifies the menu where we find the item to be enabled/disabled. The Id specifies which item in the menu.
         ### Parameters:
-        
             - MenuPath: Path where to find the menu to check
             - ItemId: Id of the item to check.
-        
         
         ### Returns:
         Is the item enable or not."""
@@ -16161,7 +15034,6 @@ class FBMenuManager(FBComponent):
         
         The menu path specifies the menu where we find the item to be enabled/disabled. The Id specifies which item in the menu.
         ### Parameters:
-        
             - MenuPath: Path where to find the menu to enable/disable
             - ItemId: Id of the item in the menu to disable.
             - Enable: Enable (true) or disable (false) a menu item."""
@@ -16210,7 +15082,6 @@ class FBModelOpticalAdvanced(FBComponent):
         ...
     def __init__(self,Optical:FBModelOptical):
         """### Parameters:
-        
             - Optical: Optical model."""
         ...
 class FBModelTemplate(FBComponent):
@@ -16243,7 +15114,6 @@ class FBModelVertexData(FBComponent):
         
         Must be called between Enable/DisableOGLVertexData function calls.
         ### Parameters:
-        
             - SubPatchIndex: Index of the sub patch to be drawn.
             - WireFrame: Draw wire frame if true."""
         ...
@@ -16252,7 +15122,6 @@ class FBModelVertexData(FBComponent):
         
         Must be called between Enable/DisableOGLVertexData function calls.
         ### Parameters:
-        
             - SubRegionIndex: Index of the sub region to be drawn.
             - WireFrame: Draw wire frame if true."""
         ...
@@ -16260,7 +15129,6 @@ class FBModelVertexData(FBComponent):
         """Enable (Setup) OpenGL UV set array.
         
         ### Parameters:
-        
             - TextureMapping: Texture Mapping Mode.
             - UVSet: UV Set name if pTextureMapping is kFBTextureMappingUV, otherwise ignored."""
         ...
@@ -16268,7 +15136,6 @@ class FBModelVertexData(FBComponent):
         """Enable (Setup) OpenGL Vertex Array (Pos & Normal).
         
         ### Parameters:
-        
             - AfterDeform: Unused parameter."""
         ...
     def GetIndexArray(self)->list:
@@ -16296,9 +15163,7 @@ class FBModelVertexData(FBComponent):
         """Return the start offset of the indexes for the specified sub patch (see [GetIndexArray()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_model_vertex_data.html#ac0ede519b86e20e84f439aa4a8f150c9 "Return the index array.")).
         
         ### Parameters:
-        
             - SubPatchIndex: Index of the sub patch to be queried.
-        
         
         ### Returns:
         The start offset of the indexes for the specified sub patch, -1 if the specific sub path index is invalid."""
@@ -16307,9 +15172,7 @@ class FBModelVertexData(FBComponent):
         """Return the size of the indexes for the specified sub patch (see [GetIndexArray()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_model_vertex_data.html#ac0ede519b86e20e84f439aa4a8f150c9 "Return the index array.")).
         
         ### Parameters:
-        
             - SubPatchIndex: Index of the sub patch to be queried.
-        
         
         ### Returns:
         The size of the indexes for the specified sub patch, -1 if the specific sub path index is invalid."""
@@ -16318,9 +15181,7 @@ class FBModelVertexData(FBComponent):
         """Return the mapped material for the specified sub patch.
         
         ### Parameters:
-        
             - SubPatchIndex: Index of the sub patch to be queried.
-        
         
         ### Returns:
         The mapped material for the specified sub patch, the default material if the specific sub path index is invalid."""
@@ -16329,9 +15190,7 @@ class FBModelVertexData(FBComponent):
         """Return the mapped material ID for the specified sub patch.
         
         ### Parameters:
-        
             - SubPatchIndex: Index of the sub patch to be queried.
-        
         
         ### Returns:
         The mapped material ID for the specified sub patch, -1 if the specific sub path index is invalid."""
@@ -16341,10 +15200,8 @@ class FBModelVertexData(FBComponent):
         
         Most of the time, kFBGeometry\_TRIANGLES will be returned.
         ### Parameters:
-        
             - SubPatchIndex: Index of the sub patch to be queried.
             - IsOptimized: (C++ only) Out parameter, return true if the specified sub patch is optimized for fast rendering, custom shader & render should use the optimized sub patch only.
-        
         
         ### Returns:
         (C++ only) The primitive type of the queried sub patch. (Python only) A tuple with 2 values: ([FBGeometryPrimitiveType](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_geometry_primitive_type.html) return value, pIsOptimized)."""
@@ -16359,9 +15216,7 @@ class FBModelVertexData(FBComponent):
         """Return the specified sub region's material.
         
         ### Parameters:
-        
             - SubRegionIndex: Index of the sub region to be queried.
-        
         
         ### Returns:
         The sub region's material, the default material if the specific sub region index is invalid."""
@@ -16370,10 +15225,8 @@ class FBModelVertexData(FBComponent):
         """Return the UV Set array for the specified texture mapping mode.
         
         ### Parameters:
-        
             - TextureMapping: Texture mapping mode to be queried.
             - UVSet: UV Set name to be queried if pTextureMapping is kFBTextureMappingUV, otherwise ignored.
-        
         
         ### Returns:
         (C++) The UV Set array pointer. (Python) The UV Set array as a list. 
@@ -16402,10 +15255,8 @@ class FBModelVertexData(FBComponent):
         """Return the UV Set array format.
         
         ### Parameters:
-        
             - TextureMapping: Unused parameter.
             - UVSet: Unused parameter.
-        
         
         ### Returns:
         The UV Set array format."""
@@ -16414,10 +15265,8 @@ class FBModelVertexData(FBComponent):
         """Return the number of UVs in the UV Set for the specified texture mapping mode.
         
         ### Parameters:
-        
             - TextureMapping: Texture mapping mode to be queried.
             - UVSet: UV Set name to be queried if pTextureMapping is kFBTextureMappingUV, otherwise ignored.
-        
         
         ### Returns:
         The number of UVs in the UV Set for the specified texture mapping mode."""
@@ -16427,10 +15276,8 @@ class FBModelVertexData(FBComponent):
         """Return the UV Set Buffer Object (VBO) offset for the specified texture mapping mode.
         
         ### Parameters:
-        
             - TextureMapping: Texture mapping mode to be queried.
             - UVSet: UV Set name to be queried if pTextureMapping is kFBTextureMappingUV, otherwise ignored.
-        
         
         ### Returns:
         The UV Set VBO offset (C++: as a pointer, Python: as a kReference)."""
@@ -16439,10 +15286,8 @@ class FBModelVertexData(FBComponent):
         """Return the vertex array for the specified vertex array Id.
         
         ### Parameters:
-        
             - ArrayId: Vertex array Id type to be queried.
             - AfterDeform: True to query the deformed position or normal vertex array (model must be deformable and deformation must occur in CPU), false to query the original vertex array.
-        
         
         ### Returns:
         (C++) The vertex array pointer. (Python) The vertex array as a list. Deformed position & normal vertex arrays could be NULL if one has not requested the mapping vertex array on CPU. 
@@ -16474,9 +15319,7 @@ class FBModelVertexData(FBComponent):
         
         In order to build a valid VBO buffer for accelerated rendering, those control points with multiple attribute data must be duplicated. This function returns the duplicated vertices' ID mapping from [FBModel::ModelVertexData](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_model.html#a7526d77469f5aac1a496c9cafa2aaf1a "Read Only Property: ModelVertexData for the model.") vertex array to its FBModel::TessellatedMesh vertex array. Note those duplicated vertices are always appended after the original vertex array.
         ### Parameters:
-        
             - DuplicatedVertexCount: only) pDuplicatedVertexCount Out parameter, return the count of those duplicated vertices.
-        
         
         ### Returns:
         (C++) A pointer to the original vertex ID mapping for those duplicated vertices. (Python) A list containing the vertex ID mapping for those duplicated vertices."""
@@ -16485,10 +15328,8 @@ class FBModelVertexData(FBComponent):
         """Return the vertex array format for the specified array Id.
         
         ### Parameters:
-        
             - ArrayId: Vertex array Id type to be queried.
             - AfterDeform: Unused parameter.
-        
         
         ### Returns:
         The vertex array format for the specified array Id. 
@@ -16500,10 +15341,8 @@ class FBModelVertexData(FBComponent):
         """Return the Vertex Buffer Object (VBO) offset for the specified vertex array Id.
         
         ### Parameters:
-        
             - ArrayId: Vertex array Id type to be queried. Only position or normal vertex array Id types are available.
             - AfterDeform: True to query the deformed position or normal vertex array (model must be deformable and deformation must occur in CPU), false to query the original vertex array.
-        
         
         ### Returns:
         The vertex array VBO offset (C++: as a pointer, Python: as a kReference). 
@@ -16565,9 +15404,7 @@ class FBModuleManager(FBComponent):
         """Returns the \*.mod file path containing the definition of the provided loaded module name.
         
         ### Parameters:
-        
             - ModuleName: The loaded module name to query.
-        
         
         ### Returns:
         The \*.mod file path."""
@@ -16576,9 +15413,7 @@ class FBModuleManager(FBComponent):
         """Returns the module path associated with the provided loaded module name.
         
         ### Parameters:
-        
             - ModuleName: The loaded module name to query.
-        
         
         ### Returns:
         The module path."""
@@ -16594,9 +15429,7 @@ class FBModuleManager(FBComponent):
         """Returns the module version associated with the provided loaded module name.
         
         ### Parameters:
-        
             - ModuleName: The loaded module name to query.
-        
         
         ### Returns:
         The module version."""
@@ -16619,10 +15452,8 @@ class FBMotionBlend(FBComponent):
         """Add a new Edit in the Motion Blend.
         
         ### Parameters:
-        
             - Name: The new Edit name. If unset, the name "Edit" will be set.
             - SetAsCurrent: True (default) to set the new Edit as the current Edit to be used in the Motion Blend.
-        
         
         ### Returns:
         The new [FBMotionBlendEdit](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_motion_blend_edit.html "Motion Blend Edit class.") object if successful, nullptr (C++) or None (Python) otherwise."""
@@ -16637,9 +15468,7 @@ class FBMotionBlend(FBComponent):
         """Get the Edit associated to the input index.
         
         ### Parameters:
-        
             - Index: The index of the Edit to get.
-        
         
         ### Returns:
         The [FBMotionBlendEdit](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_motion_blend_edit.html "Motion Blend Edit class.") object if successful, nullptr (C++) or None (Python) otherwise."""
@@ -16679,9 +15508,7 @@ class FBMotionBlend(FBComponent):
         """Remove an Edit from the Motion Blend.
         
         ### Parameters:
-        
             - Edit: The [FBMotionBlendEdit](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_motion_blend_edit.html "Motion Blend Edit class.") object to remove.
-        
         
         ### Returns:
         True if the operation is successful, false otherwise."""
@@ -16690,9 +15517,7 @@ class FBMotionBlend(FBComponent):
         """Set the current Edit to be used in the Motion Blend.
         
         ### Parameters:
-        
             - Edit: The [FBMotionBlendEdit](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_motion_blend_edit.html "Motion Blend Edit class.") object to set as the current Edit.
-        
         
         ### Returns:
         True if the operation is successful, false otherwise."""
@@ -16701,9 +15526,7 @@ class FBMotionBlend(FBComponent):
         """Set the "Force Time" state.
         
         ### Parameters:
-        
             - ForceTime: True to snap the Timeline indicator in place so that it cannot be moved by dragging, false otherwise.
-        
         
         ### Returns:
         True if the operation is successful, false otherwise."""
@@ -16712,9 +15535,7 @@ class FBMotionBlend(FBComponent):
         """Set the "Snap On Frame" state.
         
         ### Parameters:
-        
             - Snap: True to force the start and end times of all cuts and poses to snap to the nearest frame, false otherwise.
-        
         
         ### Returns:
         True if the operation is successful, false otherwise."""
@@ -16723,9 +15544,7 @@ class FBMotionBlend(FBComponent):
         """Set the "Sync Take/Edit Start & End" state.
         
         ### Parameters:
-        
             - Sync: True to sync the Take start/end times with the Take start/end times stored in the Motion Blend Edit selected, false otherwise.
-        
         
         ### Returns:
         True if the operation is successful, false otherwise."""
@@ -16772,9 +15591,7 @@ class FBMotionBlendEdit(FBComponent):
         """Set the "Keep Edit Active" state.
         
         ### Parameters:
-        
             - KeepActive: True to allow the result of the Edit to be shown while working on other Edits, false otherwise.
-        
         
         ### Returns:
         True if the operation is successful, false otherwise."""
@@ -16783,9 +15600,7 @@ class FBMotionBlendEdit(FBComponent):
         """Set the Edit name.
         
         ### Parameters:
-        
             - Name: The new name.
-        
         
         ### Returns:
         True if the operation is successful, false otherwise."""
@@ -16794,16 +15609,13 @@ class FBMotionBlendEdit(FBComponent):
         """Set the "Show All Ghosts" state.
         
         ### Parameters:
-        
             - Show: True to display all of the Edit ghosts in the Viewer window, false to hide them all.
-        
         
         ### Returns:
         True if the operation is successful, false otherwise."""
         ...
     def __init__(self,Name:str|None=None,SetAsCurrent:bool=True):
         """### Parameters:
-        
             - Name: The new Edit name. If unset, the name "Edit" will be set.
             - SetAsCurrent: True (default) to set the new Edit as the current Edit to be used in the Motion Blend."""
         ...
@@ -16821,7 +15633,6 @@ class FBMotionClip(FBComponent):
     """Read Only Property: Stop time of clip."""
     def __init__(self,FileName:str):
         """### Parameters:
-        
             - FileName: The complete file path of the media file to access."""
         ...
 class FBMotionFileExportOptions(FBComponent):
@@ -16852,9 +15663,7 @@ class FBMotionFileExportOptions(FBComponent):
         """Get the export file path for given take.
         
         ### Parameters:
-        
             - TakeIndex: Index of take to get the file path.
-        
         
         ### Returns:
         The file path of the given take. Returns nullptr (None in Python) if the operation cannot be performed. 
@@ -16865,9 +15674,7 @@ class FBMotionFileExportOptions(FBComponent):
         """Get the actual frame rate of the given take as a double, useful when you have a custom frame rate.
         
         ### Parameters:
-        
             - TakeIndex: Index of take to get the frame rate.
-        
         
         ### Returns:
         The frame rate of the given take."""
@@ -16876,9 +15683,7 @@ class FBMotionFileExportOptions(FBComponent):
         """Get the take name of the given take.
         
         ### Parameters:
-        
             - TakeIndex: Index of take to get the name.
-        
         
         ### Returns:
         The name of the given take. Returns nullptr (None in Python) if the operation cannot be performed."""
@@ -16887,9 +15692,7 @@ class FBMotionFileExportOptions(FBComponent):
         """Get the export selection status of the given take.
         
         ### Parameters:
-        
             - TakeIndex: Index of take to get the selection status.
-        
         
         ### Returns:
         True is the take will be exported, false otherwise."""
@@ -16898,9 +15701,7 @@ class FBMotionFileExportOptions(FBComponent):
         """Get the start time of the given take.
         
         ### Parameters:
-        
             - TakeIndex: Index of take to get the start time.
-        
         
         ### Returns:
         The start time of the given take."""
@@ -16909,9 +15710,7 @@ class FBMotionFileExportOptions(FBComponent):
         """Get the stop time of the given take.
         
         ### Parameters:
-        
             - TakeIndex: Index of take to get the stop time.
-        
         
         ### Returns:
         The stop time of the given take."""
@@ -16920,9 +15719,7 @@ class FBMotionFileExportOptions(FBComponent):
         """Get the time mode of the given take.
         
         ### Parameters:
-        
             - TakeIndex: Index of take to get the time mode.
-        
         
         ### Returns:
         The time mode of the given take. 
@@ -16936,8 +15733,6 @@ class FBMotionFileExportOptions(FBComponent):
         True if the provided file path for the motion file(s) to create is valid and if the take info is up to date with the scene, false otherwise. 
         ### Remarks:
         Call the SetFilePath method to provide a valid file path. 
-        
-        
         Call the ResetTakeInfo method to reset the take info (i.e.: will be then in sync with the scene)."""
         ...
     def ResetTakeInfo(self)->bool:
@@ -16952,9 +15747,7 @@ class FBMotionFileExportOptions(FBComponent):
         
         When the OneTakePerFile property is true, the default takes file path will be based on this file path.
         ### Parameters:
-        
             - FilePath: The file path for the motion file(s) to create.
-        
         
         ### Returns:
         True if the provided file path is valid, false otherwise. 
@@ -16965,27 +15758,21 @@ class FBMotionFileExportOptions(FBComponent):
         """Set the export file path for given take.
         
         ### Parameters:
-        
             - TakeIndex: Index of take to set the file path.
             - FilePath: The file path of the given take.
-        
         
         ### Returns:
         True if the operation is successful, false otherwise. 
         ### Remarks:
         Changing the value of the OneTakePerFile and/or AddPrefix properties could reset the value set. 
-        
-        
         If the OneTakePerFile property is false, changing the file path for one take will modify the file path of all the other takes at once."""
         ...
     def SetTakeSelect(self,TakeIndex:int,Select:bool)->bool:
         """Set the export selection status of the given take.
         
         ### Parameters:
-        
             - TakeIndex: Index of take to set the selection status.
             - Select: True if the take should be exported, false otherwise.
-        
         
         ### Returns:
         True if the operation is successful, false otherwise."""
@@ -16994,11 +15781,9 @@ class FBMotionFileExportOptions(FBComponent):
         """Set the time mode of the given take.
         
         ### Parameters:
-        
             - TakeIndex: Index of take to set the time mode.
             - TimeMode: Time mode to set.
             - CustomFrameRate: Custom frame rate if pTimeMode is set to kFBTimeModeCustom, unused otherwise (default is 30.0).
-        
         
         ### Returns:
         True if the operation is successful, false otherwise. 
@@ -17008,7 +15793,6 @@ class FBMotionFileExportOptions(FBComponent):
     def __init__(self,FilePath:str):
         """Create an [FBMotionFileExportOptions](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_motion_file_export_options.html "Customize motion file exporting.") object to be used when exporting a motion file. Pass the file path for the motion file(s) to create, modify the options and then call the file export process. Only the FBX file format is supported for now.
         ### Parameters:
-        
             - FilePath: The file path for the motion file(s) to create."""
         ...
 class FBMotionFileImportOptions(FBComponent):
@@ -17059,9 +15843,7 @@ class FBMotionFileImportOptions(FBComponent):
         """Get the take name.
         
         ### Parameters:
-        
             - TakeIndex: Index of take to get the name.
-        
         
         ### Returns:
         Take name"""
@@ -17070,9 +15852,7 @@ class FBMotionFileImportOptions(FBComponent):
         """Return the number of samples.
         
         ### Parameters:
-        
             - TakeIndex: Index of take to get the samples count.
-        
         
         ### Returns:
         Number of samples"""
@@ -17081,9 +15861,7 @@ class FBMotionFileImportOptions(FBComponent):
         """Return the actual sampling rate as a double, useful when you have a custom sampling rate.
         
         ### Parameters:
-        
             - TakeIndex: Index of take to get the sampling rate
-        
         
         ### Returns:
         Sample rate"""
@@ -17092,9 +15870,7 @@ class FBMotionFileImportOptions(FBComponent):
         """Return the sampling rate mode.
         
         ### Parameters:
-        
             - TakeIndex: Index of take to get the sampling rate mode
-        
         
         ### Returns:
         Sample rate mode 
@@ -17105,9 +15881,7 @@ class FBMotionFileImportOptions(FBComponent):
         """Return true if the take will be loaded.
         
         ### Parameters:
-        
             - TakeIndex: Index of take.
-        
         
         ### Returns:
         True is the take will be loaded"""
@@ -17116,9 +15890,7 @@ class FBMotionFileImportOptions(FBComponent):
         """Return the Take Start time.
         
         ### Parameters:
-        
             - TakeIndex: Index of take to get the start time.
-        
         
         ### Returns:
         Start time of the take"""
@@ -17127,9 +15899,7 @@ class FBMotionFileImportOptions(FBComponent):
         """Return the Take Stop time.
         
         ### Parameters:
-        
             - TakeIndex: Index of take to get the stop time.
-        
         
         ### Returns:
         Stop time of the take"""
@@ -17138,7 +15908,6 @@ class FBMotionFileImportOptions(FBComponent):
         """Set the take name.
         
         ### Parameters:
-        
             - TakeIndex: Index of take to set.
             - Name: Take name to set"""
         ...
@@ -17146,10 +15915,8 @@ class FBMotionFileImportOptions(FBComponent):
         """Set the number of samples for a particular take.
         
         ### Parameters:
-        
             - TakeIndex: Index of take to set.
             - SamplesCount: Number of samples
-        
         
         ### Remarks:
         Must be set to a value bigger than 0 and smaller than the number of samples in the file. The stop time of the motion will be changed based on the new samples count."""
@@ -17158,11 +15925,9 @@ class FBMotionFileImportOptions(FBComponent):
         """Set the sampling rate for a particular take.
         
         ### Parameters:
-        
             - TakeIndex: Index of take to set.
             - TimeMode: Time mode to set.
             - CustomSamplingRate: Custom sampling rate if pTimeMode is set to kFBTimeModeCustom, unused otherwise (default is 30.0)
-        
         
         ### Remarks:
         Changing the sampling rate will change the stop time of the motion."""
@@ -17171,7 +15936,6 @@ class FBMotionFileImportOptions(FBComponent):
         """Indicate if the take will be loaded.
         
         ### Parameters:
-        
             - TakeIndex: Index of take to set.
             - Select: Set to true if the take should be loaded."""
         ...
@@ -17179,10 +15943,8 @@ class FBMotionFileImportOptions(FBComponent):
         """Set the Take Start time.
         
         ### Parameters:
-        
             - TakeIndex: Index of take to set.
             - StartTime: Time of the first frame of the take
-        
         
         ### Remarks:
         Changing the start time of the take will also change the stop time, since the duration is constant. Please change the samples count to change the length of the motion."""
@@ -17191,10 +15953,8 @@ class FBMotionFileImportOptions(FBComponent):
         """Set the Take Stop time.
         
         ### Parameters:
-        
             - TakeIndex: Index of take to set.
             - StopTime: Time of the last frame of the take
-        
         
         ### Remarks:
         Changing the stop time of the take will also change the start time, since the duration is constant. Please change the samples count to change the length of the motion."""
@@ -17202,7 +15962,6 @@ class FBMotionFileImportOptions(FBComponent):
     def __init__(self,StringList:FBStringList):
         """Create an [FBMotionFileImportOptions](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_motion_file_import_options.html "Customize motion file loading.") object to be used when importing a motion file. Pass file paths to get the appropriate information about those files, modify the options and then call the file import process. Not all options are usable at the same time, some of them are for specific motion type. You can see the valid configuration by looking at the motion file dialog (accessible from File/Motion File Import...).
         ### Parameters:
-        
             - StringList: The client needs to pass a list of files path to load to collect the motion file information."""
         ...
 class FBNamespace(FBComponent):
@@ -17218,7 +15977,6 @@ class FBNamespace(FBComponent):
         """Get the namespace content object count (Not Recursive).
         
         ### Parameters:
-        
             - Index: content object index to query. return content object inside this namespace (not recursive)"""
         ...
     def GetContentCount(self)->int:
@@ -17230,7 +15988,6 @@ class FBNamespace(FBComponent):
         """Get List of the namespace content.
         
         ### Parameters:
-        
             - ContentList: the list of content to return.
             - ModificationFlags: bitwise combination of kFBConnectionSrcObjectModified, kFBConnectionDstObjectModified, kFBConnectionSrcPropertyModified, kFBConnectionDstPropertyModified flags. kFBAllContent means all the content.
             - Recursive: **True** only work on the direct children level namespace, otherwise will work on the whole children namespace hierarchy recursively.
@@ -17240,7 +15997,6 @@ class FBNamespace(FBComponent):
     def __init__(self,SingleLevelNamespace:str,ParentNSObj:FBNamespace):
         """Create a new direct children namespace object
         ### Parameters:
-        
             - SingleLevelNamespace: [FBNamespace](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_namespace.html "Objects Containing class.") name. This name will be used as namespace itself. this name string shouldn't contain namespace string separator ":".
             - ParentNSObj: the parent namespace object. if NULl means to create top level namespace."""
         ...
@@ -17256,7 +16012,6 @@ class FBOpticalGap(FBComponent):
         """Insert a control key for the gap.
         
         ### Parameters:
-        
             - Time: Insert time for the control key."""
         ...
     def IsValid(self)->bool:
@@ -17267,7 +16022,6 @@ class FBOpticalGap(FBComponent):
         ...
     def __init__(self,Marker:FBModelMarkerOptical):
         """### Parameters:
-        
             - Marker: Model marker(default=NULL)."""
         ...
 class FBFileReference(FBNamespace):
@@ -17284,14 +16038,12 @@ class FBFileReference(FBNamespace):
         """Apply specified reference edits from python script file.
         
         ### Parameters:
-        
             - RefEditPyScriptFilePath: Reference edits Python script file path."""
         ...
     def ApplyRefEditPyScriptFromString(self,RefEditPyScript:str):
         """Apply specified reference edits from Python script string.
         
         ### Parameters:
-        
             - RefEditPyScript: Reference edits Python script."""
         ...
     def BakeRefEditToFile(self,FilePath:str)->bool:
@@ -17299,9 +16051,7 @@ class FBFileReference(FBNamespace):
         
         If pFilePath is ReferenceFilePath, we're saving all the modification back to the original referenced file. Otherwise, we will export the referenced file plus modification to another file.
         ### Parameters:
-        
             - FilePath: File path to export.
-        
         
         ### Returns:
         true if successful."""
@@ -17316,9 +16066,7 @@ class FBFileReference(FBNamespace):
         """Clear the cached RefEdit for the given ref file path.
         
         ### Parameters:
-        
             - FilePath: The Ref File Path to query against, default to be current Ref File.
-        
         
         ### Returns:
         True if the RefEdit for the given Ref File Path is cached and cleared properly."""
@@ -17327,10 +16075,8 @@ class FBFileReference(FBNamespace):
         """Duplicate/Clone the FileRef object and its referenced content (with/without refEdit).
         
         ### Parameters:
-        
             - DstNameSpaceList: the list of target new namespace(s) for duplication. These new namespace(s) must be residing in editable scene segments.
             - WithRefEdit: false by default, duplication won't include the existing ref edit. otherwise ref edit will be applied on the instantiated FileRef in someway.
-        
         
         ### Returns:
         true if successful, false is fail."""
@@ -17339,9 +16085,7 @@ class FBFileReference(FBNamespace):
         """Return the RefEdit for given RefFile Path.
         
         ### Parameters:
-        
             - FilePath: The Ref File Path to query against, default to be current Ref File.
-        
         
         ### Returns:
         RefEdit as string"""
@@ -17350,14 +16094,12 @@ class FBFileReference(FBNamespace):
         """Return a list of ref file path which has cached Ref Edit.
         
         ### Parameters:
-        
             - RefFileList: the output parameter to collect the Ref File Path."""
         ...
     def RevertRefEdit(self,Plug:FBPlug|None=None,ModificationFlag:FBPlugModificationFlag=FBPlugModificationFlag.kFBAllModifiedMask):
         """Revert the modification on the referenced object/property to original state.
         
         ### Parameters:
-        
             - Plug: the plug to revert, revert all if NULL.
             - ModificationFlag: the modification type to revert."""
         ...
@@ -17365,11 +16107,9 @@ class FBFileReference(FBNamespace):
         """Swap the Ref File Path and apply ref edit.
         
         ### Parameters:
-        
             - FilePath: The new Ref File path to be used
             - ApplyAvailableRefEdit: Apply the cached Ref Edit (if exist) for the Ref File to be used if **True**.
             - MergeCurrentRefEdit: Merge the current RefEdit to if **True** if the reference items' name are matching.
-        
         
         ### Returns:
         True if swap successfully."""
@@ -17377,7 +16117,6 @@ class FBFileReference(FBNamespace):
     def __init__(self,SingleLevelNamespace:str,ParentNSObj:FBNamespace):
         """Create a new direct children FileReference object
         ### Parameters:
-        
             - SingleLevelNamespace: FileReference name. This name will be used as namespace itself. this name string shouldn't contain namespace string separator ":".
             - ParentNSObj: the parent namespace object. if NULl means to create top level namespace."""
         ...
@@ -17399,7 +16138,6 @@ class FBOpticalSegment(FBComponent):
         """Cut the segment for the marker at a given time.
         
         ### Parameters:
-        
             - Time: Time to cut segment at."""
         ...
     def IsValid(self)->bool:
@@ -17413,7 +16151,6 @@ class FBOpticalSegment(FBComponent):
         ...
     def __init__(self,Optical:FBModelOptical):
         """### Parameters:
-        
             - Optical: Optical model(default=NULL)."""
         ...
 class FBPlayerControl(FBComponent):
@@ -17464,10 +16201,8 @@ class FBPlayerControl(FBComponent):
         
         It doesn't allow creating a time mark at the same time of another time mark. Note: Internally, the global time marks are stored in time order. Adding a time mark before other existing time marks will modify the index of these other time marks.
         ### Parameters:
-        
             - Time: Time where to add the time mark.
             - Name: Name of the time mark to add.
-        
         
         ### Returns:
         The index of the time mark added if the operation is successful, -1 otherwise."""
@@ -17480,9 +16215,7 @@ class FBPlayerControl(FBComponent):
         
         Note: Internally, the global time marks are stored in time order. Deleting a time mark will modify the index of time marks laying after the deleted time mark.
         ### Parameters:
-        
             - Index: Index of the time mark to delete.
-        
         
         ### Returns:
         True if the operation is successful, false otherwise."""
@@ -17527,9 +16260,7 @@ class FBPlayerControl(FBComponent):
         """Returns the action associated with a global time mark.
         
         ### Parameters:
-        
             - Index: Index of the time mark.
-        
         
         ### Returns:
         The action associated with the time mark."""
@@ -17538,9 +16269,7 @@ class FBPlayerControl(FBComponent):
         """Returns the color associated with a global time mark.
         
         ### Parameters:
-        
             - Index: Index of the time mark.
-        
         
         ### Returns:
         The color associated with the time mark."""
@@ -17555,9 +16284,7 @@ class FBPlayerControl(FBComponent):
         """Returns the name associated with a global time mark.
         
         ### Parameters:
-        
             - Index: Index of the time mark.
-        
         
         ### Returns:
         The name associated with the time mark."""
@@ -17566,9 +16293,7 @@ class FBPlayerControl(FBComponent):
         """Returns the time associated with a global time mark.
         
         ### Parameters:
-        
             - Index: Index of the time mark.
-        
         
         ### Returns:
         The time associated with the time mark."""
@@ -17613,9 +16338,7 @@ class FBPlayerControl(FBComponent):
         """Get the UI frame rate value.
         
         ### Parameters:
-        
             - TimeMode: the time mode whose frame rate will be returned
-        
         
         ### Returns:
         Frame rate of the input time mode or system time mode when pTimeMode is not provided."""
@@ -17630,10 +16353,8 @@ class FBPlayerControl(FBComponent):
         """Goto a time specified by pTime.
         
         ### Parameters:
-        
             - p0: Time to jump to.
             - p1: Time referential to use. kFBTimeReferentialAction or kFBTimeReferentialEdit
-        
         
         ### Returns:
         true if successful."""
@@ -17642,9 +16363,7 @@ class FBPlayerControl(FBComponent):
         """GotoEnd button (FastForward).
         
         ### Parameters:
-        
             - p0: Time referential to use. kFBTimeReferentialAction or kFBTimeReferentialEdit
-        
         
         ### Returns:
         true if successful."""
@@ -17659,9 +16378,7 @@ class FBPlayerControl(FBComponent):
         """GotoStart button (Rewind).
         
         ### Parameters:
-        
             - p0: Time referential to use. kFBTimeReferentialAction or kFBTimeReferentialEdit
-        
         
         ### Returns:
         true if successful."""
@@ -17678,16 +16395,13 @@ class FBPlayerControl(FBComponent):
         """Lock the transport control.
         
         ### Parameters:
-        
             - Lock: boolean value that indicates the new locked state of the transport."""
         ...
     def Play(self,UseMarkers:bool=False)->bool:
         """Play button.
         
         ### Parameters:
-        
             - UseMarkers: Play until next marker if true, ignore markers otherwise.
-        
         
         ### Returns:
         true if successful."""
@@ -17696,9 +16410,7 @@ class FBPlayerControl(FBComponent):
         """Play Reverse button.
         
         ### Parameters:
-        
             - UseMarkers: Play until next marker if true, ignore markers otherwise.
-        
         
         ### Returns:
         true if successful."""
@@ -17707,10 +16419,8 @@ class FBPlayerControl(FBComponent):
         """Begin recording.
         
         ### Parameters:
-        
             - OverrideTake: Write over current take?(default=false)
             - CopyData: Unused. Necessary for compatibility(default=true).
-        
         
         ### Returns:
         true if successful."""
@@ -17719,38 +16429,32 @@ class FBPlayerControl(FBComponent):
         """Set Edit Start.
         
         ### Parameters:
-        
             - Time: The new start value for the edit time range."""
         ...
     def SetEditStop(self,Time:FBTime):
         """Set Edit Stop.
         
         ### Parameters:
-        
             - Time: The new stop value for the edit time range."""
         ...
     def SetEditZoomStart(self,Time:FBTime):
         """Set Edit Zoom Start.
         
         ### Parameters:
-        
             - Time: The new start value for the edit zoom window."""
         ...
     def SetEditZoomStop(self,Time:FBTime):
         """Set Edit Zoom Stop.
         
         ### Parameters:
-        
             - Time: The new stop value for the edit zoom window."""
         ...
     def SetGlobalTimeMarkAction(self,Index:int,Action:FBTimeMarkAction)->bool:
         """Sets a new action for an existing global time mark.
         
         ### Parameters:
-        
             - Index: Index of the time mark.
             - Action: The new action for the time mark.
-        
         
         ### Returns:
         True if the operation is successful, false otherwise."""
@@ -17759,10 +16463,8 @@ class FBPlayerControl(FBComponent):
         """Sets a new color for an existing global time mark.
         
         ### Parameters:
-        
             - Index: Index of the time mark.
             - Color: The new color for the time mark.
-        
         
         ### Returns:
         True if the operation is successful, false otherwise."""
@@ -17771,10 +16473,8 @@ class FBPlayerControl(FBComponent):
         """Sets a new name for an existing global time mark.
         
         ### Parameters:
-        
             - Index: Index of the time mark.
             - Name: The new name for the time mark.
-        
         
         ### Returns:
         True if the operation is successful, false otherwise."""
@@ -17784,10 +16484,8 @@ class FBPlayerControl(FBComponent):
         
         Note: Internally, the global time marks are stored in time order. Modifying the time of a time mark may modify the index of all time marks.
         ### Parameters:
-        
             - Index: Index of the time mark.
             - Time: The new time for the time mark.
-        
         
         ### Returns:
         The new index of the modified time mark."""
@@ -17796,28 +16494,24 @@ class FBPlayerControl(FBComponent):
         """Set Play Speed.
         
         ### Parameters:
-        
             - Speed: set customized speed. It will automatically convert to one of pre-defined play speed mode if it is equal to the pre-defined speed."""
         ...
     def SetPlaySpeedMode(self,PlaySpeedMode:FBTransportPlaySpeed):
         """Set Play Speed Mode.
         
         ### Parameters:
-        
             - PlaySpeedMode: a pre-defined play speed mode. Don't make sense to input kFBSpeed\_Custom. To set the custom speed, use [SetPlaySpeed()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_player_control.html#a71716b808406bdac9835b31501b895d4 "Set Play Speed.") function directly."""
         ...
     def SetTimeReferential(self,TimeReferential:FBTimeReferential):
         """Set Time Referential.
         
         ### Parameters:
-        
             - TimeReferential: The new time referential. Only kFBTimeReferentialAction and kFBTimeReferentialEdit are supported"""
         ...
     def SetTransportFps(self,TimeMode:FBTimeMode,Custom:float=0.0):
         """Set the system frame rate use for display.
         
         ### Parameters:
-        
             - TimeMode: Indicate the frame rate value to use base on the [FBTimeMode](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_time_mode.html "Different time modes available.") values enum.(kFBTimeModeDefault will be stored in fps)
             - Custom: Should the time mode be kFBTimeModeCustom, this is used to specify the custom framerate."""
         ...
@@ -17825,9 +16519,7 @@ class FBPlayerControl(FBComponent):
         """Step one frame backward.
         
         ### Parameters:
-        
             - p0: Time referential to use. kFBTimeReferentialAction or kFBTimeReferentialEdit
-        
         
         ### Returns:
         true if successful."""
@@ -17836,9 +16528,7 @@ class FBPlayerControl(FBComponent):
         """Step one frame ahead.
         
         ### Parameters:
-        
             - p0: Time referential to use. kFBTimeReferentialAction or kFBTimeReferentialEdit
-        
         
         ### Returns:
         true if successful."""
@@ -17870,7 +16560,6 @@ class FBPointCacheFile(FBComponent):
     """Read Write Property: Stop Time."""
     def __init__(self,Name:str):
         """### Parameters:
-        
             - Name: Name of Point Cache File Object."""
         ...
 class FBRendererCallback(FBComponent):
@@ -17914,7 +16603,6 @@ class FBRigidBody(FBComponent):
         ...
     def __init__(self,Optical:FBModelOptical):
         """### Parameters:
-        
             - Optical: Optical model(default=NULL)."""
         ...
 class FBSVector():
@@ -17958,7 +16646,6 @@ class FBSVector():
     @overload
     def __init__(self,p1:float,p2:float,p3:float):
         """### Parameters:
-        
             - p1: First element
             - p2: Second element.
             - p3: Third element(default=1.0)."""
@@ -17968,7 +16655,6 @@ class FBSVector():
         """Constructor from array.
         
         ### Parameters:
-        
             - Value: Array to take values from."""
         ...
     @overload
@@ -18169,7 +16855,6 @@ class FBScene(FBComponent):
         """Get paths of all the python scripts object in the scene.
         
         ### Parameters:
-        
             - PathList: Out parameter, to collect the path of python scripts."""
         ...
     def NamespaceCleanup(self)->bool:
@@ -18183,9 +16868,7 @@ class FBScene(FBComponent):
         """Delete the namespace & all its content.
         
         ### Parameters:
-        
             - Namespace: the namespace to work on
-        
         
         ### Returns:
         True if operation successfully, False is this namespace doesn't exist, or is locked (by FileReferencing or etc.,)"""
@@ -18194,13 +16877,11 @@ class FBScene(FBComponent):
         """Delete the namespace content.
         
         ### Parameters:
-        
             - Namespace: the namespace to work on
             - ModificationFlags: bitwise combination of kFBConnectionSrcObjectModified, kFBConnectionDstObjectModified, kFBConnectionSrcPropertyModified, kFBConnectionDstPropertyModified flags. kFBPlugAllContent means all the content. Modification flags beside kFBPlugAllContent will only work on FileReference Namespace.
             - Recursive: **True** only work on the direct children level namespace, otherwise will work on the children namespace hierarchy recursively.
             - TypeInfo: the typeInfo of the type of interested object, default for all the objects.
             - ExactTypeMatch: if **True**, the derived typeInfo won't be considered (For example, [FBCamera](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_camera.html "Creates custom cameras and manages system cameras.") won't be considered when passing [FBModel::TypeInfo](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html#a9b39fba51413fa925a0d94d2feb13bf9 "Contains the Type information of the object.")).
-        
         
         ### Returns:
         False is the given namespace doesn't exist, or is locked (by FileRef or etc.,), True otherwise. 
@@ -18211,9 +16892,7 @@ class FBScene(FBComponent):
         """Query if namespace is empty.
         
         ### Parameters:
-        
             - Namespace: the namespace to query, NULL for whole scene.
-        
         
         ### Returns:
         True if the namespace (don't include nested children namespace) is empty"""
@@ -18222,9 +16901,7 @@ class FBScene(FBComponent):
         """Query if namespace exists.
         
         ### Parameters:
-        
             - Namespace: the namespace to query
-        
         
         ### Returns:
         True if the namespace exist, otherwise return False."""
@@ -18233,11 +16910,9 @@ class FBScene(FBComponent):
         """Export scene content within namespace to file.
         
         ### Parameters:
-        
             - Namespace: the namespace to use, must exist
             - FilePath: the referenced file path to export.
             - ASCIIFormat: save the file in ASCII format.
-        
         
         ### Returns:
         True if successfully."""
@@ -18246,9 +16921,7 @@ class FBScene(FBComponent):
         """Get Namespace object.
         
         ### Parameters:
-        
             - Namespace: the namespace to query
-        
         
         ### Returns:
         Namespace with exact name matching"""
@@ -18257,11 +16930,9 @@ class FBScene(FBComponent):
         """Get list of children namespaces in the given namespace.
         
         ### Parameters:
-        
             - NamespaceList: the list of namespace to return.
             - Namespace: specify the parent namespace, NULL for the whole scene.
             - Recursive: **True** only work on the direct children level namespace, otherwise will work on the whole children namespace hierarchy recursively.
-        
         
         ### Returns:
         the list of children namespaces."""
@@ -18270,7 +16941,6 @@ class FBScene(FBComponent):
         """Get List of the namespace content.
         
         ### Parameters:
-        
             - ContentList: the list of content to return.
             - Namespace: the namespace to work on, NULL for whole scene.
             - ModificationFlags: bitwise combination of kFBConnectionSrcObjectModified, kFBConnectionDstObjectModified, kFBConnectionSrcPropertyModified, kFBConnectionDstPropertyModified flags. kFBPlugAllContent means all the content. Modification flags beside kFBPlugAllContent will only work on FileReference Namespace.
@@ -18282,9 +16952,7 @@ class FBScene(FBComponent):
         """Get Owner FileReference object if the namespace is originated from File Reference.
         
         ### Parameters:
-        
             - Namespace: the namespace to work on, could be nested namespace inside the FileReference's namespace.
-        
         
         ### Returns:
         the FileReference object is the namespace is originated from. NULL otherwise."""
@@ -18293,11 +16961,9 @@ class FBScene(FBComponent):
         """Import file into Namespace (or as file reference)
         
         ### Parameters:
-        
             - Namespace: the namespace to import to, must be in editable scope.
             - FilePath: the referenced file path to import.
             - AsFileReference: import the file as file reference. The default value is false.
-        
         
         ### Returns:
         True if successfully."""
@@ -18306,11 +16972,9 @@ class FBScene(FBComponent):
         """Import file into multiple Namespaces (or as file references)
         
         ### Parameters:
-        
             - DstNamespaceList: the Dst namespaces list to import, must not exist or be self contained.
             - FilePath: the referenced file path to import.
             - AsFileReference: import the file as file reference. The default value is false.
-        
         
         ### Returns:
         True if successfully. 
@@ -18321,13 +16985,11 @@ class FBScene(FBComponent):
         """Rename the namespace.
         
         ### Parameters:
-        
             - NameSpace: the namespace to work on, NULL for whole scene.
             - NewNamespace: the new namespace
             - Recursive: **True** only work on the direct children level namespace, otherwise will work on the children namespace hierarchy recursively.
             - TypeInfo: the typeInfo of the type of interested object, default for all the objects.
             - ExactTypeMatch: if **True**, the derived typeInfo won't be considered (For example, [FBCamera](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_camera.html "Creates custom cameras and manages system cameras.") won't be considered when passing [FBModel::TypeInfo](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html#a9b39fba51413fa925a0d94d2feb13bf9 "Contains the Type information of the object.")).
-        
         
         ### Returns:
         True if operation successfully, False is this namespace (or pTypeInfo type of objects) doesn't exist, or locked (by FileReferencing or etc.,) 
@@ -18338,7 +17000,6 @@ class FBScene(FBComponent):
         """Select (or de-select) the namespace content.
         
         ### Parameters:
-        
             - Namespace: the namespace to work on, NULL for whole scene.
             - Select: **True** (or **False**) indicate to select (or de-select)
             - ModificationFlags: bitwise combination of kFBConnectionSrcObjectModified, kFBConnectionDstObjectModified, kFBConnectionSrcPropertyModified, kFBConnectionDstPropertyModified flags. kFBPlugAllContent means all the content. Modification flags beside kFBPlugAllContent will only work on FileReference Namespace.
@@ -18362,9 +17023,7 @@ class FBSet(FBBox):
         """Contains.
         
         ### Parameters:
-        
             - Component: Component to verify if it is in the Group
-        
         
         ### Returns:
         0 if the component is not in the [FBSet](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_set.html "Objects Set class."), 1 if it is in this [FBSet](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_set.html "Objects Set class."), 2 if it is in another [FBSet](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_set.html "Objects Set class.")"""
@@ -18373,12 +17032,10 @@ class FBSet(FBBox):
         """Select.
         
         ### Parameters:
-        
             - Select: If **true**, set contents will be selected."""
         ...
     def __init__(self,Name:str):
         """### Parameters:
-        
             - Name: Set name."""
         ...
 class FBShader(FBBox):
@@ -18391,9 +17048,7 @@ class FBShader(FBBox):
         """Append shader to pModel.
         
         ### Parameters:
-        
             - Model: Model to append shader to.
-        
         
         ### Returns:
         True if the operation is successful, false otherwise."""
@@ -18402,16 +17057,13 @@ class FBShader(FBBox):
         """Clone shader.
         
         ### Parameters:
-        
             - NewShader: Shader to copy data to."""
         ...
     def ReplaceAll(self,Model:FBModel)->bool:
         """Replace all shader in pModel.
         
         ### Parameters:
-        
             - Model: Model to replace all shader to.
-        
         
         ### Returns:
         True if the operation is successful, false otherwise."""
@@ -18485,7 +17137,6 @@ class FBShaderLighted(FBShader):
     """Read Write Property: Activate the Specularity option."""
     def __init__(self,Name:str|None=None):
         """### Parameters:
-        
             - Name: Name of shader."""
         ...
 class FBShaderManager():
@@ -18561,9 +17212,7 @@ class FBShaderManager():
         
         This method provides a generic way of creating shaders using the type name, internal or localized. The name of the new shader will be the same as the type name used, subject to changes according to the system's unique name policy.
         ### Parameters:
-        
             - ShaderTypeName: Name of the type of shader desired.
-        
         
         ### Returns:
         A pointer to the newly created shader object, or a NULL pointer if the type name was not recognised."""
@@ -18622,7 +17271,6 @@ class FBShaderShadowLive(FBShader):
     """Read Write Property: Includes the gobo in the shadow map calculation."""
     def __init__(self,Name:str|None=None):
         """### Parameters:
-        
             - Name: Name of shader."""
         ...
 class FBSkeletonState():
@@ -18630,7 +17278,6 @@ class FBSkeletonState():
         """Returned global matrix associated to the given Index.
         
         ### Parameters:
-        
             - SkeletonId: Index of the skeleton Node
             - SkeletonGlobalMatrix: returned global matrix of the index Given"""
         ...
@@ -18716,9 +17363,7 @@ class FBStory(FBComponent):
         
         This undoable operation will overwrite the Camera Switcher of Take.
         ### Parameters:
-        
             - Take: Take to plot the Shot Tracks to the Camera Switcher to.
-        
         
         ### Returns:
         True if the operation is successful, false otherwise. 
@@ -18857,10 +17502,8 @@ class FBStoryClip(FBComponent):
         """Assign source to destination if the pSrcName is found in source list and pObject is in the Details list.
         
         ### Parameters:
-        
             - SrcName: The name of the source.
             - Object: The destination object.
-        
         
         ### Returns:
         Returns true if assignment has been executed when the pSrcName is found in source list and pObject is in the Details list. 
@@ -18872,9 +17515,7 @@ class FBStoryClip(FBComponent):
         
         Export animation clip to disk file.
         ### Parameters:
-        
             - OutputFile: Output file path name.
-        
         
         ### Returns:
         Returns true if successful."""
@@ -18884,10 +17525,8 @@ class FBStoryClip(FBComponent):
         
         Get the list of animation nodes affected by this story clip, for a specific object.
         ### Parameters:
-        
             - AffectedAnimationNodes: Array of affected animation nodes, will be filled by the function.
             - ClipObject: The object for which we search for affected animation nodes.
-        
         
         ### Python:
         The function takes only one parameter (pClipObject) and returns a Python list. ex : lArray = lClip.GetAffectedAnimationNodes(lObject)"""
@@ -18897,9 +17536,7 @@ class FBStoryClip(FBComponent):
         
         Get the list of objects affected by this story clip.
         ### Parameters:
-        
             - AffectedObjects: Array of affected objects, will be filled by the function.
-        
         
         ### Python:
         The function takes no parameter and returns a Python list. ex : lArray = lClip.GetAffectedObjects()"""
@@ -18909,14 +17546,12 @@ class FBStoryClip(FBComponent):
         
         Returns the information about the current state of Sources to Destinations assignment. The pSrcList, pValidAnimatedSrc, pDefaultDstList & pEffectiveDstList parameters will all be of the same size, each index being related to the same index in the other lists/array. The pAvailableDstList & pValidAnimatedDst parameters can contain more items than the other lists. Both will all be of the same size, each index being related to the same index in the other list/array.
         ### Parameters:
-        
             - SrcList: (C++ only) String list containing all the sources, will be filled by the method.
             - ValidAnimatedSrc: (C++ only) Array of bool containing the animated validity state of the sources, will be filled by the method.
             - AvailableDstList: (C++ only) String list containing all the available destinations, will be filled by the method.
             - ValidAnimatedDst: (C++ only) Array of bool containing the animated validity state of the available destinations, will be filled by the method.
             - DefaultDstList: (C++ only) String list containing the default destinations (contains each string item that will be put back when pressing the 'Reset' button in the UI), will be filled by the method.
             - EffectiveDstList: (C++ only) String list containing the effective destination (destinations currently active), will be filled by the method.
-        
         
         ### Returns:
         (Python only) A tuple with 6 values: (pSrcList, pValidAnimatedSrc, pAvailableDstList, pValidAnimatedDst, pDefaultDstList, pEffectiveDstList)."""
@@ -18932,10 +17567,8 @@ class FBStoryClip(FBComponent):
         """Get the clip source time (internal time) from a destination time (local time).
         
         ### Parameters:
-        
             - DestinationTime: The destination time to convert.
             - LoopNumber: The number of loops applied on the source time to match the destination time to convert. Optional. Will be filled by the method.
-        
         
         ### Returns:
         The clip source time matching the input destination time. 
@@ -18961,7 +17594,6 @@ class FBStoryClip(FBComponent):
         
         Match the animation clip to its previous/next animation clip, one to each other.
         ### Parameters:
-        
             - ObjectName: The object name that specifies which part of the track content to use to match clips. If the object name is not valid, or empty, the match object will be disabled so that the blend does not take it into account when matching clips.
             - TimeType: The time type specifying which point of a cross-blend the selected clip is matched.
             - TranslationType: The translation type specifying if/how a clip's match object is translated to match another clip's animation.
@@ -18972,10 +17604,8 @@ class FBStoryClip(FBComponent):
         
         Move the clip of a delta offset.
         ### Parameters:
-        
             - Delta: Delta time to apply to the clip.
             - Force: Force clip to find the nearest position if the move fail.
-        
         
         ### Returns:
         Return the delta between the new and previous clip's position."""
@@ -18985,10 +17615,8 @@ class FBStoryClip(FBComponent):
         
         Move the clip to the specified time.
         ### Parameters:
-        
             - Time: Time where to put the clip.
             - Force: Force clip to find the nearest position if the move fail.
-        
         
         ### Returns:
         Returns the new clip's time position."""
@@ -18998,9 +17626,7 @@ class FBStoryClip(FBComponent):
         
         Cut (razor) the clip at the specified time.
         ### Parameters:
-        
             - Time: Time where to cut. This time is local to the track, not to the clip.
-        
         
         ### Returns:
         Returns the new clip generated by the razor action (right part)."""
@@ -19010,9 +17636,7 @@ class FBStoryClip(FBComponent):
         
         Sets the new effective destinations information for the Sources to Destinations assignment. The input string list size must contain the same number of items than the effective destination list returned by the GetAssignSourcesToDestinationsInfo method. Each item in the input string list must match an item in the available destination list returned by the GetAssignSourcesToDestinationsInfo method. The item at a given index of the input string list will be related to the same index of the sources list returned by the GetAssignSourcesToDestinationsInfo method.
         ### Parameters:
-        
             - EffectiveDstList: String list containing the new effective destination.
-        
         
         ### Returns:
         Returns true if the assign succeeded, false otherwise."""
@@ -19021,10 +17645,8 @@ class FBStoryClip(FBComponent):
         """SetReadOnly Assigns the clip read-only status.
         
         ### Parameters:
-        
             - MakeClipReadOnly: New read-only status
             - OutputFile: Output file path name, when setting the clip's read-only status to true.
-        
         
         ### Returns:
         Returns true if successful."""
@@ -19034,7 +17656,6 @@ class FBStoryClip(FBComponent):
         
         In and out values are optional and the current values for the story clip will be used if not supplied. The story "Speed" property will be adjusted in order for the supplied values to be respected by the story clip.
         ### Parameters:
-        
             - SourceIn: New value for the source IN time. Passing a value will modify the "MarkIn" and/or the "Speed" properties.
             - SourceOut: New value for the source OUT time. Passing a value will modify the "MarkOut" and/or the "Speed" properties.
             - DestinationIn: New value for the destination IN time. Passing a value will modify the "Stop" and/or the "Speed" properties.
@@ -19050,7 +17671,6 @@ class FBStoryClip(FBComponent):
     @overload
     def __init__(self,ClipObject:FBComponent,Track:FBStoryTrack,Time:FBTime):
         """### Parameters:
-        
             - ClipObject: Object (media data) for the clip.
             - Track: The track in which we create the clip.
             - Time: Time where the clip should begin."""
@@ -19058,7 +17678,6 @@ class FBStoryClip(FBComponent):
     @overload
     def __init__(self,FilePath:str,Track:FBStoryTrack,Time:FBTime):
         """### Parameters:
-        
             - FilePath: Media file path to create clip with.
             - Track: The track in which we create the clip.
             - Time: Time where the clip should begin."""
@@ -19066,7 +17685,6 @@ class FBStoryClip(FBComponent):
     @overload
     def __init__(self,FilePath:str,Track:FBStoryTrack,Time:FBTime,TimeOffset:FBTime):
         """### Parameters:
-        
             - FilePath: Media file path to create clip with.
             - Track: The track in which we create the clip.
             - Time: Time where the clip should begin.
@@ -19098,7 +17716,6 @@ class FBStoryFolder(FBComponent):
         """Used to align selected clips .
         
         ### Parameters:
-        
             - Type: Type of alignment that will be done.
             - ReferenceClip: Needed when kFBStoryClipAlignmentEndPreviousAllAligned, kFBStoryClipAlignmentBeginningNextAllAligned or kFBStoryClipAlignmentCurrentTimelineWithOffset are used."""
         ...
@@ -19106,7 +17723,6 @@ class FBStoryFolder(FBComponent):
         """Used to align clips inside a group.
         
         ### Parameters:
-        
             - Type: Type of alignment that will be done."""
         ...
     def ConvertClipsToReadOnly(self,Selected:bool,FilePath:str):
@@ -19114,10 +17730,8 @@ class FBStoryFolder(FBComponent):
         
         Identical clips are replaced by the same read-only clip.
         ### Parameters:
-        
             - Selected: Only selected clip will be converted.
             - FilePath: Folder path where the read-only clips will be saved.
-        
         
         ### Remarks:
         Currently only animation clips are supported in the Root Folder"""
@@ -19126,14 +17740,12 @@ class FBStoryFolder(FBComponent):
         """Used to expand selected clips .
         
         ### Parameters:
-        
             - PreserveOverlap: If true, portion of clips that overlap other clips won't be modified."""
         ...
     def ExpandSelectedClipsGroup(self,PreserveOverlap:bool):
         """ExpandSelectedClipsGroup Used to expand group clip dependent clips.
         
         ### Parameters:
-        
             - PreserveOverlap: If true, portion of clips that overlap other clips won't be modified."""
         ...
     def Load(self,Load:bool):
@@ -19144,9 +17756,7 @@ class FBStoryFolder(FBComponent):
         ...
     def __init__(self,ParentFolder:FBStoryFolder|None=None):
         """### Parameters:
-        
             - ParentFolder: If NULL, parent will be the global root folder, according to its type.
-        
         
         ### Remarks:
         You can't create a folder with the RootEditFolder as parent."""
@@ -19168,10 +17778,8 @@ class FBStoryGroupClip(FBComponent):
         
         Move the clip of a delta offset.
         ### Parameters:
-        
             - Delta: Delta time to apply to the clip.
             - Force: Force clip to find the nearest position if the move fail.
-        
         
         ### Returns:
         Return the delta between the new and previous clip's position."""
@@ -19181,10 +17789,8 @@ class FBStoryGroupClip(FBComponent):
         
         Move the clip to the specified time.
         ### Parameters:
-        
             - Time: Time where to put the clip.
             - Force: Force clip to find the nearest position if the move fail.
-        
         
         ### Returns:
         Returns the new clip's time position."""
@@ -19194,12 +17800,10 @@ class FBStoryGroupClip(FBComponent):
         
         Cut (razor) the clip at the specified time.
         ### Parameters:
-        
             - Time: Time where to cut. This time is local to the track, not to the clip."""
         ...
     def __init__(self,AffectedClipObject:list[FBStoryClip]):
         """### Parameters:
-        
             - AffectedClipObject: Clips that will be controlled by the group clip."""
         ...
 class FBStoryTrack(FBConstraint):
@@ -19281,12 +17885,10 @@ class FBStoryTrack(FBConstraint):
         
         This method will always connect the created clip to the current take.
         ### Parameters:
-        
             - TimeSpan: Time span for the clip to create.
             - Take: Take to get the animation from.
             - OutputOffset: Time offset for the clip if necessary.
             - MakeUndoable: If the operation should be undoable.
-        
         
         ### Returns:
         Created story clip if the operation succeeded, NULL otherwise."""
@@ -19296,13 +17898,11 @@ class FBStoryTrack(FBConstraint):
         """CopyTakeIntoTrack Copy animation from the specified take for affected objects of the track.
         
         ### Parameters:
-        
             - TimeSpan: Time span for the clip to create.
             - Take: Take to get the animation from.
             - ConnectToCurrentTake: True to connect the created clip to the current take, false otherwise.
             - OutputOffset: Time offset for the clip if necessary.
             - MakeUndoable: If the operation should be undoable.
-        
         
         ### Returns:
         Created story clip if the operation succeeded, NULL otherwise."""
@@ -19311,10 +17911,8 @@ class FBStoryTrack(FBConstraint):
         """Create a sub track, Only Character and Animation tracks can have sub-tracks.
         
         ### Parameters:
-        
             - TrackType: Type of the sub track to be created.
             - RefMode: Composition mode of the sub track, kFBStoryTrackOverride or kFBStoryTrackAdditive.
-        
         
         ### Returns:
         Created sub story track if the operation succeeded otherwise NULL."""
@@ -19323,7 +17921,6 @@ class FBStoryTrack(FBConstraint):
         """EnableBodyPart.
         
         ### Parameters:
-        
             - Part: Which part to enable/disable.
             - Enable: If True, this will enable the body part solving while false will disable it. Enable a specific body part for character solving."""
         ...
@@ -19343,9 +17940,7 @@ class FBStoryTrack(FBConstraint):
         
         This undoable operation will overwrite the Camera Switcher of Take.
         ### Parameters:
-        
             - Take: Take to plot the Shot Track to the Camera Switcher to.
-        
         
         ### Returns:
         True if the operation is successful, false otherwise. 
@@ -19355,14 +17950,12 @@ class FBStoryTrack(FBConstraint):
     @overload
     def __init__(self,TrackType:FBStoryTrackType,Folder:FBStoryFolder|None=None):
         """### Parameters:
-        
             - TrackType: Type of the track to be created.
             - Folder: If NULL, parent will be the global root folder."""
         ...
     @overload
     def __init__(self,Source:FBComponent,Folder:FBStoryFolder|None=None):
         """### Parameters:
-        
             - Source: Source of the track to be created based on media component type.
             - Folder: If NULL, parent will be the global root folder."""
         ...
@@ -19376,10 +17969,8 @@ class FBStringList():
         """Add a string to the list.
         
         ### Parameters:
-        
             - S: String to add to list.
             - Ref: Reference to store with string (default = 0)
-        
         
         ### Returns:
         Index where item was stored."""
@@ -19388,9 +17979,7 @@ class FBStringList():
         """Get as string.
         
         ### Parameters:
-        
             - Separator: the string list separator.
-        
         
         ### Returns:
         String list."""
@@ -19403,9 +17992,7 @@ class FBStringList():
         """Find the index where pRef is stored.
         
         ### Parameters:
-        
             - Ref: Reference to look for.
-        
         
         ### Returns:
         Index at which pRef can be found."""
@@ -19415,11 +18002,9 @@ class FBStringList():
         """Find the index with the string pString (or start with pString)
         
         ### Parameters:
-        
             - String: String to search for.
             - CaseSensitive: true if considering case.
             - StartWith: true if to find the index of the string which start with pString.
-        
         
         ### Returns:
         Index where S is stored."""
@@ -19428,9 +18013,7 @@ class FBStringList():
         """Get the string at pIndex.
         
         ### Parameters:
-        
             - Index: Index to get string at.
-        
         
         ### Returns:
         String at pIndex."""
@@ -19439,9 +18022,7 @@ class FBStringList():
         """Get the reference store with the string at pIndex.
         
         ### Parameters:
-        
             - Index: Index to get reference at.
-        
         
         ### Returns:
         Reference stored with value at pIndex."""
@@ -19450,9 +18031,7 @@ class FBStringList():
         """Get the index of a string.
         
         ### Parameters:
-        
             - S: String to look for.
-        
         
         ### Returns:
         Index where string S was found."""
@@ -19461,7 +18040,6 @@ class FBStringList():
         """Insert an entry at pIndex.
         
         ### Parameters:
-        
             - Index: Index where item is to be inserted.
             - S: String to insert.
             - Ref: Reference to store with string(default=0)."""
@@ -19470,9 +18048,7 @@ class FBStringList():
         """Remove a string from the list.
         
         ### Parameters:
-        
             - S: String to remove from the list.
-        
         
         ### Returns:
         Index where item was found."""
@@ -19481,14 +18057,12 @@ class FBStringList():
         """Remove an entry at pIndex.
         
         ### Parameters:
-        
             - Index: Index where item is to be removed from."""
         ...
     def SetAt(self,Index:int,String:str)->bool:
         """Set the string at pIndex.
         
         ### Parameters:
-        
             - Index: Index where string is to be set.
             - String: String to set value at **pIndex** with."""
         ...
@@ -19496,7 +18070,6 @@ class FBStringList():
         """Set the reference stored with the string at pIndex.
         
         ### Parameters:
-        
             - Index: Index to store reference at.
             - Ref: Reference to store at **pIndex**."""
         ...
@@ -19504,7 +18077,6 @@ class FBStringList():
         """Set string for list.
         
         ### Parameters:
-        
             - String: String to set for list.
             - Separator: the string list separator."""
         ...
@@ -19517,7 +18089,6 @@ class FBStringList():
     @overload
     def __init__(self,String:str,Separator:str='~'):
         """### Parameters:
-        
             - String: String to set for list.
             - Separator: the string list separator."""
         ...
@@ -19689,9 +18260,7 @@ class FBSystem(FBComponent):
         """Return the full path.
         
         ### Parameters:
-        
             - RelativeFilePath: The relative file path
-        
         
         ### Returns:
         Full file path based on combining the current directory"""
@@ -19705,7 +18274,6 @@ class FBPatch(FBSurface):
     """Read Write Property: Patch mode for V direction."""
     def __init__(self,Name:str):
         """### Parameters:
-        
             - Name: Name of Patch."""
         ...
 class FBNurbs(FBSurface):
@@ -19722,7 +18290,6 @@ class FBNurbs(FBSurface):
         """Get knot vector value of control point.
         
         ### Parameters:
-        
             - UorV: **1** if V knot vector, **0** if U knot vector.
             - Index: Index of control point to set knot value for."""
         ...
@@ -19730,7 +18297,6 @@ class FBNurbs(FBSurface):
         """Get multiplicity (number of "instances") of control point.
         
         ### Parameters:
-        
             - UorV: **1** if V multiplicity, **0** if U multlipicity.
             - Index: Index of control point to get multiplicity for."""
         ...
@@ -19738,9 +18304,7 @@ class FBNurbs(FBSurface):
         """Get weight of control point.
         
         ### Parameters:
-        
             - Index: Index of control point to get weight from.
-        
         
         ### Returns:
         Weight of control point at index pIndex."""
@@ -19749,9 +18313,7 @@ class FBNurbs(FBSurface):
         """Number of knot vectors.
         
         ### Parameters:
-        
             - UorV: **1** if V knot vector, **0** if U knot vector.
-        
         
         ### Returns:
         Number of knot vectors on NURBS surface"""
@@ -19760,7 +18322,6 @@ class FBNurbs(FBSurface):
         """Set knot vector value of control point.
         
         ### Parameters:
-        
             - UorV: **1** if V knot vector, **0** if U knot vector.
             - Index: Index of control point to set knot value for.
             - KnotValue: Knot value for control point at pIndex."""
@@ -19769,7 +18330,6 @@ class FBNurbs(FBSurface):
         """Set multiplicity (number of "instances") of control point.
         
         ### Parameters:
-        
             - UorV: **1** if V multiplicity, **0** if U multlipicity.
             - Index: Index of control point to set multiplicity for.
             - Multiplicity: Multiplicity value for control point at pIndex."""
@@ -19778,13 +18338,11 @@ class FBNurbs(FBSurface):
         """Set weight of control point.
         
         ### Parameters:
-        
             - Index: Index of control point to set weight at.
             - Weight: Weight of control point."""
         ...
     def __init__(self,Name:str):
         """### Parameters:
-        
             - Name: Name of Nurbs."""
         ...
 class FBTexture(FBBox):
@@ -19824,7 +18382,6 @@ class FBTexture(FBBox):
     def __copy__(self)->object:...
     def __init__(self,Name:str):
         """### Parameters:
-        
             - Name: Name of the texture media. If pName is a valid path, [FBTexture](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_texture.html "See samples: HUDElements.py, MaterialAndTexture.py, TextureAnimation.py, VideoInput....") will create a [FBVideo](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_video.html "Video media class.") object which is used in the Video property; else just a ordinary name."""
         ...
 class FBLayeredTexture(FBTexture):
@@ -19842,7 +18399,6 @@ class FBLayeredTexture(FBTexture):
         ...
     def __init__(self,Name:str):
         """### Parameters:
-        
             - Name: Name of texture media. Can be a NULL pointer. If set, this will create a [FBVideo](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_video.html "Video media class.") object used as the Video property."""
         ...
 class FBTime():
@@ -19881,9 +18437,7 @@ class FBTime():
         
         With this function, it is possible to obtain the cumulative and local frame counts.
         ### Parameters:
-        
             - TimeMode: Time mode to get the constant (default is kFBTimeModeDefault).
-        
         
         ### Returns:
         Frames per second constant for the specified time mode."""
@@ -19904,10 +18458,8 @@ class FBTime():
         """Get time as a string.
         
         ### Parameters:
-        
             - Mode: Time mode (default=kFBTimeModeDefault) to use (call [FBSystem()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/class_f_b_system.html "Provides access to the underlying system, and the MotionBuilder scene.").GetTransportFps() to the the current UI displayed mode).
             - Format: Format to use for the returned string(default=FBTime::eDefaultFormat).
-        
         
         ### Returns:
         String value of time."""
@@ -19916,14 +18468,12 @@ class FBTime():
         """Set time value from a long.
         
         ### Parameters:
-        
             - Time: Time value to set."""
         ...
     def SetFrame(self,Frames:int,TimeMode:FBTimeMode=FBTimeMode.kFBTimeModeDefault):
         """Set time in frame format.
         
         ### Parameters:
-        
             - Frames: The number of frames.
             - TimeMode: The time mode identifier which will dictate the extraction algorithm."""
         ...
@@ -19931,21 +18481,18 @@ class FBTime():
         """Set milliseconds time.
         
         ### Parameters:
-        
             - MilliSeconds: MilliSeconds value."""
         ...
     def SetSecondDouble(self,Time:float):
         """Set seconds from double.
         
         ### Parameters:
-        
             - Time: Time to set seconds from."""
         ...
     def SetTime(self,Hour:int,Minute:int=0,Second:int=0,Frame:int=0,Field:int=0,TimeMode:FBTimeMode=FBTimeMode.kFBTimeModeDefault):
         """Set time (from separate values)
         
         ### Parameters:
-        
             - Hour: Hour value.
             - Minute: Minute value(default=0).
             - Second: Second value(default=0).
@@ -19957,7 +18504,6 @@ class FBTime():
         """Set time from string.
         
         ### Parameters:
-        
             - Time: String to set time from."""
         ...
     @overload
@@ -19969,7 +18515,6 @@ class FBTime():
     @overload
     def __init__(self,Hour:int,Minute:int,Second:int=0,Frame:int=0,Field:int=0,TimeMode:FBTimeMode=FBTimeMode.kFBTimeModeDefault):
         """### Parameters:
-        
             - Hour: Hour value.
             - Minute: Minute value.
             - Second: Second value.
@@ -20035,9 +18580,7 @@ class FBTimeCode():
         """Get time as a string.
         
         ### Parameters:
-        
             - Format: Format to use for the returned string(default=FBTime::eDefaultFormat).
-        
         
         ### Returns:
         String value of time."""
@@ -20046,14 +18589,12 @@ class FBTimeCode():
         """Set TimeCode according to the given time.
         
         ### Parameters:
-        
             - Time: Time value to set."""
         ...
     def SetTimeCode(self,Hour:int,Minute:int=0,Second:int=0,Frame:float=0):
         """Set timecode.
         
         ### Parameters:
-        
             - Hour: Hour value.
             - Minute: Minute value.
             - Second: Second value.
@@ -20063,7 +18604,6 @@ class FBTimeCode():
         """Set time from string.
         
         ### Parameters:
-        
             - Time: String to set time from.
             - Format: Format to use for the string(default=FBTime::eDefaultFormat)."""
         ...
@@ -20072,7 +18612,6 @@ class FBTimeCode():
     @overload
     def __init__(self,Rate:float=FRAMES_30):
         """### Parameters:
-        
             - Rate: Framerate value."""
         ...
     @overload
@@ -20121,10 +18660,8 @@ class FBTake(FBComponent):
         
         It doesn't allow creating a time mark at the same time of another time mark. Note: Internally, the time marks are stored in time order. Adding a time mark before other existing time marks will modify the index of these other time marks.
         ### Parameters:
-        
             - Time: Time where to add the time mark on the take.
             - Name: Name of the time mark to add.
-        
         
         ### Returns:
         The index of the time mark added if the operation is successful, -1 otherwise."""
@@ -20133,7 +18670,6 @@ class FBTake(FBComponent):
         """Clear the animation on all the properties.
         
         ### Parameters:
-        
             - OnSelectedObjectsOnly: Specify if clear will be performed on all objects or only on the one that are currently selected.
             - OnLockedProperties: Specify if clear will be performed on locked properties as well."""
         ...
@@ -20145,9 +18681,7 @@ class FBTake(FBComponent):
         
         Will create a copy of the current take, with the current take data. This is analogous to creating a new take, and copying the current take data into it. The Layers data and the TimeWarp date will be copied. The newly created take will be set as the current take. The newly created take is automatically added to the scene and available in the Transport control.
         ### Parameters:
-        
             - NewTakeName: The name for the new take.
-        
         
         ### Returns:
         Handle to the newly created take."""
@@ -20162,13 +18696,11 @@ class FBTake(FBComponent):
         """Delete animation (FCurve keys) of this take object within a time range.
         
         ### Parameters:
-        
             - StartTime: Start of time range.
             - StopTime: End of time range.
             - Inclusive: True to include within the time range the keys at pStartTime and pStopTime, false otherwise.
             - LayerID: The animation layer ID being affected by the delete operation, -1 to delete the animation of all animations layers.
             - OnLockedProperties: True to delete animation on locked properties, false to skip deleting animation on locked properties.
-        
         
         ### Returns:
         True if the delete operation is successful (at least one FCurve has been modified), false otherwise (e.g. no keys found within the time range, invalid layer ID, etc.)."""
@@ -20177,14 +18709,12 @@ class FBTake(FBComponent):
         """Delete animation (FCurve keys) of this take object on given objects within a time range.
         
         ### Parameters:
-        
             - Objects: Objects affected by the delete operation.
             - StartTime: Start of time range.
             - StopTime: End of time range.
             - Inclusive: True to include within the time range the keys at pStartTime and pStopTime, false otherwise.
             - LayerID: The animation layer ID being affected by the delete operation, -1 to delete the animation of all animations layers.
             - OnLockedProperties: True to delete animation on locked properties, false to skip deleting animation on locked properties.
-        
         
         ### Returns:
         True if the delete operation is successful (at least one FCurve has been modified), false otherwise (e.g. no keys found within the time range, invalid layer ID, etc.)."""
@@ -20193,7 +18723,6 @@ class FBTake(FBComponent):
         """Delete animation (FCurve keys) of this take object on given properties within a time range.
         
         ### Parameters:
-        
             - Properties: Properties affected by the delete operation.
             - StartTime: Start of time range.
             - StopTime: End of time range.
@@ -20201,7 +18730,6 @@ class FBTake(FBComponent):
             - LayerID: The animation layer ID being affected by the delete operation, -1 to delete the animation of all animations layers.
             - OnLockedProperties: True to delete animation on locked properties, false to skip deleting animation on locked properties.
             - PropertyComponents: The component bit field considered when performing the delete operation, for properties having such components. By default, all components are considered. If a property don't have any component, this parameter is not affecting that property.
-        
         
         ### Returns:
         True if the delete operation is successful (at least one FCurve has been modified), false otherwise (e.g. no keys found within the time range, invalid layer ID, etc.)."""
@@ -20211,9 +18739,7 @@ class FBTake(FBComponent):
         
         Note: Internally, the time marks are stored in time order. Deleting a time mark will modify the index of time marks laying after the deleted time mark.
         ### Parameters:
-        
             - Index: Index of the time mark to delete.
-        
         
         ### Returns:
         True if the operation is successful, false otherwise."""
@@ -20233,9 +18759,7 @@ class FBTake(FBComponent):
         """Get the layer object that have the specified ID.
         
         ### Parameters:
-        
             - LayerIndex: The index of the layer that will be returned.
-        
         
         ### Returns:
         Layer with the specified ID."""
@@ -20244,9 +18768,7 @@ class FBTake(FBComponent):
         """Get the layer object that have the specified name.
         
         ### Parameters:
-        
             - Name: The name of the animation layer to get.
-        
         
         ### Returns:
         Layer with the specified name or NULL if no layer has been found."""
@@ -20280,9 +18802,7 @@ class FBTake(FBComponent):
         """Returns the action associated with a time mark.
         
         ### Parameters:
-        
             - Index: Index of the time mark.
-        
         
         ### Returns:
         The action associated with the time mark."""
@@ -20291,9 +18811,7 @@ class FBTake(FBComponent):
         """Returns the color associated with a time mark.
         
         ### Parameters:
-        
             - Index: Index of the time mark.
-        
         
         ### Returns:
         The color associated with the time mark."""
@@ -20308,9 +18826,7 @@ class FBTake(FBComponent):
         """Returns the name associated with a time mark.
         
         ### Parameters:
-        
             - Index: Index of the time mark.
-        
         
         ### Returns:
         The name associated with the time mark."""
@@ -20319,9 +18835,7 @@ class FBTake(FBComponent):
         """Returns the time associated with a time mark.
         
         ### Parameters:
-        
             - Index: Index of the time mark.
-        
         
         ### Returns:
         The time associated with the time mark."""
@@ -20331,7 +18845,6 @@ class FBTake(FBComponent):
         
         This is equivalent of pressing the merge button in the Animation Layer editor.
         ### Parameters:
-        
             - MergeOptions: Indicate which objects, layers and properties (selected or all) should be merged.
             - DeleteMergedLayers: The source layer will be deleted after the merge if no animation is left on those layers, or if those layers are not parent of another layer.
             - MergeMode: Set the layer mode of the resulting layer, if possible (the BaseAnimation layer cannot be modified).
@@ -20356,14 +18869,12 @@ class FBTake(FBComponent):
         
         Non-moving FCurve keys that are situated in the target range are deleted automatically, to preserve the animation being offset.
         ### Parameters:
-        
             - OffsetTime: The offset time to apply.
             - StartTime: Start of time range.
             - StopTime: End of time range.
             - Inclusive: True to include within the time range the keys at pStartTime and pStopTime, false otherwise.
             - LayerID: The animation layer ID being affected by the offset operation, -1 to offset the animation of all animations layers.
             - OnLockedProperties: True to offset animation on locked properties, false to skip offsetting animation on locked properties.
-        
         
         ### Returns:
         True if the offset operation is successful (at least one FCurve has been modified), false otherwise (e.g. no keys found within the time range, invalid layer ID, etc.)."""
@@ -20373,7 +18884,6 @@ class FBTake(FBComponent):
         
         Non-moving FCurve keys that are situated in the target range are deleted automatically, to preserve the animation being offset.
         ### Parameters:
-        
             - Objects: Objects affected by the offset operation.
             - OffsetTime: The offset time to apply.
             - StartTime: Start of time range.
@@ -20381,7 +18891,6 @@ class FBTake(FBComponent):
             - Inclusive: True to include within the time range the keys at pStartTime and pStopTime, false otherwise.
             - LayerID: The animation layer ID being affected by the offset operation, -1 to offset the animation of all animations layers.
             - OnLockedProperties: True to offset animation on locked properties, false to skip offsetting animation on locked properties.
-        
         
         ### Returns:
         True if the offset operation is successful (at least one FCurve has been modified), false otherwise (e.g. no keys found within the time range, invalid layer ID, etc.)."""
@@ -20391,7 +18900,6 @@ class FBTake(FBComponent):
         
         Non-moving FCurve keys that are situated in the target range are deleted automatically, to preserve the animation being offset.
         ### Parameters:
-        
             - Properties: Properties affected by the offset operation.
             - OffsetTime: The offset time to apply.
             - StartTime: Start of time range.
@@ -20401,7 +18909,6 @@ class FBTake(FBComponent):
             - OnLockedProperties: True to offset animation on locked properties, false to skip offsetting animation on locked properties.
             - PropertyComponents: The component bit field considered when performing the offset operation, for properties having such components. By default, all components are considered. If a property don't have any component, this parameter is not affecting that property.
         
-        
         ### Returns:
         True if the offset operation is successful (at least one FCurve has been modified), false otherwise (e.g. no keys found within the time range, invalid layer ID, etc.)."""
         ...
@@ -20410,7 +18917,6 @@ class FBTake(FBComponent):
         
         This method will plot the animation of all takes to the specified objects. Although the method supports boxes, the most common use case it to specify FBModels that have been cast to boxes.
         ### Parameters:
-        
             - PlotPeriod: Period for the plot.
             - ObjectsToPlot: Objects to plot."""
         ...
@@ -20419,7 +18925,6 @@ class FBTake(FBComponent):
         
         Will plot the animation for all takes on the given properties in the scene.
         ### Parameters:
-        
             - PlotPeriod: Period for the plot.
             - PropertiesToPlot: Properties to plot."""
         ...
@@ -20428,7 +18933,6 @@ class FBTake(FBComponent):
         
         Will plot the animation for all takes on the selected models in the scene.
         ### Parameters:
-        
             - PlotPeriod: Period for the plot."""
         ...
     def PlotAllTakesOnSelectedProperties(self,PlotPeriod:FBTime):
@@ -20436,7 +18940,6 @@ class FBTake(FBComponent):
         
         Will plot the animation for all takes on the selected properties in the scene.
         ### Parameters:
-        
             - PlotPeriod: Period for the plot."""
         ...
     @overload
@@ -20445,7 +18948,6 @@ class FBTake(FBComponent):
         
         This method will plot the animation of the take to the specified objects. Although the method supports boxes, the most common use case it to specify FBModels that have been cast to boxes.
         ### Parameters:
-        
             - PlotPeriod: Period for the plot.
             - ObjectsToPlot: Objects to plot."""
         ...
@@ -20455,7 +18957,6 @@ class FBTake(FBComponent):
         
         This method will plot the animation of the take to the specified objects. Although the method supports boxes, the most common use case it to specify FBModels that have been cast to boxes.
         ### Parameters:
-        
             - PlotOptions: Option parameters for plotting
             - ObjectsToPlot: Objects to plot."""
         ...
@@ -20465,7 +18966,6 @@ class FBTake(FBComponent):
         
         Will plot the animation of the take in question on the given properties in the scene.
         ### Parameters:
-        
             - PlotPeriod: Period for the plot.
             - PropertiesToPlot: Properties to plot."""
         ...
@@ -20475,7 +18975,6 @@ class FBTake(FBComponent):
         
         Will plot the animation of the take in question on the given properties in the scene.
         ### Parameters:
-        
             - PlotOptions: Option parameters for plotting.
             - PropertiesToPlot: Properties to plot."""
         ...
@@ -20485,7 +18984,6 @@ class FBTake(FBComponent):
         
         Will plot the animation of the take in question on the selected models in the scene.
         ### Parameters:
-        
             - PlotPeriod: Period for the plot."""
         ...
     @overload
@@ -20494,7 +18992,6 @@ class FBTake(FBComponent):
         
         Will plot the animation of the take in question on the selected models in the scene.
         ### Parameters:
-        
             - PlotOptions: Option parameters for plotting"""
         ...
     @overload
@@ -20503,7 +19000,6 @@ class FBTake(FBComponent):
         
         Will plot the animation of the take in question on the selected properties in the scene.
         ### Parameters:
-        
             - PlotPeriod: Period for the plot."""
         ...
     @overload
@@ -20512,14 +19008,12 @@ class FBTake(FBComponent):
         
         Will plot the animation of the take in question on the selected properties in the scene.
         ### Parameters:
-        
             - PlotOptions: Option parameters for plotting"""
         ...
     def RemoveLayer(self,LayerIndex:int):
         """Remove a layer.
         
         ### Parameters:
-        
             - LayerIndex: Layer with at the specified index will be removed."""
         ...
     def SetCurrentLayer(self,LayerIndex:int):
@@ -20527,7 +19021,6 @@ class FBTake(FBComponent):
         
         Note that this will not deselect the other layers.
         ### Parameters:
-        
             - LayerIndex: The layer index to be set as the current one."""
         ...
     def SetLayerRealSelection(self,Value:bool):
@@ -20535,17 +19028,14 @@ class FBTake(FBComponent):
         
         This method is used to specify if using the SelectLayer method of the [FBAnimationLayer](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_animation_layer.html "Used to access animation layer properties and modify them.") object will also select the [FBComponent](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html "MotionBuilder SDK base class.") object. In previous version of MotionBuilder, an animation layer was always selected, causing the layer to be displayed in the property editor. Also, when parsing the selected objects in the SDK, a layer would always be there. Setting this value to false will prevent this.
         ### Parameters:
-        
             - Value: True if future layer selection will also select the [FBComponent](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html "MotionBuilder SDK base class.") object."""
         ...
     def SetTimeMarkAction(self,Index:int,Action:FBTimeMarkAction)->bool:
         """Sets a new action for an existing time mark.
         
         ### Parameters:
-        
             - Index: Index of the time mark.
             - Action: The new action for the time mark.
-        
         
         ### Returns:
         True if the operation is successful, false otherwise."""
@@ -20554,10 +19044,8 @@ class FBTake(FBComponent):
         """Sets a new color for an existing time mark.
         
         ### Parameters:
-        
             - Index: Index of the time mark.
             - Color: The new color for the time mark.
-        
         
         ### Returns:
         True if the operation is successful, false otherwise."""
@@ -20566,10 +19054,8 @@ class FBTake(FBComponent):
         """Sets a new name for an existing time mark.
         
         ### Parameters:
-        
             - Index: Index of the time mark.
             - Name: The new name for the time mark.
-        
         
         ### Returns:
         True if the operation is successful, false otherwise."""
@@ -20579,17 +19065,14 @@ class FBTake(FBComponent):
         
         Note: Internally, the time marks are stored in time order. Modifying the time of a time mark may modify the index of all time marks.
         ### Parameters:
-        
             - Index: Index of the time mark.
             - Time: The new time for the time mark.
-        
         
         ### Returns:
         The new index of the modified time mark."""
         ...
     def __init__(self,Name:str):
         """### Parameters:
-        
             - Name: Name of take."""
         ...
 class FBFCurve(FBComponent):
@@ -20604,14 +19087,12 @@ class FBFCurve(FBComponent):
         """Create and interpolator curve.
         
         ### Parameters:
-        
             - CurveType: Interpolator curve type to create."""
         ...
     def EditBegin(self,KeyCount:int=-1):
         """Setup function to begin adding keys.
         
         ### Parameters:
-        
             - KeyCount: Key to begin adding at(default is -1)."""
         ...
     def EditClear(self):
@@ -20621,16 +19102,13 @@ class FBFCurve(FBComponent):
         """End key adding sequence.
         
         ### Parameters:
-        
             - KeyCount: Key to finish adding at (default is -1)."""
         ...
     def Evaluate(self,Time:FBTime)->float:
         """Evaluate FCurve at pTime.
         
         ### Parameters:
-        
             - Time: Time at which FCurve is to be evaluated.
-        
         
         ### Returns:
         Value of FCurve at pTime."""
@@ -20651,12 +19129,10 @@ class FBFCurve(FBComponent):
         """Add a key at the specified time.
         
         ### Parameters:
-        
             - Time: Time at which to insert the key.
             - Value: Value of the key.
             - Interpolation: Interpolation type of the inserted key, default value is Cubic interpolation.
             - TangentMode: Tangent calculation method of the inserted key, default value is Auto (Smooth).
-        
         
         ### Returns:
         The position of the new key in the list of FCurve keys."""
@@ -20667,10 +19143,8 @@ class FBFCurve(FBComponent):
         
         This function is much faster than multiple removes.
         ### Parameters:
-        
             - StartIndex: Index of first deleted key.
             - StopIndex: Index of last deleted key.
-        
         
         ### Returns:
         True if the delete operation is successful, false otherwise (e.g. the FCurve is locked, the index range is invalid, etc.)."""
@@ -20681,11 +19155,9 @@ class FBFCurve(FBComponent):
         
         This function is much faster than multiple removes.
         ### Parameters:
-        
             - Start: Start of time range.
             - Stop: End of time range.
             - Inclusive: True to include within the time range the keys at pStartTime and pStopTime, false otherwise.
-        
         
         ### Returns:
         True if the delete operation is successful, false otherwise (e.g. the FCurve is locked, no keys found within the time range, etc.)."""
@@ -20696,9 +19168,7 @@ class FBFCurve(FBComponent):
         """Get the key interpolation type at the specified index.
         
         ### Parameters:
-        
             - Index: Index of the key to query.
-        
         
         ### Returns:
         Type of interpolation."""
@@ -20707,9 +19177,7 @@ class FBFCurve(FBComponent):
         """Get the key left bezier tangent value at the specified index.
         
         ### Parameters:
-        
             - Index: Index of the key to query.
-        
         
         ### Returns:
         Left bezier tangent."""
@@ -20718,9 +19186,7 @@ class FBFCurve(FBComponent):
         """Get the key left derivative value at the specified index.
         
         ### Parameters:
-        
             - Index: Index of the key to query.
-        
         
         ### Returns:
         Left derivative value, in units/seconds."""
@@ -20729,9 +19195,7 @@ class FBFCurve(FBComponent):
         """Get the key left tangent weight at the specified index.
         
         ### Parameters:
-        
             - Index: Index of the key to query.
-        
         
         ### Returns:
         Left tangent weight."""
@@ -20740,9 +19204,7 @@ class FBFCurve(FBComponent):
         """Get the key manipulation state.
         
         ### Parameters:
-        
             - Index: Index of the key to query.
-        
         
         ### Returns:
         True if the key is being manipulated, false otherwise."""
@@ -20751,9 +19213,7 @@ class FBFCurve(FBComponent):
         """Get the key right bezier tangent value at the specified index.
         
         ### Parameters:
-        
             - Index: Index of the key to query.
-        
         
         ### Returns:
         Right bezier tangent."""
@@ -20762,9 +19222,7 @@ class FBFCurve(FBComponent):
         """Get the key right derivative value at the specified index.
         
         ### Parameters:
-        
             - Index: Index of the key to query.
-        
         
         ### Returns:
         Right derivative value, in units/seconds."""
@@ -20773,9 +19231,7 @@ class FBFCurve(FBComponent):
         """Get the key right tangent weight at the specified index.
         
         ### Parameters:
-        
             - Index: Index of the key to query.
-        
         
         ### Returns:
         Right tangent weight."""
@@ -20784,9 +19240,7 @@ class FBFCurve(FBComponent):
         """Get the key selected state.
         
         ### Parameters:
-        
             - Index: Index of the key to query.
-        
         
         ### Returns:
         True if the key is selected, false otherwise."""
@@ -20795,9 +19249,7 @@ class FBFCurve(FBComponent):
         """Get the key bias value at the specified index (TCB key).
         
         ### Parameters:
-        
             - Index: Index of the key to query.
-        
         
         ### Returns:
         Bias value."""
@@ -20806,9 +19258,7 @@ class FBFCurve(FBComponent):
         """Get the key continuity value at the specified index (TCB key).
         
         ### Parameters:
-        
             - Index: Index of the key to query.
-        
         
         ### Returns:
         Continuity value."""
@@ -20817,9 +19267,7 @@ class FBFCurve(FBComponent):
         """Get the key tension value at the specified index (TCB key).
         
         ### Parameters:
-        
             - Index: Index of the key to query.
-        
         
         ### Returns:
         Tension value."""
@@ -20828,9 +19276,7 @@ class FBFCurve(FBComponent):
         """Get the key tangent's break status at the specified index.
         
         ### Parameters:
-        
             - Index: Index of the key to query.
-        
         
         ### Returns:
         Tangent's break status."""
@@ -20839,9 +19285,7 @@ class FBFCurve(FBComponent):
         """Get the key tangent's clamp method at the specified index.
         
         ### Parameters:
-        
             - Index: Index of the key to query.
-        
         
         ### Returns:
         Tangent's clamp method."""
@@ -20850,9 +19294,7 @@ class FBFCurve(FBComponent):
         """Get the key tangent's constant mode at the specified index.
         
         ### Parameters:
-        
             - Index: Index of the key to query.
-        
         
         ### Returns:
         Tangent's constant mode."""
@@ -20861,9 +19303,7 @@ class FBFCurve(FBComponent):
         """Get the key tangent's custom index at the specified index.
         
         ### Parameters:
-        
             - Index: Index of the key to query.
-        
         
         ### Returns:
         Tangent's custom index."""
@@ -20872,9 +19312,7 @@ class FBFCurve(FBComponent):
         """Get the key tangent mode at the specified index.
         
         ### Parameters:
-        
             - Index: Index of the key to query.
-        
         
         ### Returns:
         Tangent calculation method."""
@@ -20883,9 +19321,7 @@ class FBFCurve(FBComponent):
         """Get the tangent weight mode for a key.
         
         ### Parameters:
-        
             - Index: Index of the key to query.
-        
         
         ### Returns:
         Current weight mode."""
@@ -20894,9 +19330,7 @@ class FBFCurve(FBComponent):
         """Get the key time value at the specified index.
         
         ### Parameters:
-        
             - Index: Index of the key to query.
-        
         
         ### Returns:
         Time of key."""
@@ -20905,9 +19339,7 @@ class FBFCurve(FBComponent):
         """Get the key value at the specified index.
         
         ### Parameters:
-        
             - Index: Index of the key to query.
-        
         
         ### Returns:
         Value of the key."""
@@ -20916,7 +19348,6 @@ class FBFCurve(FBComponent):
         """Insert a key without affecting the curve shape.
         
         ### Parameters:
-        
             - Time: Time at which the key is to be inserted.
             - Interpolation: Interpolation type of the inserted key, default value is Cubic interpolation.
             - TangentMode: Tangent calculation method of the inserted key, default value is Auto (Smooth)."""
@@ -20927,11 +19358,9 @@ class FBFCurve(FBComponent):
         
         When offsetting many keys at once, all non-moving keys that are situated in the target range are deleted automatically, to preserve the animation being offset.
         ### Parameters:
-        
             - OffsetTime: The offset time to apply on keys.
             - StartIndex: Index of first key to be offset.
             - StopIndex: Index of last key to be offset.
-        
         
         ### Returns:
         True if the offset operation is successful, false otherwise (e.g. the FCurve is locked, the index range is invalid, etc.)."""
@@ -20942,12 +19371,10 @@ class FBFCurve(FBComponent):
         
         Non-moving keys that are situated in the target range are deleted automatically, to preserve the animation being offset.
         ### Parameters:
-        
             - OffsetTime: The offset time to apply on keys.
             - StartTime: Start of time range.
             - StopTime: End of time range.
             - Inclusive: True to include within the time range the keys at pStartTime and pStopTime, false otherwise.
-        
         
         ### Returns:
         True if the offset operation is successful, false otherwise (e.g. the FCurve is locked, no keys found within the time range, etc.)."""
@@ -20956,7 +19383,6 @@ class FBFCurve(FBComponent):
         """Replace keys within a range in current function curve with keys found in a source function curve.
         
         ### Parameters:
-        
             - Source: Source function curve.
             - Start: Start of time range.
             - Stop: End of time range.
@@ -20967,7 +19393,6 @@ class FBFCurve(FBComponent):
         """Set the key interpolation type at the specified index.
         
         ### Parameters:
-        
             - Index: Index of the key to set.
             - Value: Type of interpolation."""
         ...
@@ -20975,7 +19400,6 @@ class FBFCurve(FBComponent):
         """Set the key left bezier tangent value at the specified index.
         
         ### Parameters:
-        
             - Index: Index of the key to set.
             - Value: Left bezier tangent."""
         ...
@@ -20983,7 +19407,6 @@ class FBFCurve(FBComponent):
         """Set the key left derivative value at the specified index.
         
         ### Parameters:
-        
             - Index: Index of the key to set.
             - Value: Left derivative value, in units/seconds."""
         ...
@@ -20991,7 +19414,6 @@ class FBFCurve(FBComponent):
         """Set the key left tangent weight at the specified index.
         
         ### Parameters:
-        
             - Index: Index of the key to set.
             - Value: Left tangent weight."""
         ...
@@ -20999,10 +19421,8 @@ class FBFCurve(FBComponent):
         """Set the key manipulation state.
         
         ### Parameters:
-        
             - Index: Index of the key to set.
             - Value: New manipulation state.
-        
         
         ### Returns:
         True if the operation was successful, false otherwise."""
@@ -21011,7 +19431,6 @@ class FBFCurve(FBComponent):
         """Set the key right bezier tangent value at the specified index.
         
         ### Parameters:
-        
             - Index: Index of the key to set.
             - Value: Right bezier tangent."""
         ...
@@ -21019,7 +19438,6 @@ class FBFCurve(FBComponent):
         """Set the key right derivative value at the specified index.
         
         ### Parameters:
-        
             - Index: Index of the key to set.
             - Value: Right derivative value, in units/seconds."""
         ...
@@ -21027,7 +19445,6 @@ class FBFCurve(FBComponent):
         """Set the key right tangent weight at the specified index.
         
         ### Parameters:
-        
             - Index: Index of the key to set.
             - Value: Right tangent weight."""
         ...
@@ -21035,10 +19452,8 @@ class FBFCurve(FBComponent):
         """Set the key selected state.
         
         ### Parameters:
-        
             - Index: Index of the key to set.
             - Value: New selection state.
-        
         
         ### Returns:
         True if the operation was successful, false otherwise."""
@@ -21047,7 +19462,6 @@ class FBFCurve(FBComponent):
         """Set the key bias value at the specified index (TCB key).
         
         ### Parameters:
-        
             - Index: Index of the key to set.
             - Value: Bias value."""
         ...
@@ -21055,7 +19469,6 @@ class FBFCurve(FBComponent):
         """Set the key continuity value at the specified index (TCB key).
         
         ### Parameters:
-        
             - Index: Index of the key to set.
             - Value: Continuity value."""
         ...
@@ -21063,7 +19476,6 @@ class FBFCurve(FBComponent):
         """Set the key tension value at the specified index (TCB key).
         
         ### Parameters:
-        
             - Index: Index of the key to set.
             - Value: Tension value."""
         ...
@@ -21071,7 +19483,6 @@ class FBFCurve(FBComponent):
         """Set the key tangent's break status at the specified index.
         
         ### Parameters:
-        
             - Index: Index of the key to set.
             - Value: Tangent's break status."""
         ...
@@ -21079,7 +19490,6 @@ class FBFCurve(FBComponent):
         """Set the key tangent's clamp method at the specified index.
         
         ### Parameters:
-        
             - Index: Index of the key to set.
             - Value: Tangent's clamp method."""
         ...
@@ -21087,7 +19497,6 @@ class FBFCurve(FBComponent):
         """Set the key tangent's constant mode at the specified index.
         
         ### Parameters:
-        
             - Index: Index of the key to set.
             - Value: Tangent's constant mode."""
         ...
@@ -21095,7 +19504,6 @@ class FBFCurve(FBComponent):
         """Set the key tangent's custom index at the specified index.
         
         ### Parameters:
-        
             - Index: Index of the key to set.
             - Value: Tangent's custom index."""
         ...
@@ -21103,7 +19511,6 @@ class FBFCurve(FBComponent):
         """Set the key tangent mode at the specified index.
         
         ### Parameters:
-        
             - Index: Index of the key to set.
             - Value: Tangent calculation method."""
         ...
@@ -21112,7 +19519,6 @@ class FBFCurve(FBComponent):
         
         Setting the value for LeftTangentWeight/RightTangentWeight will also activate the weight for that part. Please see the note provided with [FBTangentWeightMode](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_tangent_weight_mode.html "Active tangent weight, no/one/both side are active on a key.") for the left weight of a key.
         ### Parameters:
-        
             - Index: Index of the key to set.
             - Value: Set the pValue according to the desired mode, kFBTangentWeightModeNone to disable it."""
         ...
@@ -21120,7 +19526,6 @@ class FBFCurve(FBComponent):
         """Set the key time value at the specified index.
         
         ### Parameters:
-        
             - Index: Index of the key to set.
             - Value: Time of key."""
         ...
@@ -21128,7 +19533,6 @@ class FBFCurve(FBComponent):
         """Set the key value at the specified index.
         
         ### Parameters:
-        
             - Index: Index of the key to set.
             - Value: Value of the key."""
         ...
@@ -21137,12 +19541,10 @@ class FBFCurve(FBComponent):
         
         The array size of pTimes and pValues must match. If pInterpolations and pTangentModes parameters are specified, their array sizes must also match the array size of pTimes. The value of each index of each input array will be used together to form a key data to add.
         ### Parameters:
-        
             - Times: Times at which to insert the keys.
             - Values: Values of the keys.
             - Interpolations: Interpolation types of the inserted keys, default value is Cubic interpolation for all the keys if this parameter is omitted.
             - TangentModes: Tangent calculation methods of the inserted keys, default value is Auto (Smooth) for all the keys if this parameter is omitted.
-        
         
         ### Returns:
         True if the operation is successful, false otherwise. 
@@ -21154,12 +19556,10 @@ class FBFCurve(FBComponent):
         
         The array size of pIndices and pValues must match. If pInterpolations and pTangentModes parameters are specified, their array sizes must also match the array size of pIndices. The value of each index of each input array (except for pIndices) will be used together to modify the key data of the key specified by the key index of pIndices.
         ### Parameters:
-        
             - Indices: Indices of existing keys to modify.
             - Values: New values of the keys to modify.
             - Interpolations: New interpolation types of the keys to modify if specified, otherwise the interpolation types are untouched.
             - TangentModes: New tangent calculation methods of the keys to modify if specified, otherwise the tangent calculation methods are untouched.
-        
         
         ### Returns:
         True if the operation is successful (at least one key is modified), false otherwise. 
@@ -21204,7 +19604,6 @@ class FBAnimationNode(FBComponent):
         
         (NOTE: Only used in the context of a story clip)
         ### Parameters:
-        
             - KeyTime: Time of the key to convert."""
         ...
     def ConvertNodeToGlobalTime(self,KeyTime:FBTime)->FBTime:
@@ -21212,7 +19611,6 @@ class FBAnimationNode(FBComponent):
         
         (NOTE: Only used in the context of a story clip)
         ### Parameters:
-        
             - KeyTime: Time of the key to convert."""
         ...
     def GetAnimationToPlay(self)->FBAnimationNode:
@@ -21247,7 +19645,6 @@ class FBAnimationNode(FBComponent):
         """Add a key to the animation node.
         
         ### Parameters:
-        
             - Time: Time to add key at.
             - Data: Value of data to add at **pTime**.
             - Interpolation: Interpolation type of the inserted key, default value is Cubic interpolation.
@@ -21258,7 +19655,6 @@ class FBAnimationNode(FBComponent):
         """Add a key to the animation node at current time.
         
         ### Parameters:
-        
             - Data: Value of data to add.
             - Interpolation: Interpolation type of the inserted key, default value is Cubic interpolation.
             - TangentMode: Tangent calculation method of the inserted key, default value is Auto (Smooth)."""
@@ -21271,7 +19667,6 @@ class FBAnimationNode(FBComponent):
         """Keys the current candidate values if no time is specified, at current time.
         
         ### Parameters:
-        
             - Time: Time at which to insert the key."""
         ...
     def KeyRemove(self):
@@ -21281,7 +19676,6 @@ class FBAnimationNode(FBComponent):
         """Remove key at the specified time.
         
         ### Parameters:
-        
             - Time: Time for the key"""
         ...
     @overload
@@ -21293,16 +19687,13 @@ class FBAnimationNode(FBComponent):
         """Set buffer type for ANIMATIONNODE\_TYPE\_LOCAL\_TRANSLATION, ANIMATIONNODE\_TYPE\_LOCAL\_ROTATION and ANIMATIONNODE\_TYPE\_LOCAL\_SCALE.
         
         ### Parameters:
-        
             - Global: Is buffer local or global."""
         ...
     def SetCandidate(self,Data:list,CheckLocked:bool=False)->bool:
         """Set the current candidate values for current time.
         
         ### Parameters:
-        
             - CheckLocked: Decides whether to check the locked status.
-        
         
         ### Returns:
         true if successful."""
@@ -21311,17 +19702,14 @@ class FBAnimationNode(FBComponent):
         """Write data to animation node.
         
         ### Parameters:
-        
             - Data: Data to write to animation node.
             - EvaluateInfo: Node evaluation information (access to system and local time).
-        
         
         ### Returns:
         true if successful."""
         ...
     def __init__(self,Name:str):
         """### Parameters:
-        
             - Name: Name of animation node (default is NULL)."""
         ...
 class FBTimeSpan():
@@ -21356,13 +19744,11 @@ class FBTimeSpan():
         """Set the TimeSpan.
         
         ### Parameters:
-        
             - Start: Start time.
             - Stop: Stop time."""
         ...
     def __init__(self,Start:FBTime|None=None,Stop:FBTime|None=None):
         """### Parameters:
-        
             - Start: Start time(default=0).
             - Stop: Stop time(default=0)."""
         ...
@@ -21376,11 +19762,9 @@ class FBTimeWarpManager(FBComponent):
         """Apply the TimeWarp in a Take to an evaluation property, just connect the storing property for the TimeWarp to the evaluation property.
         
         ### Parameters:
-        
             - Take: The Take where the TimeWarp in.
             - EvalProp: The evaluation property to be applied on.
             - TimeWarp: The TimeWarp to apply.
-        
         
         ### Returns:
         True if apply successfully."""
@@ -21390,9 +19774,7 @@ class FBTimeWarpManager(FBComponent):
         """Find the Nick Number of one timewarp globally.
         
         ### Parameters:
-        
             - TimeWarp: The TimeWarp queried.
-        
         
         ### Returns:
         the Nick Number of the timewarp."""
@@ -21401,10 +19783,8 @@ class FBTimeWarpManager(FBComponent):
         """Get the TimeWarp in a Take At specific Index.
         
         ### Parameters:
-        
             - Take: The Take queried.
             - Index: The index of the TimeWarp.
-        
         
         ### Returns:
         TimeWarp at specific Index in a Take."""
@@ -21413,9 +19793,7 @@ class FBTimeWarpManager(FBComponent):
         """Get the count of TimeWarp in a Take.
         
         ### Parameters:
-        
             - Take: The Take queried.
-        
         
         ### Returns:
         the TimeWarp count."""
@@ -21424,10 +19802,8 @@ class FBTimeWarpManager(FBComponent):
         """Get the timeWarp of specific Nick Number in a Take.
         
         ### Parameters:
-        
             - Take: The Take queried.
             - Number: the Nick Number of one TimeWarp.
-        
         
         ### Returns:
         the TimeWarp of specific Nick Number."""
@@ -21436,10 +19812,8 @@ class FBTimeWarpManager(FBComponent):
         """Get the Nick Number of one TimeWarp in a Take.
         
         ### Parameters:
-        
             - Take: The Take queried.
             - TimeWarp: The TimeWarp queried.
-        
         
         ### Returns:
         the Nick Number of one TimeWarp."""
@@ -21448,10 +19822,8 @@ class FBTimeWarpManager(FBComponent):
         """Get the Nick Number of one TimeWarp At specific index in a Take.
         
         ### Parameters:
-        
             - Take: The Take queried.
             - Index: The index a TimeWarp at.
-        
         
         ### Returns:
         the Nick Number of one TimeWarp At specific index."""
@@ -21460,7 +19832,6 @@ class FBTimeWarpManager(FBComponent):
         """Undo apply a timeWarp in a Take to an evaluation property, just disconnect the evaluation property from storing property.
         
         ### Parameters:
-        
             - Take: The Take where the TimeWarp evaluation property connected is in.
             - EvalProp: The evaluation property connected a TimeWarp in the storing property of one take."""
         ...
@@ -21472,7 +19843,6 @@ class FBTimeWarpManager(FBComponent):
         
         Any locked properties affected by this TimeWarp will be modified as well.
         ### Parameters:
-        
             - Take: The Take where the TimeWarp is in.
             - TimeWarp: The TimeWarp to be removed and deleted."""
         ...
@@ -21480,11 +19850,9 @@ class FBTimeWarpManager(FBComponent):
         """Set the Nick Number of one TimeWarp in a Take.
         
         ### Parameters:
-        
             - Take: The Take specific.
             - TimeWarp: The TimeWarp specific.
             - Number: The Nick Number to set.
-        
         
         ### Returns:
         True if set successfully."""
@@ -21493,7 +19861,6 @@ class FBTimeWarpManager(FBComponent):
         """Add one TimeWarp to a Take.
         
         ### Parameters:
-        
             - Take: The Take one TimeWarp added to.
             - TimeWarp: The TimeWarp to be added.
             - NickNumber: The Nick Number for the TimeWarp."""
@@ -21502,14 +19869,12 @@ class FBTimeWarpManager(FBComponent):
         """Clear all TimeWarp in a Take, and removed from the DataSet.
         
         ### Parameters:
-        
             - Take: The Take to be cleared."""
         ...
     def TimeWarpCopyTake(self,DstTake:FBTake,SrcTake:FBTake):
         """Copy all the TimeWarp in one Take, add to another Take.
         
         ### Parameters:
-        
             - DstTake: Copy all TimeWarp to.
             - SrcTake: Copy all TimeWarp from."""
         ...
@@ -21517,9 +19882,7 @@ class FBTimeWarpManager(FBComponent):
         """Create a TimeWarp with a specific name on the current Take.
         
         ### Parameters:
-        
             - Name: The name for the TimeWarp.
-        
         
         ### Returns:
         the TimeWarp created."""
@@ -21528,14 +19891,12 @@ class FBTimeWarpManager(FBComponent):
         """Allocate container for the TimeWarp in one Take.
         
         ### Parameters:
-        
             - Take: The Take allocated for."""
         ...
     def TimeWarpMergeCurveNode(self,Take:FBTake,EvalProp:FBProperty,Node:FBAnimationNode,TimeWarpNode:FBAnimationNode):
         """Merge the TimeWarp to a function curve, and Remove the connection between the storing property and the evaluation property for the TimeWarp.
         
         ### Parameters:
-        
             - Take: The Take that the TimeWarp is in.
             - EvalProp: the evaluation property the TimeWarp connected.
             - Node: The function curve to merge on.
@@ -21545,7 +19906,6 @@ class FBTimeWarpManager(FBComponent):
         """Rename a TimeWarp.
         
         ### Parameters:
-        
             - Take: The Take where the timeWarp is in.
             - TimeWarp: The TimeWarp to be renamed.
             - NewName: The new name for the TimeWarp."""
@@ -21595,9 +19955,7 @@ class FBToolLayoutManager(FBComponent):
         """Create a new layout from the current layout state.
         
         ### Parameters:
-        
             - LayoutName: The new layout name to create.
-        
         
         ### Returns:
         The new layout's name (could be different that the one supplied) if the operation is successful, nullptr (C++) or None (Python) otherwise."""
@@ -21608,9 +19966,7 @@ class FBToolLayoutManager(FBComponent):
         
         Deleting a factory layout is not permitted.
         ### Parameters:
-        
             - LayoutIdx: The layout index to delete.
-        
         
         ### Returns:
         True if the operation is successful, false otherwise."""
@@ -21621,9 +19977,7 @@ class FBToolLayoutManager(FBComponent):
         
         Deleting a factory layout is not permitted.
         ### Parameters:
-        
             - LayoutName: The layout name to delete.
-        
         
         ### Returns:
         True if the operation is successful, false otherwise."""
@@ -21662,9 +20016,7 @@ class FBToolLayoutManager(FBComponent):
         """Get the layout name associated with the given layout index.
         
         ### Parameters:
-        
             - LayoutIdx: The layout index to query. The factory layouts are using negative indices.
-        
         
         ### Returns:
         The layout name if the operation is successful, nullptr (C++) or None (Python) otherwise."""
@@ -21681,10 +20033,8 @@ class FBToolLayoutManager(FBComponent):
         
         Renaming a factory layout is not permitted.
         ### Parameters:
-        
             - OldLayoutName: The layout's name to rename.
             - NewLayoutName: The new layout name.
-        
         
         ### Returns:
         The new layout's name (could be different that the one supplied) if the operation is successful, nullptr (C++) or None (Python) otherwise."""
@@ -21693,9 +20043,7 @@ class FBToolLayoutManager(FBComponent):
         """Set the 'Auto-update Layout' state value.
         
         ### Parameters:
-        
             - AutoUpdate: The 'Auto-update Layout' state value.
-        
         
         ### Returns:
         True if the operation is successful, false otherwise."""
@@ -21705,9 +20053,7 @@ class FBToolLayoutManager(FBComponent):
         """Set the current layout from the given layout index.
         
         ### Parameters:
-        
             - LayoutIdx: The layout index to set as the current layout. The factory layouts are using negative indices.
-        
         
         ### Returns:
         True if the operation is successful, false otherwise."""
@@ -21717,9 +20063,7 @@ class FBToolLayoutManager(FBComponent):
         """Set the current layout from the given layout name.
         
         ### Parameters:
-        
             - LayoutName: The layout's name to set as the current layout.
-        
         
         ### Returns:
         True if the operation is successful, false otherwise."""
@@ -21729,9 +20073,7 @@ class FBToolLayoutManager(FBComponent):
         
         Note: When 'Prevent Docking' state is true, it is possible to temporary allow docking a window by holding the SHIFT key before moving it. When 'Prevent Docking' state is false, it is possible to temporary prevent docking a window by holding the CTRL key before moving it.
         ### Parameters:
-        
             - PreventDocking: The 'Prevent Docking' state value.
-        
         
         ### Returns:
         True if the operation is successful, false otherwise."""
@@ -21794,9 +20136,7 @@ class FBTransportAudioManager(FBComponent):
         """Set the Audio Clip to display on the Transport Tool.
         
         ### Parameters:
-        
             - AudioClip: The Audio Clip to display.
-        
         
         ### Returns:
         True if the operation is successful, false otherwise."""
@@ -21805,9 +20145,7 @@ class FBTransportAudioManager(FBComponent):
         """Set the Audio Track to display on the Transport Tool.
         
         ### Parameters:
-        
             - AudioTrack: The Audio Track to display.
-        
         
         ### Returns:
         True if the operation is successful, false otherwise."""
@@ -21816,9 +20154,7 @@ class FBTransportAudioManager(FBComponent):
         """Set the 'Lock Pitch to Speed' state.
         
         ### Parameters:
-        
             - Lock: True to lock pitch to speed, false otherwise.
-        
         
         ### Returns:
         True if the operation is successful, false otherwise."""
@@ -21827,9 +20163,7 @@ class FBTransportAudioManager(FBComponent):
         """Set the 'Show Audio' state.
         
         ### Parameters:
-        
             - Show: True to show the Audio waveform, false otherwise.
-        
         
         ### Returns:
         True if the operation is successful, false otherwise."""
@@ -21838,9 +20172,7 @@ class FBTransportAudioManager(FBComponent):
         """Set the 'Show Left Channel' state.
         
         ### Parameters:
-        
             - Show: True to show the left channel, false otherwise.
-        
         
         ### Returns:
         True if the operation is successful, false otherwise."""
@@ -21849,9 +20181,7 @@ class FBTransportAudioManager(FBComponent):
         """Set the 'Show Right Channel' state.
         
         ### Parameters:
-        
             - Show: True to show the right channel, false otherwise.
-        
         
         ### Returns:
         True if the operation is successful, false otherwise."""
@@ -21952,9 +20282,7 @@ class FBUndoManager(FBComponent):
         
         Quick Function to add Model TRS in Undo Stack
         ### Parameters:
-        
             - Model: Model to backup TRS
-        
         
         ### Returns:
         true if add transaction successfully."""
@@ -21964,9 +20292,7 @@ class FBUndoManager(FBComponent):
         
         Function to add object to destroy in Undo Stack. No need to call [FBDelete()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html#aa85a55e68d7403dbd4238f3e30e83119 "Open Reality deletion function.") on the object after calling this function.
         ### Parameters:
-        
             - Object: Object to backup
-        
         
         ### Returns:
         true if add transaction successfully."""
@@ -21976,9 +20302,7 @@ class FBUndoManager(FBComponent):
         
         Quick Function to add property value in Undo Stack
         ### Parameters:
-        
             - Property: Property to backup
-        
         
         ### Returns:
         true if add transaction successfully."""
@@ -21988,9 +20312,7 @@ class FBUndoManager(FBComponent):
         
         Users should call [TransactionBegin()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_undo_manager.html#af7427e75659bfb18a593655de6170fa9 "Open transaction stack for adding transactions.")/TransactionEnd() in pairs, Transaction stack must be closed before UI event callback return.
         ### Parameters:
-        
             - TransactionName: Name of Transaction.
-        
         
         ### Returns:
         true if open transaction stack successfully."""
@@ -22012,14 +20334,12 @@ class FBUndoManager(FBComponent):
         """Undo last action.
         
         ### Parameters:
-        
             - NoRedo: If true, once the action is undone, it cannot be redone."""
         ...
     def __init__(self):...
 class FBUserObject(FBBox):
     def __init__(self,Name:str):
         """### Parameters:
-        
             - Name: User object name."""
         ...
 class FBVector2d():
@@ -22053,9 +20373,7 @@ class FBVector2d():
         """Returns the ith component Corresponds to python: print v[1].
         
         ### Parameters:
-        
             - Index: Index of the components to get (0 to 1)
-        
         
         ### Returns:
         Color component value."""
@@ -22108,7 +20426,6 @@ class FBVector2d():
         """Sets the ith components Corresponds to python: v[1] = 0.5.
         
         ### Parameters:
-        
             - Index: Index of the components to set (0 to 1)
             - ComponentValue: Value of component to set"""
         ...
@@ -22157,9 +20474,7 @@ class FBVector3d():
         """Returns the ith component Corresponds to python: print v[1].
         
         ### Parameters:
-        
             - Index: Index of the components to get (0 to 2)
-        
         
         ### Returns:
         Color component value."""
@@ -22212,7 +20527,6 @@ class FBVector3d():
         """Sets the ith components Corresponds to python: v[1] = 0.5.
         
         ### Parameters:
-        
             - Index: Index of the components to set (0 to 2)
             - ComponentValue: Value of component to set"""
         ...
@@ -22261,9 +20575,7 @@ class FBVector4d():
         """Returns the ith component Corresponds to python: print v[1].
         
         ### Parameters:
-        
             - Index: Index of the components to get (0 to 3)
-        
         
         ### Returns:
         Color component value."""
@@ -22316,7 +20628,6 @@ class FBVector4d():
         """Sets the ith components Corresponds to python: v[1] = 0.5.
         
         ### Parameters:
-        
             - Index: Index of the components to set (0 to 3)
             - ComponentValue: Value of component to set"""
         ...
@@ -22364,9 +20675,7 @@ class FBVertex():
         """Returns the ith component Corresponds to python: print v[1].
         
         ### Parameters:
-        
             - Index: Index of the components to get (0 to 1)
-        
         
         ### Returns:
         Color component value."""
@@ -22411,7 +20720,6 @@ class FBVertex():
         """Sets the ith components Corresponds to python: v[1] = 0.5.
         
         ### Parameters:
-        
             - Index: Index of the components to set (0 to 1)
             - ComponentValue: Value of component to set"""
         ...
@@ -22433,9 +20741,7 @@ class FBVideo(FBBox):
     """Read Write Property: Don't auto flush from GPU if true. session runtime flag, won't be saved."""
     def __init__(self,Name:str):
         """### Parameters:
-        
             - Name: Name of video media.
-        
         
         ### Warning:
         The pName parameter must point to a valid media file, otherwise the object will not be valid. Use the method 'IsValid()' to confirm the object status."""
@@ -22502,7 +20808,6 @@ class FBVideoClip(FBVideo):
         """Draw a frame of the image to the current view.
         
         ### Parameters:
-        
             - X: X position of image (default=0).
             - Y: Y position of image (default=0).
             - W: Width of image (default=-1).
@@ -22513,10 +20818,8 @@ class FBVideoClip(FBVideo):
         """Get the embedded timecode associated to a video clip frame.
         
         ### Parameters:
-        
             - Frame: Video clip frame to get timecode for.
             - TimeCode: The timecode object being filled by this method.
-        
         
         ### Returns:
         True if an embedded timecode is retrieved from the video clip, false otherwise. (Python: If no embedded timecode is retrieved, returns an [FBTimeCode](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_time_code.html "TimeCode data structure.") object with its time set to [FBTime::Infinity](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_time.html#ad4cdfb3a31e984e36d78499115839636 "Time constant: Infinity, the largest time value."))."""
@@ -22535,9 +20838,7 @@ class FBVideoClip(FBVideo):
         ...
     def __init__(self,Name:str):
         """### Parameters:
-        
             - Name: Name of video media.
-        
         
         ### Warning:
         The pName parameter must point to a valid media file, otherwise the object will not be valid. Use the method '[IsValid()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_video_clip.html#a9dcb9b43a3d0fa9003d4c1c9d921f6b2 "Verifies the validity of the FBVideo object.")' to confirm the object status."""
@@ -22554,14 +20855,12 @@ class FBVideoClipImage(FBVideoClip):
     """Read Write Property: Clip is using system frame rate?"""
     def __init__(self,Name:str):
         """### Parameters:
-        
             - Name: Name of image file."""
         ...
 class FBVideoClipImageDDS(FBVideoClipImage):
     """Video clip image media class for DDS images."""
     def __init__(self,Name:str):
         """### Parameters:
-        
             - Name: Name of DDS image file."""
         ...
 class FBVideoCodecManager():
@@ -22577,7 +20876,6 @@ class FBVideoCodecManager():
         
         Get all codec id available for a given file format.
         ### Parameters:
-        
             - FileFormatInfo: file format description string (AVI, MOV...)
             - CodecList: Codec list id"""
         ...
@@ -22586,7 +20884,6 @@ class FBVideoCodecManager():
         
         Get the default codec id for a given file format. This is the codec that will be used if codec mode is FBVideoCodecUseDefault
         ### Parameters:
-        
             - FileFormatInfo: file format description string (AVI, MOV...)"""
         ...
     def RegisterExternalVideoFormat(self,FormatSuffix:str)->bool:
@@ -22594,16 +20891,12 @@ class FBVideoCodecManager():
         
         Only alphabetic and number is allowed in provided suffix, and can not be empty suffix or the system exist suffixes. This will allow this suffix to be appeared in the filters of file dialog when importing video, also allow to create a texture/video object with a path containing this suffix via SDK. However it will the custom SDK plug-in developer's responsibility to load the file into memory.
         ### Parameters:
-        
             - FormatSuffix: Suffix/File extension of external video file format
-        
         
         ### Returns:
         true if register successful 
         ### Remarks:
         After register an external video format, and save a scene with this kind of video. when start MotionBuilder next time and before load the scene back, 
-        
-        
         It is necessary to call RegisterExternalVideoFormat to register this kind of video format again, otherwise this kind of video will not be loaded."""
         ...
     def SetDefaultCodec(self,FileFormatInfo:str,CodecId:str):
@@ -22611,7 +20904,6 @@ class FBVideoCodecManager():
         
         Set the default codec id for a given file format. This is the codec that will be used if codec mode is FBVideoCodecUseDefault
         ### Parameters:
-        
             - FileFormatInfo: file format description string (AVI, MOV...)
             - CodecId: the codec id to set as default"""
         ...
@@ -22718,7 +21010,6 @@ class FBVideoGrabber(FBComponent):
         """SetOptions.
         
         ### Parameters:
-        
             - Options: Struct that contain all grabbing options."""
         ...
     def __init__(self):...
@@ -22770,9 +21061,7 @@ class FBVideoIn(FBVideo):
         """Get the resolution and frame rate string description at the specified index.
         
         ### Parameters:
-        
             - Index: Index of the resolution and frame rate.
-        
         
         ### Returns:
         Name of the resolution and frame rate."""
@@ -22787,9 +21076,7 @@ class FBVideoIn(FBVideo):
         """Set the current compressor to be used when recording.
         
         ### Parameters:
-        
             - CompressorIndex: Index of the compressor.
-        
         
         ### Returns:
         True if successful."""
@@ -22798,7 +21085,6 @@ class FBVideoIn(FBVideo):
         """Set the current resolution and frame rate for the device.
         
         ### Parameters:
-        
             - Index: Index of the resolution and frame rate."""
         ...
     def __init__(self):...
@@ -22817,13 +21103,11 @@ class FBVideoMemory(FBVideo):
         """Set image size to allow MoBu preview texture with proper dimension / aspect.
         
         ### Parameters:
-        
             - W: Width of image.
             - H: Height of image."""
         ...
     def __init__(self,Name:str):
         """### Parameters:
-        
             - Name: Name of video media."""
         ...
 class FBVideoOut(FBVideo):
@@ -22953,10 +21237,8 @@ class FBVisualComponent(FBComponent):
         """Add a child component.
         
         ### Parameters:
-        
             - Child: Visual component to add as a child.
             - Id: User reference number to associate with **pChild**(default=0).
-        
         
         ### Returns:
         Operation was successful (true or false)."""
@@ -22965,9 +21247,7 @@ class FBVisualComponent(FBComponent):
         """Get a child component.
         
         ### Parameters:
-        
             - Id: User reference number to look for child with(default=0).
-        
         
         ### Returns:
         Handle to child (NULL if not found)."""
@@ -22988,7 +21268,6 @@ class FBVisualComponent(FBComponent):
         """Refresh component.
         
         ### Parameters:
-        
             - Now: Refresh immediately if **true** (default = **false**)."""
         ...
     def ViewExpose(self):
@@ -22998,7 +21277,6 @@ class FBVisualComponent(FBComponent):
         """Input callback function.
         
         ### Parameters:
-        
             - MouseX: Mouse X position.
             - MouseY: Mouse Y position.
             - Action: Mouse action.
@@ -23042,11 +21320,9 @@ class FBVisualContainer(FBVisualComponent):
         """Set an item's icon.
         
         ### Parameters:
-        
             - Ref: Reference to item in container.
             - Image: Handle to image to use.
             - UseACopyOfTheImage: Create a copy of the image?(default=true)
-        
         
         ### Returns:
         Operation was successful (true or false)."""
@@ -23056,10 +21332,8 @@ class FBVisualContainer(FBVisualComponent):
         """Set an item's icon.
         
         ### Parameters:
-        
             - Ref: Reference to item in container.
             - Filename: Name of file where image is located.
-        
         
         ### Returns:
         Operation was successful (true or false)."""
@@ -23068,9 +21342,7 @@ class FBVisualContainer(FBVisualComponent):
         """Edit a container item.
         
         ### Parameters:
-        
             - Ref: Reference of container to edit.
-        
         
         ### Returns:
         Operation was successful (true or false)."""
@@ -23086,7 +21358,6 @@ class FBView(FBVisualComponent):
         """Draw a string in the view.
         
         ### Parameters:
-        
             - Text: Text to draw.
             - X: X position of string.
             - Y: Y position of string.
@@ -23096,12 +21367,10 @@ class FBView(FBVisualComponent):
         """Set view's viewport.
         
         ### Parameters:
-        
             - X: Viewport X value.
             - Y: Viewport Y value.
             - W: Viewport W (width) value.
             - H: Viewport H (height) value.
-        
         
         ### Returns:
         Operation was successful (true or false)."""
@@ -23192,10 +21461,8 @@ class FBTree(FBVisualComponent):
         """Insert node at the end.
         
         ### Parameters:
-        
             - Node: Node under which the new node will appear.
             - Name: Text to display for this node.
-        
         
         ### Returns:
         the newly created node."""
@@ -23262,7 +21529,6 @@ class FBSpread(FBVisualComponent):
         
         By default, the newly created column will use the [FBCellStyle.kFBCellStyleString](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_cell_style.html#a982147b71c48edcf3a5688ede8028bc7 "String.") style. Modify the Style property to modify the column's style.
         ### Parameters:
-        
             - String: Text to display with column.
             - Ref: User-define column reference number(default=0)."""
         ...
@@ -23270,13 +21536,10 @@ class FBSpread(FBVisualComponent):
         """Get a cell's value.
         
         ### Parameters:
-        
             - Row: Row of cell.
             - Column: Column of cell.
         
-        
         ### Return values:
-        
         |  |  |
         | --- | --- |
         | object | Value of the cell (can be str, int, float or [FBTime](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_time.html "Time data structure."))  |"""
@@ -23285,7 +21548,6 @@ class FBSpread(FBVisualComponent):
         """Get a cell's internal toolkit view.
         
         ### Parameters:
-        
             - Ref: Row of cell.
             - Column: Column of cell.
             - View: Handle of view."""
@@ -23294,9 +21556,7 @@ class FBSpread(FBVisualComponent):
         """Get a column from a column number.
         
         ### Parameters:
-        
             - Column: Column number.
-        
         
         ### Returns:
         A copy of column."""
@@ -23317,9 +21577,7 @@ class FBSpread(FBVisualComponent):
         """Get a row from a row reference.
         
         ### Parameters:
-        
             - Ref: Reference to a row.
-        
         
         ### Returns:
         A copy of the row."""
@@ -23334,10 +21592,8 @@ class FBSpread(FBVisualComponent):
         """Get a cell from row and column numbers.
         
         ### Parameters:
-        
             - Ref: Row reference.
             - Column: Column number.
-        
         
         ### Returns:
         A copy of the cell."""
@@ -23349,7 +21605,6 @@ class FBSpread(FBVisualComponent):
         """Add a row.
         
         ### Parameters:
-        
             - String: Text to display with row.
             - Ref: User-defined reference for row(default=0)."""
         ...
@@ -23357,7 +21612,6 @@ class FBSpread(FBVisualComponent):
         """Sort rows.
         
         ### Parameters:
-        
             - Ascending: If **true**, sort ascending."""
         ...
     def SetCellValue(self,Row:int,Column:int,Value):
@@ -23365,7 +21619,6 @@ class FBSpread(FBVisualComponent):
         
         To be effective, the type of pValue must be valid type for the cell's style (see [FBSpreadPart.Style](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_spread_part.html#ace9cc1d223691293563af70ce414fb91 "Read Write Property: Style of cell")). By default, a newly created cell will use its column's style. The default column's style is [FBCellStyle.kFBCellStyleString](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_cell_style.html#a982147b71c48edcf3a5688ede8028bc7 "String."). Modify the Style property to modify the cell's style.
         ### Parameters:
-        
             - Row: Row of cell.
             - Column: Column of cell.
             - Value: Value of the cell (can be str (single or tuple), int, float or [FBTime](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_time.html "Time data structure."))"""
@@ -23374,7 +21627,6 @@ class FBSpread(FBVisualComponent):
         """Set a cell's internal toolkit view.
         
         ### Parameters:
-        
             - Ref: Row of cell.
             - Column: Column of cell.
             - View: View to use to set cell's view."""
@@ -23454,7 +21706,6 @@ class FBPlotPopup(FBVisualComponent):
         """Set plot options.
         
         ### Parameters:
-        
             - PlotOptions: Set the plot options that will be used when displaying the plot popup. First use the [GetPlotOptions()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_plot_popup.html#a2f79e68857f65fe637c98616b4b24a97 "Get plot options."), change the options and use the [SetPlotOptions()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_plot_popup.html#aaf85452e3a2fd43906744348fdc4e684 "Set plot options.") to set them before calling the [Popup()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_plot_popup.html#a0138b8dc2bd5bd5715e3d361aaaee3af "Execute plot popup.") function."""
         ...
     def __init__(self):...
@@ -23482,9 +21733,7 @@ class FBList(FBVisualComponent):
         """Returns whether or not the item pIndex is currently selected.
         
         ### Parameters:
-        
             - Index: Index to see if select or not.
-        
         
         ### Returns:
         true if item at pIndex is selected."""
@@ -23513,7 +21762,6 @@ class FBLayout(FBVisualComponent):
         """Add a region to the layout.
         
         ### Parameters:
-        
             - Name: Name of region.
             - Title: Title to display.
             - X: X: Position.
@@ -23533,7 +21781,6 @@ class FBLayout(FBVisualComponent):
             - HRelative: H: Item to attach to.
             - MultH: H: Multiplier of relative value.
         
-        
         ### Returns:
         Operation was successful (true or false)."""
         ...
@@ -23541,16 +21788,13 @@ class FBLayout(FBVisualComponent):
         """Remove a control from a region in a visual component.
         
         ### Parameters:
-        
             - Name: Name of region to remove control."""
         ...
     def GetControl(self,Name:str)->FBVisualComponent:
         """Get control of a region in a visual component.
         
         ### Parameters:
-        
             - Name: Name of region to find.
-        
         
         ### Returns:
         The component if it is found."""
@@ -23559,9 +21803,7 @@ class FBLayout(FBVisualComponent):
         """Verify if a region with pName exists.
         
         ### Parameters:
-        
             - Name: Name of region to check.
-        
         
         ### Returns:
         Operation was successful (true or false)."""
@@ -23570,14 +21812,12 @@ class FBLayout(FBVisualComponent):
         """Get region pName information (position and size)
         
         ### Parameters:
-        
             - Name: Name of region.
             - Computed: Is the information retrieved relative or absolute?
             - X: Position in X of the region.
             - Y: Position in Y of the region.
             - W: Width of the region.
             - H: Height of the region.
-        
         
         ### Returns:
         Operation was successful (true or false)."""
@@ -23586,9 +21826,7 @@ class FBLayout(FBVisualComponent):
         """Get a region's splitstyle.
         
         ### Parameters:
-        
             - Name: Name of Region to get splitstyle from.
-        
         
         ### Returns:
         Split style of specified region."""
@@ -23597,11 +21835,9 @@ class FBLayout(FBVisualComponent):
         """Move a region.
         
         ### Parameters:
-        
             - Name: Name of region to move.
             - X: New X position.
             - Y: New Y position.
-        
         
         ### Returns:
         Operation was successful (true or false)."""
@@ -23610,9 +21846,7 @@ class FBLayout(FBVisualComponent):
         """Remove a region.
         
         ### Parameters:
-        
             - Name: Name of region to remove.
-        
         
         ### Returns:
         Operation was successful (true or false)."""
@@ -23621,10 +21855,8 @@ class FBLayout(FBVisualComponent):
         """Rename a region.
         
         ### Parameters:
-        
             - OldName: Region's old name.
             - NewName: Region's new name.
-        
         
         ### Returns:
         Operation was successful (true or false)."""
@@ -23636,14 +21868,12 @@ class FBLayout(FBVisualComponent):
         """Suspend all automatic layout recomputation.
         
         ### Parameters:
-        
             - AutoRestructure: If true, Suspend all automatic layout recomputation, else restore it."""
         ...
     def SetBorder(self,Name:str,Type:FBBorderStyle,ShowTitle:bool,InSet:bool,Width:int,Spacing:int,MaxAngle:float,CornerRadius:int)->bool:
         """Set border properties for a region.
         
         ### Parameters:
-        
             - Name: Name of Region to change border properties.
             - Type: Border style to use.
             - ShowTitle: Show region title?
@@ -23653,7 +21883,6 @@ class FBLayout(FBVisualComponent):
             - MaxAngle: Max angle for rounding.
             - CornerRadius: Corner radius for rounding.
         
-        
         ### Returns:
         Operation was successful (true or false)."""
         ...
@@ -23661,10 +21890,8 @@ class FBLayout(FBVisualComponent):
         """Set control of a region to a visual component.
         
         ### Parameters:
-        
             - Name: Name of region to affect.
             - Component: Component to control region.
-        
         
         ### Returns:
         Operation was successful (true or false)."""
@@ -23673,10 +21900,8 @@ class FBLayout(FBVisualComponent):
         """Set a region's title.
         
         ### Parameters:
-        
             - Name: Name of region to change title.
             - Title: New title for region.
-        
         
         ### Returns:
         Operation was successful (true or false)."""
@@ -23685,10 +21910,8 @@ class FBLayout(FBVisualComponent):
         """Set a region's splitstyle.
         
         ### Parameters:
-        
             - Name: Name of Region to set splitstyle.
             - RegionType: Split style give to region.
-        
         
         ### Returns:
         Operation was successful (true or false)."""
@@ -23697,10 +21920,8 @@ class FBLayout(FBVisualComponent):
         """Set view.
         
         ### Parameters:
-        
             - Name: Name of Region.
             - Component: Component to set as view.
-        
         
         ### Returns:
         Operation was successful (true or false)."""
@@ -23709,11 +21930,9 @@ class FBLayout(FBVisualComponent):
         """Change a region's size.
         
         ### Parameters:
-        
             - Name: Name of region to resize.
             - W: New region width.
             - H: New region height.
-        
         
         ### Returns:
         Operation was successful (true or false)."""
@@ -23769,14 +21988,12 @@ class FBTool(FBLayout):
         
         Be sure to call this function once the tool is visible, a good place to call it is when the OnShow event of the layout is called.
         ### Parameters:
-        
             - Flags: Set the docking position flag values. Note: this function overwrites all flags with those passed in parameter."""
         ...
     def __init__(self,Name:str,RegisterTool:bool|None=None):
         """Constructor used when creating tools not in the Tools menu of MotionBuilder.
         
         ### Parameters:
-        
             - Name: Name of tool, must be an unique name.
             - RegisterTool: Tells if we should register the tool on the toolmanager. You can later call Showtool to pop it."""
         ...
@@ -23792,16 +22009,13 @@ class FBPopup(FBLayout):
         """Close popup.
         
         ### Parameters:
-        
             - Ok: Equivalent of **OK** button clicked if **true** (default = **false**)."""
         ...
     def Show(self,Parent:FBVisualComponent|None=None):
         """Show popup.
         
         ### Parameters:
-        
             - Parent: Parent object for popup
-        
         
         ### Returns:
         Operation was successful (true or false)."""
@@ -23830,14 +22044,12 @@ class FBFCurveEditor(FBVisualComponent):
         """Add an animation node to the editor.
         
         ### Parameters:
-        
             - Node: Animation node to show in the editor."""
         ...
     def AddProperty(self,Property:FBPropertyAnimatable):
         """Add an animatable property to the editor.
         
         ### Parameters:
-        
             - Property: Property to show in the editor."""
         ...
     def Clear(self):
@@ -23847,7 +22059,6 @@ class FBFCurveEditor(FBVisualComponent):
         """Remove an animation node from the editor.
         
         ### Parameters:
-        
             - Node: Animation node to hide from editor."""
         ...
     def __init__(self):...
@@ -23980,9 +22191,7 @@ class FBButton(FBVisualComponent):
         
         This method is only useful for buttons of style kFB2States.
         ### Parameters:
-        
             - State: The state to be queried.
-        
         
         ### Returns:
         The color vector."""
@@ -23991,7 +22200,6 @@ class FBButton(FBVisualComponent):
         """Sets the image used to generate a kFBBitmap2States.
         
         ### Parameters:
-        
             - UpImage: The image used when button is unpushed
             - DownImage: The image used when button is pushed
             - FromResources: Add resource path to image path."""
@@ -24000,7 +22208,6 @@ class FBButton(FBVisualComponent):
         """Returns whether or not the item pIndex is currently selected.
         
         ### Parameters:
-        
             - State: The state to be set.
             - Color: The desired color vector."""
         ...
@@ -24015,14 +22222,12 @@ class FBMemo(FBEdit):
         """Get the content of the memo.
         
         ### Parameters:
-        
             - Lines: Content of the memo will be copied to it."""
         ...
     def SetStrings(self,Lines:FBStringList):
         """Set the content of the memo.
         
         ### Parameters:
-        
             - Lines: Content of the memo from will be set to it."""
         ...
     def __init__(self):...
@@ -24036,16 +22241,13 @@ class FBBrowsingProperty(FBVisualComponent):
         """Add an object whose properties will be displayed.
         
         ### Parameters:
-        
             - Object: Object whose properties will be displayed in the property brwoser."""
         ...
     def ObjectGet(self,Index:int)->FBPlug:
         """Return the object at the specified index.
         
         ### Parameters:
-        
             - Index: Index of the object to get.
-        
         
         ### Returns:
         Object at the index specified currently displayed in the property browser."""
@@ -24060,7 +22262,6 @@ class FBBrowsingProperty(FBVisualComponent):
         """Remove an object from the property browser.
         
         ### Parameters:
-        
             - Object: Object to remove."""
         ...
     def __init__(self):...
@@ -24075,7 +22276,6 @@ class FBArrowButton(FBVisualComponent):
         
         The [FBArrowButton](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_arrow_button.html "Creates a button which opens a layout to display content.") must already have been added to a layout before calling this method.
         ### Parameters:
-        
             - Title: Title of the content managed by the [FBArrowButton](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_arrow_button.html "Creates a button which opens a layout to display content.")
             - Content: Content that the [FBArrowButton](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_arrow_button.html "Creates a button which opens a layout to display content.") displays or hides
             - ContentWidth: Width of the content
@@ -24092,7 +22292,6 @@ class FBWebView(FBVisualComponent):
         """Load the specified Url.
         
         ### Parameters:
-        
             - URL: url to load in the WebView."""
         ...
     def __init__(self):...
@@ -24112,7 +22311,6 @@ def FBAdd(Result:FBVector4d,V1:FBVector4d,V2:FBVector4d):
     """Add two vectors together (pResult = pV1 + pV2)
     
     ### Parameters:
-    
         - Result: Resulting vector.
         - V1: 1st vector.
         - V2: 2nd vector."""
@@ -24157,12 +22355,10 @@ def FBAudioFmt_AppendFormat(Format:int,Channels:int,Bits:int,Rate:int)->int:
     printFormat( AudioFormat )
     ```
      ### Parameters:
-    
         - Format: Audio format to use. Set this to 0 if there is no audio format to be appended.
         - Channels: Number of channels. Valid values are 0, 1, 2, 4, 8.
         - Bits: Bit depth. Valid values are 0, 8, 16, 24, 32.
         - Rate: Audio rate. Valid values are 0, 8000, 11025, 12000, 12500, 16000, 22050, 24000, 25000, 32000, 44100, 48000, 50000, 64000, 88200, 96000, 100000.
-    
     
     ### Returns:
     An audio format object with the specified format."""
@@ -24172,10 +22368,8 @@ def FBAudioFmt_AppendFormat(Format:int,SrcFormat:int)->int:
     """Append the rendering audio format with another audio format.
     
     ### Parameters:
-    
         - Format: Audio format to use.
         - SrcFormat: Audio format to be appended.
-    
     
     ### Returns:
     An audio format object with the specified format."""
@@ -24184,9 +22378,7 @@ def FBAudioFmt_ConvertBitDepthMode(BitDepthMode:FBAudioBitDepthMode)->int:
     """Converts an [FBAudioBitDepthMode](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_audio_bit_depth_mode.html "Enum FBAudioBitDepthMode.") enum value to its FBAudioFmt object equivalent.
     
     ### Parameters:
-    
         - BitDepthMode: The bit depth mode enum value.
-    
     
     ### Returns:
     The FBAudioFmt object equivalent to the input bit depth mode enum value."""
@@ -24195,9 +22387,7 @@ def FBAudioFmt_ConvertChannelMode(ChannelMode:FBAudioChannelMode)->int:
     """Converts an [FBAudioChannelMode](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_audio_channel_mode.html "Enum FBAudioChannelMode.") enum value to its FBAudioFmt object equivalent.
     
     ### Parameters:
-    
         - ChannelMode: The channel mode enum value.
-    
     
     ### Returns:
     The FBAudioFmt object equivalent to the input channel mode enum value."""
@@ -24206,9 +22396,7 @@ def FBAudioFmt_ConvertRateMode(RateMode:FBAudioRateMode)->int:
     """Converts an [FBAudioRateMode](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_audio_rate_mode.html "Enum FBAudioRateMode.") enum value to its FBAudioFmt object equivalent.
     
     ### Parameters:
-    
         - RateMode: The rate mode enum value.
-    
     
     ### Returns:
     The FBAudioFmt object equivalent to the input rate mode enum value."""
@@ -24217,9 +22405,7 @@ def FBAudioFmt_GetBitsValue(Format:int)->int:
     """Get the bit depth value of the Audio format object.
     
     ### Parameters:
-    
         - Format: Audio format to use.
-    
     
     ### Returns:
     Bit depth value as an integer value."""
@@ -24228,9 +22414,7 @@ def FBAudioFmt_GetBytesValue(Format:int)->int:
     """Get the bytes value of the Audio format object.
     
     ### Parameters:
-    
         - Format: Audio format to use.
-    
     
     ### Returns:
     Bytes value as an integer value."""
@@ -24239,9 +22423,7 @@ def FBAudioFmt_GetChannelValue(Format:int)->int:
     """Get the channel value of the Audio format object.
     
     ### Parameters:
-    
         - Format: Audio format to use.
-    
     
     ### Returns:
     Channel value as an integer value."""
@@ -24256,9 +22438,7 @@ def FBAudioFmt_GetRateValue(Format:int)->int:
     """Get the rate value of the Audio format object.
     
     ### Parameters:
-    
         - Format: Audio format to use.
-    
     
     ### Returns:
     Audio rate value as an integer value."""
@@ -24269,12 +22449,10 @@ def FBAudioFmt_RemoveFormat(Format:int,Channels:int,Bits:int,Rate:int)->int:
     
     Please refer to python example in FBAudioFmt\_AppendFormat.
     ### Parameters:
-    
         - Format: Audio format to use.
         - Channels: Number of channels to remove. Set this to 0 if you don't want to remove the channel.
         - Bits: Bit depth to remove. Set this to 0 if you don't want to remove bit depth.
         - Rate: Audio rate to remove. Set this to 0 if you don't want to remove audio rate.
-    
     
     ### Returns:
     An audio format object without the specified format settings passed in parameter."""
@@ -24284,10 +22462,8 @@ def FBAudioFmt_RemoveFormat(Format:int,SrcFormat:int)->int:
     """Remove audio format from another audio format object.
     
     ### Parameters:
-    
         - Format: Audio format to use.
         - SrcFormat: Audio format to remove.
-    
     
     ### Returns:
     An audio format object without the specified format settings passed in parameter."""
@@ -24296,12 +22472,10 @@ def FBAudioFmt_TestFormat(SrcFormat:int,Channels:int,Bits:int,Rate:int)->bool:
     """Test if the given audio format object contains the channel, bit depth, and rate.
     
     ### Parameters:
-    
         - SrcFormat: Audio format to test.
         - Channels: Number of channels to test.
         - Bits: Bit depth to test.
         - Rate: Audio rate to test.
-    
     
     ### Returns:
     True if the given audio format object contains the channel, bit depth, and rate."""
@@ -24331,11 +22505,9 @@ def FBClamp(V:float,L:float,H:float)->float:
     """Clamp value.
     
     ### Parameters:
-    
         - V: Value to clamp.
         - L: Low limit.
         - H: High limit.
-    
     
     ### Returns:
     Clamped value."""
@@ -24346,11 +22518,9 @@ def FBConnect(Src:FBPlug,Dst:FBPlug,ConnectionType:FBConnectionType=FBConnection
     """Request the connection two [FBPlug](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_plug.html "Connections Basic Open Reality SDK Element.") objects.
     
     ### Parameters:
-    
         - Src: Source plug.
         - Dst: Destination plug.
         - ConnectionType: Type of connection, taken from [FBConnectionType](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_connection_type.html "Connection types available between plugs.").
-    
     
     ### Returns:
     A boolean indicating success (True) or failure (False). 
@@ -24367,13 +22537,11 @@ def FBCreateObject(GroupName:str,EntryName:str,Name:str,Data=None)->FBComponent:
     """FBCreateObject.
     
     ### Parameters:
-    
         - GroupName: Set the name of the Group.
         - EntryName: Set the name of the Entry.
         - Name: Set the name of the Object to create.
         - Data: Data to pass to object creator function.
         - nth: Set the occurrence of the object to remove.
-    
     
     [See sample: ObjectCreation.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_object_creation_8py-example.html)"""
     ...
@@ -24386,9 +22554,7 @@ def FBDeleteCharacterPinningPreset(PresetName:str)->bool:
     """Deletes a pinning preset from the Character Controls Tool.
     
     ### Parameters:
-    
         - PresetName: The preset name to delete (not the file path nor the filename of the preset).
-    
     
     ### Returns:
     True if the operation is successful, false otherwise."""
@@ -24398,11 +22564,9 @@ def FBDeleteObjectsByName(NamePattern:str,NameSpace:str|None=None,GroupName:str|
     
     This function will query the system for objects fulfilling a particular name pattern and delete them. specify a namespace preferred, delete all objects with the group name without specified a namespace specified may lead to inconsistent in scene. Wrap multiple calls to [FBDeleteObjectsByName()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/namespacepyfbsdk.html#a6add04a94a40327b8190d922f7a35cac "FBDeleteObjectsByName.") inside pair of [FBPreventUIUpdateBegin()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/namespacepyfbsdk.html#ac643c9042962342b0e5edfc03f35fdea "Call to prevent UI updates when creating/deleting/renaming objects.") / [FBPreventUIUpdateEnd()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/namespacepyfbsdk.html#a9c050ffa65ccbb821c8b8d2692f7247f "Call to end blocking the UI updates.") could improve application's performance.
     ### Parameters:
-    
         - NamePattern: if not NULL, indicate the name pattern to search. This pattern can contain any amount of \*. (ex: \*tr\*mod\*scene ). if is NULL or Empty string, \* will be used for match all.
         - NameSpace: if not NULL, the objects must be inside the given namespace.
         - GroupName: if not NULL, indicate the object group name (type).
-    
     
     ### Returns:
     the count of objects found and deleted."""
@@ -24415,10 +22579,8 @@ def FBDisconnect(Src:FBPlug,Dst:FBPlug)->bool:
     """Connect two [FBPlug](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_plug.html "Connections Basic Open Reality SDK Element.") objects.
     
     ### Parameters:
-    
         - Src: Source plug.
         - Dst: Destination plug.
-    
     
     ### Returns:
     A boolean indicating success (True) or failure (False). 
@@ -24429,10 +22591,8 @@ def FBDot(V1:FBVector4d,V2:FBVector4d)->float:
     """Calculate the dot product of two vectors.
     
     ### Parameters:
-    
         - V1: 1st vector.
         - V2: 2nd vector.
-    
     
     ### Returns:
     Dot product."""
@@ -24461,9 +22621,7 @@ def FBFindModelByLabelName(ModelLabelName:str)->FBModel:
     
     Searches the scene for a model, based on the model's label name. Label name is "NameSpaceName:ObjectName". also known as "PrefixName::ObjectName" Full name is "GroupName::NameSpaceName:ObjectName".
     ### Parameters:
-    
         - ModelLabelName: LabelName of model to search for. Specify it with schema like "NameSpaceName:ObjectName",or "ObjectName" if no NameSpaceName.
-    
     
     ### Returns:
     A handle onto the model with Label name matching, returns NULL if no model was found by the search.
@@ -24474,10 +22632,8 @@ def FBFindModelByUniqueColorId(Color:FBColor)->tuple:
     
     A model could have a single unique ColorID, but SDK plugin user could request additional ColorID per model to support multi sub items picking. see [FBModel::SetAdditionalUniqueColorIDCount()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_model.html#a90f9f9cd10be9bcbf09b8c01cc627a0c "Request additional Unique color IDs.").
     ### Parameters:
-    
         - Color: Color channel values are in range of [0,1] with precision 1.0/255
         - SubItemIndex: (C++ only) Pass out SubItem index value if not null.
-    
     
     ### Returns:
     (C++ only) A handle onto the model with unique color id matching, returns NULL if no model was found by the search. (Python only) A tuple with 2 values: ([FBModel](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_model.html "Model class.") return value, pSubItemIndex)."""
@@ -24487,9 +22643,7 @@ def FBFindObjectByFullName(ObjectFullName:str)->FBComponent:
     
     This function will query the system for an object with its FullName matching. Full name is "GroupName::NameSpaceName:ObjectName". Label name is "NameSpaceName:ObjectName". also known as "PrefixName::ObjectName"
     ### Parameters:
-    
         - ObjectFullName: Full Name of object to search for. Specify it with schema like "GroupName::NameSpaceName:ObjectName",or "GroupName::ObjectName" if no NameSpaceName.
-    
     
     ### Returns:
     A handle onto the object with Full name matching pObjectFullName, returns NULL if no object was found by the search."""
@@ -24499,12 +22653,10 @@ def FBFindObjectsByName(NamePattern:str,List:FBComponentList,IncludeNamespace:bo
     
     This function will query the system for objects fulfilling a particular name pattern
     ### Parameters:
-    
         - NamePattern: Indicate the name pattern to search. This pattern can contain any amount of \*. (ex: \*tr\*mod\*scene )
         - List: List that contains the objects
         - IncludeNamespace: Does the search use the complete name (with namespace)
         - ModelsOnly: Is the search on models or all types of objects
-    
     
     [See sample: FindObjectsWithWildcard.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_find_objects_with_wildcard_8py-example.html)"""
     ...
@@ -24535,9 +22687,7 @@ def FBGetCharacterExternalSolverIndex(Name:str)->int:
     """Get character external solver index.
     
     ### Parameters:
-    
         - Name: Name of external solver.
-    
     
     ### Returns:
     Index of external solver specified at the provided name."""
@@ -24546,9 +22696,7 @@ def FBGetCharacterExternalSolverName(Index:int)->str:
     """Get character external solver name.
     
     ### Parameters:
-    
         - Index: Index of external solver.
-    
     
     ### Returns:
     Name of the external solver specified at the provided index."""
@@ -24575,9 +22723,7 @@ def FBGetConstantKeyReducerThresholdValue(ThresholdType:FBConstantKeyReducerThre
     """Return a specific threshold value used by the Constant Key Reducer filter.
     
     ### Parameters:
-    
         - ThresholdType: The threshold type to retrieve its value.
-    
     
     ### Returns:
     The threshold value."""
@@ -24587,7 +22733,6 @@ def FBGetContinuousRotation(ROut:FBVector3d,R0:FBVector3d,R1:FBVector3d):
     
     This routine will help to avoid gimble locks due to interpolation.
     ### Parameters:
-    
         - ROut: Successful continuous rotation (gimble-lock free).
         - R0: Suggested next rotation.
         - R1: Previous rotation."""
@@ -24603,9 +22748,7 @@ def FBGetEffectorBodyPart(EffectorId:FBEffectorId)->FBBodyPartId:
     """return BodyPart ID from Effector.
     
     ### Parameters:
-    
         - EffectorId: Effector ID.
-    
     
     ### Returns:
     ID of the BodyPart the effector is in."""
@@ -24618,7 +22761,6 @@ def FBGetGlobalMatrix(Matrix:FBMatrix,MatrixParent:FBMatrix,LocalMatrix:FBMatrix
     
     From an input referential, this function will calculate the global matrix corresponding to the input local matrix (which is with respect to the parent matrix).
     ### Parameters:
-    
         - Matrix: Calculated local matrix.
         - MatrixParent: Parent matrix.
         - LocalMatrix: Local matrix."""
@@ -24634,7 +22776,6 @@ def FBGetLocalMatrix(Matrix:FBMatrix,MatrixParent:FBMatrix,MatrixChild:FBMatrix)
     
     Will calculate the local matrix from two global matrices. The resulting matrix will be a local matrix containing the local transformations to go from the parent referentialto the child referential.
     ### Parameters:
-    
         - Matrix: Calculated local matrix.
         - MatrixParent: Parent matrix (new base referential).
         - MatrixChild: Child matrix."""
@@ -24711,11 +22852,9 @@ def FBGetMultiLangText(Context:FBPlug,Key:str,FlagReturnKey:bool=False)->str:
     }
     ```
      ### Parameters:
-    
         - Context: Object which dictates the context of the lookup.
         - Key: String to look up.
         - FlagReturnKey: Should the lookup fail, will return the key instead of an empty string.
-    
     
     ### Returns:
     The corresponding string if the lookup was succesfull. If not will return an empty string if pFlagReturnKey was false. Otherwise will return the key string."""
@@ -24750,11 +22889,9 @@ def FBGetMultiLangText(Context:str,Key:str,FlagReturnKey:bool=False)->str:
     FBTrace( "%s\\n", FBGetMultiLangText( "KCamera", "FieldOfView" ));
     ```
      ### Parameters:
-    
         - Context: String which dictates the context of the lookup.
         - Key: String to look up.
         - FlagReturnKey: Should the lookup fail, will return the key instead of an empty string.
-    
     
     ### Returns:
     The corresponding string if the lookup was succesfull. If not will return an empty string if pFlagReturnKey was false. Otherwise will return the key string."""
@@ -24766,12 +22903,10 @@ def FBGetSelectedModels(List:FBModelList,Parent:FBModel|None=None,Selected:bool=
     """Find all models that are selected (if pSelected is true) Searches recursively from a root model for models that are selected, and adds them to a list of models.
     
     ### Parameters:
-    
         - List: List to add found models to.
         - Parent: Root model to look from (default=NULL(root)).
         - Selected: true to find selected models, false to find unselected models(default=true).
         - SortBySelectOrder: true to sort the result by selection order, first selected model in the first part of the list; false to sort the result by scene graph order
-    
     
     [See sample: FBGetSelectedModels.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_utilities_0c_f_b_get_selected_models_8py-example.html)"""
     ...
@@ -24794,7 +22929,6 @@ def FBInterpolateRotation(ROut:FBVector3d,R0:FBVector3d,R1:FBVector3d,U:float):
     """Interpolate a rotation in Euler space.
     
     ### Parameters:
-    
         - ROut: Resulting, interpolated rotation.
         - R0: 1st rotation.
         - R1: 2nd rotation.
@@ -24805,7 +22939,6 @@ def FBInterpolateRotation(QOut:FBVector4d,Q0:FBVector4d,Q1:FBVector4d,U:float):
     """Interpolate a rotation in Quaternion.
     
     ### Parameters:
-    
         - QOut: Resulting, interpolated rotation.
         - Q0: 1st rotation.
         - Q1: 2nd rotation.
@@ -24822,9 +22955,7 @@ def FBLength(V:FBVector4d)->float:
     """Get the length of a vector.
     
     ### Parameters:
-    
         - V: Vector to calculate length for.
-    
     
     ### Returns:
     Length of vector pV."""
@@ -24834,9 +22965,7 @@ def FBLength(V:FBVertex)->float:
     """Get the length of a vertex (from origin)
     
     ### Parameters:
-    
         - V: Vertex for which length is to be measured.
-    
     
     ### Returns:
     Length of vertex (from origin)."""
@@ -24847,9 +22976,7 @@ def FBLoadCharacterPinningPreset(PresetName:str)->bool:
     """Loads a pinning preset in the Character Controls Tool.
     
     ### Parameters:
-    
         - PresetName: The preset name to load (not the file path nor the filename of the preset).
-    
     
     ### Returns:
     True if the operation is successful, false otherwise."""
@@ -24858,9 +22985,7 @@ def FBLoadFbxPrimitivesModel(ModelName:str)->FBModel:
     """Load a model.
     
     ### Parameters:
-    
         - ModelName: Name of primitive model to load.
-    
     
     ### Returns:
     A handle onto the model that was loaded, returns NULL if no model was found."""
@@ -24873,7 +22998,6 @@ def FBMatrixInverse(Matrix:FBMatrix,Src:FBMatrix):
     """Invert a matrix.
     
     ### Parameters:
-    
         - Matrix: Calculated inverse matrix.
         - Src: Source matrix to invert."""
     ...
@@ -24881,7 +23005,6 @@ def FBMatrixMult(Matrix:FBMatrix,A:FBMatrix,B:FBMatrix):
     """Multiply two matrices.
     
     ### Parameters:
-    
         - Matrix: Calculated resulting matrix.
         - A: 1st matrix.
         - B: 2nd matrix."""
@@ -24890,17 +23013,14 @@ def FBMatrixOrthogonalize(Matrix:FBMatrix):
     """Make sure that rotation vectors are orthogonal and normalized (fast way for removing scaling from matrix)
     
     ### Parameters:
-    
         - Matrix: Rotation Matrix to Orthogonalize."""
     ...
 def FBMatrixToQuaternion(Quaternion:FBVector4d,Matrix:FBMatrix):
     """Get a quaternion from a matrix (potential ).
     
     ### Parameters:
-    
         - Quaternion: Calculated quaternion.
         - Matrix: Input matrix.
-    
     
     ### Warning:
     Matrix can contain scaling and/or translation, we orthogonalize matrix before."""
@@ -24909,7 +23029,6 @@ def FBMatrixToRotation(Vector:FBVector3d,Matrix:FBMatrix,RotationOrder:FBRotatio
     """Obtain rotation vector from a matrix.
     
     ### Parameters:
-    
         - Vector: Extracted rotation vector, ordered the same way as the rotation order specified by pRotationOrder.
         - Matrix: Input matrix.
         - RotationOrder: Rotation order."""
@@ -24918,12 +23037,10 @@ def FBMatrixToRotationWithPrecision(Vector:FBVector3d,Matrix:FBMatrix,RotationOr
     """Obtain rotation vector from a matrix.
     
     ### Parameters:
-    
         - Vector: Extracted rotation vector.
         - Matrix: Input matrix.
         - RotationOrder: Rotation Order.
         - Precision: Indicate the precision level (pow(10.0, -pPrecision)) used when calculating the threshold value for gimble lock.
-    
     
     ### Warning:
     Rotation is in EulerXYZ or EulerZYX only"""
@@ -24932,7 +23049,6 @@ def FBMatrixToScaling(Vector:FBSVector,Matrix:FBMatrix):
     """Obtain scaling vector from a matrix.
     
     ### Parameters:
-    
         - Vector: Extracted scaling vector.
         - Matrix: Input matrix."""
     ...
@@ -24940,7 +23056,6 @@ def FBMatrixToTQS(TVector:FBVector4d,Quaternion:FBVector4d,SVector:FBSVector,Mat
     """Obtain translation vector, rotation quaternion, and scaling vector from a matrix.
     
     ### Parameters:
-    
         - TVector: Extracted translation vector.
         - Quaternion: Extracted rotation quaternion.
         - SVector: Extracted scaling vector.
@@ -24950,12 +23065,10 @@ def FBMatrixToTRS(TVector:FBVector4d,RVector:FBVector3d,SVector:FBSVector,Matrix
     """Obtain translation, rotation, and scaling vectors from a matrix.
     
     ### Parameters:
-    
         - TVector: Extracted translation vector.
         - RVector: Extracted rotation vector.
         - SVector: Extracted scaling vector.
         - Matrix: Input matrix.
-    
     
     ### Warning:
     Rotation is in EulerXYZ"""
@@ -24964,7 +23077,6 @@ def FBMatrixToTranslation(Vector:FBVector4d,Matrix:FBMatrix):
     """Obtain translation vector from a matrix.
     
     ### Parameters:
-    
         - Vector: Extracted translation vector.
         - Matrix: Input matrix."""
     ...
@@ -24972,7 +23084,6 @@ def FBMatrixTranspose(Matrix:FBMatrix,Src:FBMatrix):
     """Transpose a matrix.
     
     ### Parameters:
-    
         - Matrix: Calculated transpose matrix.
         - Src: Source matrix to transpose."""
     ...
@@ -25010,7 +23121,6 @@ def FBMessageBox(BoxTitle:str,Message:str,Button1Str:str,Button2Str:str|None=Non
     
     Opens a message box containing a message and up to three buttons. Waits for the user to click a button.
     ### Parameters:
-    
         - BoxTitle: Title of message box.
         - Message: Message to place in box.
         - Button1Str: String for first button (Cannot be NULL).
@@ -25018,7 +23128,6 @@ def FBMessageBox(BoxTitle:str,Message:str,Button1Str:str,Button2Str:str|None=Non
         - Button3Str: String for third button (NULL will not create a button).
         - DefaultButton: Indicates the default (pre-selected) button (default is 0).
         - ScrolledMessage: Scroll message (default is 0).
-    
     
     ### Returns:
     The number of the button selected.
@@ -25061,7 +23170,6 @@ def FBMult(Result:FBVector4d,V1:FBVector4d,V2:float):
     """Multiply pV2 from pV1 (pResult = pV1 \* pV2)
     
     ### Parameters:
-    
         - Result: Resulting vector.
         - V1: 1st vector.
         - V2: 2nd vector."""
@@ -25071,7 +23179,6 @@ def FBMult(Result:FBVector4d,V1:FBVector4d,V2:FBVector4d):
     """Calculate the cross product of two vectors.
     
     ### Parameters:
-    
         - Result: Resulting vector.
         - V1: 1st vector.
         - V2: 2nd vector."""
@@ -25081,7 +23188,6 @@ def FBMult(Result:FBMatrix,M:FBMatrix,V:FBSVector):
     """Calculate the cross product of a Matrix and Scale Vector.
     
     ### Parameters:
-    
         - Result: Resulting Matrix.
         - M: Matrix.
         - V: vector."""
@@ -25098,7 +23204,6 @@ def FBObjectLifeLogEnable(Enable:bool):
     
     Default logging if off This logging may hurt performance slightly. use it only for debug purpose.
     ### Parameters:
-    
         - Enable: true to enable logging."""
     ...
 def FBObjectPose_TypeInfo()->int:...
@@ -25106,7 +23211,6 @@ def FBObjectPrintLivings(StartUniqueId:int):
     """Print those living objects created when logging is enabled.
     
     ### Parameters:
-    
         - StartUniqueId: Any living object has been logged and with its uniqueId no less than pStartUniqueId will be printed out."""
     ...
 def FBObject_GetEntryCount(GroupIndex:int)->int:...
@@ -25132,10 +23236,8 @@ def FBPopNormalTool(ToolName:str,SetFocus:bool=True)->bool:
     """This function is used to bring up a specific tool in the GUI.
     
     ### Parameters:
-    
         - ToolName: The name of the tool as shown in the Open Reality menu.
         - SetFocus: Indicate if the tool will have the focus.
-    
     
     ### Returns:
     If the tool was brought up successfully."""
@@ -25164,7 +23266,6 @@ def FBQAdd(Result:FBVector4d,Q1:FBVector4d,Q2:FBVector4d):
     """Add two quaternions together (pResult = pQ1 + pQ2)
     
     ### Parameters:
-    
         - Result: Resulting quaternion.
         - Q1: 1st quaternion.
         - Q2: 2nd quaternion."""
@@ -25173,10 +23274,8 @@ def FBQDot(Q1:FBVector4d,Q2:FBVector4d)->float:
     """Calculate the dot product of two quaternions.
     
     ### Parameters:
-    
         - Q1: 1st quaternion.
         - Q2: 2nd quaternion.
-    
     
     ### Returns:
     Dot product."""
@@ -25185,9 +23284,7 @@ def FBQLength(Q:FBVector4d)->float:
     """Get the length of a quaternion.
     
     ### Parameters:
-    
         - Q: Quaternion to calculate length for.
-    
     
     ### Returns:
     Length of quaternion pQ."""
@@ -25197,7 +23294,6 @@ def FBQMult(Result:FBVector4d,Q1:FBVector4d,Q2:float):
     """Multiply pQ2 from pQ1 (pResult = pQ1 \* pQ2)
     
     ### Parameters:
-    
         - Result: Resulting quaternion.
         - Q1: 1st quaternion.
         - Q2: 2nd quaternion."""
@@ -25207,7 +23303,6 @@ def FBQMult(Result:FBVector4d,Q1:FBVector4d,Q2:FBVector4d):
     """Calculate the cross product of two quaternions.
     
     ### Parameters:
-    
         - Result: Resulting quaternion.
         - Q1: 1st quaternion.
         - Q2: 2nd quaternion."""
@@ -25216,7 +23311,6 @@ def FBQSub(Result:FBVector4d,Q1:FBVector4d,Q2:FBVector4d):
     """Subtract pQ2 from pQ1 (pResult = pQ1 - pQ2)
     
     ### Parameters:
-    
         - Result: Resulting quaternion.
         - Q1: 1st quaternion.
         - Q2: 2nd quaternion."""
@@ -25225,7 +23319,6 @@ def FBQuaternionToMatrix(Matrix:FBMatrix,Quaternion:FBVector4d):
     """Get a rotation matrix from a quaternion vector.
     
     ### Parameters:
-    
         - Matrix: Calculated rotation matrix.
         - Quaternion: Input quaternion."""
     ...
@@ -25233,11 +23326,9 @@ def FBQuaternionToRotation(Vector:FBVector3d,Quaternion:FBVector4d,RotationOrder
     """Get a rotation vector from a quaternion vector.
     
     ### Parameters:
-    
         - Vector: Calculated rotation vector, ordered the same way as the rotation order specified by pRotationOrder.
         - Quaternion: Input quaternion.
         - RotationOrder: Rotation order.
-    
     
     ### Warning:
     Rotation is in EulerXYZ or kFBZYX only"""
@@ -25246,12 +23337,10 @@ def FBQuaternionToRotationWithPrecision(Vector:FBVector3d,Quaternion:FBVector4d,
     """Get a rotation vector from a quaternion vector.
     
     ### Parameters:
-    
         - Vector: Calculated rotation vector.
         - Quaternion: Input quaternion.
         - RotationOrder: Rotation order of the rotation vector.
         - Precision: Indicate the precision level (pow(10.0, -pPrecision)) used when calculating the threshold value for gimble lock.
-    
     
     ### Warning:
     Rotation is in EulerXYZ or kFBZYX only"""
@@ -25264,7 +23353,6 @@ def FBRotationToMatrix(Matrix:FBMatrix,Vector:FBVector3d,RotationOrder:FBRotatio
     """Convert a rotation vector to a matrix.
     
     ### Parameters:
-    
         - Matrix: Calculated resulting matrix.
         - Vector: Rotation vector, ordered the same way as the rotation order specified by pRotationOrder.
         - RotationOrder: Rotation order."""
@@ -25273,7 +23361,6 @@ def FBRotationToQuaternion(Quaternion:FBVector4d,Vector:FBVector3d,RotationOrder
     """Get a quaternion from a rotation vector.
     
     ### Parameters:
-    
         - Quaternion: Calculated quaternion.
         - Vector: Input rotation vector, ordered the same way as the rotation order specified by pRotationOrder.
         - RotationOrder: Rotation order."""
@@ -25282,10 +23369,8 @@ def FBSaveCharacterPinningPreset(PresetName:str,AllowOverwriting:bool=False)->bo
     """Saves a pinning preset from the current pinning values in the Character Controls Tool.
     
     ### Parameters:
-    
         - PresetName: The preset name to save (not the file path nor the filename of the preset).
         - AllowOverwriting: True to allow overwriting an existing preset having the same name as the one provided, false otherwise.
-    
     
     ### Returns:
     True if the operation is successful, false otherwise."""
@@ -25294,7 +23379,6 @@ def FBScalingToMatrix(Matrix:FBMatrix,Vector:FBSVector):
     """Convert a scaling vector to a matrix.
     
     ### Parameters:
-    
         - Matrix: Calculated resulting matrix.
         - Vector: Scaling vector."""
     ...
@@ -25304,7 +23388,6 @@ def FBSchedulingDependencyOutput(Enable:bool):
     
     When enabled log file will be created and updated each time MultiThreaded scheduling is happening (scene rebuild)
     ### Parameters:
-    
         - Enable: ON/OFF switch. This is not stored in config (should be changed only for debug purpose, because slow down rebuild process )"""
     ...
 def FBScrollBox_TypeInfo()->int:...
@@ -25312,9 +23395,7 @@ def FBSetActorMarkerSetVisibility(Show:bool)->bool:
     """Sets visibility of the marker set of the current actor.
     
     ### Parameters:
-    
         - Show: Specifies if the market of the current actor should be visible.
-    
     
     ### Returns:
     True if the operation is successful, false otherwise."""
@@ -25324,28 +23405,24 @@ def FBSetCharacterComparisonThresholdValue(Value:float):
     
     : when applying a Character Clip using the "Control Rig" Solving Mode).
     ### Parameters:
-    
         - Value: The new threshold value to set."""
     ...
 def FBSetCharacterFingerTipsVisibility(Show:bool):
     """Sets visibility of the finger-tips of the current character.
     
     ### Parameters:
-    
         - Show: Specifies if finger-tips of the current character should be visible."""
     ...
 def FBSetCharacterFloorContactsVisibility(Show:bool):
     """Sets visibility of the floor contacts of the current character.
     
     ### Parameters:
-    
         - Show: Specifies if floor contacts of the current character should be visible."""
     ...
 def FBSetConstantKeyReducerThresholdValue(ThresholdType:FBConstantKeyReducerThresholdType,Value:float):
     """Set a specific threshold value used by the Constant Key Reducer filter.
     
     ### Parameters:
-    
         - ThresholdType: The threshold type to set its value.
         - Value: The new threshold value to set."""
     ...
@@ -25354,7 +23431,6 @@ def FBSetLastSelectedModel(Model:FBModel):
     
     If the model is not selected, it will also be selected.
     ### Parameters:
-    
         - Model: Model that will be flagged as the last selected model."""
     ...
 def FBSet_TypeInfo()->int:...
@@ -25365,9 +23441,7 @@ def FBSleep(MilliSeconds:int):
     """Sleep function Puts system to sleep for specified time.
     
     ### Parameters:
-    
         - MilliSeconds: Time to sleep for.
-    
     
     [See sample: FBProgress.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_f_b_progress_8py-example.html)"""
     ...
@@ -25386,7 +23460,6 @@ def FBSub(Result:FBVector4d,V1:FBVector4d,V2:FBVector4d):
     """Subtract pV2 from pV1 (pResult = pV1 - pV2)
     
     ### Parameters:
-    
         - Result: Resulting vector.
         - V1: 1st vector.
         - V2: 2nd vector."""
@@ -25397,7 +23470,6 @@ def FBTQSToMatrix(Matrix:FBMatrix,TVector:FBVector4d,Quaternion:FBVector4d,SVect
     """Convert translation vector, rotation quaternion, and scaling vector to a matrix.
     
     ### Parameters:
-    
         - Matrix: Calculated resulting matrix.
         - TVector: Translation vector.
         - Quaternion: Rotation quaternion.
@@ -25407,12 +23479,10 @@ def FBTRSToMatrix(Matrix:FBMatrix,TVector:FBVector4d,RVector:FBVector3d,SVector:
     """Convert translation, rotation, and scaling vectors to a matrix.
     
     ### Parameters:
-    
         - Matrix: Calculated resulting matrix.
         - TVector: Translation vector.
         - RVector: Rotation vector.
         - SVector: Scaling vector.
-    
     
     ### Warning:
     Rotation is in EulerXYZ"""
@@ -25428,14 +23498,10 @@ def FBTrace(FormatString:str):
     """This function prints useful debugging strings in the console with kFBNORMAL\_TRACE output detailed level.
     
     ### Parameters:
-    
         - FormatString: A printf-style format string, to use the following arguments in the list.
-    
     
     ### Warning:
     There is currently a limitation which sets the maximum length of the resulting string to be limited to 2048 bytes. 
-    
-    
     Not thread safe, as an static array is used internally."""
     ...
 def FBTraceGetLevel()->int:...
@@ -25443,9 +23509,7 @@ def FBTraceSetLevel(NewLevel:int):
     """Set Global Trace Detailed Level which affects all the output targets.
     
     ### Parameters:
-    
         - NewLevel: Any trace message with detailed level higher than this new level will be ignored, valid value range [kFBNO\_TRACE, kFBALL\_TRACE]
-    
     
     ### Note:
     Python console trace current output level could be further adjusted via pythonidelib.SetTraceLevel()."""
@@ -25454,22 +23518,17 @@ def FBTraceWithLevel(Level:int,FormatString:str):
     """This function prints useful debugging strings in the console.
     
     ### Parameters:
-    
         - Level: to control trace output detailed level, valid value range [kFBCRITICAL\_TRACE, kFBALL\_TRACE]
         - FormatString: A printf-style format string, to use the following arguments in the list.
     
-    
     ### Warning:
     There is currently a limitation which sets the maximum length of the resulting string to be limited to 2048 bytes. 
-    
-    
     Not thread safe, as an static array is used internally."""
     ...
 def FBTranslationToMatrix(Matrix:FBMatrix,Vector:FBVector4d):
     """Convert a translation vector to a matrix.
     
     ### Parameters:
-    
         - Matrix: Calculated resulting matrix.
         - Vector: Translation vector."""
     ...
@@ -25482,7 +23541,6 @@ def FBVectorMatrixMult(OutVector:FBVector4d,Matrix:FBMatrix,Vector:FBVector4d):
     """Multiply a vector by a matrix.
     
     ### Parameters:
-    
         - OutVector: Resulting vector.
         - Matrix: Matrix to affect the vector with.
         - Vector: Source vector."""
@@ -25491,7 +23549,6 @@ def FBVertexMatrixMult(OutVertex:FBVertex,Matrix:FBMatrix,Vertex:FBVertex):
     """Multiply a vertex by a matrix.
     
     ### Parameters:
-    
         - OutVertex: Resulting vertex.
         - Matrix: Matrix to affect the vertex with.
         - Vertex: Source vertex."""
