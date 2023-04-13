@@ -160,11 +160,20 @@ class DocstringMarkdownConverter(markdownify.MarkdownConverter):
 
         # Go through and patch up the generated docstring
         Lines = []
+        bPreviousLineWasEmpty = False
         for Line in DocString.split("\n"):
             StrippedLine = Line.strip()
             
             # Make sure headers are never indentend
             if StrippedLine.startswith("###"):
+                Lines.append(StrippedLine)
+                continue
+            
+            # Don't allow any more than 1 empty lines in a row
+            if bPreviousLineWasEmpty and not StrippedLine:
+                continue
+            bPreviousLineWasEmpty = not StrippedLine
+            if not StrippedLine:
                 Lines.append(StrippedLine)
                 continue
             

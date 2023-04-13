@@ -134,8 +134,6 @@ class FBAssetMngMenuOptions(Enumeration):
 class FBAttachType(Enumeration):
     """Types of attachments between UI regions.
     
-    
-    
     [See samples: Attach.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_attach_8py-example.html) [BoxLayout.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_box_layout_8py-example.html) [RadioButton.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_radio_button_8py-example.html)"""
     kFBAttachBottom:FBAttachType
     """Attach to bottom [max(y1,y2)]"""
@@ -280,8 +278,6 @@ class FBBatchStatus(Enumeration):
     kFBBatchStatusSuccess:FBBatchStatus
 class FBBodyNodeId(Enumeration):
     """All body nodes.
-    
-    
     
     [See sample: ExportAnimationLibrary.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_export_animation_library_8py-example.html)"""
     kFBChestNodeId:FBBodyNodeId
@@ -604,8 +600,6 @@ class FBBodyPartId(Enumeration):
 class FBBorderStyle(Enumeration):
     """Different border types available.
     
-    
-    
     [See samples: Border.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_border_8py-example.html) [TabPanel.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_tab_panel_8py-example.html)"""
     kFBEmbossBorder:FBBorderStyle
     """Embossed border."""
@@ -631,8 +625,6 @@ class FBBorderStyle(Enumeration):
     """Standard smoothed edges border."""
 class FBButtonLook(Enumeration):
     """Button look.
-    
-    
     
     [See sample: Button.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_button_8py-example.html)"""
     kFBLookAlphaBackground:FBButtonLook
@@ -1239,8 +1231,6 @@ class FBDisplayWhat(Enumeration):
 class FBDragAndDropState(Enumeration):
     """State of Drag and Drop.
     
-    
-    
     [See samples: PropertyDrop.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_property_drop_8py-example.html) [Spread.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_spread_8py-example.html)"""
     kFBDragAndDropBegin:FBDragAndDropState
     """Begin a drag and drop sequence."""
@@ -1484,8 +1474,6 @@ class FBFileMonitoringType(Enumeration):
 class FBFilePopupStyle(Enumeration):
     """Different types of file popup windows.
     
-    
-    
     [See samples: FBFilePopup.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_f_b_file_popup_8py-example.html) [FBFolderPopup.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_f_b_folder_popup_8py-example.html)"""
     kFBFilePopupOpen:FBFilePopupStyle
     """Open file popup (Shows 'Open Directory')."""
@@ -1548,8 +1536,6 @@ class FBGeometryArrayElementType(Enumeration):
     kFBGeometryArrayElementType_Unknown:FBGeometryArrayElementType
 class FBGeometryArrayID(Enumeration):
     """ID to use when requesting a specific array of data for a model.
-    
-    
     
     [See sample: VertexArrayManipulation.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_geometry_0c_vertex_array_manipulation_8py-example.html)"""
     kFBGeometryArrayID_Binormal:FBGeometryArrayID
@@ -1817,8 +1803,6 @@ class FBLightType(Enumeration):
 class FBListStyle(Enumeration):
     """List style or direction.
     
-    
-    
     [See samples: List.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_list_8py-example.html) [ToolCommunicationReceiver.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_tool_communication_receiver_8py-example.html)"""
     kFBDropDownList:FBListStyle
     """Drop down list."""
@@ -1892,8 +1876,6 @@ class FBMarkerType(Enumeration):
     """Standard."""
 class FBMaterialTextureType(Enumeration):
     """Various Material texture channels' type.
-    
-    
     
     [See samples: LayeredTexture.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_material_and_texture_0c_layered_texture_8py-example.html) [MaterialAndTexture.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_material_and_texture_0c_material_and_texture_8py-example.html) [TextureAnimation.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_material_and_texture_0c_texture_animation_8py-example.html) [VideoInput.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_video_0c_video_input_8py-example.html) [VideoMemory.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_video_0c_video_memory_8py-example.html)"""
     kFBMaterialTextureAmbient:FBMaterialTextureType
@@ -1997,8 +1979,6 @@ class FBModelSelection(Enumeration):
 class FBModelShadingMode(Enumeration):
     """Modes for model shading.
     
-    
-    
     [See samples: FBModelCube.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_f_b_model_cube_8py-example.html) [GeometryInstancing.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_geometry_0c_geometry_instancing_8py-example.html) [VertexArrayManipulation.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_geometry_0c_vertex_array_manipulation_8py-example.html) [VertexColor.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_geometry_0c_vertex_color_8py-example.html)"""
     kFBModelShadingAll:FBModelShadingMode
     """Lighted, shaded, textured shading."""
@@ -2041,8 +2021,6 @@ class FBModelTemplateStyle(Enumeration):
 class FBModelTransformationType(Enumeration):
     """Types of transformation vector/matrices possible.
     
-    
-    
     [See samples: FBModelCube.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_f_b_model_cube_8py-example.html) [GeometryInstancing.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_geometry_0c_geometry_instancing_8py-example.html) [VertexArrayManipulation.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_geometry_0c_vertex_array_manipulation_8py-example.html)"""
     kModelInverse_Rotation:FBModelTransformationType
     """Inverse rotation."""
@@ -2066,8 +2044,6 @@ class FBModelTransformationType(Enumeration):
     """Translation."""
 class FBNamespaceAction(Enumeration):
     """Namespace flags.
-    
-    
     
     [See samples: FBGetSelectedModels.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_f_b_get_selected_models_8py-example.html) [FBGroup.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_f_b_group_8py-example.html)"""
     kFBConcatNamespace:FBNamespaceAction
@@ -2198,8 +2174,6 @@ class FBOneClickApplication(Enumeration):
 class FBOrientation(Enumeration):
     """General directions for UI components.  DEPRICATED use ParallelEvaluation on [FBEvaluateManager](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_evaluate_manager.html) insteadAvailable DAG parallel schedule algorithm
     
-    
-    
     [See samples: Container.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_container_8py-example.html) [Slider.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_slider_8py-example.html)"""
     kFBHorizontal:FBOrientation
     """Horizontal."""
@@ -2322,8 +2296,6 @@ class FBPlugStatusFlag(Enumeration):
 class FBPopupInputType(Enumeration):
     """User input types for a popup.
     
-    
-    
     [See samples: RePrefixAllMarkers.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_re_prefix_all_markers_8py-example.html) [SelectModelsWithNameContainingSubstring.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_select_models_with_name_containing_substring_8py-example.html) [FBMessageBoxGetUserValue.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_f_b_message_box_get_user_value_8py-example.html)"""
     kFBPopupBool:FBPopupInputType
     """Boolean input."""
@@ -2423,8 +2395,6 @@ class FBPropertyStateEventType(Enumeration):
     """Invalid event."""
 class FBPropertyType(Enumeration):
     """Property types.
-    
-    
     
     [See sample: CustomProperty.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_custom_property_8py-example.html)"""
     kFBPT_Action:FBPropertyType
@@ -2554,8 +2524,6 @@ class FBRotationOrder(Enumeration):
     """ZYX."""
 class FBSceneChangeType(Enumeration):
     """Types of model selection events.
-    
-    
     
     [See sample: PropertyDrop.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_property_drop_8py-example.html)"""
     kFBSceneChangeActivate:FBSceneChangeType
@@ -2970,8 +2938,6 @@ class FBStoryTrackRefMode(Enumeration):
 class FBStoryTrackType(Enumeration):
     """Types for new story tracks.
     
-    
-    
     [See samples: CreateShotClip.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_create_shot_clip_8py-example.html) [AudioTrackSetupTool.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_complex_tools_0c_audio_track_setup_tool_8py-example.html)"""
     kFBStoryTrackAnimation:FBStoryTrackType
     """Animation track."""
@@ -3095,8 +3061,6 @@ class FBTangentWeightMode(Enumeration):
 class FBTextJustify(Enumeration):
     """Text justification styles.
     
-    
-    
     [See samples: Button.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_button_8py-example.html) [Label.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_label_8py-example.html)"""
     kFBTextJustifyCenter:FBTextJustify
     """Center alignment."""
@@ -3106,8 +3070,6 @@ class FBTextJustify(Enumeration):
     """Right justify."""
 class FBTextStyle(Enumeration):
     """Text appearance styles.
-    
-    
     
     [See sample: Label.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_label_8py-example.html)"""
     kFBTextStyleBold:FBTextStyle
@@ -3343,8 +3305,6 @@ class FBUseChnMode(Enumeration):
 class FBVideoCodecMode(Enumeration):
     """Enum [FBVideoRenderDepth](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_video_render_depth.html "Enum FBVideoRenderDepth.").
     
-    
-    
     [See sample: render.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_rendering_0crender_8py-example.html)"""
     FBVideoCodecAsk:FBVideoCodecMode
     """Pop codec selection dialog each render."""
@@ -3392,8 +3352,6 @@ class FBVideoProxyMode(Enumeration):
     """Video proxy on play."""
 class FBVideoRenderDepth(Enumeration):
     """Enum [FBVideoRenderDepth](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_video_render_depth.html "Enum FBVideoRenderDepth.").
-    
-    
     
     [See samples: render.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_rendering_0crender_8py-example.html) [render.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_rendering_0crender_8py-example.html)"""
     FBVideoRender24Bits:FBVideoRenderDepth
@@ -3628,7 +3586,6 @@ class FBColor():
     ```
     ### Warning:
     Slicing is not supported by this object.
-    
     
     [See samples: LayeredTexture.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_material_and_texture_0c_layered_texture_8py-example.html) [SetAllCamerasBackgroundColor.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_set_all_cameras_background_color_8py-example.html) [SetAllCamerasBackgroundColorFromCurrentCamera.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_set_all_cameras_background_color_from_current_camera_8py-example.html) [SetAllCamerasBackgroundColorFromFirstSelectedCamera.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_set_all_cameras_background_color_from_first_selected_camera_8py-example.html)"""
     @overload
@@ -4311,8 +4268,6 @@ class FBFCurveEvent(FBEvent):
 class FBFCurveKey():
     """KeyFrame for an FCurve.
     
-    
-    
     [See sample: StartKeysAtCurrentTime.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_start_keys_at_current_time_8py-example.html)"""
     Bias:float
     """Read Write Property: Bias (TCB)."""
@@ -4360,8 +4315,6 @@ class FBFCurveKey():
 class FBFilePopup():
     """File Popup (for open/save).
     
-    
-    
     [See samples: AudioTrackSetupTool.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_complex_tools_0c_audio_track_setup_tool_8py-example.html) [FBFilePopup.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_f_b_file_popup_8py-example.html)"""
     Caption:str
     """Read Write Property: Caption to put in popup window."""
@@ -4390,21 +4343,21 @@ class FBFilterManager():
     ```c++
     // Create a filter of a known type. In this case the sample filter
     // provided with the samples: orfilter_template.
-     
+    
     FBFilterManager lFilterManager;
-     
+    
     FBFilter* lFilter = lFilterManager.CreateFilter( "OR - Filter Template" );
-     
+    
     // Set one of the filter property:
     FBPropertyDouble* lPropDouble = (FBPropertyDouble*)lFilter->PropertyList.Find( "Test Double" );
     if( lPropDouble )
     {
         (*lPropDouble) = 2.0;
     }
-     
+    
     // Now we can apply the filter on an FCurve.
     // ...
-     
+    
     // And when we are done, destroy it.
     lFilter->FBDelete();
     lFilter = NULL;
@@ -4413,21 +4366,21 @@ class FBFilterManager():
     
     ```python
     from pyfbsdk import *
-     
+    
     # Create a filter of a known type. In this case the sample filter
     # provided with the samples: orfilter_template.
-     
+    
     lFilterManager = FBFilterManager()
-     
+    
     lFilter = lFilterManager.CreateFilter( 'OR - Filter Template' );
-     
+    
     # Set one of the filter property:
     lPropDouble = lFilter.PropertyList.Find( 'Test Double' );
     if lPropDouble: lPropDouble.Data = 2.0
-     
+    
     # Now we can apply the filter on an FCurve.
     # ...
-     
+    
     # And when we are done, destroy it.
     lFilter.FBDelete()
     ```"""
@@ -4445,8 +4398,6 @@ class FBFilterManager():
     def __init__(self):...
 class FBFolderPopup():
     """Folder Popup (for selecting a directory).
-    
-    
     
     [See samples: RenderLayers.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_rendering_0c_render_layers_8py-example.html) [BatchExportCharacterAnimationTool.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_batch_export_character_animation_tool_8py-example.html) [RenameFirstTakeOnMultipleFiles.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_rename_first_take_on_multiple_files_8py-example.html) [FBFolderPopup.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_f_b_folder_popup_8py-example.html)"""
     Caption:str
@@ -4478,7 +4429,6 @@ class FBMatrix():
     The implementation of this 4x4 matrix uses a simple list of 16 elements, not a list of 4 vectors of 4 elements.\* 
     Slicing is not supported by this object.
     
-    
     [See sample: Matrix.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_matrix_8py-example.html)"""
     def CopyFrom(self,arg2:FBMatrix)->FBMatrix:...
     def GetBufferAddress(self)->int:...
@@ -4504,8 +4454,6 @@ class FBMatrix():
     def NotEqual(self,arg2:FBMatrix)->bool:...
     def Set(self,Value:list):
         """Set matrix from an array.
-        
-        
         
         ### Parameters:
             - Value: Array to intialize matrix from."""
@@ -4549,8 +4497,6 @@ class FBMatrix():
     @overload
     def __init__(self,Matrix:FBMatrix):
         """Copy Constructor.
-        
-        
         
         ### Parameters:
             - Matrix: Matrix to copy."""
@@ -4640,7 +4586,7 @@ class FBMultiLangManager():
     
     ```python
     from pyfbsdk import *
-     
+    
     lManager = FBMultiLangManager()
     print('Current localization language: ', lManager.GetCurrentLanguage())
     print('Supported languages:')
@@ -4653,7 +4599,7 @@ class FBMultiLangManager():
     FBMultiLangManager lManager;
     FBTrace( "Current localization language: %s\\n", lManager.GetCurrentLanguage());
     FBTrace( "Supported languages:\\n" );
-     
+    
     int lIdx = 0;
     while( lIdx < lManager.Languages.GetCount())
     {
@@ -4810,7 +4756,7 @@ class FBPickInfosList():
     # Supported list protocol methods:
     l = FBPickInfosList()
     len(l)
-     
+    
     # tuple unpacking of pick infos.
     model, vector = l[0]
     ```"""
@@ -4826,8 +4772,6 @@ class FBPickInfosList():
     def count(self)->int:...
 class FBPlotOptions():
     """Option parameters for plotting.
-    
-    
     
     [See samples: PlotNonSelectedCharStoryTracks.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_plot_non_selected_char_story_tracks_8py-example.html) [PlotSelectedCharStoryTracks.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_plot_selected_char_story_tracks_8py-example.html)"""
     ConstantKeyReducerKeepOneKey:bool
@@ -5179,20 +5123,16 @@ class FBProperty(FBPlug):
     
     ```
     
-    
        lObject.Visibility = True
-    
     
     ```
     When accessing a property reference directly, its value is obtained via it's 'Data' member.
     
     ```
     
-    
        lProp = lObject.PropertyList.Find( 'Visibility' )
     
        if lProp: lProp.Data = True
-    
     
     ```
     The methods 'PropertyCreate()' and 'PropertyRemove' of the class [FBComponent](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html "MotionBuilder SDK base class.") can be used to modify an object's set of properties."""
@@ -5730,7 +5670,7 @@ class FBPropertyStringList(FBProperty):
      len(propertyStringList)
      component= propertyStringList[0]
      propertyStringList[0] = my_string
-     
+    
      if my_string in propertyStringList:
         print("it is contained!")
      del propertyStringList[0]
@@ -5864,13 +5804,12 @@ class FBPropertyListTreeNode(FBProperty):
 class FBPropertyListComponent(FBProperty):
     """PropertyList: Constraint
     
-    
     ```python
     # Supported list protocol methods:    
      len(propertyListComponent)
      component= propertyListComponent[0]
      propertyListComponent[0] = my_component
-     
+    
      if my_component in propertyListComponent:
         print("it is contained!")
      del propertyListComponent[0]
@@ -6539,8 +6478,6 @@ class FBPropertyAnimatableAction(FBPropertyAnimatable):
 class FBRenderer(FBComponent):
     """Open Reality renderer interface.
     
-    
-    
     [See samples: render.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_rendering_0crender_8py-example.html) [CameraSwitcher.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_camera_0c_camera_switcher_8py-example.html)"""
     AdvancedLightingMode:bool
     """Read write Property: Turn on/off advanced lighting setting UI widgets."""
@@ -6974,10 +6911,7 @@ class FBRenderer(FBComponent):
 class FBProgress(FBComponent):
     """Progress bar. Property: Base property class.
     
-    
-    
     [See samples: 3dsMaxBipedTemplate.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c3ds_max_biped_template_8py-example.html) [MirrorPoseOverTime.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_mirror_pose_over_time_8py-example.html) [FBProgress.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_f_b_progress_8py-example.html)   
-    
     
      A property is a holder for function callbacks into the internals of the application.You cannot instantiate [FBProperty](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property.html "Generic application property.") objects. To reference a property: Use an instance of an [FBComponent](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html "MotionBuilder SDK base class.") object. The methods [FBComponent::PropertyCreate](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html#a154c4f7b5a26f60b373d9bb4fa37dfb1 "Create user or dynamic property.") and [FBComponent::PropertyRemove](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html#ab54e85a44712cff01a617655269d3d16 "Remove a Property from the component's Property manager.") can be used to modify an object's set of properties. When accessing a [FBProperty](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property.html "Generic application property.") object via its containing object, you can get or set (assuming it is not read-only) its value directly, for example in Python: myObject.Visibility = True. [FBPropertyManager](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_manager.html "Property Manager.") exists in all [FBComponent](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html "MotionBuilder SDK base class.") objects, and contains an array of all the registered properties. Use FBProperty::Find to find a property by name. When accessing a property reference directly, its value is obtained via its 'Data' member.
     
@@ -7220,8 +7154,6 @@ class FBPose(FBComponent):
         ...
 class FBPointCacheManager(FBComponent):
     """Point Cache Manager Interface to the point cache manager.
-    
-    
     
     [See sample: CharacterPointCache.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_point_cache_0c_character_point_cache_8py-example.html)"""
     AllowCacheResampling:bool
@@ -9680,17 +9612,17 @@ class FBDevice(FBBox):
     
     ```python
     # This example shows how to create a Vicon Stream Device (a third-party device), initialize it and add it to the scene:
-     
+    
     # Create the Vicon Stream Device
     viconStreamDevice = FBCreateObject( 'Browsing/Templates/Devices', 'Vicon Stream Device', 'Vicon Stream Device' )
-     
+    
     if viconStreamDevice:
      # Initialize the device
         viconStreamDevice.DeviceOperation( kDeviceOperations.kOpInit )
-     
+    
         # Import the device to the current file
      FBSystem().Scene.Devices.append( viconStreamDevice )
-     
+    
         print( 'Vicon Stream Device initialized and added to the scene' )
     else:
         print( 'Vicon Stream Device not found' )
@@ -10080,8 +10012,6 @@ class FBHUDTextureElement(FBHUDElement):
         ...
 class FBMaterial(FBBox):
     """Material class.
-    
-    
     
     [See samples: MaterialAndTexture.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_material_and_texture_0c_material_and_texture_8py-example.html) [TextureAnimation.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_material_and_texture_0c_texture_animation_8py-example.html) [VideoInput.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_video_0c_video_input_8py-example.html) [VideoMemory.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_video_0c_video_memory_8py-example.html)"""
     Ambient:FBPropertyAnimatableColor
@@ -10529,8 +10459,6 @@ class FBNote(FBBox):
 class FBModelCube(FBModel):
     """Cube model class.
     
-    
-    
     [See samples: FBGroup.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_f_b_group_8py-example.html) [FBModelCube.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_f_b_model_cube_8py-example.html)"""
     def __init__(self,Name:str):
         """### Parameters:
@@ -10835,8 +10763,6 @@ class FBCamera(FBModel):
         ...
 class FBModelMarker(FBModel):
     """Model marker class.
-    
-    
     
     [See sample: FBCamera.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_f_b_camera_8py-example.html)"""
     Color:FBColor
@@ -11442,7 +11368,7 @@ class FBModelPath3D(FBModel):
         
         ```python
         from pyfbsdk import *
-         
+        
         path = FBModelPath3D("Test")
         ## After creation, a path always contain two default keys.
         ## At this point, path.PathKeyGetCount() will be 2.
@@ -11468,8 +11394,6 @@ class FBModelPlane(FBModel):
         ...
 class FBModelRoot(FBModel):
     """Root object class.
-    
-    
     
     [See sample: SelectModelsWithNameContainingSubstring.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_select_models_with_name_containing_substring_8py-example.html)"""
     Size:float
@@ -11507,8 +11431,6 @@ class FBModelSkeleton(FBModel):
 class FBPhysicalProperties(FBBox):
     """Base class for physical properties attach to a model.
     
-    
-    
     [See sample: RigiBody.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_rigi_body_8py-example.html)"""
     def __init__(self,Name:str|None=None):...
 class FBAudioIn(FBComponent):
@@ -11520,9 +11442,9 @@ class FBAudioIn(FBComponent):
     # This example shows how to prepare an FBAudioIn object for recording
     # by redirecting the audio to an FBAudioOut object and
     # by specifying a desired audio format and target audio file
-     
+    
     from pyfbsdk import *
-     
+    
     # Let's see how many FBAudioIn objects are available
     lAudioIns = FBSystem().AudioInputs
     print("The number of Audio Inputs:", len( lAudioIns ))
@@ -11554,7 +11476,7 @@ class FBAudioIn(FBComponent):
      if lSupportedFormats & FBAudioFmt_ConvertBitDepthMode( FBAudioBitDepthMode.kFBAudioBitDepthMode_8 ) != 0 and \\
            lSupportedFormats & FBAudioFmt_ConvertRateMode( FBAudioRateMode.kFBAudioRateMode_22050 ) != 0 and \\
            lSupportedFormats & FBAudioFmt_ConvertChannelMode( FBAudioChannelMode.kFBAudioChannelModeStereo ) != 0:
-     
+    
             # This format is supported, let's set it now
             lNewFormat  = FBAudioFmt_ConvertBitDepthMode( FBAudioBitDepthMode.kFBAudioBitDepthMode_8 )
             lNewFormat |= FBAudioFmt_ConvertRateMode( FBAudioRateMode.kFBAudioRateMode_22050 )
@@ -11570,7 +11492,7 @@ class FBAudioIn(FBComponent):
      if lAudioIn.IsReadyToRecord():
                 print("Turned Off Recording?", lAudioIn.TurnOffRecording())
             lAudioFilePath = "C:\\\\temp\\\\myRecordedAudioFile.wav"
-     
+    
             # Note: To remove pop-ups that may occurs, if required, 
             # look at the optional parameters of the PrepareToRecord method
             print("Preparing to record successful?", lAudioIn.PrepareToRecord( lAudioFilePath ))
@@ -12581,8 +12503,6 @@ class FBActionManager(FBComponent):
 class FBConstraintManager(FBComponent):
     """Constraint manager.
     
-    
-    
     [See sample: FBConstraintManager.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_f_b_constraint_manager_8py-example.html)"""
     @overload
     def TypeCreateConstraint(self,TypeIndex:int)->FBConstraint:
@@ -13063,8 +12983,6 @@ class FBFCurveEventManager(FBComponent):
 class FBFbxOptions(FBComponent):
     """Customize file loading and saving.
     
-    
-    
     [See samples: FBFbxOptions.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_f_b_fbx_options_8py-example.html) [ImportWithNamespace.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_import_with_namespace_8py-example.html) [BatchExportCharacterAnimationTool.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_batch_export_character_animation_tool_8py-example.html)"""
     ActorFaces:FBElementAction
     """Read Write Property: Handling of the Actor Faces elements."""
@@ -13297,18 +13215,18 @@ class FBFbxOptions(FBComponent):
         
         ```python
         # This example shows how to merge multiple scenes, each scene in its own user specified namespace:
-         
+        
         # Create an Load FBFbxOptions object
         fbxLoadOptions = FBFbxOptions( True )
-         
+        
         # Create a list of namespaces (2 items here, so the number of scenes to merge must also be 2)
         # and set the list in the FBFbxOptions object
         myNS = FBStringList( "MyFirstNS~MySecondNS" )
         fbxLoadOptions.SetMultiLoadNamespaceList( myNS )
-         
+        
         # Create a list of scenes to merge
         myScenesToMerge = FBStringList( "C:\\Temp\\MyFirstScene.fbx~C:\\Temp\\AnotherScene.fbx" )
-         
+        
         # Let's merge those scenes. The namespaces will be applied on the scenes' contents.
         print(FBApplication().FileMerge( myScenesToMerge, False, fbxLoadOptions ))
         ```
@@ -13412,10 +13330,10 @@ class FBFilter(FBComponent):
     
     ```c++
     FBFilterManager lFilterManager;
-     
+    
     // Create a filter instace.
     FBFilter* lFilter = lFilterManager.CreateFilter( "Key Reducing" );
-     
+    
     if( lFilter )
     {
      // Create a FCurve and populate it with keys.
@@ -13425,12 +13343,12 @@ class FBFilter(FBComponent):
      FBTime lTime( 0, 0, 0, lIdx * 5 );
             lCurve.KeyAdd( lTime, lIdx * 5 );
         }
-     
+    
      FBTrace( "Keys before: %d\\n", lCurve.Keys.GetCount() ); // Should be 9.
-     
+    
      // Apply the key reducing filter.
         lFilter->Apply( &lCurve );
-     
+    
      FBTrace( "Keys after: %d\\n", lCurve.Keys.GetCount() ); // Should be 2.
     }
     ```
@@ -13438,14 +13356,14 @@ class FBFilter(FBComponent):
     
     ```python
     from pyfbsdk import *
-     
+    
     # Find a given model in the scene.
     lModel = FBFindModelByLabelName( 'Cube' )
-     
+    
     if lModel:
      # Create a Key Reducing filter.
         lFilter = FBFilterManager().CreateFilter( 'Key Reducing' )
-     
+    
      if lFilter:
             # Set the filter's precision to 2.0, and apply it to
             # the object's translation animation.
@@ -13517,10 +13435,10 @@ class FBGenericMenu(FBComponent):
     ```python
     embeededMenu = FBGenericMenu()
     menu.InsertLast("new new item", 67, embeddedMenu)
-     
+    
     #A genericMenu contains a GenericMenuItem for each entry. You can iterate on the different menuitem
     #using GetFirstITem/GetNextItem or if you already know the id of the item you can get it with GetItem.
-     
+    
     item = menu.GetFirstItem()
     while item:
         print(item.Name)
@@ -14159,8 +14077,6 @@ class FBHUDManager(FBComponent):
     def __init__(self):...
 class FBMesh(FBGeometry):
     """Mesh class.
-    
-    
     
     [See samples: GeometryInstancing.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_geometry_0c_geometry_instancing_8py-example.html) [VertexArrayManipulation.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_geometry_0c_vertex_array_manipulation_8py-example.html) [VertexColor.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_geometry_0c_vertex_color_8py-example.html)"""
     def ComputeVertexNormals(self,CW:bool=False):
@@ -14933,7 +14849,7 @@ class FBMenuManager(FBComponent):
     ```python
     #Insert a new Root Menu before the Help menu
     menuMgr.InsertBefore(None, "Help", "before menu")
-     
+    
     #Insert a new Root Menu after the Help menu
     menuMgr.InsertAfter(None, "Help", "After menu")
     ```
@@ -15236,12 +15152,12 @@ class FBModelVertexData(FBComponent):
         if( lUVSetArray )
         {
          int lUVArrayCount = lModelVertexData->GetUVSetUVCount();
-         
+        
          FBGeometryArrayElementType lArrayType = lModelVertexData->GetUVSetArrayFormat( kFBTextureMappingUV );
          if( lArrayType == kFBGeometryArrayElementType_Float2 )
             {
                 FBUV* lUVArray = (FBUV*)lUVSetArray;
-         
+        
          for( int i = 0; i < lUVArrayCount; i++ )
                 {
          // Do something useful here
@@ -15299,12 +15215,12 @@ class FBModelVertexData(FBComponent):
         if( lVertexArray )
         {
          int lVertexArrayCount = lModelVertexData->GetVertexCount();
-         
+        
          FBGeometryArrayElementType lArrayType = lModelVertexData->GetVertexArrayType( kFBGeometryArrayID_Point );
          if( lArrayType == kFBGeometryArrayElementType_Float4 )
             {
                 FBVector4<float>* lVertexArrayFloat4 = (FBVector4<float>*)lVertexArray;
-         
+        
          for( int i = 0; i < lVertexArrayCount; i++ )
                 {
          // Do something useful here
@@ -16608,8 +16524,6 @@ class FBRigidBody(FBComponent):
 class FBSVector():
     """Three dimensional scaling vector.
     
-    
-    
     [See sample: Vectors.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_math_0c_vectors_8py-example.html)"""
     @overload
     def CopyFrom(self,arg2:FBSVector)->FBSVector:...
@@ -17083,21 +16997,21 @@ class FBShaderLighted(FBShader):
     // Creation of a lighted shader, and setting it to use
     // the constrast and specularity.
     FBShaderLighted* lShader = new FBShaderLighted( "New Shader" );
-     
+    
     lShader->UseContrast  = true;
     lShader->UseSpecular  = true;
     lShader->Specular     = 35.0;
     lShader->Transparency = kFBAlphaSourceTransluscentAlpha;
-     
+    
     // Use the shader.
     FBModel* lModel = FBFindModelByLabelName( "Cube" );
     if( lModel )
     {
     lShader->ReplaceAll( lModel );
     }
-     
+    
     // Do some more things...
-     
+    
     // And then delete it when no longer necessary;
     lShader->FBDelete();
     ```
@@ -17105,14 +17019,14 @@ class FBShaderLighted(FBShader):
     
     ```python
     from pyfbsdk import *
-     
+    
     # Creating the shader.
     lShader = FBShaderLighted( 'New Python Shader' )
     lShader.UseContrast  = True
     lShader.UseSpecular  = True
     lShader.Specular     = 35.0
     lShader.Transparency = FBAlphaSource.kFBAlphaSourceTransluscentAlpha
-     
+    
     # User the shader
     lModel = FBFindModelByLabelName( 'Cube' )
     if lModel <> None:
@@ -17149,16 +17063,16 @@ class FBShaderManager():
     // registry or simply coming from one of the list ShaderTypeNames
     // or ShaderTypeNamesLocalized.
     const char* lDesiredShaderTypeName = "MyShader";
-     
+    
     // Shader creation.
     FBShader* lShader = NULL;
     FBShaderManager lShaderManager;
-     
+    
     if( lShaderManager.ShaderTypeNames.Find( lDesiredShaderTypeName ) != -1 ||
     lShaderManager.ShaderTypeNamesLocalized.Find( lDesiredShaderTypeName ) != -1 )
     {
     lShader = lShaderManager.CreateShader( lDesiredShaderTypeName );
-     
+    
     // Change its name, as the default name will be the type name.
     if( lShader )
     {
@@ -17174,11 +17088,11 @@ class FBShaderManager():
     {
     // Warn about an unknown shader type.
     }
-     
+    
     //
     // Do some work with the shader...
     // 
-     
+    
     if( lShader )
     {
     lShader->FBDelete();
@@ -17188,9 +17102,9 @@ class FBShaderManager():
     
     ```python
     from pyfbsdk import *
-     
+    
     lShaderManager = FBShaderManager()
-     
+    
     # This code will create one instance of each of the
     # available shader type, changing its name to add the
     # 'My ' prefix.
@@ -17232,7 +17146,7 @@ class FBShaderShadowLive(FBShader):
     ```c++
     // Create a shadow shader.
     FBShaderShadowLive* lShader = new FBShaderShadowLive( "New Shader" );
-     
+    
     // Add a cube in its list of affected objects.
     FBModel* lModel = FBFindModelByLabelName( "Cube" )
     if( lModel )
@@ -17244,10 +17158,10 @@ class FBShaderShadowLive(FBShader):
     
     ```python
     from pyfbsdk import *
-     
+    
     # Create shader.
     lShader = FBShaderShadowLive( 'New Python Shader' )
-     
+    
     # Find a cube to put in our list of affected objects.
     lModel = FBFindModelByLabelName( 'Cube' )
     if lModel:
@@ -17962,8 +17876,6 @@ class FBStoryTrack(FBConstraint):
 class FBStringList():
     """String list.
     
-    
-    
     [See sample: Memo.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_memo_8py-example.html)"""
     def Add(self,S:str,Ref:int=0)->int:
         """Add a string to the list.
@@ -18404,8 +18316,6 @@ class FBLayeredTexture(FBTexture):
 class FBTime():
     """Time data structure.
     
-    
-    
     [See samples: FBTime.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_f_b_time_8py-example.html) [CameraSwitcher.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_camera_0c_camera_switcher_8py-example.html) [ExportAnimationLibrary.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_export_animation_library_8py-example.html) [StartKeysAtCurrentTime.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_start_keys_at_current_time_8py-example.html)"""
     class ETimeFormats(Enumeration):
         eDefaultFormat:FBTime.ETimeFormats
@@ -18530,8 +18440,6 @@ class FBTime():
     def __sub__(self,arg2)->object:...
 class FBTimeCode():
     """TimeCode data structure.
-    
-    
     
     [See sample: TimeCodeKeying.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_time_code_keying_8py-example.html)"""
     FILM_23976:float
@@ -19077,8 +18985,6 @@ class FBTake(FBComponent):
         ...
 class FBFCurve(FBComponent):
     """FCurve class.
-    
-    
     
     [See samples: ClearKeysOnSelectedModels.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_clear_keys_on_selected_models_8py-example.html) [FCurveEditor.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_f_curve_editor_8py-example.html)"""
     Keys:FBPropertyListFCurveKey
@@ -19755,8 +19661,6 @@ class FBTimeSpan():
 class FBTimeWarpManager(FBComponent):
     """Time Warp Manager Interface to the Time Warp Manager.
     
-    
-    
     [See sample: TimeWarp.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_f_curve_0c_time_warp_8py-example.html)"""
     def ApplyTimeWarp(self,Take:FBTake,EvalProp:FBProperty,TimeWarp:FBAnimationNode)->bool:
         """Apply the TimeWarp in a Take to an evaluation property, just connect the storing property for the TimeWarp to the evaluation property.
@@ -19924,16 +19828,16 @@ class FBToolLayoutManager(FBComponent):
     
     ```python
     from pyfbsdk import *
-     
+    
     lToolLayoutMan = FBToolLayoutManager()
-     
+    
     # Delete all existing custom layout
     for i in range( lToolLayoutMan.GetCustomLayoutCount() ):
         lToolLayoutMan.DeleteLayout( lToolLayoutMan.GetCustomLayoutCount() - 1 )
-     
+    
     # Create a new layout
     lToolLayoutMan.CreateLayout( "MyLayout" )
-     
+    
     # Print the names of all the factory layouts
     print("Factory layouts:")
     print("----------------")
@@ -19947,7 +19851,7 @@ class FBToolLayoutManager(FBComponent):
         print(lToolLayoutMan.GetLayoutName(aLayoutIdx))
     # Set the Scripting Layout
     lToolLayoutMan.SetCurrentLayout( -2 )
-     
+    
     # Delete the custom layout
     lToolLayoutMan.DeleteLayout( "MyLayout" )
     ```"""
@@ -20347,7 +20251,6 @@ class FBVector2d():
     
     This class creates a list like object, which can be modified using the list protocol method. But unlike lists, its length is fixed: it always contain 2 floating point values. Thus it does not support the any list methods that would affect its length. The values within can be changed, usually via the bracket operator.
     
-    
     ```python
     # Supported list protocol methods:
     color = FBColor()
@@ -20441,7 +20344,6 @@ class FBVector3d():
     """Vector3d class.
     
     This class creates a list like object, which can be modified using the list protocol method. But unlike lists, its length is fixed: it always contain 3 floating point values. Thus it does not support the any list methods that would affect its length. The values within can be changed, usually via the bracket operator.
-    
     
     ```python
     # Supported list protocol methods:
@@ -20542,7 +20444,6 @@ class FBVector4d():
     """Vector4d class.
     
     This class creates a list like object, which can be modified using the list protocol method. But unlike lists, its length is fixed: it always contain 4 floating point values. Thus it does not support the any list methods that would affect its length. The values within can be changed, usually via the bracket operator.
-    
     
     ```python
     # Supported list protocol methods:
@@ -20748,8 +20649,6 @@ class FBVideo(FBBox):
         ...
 class FBVideoClip(FBVideo):
     """Video clip media class.
-    
-    
     
     [See sample: VideoClip.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_story_0c_video_clip_8py-example.html)"""
     CurrentFrame:int
@@ -21016,8 +20915,6 @@ class FBVideoGrabber(FBComponent):
 class FBVideoIn(FBVideo):
     """Basic video input class, supporting webcam and DV device.
     
-    
-    
     [See sample: VideoInput.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_video_0c_video_input_8py-example.html)"""
     FilePath:str
     """Read Write Property: Location of the generated movie file after a recording session."""
@@ -21091,10 +20988,7 @@ class FBVideoIn(FBVideo):
 class FBVideoMemory(FBVideo):
     """[FBVideoMemory](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_video_memory.html "FBVideoMemory allow external media source (which can't be supported by MoBu natively)   User could cr...") allow external media source (which can't be supported by MoBu natively)   
     
-    
      User could create / update OGL texture (GL\_TEXTURE\_2D type) externally, and pass in GL texture object id to TextureOGLId property.See "Scripts/Samples/Video/VideoMemory.py" for usage example.
-    
-    
     
     [See sample: VideoMemory.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_video_0c_video_memory_8py-example.html)"""
     TextureOGLId:int
@@ -21112,8 +21006,6 @@ class FBVideoMemory(FBVideo):
         ...
 class FBVideoOut(FBVideo):
     """Video media class.
-    
-    
     
     [See sample: VideoOutput.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_video_0c_video_output_8py-example.html)"""
     Online:bool
@@ -21286,8 +21178,6 @@ class FBVisualComponent(FBComponent):
 class FBVisualContainer(FBVisualComponent):
     """Used to create a container for a tool UI.
     
-    
-    
     [See samples: Container.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_container_8py-example.html) [PropertyDrop.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_property_drop_8py-example.html) [TutorialBox.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_tutorial_box_8py-example.html)"""
     IconPosition:FBIconPosition
     """Read Write Property: Where the icon is positioned for the items."""
@@ -21379,8 +21269,6 @@ class FBView(FBVisualComponent):
 class FBTree(FBVisualComponent):
     """Tree list view.
     
-    
-    
     [See sample: Tree.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_tree_8py-example.html)"""
     AllowCollapse:bool
     """Read Write Property: When OnCollapsing occurs, set this to true to allow collapse."""
@@ -21471,8 +21359,6 @@ class FBTree(FBVisualComponent):
 class FBThermometer(FBVisualComponent):
     """Thermometer.
     
-    
-    
     [See sample: Thermometer.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_thermometer_8py-example.html)"""
     Max:float
     """Read Write Property: Maximum value."""
@@ -21486,8 +21372,6 @@ class FBThermometer(FBVisualComponent):
     def __init__(self):...
 class FBTabPanel(FBVisualComponent):
     """Tab panel.
-    
-    
     
     [See sample: TabPanel.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_tab_panel_8py-example.html)"""
     ItemIndex:int
@@ -21503,8 +21387,6 @@ class FBTabPanel(FBVisualComponent):
     def __init__(self):...
 class FBSpread(FBVisualComponent):
     """Base spreadsheet class.
-    
-    
     
     [See samples: ActionScriptMgr.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_complex_tools_0c_action_script_mgr_8py-example.html) [Spread.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_spread_8py-example.html)"""
     Column:int
@@ -21635,8 +21517,6 @@ class FBSpread(FBVisualComponent):
 class FBSlider(FBVisualComponent):
     """Slider.
     
-    
-    
     [See samples: BlendShape\_Editor.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_complex_tools_0c_blend_shape__editor_8py-example.html) [Slider.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_slider_8py-example.html)"""
     Max:float
     """Read Write Property: Maximum value."""
@@ -21675,8 +21555,6 @@ class FBPropertyConnectionEditor(FBVisualComponent):
 class FBPlotPopup(FBVisualComponent):
     """Plot Popup (for setting options only).
     
-    
-    
     [See sample: FBPlotPopup.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_f_b_plot_popup_8py-example.html)"""
     EnableEvaluateDeformation:bool
     """Read Write Property: Enable Evaluate Deformation option for popup."""
@@ -21711,8 +21589,6 @@ class FBPlotPopup(FBVisualComponent):
     def __init__(self):...
 class FBList(FBVisualComponent):
     """List of items.
-    
-    
     
     [See samples: List.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_list_8py-example.html) [ToolCommunicationReceiver.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_tool_communication_receiver_8py-example.html)"""
     ExtendedSelect:bool
@@ -21941,8 +21817,6 @@ class FBLayout(FBVisualComponent):
 class FBLabel(FBVisualComponent):
     """Text label.
     
-    
-    
     [See sample: Label.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_label_8py-example.html)"""
     Justify:FBTextJustify
     """Read Write Property: Text justification for label."""
@@ -21953,8 +21827,6 @@ class FBLabel(FBVisualComponent):
     def __init__(self):...
 class FBTool(FBLayout):
     """Tool class.
-    
-    
     
     [See samples: MBFileRefDemo.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_referencing_0c_m_b_file_ref_demo_8py-example.html) [CloseTool.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_close_tool_8py-example.html) [MoveResizeToolExample.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_move_resize_tool_example_8py-example.html) [SafeToolCreationExample.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_safe_tool_creation_example_8py-example.html) [ToolCommunicationReceiver.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_tool_communication_receiver_8py-example.html) [ToolNativeWidgetHolder.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_tool_native_widget_holder_8py-example.html)"""
     DisplayName:str
@@ -22024,8 +21896,6 @@ class FBPopup(FBLayout):
 class FBImageContainer(FBVisualComponent):
     """Image.
     
-    
-    
     [See sample: ImageContainer.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_image_container_8py-example.html)"""
     Filename:str
     """Read Write Property: Filename for image."""
@@ -22036,8 +21906,6 @@ class FBImageContainer(FBVisualComponent):
     def __init__(self):...
 class FBFCurveEditor(FBVisualComponent):
     """FCurve editor.
-    
-    
     
     [See sample: FCurveEditor.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_f_curve_editor_8py-example.html)"""
     def AddAnimationNode(self,Node:FBAnimationNode):
@@ -22107,7 +21975,7 @@ class FBEditProperty(FBVisualComponent):
     ```c++
     // In a tool header file...
     FBEditProperty mEditProperty;
-     
+    
     // In a tool source file...
     FBModel* lModel = FBFindModelByLabelName( "ModelName" );
     if( lModel )
@@ -22215,8 +22083,6 @@ class FBButton(FBVisualComponent):
 class FBMemo(FBEdit):
     """Multi-line text input.
     
-    
-    
     [See samples: Memo.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_memo_8py-example.html) [TutorialBox.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_tutorial_box_8py-example.html) [TutorialGrid.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_tutorial_grid_8py-example.html)"""
     def GetStrings(self,Lines:FBStringList):
         """Get the content of the memo.
@@ -22233,8 +22099,6 @@ class FBMemo(FBEdit):
     def __init__(self):...
 class FBBrowsingProperty(FBVisualComponent):
     """Property browsing.
-    
-    
     
     [See sample: BrowsingProperty.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_browsing_property_8py-example.html)"""
     def AddObject(self,Object:FBPlug):
@@ -22285,8 +22149,6 @@ class FBArrowButton(FBVisualComponent):
 class FBWebView(FBVisualComponent):
     """Web viewer.
     
-    
-    
     [See sample: WebView.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_web_view_8py-example.html)"""
     def Load(self,URL:str):
         """Load the specified Url.
@@ -22332,7 +22194,7 @@ def FBAudioFmt_AppendFormat(Format:int,Channels:int,Bits:int,Rate:int)->int:
     
     ```python
     from pyfbsdk import *
-     
+    
     def printFormat( AudioFormat ):
         print("Audio Render Format: ", AudioFormat)
         print("Audio Channels: ", FBAudioFmt_GetChannelValue( AudioFormat ))
@@ -22344,12 +22206,12 @@ def FBAudioFmt_AppendFormat(Format:int,Channels:int,Bits:int,Rate:int)->int:
     AudioFormat = FBAudioFmt_GetDefaultFormat()
     print("Old Format:")
     printFormat( AudioFormat )
-     
+    
     oldrate = FBAudioFmt_GetRateValue( AudioFormat )
     AudioFormat = FBAudioFmt_RemoveFormat(AudioFormat, 0, 0, oldrate)
     print("Format after removing Audio Rate:")
     printFormat( AudioFormat )
-     
+    
     AudioFormat = FBAudioFmt_AppendFormat(AudioFormat, 0, 0, 48000)
     print("New Format after modifying Audio Rate to 48000")
     printFormat( AudioFormat )
@@ -22791,12 +22653,12 @@ def FBGetMainWindow()->int:
     ```python
     from PySide2 import QtWidgets
     import shiboken2
-     
+    
     def getMainWindow():
         ptr = FBGetMainWindow()
         if ptr is not None:
             return shiboken2.wrapInstance(ptr, QtWidgets.QWidget)
-     
+    
     mainWindow = getMainWindow()
     if mainWindow is not None:
         print( mainWindow.windowTitle() )
@@ -22814,10 +22676,10 @@ def FBGetMultiLangText(Context:FBPlug,Key:str,FlagReturnKey:bool=False)->str:
     
     ```python
     from pyfbsdk import *
-     
+    
     # Let's pick the first camera present in the system.
     lCamera = FBSystem().Cameras[0]
-     
+    
     # We know that cameras have a property named 'LockMode'.
     lPropInternalName = lCamera.PropertyList.Find( 'LockMode' )
     if lPropInternalName:
@@ -22834,14 +22696,14 @@ def FBGetMultiLangText(Context:FBPlug,Key:str,FlagReturnKey:bool=False)->str:
     ```c++
     // Let's pick the first camera present in the system.
     FBCamera* lCamera = FBSystem().Cameras[0];
-     
+    
     // We know that cameras have a property named 'LockMode'.
     FBProperty* lPropInternalName = lCamera->PropertyList.Find( "LockMode" );
     if( lPropInternalName )
     {
      FBTrace( "Actual property name, as defined internally: '%s'\\n", lPropInternalName->GetName());
      FBTrace( "Property name as shown by the GUI: '%s'\\n", FBGetMultiLangText( lCamera, lPropInternalName->GetName()));
-     
+    
      FBProperty* lPropLocalizedName = lCamera->PropertyList.Find( FBGetMultiLangText( lCamera, lPropInternalName->GetName()));
      if( lPropLocalizedName && stricmp( lPropInternalName->GetName(), lPropLocalizedName->GetName()) == 0 )
         {
@@ -22867,7 +22729,7 @@ def FBGetMultiLangText(Context:str,Key:str,FlagReturnKey:bool=False)->str:
     
     ```python
     from pyfbsdk import *
-     
+    
     print(FBGetMultiLangText( '', 'CharacterExtension' )            # Will return 'Character Extension'.)
     print(FBGetMultiLangText( '', 'TranslationMax' )                # Will return 'Max Freedom'.)
     print(FBGetMultiLangText( 'KConstraintUIName', 'Parent-Child' ) # Will return 'Parent/Child'.)
@@ -22878,13 +22740,13 @@ def FBGetMultiLangText(Context:str,Key:str,FlagReturnKey:bool=False)->str:
     ```c++
     // Will return 'Character Extension'.
     FBTrace( "%s\\n", FBGetMultiLangText( "", "CharacterExtension" ));
-     
+    
     // Will return 'Max Freedom'.
     FBTrace( "%s\\n", FBGetMultiLangText( "", "TranslationMax" ));
-     
+    
     // Will return 'Parent/Child'.
     FBTrace( "%s\\n", FBGetMultiLangText( "KConstraintUIName", "Parent-Child" ));
-     
+    
     // Will return 'Field Of View'.
     FBTrace( "%s\\n", FBGetMultiLangText( "KCamera", "FieldOfView" ));
     ```
