@@ -160,14 +160,19 @@ class DocstringMarkdownConverter(markdownify.MarkdownConverter):
 
         # Go through and patch up the generated docstring
         Lines = []
+        bInCodeBlock = False
         bPreviousLineWasEmpty = False
         for Line in DocString.split("\n"):
             StrippedLine = Line.strip()
             
-            # Make sure headers are never indentend
-            if StrippedLine.startswith("###"):
+            # Keep track of when we're in a code block
+            if StrippedLine.startswith("```"):
+                bInCodeBlock = not bInCodeBlock
                 Lines.append(StrippedLine)
                 continue
+
+            # Make sure headers are never indentend
+                # continue
             
             # Don't allow any more than 1 empty lines in a row
             if bPreviousLineWasEmpty and not StrippedLine:
@@ -177,7 +182,11 @@ class DocstringMarkdownConverter(markdownify.MarkdownConverter):
                 Lines.append(StrippedLine)
                 continue
             
-            Lines.append(Line)
+            # Bullet points can be indented, other lines should not be
+            if StrippedLine.startswith("-") or bInCodeBlock: 
+                Lines.append(Line)
+            else:
+                Lines.append(StrippedLine)
             
         DocString = "\n".join(Lines)
 

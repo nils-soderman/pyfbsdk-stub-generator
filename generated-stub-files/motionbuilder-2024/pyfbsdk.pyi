@@ -2357,7 +2357,7 @@ class FBPropertyFlag(Enumeration):
     
     Property flags are not saved into FBX files.
     
-    [See sample: PropertyDrop.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_property_drop_8py-example.html)   
+    [See sample: PropertyDrop.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_property_drop_8py-example.html)
     
     These classes are under development and may change dramatically between versions."""
     kFBDrivenSetByMain:FBPropertyFlag
@@ -4426,7 +4426,7 @@ class FBMatrix():
     mat[12] = 1.0
     ```
     ### Warning:
-    The implementation of this 4x4 matrix uses a simple list of 16 elements, not a list of 4 vectors of 4 elements.\* 
+    The implementation of this 4x4 matrix uses a simple list of 16 elements, not a list of 4 vectors of 4 elements.\*
     Slicing is not supported by this object.
     
     [See sample: Matrix.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_matrix_8py-example.html)"""
@@ -4623,7 +4623,7 @@ class FBMultiLangManager():
             - Language: The string corresponding to the desired language, as defined in property Languages.
         
         ### Returns:
-        Indicate if the change of language was successful. 
+        Indicate if the change of language was successful.
         ### Warning:
         Setting the current language will affect the lookup done with the functions FBGetMultiLangText, but will not have any effect on the GUI."""
         ...
@@ -4917,7 +4917,7 @@ class FBPropertyListModelTemplate():
     def __getitem__(self,arg2)->object:...
     def __len__(self)->int:...
 class FBPropertyListModelTemplateBinding():
-    """List: MotionClip   
+    """List: MotionClip
     
     PropertyList: MotionClip"""
     def __getitem__(self,arg2)->object:...
@@ -5115,21 +5115,19 @@ class FBRenderOptions():
 class FBProperty(FBPlug):
     """Generic application property.
     
-     Property: Action Action property to trigger function.
+    Property: Action Action property to trigger function.
     
     [FBProperty](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property.html "Generic application property.") objects cannot be instantiated by the user. Reference to a property can be obtained either via an instance of a [FBComponent](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html "MotionBuilder SDK base class.") object, or by calling the method 'Find()' of a [FBPropertyManager](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_manager.html "Property Manager."). The class [FBComponent](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html "MotionBuilder SDK base class.") has a [FBPropertyManager](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_manager.html "Property Manager.") data member named 'PropertyList'.
     
     When accessing a [FBProperty](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property.html "Generic application property.") object via its containing object, you can get or set (assuming it is not read-only) its value directly:
     
     ```
-    
        lObject.Visibility = True
     
     ```
     When accessing a property reference directly, its value is obtained via it's 'Data' member.
     
     ```
-    
        lProp = lObject.PropertyList.Find( 'Visibility' )
     
        if lProp: lProp.Data = True
@@ -5198,7 +5196,7 @@ class FBProperty(FBPlug):
             - Flag: Flag to test if it is True or False.
         
         ### Returns:
-        If the flag is True, the function returns True and vice-versa. 
+        If the flag is True, the function returns True and vice-versa.
         ### Warning:
         Flags are not saved into or read from a FBX file."""
         ...
@@ -5586,7 +5584,7 @@ class FBPropertyViewManager(FBComponent):
             - Hierarchy: Hierarchy under which property view should be created, each level name is separated by dot (for example "Degrees of Freedom.Translation").
         
         ### Returns:
-        created object. 
+        created object.
         ### Note:
         This call should be used on library registration, doesn't cause tool refresh."""
         ...
@@ -5645,7 +5643,7 @@ class FBPropertyViewManager(FBComponent):
             - PropertyName: Property name.
         
         ### Returns:
-        true if succeed (should not be call on system views). 
+        true if succeed (should not be call on system views).
         ### Note:
         This call should be used on library registration, doesn't cause tool refresh."""
         ...
@@ -6004,7 +6002,7 @@ class FBPropertyListObjectPose(FBPropertyListComponent):
 class FBPropertyListObject(FBPropertyListComponent):
     """List-like structure fo system elements.
     
-     PropertyList: ObjectPose.
+    PropertyList: ObjectPose.
     
     This container supports most of the list interface, but is limited to contain only [FBComponent](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html "MotionBuilder SDK base class.") objects. New objects can be added, or objects in the list can be removed. The cardinality of the list and the use of the contained object will vary according the container object type. This class supports slice access for query, but not for assignment."""
     Data:Any
@@ -6911,9 +6909,9 @@ class FBRenderer(FBComponent):
 class FBProgress(FBComponent):
     """Progress bar. Property: Base property class.
     
-    [See samples: 3dsMaxBipedTemplate.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c3ds_max_biped_template_8py-example.html) [MirrorPoseOverTime.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_mirror_pose_over_time_8py-example.html) [FBProgress.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_f_b_progress_8py-example.html)   
+    [See samples: 3dsMaxBipedTemplate.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c3ds_max_biped_template_8py-example.html) [MirrorPoseOverTime.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_mirror_pose_over_time_8py-example.html) [FBProgress.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_f_b_progress_8py-example.html)
     
-     A property is a holder for function callbacks into the internals of the application.You cannot instantiate [FBProperty](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property.html "Generic application property.") objects. To reference a property: Use an instance of an [FBComponent](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html "MotionBuilder SDK base class.") object. The methods [FBComponent::PropertyCreate](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html#a154c4f7b5a26f60b373d9bb4fa37dfb1 "Create user or dynamic property.") and [FBComponent::PropertyRemove](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html#ab54e85a44712cff01a617655269d3d16 "Remove a Property from the component's Property manager.") can be used to modify an object's set of properties. When accessing a [FBProperty](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property.html "Generic application property.") object via its containing object, you can get or set (assuming it is not read-only) its value directly, for example in Python: myObject.Visibility = True. [FBPropertyManager](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_manager.html "Property Manager.") exists in all [FBComponent](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html "MotionBuilder SDK base class.") objects, and contains an array of all the registered properties. Use FBProperty::Find to find a property by name. When accessing a property reference directly, its value is obtained via its 'Data' member.
+    A property is a holder for function callbacks into the internals of the application.You cannot instantiate [FBProperty](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property.html "Generic application property.") objects. To reference a property: Use an instance of an [FBComponent](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html "MotionBuilder SDK base class.") object. The methods [FBComponent::PropertyCreate](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html#a154c4f7b5a26f60b373d9bb4fa37dfb1 "Create user or dynamic property.") and [FBComponent::PropertyRemove](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html#ab54e85a44712cff01a617655269d3d16 "Remove a Property from the component's Property manager.") can be used to modify an object's set of properties. When accessing a [FBProperty](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property.html "Generic application property.") object via its containing object, you can get or set (assuming it is not read-only) its value directly, for example in Python: myObject.Visibility = True. [FBPropertyManager](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_manager.html "Property Manager.") exists in all [FBComponent](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html "MotionBuilder SDK base class.") objects, and contains an array of all the registered properties. Use FBProperty::Find to find a property by name. When accessing a property reference directly, its value is obtained via its 'Data' member.
     
     ```python
     myProp = myObject.PropertyList.Find( 'Visibility' )
@@ -7084,9 +7082,9 @@ class FBPose(FBComponent):
             - Index: Index of the node.
         
         ### Returns:
-        a reference to the node's Matrix. 
+        a reference to the node's Matrix.
         ### Remarks:
-        if the index is invalid a reference to an identiy matrix is returned. 
+        if the index is invalid a reference to an identiy matrix is returned.
         The reference will become undefined if this object is destroyed."""
         ...
     def GetNodeName(self,Index:int)->str:
@@ -7096,7 +7094,7 @@ class FBPose(FBComponent):
             - Index: Index of the node.
         
         ### Remarks:
-        if the index is invalid a reference to an empty string is returned. 
+        if the index is invalid a reference to an empty string is returned.
         The reference will become undefined if this object is destroyed."""
         ...
     def GetNodeObject(self,Index:int)->FBModel:
@@ -7106,7 +7104,7 @@ class FBPose(FBComponent):
             - Index: Index of the node.
         
         ### Returns:
-        a pointer to the node's Object. 
+        a pointer to the node's Object.
         ### Remarks:
         if the index is invalid a null pointer is returned."""
         ...
@@ -7117,7 +7115,7 @@ class FBPose(FBComponent):
             - Index: Index of the node.
         
         ### Returns:
-        true if the matrix is defined in Local coordinate space. 
+        true if the matrix is defined in Local coordinate space.
         ### Remarks:
         If this object is configured to hold BindPose data, this method will always return false."""
         ...
@@ -7330,7 +7328,7 @@ class FBCharacterPose(FBPose):
             - CharacterExtensionName: Name of the character extension pose to get (It is the label name of the character extension).
         
         ### Returns:
-        The pose of the character extension. 
+        The pose of the character extension.
         ### Remarks:
         Use this function to manually add a pose of a character extension."""
         ...
@@ -7357,7 +7355,7 @@ class FBCharacterPose(FBPose):
             - CharacterPoseOptions: Options used to specify how to paste.
         
         ### Remarks:
-        Supports the match and mirror options. 
+        Supports the match and mirror options.
         When pasting in body part, the selected parts and extensions of the character will be pasted."""
         ...
     def PastePoseCharacter(self,Character:FBCharacter,CharacterPoseOptions:FBCharacterPoseOptions):
@@ -7422,7 +7420,7 @@ class FBObjectPose(FBPose):
             - PoseTransformType: Transform type in which to add the offset (Local, Global or LocalRef).
         
         ### Remarks:
-        Working with poses with their StanceOffset removed is usefull for retargetting. 
+        Working with poses with their StanceOffset removed is usefull for retargetting.
         If pPoseTransformType is set to kFBPoseTransformInvalid, offsets will be added in all TransformTypes."""
         ...
     def AddStanceOffsetAllObjects(self,StancePose:FBObjectPose,PoseTransformType:FBPoseTransformType=FBPoseTransformType.kFBPoseTransformInvalid):
@@ -7433,7 +7431,7 @@ class FBObjectPose(FBPose):
             - PoseTransformType: Transform type in which to add the offset (Local, Global or LocalRef).
         
         ### Remarks:
-        Working with poses with their StanceOffset removed is usefull for retargetting. 
+        Working with poses with their StanceOffset removed is usefull for retargetting.
         If pPoseTransformType is set to kFBPoseTransformInvalid, offsets will be added in all TransformTypes."""
         ...
     def ClearPose(self):
@@ -7561,7 +7559,7 @@ class FBObjectPose(FBPose):
             - PoseTransformType: Transform type in which to check.
         
         ### Returns:
-        True if the transform of this object is stored in the specified TransformType (Local, Global and LocalRef). 
+        True if the transform of this object is stored in the specified TransformType (Local, Global and LocalRef).
         ### Remarks:
         If pPoseTransformType is set to kFBPoseTransformInvalid, will check in all TransformTypes."""
         ...
@@ -7603,7 +7601,7 @@ class FBObjectPose(FBPose):
             - Object: Object which will receive the values stored in the pose.
         
         ### Remarks:
-        You can specify a pObjectName different from the name of pObject. 
+        You can specify a pObjectName different from the name of pObject.
         Properties that were not stored in the pose will not be affected."""
         ...
     def PastePropertyPose(self,ObjectName:str,Property:FBProperty):
@@ -7614,7 +7612,7 @@ class FBObjectPose(FBPose):
             - Property: Property which will receive the value stored in the pose.
         
         ### Remarks:
-        You can specify a pObjectName different from the name of pObject. 
+        You can specify a pObjectName different from the name of pObject.
         The property will not be affected if it was not stored in the pose."""
         ...
     def PasteTransform(self,ObjectName:str,Object:FBComponent,ObjectPoseOptions:FBObjectPoseOptions):
@@ -7638,7 +7636,7 @@ class FBObjectPose(FBPose):
             - PoseTransformType: Transform type in which to remove the offset (Local, Global or LocalRef).
         
         ### Remarks:
-        Working with poses with their StanceOffset removed is usefull for retargetting. 
+        Working with poses with their StanceOffset removed is usefull for retargetting.
         If pPoseTransformType is set to kFBPoseTransformInvalid, offsets will be removed in all TransformTypes."""
         ...
     def RemoveStanceOffsetAllObjects(self,StancePose:FBObjectPose,PoseTransformType:FBPoseTransformType=FBPoseTransformType.kFBPoseTransformInvalid):
@@ -7649,7 +7647,7 @@ class FBObjectPose(FBPose):
             - PoseTransformType: Transform type in which to remove the offset (Local, Global or LocalRef).
         
         ### Remarks:
-        Working with poses with their StanceOffset removed is usefull for retargetting. 
+        Working with poses with their StanceOffset removed is usefull for retargetting.
         If pPoseTransformType is set to kFBPoseTransformInvalid, offsets will be removed in all TransformTypes."""
         ...
     def SetPropertyValue(self,ObjectName:str,PropertyName:str,Value:float,Size:int):
@@ -8136,7 +8134,7 @@ class FBConstraint(FBBox):
             - Model: Model to place at new reference.
         
         ### Returns:
-        true if successful. 
+        true if successful.
         ### Warning:
         If you try to add a model to a group that is already full, the success of the operation will be false and the reference will not be added."""
         ...
@@ -9449,7 +9447,7 @@ class FBActor(FBConstraint):
             - ResetOrientation: When set to true, all rotations in the state will be reset to characterization values.
         
         ### Returns:
-        Current Skeleton State 
+        Current Skeleton State
         ### Note:
         Usage of this function can be found in script sample /bin/config/Scripts/Samples/Character/CharacterMarkerSetFromActor.py"""
         ...
@@ -11916,7 +11914,7 @@ class FBApplication(FBComponent):
             - AudioRenderOptions: The options used when rendering audio of the scene. Default value: 2 channels, 16 bits, 44100 hz, the begin and end time span for current time referential, Default file name is "Output.wav" in the last audio output path, ro the default document path if the last path doesn't exist.
         
         ### Returns:
-        True if the file was rendered successfully 
+        True if the file was rendered successfully
         ### Warning:
         If the destination media file exist, it will be overwritten by default. If the destination media file is opened by other application, the audio render process may not success because of not able to open it."""
         ...
@@ -11928,7 +11926,7 @@ class FBApplication(FBComponent):
             - Filename: The script file to execute.
         
         ### Returns:
-        True if the script file was found and executed. 
+        True if the script file was found and executed.
         ### Remarks:
         This function can be used in any thread."""
         ...
@@ -11971,12 +11969,12 @@ class FBApplication(FBComponent):
             - Filename: The file to create. To create two files at the same time (ex: .amc & .asf), separate the two files path with a comma ("Path1,Path2").
         
         ### Returns:
-        True if the export succeeded. 
+        True if the export succeeded.
         ### Remarks:
-        If the file exists, it will be overwritten. 
-        Only current take is exported. 
-        For now, you cannot export custom file types. 
-        Currently, only the default export options are used. 
+        If the file exists, it will be overwritten.
+        Only current take is exported.
+        For now, you cannot export custom file types.
+        Currently, only the default export options are used.
         ### Warning:
         The signature of this function might change in the future to support export options."""
         ...
@@ -11991,7 +11989,7 @@ class FBApplication(FBComponent):
             - ExportModels: Models to the export.
         
         ### Returns:
-        True if the export succeeded. 
+        True if the export succeeded.
         ### Remarks:
         Not all options have to be set, only those that belong to process."""
         ...
@@ -12003,10 +12001,10 @@ class FBApplication(FBComponent):
             - Options: An [FBMotionFileExportOptions](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_motion_file_export_options.html "Customize motion file exporting.") object that contains the file path of the motion file(s) to export, as well as the options to export those motion files.
         
         ### Returns:
-        True if the export succeeded. Returns false if some files were not written (file not overwritten, invalid path, etc.). Returns false if the given options object is not valid. See the [FBMotionFileExportOptions::IsValid](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_motion_file_export_options.html#a9dcb9b43a3d0fa9003d4c1c9d921f6b2 "Is this object valid?") method. 
+        True if the export succeeded. Returns false if some files were not written (file not overwritten, invalid path, etc.). Returns false if the given options object is not valid. See the [FBMotionFileExportOptions::IsValid](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_motion_file_export_options.html#a9dcb9b43a3d0fa9003d4c1c9d921f6b2 "Is this object valid?") method.
         ### Remarks:
-        Based on the values of the various options, multiple motion files could be created with file paths based on the initial file path provided. See the documentation of [FBMotionFileExportOptions](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_motion_file_export_options.html "Customize motion file exporting.") for more details. 
-        For now, only the FBX motion file type is supported. 
+        Based on the values of the various options, multiple motion files could be created with file paths based on the initial file path provided. See the documentation of [FBMotionFileExportOptions](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_motion_file_export_options.html "Customize motion file exporting.") for more details.
+        For now, only the FBX motion file type is supported.
         For now, you cannot export custom file types."""
         ...
     def FileImport(self,Filename:str,MatchModels:bool=False,CreateUnmatchedModels:bool=True)->bool:
@@ -12019,15 +12017,15 @@ class FBApplication(FBComponent):
             - CreateUnmatchedModels: Whether unmatched models will be created. This flag matters only when pMatchModels is true. when pMatchModels is false, all the models are created.
         
         ### Returns:
-        True if the import succeeded. 
+        True if the import succeeded.
         ### Remarks:
-        No models selected, all the models in the scene will be checked for a potential name match. 
-        If there are models selected in the scene, only these models will be checked for a potential name match. 
-        If only one model is selected (ex: hips), this models and its hierarchy will be used. 
-        The data will be imported in the current take. 
-        The last two parameter are only used for motion files. 
-        For now, you cannot import custom file types. 
-        Currently, only the default import options are used. 
+        No models selected, all the models in the scene will be checked for a potential name match.
+        If there are models selected in the scene, only these models will be checked for a potential name match.
+        If only one model is selected (ex: hips), this models and its hierarchy will be used.
+        The data will be imported in the current take.
+        The last two parameter are only used for motion files.
+        For now, you cannot import custom file types.
+        Currently, only the default import options are used.
         ### Warning:
         The signature of this function might change in the future to support import options."""
         ...
@@ -12041,7 +12039,7 @@ class FBApplication(FBComponent):
             - Reference: Reference model for the import.
         
         ### Returns:
-        True if the import succeeded. 
+        True if the import succeeded.
         ### Remarks:
         Not all options have to be set, only those that belong to process."""
         ...
@@ -12053,10 +12051,10 @@ class FBApplication(FBComponent):
             - Options: An [FBMotionFileImportOptions](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_motion_file_import_options.html "Customize motion file loading.") object that contains the path to the files, as well as the options to load those motion files.
         
         ### Returns:
-        True if the import succeeded. 
+        True if the import succeeded.
         ### Remarks:
-        The import will only work if you open files of the same type. 
-        For now, you cannot import custom file types. 
+        The import will only work if you open files of the same type.
+        For now, you cannot import custom file types.
         Not all options can be applied to a particular motion file type, please use the Motion File Import UI as a reference."""
         ...
     @overload
@@ -12118,7 +12116,7 @@ class FBApplication(FBComponent):
             - BufferLength: the memory buffer size.
         
         ### Returns:
-        true if file opened successfully. 
+        true if file opened successfully.
         ### Warning:
         this is advanced & not supported function, use with caution."""
         ...
@@ -12130,9 +12128,9 @@ class FBApplication(FBComponent):
             - RenderOptions: The options used when rendering the scene. If you don't specify them, current one are used.
         
         ### Returns:
-        True if the file was rendered successfully otherwise False and [FBVideoGrabber.GetLastErrorMsg()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_video_grabber.html#af2af6435ec300fc0b187059a5d762b9c "GetLastErrorMsg.") contains the description of the error. 
+        True if the file was rendered successfully otherwise False and [FBVideoGrabber.GetLastErrorMsg()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_video_grabber.html#af2af6435ec300fc0b187059a5d762b9c "GetLastErrorMsg.") contains the description of the error.
         ### Remarks:
-        Render options can be changed if they are not valid. 
+        Render options can be changed if they are not valid.
         ### Warning:
         If the destination media file exist, it will be overwritten by default."""
         ...
@@ -12163,7 +12161,7 @@ class FBApplication(FBComponent):
             - TimeScale: Time scale.
         
         ### Returns:
-        (C++ only) True if file opened successfully. (Python only) A tuple with 2 values: (bool return value, pFrameCount). 
+        (C++ only) True if file opened successfully. (Python only) A tuple with 2 values: (bool return value, pFrameCount).
         ### Warning:
         this is advanced & not supported function, use with caution."""
         ...
@@ -12907,7 +12905,7 @@ class FBFCurveEditorUtility(FBComponent):
             - Editor: Pointer to a [FBFCurveEditor](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_f_curve_editor.html "FCurve editor.") for framing the keys in that custom editor, NULL to frame in the default editor.
         
         ### Returns:
-        True if successful, false otherwise. 
+        True if successful, false otherwise.
         ### Note:
         pEditor is currently not supported in this implementation, as the [FBFCurveEditor](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_f_curve_editor.html "FCurve editor.") is still in development."""
         ...
@@ -13170,7 +13168,7 @@ class FBFbxOptions(FBComponent):
             - TakeIndex: index of take to get.
         
         ### Returns:
-        A time range, keys inside that time range will be kept. Keys outside that time range will be removed when importing the animation, by default the time range is [FBTime::MinusInfinity](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_time.html#a7840cbd8a5f56768e40783609ff0f946 "Time constant: Minus Infinity, the lowest negative time value.") -> [FBTime::Infinity](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_time.html#ad4cdfb3a31e984e36d78499115839636 "Time constant: Infinity, the largest time value.") 
+        A time range, keys inside that time range will be kept. Keys outside that time range will be removed when importing the animation, by default the time range is [FBTime::MinusInfinity](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_time.html#a7840cbd8a5f56768e40783609ff0f946 "Time constant: Minus Infinity, the lowest negative time value.") -> [FBTime::Infinity](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_time.html#ad4cdfb3a31e984e36d78499115839636 "Time constant: Infinity, the largest time value.")
         ### Remarks:
         Valid only on load/merge, not when saving a file."""
         ...
@@ -13629,7 +13627,7 @@ class FBGeometry(FBComponent):
             - OutArrayCount: To return the length the array.
         
         ### Returns:
-        Pointer to direct array of binormals, or NULL if the array hasn't been allocated yet. 
+        Pointer to direct array of binormals, or NULL if the array hasn't been allocated yet.
         ### See also:
         [GeometryBegin()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_geometry.html#a137880b95679600966415dc2f6cf3916 "Begin geometry editing.")/GeometryEnd()"""
         ...
@@ -13641,7 +13639,7 @@ class FBGeometry(FBComponent):
             - OutArrayCount: To return the length the array.
         
         ### Returns:
-        Pointer to index array of binormals, or NULL if the array hasn't been allocated yet. 
+        Pointer to index array of binormals, or NULL if the array hasn't been allocated yet.
         ### See also:
         [GeometryBegin()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_geometry.html#a137880b95679600966415dc2f6cf3916 "Begin geometry editing.")/GeometryEnd()"""
         ...
@@ -13653,7 +13651,7 @@ class FBGeometry(FBComponent):
             - OutArrayCount: To return the length the array.
         
         ### Returns:
-        Pointer to index array of Material, or NULL if the array hasn't been allocated yet. 
+        Pointer to index array of Material, or NULL if the array hasn't been allocated yet.
         ### See also:
         [GeometryBegin()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_geometry.html#a137880b95679600966415dc2f6cf3916 "Begin geometry editing.")/GeometryEnd()"""
         ...
@@ -13665,7 +13663,7 @@ class FBGeometry(FBComponent):
             - OutArrayCount: To return the length the array.
         
         ### Returns:
-        Pointer to direct array of normals, or NULL if the array hasn't been allocated yet. 
+        Pointer to direct array of normals, or NULL if the array hasn't been allocated yet.
         ### See also:
         [GeometryBegin()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_geometry.html#a137880b95679600966415dc2f6cf3916 "Begin geometry editing.")/GeometryEnd()"""
         ...
@@ -13677,7 +13675,7 @@ class FBGeometry(FBComponent):
             - OutArrayCount: To return the length the array.
         
         ### Returns:
-        Pointer to index array of normals, or NULL if the array hasn't been allocated yet. 
+        Pointer to index array of normals, or NULL if the array hasn't been allocated yet.
         ### See also:
         [GeometryBegin()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_geometry.html#a137880b95679600966415dc2f6cf3916 "Begin geometry editing.")/GeometryEnd()"""
         ...
@@ -13689,7 +13687,7 @@ class FBGeometry(FBComponent):
             - OutArrayCount: To return the length the array.
         
         ### Returns:
-        Pointer to index array of normals, or NULL if the array hasn't been allocated yet. 
+        Pointer to index array of normals, or NULL if the array hasn't been allocated yet.
         ### See also:
         [GeometryBegin()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_geometry.html#a137880b95679600966415dc2f6cf3916 "Begin geometry editing.")/GeometryEnd()"""
         ...
@@ -13701,7 +13699,7 @@ class FBGeometry(FBComponent):
             - OutArrayCount: To return the length the array.
         
         ### Returns:
-        Pointer to direct array of tangents, or NULL if the array hasn't been allocated yet. 
+        Pointer to direct array of tangents, or NULL if the array hasn't been allocated yet.
         ### See also:
         [GeometryBegin()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_geometry.html#a137880b95679600966415dc2f6cf3916 "Begin geometry editing.")/GeometryEnd()"""
         ...
@@ -13713,7 +13711,7 @@ class FBGeometry(FBComponent):
             - OutArrayCount: To return the length the array.
         
         ### Returns:
-        Pointer to index array of tangents, or NULL if the array hasn't been allocated yet. 
+        Pointer to index array of tangents, or NULL if the array hasn't been allocated yet.
         ### See also:
         [GeometryBegin()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_geometry.html#a137880b95679600966415dc2f6cf3916 "Begin geometry editing.")/GeometryEnd()"""
         ...
@@ -13725,7 +13723,7 @@ class FBGeometry(FBComponent):
             - UVSetName: The name of UVset, NULL for the first UVset.
         
         ### Returns:
-        pointer to the array of UV, or NULL is the array hasn't been allocated yet. 
+        pointer to the array of UV, or NULL is the array hasn't been allocated yet.
         ### See also:
         [GeometryBegin()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_geometry.html#a137880b95679600966415dc2f6cf3916 "Begin geometry editing.")/GeometryEnd()"""
         ...
@@ -13738,7 +13736,7 @@ class FBGeometry(FBComponent):
             - UVSetName: The name of UVset, NULL for the first UVset.
         
         ### Returns:
-        Pointer to index array of UVSet, or NULL if the array hasn't been allocated yet. 
+        Pointer to index array of UVSet, or NULL if the array hasn't been allocated yet.
         ### See also:
         [GeometryBegin()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_geometry.html#a137880b95679600966415dc2f6cf3916 "Begin geometry editing.")/GeometryEnd()"""
         ...
@@ -13774,7 +13772,7 @@ class FBGeometry(FBComponent):
             - OutArrayCount: To return the length the array.
         
         ### Returns:
-        Pointer to direct array of vertex colors, or NULL if the array hasn't been allocated yet. 
+        Pointer to direct array of vertex colors, or NULL if the array hasn't been allocated yet.
         ### See also:
         [GeometryBegin()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_geometry.html#a137880b95679600966415dc2f6cf3916 "Begin geometry editing.")/GeometryEnd()"""
         ...
@@ -13786,7 +13784,7 @@ class FBGeometry(FBComponent):
             - OutArrayCount: To return the length the array.
         
         ### Returns:
-        Pointer to index array of vertex color, or NULL if the array hasn't been allocated yet. 
+        Pointer to index array of vertex color, or NULL if the array hasn't been allocated yet.
         ### See also:
         [GeometryBegin()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_geometry.html#a137880b95679600966415dc2f6cf3916 "Begin geometry editing.")/GeometryEnd()"""
         ...
@@ -13847,7 +13845,7 @@ class FBGeometry(FBComponent):
             - Vertex: Vertex values used to add vertex.
         
         ### Returns:
-        Index where vertex was added. 
+        Index where vertex was added.
         ### Remarks:
         Set Normal with default value"""
         ...
@@ -14114,7 +14112,7 @@ class FBMesh(FBGeometry):
         
         Clean up and associate vertices internally.
         ### Returns:
-        Current number of polygons. 
+        Current number of polygons.
         ### Note:
         MoBu expect each polygon to contain at least 3 vertices, the behavior is undefined if user add less than 3 vertices polygon."""
         ...
@@ -15145,7 +15143,7 @@ class FBModelVertexData(FBComponent):
             - UVSet: UV Set name to be queried if pTextureMapping is kFBTextureMappingUV, otherwise ignored.
         
         ### Returns:
-        (C++) The UV Set array pointer. (Python) The UV Set array as a list. 
+        (C++) The UV Set array pointer. (Python) The UV Set array as a list.
         ```c++
         // The following C++ snippet show how to deal with the UV mapping UV Set array pointer returned.
         void* lUVSetArray = lModelVertexData.GetUVSetArray();
@@ -15206,9 +15204,9 @@ class FBModelVertexData(FBComponent):
             - AfterDeform: True to query the deformed position or normal vertex array (model must be deformable and deformation must occur in CPU), false to query the original vertex array.
         
         ### Returns:
-        (C++) The vertex array pointer. (Python) The vertex array as a list. Deformed position & normal vertex arrays could be NULL if one has not requested the mapping vertex array on CPU. 
+        (C++) The vertex array pointer. (Python) The vertex array as a list. Deformed position & normal vertex arrays could be NULL if one has not requested the mapping vertex array on CPU.
         ### Note:
-        Use [VertexArrayMappingRequest()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_model_vertex_data.html#ad98d06b4eb79ec2b2218f03be0b13469 "Request deformed vertex array mapping on CPU.") to toggle CPU / GPU skinning per model when necessary. 
+        Use [VertexArrayMappingRequest()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_model_vertex_data.html#ad98d06b4eb79ec2b2218f03be0b13469 "Request deformed vertex array mapping on CPU.") to toggle CPU / GPU skinning per model when necessary.
         ```c++
         // The following C++ snippet show how to deal with the Point vertex array pointer returned.
         void* lVertexArray = lModelVertexData.GetVertexArray();
@@ -15248,7 +15246,7 @@ class FBModelVertexData(FBComponent):
             - AfterDeform: Unused parameter.
         
         ### Returns:
-        The vertex array format for the specified array Id. 
+        The vertex array format for the specified array Id.
         ### Note:
         Use [VertexArrayMappingRequest()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_model_vertex_data.html#ad98d06b4eb79ec2b2218f03be0b13469 "Request deformed vertex array mapping on CPU.") to toggle CPU / GPU skinning per model when necessary."""
         ...
@@ -15261,7 +15259,7 @@ class FBModelVertexData(FBComponent):
             - AfterDeform: True to query the deformed position or normal vertex array (model must be deformable and deformation must occur in CPU), false to query the original vertex array.
         
         ### Returns:
-        The vertex array VBO offset (C++: as a pointer, Python: as a kReference). 
+        The vertex array VBO offset (C++: as a pointer, Python: as a kReference).
         ### Note:
         Use [VertexArrayMappingRequest()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_model_vertex_data.html#ad98d06b4eb79ec2b2218f03be0b13469 "Request deformed vertex array mapping on CPU.") to toggle CPU / GPU skinning per model when necessary."""
         ...
@@ -15582,7 +15580,7 @@ class FBMotionFileExportOptions(FBComponent):
             - TakeIndex: Index of take to get the file path.
         
         ### Returns:
-        The file path of the given take. Returns nullptr (None in Python) if the operation cannot be performed. 
+        The file path of the given take. Returns nullptr (None in Python) if the operation cannot be performed.
         ### Remarks:
         Changing the value of the OneTakePerFile and/or AddPrefix properties could affect the value returned."""
         ...
@@ -15638,7 +15636,7 @@ class FBMotionFileExportOptions(FBComponent):
             - TakeIndex: Index of take to get the time mode.
         
         ### Returns:
-        The time mode of the given take. 
+        The time mode of the given take.
         ### Remarks:
         Use GetTakeFrameRate if you have a custom time mode to get the actual frame rate."""
         ...
@@ -15646,9 +15644,9 @@ class FBMotionFileExportOptions(FBComponent):
         """Is this object valid?
         
         ### Returns:
-        True if the provided file path for the motion file(s) to create is valid and if the take info is up to date with the scene, false otherwise. 
+        True if the provided file path for the motion file(s) to create is valid and if the take info is up to date with the scene, false otherwise.
         ### Remarks:
-        Call the SetFilePath method to provide a valid file path. 
+        Call the SetFilePath method to provide a valid file path.
         Call the ResetTakeInfo method to reset the take info (i.e.: will be then in sync with the scene)."""
         ...
     def ResetTakeInfo(self)->bool:
@@ -15666,7 +15664,7 @@ class FBMotionFileExportOptions(FBComponent):
             - FilePath: The file path for the motion file(s) to create.
         
         ### Returns:
-        True if the provided file path is valid, false otherwise. 
+        True if the provided file path is valid, false otherwise.
         ### Remarks:
         All the takes file path will be updated after calling this method."""
         ...
@@ -15678,9 +15676,9 @@ class FBMotionFileExportOptions(FBComponent):
             - FilePath: The file path of the given take.
         
         ### Returns:
-        True if the operation is successful, false otherwise. 
+        True if the operation is successful, false otherwise.
         ### Remarks:
-        Changing the value of the OneTakePerFile and/or AddPrefix properties could reset the value set. 
+        Changing the value of the OneTakePerFile and/or AddPrefix properties could reset the value set.
         If the OneTakePerFile property is false, changing the file path for one take will modify the file path of all the other takes at once."""
         ...
     def SetTakeSelect(self,TakeIndex:int,Select:bool)->bool:
@@ -15702,7 +15700,7 @@ class FBMotionFileExportOptions(FBComponent):
             - CustomFrameRate: Custom frame rate if pTimeMode is set to kFBTimeModeCustom, unused otherwise (default is 30.0).
         
         ### Returns:
-        True if the operation is successful, false otherwise. 
+        True if the operation is successful, false otherwise.
         ### Remarks:
         If the OneTakePerFile property is false, changing the time mode/frame rate for one take will modify the time mode/frame rate of all the other takes at once."""
         ...
@@ -15751,7 +15749,7 @@ class FBMotionFileImportOptions(FBComponent):
         """Return the take count in the file to be loaded.
         
         ### Returns:
-        Take count 
+        Take count
         ### Warning:
         You need to use an appropriate constructor with the file path to be able to get the take information."""
         ...
@@ -15789,7 +15787,7 @@ class FBMotionFileImportOptions(FBComponent):
             - TakeIndex: Index of take to get the sampling rate mode
         
         ### Returns:
-        Sample rate mode 
+        Sample rate mode
         ### Remarks:
         Use GetTakeSamplingRate if you have a custom sampling rate to get the actual rate."""
         ...
@@ -16755,7 +16753,7 @@ class FBScene(FBComponent):
         """Evaluate the scene.
         
         ### Returns:
-        true if successful. 
+        true if successful.
         ### Note:
         MoBu's is highly optimized for real-time performance, due to its multi-thread, double buffer and lazy-evaluation architecture, complex scripts are often required to call [FBScene::Evaluate()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_scene.html#a133019f4b3a3240f6c2f6716f6c67bf3 "Evaluate the scene.") to commit previous scene change commands before execute following operations. Also, certain operations in SDK may require cached data to be reevaluated. In typical large scenes this call may be consider as very costly. That's why user is responsible to design code in the way that requires as little as possible calls to [FBScene::Evaluate](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_scene.html#a133019f4b3a3240f6c2f6716f6c67bf3 "Evaluate the scene."). We should consider use [FBScene::Evaluate()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_scene.html#a133019f4b3a3240f6c2f6716f6c67bf3 "Evaluate the scene.") between scene change commands as "common scripting practice"""
         ...
@@ -16798,7 +16796,7 @@ class FBScene(FBComponent):
             - ExactTypeMatch: if **True**, the derived typeInfo won't be considered (For example, [FBCamera](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_camera.html "Creates custom cameras and manages system cameras.") won't be considered when passing [FBModel::TypeInfo](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html#a9b39fba51413fa925a0d94d2feb13bf9 "Contains the Type information of the object.")).
         
         ### Returns:
-        False is the given namespace doesn't exist, or is locked (by FileRef or etc.,), True otherwise. 
+        False is the given namespace doesn't exist, or is locked (by FileRef or etc.,), True otherwise.
         ### Note:
         Not all the objects will be deletable (system objects and etc.,). Deletion of partial FileRef content isn't prevented, however the behavior is undefined."""
         ...
@@ -16891,7 +16889,7 @@ class FBScene(FBComponent):
             - AsFileReference: import the file as file reference. The default value is false.
         
         ### Returns:
-        True if successfully. 
+        True if successfully.
         ### Note:
         Nested destination namespaces are not allowed (e.g. a DstNamespaceList contains "NS1" and "NS1:NS2" will return False)."""
         ...
@@ -16906,7 +16904,7 @@ class FBScene(FBComponent):
             - ExactTypeMatch: if **True**, the derived typeInfo won't be considered (For example, [FBCamera](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_camera.html "Creates custom cameras and manages system cameras.") won't be considered when passing [FBModel::TypeInfo](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html#a9b39fba51413fa925a0d94d2feb13bf9 "Contains the Type information of the object.")).
         
         ### Returns:
-        True if operation successfully, False is this namespace (or pTypeInfo type of objects) doesn't exist, or locked (by FileReferencing or etc.,) 
+        True if operation successfully, False is this namespace (or pTypeInfo type of objects) doesn't exist, or locked (by FileReferencing or etc.,)
         ### Note:
         call with default parameters is considered as renaming of the whole namespace structure, otherwise will be considered as partially renaming individual objects. Renaming permission will be validated accordingly."""
         ...
@@ -17280,7 +17278,7 @@ class FBStory(FBComponent):
             - Take: Take to plot the Shot Tracks to the Camera Switcher to.
         
         ### Returns:
-        True if the operation is successful, false otherwise. 
+        True if the operation is successful, false otherwise.
         ### Remarks:
         To plot a single Shot Track to the Camera Switcher, use the [FBStoryTrack.PlotToCameraSwitcher](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_story_track.html#a64eff4284838a7d6da67221ce45ba8e5 "PlotToCameraSwitcher Plot the Shot Track to the Camera Switcher on the given Take.") method."""
         ...
@@ -17420,7 +17418,7 @@ class FBStoryClip(FBComponent):
             - Object: The destination object.
         
         ### Returns:
-        Returns true if assignment has been executed when the pSrcName is found in source list and pObject is in the Details list. 
+        Returns true if assignment has been executed when the pSrcName is found in source list and pObject is in the Details list.
         ### Remarks:
         Assignment success depends on if they have the same name property and with animation on the source property."""
         ...
@@ -17485,7 +17483,7 @@ class FBStoryClip(FBComponent):
             - LoopNumber: The number of loops applied on the source time to match the destination time to convert. Optional. Will be filled by the method.
         
         ### Returns:
-        The clip source time matching the input destination time. 
+        The clip source time matching the input destination time.
         ### Python:
         The function takes only one parameter (pDestinationTime) and returns a Python tuple: (sourceTime, loopNumber). ex : lTuple = lClip.GetSourceTimeFromDestinationTime(lDestinationTime)"""
         ...
@@ -17857,7 +17855,7 @@ class FBStoryTrack(FBConstraint):
             - Take: Take to plot the Shot Track to the Camera Switcher to.
         
         ### Returns:
-        True if the operation is successful, false otherwise. 
+        True if the operation is successful, false otherwise.
         ### Remarks:
         To plot all Shot Tracks to the Camera Switcher, use the [FBStory.PlotAllShotTracksToCameraSwitcher](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_story.html#ac7e4f5b948df1d33dd0f8207e89b1c82 "PlotAllShotTracksToCameraSwitcher Plot all Shot Tracks to the Camera Switcher on the given Take.") method."""
         ...
@@ -19453,7 +19451,7 @@ class FBFCurve(FBComponent):
             - TangentModes: Tangent calculation methods of the inserted keys, default value is Auto (Smooth) for all the keys if this parameter is omitted.
         
         ### Returns:
-        True if the operation is successful, false otherwise. 
+        True if the operation is successful, false otherwise.
         ### Python:
         Each parameter of KeysAdd is a Python list. ex : KeysAdd( [time1, time2], [value1, value2] )"""
         ...
@@ -19468,7 +19466,7 @@ class FBFCurve(FBComponent):
             - TangentModes: New tangent calculation methods of the keys to modify if specified, otherwise the tangent calculation methods are untouched.
         
         ### Returns:
-        True if the operation is successful (at least one key is modified), false otherwise. 
+        True if the operation is successful (at least one key is modified), false otherwise.
         ### Python:
         Each parameter of KeysSetValues is a Python list. ex : KeysSetValues( [index1, index2], [value1, value2] )"""
         ...
@@ -20793,9 +20791,9 @@ class FBVideoCodecManager():
             - FormatSuffix: Suffix/File extension of external video file format
         
         ### Returns:
-        true if register successful 
+        true if register successful
         ### Remarks:
-        After register an external video format, and save a scene with this kind of video. when start MotionBuilder next time and before load the scene back, 
+        After register an external video format, and save a scene with this kind of video. when start MotionBuilder next time and before load the scene back,
         It is necessary to call RegisterExternalVideoFormat to register this kind of video format again, otherwise this kind of video will not be loaded."""
         ...
     def SetDefaultCodec(self,FileFormatInfo:str,CodecId:str):
@@ -20986,9 +20984,9 @@ class FBVideoIn(FBVideo):
         ...
     def __init__(self):...
 class FBVideoMemory(FBVideo):
-    """[FBVideoMemory](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_video_memory.html "FBVideoMemory allow external media source (which can't be supported by MoBu natively)   User could cr...") allow external media source (which can't be supported by MoBu natively)   
+    """[FBVideoMemory](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_video_memory.html "FBVideoMemory allow external media source (which can't be supported by MoBu natively)   User could cr...") allow external media source (which can't be supported by MoBu natively)
     
-     User could create / update OGL texture (GL\_TEXTURE\_2D type) externally, and pass in GL texture object id to TextureOGLId property.See "Scripts/Samples/Video/VideoMemory.py" for usage example.
+    User could create / update OGL texture (GL\_TEXTURE\_2D type) externally, and pass in GL texture object id to TextureOGLId property.See "Scripts/Samples/Video/VideoMemory.py" for usage example.
     
     [See sample: VideoMemory.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_video_0c_video_memory_8py-example.html)"""
     TextureOGLId:int
@@ -22385,7 +22383,7 @@ def FBConnect(Src:FBPlug,Dst:FBPlug,ConnectionType:FBConnectionType=FBConnection
         - ConnectionType: Type of connection, taken from [FBConnectionType](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_connection_type.html "Connection types available between plugs.").
     
     ### Returns:
-    A boolean indicating success (True) or failure (False). 
+    A boolean indicating success (True) or failure (False).
     ### Remarks:
     This global function is used primarily to connect connectors in a [FBConstraintRelation](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_constraint_relation.html "ConstraintRelation class.")."""
     ...
@@ -22445,7 +22443,7 @@ def FBDisconnect(Src:FBPlug,Dst:FBPlug)->bool:
         - Dst: Destination plug.
     
     ### Returns:
-    A boolean indicating success (True) or failure (False). 
+    A boolean indicating success (True) or failure (False).
     ### Remarks:
     This global function is used primarily to disconnect connectors in a [FBConstraintRelation](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_constraint_relation.html "ConstraintRelation class.")."""
     ...
@@ -23363,7 +23361,7 @@ def FBTrace(FormatString:str):
         - FormatString: A printf-style format string, to use the following arguments in the list.
     
     ### Warning:
-    There is currently a limitation which sets the maximum length of the resulting string to be limited to 2048 bytes. 
+    There is currently a limitation which sets the maximum length of the resulting string to be limited to 2048 bytes.
     Not thread safe, as an static array is used internally."""
     ...
 def FBTraceGetLevel()->int:...
@@ -23384,7 +23382,7 @@ def FBTraceWithLevel(Level:int,FormatString:str):
         - FormatString: A printf-style format string, to use the following arguments in the list.
     
     ### Warning:
-    There is currently a limitation which sets the maximum length of the resulting string to be limited to 2048 bytes. 
+    There is currently a limitation which sets the maximum length of the resulting string to be limited to 2048 bytes.
     Not thread safe, as an static array is used internally."""
     ...
 def FBTranslationToMatrix(Matrix:FBMatrix,Vector:FBVector4d):
