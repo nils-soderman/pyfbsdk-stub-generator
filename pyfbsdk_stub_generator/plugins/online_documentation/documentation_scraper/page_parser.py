@@ -158,11 +158,19 @@ class DocstringMarkdownConverter(markdownify.MarkdownConverter):
         # There are some (what I guess is) broken <b> tags scattered around in the docstrings. Remove them.
         DocString = DocString.replace("b>", " ").strip()
 
-        # Lines = []
-        # for Line in DocString.split("\n"):
-        #     if Line.startswith("    "):
-        #         DocString = DocString.replace(Line, "    " + Line.strip())
-        # DocString = "\n".join(Lines)
+        # Go through and patch up the generated docstring
+        Lines = []
+        for Line in DocString.split("\n"):
+            StrippedLine = Line.strip()
+            
+            # Make sure headers are never indentend
+            if StrippedLine.startswith("###"):
+                Lines.append(StrippedLine)
+                continue
+            
+            Lines.append(Line)
+            
+        DocString = "\n".join(Lines)
 
         return DocString
 
@@ -209,9 +217,6 @@ class DocstringMarkdownConverter(markdownify.MarkdownConverter):
     def convert_dd(self, el: Tag, text: str, convert_as_inline):
         # Only strip new lines
         return text.strip("\n")
-    
-    # def convert_dl(self, el: Tag, text, convert_as_inline):
-    #     return text
 
     def convert_table(self, el: Tag, text, convert_as_inline):
         # Check if element has the class name for a parameter list

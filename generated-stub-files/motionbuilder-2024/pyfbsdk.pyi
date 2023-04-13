@@ -3626,7 +3626,7 @@ class FBColor():
     print(color[0])
     color[0] = 1.0
     ```
-     ### Warning:
+    ### Warning:
     Slicing is not supported by this object.
     
     
@@ -3725,7 +3725,7 @@ class FBColorAndAlpha():
     print(color[0])
     color[0] = 1.0
     ```
-     ### Warning:
+    ### Warning:
     Slicing is not supported by this object."""
     @overload
     def CopyFrom(self,arg2:FBColorAndAlpha)->FBColorAndAlpha:...
@@ -4474,7 +4474,7 @@ class FBMatrix():
     print(mat[13])
     mat[12] = 1.0
     ```
-     ### Warning:
+    ### Warning:
     The implementation of this 4x4 matrix uses a simple list of 16 elements, not a list of 4 vectors of 4 elements.\* 
     Slicing is not supported by this object.
     
@@ -11457,7 +11457,7 @@ class FBModelPath3D(FBModel):
         path.PathKeyInsertAfter(1,FBVector4d(0,25,50,0))
         path.PathKeyInsertAfter(2,FBVector4d(50,25,0,0))
         ```
-         ### Parameters:
+        ### Parameters:
             - Name: Name of Path 3D."""
         ...
 class FBModelPlane(FBModel):
@@ -13312,7 +13312,7 @@ class FBFbxOptions(FBComponent):
         # Let's merge those scenes. The namespaces will be applied on the scenes' contents.
         print(FBApplication().FileMerge( myScenesToMerge, False, fbxLoadOptions ))
         ```
-         ### Parameters:
+        ### Parameters:
             - MultiLoadNamespaceList: The multi load namespace list to set."""
         ...
     def SetObjectsToSave(self,ObjectsToSave:list[FBComponent]):
@@ -14962,7 +14962,7 @@ class FBMenuManager(FBComponent):
         aboutBoxFullPath = "Help/&About MotionBuilder"
         menuManager.ExecuteMenuItemFromFullPath( aboutBoxFullPath )
         ```
-         ### Parameters:
+        ### Parameters:
             - MenuItemFullPath: Path of the menu item to execute.
         
         ### Returns:
@@ -20355,7 +20355,7 @@ class FBVector2d():
     print(color[0])
     color[0] = 1.0
     ```
-     ### Warning:
+    ### Warning:
     Slicing is not supported by this object."""
     @overload
     def CopyFrom(self,arg2:FBVector2d)->FBVector2d:...
@@ -20450,7 +20450,7 @@ class FBVector3d():
     print(color[0])
     color[0] = 1.0
     ```
-     ### Warning:
+    ### Warning:
     Slicing is not supported by this object."""
     @overload
     def CopyFrom(self,arg2:FBVector3d)->FBVector3d:...
@@ -20551,7 +20551,7 @@ class FBVector4d():
     print(color[0])
     color[0] = 1.0
     ```
-     ### Warning:
+    ### Warning:
     Slicing is not supported by this object."""
     @overload
     def CopyFrom(self,arg2:FBVector4d)->FBVector4d:...
@@ -22354,7 +22354,7 @@ def FBAudioFmt_AppendFormat(Format:int,Channels:int,Bits:int,Rate:int)->int:
     print("New Format after modifying Audio Rate to 48000")
     printFormat( AudioFormat )
     ```
-     ### Parameters:
+    ### Parameters:
         - Format: Audio format to use. Set this to 0 if there is no audio format to be appended.
         - Channels: Number of channels. Valid values are 0, 1, 2, 4, 8.
         - Bits: Bit depth. Valid values are 0, 8, 16, 24, 32.
@@ -22803,7 +22803,7 @@ def FBGetMainWindow()->int:
     else:
         print( "MotionBuilder main window not found!" )
     ```
-     ### Returns:
+    ### Returns:
     The MotionBuilder main window."""
     ...
 @overload
@@ -22851,7 +22851,7 @@ def FBGetMultiLangText(Context:FBPlug,Key:str,FlagReturnKey:bool=False)->str:
         }
     }
     ```
-     ### Parameters:
+    ### Parameters:
         - Context: Object which dictates the context of the lookup.
         - Key: String to look up.
         - FlagReturnKey: Should the lookup fail, will return the key instead of an empty string.
@@ -22888,7 +22888,7 @@ def FBGetMultiLangText(Context:str,Key:str,FlagReturnKey:bool=False)->str:
     // Will return 'Field Of View'.
     FBTrace( "%s\\n", FBGetMultiLangText( "KCamera", "FieldOfView" ));
     ```
-     ### Parameters:
+    ### Parameters:
         - Context: String which dictates the context of the lookup.
         - Key: String to look up.
         - FlagReturnKey: Should the lookup fail, will return the key instead of an empty string.
