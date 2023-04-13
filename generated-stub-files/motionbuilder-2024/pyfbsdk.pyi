@@ -5121,17 +5121,15 @@ class FBProperty(FBPlug):
     
     When accessing a [FBProperty](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property.html "Generic application property.") object via its containing object, you can get or set (assuming it is not read-only) its value directly:
     
-    ```
-       lObject.Visibility = True
-    
+    ```python
+    lObject.Visibility = True
     ```
     When accessing a property reference directly, its value is obtained via it's 'Data' member.
     
-    ```
-       lProp = lObject.PropertyList.Find( 'Visibility' )
+    ```python
+    lProp = lObject.PropertyList.Find( 'Visibility' )
     
        if lProp: lProp.Data = True
-    
     ```
     The methods 'PropertyCreate()' and 'PropertyRemove' of the class [FBComponent](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html "MotionBuilder SDK base class.") can be used to modify an object's set of properties."""
     Data:object

@@ -164,7 +164,7 @@ class DocstringMarkdownConverter(markdownify.MarkdownConverter):
         bPreviousLineWasEmpty = False
         for Line in DocString.split("\n"):
             StrippedLine = Line.strip()
-            
+
             # Keep track of when we're in a code block
             if StrippedLine.startswith("```"):
                 bInCodeBlock = not bInCodeBlock
@@ -173,7 +173,7 @@ class DocstringMarkdownConverter(markdownify.MarkdownConverter):
 
             # Make sure headers are never indentend
                 # continue
-            
+
             # Don't allow any more than 1 empty lines in a row
             if bPreviousLineWasEmpty and not StrippedLine:
                 continue
@@ -181,13 +181,13 @@ class DocstringMarkdownConverter(markdownify.MarkdownConverter):
             if not StrippedLine:
                 Lines.append(StrippedLine)
                 continue
-            
+
             # Bullet points can be indented, other lines should not be
-            if StrippedLine.startswith("-") or bInCodeBlock: 
+            if StrippedLine.startswith("-") or bInCodeBlock:
                 Lines.append(Line)
             else:
                 Lines.append(StrippedLine)
-            
+
         DocString = "\n".join(Lines)
 
         return DocString
@@ -217,11 +217,10 @@ class DocstringMarkdownConverter(markdownify.MarkdownConverter):
 
     def convert_p(self, el, text, convert_as_inline):
         return text.strip() + "\n"
-    
+
     def convert_b(self, el, text, convert_as_inline):
         """ Skip adding ** around bold text. Since PyLance doesn't support bold text markdown atm."""
         return text
-    
 
     # -------------------------
     #      Parameter Lists
@@ -231,7 +230,7 @@ class DocstringMarkdownConverter(markdownify.MarkdownConverter):
         """ Convert all <dt> tags to a headers. """
         HeaderText = markdownify.markdownify(str(el))
         return f"### {HeaderText}:\n"
-    
+
     def convert_dd(self, el: Tag, text: str, convert_as_inline):
         # Only strip new lines
         return text.strip("\n")
@@ -269,20 +268,23 @@ class DocstringMarkdownConverter(markdownify.MarkdownConverter):
         """ Convert all <div> tags to a code block. """
         ElementClassNames = el.get("class")
         if ElementClassNames and ClassNames.CodeBlock in ElementClassNames:
-            # Exclude any <div> tags that have class names "ttc"
-            for Child in el.find_all('div', class_='ttc'):
-                Child.decompose()
-
-            Code = GetSafeText(el.get_text())
-            LanguageType = GetLanguageFromCode(Code)
-
-            if LanguageType == "python":
-                # Replace Python 2 print statements with Python 3 print functions
-                Code = re.sub(PY2_TO_PY3_PRINT_PATTERN, r"print(\1)\n", Code).strip()
-
-            return f"\n```{LanguageType}\n{Code}\n```\n"
+            return self.convert_pre(el, text, convert_as_inline)
 
         return text
+    
+    def convert_pre(self, el: Tag, text, convert_as_inline):
+        # Exclude any <div> tags that have class names "ttc"
+        for Child in el.find_all('div', class_='ttc'):
+            Child.decompose()
+
+        Code = GetSafeText(el.get_text()).strip("`")
+        LanguageType = GetLanguageFromCode(Code)
+
+        if LanguageType == "python":
+            # Replace Python 2 print statements with Python 3 print functions
+            Code = re.sub(PY2_TO_PY3_PRINT_PATTERN, r"print(\1)\n", Code).strip()
+
+        return f"\n```{LanguageType}\n{Code}\n```\n"
 
 
 def GetLanguageFromCode(Code: str):
