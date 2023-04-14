@@ -22,6 +22,9 @@ class PluginBaseClass():
         self.bDevMode = os.environ.get("PYFBSDK_DEVMODE") == "True"
         self.Exceptions = []
 
+    def ShouldPatch(self) -> bool:
+        return True
+
     def PatchClass(self, Class: StubClass):
         ...
 
@@ -32,6 +35,8 @@ class PluginBaseClass():
         ...
 
     def Run(self):
+        if not self.ShouldPatch():
+            return
         self._PatchEnums(self.EnumList)
         self._PatchClasses(self.ClassList)
         self._PatchFunctions(self.FunctionGroupList)

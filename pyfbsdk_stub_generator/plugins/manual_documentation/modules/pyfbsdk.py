@@ -1,10 +1,10 @@
 from __future__ import annotations
 
-from ..doc_bases import Argument, Function
+from ..doc_bases import ParameterBase, FunctionBase
 
 import pyfbsdk
 
-class ShowToolByName(Function):
+class ShowToolByName(FunctionBase):
     """This function will show a specific tool in the GUI.
     ### Parameters:
         - ToolName: The name of the tool as shown in the Open Reality menu.
@@ -13,9 +13,9 @@ class ShowToolByName(Function):
     ### Returns:
     A pointer to the FBTool object, `None` otherwise."""
 
-    Arguments = (
-        Argument("ToolName", str),
-        Argument("bResizeWnd", bool, False),
+    Parameters = (
+        ParameterBase("ToolName", str),
+        ParameterBase("bResizeWnd", bool, False),
     )
 
     ReturnType = pyfbsdk.FBTool

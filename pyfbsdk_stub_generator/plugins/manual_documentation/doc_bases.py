@@ -2,8 +2,9 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
+
 @dataclass
-class Argument:
+class ParameterBase:
     Name: str
     Type: str | type
     DefaultValue: str | None = None
@@ -11,7 +12,7 @@ class Argument:
     def GetTypeString(self) -> str:
         if isinstance(self.Type, str):
             return self.Type
-        
+
         return self.Type.__name__
 
     def GetDefaultValueString(self) -> str | None:
@@ -22,16 +23,23 @@ class Argument:
             return self.DefaultValue
 
         return str(self.DefaultValue)
-    
-class Function:
-    Arguments: tuple[Argument] = ()
+
+
+class FunctionBase:
+    Parameters: tuple[ParameterBase] = ()
     ReturnType: str | None | type = None
-    
-    def GetReturnTypeString(self) -> str | None:
-        if self.ReturnType is None:
+
+    @classmethod
+    def GetReturnTypeString(cls) -> str | None:
+        if cls.ReturnType is None:
             return None
 
-        if isinstance(self.ReturnType, str):
-            return self.ReturnType
+        if isinstance(cls.ReturnType, str):
+            return cls.ReturnType
 
-        return self.ReturnType.__name__
+        return cls.ReturnType.__name__
+
+
+class ClassBase:
+    Functions: tuple[FunctionBase] = ()
+    Properties: tuple = ()

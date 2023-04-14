@@ -1,101 +1,91 @@
+from __future__ import annotations
+
+import importlib
+import inspect
+
+from typing import TypeVar, Generator
+
+from .doc_bases import ParameterBase, FunctionBase, ClassBase
 from ..plugin import PluginBaseClass
+from ...module_types import StubClass, StubFunction, StubParameter, StubProperty
 
-class PluginManualDocs(PluginBaseClass):
-    ...
+T = TypeVar('T')
 
 
+class PluginManualDocumentation(PluginBaseClass):
+    Threading = False
+    Priority = 150
 
-def _PatchFromManualDocumentation(self):
-        """
-        Patch the StubClasses & StubFunctions based on the 'manual_documentation.py' file.
-        """
-        def _ParseManualDocumentation(Doc: str):
-            # Remove tabs
-            if "\n" in Doc:
-                Doc = Doc.replace("\t", TAB_CHARACTER)
-                Doc = Doc.replace("    ", TAB_CHARACTER)
-                Lines = Doc.split("\n")
-                Num = min(x.count(TAB_CHARACTER, 0, len(x) - len(x.lstrip())) for x in Lines[1:] if x)
-                NewDoc = ""
-                for Line in Lines:
-                    if Num and Line.startswith(TAB_CHARACTER * Num):
-                        Line = Line.partition(TAB_CHARACTER * Num)[2]
-                    NewDoc += f"{Line}\n"
-                Doc = NewDoc
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
 
-            return Doc
+        # try to import the module
+        try:
+            self.ContentModule = importlib.import_module(f".modules.{self.ModuleName}", package=__package__)
+            importlib.reload(self.ContentModule)
+        except ModuleNotFoundError:
+            self.ContentModule = None
 
-        def _GetTypeHintString(TypeHint):
-            if IS_PYTHON_39 and isinstance(TypeHint, typing._UnionGenericAlias):  # pylint: disable=protected-access
-                return typing.get_args(TypeHint)[0].__name__
-            if inspect.isclass(TypeHint):
-                return TypeHint.__name__
-            return str(TypeHint)
+        self.FunctionMap = {x.__name__: x for x in self.GetContent(FunctionBase)}
+        self.ClassMap = {x.__name__: x for x in self.GetContent(ClassBase)}
 
-        def _PatchFunction(Function: StubFunction, DocumentedFunction: FunctionType):
-            if DocumentedFunction.__doc__:
-                Function.DocString = _ParseManualDocumentation(DocumentedFunction.__doc__)
-            TypeHints = typing.get_type_hints(DocumentedFunction)
-            StubParameters = Function.GetParameters()
-            DocumentedSignature = inspect.signature(DocumentedFunction)
+    def GetContent(self, Type: type[T]) -> list[T]:
+        Content = []
+        for Name, Obj in inspect.getmembers(self.ContentModule):
+            if inspect.isclass(Obj) and issubclass(Obj, Type) and Obj != Type:
+                Content.append(Obj)
+        return Content
 
-            for i, ParameterName in enumerate(DocumentedSignature.parameters):
-                StubParam = StubParameters[i]
-                Parameter = DocumentedSignature.parameters[ParameterName]
-                StubParam.Name = ParameterName
+    def ShouldPatch(self) -> bool:
+        return self.ContentModule is not None
 
-                TypeHint = TypeHints.get(ParameterName)
-                if TypeHint:
-                    StubParam.Type = _GetTypeHintString(TypeHint)
+    def PatchEnum(self, Enum: StubClass):
+        ...
 
-                # Default values
-                if Parameter.default is not inspect._empty:  # pylint: disable=protected-access
-                    if "pyfbsdk" in str(type(Parameter.default)):
-                        StubParam.DefaultValue = f"{type(Parameter.default).__name__}.{Parameter.default}"
-                    else:
-                        StubParam.DefaultValue = str(Parameter.default)
+    def PatchClass(self, Class: StubClass):
+        ...
 
-            if "return" in TypeHints:
-                Function.ReturnType = _GetTypeHintString(TypeHints["return"])
+    def PatchFunctionGroup(self, FunctionGroup: list[StubFunction]):
+        if not FunctionGroup:
+            return
 
-        # Patch classes
-        for Name, Object in inspect.getmembers(manualDoc, inspect.isclass):
-            TypeHints = typing.get_type_hints(Object, localns = locals())
-            StubClassRef = self.GetClassByName(Name)
-            ClassMembers = dict(inspect.getmembers(Object))
-            if StubClassRef:
-                if Object.__doc__:
-                    StubClassRef.DocString = _ParseManualDocumentation(Object.__doc__)
+        Function = FunctionGroup[0]
+        if Function.Name not in self.FunctionMap:
+            return
 
-                # Patch properties
-                for ClassMemberName, TypeHint in TypeHints.items():
-                    StubPropertyRef = StubClassRef.GetPropertyByName(ClassMemberName)
-                    if StubPropertyRef:
-                        # Set type hint & doc string
-                        StubPropertyRef.Type = _GetTypeHintString(TypeHint)
-                        DocString = ClassMembers.get(f"{ClassMemberName}__doc__")
-                        if DocString:
-                            StubPropertyRef.DocString = _ParseManualDocumentation(DocString)
+        if len(FunctionGroup) > 1:
+            raise RuntimeError(f"FunctionGroup with more than one function is not yet supported. {FunctionGroup}")
 
-                PatchedStubFunctions = []
-                for FunctionName, Function in inspect.getmembers(Object, inspect.isfunction):
-                    bOverloadedFunction = re.search(r"_\d+$", Function.__name__)
-                    if bOverloadedFunction:
-                        FunctionName = FunctionName.rpartition("_")[0]
-                    StubFunctionReferences = StubClassRef.GetFunctionsByName(FunctionName)
-                    if StubFunctionReferences:
-                        StubFunc = StubFunctionReferences[0]
-                        if len(StubFunctionReferences) > 1:
-                            Matches = [x for x in StubFunctionReferences if x not in PatchedStubFunctions and len(x.GetParameters()) == len(inspect.signature(Function).parameters)]
-                            if not Matches:
-                                continue
-                            StubFunc = Matches[0]
-                        _PatchFunction(StubFunc, Function)
+        ManualFunctionDoc = self.FunctionMap[Function.Name]
+        if ManualFunctionDoc.__doc__:
+            Function.DocString = PatchDocString(ManualFunctionDoc.__doc__)
 
-                        PatchedStubFunctions.append(StubFunc)
+        ReturnType = ManualFunctionDoc.GetReturnTypeString()
+        if ReturnType:
+            Function.ReturnType = ReturnType
 
-        # Patch functions
-        for Name, Object in inspect.getmembers(manualDoc, inspect.isfunction):
-            StubFunctionRef = self.GetFunctionsByName(Name)
-            if StubFunctionRef:
-                _PatchFunction(StubFunctionRef[0], Object)
+        for Parameter, ManualDocParameter in zip(Function.GetParameters(True), ManualFunctionDoc.Parameters):
+            if ManualDocParameter.Name:
+                Parameter.Name = ManualDocParameter.Name
+
+            Type = ManualDocParameter.GetTypeString()
+            if Type:
+                Parameter.Type = Type
+
+            DefaultValue = ManualDocParameter.GetDefaultValueString()
+            if DefaultValue is not None:
+                Parameter.DefaultValue = DefaultValue
+
+
+def PatchDocString(DocString: str):
+    Lines = []
+
+    for Line in DocString.splitlines():
+
+        # Remove one indent from each line since the docstring is indented one level
+        if Line.startswith("    "):
+            Line = Line[4:]
+
+        Lines.append(Line)
+
+    return "\n".join(Lines)

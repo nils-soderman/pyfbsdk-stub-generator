@@ -1,1 +1,1 @@
-from .plugin_manual_docs import PluginManualDocs
+from .plugin_manual_docs import PluginManualDocumentation
