@@ -15,9 +15,10 @@ reload(cache)
 reload(page_parser)
 
 
-class ENamespaces:
-    PYFBSDK = "pyfbsdk"
-    PYFBSDK_ADDITIONS = "pyfbsdk__additions"
+NameSpaceModuleMap = {
+    "pyfbsdk": "pyfbsdk",
+    "pyfbsdk_additions": "pyfbsdk__additions"
+}
 
 
 class TableOfContentItem:
@@ -39,11 +40,11 @@ class TableOfContentItem:
 
     def ParsePage(self):
         Url = self.GetPageUrl()
-        
+
         # Strip the hash from the url, to avoid caching the same page multiple times
         if "#" in Url:
             Url = Url.partition("#")[0]
-        
+
         if self.bUseCache:
             PageContent = cache.CachedGetRequest(Url)
         else:
@@ -78,3 +79,7 @@ def GetPythonTableOfContents(Namespace: str, Version: int, bUseCache: bool = Fal
     ParsedResponse = js2py.eval_js(Response)
 
     return [TableOfContentItem(Data, Version, bUseCache) for Data in ParsedResponse]
+
+
+def GetNameSpaceFromModule(ModuleName: str) -> str | None:
+    return NameSpaceModuleMap.get(ModuleName)

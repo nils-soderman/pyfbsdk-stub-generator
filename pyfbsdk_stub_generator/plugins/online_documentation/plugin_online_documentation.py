@@ -25,7 +25,7 @@ TRANSLATION_TYPE = {
     "FBkReference": "int",
 
     "FBAudioFmt": "int",
-    
+
     "FBArrayDouble": "list[float]",
     "FBArrayUInt": "list[int]",
 
@@ -58,7 +58,10 @@ class PluginOnlineDocumentation(PluginBaseClass):
         super().__init__(Version, Module, EnumList, ClassList, FunctionGroupList)
 
         # Initialize the documentation
-        self.Documentation = table_of_contents.Documentation(self.ModuleName, Version, self.bDevMode)
+        self.DocNamespace = table_of_contents.GetNameSpaceFromModule(self.ModuleName)
+        if self.DocNamespace is None:
+            return
+        self.Documentation = table_of_contents.Documentation(self.DocNamespace, Version, self.bDevMode)
 
         # Parse the first documentation page to get the list of all pages
         for FunctionGroup in FunctionGroupList:
@@ -69,6 +72,9 @@ class PluginOnlineDocumentation(PluginBaseClass):
 
         # Make a map of all class names and their class object that can be used for patching types etc.
         self.AllClassesMap = {Class.Name: Class for Class in ClassList + EnumList}
+
+    def ShouldPatch(self) -> bool:
+        return self.DocNamespace is not None
 
     # ---------------------------------------------------------------------------------------------
     #                                 Patch Entry Methods
@@ -318,7 +324,7 @@ class PluginOnlineDocumentation(PluginBaseClass):
     def ShouldPatchType(self, CurrentType: str, NewType: str) -> bool:
         if not IsTypeDefined(CurrentType):
             return True
-        
+
         ValidatedType = self.EnsureValidType(NewType)
         if not ValidatedType:
             return False
@@ -349,13 +355,13 @@ class PluginOnlineDocumentation(PluginBaseClass):
                 Type = Type.replace(ListTypes, ",".join(ValidatedTypes))
                 if Type.endswith("[]"):
                     Type = Type[:-2]
-                    
+
         Type = TRANSLATION_TYPE.get(Type, Type)
 
         # Replace namespace C++ syntax with Python
         if "::" in Type:
             Type = Type.replace("::", ".")
-        
+
         if Type.startswith("FB"):
             ClassName = Type
             if "." in Type:
@@ -363,7 +369,7 @@ class PluginOnlineDocumentation(PluginBaseClass):
             if ClassName not in self.AllClassesMap:
                 # print(f"Type not found: {Type}")
                 return None
-            
+
         return Type
 
 

@@ -157,10 +157,10 @@ class StubGenerator():
         return StubString
 
 
-def GeneratePYFBSDKStub(Filepath: str) -> str:
+def GenerateModuleStub(Module: ModuleType, Filepath: str) -> str:
     StartTime = time.time()
 
-    Generator = StubGenerator(pyfbsdk)
+    Generator = StubGenerator(Module)
     FileContent = Generator.GenerateString()
 
     # Make sure directory exists
@@ -176,7 +176,12 @@ def GeneratePYFBSDKStub(Filepath: str) -> str:
     return Filepath
 
 
+def GeneratePyfbsdkStubFile(Filepath: str):
+    return GenerateModuleStub(pyfbsdk, Filepath)
+
+
 if bTest:
+    ModuleToGenerate = pyfbsdk
     DEFAULT_OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "generated-stub-files")
-    OutFilepath = os.path.join(DEFAULT_OUTPUT_DIR, f"motionbuilder-{GetMotionBuilderVersion()}", "pyfbsdk.pyi")
-    GeneratePYFBSDKStub(OutFilepath)
+    OutFilepath = os.path.join(DEFAULT_OUTPUT_DIR, f"motionbuilder-{GetMotionBuilderVersion()}", f"{ModuleToGenerate.__name__}.pyi")
+    GenerateModuleStub(ModuleToGenerate, OutFilepath)
