@@ -23424,16 +23424,64 @@ def FBVisualComponent_TypeInfo()->int:...
 def FBVisualContainer_TypeInfo()->int:...
 def FBWebView_TypeInfo()->int:...
 def FBWidgetHolder_TypeInfo()->int:...
-def GetToolPosition(arg1:FBTool)->tuple:...
-def GetToolPositionByName(arg1:str)->tuple:...
-def GetToolSize(arg1:FBTool)->tuple:...
-def GetToolSizeByName(arg1:str)->tuple:...
-def SetToolPosition(arg1:FBTool,arg2,arg3):...
-def SetToolPositionByName(arg1:str,arg2,arg3):...
-def SetToolSize(arg1:FBTool,arg2,arg3):...
-def SetToolSizeByName(arg1:str,arg2,arg3):...
-def ShowTool(arg1:FBTool,arg2=None)->object:...
-def ShowToolByName(ToolName:str,bResizeWnd:bool=False)->FBTool:
+def GetToolPosition(Tool:FBTool)->tuple:
+    """This function will get the position of a specific tool.
+    ### Parameters:
+    - Tool: A pointer to the tool."""
+    ...
+def GetToolPositionByName(ToolName:str)->tuple:
+    """This function will get the position of a specific tool.
+    ### Parameters:
+    - ToolName: The name of the tool as shown in the Open Reality menu."""
+    ...
+def GetToolSize(Tool:FBTool)->tuple:
+    """This function will get the size of a specific tool in the GUI.
+    ### Parameters:
+    - Tool: A pointer to the tool."""
+    ...
+def GetToolSizeByName(ToolName:str)->tuple:
+    """This function will get the size of a specific tool in the GUI.
+    ### Parameters:
+    - ToolName: The name of the tool as shown in the Open Reality menu."""
+    ...
+def SetToolPosition(Tool:FBTool,PosX:int,PosY:int):
+    """This function will set the position of a specific tool.
+    ### Parameters:
+    - Tool: A pointer to the tool.
+    - PosX: New position in X for the tool.
+    - PosY: New position in Y for the tool."""
+    ...
+def SetToolPositionByName(ToolName:str,PosX:int,PosY:int):
+    """This function will set the position of a specific tool.
+    ### Parameters:
+    - ToolName: The name of the tool as shown in the Open Reality menu.
+    - PosX: New position in X for the tool.
+    - PosY: New position in Y for the tool."""
+    ...
+def SetToolSize(Tool:FBTool,Width:int,Height:int):
+    """This function will set the size of a specific tool in the GUI.
+    ### Parameters:
+    - Tool: A pointer to the tool.
+    - Width: New width of the tool.
+    - Height: New height of the tool."""
+    ...
+def SetToolSizeByName(ToolName:str,Width:int,Height:int):
+    """This function will set the size of a specific tool in the GUI.
+    ### Parameters:
+    - ToolName: The name of the tool as shown in the Open Reality menu.
+    - Width: New width of the tool.
+    - Height: New height of the tool."""
+    ...
+def ShowTool(Tool:FBTool,ResizeWnd:bool=True)->FBTool:
+    """This function will show a specific tool in the GUI.
+    ### Parameters:
+    - Tool: A pointer to the tool to show.
+    - bResizeWnd: Adjust the size of the tool window if needed (if started too close to the end of the screen for example).
+    
+    ### Returns:
+    A pointer to the FBTool object, `None` otherwise."""
+    ...
+def ShowToolByName(ToolName:str,ResizeWnd:bool=False)->FBTool:
     """This function will show a specific tool in the GUI.
     ### Parameters:
         - ToolName: The name of the tool as shown in the Open Reality menu.
