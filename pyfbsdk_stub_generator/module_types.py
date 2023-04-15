@@ -112,7 +112,10 @@ class StubClass(StubBase):
         self.StubFunctions: list[list[StubFunction]] = []
 
     def GetFunctionsByName(self, Name: str):
-        return [x for x in self.StubFunctions if x.Name == Name]
+        for FunctionGroup in self.StubFunctions:
+            if FunctionGroup[0].Name == Name:
+                return FunctionGroup
+        return []
 
     def GetPropertyByName(self, Name: str):
         for x in self.StubProperties:

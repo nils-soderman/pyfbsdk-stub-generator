@@ -26,8 +26,8 @@ class PluginManualDocumentation(PluginBaseClass):
         except ModuleNotFoundError:
             self.ContentModule = None
 
-        self.FunctionMap = {x.__name__: x for x in self.GetContent(FunctionBase)}
-        self.ClassMap = {x.__name__: x for x in self.GetContent(ClassBase)}
+        self.ManualFunctionMap = {x.__name__: x for x in self.GetContent(FunctionBase)}
+        self.ManualClassMap = {x.__name__: x for x in self.GetContent(ClassBase)}
 
     def GetContent(self, Type: type[T]) -> list[T]:
         Content = []
@@ -50,13 +50,13 @@ class PluginManualDocumentation(PluginBaseClass):
             return
 
         Function = FunctionGroup[0]
-        if Function.Name not in self.FunctionMap:
+        if Function.Name not in self.ManualFunctionMap:
             return
 
         if len(FunctionGroup) > 1:
             raise RuntimeError(f"FunctionGroup with more than one function is not yet supported. {FunctionGroup}")
 
-        ManualFunctionDoc = self.FunctionMap[Function.Name]
+        ManualFunctionDoc = self.ManualFunctionMap[Function.Name]
         if ManualFunctionDoc.__doc__:
             Function.DocString = PatchDocString(ManualFunctionDoc.__doc__)
 

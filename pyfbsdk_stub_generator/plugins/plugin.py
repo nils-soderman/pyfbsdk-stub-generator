@@ -19,6 +19,10 @@ class PluginBaseClass():
         self.ClassList = ClassList
         self.FunctionGroupList = FunctionGroupList
 
+        self.ClassMap = {x.Name: x for x in ClassList}
+        self.EnumMap = {x.Name: x for x in EnumList}
+        self.FunctionMap = {x[0].Name: x for x in FunctionGroupList if x}
+
         self.bDevMode = os.environ.get("PYFBSDK_DEVMODE") == "True"
         self.Exceptions = []
 
@@ -52,7 +56,7 @@ class PluginBaseClass():
 
     def _RunPatcher(self, PatchFunction: FunctionType, StubList: list):
         StopEvent = threading.Event()
-        
+
         def _ThreadedPatcher(self, StubItem):
             try:
                 PatchFunction(StubItem)
@@ -71,7 +75,7 @@ class PluginBaseClass():
 
             if self.Exceptions:
                 raise self.Exceptions[0]
-            
+
             if StopEvent.is_set():
                 for Thread in Threads:
                     Thread.join()

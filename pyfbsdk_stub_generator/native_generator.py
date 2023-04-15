@@ -6,6 +6,7 @@ from .module_types import StubClass, StubFunction, StubParameter, StubProperty
 
 ENUMERATION_NAME = "Enumeration"
 
+
 class FObjectType:
     Function = 'function'
     Class = 'class'
@@ -138,44 +139,6 @@ def GetFunctionInfoFromDocString(Function) -> list[tuple[list[StubParameter], st
     return FunctionParamters
 
 
-def GetDataTypeFromPropertyClassName(ClassName: str, AllClassNames: list[str]):
-    """
-    Get the `Data` property type for a class that inherits from `FBProperty`
-    This is done by removing e.g. `FBProperty` from the class name. Example: `FBPropertyVector3d` -> `Vector3d`
-    """
-
-    # Value to return use if a valid class could not be found for the given ClassName
-    DefaultValue = "Any"
-
-    ConvertTypeDict = {
-        "Bool": "bool",
-        "String": "str",
-        "Int": "int",
-        "Int64": "int",
-        "UInt64": "int",
-        "Float": "float",
-        "Double": "float"
-    }
-
-    DataType = ClassName
-    for x in ("FBProperty", "Animatable", "List"):
-        DataType = DataType.replace(x, "")
-
-    if DataType in ConvertTypeDict:
-        return ConvertTypeDict[DataType]
-
-    # For the base classes e.g. FBProperty
-    if not DataType:
-        return DefaultValue
-
-    # TODO: Validate that the class actually exists
-    DataType = f"FB{DataType}"
-    if DataType not in AllClassNames:
-        return DefaultValue
-
-    return DataType
-
-
 # -------------------------------------------------------------
 #                     Generator Functions
 # -------------------------------------------------------------
@@ -241,8 +204,6 @@ def GenerateClassInstance(Class, AllClassNames: list[str]) -> StubClass:
             Property = StubProperty(MemberReference, MemberName)
             if Type in ClassMemberNames:
                 Property.Type = f"{ClassName}.{Type}"
-            elif MemberName == "Data" and "FBProperty" in ClassName and Type == FObjectType.Property:
-                Property.Type = GetDataTypeFromPropertyClassName(ClassName, AllClassNames)
             else:
                 Property.Type = Type
 
