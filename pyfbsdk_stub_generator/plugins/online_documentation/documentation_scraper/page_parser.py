@@ -21,6 +21,7 @@ PY2_TO_PY3_PRINT_PATTERN = re.compile(r"(?<!\w)print\s+(.*)\s*(?<!\\)(?:\n|$)")
 
 class ClassNames:
     Items = "memitem"
+    ItemTitles = "memtitle"
     Doc = "memdoc"
     ItemName = "memname"
     ParameterName = "paramname"
@@ -43,6 +44,7 @@ class MemberItem:
     Type: str
     DocString: str
     Parameters: list[Parameter]
+    RelativeUrl: str
 
 
 class DocumentationParsedPage():
@@ -92,10 +94,24 @@ def ParsePage(PageName: str, PageHtmlContent: str, BaseURL: str) -> Documentatio
 
     MemberItems = []
     Item: Tag | NavigableString
-    for Item in Parser.find_all("div", class_ = ClassNames.Items):
+    Items = Parser.find_all("div", class_ = ClassNames.Items)
+    ItemTitles = Parser.find_all("h2", class_ = ClassNames.ItemTitles)
+
+    # If the titles doesn't match, fallback to not using titles
+    if len(Items) != len(ItemTitles):
+        print(f"Warning: The number of items ({len(Items)}) and item titles ({len(ItemTitles)}) doesn't match for page '{PageName}'.")
+        ItemTitles = [None] * len(Items)
+    
+    for Item, Title in zip(Items, ItemTitles):
         ItemName = ""
         ItemType = ""
         ItemDocumentation = ""
+        Url = ""
+
+        if Title:
+            LinkElemt = Title.find("a")
+            if LinkElemt:
+                Url = LinkElemt.get("href")
 
         DocumentationHtml = Item.find("div", class_ = ClassNames.Doc)
         if DocumentationHtml:
@@ -135,7 +151,7 @@ def ParsePage(PageName: str, PageHtmlContent: str, BaseURL: str) -> Documentatio
 
                     Parameters.append(Parameter(ParameterName, ParameterType, ParamDefaultValue))
 
-        MemberItems.append(MemberItem(ItemName, ItemType, ItemDocumentation, Parameters))
+        MemberItems.append(MemberItem(ItemName, ItemType, ItemDocumentation, Parameters, Url))
 
     return DocumentationParsedPage(PageName, Description.strip(), MemberItems)
 
