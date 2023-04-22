@@ -15,16 +15,23 @@ reload(table_of_contents)
 
 EVENT_SOURCE_TYPE = "callbackframework.FBEventSource"
 
+TYPE_IGNORE_PREFIXES = (
+    "unsigned",
+    "K_DEPRECATED"
+)
+
 TRANSLATION_TYPE = {
     "double": "float",
     "long": "int",
     "kInt64": "int",
     "kULong": "int",
+    "char": "str",
 
     "kReference": "int",
     "FBkReference": "int",
 
     "FBAudioFmt": "int",
+    "FBBool": "bool",
 
     "FBArrayDouble": "list[float]",
     "FBArrayUInt": "list[int]",
@@ -356,6 +363,11 @@ class PluginOnlineDocumentation(PluginBaseClass):
                 if Type.endswith("[]"):
                     Type = Type[:-2]
 
+        if " " in Type:
+            for Prefix in TYPE_IGNORE_PREFIXES:
+                if Type.startswith(Prefix):
+                    Type = Type.rpartition(" ")[2]
+        
         Type = TRANSLATION_TYPE.get(Type, Type)
 
         # Replace namespace C++ syntax with Python

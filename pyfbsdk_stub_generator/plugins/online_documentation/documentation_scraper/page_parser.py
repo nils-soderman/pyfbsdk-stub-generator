@@ -18,7 +18,6 @@ reload(urls)
 
 PY2_TO_PY3_PRINT_PATTERN = re.compile(r"(?<!\w)print\s+(.*)\s*(?<!\\)(?:\n|$)")
 
-
 class ClassNames:
     Items = "memitem"
     ItemTitles = "memtitle"
@@ -123,9 +122,13 @@ def ParsePage(PageName: str, PageHtmlContent: str, BaseURL: str) -> Documentatio
             if NameHtml:
                 ItemName: str = GetSafeText(NameHtml.get_text())
                 if " " in ItemName:
-                    ItemType, _, ItemName = ItemName.partition(" ")
+                    ItemType, _, ItemName = ItemName.rpartition(" ")
                     ItemName = ItemName.strip()
                     ItemType = ItemType.strip()
+
+                    # In 2024 `FBSystem::DesktopSize` type is broken and contains html code 
+                    if "</a>" in ItemType:
+                        ItemType = ItemType.rpartition("</a>")[2].strip()
 
             # Find all parameters
             Parameters = []
