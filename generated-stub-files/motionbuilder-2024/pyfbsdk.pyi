@@ -4764,7 +4764,7 @@ class FBPickInfosList():
     ```"""
     def GetCount(self)->int:...
     def GetPickedModel(self,arg2)->object:...
-    def __getitem__(self,Index:int)->tuple:
+    def __getitem__(self,Index:int)->tuple[FBModel,FBVector3d]:
         """Returns the ith component Corresponds to python: print l[1].
         
         ### Parameters:
@@ -9570,7 +9570,7 @@ class FBConstraintRelation(FBConstraint):
         ### Returns:
         The newly created function box, or NULL if the name/group combination was invalid."""
         ...
-    def GetBoxPosition(self,arg2:FBBox)->tuple:
+    def GetBoxPosition(self,arg2:FBBox)->tuple[bool,int,int]:
         """Get a box position in the GUI.
         
         Get the position of a box within the constraint layout view.
@@ -23086,7 +23086,7 @@ def FBMessageBox(BoxTitle:str,Message:str,Button1Str:str,Button2Str:str|None=Non
     The number of the button selected.
     [See samples: GetUserValue.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_get_user_value_8py-example.html) [AssignRigidBody.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_assign_rigid_body_8py-example.html) [BatchExportCharacterAnimationTool.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_batch_export_character_animation_tool_8py-example.html) [EnableGameModeOnSelectedCharacters\_Z.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_enable_game_mode_on_selected_characters__z_8py-example.html) [FBMessageBox.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_f_b_message_box_8py-example.html) [FBMessageBoxGetUserValue.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_f_b_message_box_get_user_value_8py-example.html)"""
     ...
-def FBMessageBoxGetUserValue(BoxTitle:str,Message:str,Value,ValueType:FBPopupInputType,Button1Str:str,Button2Str:str|None=None,Button3Str:str|None=None,arg8=None,arg9=None)->tuple:
+def FBMessageBoxGetUserValue(BoxTitle:str,Message:str,Value,ValueType:FBPopupInputType,Button1Str:str,Button2Str:str|None=None,Button3Str:str|None=None,arg8=None,arg9=None)->tuple[int,str]:
     """Dialog popup box to get user input.
     
     Opens a message box, with up to three buttons, asking the user to enter data. The type of data to be entered is specified by the *pValue* and *pValueType* parameters.
@@ -23104,7 +23104,7 @@ def FBMessageBoxGetUserValue(BoxTitle:str,Message:str,Value,ValueType:FBPopupInp
     ### Returns:
     A tuple containing the index of the button selected and the value entered by the user, if any."""
     ...
-def FBMessageBoxWithCheck(BoxTitle:str,Message:str,Button1Str:str,Button2Str:str,Button3Str:str,CheckBoxStr:str,CheckBoxValue:bool,DefaultButton:int=0,ScrolledMessage:bool=False)->tuple:
+def FBMessageBoxWithCheck(BoxTitle:str,Message:str,Button1Str:str,Button2Str:str,Button3Str:str,CheckBoxStr:str,CheckBoxValue:bool,DefaultButton:int=0,ScrolledMessage:bool=False)->tuple[int,bool]:
     """Dialog popup box with 'don't show again' option.
     
     Opens a message box containing a message and up to three buttons. Waits for the user to click a button. This dialog also gives the user the option of never showing the dialog again.

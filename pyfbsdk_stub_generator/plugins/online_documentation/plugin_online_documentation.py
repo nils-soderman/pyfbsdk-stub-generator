@@ -338,6 +338,8 @@ class PluginOnlineDocumentation(PluginBaseClass):
 
         if CurrentType == "list" and ValidatedType.startswith("list"):
             return True
+        if CurrentType == "tuple" and ValidatedType.startswith("tuple"):
+            return True
 
         # TODO: Must check if type is valid as well
         if CurrentType.startswith(("E", "FB")) and CurrentType not in self.AllClassesMap:
@@ -351,15 +353,19 @@ class PluginOnlineDocumentation(PluginBaseClass):
             Type = Type.replace("FBArrayTemplate", "list")
 
             # Get content between brackets
-            ListTypes = Type[Type.find("[") + 1:Type.find("]")]
-            if ListTypes:
+            ListTypesStr = Type[Type.find("[") + 1:Type.find("]")]
+            if ListTypesStr:
                 ValidatedTypes = []
-                for ListType in ListTypes.split(","):
+                ListTypes = ListTypesStr.split(",")
+                for ListType in ListTypes:
                     ListType = self.EnsureValidType(ListType)
                     if ListType:
                         ValidatedTypes.append(ListType)
-                TypeBefore = Type
-                Type = Type.replace(ListTypes, ",".join(ValidatedTypes))
+                
+                if len(ListTypes) != len(ValidatedTypes):
+                    return None
+                
+                Type = Type.replace(ListTypesStr, ",".join(ValidatedTypes))
                 if Type.endswith("[]"):
                     Type = Type[:-2]
 
