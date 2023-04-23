@@ -1,6 +1,7 @@
 """ 
 Web Documentation scraper for the pyfbsdk SDK.
 """
+from __future__ import annotations
 
 from importlib import reload
 
