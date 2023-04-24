@@ -101,7 +101,7 @@ class ShowToolByName(FunctionBase):
 
     Parameters = (
         ParameterBase("ToolName", str),
-        ParameterBase("ResizeWnd", bool, False),
+        ParameterBase("ResizeWnd", bool, True),
     )
 
     ReturnType = pyfbsdk.FBTool

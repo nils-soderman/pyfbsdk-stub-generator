@@ -23624,7 +23624,7 @@ def ShowTool(Tool:FBTool,ResizeWnd:bool=True)->FBTool:
     ### Returns:
     A pointer to the FBTool object, `None` otherwise."""
     ...
-def ShowToolByName(ToolName:str,ResizeWnd:bool=False)->FBTool:
+def ShowToolByName(ToolName:str,ResizeWnd:bool=True)->FBTool:
     """This function will show a specific tool in the GUI.
     ### Parameters:
         - ToolName: The name of the tool as shown in the Open Reality menu.
