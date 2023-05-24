@@ -10,3 +10,7 @@ class Enumeration:
     __slots__:tuple
     names:dict
     values:dict
+    @overload
+    def __init__(self,value:str|int=0,/):...
+    @overload
+    def __init__(self,value:str|bytes|bytearray,/,base:int): ...
