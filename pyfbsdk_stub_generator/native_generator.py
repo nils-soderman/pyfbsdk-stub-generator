@@ -1,13 +1,14 @@
 from __future__ import annotations
 
 import inspect
+import types
 
 from types import ModuleType
 
 from .module_types import StubClass, StubFunction, StubParameter, StubProperty
 
 ENUMERATION_NAME = "Enumeration"
-
+ALLOWED_BUILTIN_OVERRIDES = {"__gt__", "__lt__", "__ge__", "__le__"}
 
 class FObjectType:
     Function = 'function'
@@ -71,7 +72,22 @@ def GetUniqueClassMembers(Class, Ignore = (), AllowedOverrides = ()):
     """
     Members = inspect.getmembers(Class)
     ParentClass = GetClassParents(Class)[0]
-    UniqueMemebers = [x for x in Members if (not hasattr(ParentClass, x[0]) and x[0] not in Ignore) or x[0] in AllowedOverrides]  # and not x[0].startswith("__")
+
+    UniqueMemebers = []
+    for Name, Ref in Members:
+        if Name in Ignore:
+            continue
+
+        if hasattr(ParentClass, Name):
+            if ParentClass.__name__ == "instance":
+                if isinstance(Ref, (types.BuiltinFunctionType, types.BuiltinMethodType)) and Name in ALLOWED_BUILTIN_OVERRIDES:
+                    UniqueMemebers.append((Name, Ref))
+                    continue
+
+            if Name not in AllowedOverrides:
+                continue
+
+        UniqueMemebers.append((Name, Ref))
 
     return UniqueMemebers
 
