@@ -6,7 +6,7 @@ https://github.com/nils-soderman/pyfbsdk-stub-generator
 from __future__ import annotations
 from typing import overload, Any
 import callbackframework
-class Enumeration:
+class Enumeration(int):
     __slots__:tuple
     names:dict
     values:dict
