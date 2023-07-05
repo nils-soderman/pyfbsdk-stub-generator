@@ -35,7 +35,7 @@ class StubBase():
 
 
 class StubFunction(StubBase):
-    def __init__(self, Ref, Name = "", Parameters = None, ReturnType = None):
+    def __init__(self, Ref, Name = "", Parameters: list[StubParameter] | None = None, ReturnType: str | None = None):
         super().__init__(Ref, Name = Name)
         self._Params: list[StubParameter] = Parameters if Parameters else []
         self.ReturnType = ReturnType

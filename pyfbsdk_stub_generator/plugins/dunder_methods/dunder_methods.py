@@ -27,6 +27,9 @@ class PluginDunderMethods(PluginBaseClass):
 
     def PatchClass(self, Class: StubClass):
         for FunctionGroup in Class.StubFunctions:
+            if not FunctionGroup:
+                continue
+
             for Function in FunctionGroup:
                 if Function.ReturnType != "object":
                     continue
@@ -41,3 +44,13 @@ class PluginDunderMethods(PluginBaseClass):
 
                 elif Function.Name in KNOWN_RETURN_TYPES:
                     Function.ReturnType = KNOWN_RETURN_TYPES[Function.Name]
+
+            # If the class has __getitem__ implemented, we should also add the __iter__ method.
+            # Technically, this is not correct. But otherwise typecheckers like PyRight & MyPy will complain that the
+            # class is not iterable & not compatible with the typing.Iterable protocol.
+            if FunctionGroup[0].Name == "__getitem__":
+                # Make sure we don't add __iter__ twice:
+                if not any(FunctionGroup[0].Name == "__iter__" for FunctionGroup in Class.StubFunctions if FunctionGroup):
+                    ReturnType = f"Iterator[{FunctionGroup[0].ReturnType}]"
+                    Function = StubFunction(None, "__iter__", [StubParameter(None, "self")], ReturnType)
+                    Class.AddFunctions([Function])
