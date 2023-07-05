@@ -1114,7 +1114,7 @@ class FBDeckTransportMode(Enumeration):
 class FBDeformerType(Enumeration):
     """Determine the deformer type.
     
-    kFBDeformerSkeleton Skeleton (Bone) driven skinning deformer.kFBDeformerPointCache Pre-recorded point cache deformer.kFBGeometryMapping\_BY\_POLYGON\_VERTEX There will be one mapping coordinate for each vertex, for each polygon/strip it is part of. This means that a vertex will have as many mapping coordinates as polygons it is part of.kFBGeometryMapping\_BY\_POLYGON There can be only one mapping coordinate for the whole polygon/strip.kFBGeometryMapping\_BY\_EDGE There will be one mapping coordinate for each unique edge in the mesh. This is meant to be used with smoothing layer elements.kFBGeometryMapping\_ALL\_SAME There can be only one mapping coordinate for the whole surface."""
+    kFBDeformerSkeleton Skeleton (Bone) driven skinning deformer.kFBDeformerPointCache Pre-recorded point cache deformer.kFBGeometryMapping_BY_POLYGON_VERTEX There will be one mapping coordinate for each vertex, for each polygon/strip it is part of. This means that a vertex will have as many mapping coordinates as polygons it is part of.kFBGeometryMapping_BY_POLYGON There can be only one mapping coordinate for the whole polygon/strip.kFBGeometryMapping_BY_EDGE There will be one mapping coordinate for each unique edge in the mesh. This is meant to be used with smoothing layer elements.kFBGeometryMapping_ALL_SAME There can be only one mapping coordinate for the whole surface."""
     kFBDeformerPointCache:FBDeformerType
     kFBDeformerSkeleton:FBDeformerType
     kFBDeformerUnkown:FBDeformerType
@@ -1555,7 +1555,7 @@ class FBGeometryArrayID(Enumeration):
 class FBGeometryMappingMode(Enumeration):
     """Determine how the element is mapped on a surface.
     
-    kFBGeometryMapping\_NONE The mapping is undetermined.kFBGeometryMapping\_BY\_CONTROL\_POINT There will be one mapping coordinate for each surface control point/vertex.kFBGeometryMapping\_BY\_POLYGON\_VERTEX There will be one mapping coordinate for each vertex, for each polygon/strip it is part of. This means that a vertex will have as many mapping coordinates as polygons it is part of.kFBGeometryMapping\_BY\_POLYGON There can be only one mapping coordinate for the whole polygon/strip.kFBGeometryMapping\_BY\_EDGE There will be one mapping coordinate for each unique edge in the mesh. This is meant to be used with smoothing layer elements.kFBGeometryMapping\_ALL\_SAME There can be only one mapping coordinate for the whole surface."""
+    kFBGeometryMapping_NONE The mapping is undetermined.kFBGeometryMapping_BY_CONTROL_POINT There will be one mapping coordinate for each surface control point/vertex.kFBGeometryMapping_BY_POLYGON_VERTEX There will be one mapping coordinate for each vertex, for each polygon/strip it is part of. This means that a vertex will have as many mapping coordinates as polygons it is part of.kFBGeometryMapping_BY_POLYGON There can be only one mapping coordinate for the whole polygon/strip.kFBGeometryMapping_BY_EDGE There will be one mapping coordinate for each unique edge in the mesh. This is meant to be used with smoothing layer elements.kFBGeometryMapping_ALL_SAME There can be only one mapping coordinate for the whole surface."""
     kFBGeometryMapping_ALL_SAME:FBGeometryMappingMode
     kFBGeometryMapping_BY_CONTROL_POINT:FBGeometryMappingMode
     kFBGeometryMapping_BY_EDGE:FBGeometryMappingMode
@@ -1576,7 +1576,7 @@ class FBGeometryPrimitiveType(Enumeration):
 class FBGeometryReferenceMode(Enumeration):
     """Determine how the mapping information is stored in the array of coordinate.
     
-    kFBGeometryReference\_DIRECT This indicates that the mapping information for the n'th element is found in the n'th place of DirectArray.kFBGeometryReference\_INDEX, This indicates that the mapping information for the n'th element is found in the n'th place of IndexArray.kFBGeometryReference\_INDEX\_TO\_DIRECT This indicates that the KLayerElementTemplate::mIndexArray contains, for the n'th element, an index in the KLayerElementTemplate::mDirectArray array of mapping elements. eINDEX\_TO\_DIRECT is usually useful to store coordinates for eBY\_POLYGON\_VERTEX mapping mode elements. Since the same coordinates are usually repeated a large number of times, it saves spaces to store the coordinate only one time and refer to them with an index. Materials and Textures are also referenced with this mode and the actual Material/Texture can be accessed via the KLayerElementTemplate::mDirectArray"""
+    kFBGeometryReference_DIRECT This indicates that the mapping information for the n'th element is found in the n'th place of DirectArray.kFBGeometryReference_INDEX, This indicates that the mapping information for the n'th element is found in the n'th place of IndexArray.kFBGeometryReference_INDEX_TO_DIRECT This indicates that the KLayerElementTemplate::mIndexArray contains, for the n'th element, an index in the KLayerElementTemplate::mDirectArray array of mapping elements. eINDEX_TO_DIRECT is usually useful to store coordinates for eBY_POLYGON_VERTEX mapping mode elements. Since the same coordinates are usually repeated a large number of times, it saves spaces to store the coordinate only one time and refer to them with an index. Materials and Textures are also referenced with this mode and the actual Material/Texture can be accessed via the KLayerElementTemplate::mDirectArray"""
     kFBGeometryReference_DIRECT:FBGeometryReferenceMode
     kFBGeometryReference_INDEX:FBGeometryReferenceMode
     kFBGeometryReference_INDEX_TO_DIRECT:FBGeometryReferenceMode
@@ -2312,7 +2312,7 @@ class FBPopupInputType(Enumeration):
     kFBPopupInt:FBPopupInputType
     """Integer input."""
     kFBPopupPassword:FBPopupInputType
-    """Password input (String with '\*'s)."""
+    """Password input (String with '*'s)."""
     kFBPopupString:FBPopupInputType
     """String input."""
 class FBPoseTransformType(Enumeration):
@@ -2386,7 +2386,7 @@ class FBPropertyFlag(Enumeration):
     kFBValueAllocated:FBPropertyFlag
     """The value has been allocated and must be delete in destructor."""
 class FBPropertyStateEventType(Enumeration):
-    """This enum indicates what modification was made to the animation of a tracked property. Property class: const char \* (String)."""
+    """This enum indicates what modification was made to the animation of a tracked property. Property class: const char * (String)."""
     kFBPropertyStateEventTypeAttached:FBPropertyStateEventType
     """Property connector was added (can happen when undoing a delete operation, which set back the property active in the scene)"""
     kFBPropertyStateEventTypeDestroyed:FBPropertyStateEventType
@@ -4346,7 +4346,7 @@ class FBFilePopup():
 class FBFilterManager():
     """Filter manager.
     
-    This class provides list of all available filter types and a factory method in order to create an instance of the desired filter type.This manager will list both built-in and plug-in filters.See the class [FBFilter](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_filter.html "Filters are used to modify motion capture data.") for more details.Filter type names are not localised, and are the same as presented in the GUI.The following sample code shows how to use C++ or Python to create an instance of the orfilter\_template filter and set one of its property. For the sample code to work, the plugin must have been compiled and copied in the plugins folder prior to the application startup.Sample C++ code:
+    This class provides list of all available filter types and a factory method in order to create an instance of the desired filter type.This manager will list both built-in and plug-in filters.See the class [FBFilter](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_filter.html "Filters are used to modify motion capture data.") for more details.Filter type names are not localised, and are the same as presented in the GUI.The following sample code shows how to use C++ or Python to create an instance of the orfilter_template filter and set one of its property. For the sample code to work, the plugin must have been compiled and copied in the plugins folder prior to the application startup.Sample C++ code:
     
     ```c++
     // Create a filter of a known type. In this case the sample filter
@@ -4434,7 +4434,7 @@ class FBMatrix():
     mat[12] = 1.0
     ```
     ### Warning:
-    The implementation of this 4x4 matrix uses a simple list of 16 elements, not a list of 4 vectors of 4 elements.\*
+    The implementation of this 4x4 matrix uses a simple list of 16 elements, not a list of 4 vectors of 4 elements.*
     Slicing is not supported by this object.
     
     [See sample: Matrix.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_matrix_8py-example.html)"""
@@ -4829,7 +4829,7 @@ class FBPlugList():
 class FBProfileTaskCycle():
     """[FBProfileTaskCycle](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_profile_task_cycle.html "FBProfileTaskCycle.").
     
-    Real-time profiling information for a specific task. Profiling information can be collected for:Evaluation: models, constraints, characters, story tracksDevices: DeviceIONotify, DeviceEvaluationNotifyRendering: renderer, render passes (like: Translucent, TranslucentZSort, Selected, OtherPrimitive, SelectiveLighting, etc)SDKInternal synchronization (idle callback, buffer swap, waiting on evaluation to finish before starting new rendering)When profiling a scene within a MotionBuilder session you can discover what tasks are being performed when and for how long. You can use this information to troubleshoot lengthy or repetitive actions, and use MotionBuilder more efficiently.A task is defined as a definite piece of work within MotionBuilder such as the evaluation of a character. If the same task is run numerous times it is called a task cycle. From within a scene, the hierary and dependents of the scene make up the task cycles. A task cycle spends its time computing a specific task within a task parent cycle.A task parent cycle is a hierarchy of individual task cycles, where the parent and child relationship is known to MotionBuilder and displayed in the profiling center.For example, these are all task cycles which are all parented to each other; Eval is parent of TransformNode\_Active, which is a parent of Constraint, which is a parent of Character, which is in turn a parent of TransformNode\_Active.This is because the evaluation is called for one model which triggers evaluation of the character which then calls the evaluation of the rest of IK/FK models.When an evaluation starts, it calls the evaluation of the character, the time will be computed for time spent on the sample. Then possibly another character is evaluated, so again the time will be computed for the time spent on this sample. This time will be added to the previous sample since that evaluation has not finished yet. The evaluation here is parented, since they both have started but not finished, all children samples are summed. When the evaluation stops, you change the sample for the children.Note: The evaluation dependency/order will be different for each scene.As you can see profiling of task cycles is done by collecting samples. Samples are added to one inside parent sample. The number of samples collected is controlled by the profiler buffer size property.Here are the steps to add profiling into a constraint, a device, or any other class that uses real-time evaluation: 1) Declare FBProfiler\_CreateTaskCycle( MyConstraint, 0.5, 0.5, 0.5 ) in MyConstraint.cxx, before the constructor and AnimationNodeNotify function. 2) Set up FBProfiling\_SetupTaskCycle( MyConstraint ) in the constuctor MyConstraint::MyConstraint(). 3) At the beginning of MyConstraint::AnimationNodeNotify create the variable: FBProfilerHelper lProfiling( FBProfiling\_TaskCycleIndex( MyConstraint ), pEvaluateInfo ); The sample for task will start at the creation of FBProfilerHelper object and stop at the destruction of this object, when returning from AnimationNodeNotify will be done."""
+    Real-time profiling information for a specific task. Profiling information can be collected for:Evaluation: models, constraints, characters, story tracksDevices: DeviceIONotify, DeviceEvaluationNotifyRendering: renderer, render passes (like: Translucent, TranslucentZSort, Selected, OtherPrimitive, SelectiveLighting, etc)SDKInternal synchronization (idle callback, buffer swap, waiting on evaluation to finish before starting new rendering)When profiling a scene within a MotionBuilder session you can discover what tasks are being performed when and for how long. You can use this information to troubleshoot lengthy or repetitive actions, and use MotionBuilder more efficiently.A task is defined as a definite piece of work within MotionBuilder such as the evaluation of a character. If the same task is run numerous times it is called a task cycle. From within a scene, the hierary and dependents of the scene make up the task cycles. A task cycle spends its time computing a specific task within a task parent cycle.A task parent cycle is a hierarchy of individual task cycles, where the parent and child relationship is known to MotionBuilder and displayed in the profiling center.For example, these are all task cycles which are all parented to each other; Eval is parent of TransformNode_Active, which is a parent of Constraint, which is a parent of Character, which is in turn a parent of TransformNode_Active.This is because the evaluation is called for one model which triggers evaluation of the character which then calls the evaluation of the rest of IK/FK models.When an evaluation starts, it calls the evaluation of the character, the time will be computed for time spent on the sample. Then possibly another character is evaluated, so again the time will be computed for the time spent on this sample. This time will be added to the previous sample since that evaluation has not finished yet. The evaluation here is parented, since they both have started but not finished, all children samples are summed. When the evaluation stops, you change the sample for the children.Note: The evaluation dependency/order will be different for each scene.As you can see profiling of task cycles is done by collecting samples. Samples are added to one inside parent sample. The number of samples collected is controlled by the profiler buffer size property.Here are the steps to add profiling into a constraint, a device, or any other class that uses real-time evaluation: 1) Declare FBProfiler_CreateTaskCycle( MyConstraint, 0.5, 0.5, 0.5 ) in MyConstraint.cxx, before the constructor and AnimationNodeNotify function. 2) Set up FBProfiling_SetupTaskCycle( MyConstraint ) in the constuctor MyConstraint::MyConstraint(). 3) At the beginning of MyConstraint::AnimationNodeNotify create the variable: FBProfilerHelper lProfiling( FBProfiling_TaskCycleIndex( MyConstraint ), pEvaluateInfo ); The sample for task will start at the creation of FBProfilerHelper object and stop at the destruction of this object, when returning from AnimationNodeNotify will be done."""
     def GetAvgMinMaxUsage(self)->tuple:
         """Get the task cycle's average, minimum and maximum usage.
         
@@ -4991,7 +4991,7 @@ class FBPropertyManager():
         """This function will query the property list for properties fulfilling a particular name pattern.
         
         ### Parameters:
-            - PropertyNamePattern: Indicate the name pattern to search. This pattern can contain any amount of \*. (ex: \*tr\*mod\*scene )
+            - PropertyNamePattern: Indicate the name pattern to search. This pattern can contain any amount of *. (ex: *tr*mod*scene )
             - PropList: List that contains the resulting properties matching the pattern
             - MultilangLookup: When searching, indicate if the name lookup should also be done on the property name as shown in the GUI. (default = true)
         
@@ -5462,7 +5462,7 @@ class FBComponent(FBPlug):
     def ProcessNamespaceHierarchy(self,NamespaceAction:FBNamespaceAction,NamespaceName:str,ReplaceTo:str|None=None,AddRight:bool=True)->bool:
         """ProcessNamespaceHierarchy.
         
-        New Namespace name should only contains alphabet, digit and '\_', Can't start with digit. This recursive function goes through the whole hierarchy (children) to add/replace the prefix. If you need to work on a single object, use the ProcessObjectPrefix function.
+        New Namespace name should only contains alphabet, digit and '_', Can't start with digit. This recursive function goes through the whole hierarchy (children) to add/replace the prefix. If you need to work on a single object, use the ProcessObjectPrefix function.
         ### Parameters:
             - NamespaceAction: Which operation to do on the hierarchy (children).
             - NamespaceName: The Namespace name on Add/Delete or the prefix to replace in case of replace.
@@ -5475,7 +5475,7 @@ class FBComponent(FBPlug):
     def ProcessObjectNamespace(self,NamespaceAction:FBNamespaceAction,NamespaceName:str,ReplaceTo:str|None=None,AddRight:bool=True)->bool:
         """ProcessObjectNamespace.
         
-        New Namespace name should only contains alphabet, digit and '\_', Can't start with digit. This function is the same as ProcessNamespaceHierarchy except that it applies only on the current object and not to the object's children.
+        New Namespace name should only contains alphabet, digit and '_', Can't start with digit. This function is the same as ProcessNamespaceHierarchy except that it applies only on the current object and not to the object's children.
         ### Parameters:
             - NamespaceAction: Which operation to do on the hierarchy (children).
             - NamespaceName: The Namespace name on Add/Delete or the prefix to replace in case of replace.
@@ -5607,7 +5607,7 @@ class FBReferenceTime(FBComponent):
 class FBPropertyViewManager(FBComponent):
     """[FBProperty](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property.html "Generic application property.") View Manager.
     
-    Interface to create new property views. There are two ways of creating properties view:on library load using AddPropertyView, RemovePropertyView, HidePropertyView - example can be found in \OpenRealitySDK\Samples\constraints\CharacterSolver\HIK2014Solverwhile application is running using [FBPropertyViewList](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_view_list.html "FBProperty View List.") - example can be found in \bin\config\Scripts\Samples\Properties\PropertyViewManager.py
+    Interface to create new property views. There are two ways of creating properties view:on library load using AddPropertyView, RemovePropertyView, HidePropertyView - example can be found in \\OpenRealitySDK\\Samples\\constraints\\CharacterSolver\\HIK2014Solverwhile application is running using [FBPropertyViewList](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_view_list.html "FBProperty View List.") - example can be found in \\bin\\config\\Scripts\\Samples\\Properties\\PropertyViewManager.py
     
     [See sample: PropertyViewManager.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_properties_0c_property_view_manager_8py-example.html)"""
     def AddPropertyView(self,ClassName:str,PropertyName:str,Hierarchy:str)->FBPropertyViewDefinition:
@@ -5738,7 +5738,7 @@ class FBPropertyStringList(FBProperty):
         number of elements in list."""
         ...
     def __setitem__(self,Index:int,Value:str):
-        """Sets the ith components Corresponds to python: v[1] = my\_component.
+        """Sets the ith components Corresponds to python: v[1] = my_component.
         
         ### Parameters:
             - Index: Index of the components to set
@@ -5879,7 +5879,7 @@ class FBPropertyListComponent(FBProperty):
         number of elements in list."""
         ...
     def __setitem__(self,Index:int,ComponentValue:FBComponent):
-        """Sets the ith components Corresponds to python: v[1] = my\_component.
+        """Sets the ith components Corresponds to python: v[1] = my_component.
         
         ### Parameters:
             - Index: Index of the components to set
@@ -8729,7 +8729,7 @@ class FBCharacter(FBConstraint):
      FBTrace( "No character currently selected\\n" );
     }
     ```
-    [See samples: CharacterMarkerSet.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_character_0c_character_marker_set_8py-example.html) [EnableGameModeOnSelectedCharacters\_Z.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_enable_game_mode_on_selected_characters__z_8py-example.html) [MirrorPoseOverTime.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_mirror_pose_over_time_8py-example.html) [PlotNonSelectedCharStoryTracks.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_plot_non_selected_char_story_tracks_8py-example.html) [PlotSelectedCharStoryTracks.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_plot_selected_char_story_tracks_8py-example.html)"""
+    [See samples: CharacterMarkerSet.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_character_0c_character_marker_set_8py-example.html) [EnableGameModeOnSelectedCharacters_Z.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_enable_game_mode_on_selected_characters__z_8py-example.html) [MirrorPoseOverTime.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_mirror_pose_over_time_8py-example.html) [PlotNonSelectedCharStoryTracks.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_plot_non_selected_char_story_tracks_8py-example.html) [PlotSelectedCharStoryTracks.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_plot_selected_char_story_tracks_8py-example.html)"""
     ActiveInput:bool
     """Read Write Property: Is the character input active?"""
     CharacterExtensions:FBPropertyListCharacterExtension
@@ -10205,7 +10205,7 @@ class FBModel(FBBox):
     myCube.Rotation = FBVector3d(45, 45, 45)
     myCube.FBDelete()
     ```
-    There is a few ways to get a handle on existing models in a scene: FBFindObjectsByName return a list of objects matching a pattern (can contain \*). For usage, see: FindObjectsWithWildcard.py If you know the name of the model, use FBFindModelByLabelName, as demonstrated in FBComponent.py. FBGetSelectedModels can get a handle to an object which is derived from [FBModel](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_model.html "Model class."). It searches the scene for a model, based on the model's unique name and returns a list of all the selected things in the scene.
+    There is a few ways to get a handle on existing models in a scene: FBFindObjectsByName return a list of objects matching a pattern (can contain *). For usage, see: FindObjectsWithWildcard.py If you know the name of the model, use FBFindModelByLabelName, as demonstrated in FBComponent.py. FBGetSelectedModels can get a handle to an object which is derived from [FBModel](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_model.html "Model class."). It searches the scene for a model, based on the model's unique name and returns a list of all the selected things in the scene.
     
     [See sample: ResetLocalTranslationRotation.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_reset_local_translation_rotation_8py-example.html)"""
     AnimationNode:FBAnimationNode
@@ -10516,7 +10516,7 @@ class FBModel(FBBox):
             - GlobalInfo: **true** if it is GlobalInfo, **false** if Local (default=true).
             - PushUndo: **true** if this operation is undoable, don't push undo in non UI thread.
             - EvaluateInfo: EvaluateInfo, Take Display if none specified
-            - Precision: Indicate the precision level, used when calculating the threshold value for gimble lock. 16 \* pow(10.0, -10)) is the new default value since Mobu 2016, 16 \* pow(10.0, -6)) is old default value before then."""
+            - Precision: Indicate the precision level, used when calculating the threshold value for gimble lock. 16 * pow(10.0, -10)) is the new default value since Mobu 2016, 16 * pow(10.0, -6)) is old default value before then."""
         ...
     @overload
     def SetSchematicPosition(self,X:int,Y:int):
@@ -11836,7 +11836,7 @@ class FBAssetMng(FBComponent):
         """Let the user browse the asset database to select a folder.
         
         ### Returns:
-        A FBAssetFolder\* object representing the folder that was selected, or NULL if none."""
+        A FBAssetFolder* object representing the folder that was selected, or NULL if none."""
         ...
     def CheckAvailability(self)->bool:
         """Check if this manager can be used on the computer."""
@@ -11848,7 +11848,7 @@ class FBAssetMng(FBComponent):
             - ServerPath: The path to create on the server side.
         
         ### Returns:
-        A FBAssetFolder\* object representing the deepest folder of the path."""
+        A FBAssetFolder* object representing the deepest folder of the path."""
         ...
     def FileIsManaged(self,Filename:str)->bool:
         """Is the specified local file managed (ie.
@@ -11867,7 +11867,7 @@ class FBAssetMng(FBComponent):
             - ServerFilename: Path to the file on the server.
         
         ### Returns:
-        An FBAssetFile\* object, or NULL if the file was not found."""
+        An FBAssetFile* object, or NULL if the file was not found."""
         ...
     def GetAssetFileFromLocalPath(self,LocalFilename:str)->FBAssetFile:
         """Get a file object using it's local path.
@@ -11876,7 +11876,7 @@ class FBAssetMng(FBComponent):
             - LocalFilename: Path to the file on the local disk.
         
         ### Returns:
-        An FBAssetFile\* object, or NULL if the file was not found or no mapping could be done."""
+        An FBAssetFile* object, or NULL if the file was not found or no mapping could be done."""
         ...
     def GetAssetFolder(self,ServerPath:str)->FBAssetFolder:
         """Get a folder object using it's server path.
@@ -11885,7 +11885,7 @@ class FBAssetMng(FBComponent):
             - ServerPath: Path the the folder on the server.
         
         ### Returns:
-        An FBAssetFolder\* object, or NULL if the folder was not found."""
+        An FBAssetFolder* object, or NULL if the folder was not found."""
         ...
     def GetAssetFolderFromLocalPath(self,LocalPath:str)->FBAssetFolder:
         """Get a folder object using it's local path.
@@ -11894,7 +11894,7 @@ class FBAssetMng(FBComponent):
             - LocalPath: Path to the folder on the local disk.
         
         ### Returns:
-        An FBAssetFolder\* object, or NULL if the folder was not found or no mapping could be done."""
+        An FBAssetFolder* object, or NULL if the folder was not found or no mapping could be done."""
         ...
     def GetFileOptions(self)->int:
         """Get the file options (i.e.
@@ -11982,7 +11982,7 @@ class FBAssetItem(FBComponent):
         """Get the parent folder of this item.
         
         ### Returns:
-        An FBAssetFolder\* if the parent was found, or NULL if this is the root item."""
+        An FBAssetFolder* if the parent was found, or NULL if this is the root item."""
         ...
     def GetServerPath(self)->str:
         """Get the path to this item on the database.
@@ -12470,7 +12470,7 @@ class FBAssetFolder(FBAssetItem):
             - Silent: If pSilent is set to true, no dialog will be displayed by this method.
         
         ### Returns:
-        An FBAssetfile\* object representing the newly added file."""
+        An FBAssetfile* object representing the newly added file."""
         ...
     def AddFolder(self,Name:str,Comment:str,Silent:bool)->FBAssetFolder:
         """Add a folder in the database.
@@ -12482,7 +12482,7 @@ class FBAssetFolder(FBAssetItem):
             - Silent: If pSilent is set to true, no dialog will be displayed by this method.
         
         ### Returns:
-        An FBAssetFolder\* object representing the newly added folder."""
+        An FBAssetFolder* object representing the newly added folder."""
         ...
     def GetChild(self,Index:int)->FBAssetItem:
         """Get the child at index pIndex.
@@ -13717,7 +13717,7 @@ class FBGenericMenuItem(FBComponent):
 class FBGeometry(FBComponent):
     """Geometry class.
     
-    This class groups all geometry related elements which are shared across the different subclasses ([FBMesh](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_mesh.html "Mesh class."), [FBSurface](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_surface.html "Surface class."), [FBNurbs](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_nurbs.html "Nurbs class.") and [FBPatch](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_patch.html "Patch class.")). Geometry Material always use kFBGeometryReference\_INDEX mode. While Normal, UV could have different combination of mapping and reference modes.Geometries created with SDK can support FBGeometryMapping\_ALL\_SAME or kFBGeometryMapping\_BY\_POLYGON for material, and kFBGeometryMapping\_BY\_CONTROL\_POINT for Normal, Tangent, Binormal, Color and UV. Only one set of UV could be supported.Geometries passed from FBXSDK pipeline could have various complex mapping/reference mode combination for material, normal and UV. And could potentially contains multiple set of UVs.
+    This class groups all geometry related elements which are shared across the different subclasses ([FBMesh](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_mesh.html "Mesh class."), [FBSurface](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_surface.html "Surface class."), [FBNurbs](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_nurbs.html "Nurbs class.") and [FBPatch](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_patch.html "Patch class.")). Geometry Material always use kFBGeometryReference_INDEX mode. While Normal, UV could have different combination of mapping and reference modes.Geometries created with SDK can support FBGeometryMapping_ALL_SAME or kFBGeometryMapping_BY_POLYGON for material, and kFBGeometryMapping_BY_CONTROL_POINT for Normal, Tangent, Binormal, Color and UV. Only one set of UV could be supported.Geometries passed from FBXSDK pipeline could have various complex mapping/reference mode combination for material, normal and UV. And could potentially contains multiple set of UVs.
     
     [See samples: ShapeCreation.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_geometry_0c_shape_creation_8py-example.html) [VertexArrayManipulation.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_geometry_0c_vertex_array_manipulation_8py-example.html)"""
     BinormalMappingMode:FBGeometryMappingMode
@@ -14002,7 +14002,7 @@ class FBGeometry(FBComponent):
     def VertexArrayInit(self,Vertexcount:int,UniqueMaterial:bool,FBGeometryArrayIDs:int=0)->bool:
         """Init geometry vertex arrays.
         
-        Init position, normal and UV arrays (tangent, bi-normal and color on demand) with kFBGeometryMapping\_BY\_CONTROL\_POINT / kFBGeometryReference\_DIRECT mode. Will call [VertexArrayClear()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_geometry.html#ab43f405ea6d82de3484e00b77cb209d1 "Clear all geometry vertex arrays.") internally. User should then call GetXXXDirectyArray() to edit the vertex attributes directly.
+        Init position, normal and UV arrays (tangent, bi-normal and color on demand) with kFBGeometryMapping_BY_CONTROL_POINT / kFBGeometryReference_DIRECT mode. Will call [VertexArrayClear()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_geometry.html#ab43f405ea6d82de3484e00b77cb209d1 "Clear all geometry vertex arrays.") internally. User should then call GetXXXDirectyArray() to edit the vertex attributes directly.
         ### Parameters:
             - Vertexcount: number of control points (vertex)
             - UniqueMaterial: User could specify per polygon mapping mode for mesh
@@ -14227,7 +14227,7 @@ class FBMesh(FBGeometry):
         """Begin Polygon definition.
         
         ### Parameters:
-            - MaterialId: Index of material for this polygon. Only effective when MaterialMappingMode is kFBGeometryMapping\_BY\_POLYGON mode.
+            - MaterialId: Index of material for this polygon. Only effective when MaterialMappingMode is kFBGeometryMapping_BY_POLYGON mode.
         
         ### Returns:
         Number of existing polygons in Mesh"""
@@ -14254,7 +14254,7 @@ class FBMesh(FBGeometry):
             - PolygonSize: Size of polygon, 3 mean triangle, 4 for quadrilateral, and so on. minimum input value is 3.
             - IndexArraySize: Size of pIndexArray, Added polygon count is floor(max(pIndexArraySize, 0) / pPolygonSize)
             - IndexArray: Index array of triangle strip.
-            - MaterialId: Index of material for this polygon. Only effective when MaterialMappingMode is kFBGeometryMapping\_BY\_POLYGON mode.
+            - MaterialId: Index of material for this polygon. Only effective when MaterialMappingMode is kFBGeometryMapping_BY_POLYGON mode.
         
         ### Note:
         The indexes' value in input pIndexArray won't be validated, and the behavior is undefined if out of range."""
@@ -14312,7 +14312,7 @@ class FBMesh(FBGeometry):
         ### Parameters:
             - IndexArraySize: Size of pIndexArray, Added triangle count is floor(max(pIndexArraySize, 0) / 3)
             - IndexArray: Index array of triangle list.
-            - MaterialId: Index of material for this polygon. Only effective when MaterialMappingMode is kFBGeometryMapping\_BY\_POLYGON mode.
+            - MaterialId: Index of material for this polygon. Only effective when MaterialMappingMode is kFBGeometryMapping_BY_POLYGON mode.
         
         ### Note:
         The indexes' value in input pIndexArray won't be validated, and the behavior is undefined if out of range."""
@@ -14323,7 +14323,7 @@ class FBMesh(FBGeometry):
         ### Parameters:
             - IndexArraySize: Size of pIndexArray, Added triangle count is max(pIndexArraySize - 2, 0)
             - IndexArray: Index array of triangle strip.
-            - MaterialId: Index of material for this polygon. Only effective when MaterialMappingMode is kFBGeometryMapping\_BY\_POLYGON mode.
+            - MaterialId: Index of material for this polygon. Only effective when MaterialMappingMode is kFBGeometryMapping_BY_POLYGON mode.
         
         ### Note:
         The indexes' value in input pIndexArray won't be validated, and the behavior is undefined if out of range."""
@@ -15022,7 +15022,7 @@ class FBMenuManager(FBComponent):
     def ExecuteMenuItemFromFullPath(self,MenuItemFullPath:str)->bool:
         """Execute a particular menu item.
         
-        The menu path specifies the menu item (NOT menu) to execute. Don't forget that most menu path already in MotionBuilder have a "&" as the first letter of their name. You have to use the "/" character as a separator in the specified menu path (ex: "Settings/&Preferences..."), and exactly what is written in the menu item (ex: "Edit/D&eselect\tShift+D").
+        The menu path specifies the menu item (NOT menu) to execute. Don't forget that most menu path already in MotionBuilder have a "&" as the first letter of their name. You have to use the "/" character as a separator in the specified menu path (ex: "Settings/&Preferences..."), and exactly what is written in the menu item (ex: "Edit/D&eselect\\tShift+D").
         
         ```python
         # This example shows how to display the About Box, as if the user opened it via the main menu Help > About MotionBuilder:
@@ -15271,7 +15271,7 @@ class FBModelVertexData(FBComponent):
     def GetSubPatchPrimitiveType(self,arg2)->tuple:
         """Return the primitive type for the specified sub patch.
         
-        Most of the time, kFBGeometry\_TRIANGLES will be returned.
+        Most of the time, kFBGeometry_TRIANGLES will be returned.
         ### Parameters:
             - SubPatchIndex: Index of the sub patch to be queried.
             - IsOptimized: (C++ only) Out parameter, return true if the specified sub patch is optimized for fast rendering, custom shader & render should use the optimized sub patch only.
@@ -15488,19 +15488,19 @@ class FBModuleManager(FBComponent):
     
     This class is introduced to enable users to access information related to the loaded modules."""
     def GetLoadedModuleNames(self)->FBStringList:
-        """Returns the loaded module names found in the \*.mod files parsed.
+        """Returns the loaded module names found in the *.mod files parsed.
         
         ### Returns:
         The loaded module names."""
         ...
     def GetModuleModFilePath(self,ModuleName:str)->str:
-        """Returns the \*.mod file path containing the definition of the provided loaded module name.
+        """Returns the *.mod file path containing the definition of the provided loaded module name.
         
         ### Parameters:
             - ModuleName: The loaded module name to query.
         
         ### Returns:
-        The \*.mod file path."""
+        The *.mod file path."""
         ...
     def GetModulePath(self,ModuleName:str)->str:
         """Returns the module path associated with the provided loaded module name.
@@ -15512,7 +15512,7 @@ class FBModuleManager(FBComponent):
         The module path."""
         ...
     def GetModuleSearchPaths(self)->FBStringList:
-        """Returns the module search paths where \*.mod files can be parsed.
+        """Returns the module search paths where *.mod files can be parsed.
         
         By default, there are two module search paths:
         ### Returns:
@@ -16407,7 +16407,7 @@ class FBPlayerControl(FBComponent):
         """Get Play Speed Mode.
         
         ### Returns:
-        transport current playback speed mode, including kFBSpeed\_Custom mode."""
+        transport current playback speed mode, including kFBSpeed_Custom mode."""
         ...
     def GetPreviousGlobalTimeMarkIndex(self)->int:
         """Returns the previous global time mark index, based on the current local time.
@@ -16593,7 +16593,7 @@ class FBPlayerControl(FBComponent):
         """Set Play Speed Mode.
         
         ### Parameters:
-            - PlaySpeedMode: a pre-defined play speed mode. Don't make sense to input kFBSpeed\_Custom. To set the custom speed, use [SetPlaySpeed()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_player_control.html#a71716b808406bdac9835b31501b895d4 "Set Play Speed.") function directly."""
+            - PlaySpeedMode: a pre-defined play speed mode. Don't make sense to input kFBSpeed_Custom. To set the custom speed, use [SetPlaySpeed()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_player_control.html#a71716b808406bdac9835b31501b895d4 "Set Play Speed.") function directly."""
         ...
     def SetTimeReferential(self,TimeReferential:FBTimeReferential):
         """Set Time Referential.
@@ -18324,14 +18324,14 @@ class FBSystem(FBComponent):
     def GetPluginPath(self)->FBStringList:
         """Returns the plugin paths.
         
-        By default, MotionBuilder searches C++ plug-ins and load them at start-up. Users could provide additional plugin paths by setting environment variable "MOTIONBUILDER\_PLUGIN\_PATH" before running MotionBuilder or by adding new paths in the SDK section of the Preferences.Note: It is also possible to load C++ plug-ins at startup using the Module functionality. See the documentation around the Modules and the [FBModuleManager](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_module_manager.html "Module Manager class.") SDK class.
+        By default, MotionBuilder searches C++ plug-ins and load them at start-up. Users could provide additional plugin paths by setting environment variable "MOTIONBUILDER_PLUGIN_PATH" before running MotionBuilder or by adding new paths in the SDK section of the Preferences.Note: It is also possible to load C++ plug-ins at startup using the Module functionality. See the documentation around the Modules and the [FBModuleManager](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_module_manager.html "Module Manager class.") SDK class.
         ### Returns:
         the plugin paths"""
         ...
     def GetPythonStartupPath(self)->FBStringList:
         """Returns the python startup path.
         
-        User could put python script in the startup folders, and MotionBuilder will search scripts from those folders and run them at startup. By default, there are two startup folders: /config/PythonStartup and /bin/config/PythonStartup. Users could append additional paths by setting environment variable "MOTIONBUILDER\_PYTHON\_STARTUP" before launching application.Note: It is also possible to run python scripts at startup using the Module functionality. See the documentation around the Modules and the [FBModuleManager](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_module_manager.html "Module Manager class.") SDK class.
+        User could put python script in the startup folders, and MotionBuilder will search scripts from those folders and run them at startup. By default, there are two startup folders: /config/PythonStartup and /bin/config/PythonStartup. Users could append additional paths by setting environment variable "MOTIONBUILDER_PYTHON_STARTUP" before launching application.Note: It is also possible to run python scripts at startup using the Module functionality. See the documentation around the Modules and the [FBModuleManager](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_module_manager.html "Module Manager class.") SDK class.
         ### Returns:
         the python startup path"""
         ...
@@ -18466,7 +18466,7 @@ class FBTexture(FBBox):
 class FBLayeredTexture(FBTexture):
     """LayeredTexture class.
     
-    This class is used to encapsulate list of textures. User could subclass this class to support customized blending & compostion modes. See /OpenRealitySDK/Samples/miscellaneous/texture\_template/ for example.
+    This class is used to encapsulate list of textures. User could subclass this class to support customized blending & compostion modes. See /OpenRealitySDK/Samples/miscellaneous/texture_template/ for example.
     
     [See sample: LayeredTexture.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_material_and_texture_0c_layered_texture_8py-example.html)"""
     BackgroundColor:FBPropertyAnimatableColorAndAlpha
@@ -18626,7 +18626,7 @@ class FBTimeCode():
     Frame:property
     FrameRate:property
     MPAL_30:float
-    """-29.971f Currently not supported : "1" is added just to differentiate from NTSC\_FULL(-29.97f)"""
+    """-29.971f Currently not supported : "1" is added just to differentiate from NTSC_FULL(-29.97f)"""
     NTSC_DROP:float
     """Rates."""
     NTSC_FULL:float
@@ -19761,7 +19761,7 @@ class FBAnimationNode(FBComponent):
     def ReadData(self,arg2:FBTime,arg3=None)->list:...
     def ReadLastEvalData(self)->list:...
     def SetBufferType(self,Global:bool):
-        """Set buffer type for ANIMATIONNODE\_TYPE\_LOCAL\_TRANSLATION, ANIMATIONNODE\_TYPE\_LOCAL\_ROTATION and ANIMATIONNODE\_TYPE\_LOCAL\_SCALE.
+        """Set buffer type for ANIMATIONNODE_TYPE_LOCAL_TRANSLATION, ANIMATIONNODE_TYPE_LOCAL_ROTATION and ANIMATIONNODE_TYPE_LOCAL_SCALE.
         
         ### Parameters:
             - Global: Is buffer local or global."""
@@ -21181,11 +21181,11 @@ class FBVideoIn(FBVideo):
 class FBVideoMemory(FBVideo):
     """[FBVideoMemory](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_video_memory.html "FBVideoMemory allow external media source (which can't be supported by MoBu natively)   User could cr...") allow external media source (which can't be supported by MoBu natively)
     
-    User could create / update OGL texture (GL\_TEXTURE\_2D type) externally, and pass in GL texture object id to TextureOGLId property.See "Scripts/Samples/Video/VideoMemory.py" for usage example.
+    User could create / update OGL texture (GL_TEXTURE_2D type) externally, and pass in GL texture object id to TextureOGLId property.See "Scripts/Samples/Video/VideoMemory.py" for usage example.
     
     [See sample: VideoMemory.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_video_0c_video_memory_8py-example.html)"""
     TextureOGLId:int
-    """Read Write Property: OpenGL texture buffer object id (GL\_TEXTURE\_2D type)."""
+    """Read Write Property: OpenGL texture buffer object id (GL_TEXTURE_2D type)."""
     def SetObjectImageSize(self,W:int,H:int):
         """Set image size to allow MoBu preview texture with proper dimension / aspect.
         
@@ -21712,7 +21712,7 @@ class FBSpread(FBVisualComponent):
 class FBSlider(FBVisualComponent):
     """Slider.
     
-    [See samples: BlendShape\_Editor.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_complex_tools_0c_blend_shape__editor_8py-example.html) [Slider.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_slider_8py-example.html)"""
+    [See samples: BlendShape_Editor.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_complex_tools_0c_blend_shape__editor_8py-example.html) [Slider.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_slider_8py-example.html)"""
     Max:float
     """Read Write Property: Maximum value."""
     Min:float
@@ -21816,7 +21816,7 @@ class FBLayoutRegion(FBVisualComponent):
 class FBLayout(FBVisualComponent):
     """Used to build the user interface.
     
-    Layouts manage areas of the screen called regions. Regions contain UI components such as buttons, viewers, and edit boxes. Regions are added to layouts. When a UI component is bound to a region, the region defines how big it is and how it behaves when the layout is resized.Types of Layouts Device Constraint Manipulator Shader A region is first defined using the [FBLayout::AddRegion()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_layout.html#ada9608d3cc29bcfcb802803c582c7e82 "Add a region to the layout.") function. Once a region is defined and the corresponding UI component is created, and the component is bound to its region with [FBLayout::SetControl()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_layout.html#a037812ff1eb73124773acd374351edbe "Set control of a region to a visual component."). You can use the [FBSystem::OnUIIdle()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_system.html#a51d224fe3663c140eb8971ed9250a7cf "Event: User-interface idle event. Useful callback for less frequent GUI refresh and etc....") in your layout to update real-time UI components such as guages and status indicators. In Python, FBBoxLayout and FBGridLayout take care of most of the region handling. They are used to create basic control layouts for simple tools. If you have a lot of content you can use [FBScrollBox](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_scroll_box.html "Scroll Box.") to manage it. For an example, see the Python sample Scrollbox.py.\* Also see the Python sample Layout.py, and the C++ sample ortooluidemo.
+    Layouts manage areas of the screen called regions. Regions contain UI components such as buttons, viewers, and edit boxes. Regions are added to layouts. When a UI component is bound to a region, the region defines how big it is and how it behaves when the layout is resized.Types of Layouts Device Constraint Manipulator Shader A region is first defined using the [FBLayout::AddRegion()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_layout.html#ada9608d3cc29bcfcb802803c582c7e82 "Add a region to the layout.") function. Once a region is defined and the corresponding UI component is created, and the component is bound to its region with [FBLayout::SetControl()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_layout.html#a037812ff1eb73124773acd374351edbe "Set control of a region to a visual component."). You can use the [FBSystem::OnUIIdle()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_system.html#a51d224fe3663c140eb8971ed9250a7cf "Event: User-interface idle event. Useful callback for less frequent GUI refresh and etc....") in your layout to update real-time UI components such as guages and status indicators. In Python, FBBoxLayout and FBGridLayout take care of most of the region handling. They are used to create basic control layouts for simple tools. If you have a lot of content you can use [FBScrollBox](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_scroll_box.html "Scroll Box.") to manage it. For an example, see the Python sample Scrollbox.py.* Also see the Python sample Layout.py, and the C++ sample ortooluidemo.
     
     [See samples: ShotTrackSetupTool.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_complex_tools_0c_shot_track_setup_tool_8py-example.html) [Attach.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_attach_8py-example.html) [Border.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_border_8py-example.html) [Layout.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_layout_8py-example.html)"""
     OnIdle:callbackframework.FBEventSource
@@ -22355,7 +22355,7 @@ class FBWebView(FBVisualComponent):
 class FBWidgetHolder(FBVisualComponent):
     """Native Widget Holder (can be used to embed native Qt Widget inside MoBu UI elements) A Widget holder provides a bridge to instantiate a Native Qt widget into MB framework.
     
-    This will be used to allow user to create UI with QT designer and hook their created UI into MB. To allow a [FBWidgetHolder](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_widget_holder.html "Native Widget Holder (can be used to embed native Qt Widget inside MoBu UI elements) A Widget holder ...") to work properly, you need to specify a Creator function. This function will be called when needed to instantiate the native Widget.Or override WidgetCreate(QWidget\* pParent) function in the subclass./bin/config/Scripts/UI/ToolNativeWidgetHolder.py for python usage example.
+    This will be used to allow user to create UI with QT designer and hook their created UI into MB. To allow a [FBWidgetHolder](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_widget_holder.html "Native Widget Holder (can be used to embed native Qt Widget inside MoBu UI elements) A Widget holder ...") to work properly, you need to specify a Creator function. This function will be called when needed to instantiate the native Widget.Or override WidgetCreate(QWidget* pParent) function in the subclass./bin/config/Scripts/UI/ToolNativeWidgetHolder.py for python usage example.
     
     [See samples: MBFileRefDemo.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_referencing_0c_m_b_file_ref_demo_8py-example.html) [ToolNativeWidgetHolder.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_tool_native_widget_holder_8py-example.html)"""
     def __init__(self):...
@@ -22385,7 +22385,7 @@ def FBAudioClip_TypeInfo()->int:...
 def FBAudioFmt_AppendFormat(Format:int,Channels:int,Bits:int,Rate:int)->int:
     """Append the rendering audio format using the specified settings.
     
-    For example, to set audio format to 2 channels, 16 bit, 44100 rate, use the following function: AudioFormat = FBAudioFmt\_AppendFormat(0, 2, 16, 44100) Python sample code:
+    For example, to set audio format to 2 channels, 16 bit, 44100 rate, use the following function: AudioFormat = FBAudioFmt_AppendFormat(0, 2, 16, 44100) Python sample code:
     
     ```python
     from pyfbsdk import *
@@ -22504,7 +22504,7 @@ def FBAudioFmt_GetRateValue(Format:int)->int:
 def FBAudioFmt_RemoveFormat(Format:int,Channels:int,Bits:int,Rate:int)->int:
     """Remove channels, bit depth, or rate from the specified audio format object.
     
-    Please refer to python example in FBAudioFmt\_AppendFormat.
+    Please refer to python example in FBAudioFmt_AppendFormat.
     ### Parameters:
         - Format: Audio format to use.
         - Channels: Number of channels to remove. Set this to 0 if you don't want to remove the channel.
@@ -22621,7 +22621,7 @@ def FBDeleteObjectsByName(NamePattern:str,NameSpace:str|None=None,GroupName:str|
     
     This function will query the system for objects fulfilling a particular name pattern and delete them. specify a namespace preferred, delete all objects with the group name without specified a namespace specified may lead to inconsistent in scene. Wrap multiple calls to [FBDeleteObjectsByName()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/namespacepyfbsdk.html#a6add04a94a40327b8190d922f7a35cac "FBDeleteObjectsByName.") inside pair of [FBPreventUIUpdateBegin()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/namespacepyfbsdk.html#ac643c9042962342b0e5edfc03f35fdea "Call to prevent UI updates when creating/deleting/renaming objects.") / [FBPreventUIUpdateEnd()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/namespacepyfbsdk.html#a9c050ffa65ccbb821c8b8d2692f7247f "Call to end blocking the UI updates.") could improve application's performance.
     ### Parameters:
-        - NamePattern: if not NULL, indicate the name pattern to search. This pattern can contain any amount of \*. (ex: \*tr\*mod\*scene ). if is NULL or Empty string, \* will be used for match all.
+        - NamePattern: if not NULL, indicate the name pattern to search. This pattern can contain any amount of *. (ex: *tr*mod*scene ). if is NULL or Empty string, * will be used for match all.
         - NameSpace: if not NULL, the objects must be inside the given namespace.
         - GroupName: if not NULL, indicate the object group name (type).
     
@@ -22682,7 +22682,7 @@ def FBFindModelByLabelName(ModelLabelName:str)->FBModel:
     
     ### Returns:
     A handle onto the model with Label name matching, returns NULL if no model was found by the search.
-    [See samples: CopyAnimation.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_f_curve_0c_copy_animation_8py-example.html) [3dsMaxBipedTemplate.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c3ds_max_biped_template_8py-example.html) [EnableGameModeOnSelectedCharacters\_Z.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_enable_game_mode_on_selected_characters__z_8py-example.html) [ExportAnimationLibrary.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_export_animation_library_8py-example.html)"""
+    [See samples: CopyAnimation.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_f_curve_0c_copy_animation_8py-example.html) [3dsMaxBipedTemplate.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c3ds_max_biped_template_8py-example.html) [EnableGameModeOnSelectedCharacters_Z.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_enable_game_mode_on_selected_characters__z_8py-example.html) [ExportAnimationLibrary.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_export_animation_library_8py-example.html)"""
     ...
 def FBFindModelByUniqueColorId(Color:FBColor)->tuple:
     """Find a model in the scene by its unique color id.
@@ -22710,7 +22710,7 @@ def FBFindObjectsByName(NamePattern:str,List:FBComponentList,IncludeNamespace:bo
     
     This function will query the system for objects fulfilling a particular name pattern
     ### Parameters:
-        - NamePattern: Indicate the name pattern to search. This pattern can contain any amount of \*. (ex: \*tr\*mod\*scene )
+        - NamePattern: Indicate the name pattern to search. This pattern can contain any amount of *. (ex: *tr*mod*scene )
         - List: List that contains the objects
         - IncludeNamespace: Does the search use the complete name (with namespace)
         - ModelsOnly: Is the search on models or all types of objects
@@ -23188,7 +23188,7 @@ def FBMessageBox(BoxTitle:str,Message:str,Button1Str:str,Button2Str:str|None=Non
     
     ### Returns:
     The number of the button selected.
-    [See samples: GetUserValue.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_get_user_value_8py-example.html) [AssignRigidBody.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_assign_rigid_body_8py-example.html) [BatchExportCharacterAnimationTool.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_batch_export_character_animation_tool_8py-example.html) [EnableGameModeOnSelectedCharacters\_Z.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_enable_game_mode_on_selected_characters__z_8py-example.html) [FBMessageBox.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_f_b_message_box_8py-example.html) [FBMessageBoxGetUserValue.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_f_b_message_box_get_user_value_8py-example.html)"""
+    [See samples: GetUserValue.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_get_user_value_8py-example.html) [AssignRigidBody.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_assign_rigid_body_8py-example.html) [BatchExportCharacterAnimationTool.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_batch_export_character_animation_tool_8py-example.html) [EnableGameModeOnSelectedCharacters_Z.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_enable_game_mode_on_selected_characters__z_8py-example.html) [FBMessageBox.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_f_b_message_box_8py-example.html) [FBMessageBoxGetUserValue.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_f_b_message_box_get_user_value_8py-example.html)"""
     ...
 def FBMessageBoxGetUserValue(BoxTitle:str,Message:str,Value,ValueType:FBPopupInputType,Button1Str:str,Button2Str:str|None=None,Button3Str:str|None=None,arg8=None,arg9=None)->tuple[int,str]:
     """Dialog popup box to get user input.
@@ -23259,7 +23259,7 @@ def FBMotionFileExportOptions_TypeInfo()->int:...
 def FBMotionFileImportOptions_TypeInfo()->int:...
 @overload
 def FBMult(Result:FBVector4d,V1:FBVector4d,V2:float):
-    """Multiply pV2 from pV1 (pResult = pV1 \* pV2)
+    """Multiply pV2 from pV1 (pResult = pV1 * pV2)
     
     ### Parameters:
         - Result: Resulting vector.
@@ -23389,7 +23389,7 @@ def FBQLength(Q:FBVector4d)->float:
     ...
 @overload
 def FBQMult(Result:FBVector4d,Q1:FBVector4d,Q2:float):
-    """Multiply pQ2 from pQ1 (pResult = pQ1 \* pQ2)
+    """Multiply pQ2 from pQ1 (pResult = pQ1 * pQ2)
     
     ### Parameters:
         - Result: Resulting quaternion.
@@ -23593,7 +23593,7 @@ def FBTimeWarpManager_TypeInfo()->int:...
 def FBToolLayoutManager_TypeInfo()->int:...
 def FBTool_TypeInfo()->int:...
 def FBTrace(FormatString:str):
-    """This function prints useful debugging strings in the console with kFBNORMAL\_TRACE output detailed level.
+    """This function prints useful debugging strings in the console with kFBNORMAL_TRACE output detailed level.
     
     ### Parameters:
         - FormatString: A printf-style format string, to use the following arguments in the list.
@@ -23614,7 +23614,7 @@ def FBTraceSetLevel(NewLevel:int):
     """Set Global Trace Detailed Level which affects all the output targets.
     
     ### Parameters:
-        - NewLevel: Any trace message with detailed level higher than this new level will be ignored, valid value range [kFBNO\_TRACE, kFBALL\_TRACE]
+        - NewLevel: Any trace message with detailed level higher than this new level will be ignored, valid value range [kFBNO_TRACE, kFBALL_TRACE]
     
     ### Note:
     Python console trace current output level could be further adjusted via pythonidelib.SetTraceLevel()."""
@@ -23623,7 +23623,7 @@ def FBTraceWithLevel(Level:int,FormatString:str):
     """This function prints useful debugging strings in the console.
     
     ### Parameters:
-        - Level: to control trace output detailed level, valid value range [kFBCRITICAL\_TRACE, kFBALL\_TRACE]
+        - Level: to control trace output detailed level, valid value range [kFBCRITICAL_TRACE, kFBALL_TRACE]
         - FormatString: A printf-style format string, to use the following arguments in the list.
     
     ### Warning:

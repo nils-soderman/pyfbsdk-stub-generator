@@ -18,6 +18,7 @@ reload(urls)
 
 PY2_TO_PY3_PRINT_PATTERN = re.compile(r"(?<!\w)print\s+(.*)\s*(?<!\\)(?:\n|$)")
 
+
 class ClassNames:
     Items = "memitem"
     ItemTitles = "memtitle"
@@ -100,7 +101,7 @@ def ParsePage(PageName: str, PageHtmlContent: str, BaseURL: str) -> Documentatio
     if len(Items) != len(ItemTitles):
         print(f"Warning: The number of items ({len(Items)}) and item titles ({len(ItemTitles)}) doesn't match for page '{PageName}'.")
         ItemTitles = [None] * len(Items)
-    
+
     for Item, Title in zip(Items, ItemTitles):
         ItemName = ""
         ItemType = ""
@@ -126,7 +127,7 @@ def ParsePage(PageName: str, PageHtmlContent: str, BaseURL: str) -> Documentatio
                     ItemName = ItemName.strip()
                     ItemType = ItemType.strip()
 
-                    # In 2024 `FBSystem::DesktopSize` type is broken and contains html code 
+                    # In 2024 `FBSystem::DesktopSize` type is broken and contains html code
                     if "</a>" in ItemType:
                         ItemType = ItemType.rpartition("</a>")[2].strip()
 
@@ -175,7 +176,14 @@ class DocstringMarkdownConverter(markdownify.MarkdownConverter):
         DocString = self.convert(str(DescriptionHtml))
 
         # There are some (what I guess is) broken <b> tags scattered around in the docstrings. Remove them.
-        DocString = DocString.replace("b>", " ").strip()
+        DocString = DocString.replace("b>", " ")
+
+        # Replace single backslashes followed by special characters with the character only
+        DocString = re.sub(r'(?<!\\)\\([*_])', r'\1', DocString)
+        # Replace single backslashes followed by letters/numbers with double backslashes
+        DocString = re.sub(r'(?<!\\)\\([a-zA-Z0-9\s])', r'\\\\\1', DocString)
+
+        DocString = DocString.strip()
 
         # Go through and patch up the generated docstring
         Lines = []
@@ -290,7 +298,7 @@ class DocstringMarkdownConverter(markdownify.MarkdownConverter):
             return self.convert_pre(el, text, convert_as_inline)
 
         return text
-    
+
     def convert_pre(self, el: Tag, text, convert_as_inline):
         # Exclude any <div> tags that have class names "ttc"
         for Child in el.find_all('div', class_='ttc'):
