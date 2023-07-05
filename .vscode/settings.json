@@ -17,4 +17,8 @@
     "python.formatting.autopep8Args": [
         "--ignore=E501,E27,E251,E402"
     ],
+    "python.analysis.typeCheckingMode": "basic",
+    "python.analysis.extraPaths": [
+        "./generated-stub-files/motionbuilder-2024",
+    ],
 }
