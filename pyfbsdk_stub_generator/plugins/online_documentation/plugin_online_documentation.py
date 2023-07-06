@@ -395,4 +395,4 @@ class PluginOnlineDocumentation(PluginBaseClass):
 def IsTypeDefined(Type: str | None) -> bool:
     if not Type:
         return False
-    return Type != "object"
+    return Type != "object" and Type != "Any"

@@ -31,7 +31,7 @@ class PluginDunderMethods(PluginBaseClass):
                 continue
 
             for Function in FunctionGroup:
-                if Function.ReturnType != "object":
+                if Function.ReturnType != "Any":
                     continue
 
                 if Function.Name in DUNDER_METHODS_RETURNING_SELF:

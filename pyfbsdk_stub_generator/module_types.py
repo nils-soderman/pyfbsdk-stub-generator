@@ -3,6 +3,7 @@ from __future__ import annotations
 ALWAYS_CREATE_ELLIPSIS = True
 TAB_CHARACTER = "    "
 
+
 def Indent(Text: str):
     return TAB_CHARACTER + f"\n{TAB_CHARACTER}".join(Text.split("\n"))
 
@@ -38,10 +39,20 @@ class StubFunction(StubBase):
     def __init__(self, Ref, Name = "", Parameters: list[StubParameter] | None = None, ReturnType: str | None = None):
         super().__init__(Ref, Name = Name)
         self._Params: list[StubParameter] = Parameters if Parameters else []
-        self.ReturnType = ReturnType
+        self._ReturnType = ReturnType
         self.bIsMethod = False
         self.bIsStatic = False
         self.bIsOverload = False
+        
+    @property
+    def ReturnType(self): 
+        if self._ReturnType == "object":
+            return "Any"
+        return self._ReturnType
+    
+    @ReturnType.setter
+    def ReturnType(self, Value: str | None):
+        self._ReturnType = Value
 
     def AddParameter(self, Parameter):
         self._Params.append(Parameter)
@@ -49,7 +60,7 @@ class StubFunction(StubBase):
     def GetParameters(self, bExcludeSelf = False) -> list[StubParameter]:
         """
         Get a list of the parameters
-        
+
         ### Parameters:
             - bExcludeSelf: If the function is a method, exclude the first parameter (self)
         """
@@ -129,7 +140,7 @@ class StubClass(StubBase):
         for Function in Functions:
             Function.bIsMethod = True  # Make function a method
         self.StubFunctions.append(Functions)
-        
+
     def GetFunctionsFlat(self) -> list[StubFunction]:
         """ Get a flat list of functions """
         return [x for FunctionGroup in self.StubFunctions for x in FunctionGroup]
@@ -176,7 +187,9 @@ class StubProperty(StubBase):
         self._Type = None
 
     @property
-    def Type(self):
+    def Type(self) -> str:
+        if self._Type == "object":
+            return "Any"
         if self._Type:
             return self._Type
         return "property"
@@ -199,8 +212,18 @@ class StubProperty(StubBase):
 class StubParameter(StubBase):
     def __init__(self, Ref, Name = "", Type = "", DefaultValue = None):
         super().__init__(Ref, Name = Name)
-        self.Type = Type
         self.DefaultValue = DefaultValue
+        self._Type = Type
+
+    @property
+    def Type(self) -> str | None:
+        if self._Type == "object":
+            return None
+        return self._Type
+
+    @Type.setter
+    def Type(self, Value: str | None):
+        self._Type = Value
 
     def GetRequirements(self):
         if self.DefaultValue and self.DefaultValue.startswith("FB"):
@@ -210,20 +233,13 @@ class StubParameter(StubBase):
             return [RequirementClass]
         return []
 
-    def GetNiceName(self):
-        return self.Name
-        ReturnValue = self.Name
-        if self.Type == "bool" and not ReturnValue.startswith("b"):
-            ReturnValue = f"b{ReturnValue}"
-        return ReturnValue
-
     def GetAsString(self):
-        ParamString = self.GetNiceName()  # PatchParameterName(self.Name)
+        ParamString = self.Name  # PatchParameterName(self.Name)
         # Some parameters have a 0 instead of 'None'
         if self.DefaultValue == "0" and self.Type not in (None, "float", "int"):
             self.DefaultValue = "None"
 
-        if self.Type and self.Type != "object":
+        if self.Type:
             TypeStr = self.Type
             if self.DefaultValue == "None":
                 TypeStr = f"{TypeStr}|None"

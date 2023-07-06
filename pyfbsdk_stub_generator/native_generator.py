@@ -4,8 +4,13 @@ import inspect
 import types
 
 from types import ModuleType
+from importlib import reload
 
+from . import module_types
 from .module_types import StubClass, StubFunction, StubParameter, StubProperty
+
+
+reload(module_types)
 
 ENUMERATION_NAME = "Enumeration"
 ALLOWED_BUILTIN_OVERRIDES = {"__gt__", "__lt__", "__ge__", "__le__"}
