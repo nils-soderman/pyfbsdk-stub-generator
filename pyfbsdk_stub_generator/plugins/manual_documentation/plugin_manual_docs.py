@@ -5,7 +5,7 @@ import inspect
 
 from typing import TypeVar, Generator
 
-from .doc_bases import ParameterBase, FunctionBase, ClassBase
+from .doc_bases import FunctionBase, ClassBase
 from ..plugin import PluginBaseClass
 from ...module_types import StubClass, StubFunction, StubParameter, StubProperty
 
@@ -43,7 +43,42 @@ class PluginManualDocumentation(PluginBaseClass):
         ...
 
     def PatchClass(self, Class: StubClass):
-        ...
+        if Class.Name not in self.ManualClassMap:
+            return
+
+        # Get functions from class
+        ManualClass = self.ManualClassMap[Class.Name]
+
+        for ManualFunctionGroup in ManualClass.GetFunctionGroups():
+            FunctionName = ManualFunctionGroup[0].__name__
+            StubFunctionGroup = Class.GetFunctionsByName(FunctionName)
+            if len(ManualFunctionGroup) > 1 or len(StubFunctionGroup) > 1:
+                raise RuntimeError(f"FunctionGroup with more than one function is not yet supported. {ManualFunctionGroup}")
+
+            self._PatchFunctionGroup(StubFunctionGroup[0], ManualFunctionGroup[0])
+
+    def _PatchFunctionGroup(self, Function: StubFunction, ManualFunction: FunctionBase):
+        if ManualFunction.__doc__:
+            Function.DocString = PatchDocString(ManualFunction.__doc__)
+
+        ReturnType = ManualFunction.GetReturnTypeString()
+        if ReturnType:
+            Function.ReturnType = ReturnType
+
+        for Parameter, ManualDocParameter in zip(Function.GetParameters(True), ManualFunction.Parameters):
+            if not ManualDocParameter:
+                continue
+
+            if ManualDocParameter.Name:
+                Parameter.Name = ManualDocParameter.Name
+
+            Type = ManualDocParameter.GetTypeString()
+            if Type:
+                Parameter.Type = Type
+
+            DefaultValue = ManualDocParameter.GetDefaultValueString()
+            if DefaultValue is not None:
+                Parameter.DefaultValue = DefaultValue
 
     def PatchFunctionGroup(self, FunctionGroup: list[StubFunction]):
         if not FunctionGroup:
@@ -57,24 +92,7 @@ class PluginManualDocumentation(PluginBaseClass):
             raise RuntimeError(f"FunctionGroup with more than one function is not yet supported. {FunctionGroup}")
 
         ManualFunctionDoc = self.ManualFunctionMap[Function.Name]
-        if ManualFunctionDoc.__doc__:
-            Function.DocString = PatchDocString(ManualFunctionDoc.__doc__)
-
-        ReturnType = ManualFunctionDoc.GetReturnTypeString()
-        if ReturnType:
-            Function.ReturnType = ReturnType
-
-        for Parameter, ManualDocParameter in zip(Function.GetParameters(True), ManualFunctionDoc.Parameters):
-            if ManualDocParameter.Name:
-                Parameter.Name = ManualDocParameter.Name
-
-            Type = ManualDocParameter.GetTypeString()
-            if Type:
-                Parameter.Type = Type
-
-            DefaultValue = ManualDocParameter.GetDefaultValueString()
-            if DefaultValue is not None:
-                Parameter.DefaultValue = DefaultValue
+        self._PatchFunctionGroup(Function, ManualFunctionDoc)
 
 
 def PatchDocString(DocString: str):

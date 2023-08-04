@@ -1,8 +1,20 @@
 from __future__ import annotations
 
+from typing import Any
+
 import pyfbsdk
 
-from ..doc_bases import ParameterBase, FunctionBase
+from ..doc_bases import Parameter, FunctionBase, ClassBase
+
+
+# ---------------------------------------------------------------------
+#                          Classes
+# ---------------------------------------------------------------------
+
+class FBComponent(ClassBase):
+    class PropertyCreate(FunctionBase):
+        Parameters = (None, None, None, None, None, Parameter(Type = (pyfbsdk.FBProperty, "None")))
+        ReturnType = Any
 
 # ---------------------------------------------------------------------
 #                          Functions
@@ -12,7 +24,7 @@ class GetToolPosition(FunctionBase):
     """This function will get the position of a specific tool.
     ### Parameters:
     - Tool: A pointer to the tool."""
-    Parameters = (ParameterBase("Tool", pyfbsdk.FBTool),)
+    Parameters = (Parameter("Tool", pyfbsdk.FBTool),)
     ReturnType = tuple
 
 
@@ -20,7 +32,7 @@ class GetToolPositionByName(FunctionBase):
     """This function will get the position of a specific tool.
     ### Parameters:
     - ToolName: The name of the tool as shown in the Open Reality menu."""
-    Parameters = (ParameterBase("ToolName", str),)
+    Parameters = (Parameter("ToolName", str),)
     ReturnType = tuple
 
 
@@ -28,7 +40,7 @@ class GetToolSize(FunctionBase):
     """This function will get the size of a specific tool in the GUI.
     ### Parameters:
     - Tool: A pointer to the tool."""
-    Parameters = (ParameterBase("Tool", pyfbsdk.FBTool),)
+    Parameters = (Parameter("Tool", pyfbsdk.FBTool),)
     ReturnType = tuple
 
 
@@ -36,7 +48,7 @@ class GetToolSizeByName(FunctionBase):
     """This function will get the size of a specific tool in the GUI.
     ### Parameters:
     - ToolName: The name of the tool as shown in the Open Reality menu."""
-    Parameters = (ParameterBase("ToolName", str),)
+    Parameters = (Parameter("ToolName", str),)
     ReturnType = tuple
 
 
@@ -46,7 +58,7 @@ class SetToolPosition(FunctionBase):
     - Tool: A pointer to the tool.
     - PosX: New position in X for the tool.
     - PosY: New position in Y for the tool."""
-    Parameters = (ParameterBase("Tool", pyfbsdk.FBTool), ParameterBase("PosX", int), ParameterBase("PosY", int))
+    Parameters = (Parameter("Tool", pyfbsdk.FBTool), Parameter("PosX", int), Parameter("PosY", int))
 
 
 class SetToolPositionByName(FunctionBase):
@@ -55,7 +67,7 @@ class SetToolPositionByName(FunctionBase):
     - ToolName: The name of the tool as shown in the Open Reality menu.
     - PosX: New position in X for the tool.
     - PosY: New position in Y for the tool."""
-    Parameters = (ParameterBase("ToolName", str), ParameterBase("PosX", int), ParameterBase("PosY", int))
+    Parameters = (Parameter("ToolName", str), Parameter("PosX", int), Parameter("PosY", int))
 
 # Convert all functions above into classes that inherit from FunctionBase:
 
@@ -66,7 +78,7 @@ class SetToolSize(FunctionBase):
     - Tool: A pointer to the tool.
     - Width: New width of the tool.
     - Height: New height of the tool."""
-    Parameters = (ParameterBase("Tool", pyfbsdk.FBTool), ParameterBase("Width", int), ParameterBase("Height", int))
+    Parameters = (Parameter("Tool", pyfbsdk.FBTool), Parameter("Width", int), Parameter("Height", int))
 
 
 class SetToolSizeByName(FunctionBase):
@@ -75,7 +87,7 @@ class SetToolSizeByName(FunctionBase):
     - ToolName: The name of the tool as shown in the Open Reality menu.
     - Width: New width of the tool.
     - Height: New height of the tool."""
-    Parameters = (ParameterBase("ToolName", str), ParameterBase("Width", int), ParameterBase("Height", int))
+    Parameters = (Parameter("ToolName", str), Parameter("Width", int), Parameter("Height", int))
 
 
 class ShowTool(FunctionBase):
@@ -86,7 +98,7 @@ class ShowTool(FunctionBase):
 
     ### Returns:
     A pointer to the FBTool object, `None` otherwise."""
-    Parameters = (ParameterBase("Tool", pyfbsdk.FBTool), ParameterBase("ResizeWnd", bool, True))
+    Parameters = (Parameter("Tool", pyfbsdk.FBTool), Parameter("ResizeWnd", bool, True))
     ReturnType = pyfbsdk.FBTool
 
 
@@ -100,8 +112,8 @@ class ShowToolByName(FunctionBase):
     A pointer to the FBTool object, `None` otherwise."""
 
     Parameters = (
-        ParameterBase("ToolName", str),
-        ParameterBase("ResizeWnd", bool, True),
+        Parameter("ToolName", str),
+        Parameter("ResizeWnd", bool, True),
     )
 
     ReturnType = pyfbsdk.FBTool

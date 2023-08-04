@@ -1,15 +1,24 @@
 from __future__ import annotations
 
+import inspect
+import typing
+
 from dataclasses import dataclass
 
 
 @dataclass
-class ParameterBase:
-    Name: str
-    Type: str | type
+class Parameter:
+    Name: str | None = ""
+    Type: str | type | typing.Iterable[type | str] | None = None
     DefaultValue: str | None = None
 
-    def GetTypeString(self) -> str:
+    def GetTypeString(self) -> str | None:
+        if self.Type is None:
+            return None
+
+        if isinstance(self.Type, typing.Iterable):
+            return "|".join(x if isinstance(x, str) else x.__name__ for x in self.Type)
+
         if isinstance(self.Type, str):
             return self.Type
 
@@ -26,7 +35,7 @@ class ParameterBase:
 
 
 class FunctionBase:
-    Parameters: tuple[ParameterBase] = ()
+    Parameters: typing.Iterable[Parameter | None] = ()
     ReturnType: str | None | type = None
 
     @classmethod
@@ -41,5 +50,12 @@ class FunctionBase:
 
 
 class ClassBase:
-    Functions: tuple[FunctionBase] = ()
     Properties: tuple = ()
+    
+    @classmethod
+    def GetFunctionGroups(cls) -> list[list[FunctionBase]]:
+        Functions = []
+        for Name, Obj in inspect.getmembers(cls):
+            if isinstance(Obj, type) and issubclass(Obj, FunctionBase) and Obj != FunctionBase:
+                Functions.append(Obj)
+        return [Functions]

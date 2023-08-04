@@ -5503,7 +5503,7 @@ class FBComponent(FBPlug):
         ### Returns:
         True if the reference property could be added."""
         ...
-    def PropertyCreate(self,Name:str,Type:FBPropertyType,DataType:str,Animatable:bool,IsUser:bool,ReferenceSource:FBProperty)->FBProperty:
+    def PropertyCreate(self,Name:str,Type:FBPropertyType,DataType:str,Animatable:bool,IsUser:bool,ReferenceSource:FBProperty|None)->Any:
         """Create user or dynamic property.
         
         ### Parameters:

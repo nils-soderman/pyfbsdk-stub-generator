@@ -11,6 +11,11 @@ import pyfbsdk
 
 bTest = "builtin" in __name__
 if bTest:
+    # Reload all stub generator modules
+    for Module in list(sys.modules.values()):
+        if isinstance(Module, ModuleType) and "pyfbsdk_stub_generator" in Module.__name__:
+            reload(Module)
+
     for Path in (
         os.path.dirname(os.path.dirname(__file__)),
         f"C:/Python{sys.version_info.major}{sys.version_info.minor}/lib/site-packages",
