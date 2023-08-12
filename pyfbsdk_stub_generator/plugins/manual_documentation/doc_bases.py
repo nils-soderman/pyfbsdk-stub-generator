@@ -10,7 +10,7 @@ from dataclasses import dataclass
 class Parameter:
     Name: str | None = ""
     Type: str | type | typing.Iterable[type | str] | None = None
-    DefaultValue: str | None = None
+    DefaultValue: typing.Any | str | None = None
 
     def GetTypeString(self) -> str | None:
         if self.Type is None:
@@ -50,12 +50,44 @@ class FunctionBase:
 
 
 class ClassBase:
-    Properties: tuple = ()
-    
     @classmethod
-    def GetFunctionGroups(cls) -> list[list[FunctionBase]]:
+    def GetFunctionGroups(cls) -> list[list[type[FunctionBase]]]:
         Functions = []
         for Name, Obj in inspect.getmembers(cls):
             if isinstance(Obj, type) and issubclass(Obj, FunctionBase) and Obj != FunctionBase:
                 Functions.append(Obj)
         return [Functions]
+
+    @classmethod
+    def GetProperties(cls) -> list[type[PropertyBase]]:
+        Properties = []
+        for Name, Obj in inspect.getmembers(cls):
+            if isinstance(Obj, type) and issubclass(Obj, PropertyBase) and Obj != PropertyBase:
+                Properties.append(Obj)
+        return Properties
+
+
+class PropertyBase:
+    Types: type | str | typing.Iterable[type | str] | None = None
+    SetType: typing.Iterable[type | str] | None = None
+
+    @classmethod
+    def GetTypesString(cls) -> str | None:
+        if cls.Types is None:
+            return None
+
+        if isinstance(cls.Types, typing.Iterable):
+            StrList = []
+            for Type in cls.Types:
+                if isinstance(Type, str):
+                    StrList.append(Type)
+                elif isinstance(Type, type):
+                    StrList.append(Type.__name__)
+                else:
+                    raise RuntimeError(f"Unexpected type as Property Type in the manual docs: {cls} -> {Type}")
+            return "|".join(StrList)
+
+        if isinstance(cls.Types, str):
+            return cls.Types
+
+        return cls.Types.__name__

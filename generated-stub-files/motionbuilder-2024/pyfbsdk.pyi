@@ -10252,7 +10252,7 @@ class FBModel(FBBox):
     """List: Materials for model."""
     ModelVertexData:FBModelVertexData
     """Read Only Property: ModelVertexData for the model."""
-    Parent:FBModel
+    Parent:FBModel|None
     """Read Write Property: Parent model."""
     Pickable:bool
     """Read Write Property: Indicate if a model can be picked in the viewer. This has a default value of 'true'."""
