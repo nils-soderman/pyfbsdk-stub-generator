@@ -3,6 +3,8 @@ This plugin patches the FBProperty classes to make sure they have the correct ty
 """
 from __future__ import annotations
 
+import pyfbsdk
+
 from ..plugin import PluginBaseClass
 from ...module_types import StubClass, StubFunction, StubParameter, StubProperty
 
@@ -39,24 +41,34 @@ class PluginFbProperty(PluginBaseClass):
             return Type
 
     def PatchClass(self, Class: StubClass):
-        # Only patch FBProperty classes
-        if not Class.Name.startswith("FBProperty"):
-            return
+        # FBProperty classes
+        if Class.Name.startswith("FBProperty"):
+            Type = self.GetDataType(Class)
+            if Type is None:
+                return
 
-        Type = self.GetDataType(Class)
-        if Type is None:
-            return
+            bIsList = "List" in Class.Name
 
-        bIsList = "List" in Class.Name
+            DataProperty = Class.GetPropertyByName("Data")
+            if DataProperty:
+                DataProperty.Type = f"list[{Type}]" if bIsList else Type
 
-        DataProperty = Class.GetPropertyByName("Data")
-        if DataProperty:
-            DataProperty.Type = f"list[{Type}]" if bIsList else Type
+            if bIsList:
+                GetItemFunction = Class.GetFunctionsByName("__getitem__")
+                for Function in GetItemFunction:
+                    Function.ReturnType = Type
+                    Param = Function.GetParameters()[1]
+                    Param.Type = "int"
+                    Param.Name = "Index"
 
-        if bIsList:
-            GetItemFunction = Class.GetFunctionsByName("__getitem__")
-            for Function in GetItemFunction:
-                Function.ReturnType = Type
-                Param = Function.GetParameters()[1]
-                Param.Type = "int"
-                Param.Name = "Index"
+        # All Classes
+        for Property in Class.GetStubProperties():
+
+            # Animatable properties
+            if Property.Type.startswith("FBPropertyAnimatable"):
+                # Make setter functions that accept the correct type
+                TypeClass = self.ClassMap.get(Property.Type)
+                if TypeClass:
+                    SetterType = self.GetDataType(TypeClass)
+                    if SetterType:
+                        Property.SetterType = f"{Property.Type}|{SetterType}"
