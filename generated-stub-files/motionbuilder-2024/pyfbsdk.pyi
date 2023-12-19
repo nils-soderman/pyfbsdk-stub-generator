@@ -4435,6 +4435,7 @@ class FBMatrix():
     ```
     ### Warning:
     The implementation of this 4x4 matrix uses a simple list of 16 elements, not a list of 4 vectors of 4 elements.*
+    
     Slicing is not supported by this object.
     
     [See sample: Matrix.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_matrix_8py-example.html)"""
@@ -5163,8 +5164,7 @@ class FBProperty(FBPlug):
     When accessing a property reference directly, its value is obtained via it's 'Data' member.
     
     ```python
-    lProp = lObject.PropertyList.Find( 'Visibility' )
-    
+    lProp = lObject.PropertyList.Find( 'Visibility' )
        if lProp: lProp.Data = True
     ```
     The methods 'PropertyCreate()' and 'PropertyRemove' of the class [FBComponent](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html "MotionBuilder SDK base class.") can be used to modify an object's set of properties."""
@@ -5550,7 +5550,7 @@ class FBPropertyVector4d(FBProperty):
 class FBReferenceTime(FBComponent):
     """Reference time class.
     
-    Interface for the reference time used by MotionBuilder The reference time are identified using unique ID. A unique ID is given when a reference time is added to the system with [Add()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_reference_time.html#a2b07a7c9e383b708bfe251ae6e988d5c "Add a reference time to list."). Instead of using a linear array to store the reference time, a map is used to link an ID to a reference time. The available IDs can be queried using [GetUniqueIDList()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_reference_time.html#a66ea5d3b1811a945a435e430b46f507b "Get list of currently available IDs.")."""
+    Interface for the reference time used by MotionBuilder. By default, two reference times are available: the Local time (with ID: -1) and the System time (with ID: 0). For instance, to set the System time as the current reference time, simply set the CurrentTimeReferenceID property to value 0. The reference time are identified using unique ID. A unique ID is given when a reference time is added to the system with [Add()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_reference_time.html#a2b07a7c9e383b708bfe251ae6e988d5c "Add a reference time to list."). Instead of using a linear array to store the reference time, a map is used to link an ID to a reference time. The available IDs can be queried using [GetUniqueIDList()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_reference_time.html#a66ea5d3b1811a945a435e430b46f507b "Get list of currently available IDs.")."""
     CurrentTimeReferenceID:int
     """Read Write Property: Current reference time ID"""
     UseRelativeLocalTime:bool
@@ -6667,7 +6667,7 @@ class FBRenderer(FBComponent):
         True if the operation is successful, false otherwise. False is returned if the bookmark name is empty or if no bookmark exists with the given name."""
         ...
     def FrameCurrentCameraWithModels(self,All:bool)->bool:
-        """Frame the current camera either with all models or with the currently selected models.
+        """Frame the camera or Schematic View in the current pane either with all models or with the currently selected models.
         
         ### Parameters:
             - All: true to frame with all models.
@@ -7196,6 +7196,7 @@ class FBPose(FBComponent):
         a reference to the node's Matrix.
         ### Remarks:
         if the index is invalid a reference to an identiy matrix is returned.
+        
         The reference will become undefined if this object is destroyed."""
         ...
     def GetNodeName(self,Index:int)->str:
@@ -7206,6 +7207,7 @@ class FBPose(FBComponent):
         
         ### Remarks:
         if the index is invalid a reference to an empty string is returned.
+        
         The reference will become undefined if this object is destroyed."""
         ...
     def GetNodeObject(self,Index:int)->FBModel:
@@ -7467,6 +7469,7 @@ class FBCharacterPose(FBPose):
         
         ### Remarks:
         Supports the match and mirror options.
+        
         When pasting in body part, the selected parts and extensions of the character will be pasted."""
         ...
     def PastePoseCharacter(self,Character:FBCharacter,CharacterPoseOptions:FBCharacterPoseOptions):
@@ -7532,6 +7535,7 @@ class FBObjectPose(FBPose):
         
         ### Remarks:
         Working with poses with their StanceOffset removed is usefull for retargetting.
+        
         If pPoseTransformType is set to kFBPoseTransformInvalid, offsets will be added in all TransformTypes."""
         ...
     def AddStanceOffsetAllObjects(self,StancePose:FBObjectPose,PoseTransformType:FBPoseTransformType=FBPoseTransformType.kFBPoseTransformInvalid):
@@ -7543,6 +7547,7 @@ class FBObjectPose(FBPose):
         
         ### Remarks:
         Working with poses with their StanceOffset removed is usefull for retargetting.
+        
         If pPoseTransformType is set to kFBPoseTransformInvalid, offsets will be added in all TransformTypes."""
         ...
     def ClearPose(self):
@@ -7713,6 +7718,7 @@ class FBObjectPose(FBPose):
         
         ### Remarks:
         You can specify a pObjectName different from the name of pObject.
+        
         Properties that were not stored in the pose will not be affected."""
         ...
     def PastePropertyPose(self,ObjectName:str,Property:FBProperty):
@@ -7724,6 +7730,7 @@ class FBObjectPose(FBPose):
         
         ### Remarks:
         You can specify a pObjectName different from the name of pObject.
+        
         The property will not be affected if it was not stored in the pose."""
         ...
     def PasteTransform(self,ObjectName:str,Object:FBComponent,ObjectPoseOptions:FBObjectPoseOptions):
@@ -7748,6 +7755,7 @@ class FBObjectPose(FBPose):
         
         ### Remarks:
         Working with poses with their StanceOffset removed is usefull for retargetting.
+        
         If pPoseTransformType is set to kFBPoseTransformInvalid, offsets will be removed in all TransformTypes."""
         ...
     def RemoveStanceOffsetAllObjects(self,StancePose:FBObjectPose,PoseTransformType:FBPoseTransformType=FBPoseTransformType.kFBPoseTransformInvalid):
@@ -7759,6 +7767,7 @@ class FBObjectPose(FBPose):
         
         ### Remarks:
         Working with poses with their StanceOffset removed is usefull for retargetting.
+        
         If pPoseTransformType is set to kFBPoseTransformInvalid, offsets will be removed in all TransformTypes."""
         ...
     def SetPropertyValue(self,ObjectName:str,PropertyName:str,Value:float,Size:int):
@@ -12103,8 +12112,11 @@ class FBApplication(FBComponent):
         True if the export succeeded.
         ### Remarks:
         If the file exists, it will be overwritten.
+        
         Only current take is exported.
+        
         For now, you cannot export custom file types.
+        
         Currently, only the default export options are used.
         ### Warning:
         The signature of this function might change in the future to support export options."""
@@ -12135,7 +12147,9 @@ class FBApplication(FBComponent):
         True if the export succeeded. Returns false if some files were not written (file not overwritten, invalid path, etc.). Returns false if the given options object is not valid. See the [FBMotionFileExportOptions::IsValid](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_motion_file_export_options.html#a9dcb9b43a3d0fa9003d4c1c9d921f6b2 "Is this object valid?") method.
         ### Remarks:
         Based on the values of the various options, multiple motion files could be created with file paths based on the initial file path provided. See the documentation of [FBMotionFileExportOptions](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_motion_file_export_options.html "Customize motion file exporting.") for more details.
+        
         For now, only the FBX motion file type is supported.
+        
         For now, you cannot export custom file types."""
         ...
     def FileImport(self,Filename:str,MatchModels:bool=False,CreateUnmatchedModels:bool=True)->bool:
@@ -12151,11 +12165,17 @@ class FBApplication(FBComponent):
         True if the import succeeded.
         ### Remarks:
         No models selected, all the models in the scene will be checked for a potential name match.
+        
         If there are models selected in the scene, only these models will be checked for a potential name match.
+        
         If only one model is selected (ex: hips), this models and its hierarchy will be used.
+        
         The data will be imported in the current take.
+        
         The last two parameter are only used for motion files.
+        
         For now, you cannot import custom file types.
+        
         Currently, only the default import options are used.
         ### Warning:
         The signature of this function might change in the future to support import options."""
@@ -12185,7 +12205,9 @@ class FBApplication(FBComponent):
         True if the import succeeded.
         ### Remarks:
         The import will only work if you open files of the same type.
+        
         For now, you cannot import custom file types.
+        
         Not all options can be applied to a particular motion file type, please use the Motion File Import UI as a reference."""
         ...
     @overload
@@ -15826,6 +15848,7 @@ class FBMotionFileExportOptions(FBComponent):
         True if the provided file path for the motion file(s) to create is valid and if the take info is up to date with the scene, false otherwise.
         ### Remarks:
         Call the SetFilePath method to provide a valid file path.
+        
         Call the ResetTakeInfo method to reset the take info (i.e.: will be then in sync with the scene)."""
         ...
     def ResetTakeInfo(self)->bool:
@@ -15858,6 +15881,7 @@ class FBMotionFileExportOptions(FBComponent):
         True if the operation is successful, false otherwise.
         ### Remarks:
         Changing the value of the OneTakePerFile and/or AddPrefix properties could reset the value set.
+        
         If the OneTakePerFile property is false, changing the file path for one take will modify the file path of all the other takes at once."""
         ...
     def SetTakeSelect(self,TakeIndex:int,Select:bool)->bool:
@@ -16256,7 +16280,7 @@ class FBPlayerControl(FBComponent):
     lPlayer.GotoStart()
     lPlayer.Play()
     ```
-    Keys can also be set and used with [Key()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_player_control.html#a864f3bdec0a6b38a9582783f3dcc16bb "Key default data."), [GotoNextKey()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_player_control.html#a155d00c74503c66a4c1fc2b26dc85c99 "Go to the next key."), and [GotoPreviousKey()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_player_control.html#a6922c0f85114b41e53c549eccb07842d "Go to the previous key."). All actions are performed by default on the current take. The is the MotionBuilder default take, unless you have multiple takes in your scene. To switch between takes, use [FBTake](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_take.html "A take is a container for animation in a scene.").
+    Keys can also be set and used with [Key()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_player_control.html#a864f3bdec0a6b38a9582783f3dcc16bb "Key default data."), [GotoNextKey()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_player_control.html#a155d00c74503c66a4c1fc2b26dc85c99 "Go to the next key."), and [GotoPreviousKey()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_player_control.html#a6922c0f85114b41e53c549eccb07842d "Go to the previous key."). All actions are performed by default on the current take. The is the MotionBuilder default take, unless you have multiple takes in your scene. To switch between takes, use [FBTake](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_take.html "A take is a container for animation in a scene."). To change the current reference time (e.g.: Local time, System time), use [FBReferenceTime](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_reference_time.html "Reference time class.").
     
     [See samples: ShotTrackSetupTool.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_complex_tools_0c_shot_track_setup_tool_8py-example.html) [RenderLayers.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_rendering_0c_render_layers_8py-example.html) [CameraSwitcher.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_camera_0c_camera_switcher_8py-example.html) [BloopSlate.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_h_u_d_0c_bloop_slate_8py-example.html) [RecordLight.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_h_u_d_0c_record_light_8py-example.html) [Timeline.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_h_u_d_0c_timeline_8py-example.html) [CreateProfilingEventsLog.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_profiling_0c_create_profiling_events_log_8py-example.html) [MirrorPoseOverTime.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_mirror_pose_over_time_8py-example.html) [MultiLayerKeying.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_multi_layer_keying_8py-example.html) [StartDevice.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_start_device_8py-example.html) [StopDevice.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_stop_device_8py-example.html) [TimeCodeKeying.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_time_code_keying_8py-example.html)"""
     IsPlaying:bool
@@ -20985,6 +21009,7 @@ class FBVideoCodecManager():
         true if register successful
         ### Remarks:
         After register an external video format, and save a scene with this kind of video. when start MotionBuilder next time and before load the scene back,
+        
         It is necessary to call RegisterExternalVideoFormat to register this kind of video format again, otherwise this kind of video will not be loaded."""
         ...
     def SetDefaultCodec(self,FileFormatInfo:str,CodecId:str):
@@ -22846,13 +22871,17 @@ def FBGetMainWindow()->int:
     The following Python snippet shows how to get the MotionBuilder main window.
     
     ```python
-    from PySide2 import QtWidgets
-    import shiboken2
+    try:
+        from PySide6 import QtWidgets
+        from shiboken6 import wrapInstance
+    except:
+        from PySide2 import QtWidgets
+        from shiboken2 import wrapInstance
     
     def getMainWindow():
         ptr = FBGetMainWindow()
         if ptr is not None:
-            return shiboken2.wrapInstance(ptr, QtWidgets.QWidget)
+            return wrapInstance(ptr, QtWidgets.QWidget)
     
     mainWindow = getMainWindow()
     if mainWindow is not None:
@@ -23600,6 +23629,7 @@ def FBTrace(FormatString:str):
     
     ### Warning:
     There is currently a limitation which sets the maximum length of the resulting string to be limited to 2048 bytes.
+    
     Not thread safe, as an static array is used internally."""
     ...
 def FBTraceGetLevel()->int:
@@ -23628,6 +23658,7 @@ def FBTraceWithLevel(Level:int,FormatString:str):
     
     ### Warning:
     There is currently a limitation which sets the maximum length of the resulting string to be limited to 2048 bytes.
+    
     Not thread safe, as an static array is used internally."""
     ...
 def FBTranslationToMatrix(Matrix:FBMatrix,Vector:FBVector4d):
