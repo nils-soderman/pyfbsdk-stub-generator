@@ -5550,7 +5550,7 @@ class FBPropertyVector4d(FBProperty):
 class FBReferenceTime(FBComponent):
     """Reference time class.
     
-    Interface for the reference time used by MotionBuilder The reference time are identified using unique ID. A unique ID is given when a reference time is added to the system with [Add()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_reference_time.html#a2b07a7c9e383b708bfe251ae6e988d5c "Add a reference time to list."). Instead of using a linear array to store the reference time, a map is used to link an ID to a reference time. The available IDs can be queried using [GetUniqueIDList()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_reference_time.html#a66ea5d3b1811a945a435e430b46f507b "Get list of currently available IDs.")."""
+    Interface for the reference time used by MotionBuilder. By default, two reference times are available: the Local time (with ID: -1) and the System time (with ID: 0). For instance, to set the System time as the current reference time, simply set the CurrentTimeReferenceID property to value 0. The reference time are identified using unique ID. A unique ID is given when a reference time is added to the system with [Add()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_reference_time.html#a2b07a7c9e383b708bfe251ae6e988d5c "Add a reference time to list."). Instead of using a linear array to store the reference time, a map is used to link an ID to a reference time. The available IDs can be queried using [GetUniqueIDList()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_reference_time.html#a66ea5d3b1811a945a435e430b46f507b "Get list of currently available IDs.")."""
     CurrentTimeReferenceID:int
     """Read Write Property: Current reference time ID"""
     UseRelativeLocalTime:bool
@@ -6667,7 +6667,7 @@ class FBRenderer(FBComponent):
         True if the operation is successful, false otherwise. False is returned if the bookmark name is empty or if no bookmark exists with the given name."""
         ...
     def FrameCurrentCameraWithModels(self,All:bool)->bool:
-        """Frame the current camera either with all models or with the currently selected models.
+        """Frame the camera or Schematic View in the current pane either with all models or with the currently selected models.
         
         ### Parameters:
             - All: true to frame with all models.
@@ -17216,7 +17216,7 @@ class FBPlayerControl(FBComponent):
     lPlayer.GotoStart()
     lPlayer.Play()
     ```
-    Keys can also be set and used with [Key()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_player_control.html#a864f3bdec0a6b38a9582783f3dcc16bb "Key default data."), [GotoNextKey()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_player_control.html#a155d00c74503c66a4c1fc2b26dc85c99 "Go to the next key."), and [GotoPreviousKey()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_player_control.html#a6922c0f85114b41e53c549eccb07842d "Go to the previous key."). All actions are performed by default on the current take. The is the MotionBuilder default take, unless you have multiple takes in your scene. To switch between takes, use [FBTake](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_take.html "A take is a container for animation in a scene.").
+    Keys can also be set and used with [Key()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_player_control.html#a864f3bdec0a6b38a9582783f3dcc16bb "Key default data."), [GotoNextKey()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_player_control.html#a155d00c74503c66a4c1fc2b26dc85c99 "Go to the next key."), and [GotoPreviousKey()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_player_control.html#a6922c0f85114b41e53c549eccb07842d "Go to the previous key."). All actions are performed by default on the current take. The is the MotionBuilder default take, unless you have multiple takes in your scene. To switch between takes, use [FBTake](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_take.html "A take is a container for animation in a scene."). To change the current reference time (e.g.: Local time, System time), use [FBReferenceTime](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_reference_time.html "Reference time class.").
     
     [See samples: ShotTrackSetupTool.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_complex_tools_0c_shot_track_setup_tool_8py-example.html) [RenderLayers.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_rendering_0c_render_layers_8py-example.html) [CameraSwitcher.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_camera_0c_camera_switcher_8py-example.html) [BloopSlate.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_h_u_d_0c_bloop_slate_8py-example.html) [RecordLight.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_h_u_d_0c_record_light_8py-example.html) [Timeline.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_h_u_d_0c_timeline_8py-example.html) [CreateProfilingEventsLog.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_profiling_0c_create_profiling_events_log_8py-example.html) [MirrorPoseOverTime.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_mirror_pose_over_time_8py-example.html) [MultiLayerKeying.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_multi_layer_keying_8py-example.html) [StartDevice.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_start_device_8py-example.html) [StopDevice.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_stop_device_8py-example.html) [TimeCodeKeying.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_time_code_keying_8py-example.html)"""
     IsPlaying:bool
@@ -23838,13 +23838,17 @@ def FBGetMainWindow()->int:
     The following Python snippet shows how to get the MotionBuilder main window.
     
     ```python
-    from PySide2 import QtWidgets
-    import shiboken2
+    try:
+        from PySide6 import QtWidgets
+        from shiboken6 import wrapInstance
+    except:
+        from PySide2 import QtWidgets
+        from shiboken2 import wrapInstance
     
     def getMainWindow():
         ptr = FBGetMainWindow()
         if ptr is not None:
-            return shiboken2.wrapInstance(ptr, QtWidgets.QWidget)
+            return wrapInstance(ptr, QtWidgets.QWidget)
     
     mainWindow = getMainWindow()
     if mainWindow is not None:
