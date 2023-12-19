@@ -5,7 +5,7 @@ import inspect
 
 from typing import TypeVar, Generator
 
-from .doc_bases import FunctionBase, ClassBase
+from .doc_bases import FunctionBase, ClassBase, PropertyBase
 from ..plugin import PluginBaseClass
 from ...module_types import StubClass, StubFunction, StubParameter, StubProperty
 
@@ -29,7 +29,7 @@ class PluginManualDocumentation(PluginBaseClass):
         self.ManualFunctionMap = {x.__name__: x for x in self.GetContent(FunctionBase)}
         self.ManualClassMap = {x.__name__: x for x in self.GetContent(ClassBase)}
 
-    def GetContent(self, Type: type[T]) -> list[T]:
+    def GetContent(self, Type: type[T]) -> list[type[T]]:
         Content = []
         for Name, Obj in inspect.getmembers(self.ContentModule):
             if inspect.isclass(Obj) and issubclass(Obj, Type) and Obj != Type:
@@ -50,6 +50,8 @@ class PluginManualDocumentation(PluginBaseClass):
         ManualClass = self.ManualClassMap[Class.Name]
 
         for ManualFunctionGroup in ManualClass.GetFunctionGroups():
+            if len(ManualFunctionGroup) == 0:
+                continue
             FunctionName = ManualFunctionGroup[0].__name__
             StubFunctionGroup = Class.GetFunctionsByName(FunctionName)
             if len(ManualFunctionGroup) > 1 or len(StubFunctionGroup) > 1:
@@ -57,7 +59,22 @@ class PluginManualDocumentation(PluginBaseClass):
 
             self._PatchFunctionGroup(StubFunctionGroup[0], ManualFunctionGroup[0])
 
-    def _PatchFunctionGroup(self, Function: StubFunction, ManualFunction: FunctionBase):
+        for ManualProperty in ManualClass.GetProperties():
+            StubPropertyInstance = Class.GetPropertyByName(ManualProperty.__name__)
+            if not StubPropertyInstance:
+                raise Warning(f"Property {ManualProperty.__name__} not found in {Class.Name}")
+
+            self._PatchProperty(StubPropertyInstance, ManualProperty)
+
+    def _PatchProperty(self, Property: StubProperty, ManualProperty: type[PropertyBase]):
+        if ManualProperty.__doc__:
+            Property.DocString = PatchDocString(ManualProperty.__doc__)
+
+        TypeString = ManualProperty.GetTypesString()
+        if TypeString:
+            Property.Type = TypeString
+
+    def _PatchFunctionGroup(self, Function: StubFunction, ManualFunction: type[FunctionBase]):
         if ManualFunction.__doc__:
             Function.DocString = PatchDocString(ManualFunction.__doc__)
 

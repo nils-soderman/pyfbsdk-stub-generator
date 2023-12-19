@@ -43,13 +43,13 @@ class StubFunction(StubBase):
         self.bIsMethod = False
         self.bIsStatic = False
         self.bIsOverload = False
-        
+
     @property
-    def ReturnType(self): 
+    def ReturnType(self):
         if self._ReturnType == "object":
             return "Any"
         return self._ReturnType
-    
+
     @ReturnType.setter
     def ReturnType(self, Value: str | None):
         self._ReturnType = Value
@@ -185,6 +185,7 @@ class StubProperty(StubBase):
     def __init__(self, Ref, Name = ""):
         super().__init__(Ref, Name = Name)
         self._Type = None
+        self.SetterType: str | None = None
 
     @property
     def Type(self) -> str:
@@ -199,12 +200,27 @@ class StubProperty(StubBase):
         self._Type = Value
 
     def GetAsString(self):
-        PropertyAsString = f"{self.Name}:{self.Type}"
+        if self.SetterType and self.SetterType != self.Type:
+            # If it has a custom setter type, create seperate getter and setter functions
+            Lines = ["@property"]
+            Lines.append(f"def {self.Name}(self)->{self.Type}:")
+            if self.GetDocString():
+                Lines.append(f"{Indent(self.GetDocString())}")
+                Lines.append(f"{Indent('...')}")
+            else:
+                Lines[-1] += "..."
+            Lines.append(f"@{self.Name}.setter")
+            Lines.append(f"def {self.Name}(self, Value: {self.SetterType}):...")
 
-        # Add docstring
-        if self.GetDocString():
-            PropertyAsString += "\n"
-            PropertyAsString += self.GetDocString()
+            PropertyAsString = "\n".join(Lines)
+        else:
+            #
+            PropertyAsString = f"{self.Name}:{self.Type}"
+
+            # Add docstring
+            if self.GetDocString():
+                PropertyAsString += "\n"
+                PropertyAsString += self.GetDocString()
 
         return PropertyAsString
 

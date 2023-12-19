@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import typing
 import time
 import sys
 import os
@@ -12,9 +13,9 @@ import pyfbsdk
 bTest = "builtin" in __name__
 if bTest:
     # Reload all stub generator modules
-    for Module in list(sys.modules.values()):
-        if isinstance(Module, ModuleType) and "pyfbsdk_stub_generator" in Module.__name__:
-            reload(Module)
+    for ImportedModule in list(sys.modules.values()):
+        if isinstance(ImportedModule, ModuleType) and "pyfbsdk_stub_generator" in ImportedModule.__name__:
+            reload(ImportedModule)
 
     for Path in (
         os.path.dirname(os.path.dirname(__file__)),
@@ -113,7 +114,7 @@ def SortClasses(Classes: list[StubClass]):
 
 
 class StubGenerator():
-    def __init__(self, Module: ModuleType, Plugins: list[type[plugins.PluginBaseClass]] | None = DEFAULT_PLUGINS):
+    def __init__(self, Module: ModuleType, Plugins: typing.Iterable[type[plugins.PluginBaseClass]] | None = DEFAULT_PLUGINS):
         self.Module = Module
         self.Version = GetMotionBuilderVersion()
 
