@@ -86,6 +86,11 @@ class StubFunction(StubBase):
                 Param.Name = "self"
                 Param.Type = None
             ParametersAsStrings.append(Param.GetAsString())
+            
+        # Insert a / to indicate that the function only accepts positional parameters
+        # Only the function takes more than 1 parameter (excluding self)
+        if (not self.bIsMethod and len(self._Params) > 0) or len(self._Params) > 1:
+            ParametersAsStrings.append("/")
 
         return ",".join(ParametersAsStrings)
 
