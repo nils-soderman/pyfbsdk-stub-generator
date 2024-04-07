@@ -20,7 +20,7 @@ if bTest:
     for Path in (
         os.path.dirname(os.path.dirname(__file__)),
         f"C:/Python{sys.version_info.major}{sys.version_info.minor}/lib/site-packages",
-        f"{os.getenv('APPDATA')}/Python/Python310/site-packages"
+        f"{os.getenv('APPDATA')}/Python/Python{sys.version_info.major}{sys.version_info.minor}/site-packages"
     ):
         if Path not in sys.path:
             sys.path.append(Path)

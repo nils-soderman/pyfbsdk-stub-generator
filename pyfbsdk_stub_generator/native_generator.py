@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import inspect
+import typing
 import types
 
 from types import ModuleType
@@ -112,7 +113,7 @@ def GetClassParentNames(Class):
     return ParentClassNames
 
 
-def GetFunctionInfoFromDocString(Function) -> list[tuple[list[StubParameter], str]]:
+def GetFunctionInfoFromDocString(Function: typing.Callable) -> list[tuple[list[StubParameter], str]]:
     """
     Get Parameters & Return type from the docstring, can return multiple results if overload functions exists.
 
@@ -139,10 +140,16 @@ def GetFunctionInfoFromDocString(Function) -> list[tuple[list[StubParameter], st
     # Read the docstring and split it up if there are multiple function overrides
     FunctionsDocs = [x for x in Function.__doc__.split("\n") if x]
     for Doc in FunctionsDocs:
+        # Make sure `Doc` now follows this format: "FunctionName( (str)arg1 [, (object)arg2]) -> object"
+        if not Doc.strip().startswith(Function.__name__) or not all(x in Doc for x in ["->", "(", ")"]):
+            continue
+
         # 'Doc' will now look something like this:
         # ShowToolByName( (str)arg1 [, (object)arg2]) -> object
         Doc = Doc.partition("(")[2]  # Remove function name
         Params, _, ReturnType = Doc.rpartition("->")
+        
+        ReturnType = ReturnType.strip(" :")
 
         # Split params into required & optional
         Params = Params.rpartition(")")[0]
