@@ -20,6 +20,11 @@ class FBModel(ClassBase):
     class Parent(PropertyBase):
         Types = (pyfbsdk.FBModel, "None")
 
+
+class FBModelPath3D(ClassBase):
+    class PathEndCapStyle(PropertyBase):
+        Types = pyfbsdk.FBModelPath3D.EPathEndCapStyle
+
 # ---------------------------------------------------------------------
 #                          Functions
 # ---------------------------------------------------------------------
