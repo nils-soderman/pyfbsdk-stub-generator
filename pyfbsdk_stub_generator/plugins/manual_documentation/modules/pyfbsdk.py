@@ -14,7 +14,7 @@ from ..doc_bases import Parameter, FunctionBase, ClassBase, PropertyBase
 class FBComponent(ClassBase):
     class PropertyCreate(FunctionBase):
         Parameters = (None, None, None, None, None, Parameter(Type = (pyfbsdk.FBProperty, "None")))
-        ReturnType = Any
+        ReturnType = "Any"
         
 class FBModel(ClassBase):
     class Parent(PropertyBase):
