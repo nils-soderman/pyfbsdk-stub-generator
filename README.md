@@ -33,11 +33,3 @@ import pyfbsdk_stub_generator
 
 pyfbsdk_stub_generator.Generate(Directory = "C:/MyDirectory/")
 ```
-
-<br>
-
-# Application Spesific Setup
-
-## Visual Studio Code
-
-These stub files comes bundeled with the [MotionBuilder Utils](https://marketplace.visualstudio.com/items?itemName=NilsSoderman.mobu-utils) VSCode extention.
