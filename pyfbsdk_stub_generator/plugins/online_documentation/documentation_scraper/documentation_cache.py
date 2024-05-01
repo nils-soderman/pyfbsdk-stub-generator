@@ -39,7 +39,11 @@ def CachedGetRequest(Url: str):
         with open(GetCachedFilepath(Url), "r", encoding="utf-8") as File:
             return File.read()
     else:
-        Response = requests.get(Url, timeout=10)
+        try:
+            Response = requests.get(Url, timeout=10)
+        except requests.exceptions.RequestException as e:
+            print(f"Failed to download {Url}")
+            raise e
         CacheUrl(Url, Response.text)
         return Response.text
 
