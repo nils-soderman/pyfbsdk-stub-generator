@@ -249,8 +249,10 @@ class StubParameter(StubBase):
     def GetRequirements(self):
         if self.DefaultValue and self.DefaultValue.startswith("FB"):
             RequirementClass: str = self.DefaultValue
-            if "." in RequirementClass:
-                RequirementClass = RequirementClass.partition(".")[0]
+            for Char in ".(":
+                if Char in RequirementClass:
+                    RequirementClass = RequirementClass.partition(Char)[0]
+
             return [RequirementClass]
         return []
 
