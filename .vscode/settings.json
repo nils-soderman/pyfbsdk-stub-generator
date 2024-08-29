@@ -12,6 +12,9 @@
         "*.egg-info": true,
         "**/.mypy_cache": true
     },
+    "search.exclude": {
+        "generated-stub-files": true,
+    },
 
     "python.formatting.provider": "autopep8",
     "python.formatting.autopep8Args": [
@@ -19,6 +22,6 @@
     ],
     "python.analysis.typeCheckingMode": "basic",
     "python.analysis.extraPaths": [
-        "./generated-stub-files/motionbuilder-2024",
+        "./generated-stub-files/motionbuilder-2025",
     ],
 }
