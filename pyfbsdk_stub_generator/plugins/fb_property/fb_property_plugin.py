@@ -51,10 +51,7 @@ class PluginFbProperty(PluginBaseClass):
 
             DataProperty = Class.GetPropertyByName("Data")
             if DataProperty:
-                if bIsList:  # Data is not allowed for FBPropertyList
-                    Class.StubProperties.remove(DataProperty)
-                else:
-                    DataProperty.Type = Type
+                DataProperty.Type = f"list[{Type}]" if bIsList else Type 
 
             if bIsList:
                 self.PatchPropertyList(Class, Type)
@@ -90,7 +87,8 @@ class PluginFbProperty(PluginBaseClass):
             for Function in Class.GetFunctionsByName(FunctionName):
                 Param = Function.GetParameters()[1]
                 Param.Type = Type
-                Param.Name = "Item"
+                if Param.Name.startswith(("arg", "Index")):
+                    Param.Name = "Object"
 
         for Function in Class.GetFunctionsByName("pop"):
             Function.ReturnType = Type
@@ -104,4 +102,5 @@ class PluginFbProperty(PluginBaseClass):
             Params[1].Type = "int"
             Params[1].Name = "Index"
             Params[2].Type = Type
-            Params[2].Name = "Item"
+            if Params[2].Name.startswith("arg"):
+                Params[2].Name = "Object"
