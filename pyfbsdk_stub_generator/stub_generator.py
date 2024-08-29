@@ -24,7 +24,6 @@ if bTest:
     ):
         if Path not in sys.path:
             sys.path.append(Path)
-    __name__ = "pyfbsdk_stub_generator.stub_generator"  # pylint: disable=redefined-builtin
     os.environ["PYFBSDK_DEVMODE"] = "True"
 
 from . import plugins

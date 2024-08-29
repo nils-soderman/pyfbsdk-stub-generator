@@ -51,19 +51,16 @@ class PluginFbProperty(PluginBaseClass):
 
             DataProperty = Class.GetPropertyByName("Data")
             if DataProperty:
-                DataProperty.Type = f"list[{Type}]" if bIsList else Type
+                if bIsList:  # Data is not allowed for FBPropertyList
+                    Class.StubProperties.remove(DataProperty)
+                else:
+                    DataProperty.Type = Type
 
             if bIsList:
-                GetItemFunction = Class.GetFunctionsByName("__getitem__")
-                for Function in GetItemFunction:
-                    Function.ReturnType = Type
-                    Param = Function.GetParameters()[1]
-                    Param.Type = "int"
-                    Param.Name = "Index"
+                self.PatchPropertyList(Class, Type)
 
         # All Classes
         for Property in Class.GetStubProperties():
-
             # Animatable properties
             if Property.Type.startswith("FBPropertyAnimatable"):
                 # Make setter functions that accept the correct type
@@ -72,3 +69,39 @@ class PluginFbProperty(PluginBaseClass):
                     SetterType = self.GetDataType(TypeClass)
                     if SetterType:
                         Property.SetterType = f"{Property.Type}|{SetterType}"
+
+    def PatchPropertyList(self, Class: StubClass, Type: str):
+        """ 
+        Patch the FBPropertyList classes
+        """
+        for Function in Class.GetFunctionsByName("__getitem__"):
+            Function.ReturnType = Type
+            Param = Function.GetParameters()[1]
+            Param.Type = "int"
+            Param.Name = "Index"
+
+        # __setitem__ is not allowed for FBPropertyList
+        SetItem = Class.GetFunctionsByName("__setitem__")
+        if SetItem in Class.StubFunctions:
+            Class.StubFunctions.remove(SetItem)
+
+        # Patch the first parameter of the following functions
+        for FunctionName in ("append", "remove", "insert", "__contains__", "count"):
+            for Function in Class.GetFunctionsByName(FunctionName):
+                Param = Function.GetParameters()[1]
+                Param.Type = Type
+                Param.Name = "Item"
+
+        for Function in Class.GetFunctionsByName("pop"):
+            Function.ReturnType = Type
+            Param = Function.GetParameters()
+            if len(Param) > 1:
+                Param[1].Type = "int"
+                Param[1].Name = "Index"
+
+        for Function in Class.GetFunctionsByName("insert"):
+            Params = Function.GetParameters()
+            Params[1].Type = "int"
+            Params[1].Name = "Index"
+            Params[2].Type = Type
+            Params[2].Name = "Item"
