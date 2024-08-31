@@ -122,7 +122,7 @@ class StubFunction(StubBase):
 class StubClass(StubBase):
     def __init__(self, Ref, Name = ""):
         super().__init__(Ref, Name = Name)
-        self.Parents = []
+        self.Parents: list[str] = []
         self.StubProperties: list[StubProperty] = []
         self.StubEnums: list[StubClass] = []
         self.StubFunctions: list[list[StubFunction]] = []

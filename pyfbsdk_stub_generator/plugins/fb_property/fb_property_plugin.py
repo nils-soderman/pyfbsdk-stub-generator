@@ -39,6 +39,9 @@ class PluginFbProperty(PluginBaseClass):
         Type = f"FB{Type}"
         if Type in self.ClassMap:
             return Type
+        
+        if "FBPropertyListComponent" in Class.Parents:
+            return "FBComponent"
 
     def PatchClass(self, Class: StubClass):
         # FBProperty classes
