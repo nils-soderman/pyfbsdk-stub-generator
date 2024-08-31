@@ -5395,7 +5395,7 @@ class FBComponent(FBPlug):
     """Read Write Property: Name and namespace for object."""
     Name:str
     """Read Write Property: Unique name of object. [See sample: RemoveSuffixFromNameOfSceneElements.py.](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/_tasks_0c_remove_suffix_from_name_of_scene_elements_8py-example.html)"""
-    OwnerNamespace:property
+    OwnerNamespace:str|None
     Parents:FBPropertyListComponent
     """List: Parents."""
     PropertyList:FBPropertyManager

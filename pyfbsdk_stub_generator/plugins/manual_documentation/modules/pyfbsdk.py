@@ -16,6 +16,9 @@ class FBComponent(ClassBase):
         Parameters = (None, None, None, None, None, Parameter(Type = (pyfbsdk.FBProperty, "None")))
         ReturnType = "Any"
         
+    class OwnerNamespace(PropertyBase):
+        Types = (str, "None")
+        
 class FBModel(ClassBase):
     class Parent(PropertyBase):
         Types = (pyfbsdk.FBModel, "None")
