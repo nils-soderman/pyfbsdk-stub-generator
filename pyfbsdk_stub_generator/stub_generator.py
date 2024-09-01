@@ -6,7 +6,7 @@ import sys
 import os
 
 from importlib import reload
-from types import FunctionType, ModuleType
+from types import ModuleType
 
 import pyfbsdk
 
@@ -27,7 +27,7 @@ if bTest:
     os.environ["PYFBSDK_DEVMODE"] = "True"
 
 from . import plugins
-from .module_types import StubClass, StubFunction, StubParameter, StubProperty
+from .module_types import StubClass
 from . import native_generator
 
 reload(plugins)
@@ -148,16 +148,18 @@ class StubGenerator():
         # Sort classes after all patches are done and we know their requirements
         Classes = SortClasses(Classes)
 
-        # Flatten the functions list
-        FlatFunctionList = [x for y in FunctionGroupList for x in y]
-
         # Generate a string
         StubString = GetBaseContent(self.Module)  # Read the custom additions file first
         StubString += "\n".join([x.GetAsString() for x in Enums])
         StubString += "\n"
         StubString += "\n".join([x.GetAsString() for x in Classes])
         StubString += "\n"
-        StubString += "\n".join([x.GetAsString() for x in FlatFunctionList])
+
+        for FunctionGroup in FunctionGroupList:
+            bOverload = len(FunctionGroup) > 1  # If there are multiple functions with the same name, add @overload
+            StubString += "\n".join([x.GetAsString(bOverload) for x in FunctionGroup])
+            StubString += "\n"
+
         StubString += "\n"
 
         return StubString

@@ -1,15 +1,15 @@
 from __future__ import annotations
 
 import threading
-import logging
 import os
 
-from types import ModuleType, FunctionType
+from types import ModuleType
+import typing
 
-from ..module_types import StubClass, StubFunction, StubParameter, StubProperty
+from ..module_types import StubClass, StubFunction
 
 
-class PluginBaseClass():
+class PluginBaseClass:
     Threading = True
     Priority = 100
 
@@ -56,10 +56,10 @@ class PluginBaseClass():
     def _PatchFunctions(self, FunctionGroupList: list[list[StubFunction]]):
         self._RunPatcher(self.PatchFunctionGroup, FunctionGroupList)
 
-    def _RunPatcher(self, PatchFunction: FunctionType, StubList: list):
+    def _RunPatcher(self, PatchFunction: typing.Callable, StubList: list[StubClass] | list[list[StubFunction]]):
         StopEvent = threading.Event()
 
-        def _ThreadedPatcher(self, StubItem):
+        def _ThreadedPatcher(self, StubItem: StubClass | list[StubFunction]):
             try:
                 PatchFunction(StubItem)
             except Exception as e:
@@ -67,7 +67,7 @@ class PluginBaseClass():
                 StopEvent.set()
 
         if self.Threading:
-            Threads = []
+            Threads: list[threading.Thread] = []
             for x in StubList:
                 Thread = threading.Thread(target=_ThreadedPatcher, args=(x,))
                 Threads.append(Thread)

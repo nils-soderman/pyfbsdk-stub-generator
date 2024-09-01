@@ -4,9 +4,10 @@ https://github.com/nils-soderman/pyfbsdk-stub-generator
 """
 # pylint: disable=all
 from __future__ import annotations
-from typing import overload, Any, Iterator
+from typing import overload, Any, Iterator, Literal
 import callbackframework
-class Enumeration(int):
+from enum import EnumType as _EnumType
+class Enumeration(int, metaclass=_EnumType):
     __slots__:tuple
     names:dict
     values:dict

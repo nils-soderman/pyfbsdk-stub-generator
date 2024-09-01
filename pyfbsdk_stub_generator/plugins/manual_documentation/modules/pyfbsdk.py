@@ -13,12 +13,13 @@ from ..doc_bases import Parameter, FunctionBase, ClassBase, PropertyBase
 
 class FBComponent(ClassBase):
     class PropertyCreate(FunctionBase):
-        Parameters = (None, None, None, None, None, Parameter(Type = (pyfbsdk.FBProperty, "None")))
-        ReturnType = "Any"
-        
+        Parameters = (None, None, None, None, None, Parameter(Type=(pyfbsdk.FBProperty, "None")))
+        ReturnType = "FBProperty|None"
+
     class OwnerNamespace(PropertyBase):
         Types = (str, "None")
-        
+
+
 class FBModel(ClassBase):
     class Parent(PropertyBase):
         Types = (pyfbsdk.FBModel, "None")
@@ -31,6 +32,7 @@ class FBModelPath3D(ClassBase):
 # ---------------------------------------------------------------------
 #                          Functions
 # ---------------------------------------------------------------------
+
 
 class GetToolPosition(FunctionBase):
     """This function will get the position of a specific tool.

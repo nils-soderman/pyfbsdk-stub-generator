@@ -267,9 +267,6 @@ def GenerateFunctionInstances(Function) -> list[StubFunction]:
     for Parameters, ReturnType in FunctionInfo:
         StubFunctionInstance = StubFunction(Function, FunctionName, Parameters, ReturnType)
 
-        # If multiple versions of this function exists, set the functions to be overloads
-        StubFunctionInstance.bIsOverload = len(FunctionInfo) > 1
-
         StubFunctions.append(StubFunctionInstance)
 
     return StubFunctions

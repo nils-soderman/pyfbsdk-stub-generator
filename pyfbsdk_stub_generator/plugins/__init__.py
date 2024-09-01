@@ -8,6 +8,7 @@ def GetDefaultPlugins():
     from .manual_documentation import plugin_manual_docs
     from .fb_property import fb_property_plugin
     from .dunder_methods import dunder_methods
+    from .enum import enum_plugin 
 
     reload(plugin_online_documentation)
     reload(plugin_manual_docs)
@@ -18,5 +19,6 @@ def GetDefaultPlugins():
         plugin_online_documentation.PluginOnlineDocumentation,
         plugin_manual_docs.PluginManualDocumentation,
         fb_property_plugin.PluginFbProperty,
-        dunder_methods.PluginDunderMethods
+        dunder_methods.PluginDunderMethods,
+        enum_plugin.PluginEnum
     )

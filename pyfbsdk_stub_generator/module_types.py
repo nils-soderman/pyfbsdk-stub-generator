@@ -1,5 +1,8 @@
 from __future__ import annotations
 
+import typing
+import copy
+
 ALWAYS_CREATE_ELLIPSIS = True
 TAB_CHARACTER = "    "
 
@@ -9,10 +12,15 @@ def Indent(Text: str):
 
 
 class StubBase():
-    def __init__(self, Ref, Name = "") -> None:
+    def __init__(self, Ref, Name="") -> None:
         self.Ref = Ref
         self.Name: str = Name
         self.DocString = ""
+
+    def __copy__(self):
+        NewInstance = self.__class__(self.Ref, Name=self.Name)
+        NewInstance.DocString = self.DocString
+        return NewInstance
 
     def __repr__(self):
         return f"<{self.__class__.__name__}: {self.Name}>"
@@ -36,13 +44,20 @@ class StubBase():
 
 
 class StubFunction(StubBase):
-    def __init__(self, Ref, Name = "", Parameters: list[StubParameter] | None = None, ReturnType: str | None = None):
-        super().__init__(Ref, Name = Name)
+    def __init__(self, Ref, Name="", Parameters: list[StubParameter] | None = None, ReturnType: str | None = None):
+        super().__init__(Ref, Name=Name)
         self._Params: list[StubParameter] = Parameters if Parameters else []
         self._ReturnType = ReturnType
         self.bIsMethod = False
         self.bIsStatic = False
-        self.bIsOverload = False
+
+    def __copy__(self):
+        NewInstance = super().__copy__()
+        NewInstance._Params = [copy.copy(x) for x in self._Params]
+        NewInstance._ReturnType = self._ReturnType
+        NewInstance.bIsMethod = self.bIsMethod
+        NewInstance.bIsStatic = self.bIsStatic
+        return NewInstance
 
     @property
     def ReturnType(self):
@@ -57,7 +72,7 @@ class StubFunction(StubBase):
     def AddParameter(self, Parameter):
         self._Params.append(Parameter)
 
-    def GetParameters(self, bExcludeSelf = False) -> list[StubParameter]:
+    def GetParameters(self, bExcludeSelf=False) -> list[StubParameter]:
         """
         Get a list of the parameters
 
@@ -86,7 +101,7 @@ class StubFunction(StubBase):
                 Param.Name = "self"
                 Param.Type = None
             ParametersAsStrings.append(Param.GetAsString())
-            
+
         # Insert a / to indicate that the function only accepts positional parameters
         # Only the function takes more than 1 parameter (excluding self)
         if (not self.bIsMethod and len(self._Params) > 0) or len(self._Params) > 1:
@@ -94,9 +109,9 @@ class StubFunction(StubBase):
 
         return ",".join(ParametersAsStrings)
 
-    def GetAsString(self):
+    def GetAsString(self, bIsOverload=False):
         FunctionAsString = ""
-        if self.bIsOverload:
+        if bIsOverload:
             FunctionAsString += "@overload\n"
         elif self.bIsStatic:
             FunctionAsString += "@staticmethod\n"
@@ -120,14 +135,14 @@ class StubFunction(StubBase):
 
 
 class StubClass(StubBase):
-    def __init__(self, Ref, Name = ""):
-        super().__init__(Ref, Name = Name)
+    def __init__(self, Ref, Name=""):
+        super().__init__(Ref, Name=Name)
         self.Parents: list[str] = []
         self.StubProperties: list[StubProperty] = []
         self.StubEnums: list[StubClass] = []
         self.StubFunctions: list[list[StubFunction]] = []
 
-    def GetFunctionsByName(self, Name: str):
+    def GetFunctionsByName(self, Name: str) -> list[StubFunction]:
         for FunctionGroup in self.StubFunctions:
             if FunctionGroup[0].Name == Name:
                 return FunctionGroup
@@ -146,10 +161,6 @@ class StubClass(StubBase):
             Function.bIsMethod = True  # Make function a method
         self.StubFunctions.append(Functions)
 
-    def GetFunctionsFlat(self) -> list[StubFunction]:
-        """ Get a flat list of functions """
-        return [x for FunctionGroup in self.StubFunctions for x in FunctionGroup]
-
     def AddProperty(self, Property: StubProperty):
         self.StubProperties.append(Property)
 
@@ -162,7 +173,8 @@ class StubClass(StubBase):
     def GetRequirements(self) -> list:
         # The class parent's needs to be declared before the class
         FunctionRequirements = []
-        for Function in self.GetFunctionsFlat():
+        FlatFunctionList = [x for FunctionGroup in self.StubFunctions for x in FunctionGroup]
+        for Function in FlatFunctionList:
             FunctionRequirements += Function.GetRequirements()
         return self.Parents + FunctionRequirements
 
@@ -174,23 +186,27 @@ class StubClass(StubBase):
         if self.GetDocString():
             ClassAsString += f"{Indent(self.GetDocString())}\n"
 
-        ClassMembers = self.StubEnums + self.StubProperties + self.GetFunctionsFlat()
-        for StubObject in ClassMembers:
+        for StubObject in self.StubEnums + self.StubProperties:
             ClassAsString += f"{Indent(StubObject.GetAsString())}\n"
 
-        # If class doesn't have any members, add a '...'
+        for StubFunctions in self.StubFunctions:
+            bOverload = len(StubFunctions) > 1  # If there are multiple functions with the same name, add @overload
+            for StubFunc in StubFunctions:
+                ClassAsString += f"{Indent(StubFunc.GetAsString(bOverload))}\n"
 
-        if not ClassMembers:
+        # If class doesn't have any members, add a '...'
+        if not any((self.StubProperties, self.StubEnums, self.StubFunctions)):
             ClassAsString += Indent("...")
 
         return ClassAsString.strip()
 
 
 class StubProperty(StubBase):
-    def __init__(self, Ref, Name = ""):
-        super().__init__(Ref, Name = Name)
+    def __init__(self, Ref, Name=""):
+        super().__init__(Ref, Name=Name)
         self._Type = None
         self.SetterType: str | None = None
+        self.Value: typing.Any = None
 
     @property
     def Type(self) -> str:
@@ -219,8 +235,13 @@ class StubProperty(StubBase):
 
             PropertyAsString = "\n".join(Lines)
         else:
-            #
-            PropertyAsString = f"{self.Name}:{self.Type}"
+            PropertyAsString = self.Name
+
+            if self._Type or self.Value is None:
+                PropertyAsString += f":{self.Type}"
+
+            if self.Value is not None:
+                PropertyAsString += f"={self.Value}"
 
             # Add docstring
             if self.GetDocString():
@@ -231,10 +252,17 @@ class StubProperty(StubBase):
 
 
 class StubParameter(StubBase):
-    def __init__(self, Ref, Name = "", Type = "", DefaultValue = None):
-        super().__init__(Ref, Name = Name)
+    def __init__(self, Ref, Name="", Type: str | None = "", DefaultValue=None):
+        super().__init__(Ref, Name=Name)
         self.DefaultValue = DefaultValue
         self._Type = Type
+
+    def __copy__(self):
+        NewInstance = super().__copy__()
+        NewInstance.DefaultValue = self.DefaultValue
+        NewInstance._Type = self._Type
+        NewInstance.DocString = self.DocString
+        return NewInstance
 
     @property
     def Type(self) -> str | None:
