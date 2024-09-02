@@ -4268,9 +4268,12 @@ class FBFCurveEvent(FBEvent):
     """Read Only Property: Index of the first key which is involved in the event."""
     KeyIndexStop:int
     """Read Only Property: Index of the last key which is involved in the event."""
-    ParentAnimationNode:property
-    ParentComponent:property
-    ParentProperty:property
+    ParentAnimationNode:FBAnimationNode
+    ParentComponent:FBComponent
+    @property
+    def ParentProperty(self)->FBPropertyAnimatable:...
+    @ParentProperty.setter
+    def ParentProperty(self, Value: FBPropertyAnimatable|Any):...
     def __init__(self):
         """### Parameters:
             - Event: Base event (internal) to obtain information from."""
@@ -5007,8 +5010,8 @@ class FBPropertyStateEvent(FBEvent):
     """This class is used when the state of a property tracked by the [FBFCurveEventManager](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_f_curve_event_manager.html "FCurve Event Manager Interface to the FBFCurveEventManager.") is changed."""
     EventType:FBPropertyStateEventType
     """Read Only Property: Event type, please see the [FBPropertyStateEventType](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_property_state_event_type.html "This enum indicates what modification was made to the animation of a tracked property....") for the possible types."""
-    ParentComponent:property
-    Property:property
+    ParentComponent:FBComponent
+    Property:FBProperty
     def __init__(self):
         """### Parameters:
             - Event: Base event (internal) to obtain information from."""
@@ -11521,7 +11524,7 @@ class FBHUDElement(FBBox):
     """Read Write Property: Specifies if the HUD element will be displayed or not."""
     VerticalDock:FBHUDElementVAlignment
     """Read Write Property: Specifies if the HUD element will be vertically docked to the Bottom, Top, or Center."""
-    Visibility:property
+    Visibility:bool
     Width:float
     """Read Write Property: Specifies the width of HUD element on the screen. It's in pixel when ScaleByPercent is false and percentage when ScaleByPercent is true."""
     X:float
