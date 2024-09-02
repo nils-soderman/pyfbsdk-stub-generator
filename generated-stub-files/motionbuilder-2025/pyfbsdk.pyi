@@ -5391,7 +5391,7 @@ class FBComponent(FBPlug):
     [See sample: ReplaceNamespace.py.](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/_basic_operations_0c_replace_namespace_8py-example.html)"""
     Components:FBPropertyListComponent
     """List: List of components."""
-    FullName:property
+    FullName:str
     LongName:str
     """Read Write Property: Name and namespace for object."""
     Name:str
@@ -6278,8 +6278,8 @@ class FBPropertyList(FBProperty):
     len(propertyList)
     print(propertyList[0])
     ```"""
-    Data:property
-    def __contains__(self,arg2,/)->bool:...
+    Data:list[Any]
+    def __contains__(self,Object:Any,/)->bool:...
     def __delitem__(self,arg2:int,/):...
     def __getitem__(self,Index:int,/)->Any:
         """Returns the ith component Corresponds to python: print l[1].
@@ -6295,15 +6295,14 @@ class FBPropertyList(FBProperty):
         
         Corresponds to python: len(object)"""
         ...
-    def __setitem__(self,arg2,arg3,/):...
-    def append(self,arg2,/):...
-    def count(self,arg2,/)->int:...
-    def insert(self,arg2:int,arg3,/):...
+    def append(self,Object:Any,/):...
+    def count(self,Object:Any,/)->int:...
+    def insert(self,Index:int,Object:Any,/):...
     @overload
     def pop(self)->Any:...
     @overload
-    def pop(self,arg2,/)->Any:...
-    def remove(self,arg2,/):...
+    def pop(self,Index:int,/)->Any:...
+    def remove(self,Object:Any,/):...
     def removeAll(self):...
     def __iter__(self)->Iterator[Any]:...
 class FBPropertyListVideoOut(FBPropertyListComponent):
@@ -11827,7 +11826,7 @@ class FBModel(FBBox):
     """List: Children for model."""
     ConstrainDeformable:bool
     """Read Write Property: Model constraint deformable. Not Savable"""
-    CullingMode:property
+    CullingMode:FBModelCullingMode
     Deformers:FBPropertyListDeformer
     """List: Deformers (Skeleton Deformer or Point Cache Deformer)."""
     GeometricRotation:FBVector3d
@@ -12233,7 +12232,7 @@ class FBLight(FBModel):
     """Read Write Property: Cast light on object?"""
     CastShadows:bool
     """Read Write Property: Cast shadows on object?"""
-    ConeAngle:property
+    ConeAngle:float
     @property
     def DiffuseColor(self)->FBPropertyAnimatableColor:
         """Read Write Property: Color: Diffuse color."""
@@ -12316,8 +12315,14 @@ class FBCamera(FBModel):
     When you look at a scene in the MotionBuilder Viewer, you are using a camera view.There are two types of cameras: Producer cameras. By default one of the producer cameras is used. These are always present. They can be configured but not destroyed. Custom cameras, created by the user.The SystemCamera property indicates whether a given camera is a producer or a custom camera.When you create a camera you should make it visible with the show property (inherited from [FBModel](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_model.html "Model class.")).Use [FBCameraSwitcher](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_camera_switcher.html "Camera switcher.") to get and set the current camera. For usage, see the Python sample CameraSwitcher.py.To see how to create a camera with a marker as an interest, see the Python sample code in FBCamera.py. For usage in C++, see the manipcamera sample.
     
     [See samples: NewCamera.py,](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/_basic_operations_0c_new_camera_8py-example.html) [RenderLayers.py,](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/_rendering_0c_render_layers_8py-example.html) [CameraSwitcher.py,](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/_samples_0c_camera_0c_camera_switcher_8py-example.html) [SetAllCamerasBackgroundColor.py,](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/_tasks_0c_set_all_cameras_background_color_8py-example.html) [SetAllCamerasBackgroundColorFromCurrentCamera.py,](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/_tasks_0c_set_all_cameras_background_color_from_current_camera_8py-example.html) [SetAllCamerasBackgroundColorFromFirstSelectedCamera.py,](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/_tasks_0c_set_all_cameras_background_color_from_first_selected_camera_8py-example.html) [FBCamera.py.](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/_u_i_0c_f_b_camera_8py-example.html)"""
-    AnimatableFarPlane:property
-    AnimatableNearPlane:property
+    @property
+    def AnimatableFarPlane(self)->FBPropertyAnimatableDouble:...
+    @AnimatableFarPlane.setter
+    def AnimatableFarPlane(self, Value: FBPropertyAnimatableDouble|float):...
+    @property
+    def AnimatableNearPlane(self)->FBPropertyAnimatableDouble:...
+    @AnimatableNearPlane.setter
+    def AnimatableNearPlane(self, Value: FBPropertyAnimatableDouble|float):...
     AntiAliasingIntensity:float
     """Read Write Property: Anti-aliasing intensity."""
     AntiAliasingMethod:FBCameraAntiAliasingMethod
@@ -14390,7 +14395,7 @@ class FBActionManager(FBComponent):
     """Action Manager class.
     
     This class is introduced to enable users to access to the actions related functions. between versions."""
-    CurrentInteractionMode:property
+    CurrentInteractionMode:str
     def RescanCurrentInteractionModeShortcuts(self)->bool:
         """Rescan the current interaction mode, in case some shortcuts have changed in the config file.
         
@@ -17837,7 +17842,7 @@ class FBNamespace(FBComponent):
     This class is an interface to manipulate object's containing in the scene."""
     ChildrenNamespaces:FBPropertyListNamespace
     """List: Direct Children Namespace Objects."""
-    ContentCount:property
+    ContentCount:int
     ContentLocked:bool
     """Read Write Property: Content locking state."""
     def GetContent(self,Index:int,/)->FBComponent:
@@ -17861,7 +17866,7 @@ class FBNamespace(FBComponent):
             - TypeInfo: the typeInfo of the type of interested object, 0 for all the objects.
             - ExactTypeMatch: if **True**, the derived typeInfo won't be considered (For example, [FBCamera](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_camera.html "Creates custom cameras and manages system cameras.") won't be considered when passing [FBModel::TypeInfo](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_component.html#a9b39fba51413fa925a0d94d2feb13bf9 "Contains the Type information of the object."))."""
         ...
-    def __init__(self,SingleLevelNamespace:str,ParentNSObj:FBNamespace,/):
+    def __init__(self,SingleLevelNamespace:str,ParentNSObj:FBNamespace|None,/):
         """Create a new direct children namespace object
         ### Parameters:
             - SingleLevelNamespace: [FBNamespace](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_namespace.html "Objects Containing class.") name. This name will be used as namespace itself. this name string shouldn't contain namespace string separator ":".
@@ -20331,8 +20336,8 @@ class FBTimeCode():
     """-30.0f"""
     FRAMES_5994:float
     """-59.94f"""
-    Frame:property
-    FrameRate:property
+    Frame:float
+    FrameRate:float
     MPAL_30:float
     """-29.971f Currently not supported : "1" is added just to differentiate from NTSC_FULL(-29.97f)"""
     NTSC_DROP:float
@@ -22909,15 +22914,15 @@ class FBVideoGrabOptions():
     """Read Write Property: Grabbing destination file."""
     RenderAudio:bool
     """Read Write Property: If true and there's audio in the scene, render the audio as well."""
-    RendererCallbackIndex:property
-    RendererCallbackPrefIndex:property
+    RendererCallbackIndex:int
+    RendererCallbackPrefIndex:int
     ShowCameraLabel:bool
     """Read Write Property: If true, display camera label information."""
     ShowSafeArea:bool
     """Read Write Property: If true, display safe area."""
     ShowTimeCode:bool
     """Read Write Property: If true, display time code information."""
-    StereoDisplayMode:property
+    StereoDisplayMode:FBStereoDisplayMode
     StillImageCompression:int
     """Read Write Property:
     
