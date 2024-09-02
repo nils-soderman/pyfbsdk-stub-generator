@@ -12,22 +12,72 @@ from ..doc_bases import Parameter, FunctionBase, ClassBase, PropertyBase
 # ---------------------------------------------------------------------
 
 class FBComponent(ClassBase):
-    class PropertyCreate(FunctionBase):
-        Parameters = (None, None, None, None, None, Parameter(Type=(pyfbsdk.FBProperty, "None")))
-        ReturnType = "FBProperty|None"
+    class FullName(PropertyBase):
+        Types = str
 
     class OwnerNamespace(PropertyBase):
         Types = (str, "None")
+
+    class PropertyCreate(FunctionBase):
+        Parameters = (None, None, None, None, None, Parameter(Type=(pyfbsdk.FBProperty, "None")))
+        ReturnType = "FBProperty|None"
 
 
 class FBModel(ClassBase):
     class Parent(PropertyBase):
         Types = (pyfbsdk.FBModel, "None")
 
+    class CullingMode(PropertyBase):
+        Types = pyfbsdk.FBModelCullingMode
+
+
+class FBLight(ClassBase):
+    class ConeAngle(PropertyBase):
+        Types = float
+
+
+class FBCamera(ClassBase):
+    class AnimatableFarPlane(PropertyBase):
+        Types = pyfbsdk.FBPropertyAnimatableDouble
+
+    class AnimatableNearPlane(PropertyBase):
+        Types = pyfbsdk.FBPropertyAnimatableDouble
+
+
+class FBActionManager(ClassBase):
+    class CurrentInteractionMode(PropertyBase):
+        Types = str
+
 
 class FBModelPath3D(ClassBase):
     class PathEndCapStyle(PropertyBase):
         Types = pyfbsdk.FBModelPath3D.EPathEndCapStyle
+
+
+class FBNamespace(ClassBase):
+    class ContentCount(PropertyBase):
+        Types = int
+
+    class __init__(FunctionBase):
+        Parameters = (None, Parameter(Type=(pyfbsdk.FBNamespace, "None")))
+
+class FBTimeCode(ClassBase):
+    class Frame(PropertyBase):
+        Types = float
+        
+    class FrameRate(PropertyBase):
+        Types = float
+        
+class FBVideoGrabOptions(ClassBase):
+    class RendererCallbackIndex(PropertyBase):
+        Types = int
+
+    class RendererCallbackPrefIndex(PropertyBase):
+        Types = int
+        
+    class StereoDisplayMode(PropertyBase):
+        Types = pyfbsdk.FBStereoDisplayMode
+
 
 # ---------------------------------------------------------------------
 #                          Functions
