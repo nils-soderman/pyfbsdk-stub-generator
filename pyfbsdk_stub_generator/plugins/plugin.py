@@ -69,7 +69,7 @@ class PluginBaseClass:
         if self.Threading:
             Threads: list[threading.Thread] = []
             for x in StubList:
-                Thread = threading.Thread(target=_ThreadedPatcher, args=(x,))
+                Thread = threading.Thread(target=_ThreadedPatcher, args=(self, x,))
                 Threads.append(Thread)
                 Thread.start()
             for Thread in Threads:

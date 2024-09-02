@@ -58,7 +58,7 @@ TRANSLATION_VALUES = {
 
 
 class PluginOnlineDocumentation(PluginBaseClass):
-    Threading = False
+    Threading = True
     Priority = 10  # We preferably want this to run directly after the native generator
 
     def __init__(self, Version: int, Module: ModuleType, EnumList: list[StubClass], ClassList: list[StubClass], FunctionGroupList: list[list[StubFunction]]):
