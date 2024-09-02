@@ -61,7 +61,7 @@ class PluginFbProperty(PluginBaseClass):
 
         # Base classes e.g. 'FBProperty'
         if not Type:
-            return None
+            return "Any"
 
         if Type in TYPE_CONVERSION_MAP:
             return TYPE_CONVERSION_MAP[Type]
