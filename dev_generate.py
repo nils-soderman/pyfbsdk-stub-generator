@@ -11,6 +11,10 @@ import os
 from types import ModuleType
 from importlib import reload
 
+import pyfbsdk
+
+CURRENT_DIR = os.path.dirname(__file__)
+REQUIRED_PACKAGES_DIR = os.path.join(CURRENT_DIR, "env")
 
 # Reload all stub generator modules
 for ImportedModule in list(sys.modules.values()):
@@ -18,22 +22,32 @@ for ImportedModule in list(sys.modules.values()):
         reload(ImportedModule)
 
 for Path in (
-    os.path.dirname(__file__),
-    f"C:/Python{sys.version_info.major}{sys.version_info.minor}/lib/site-packages",
-    f"{os.getenv('APPDATA')}/Python/Python{sys.version_info.major}{sys.version_info.minor}/site-packages"
+    CURRENT_DIR,
+    REQUIRED_PACKAGES_DIR,
 ):
     if Path not in sys.path:
         sys.path.append(Path)
 
-import pyfbsdk_stub_generator
-from pyfbsdk_stub_generator.stub_generator import GetMotionBuilderVersion
+
+try:
+    import pyfbsdk_stub_generator
+    from pyfbsdk_stub_generator.stub_generator import GetMotionBuilderVersion
+except ModuleNotFoundError:
+    # Install the required packages
+    import subprocess
+    MoBuPyExe = os.path.join(os.path.dirname(sys.executable), "mobupy.exe")
+    Requirements = os.path.join(CURRENT_DIR, "requirements.txt")
+    subprocess.run([MoBuPyExe, "-m", "pip", "install", "-r", Requirements, "--target", REQUIRED_PACKAGES_DIR], check=True)
+
+    pyfbsdk.FBMessageBox("Restart MotionBuilder", "Please restart MotionBuilder to reload the modules.", "Restart")
+    exit()
 
 # This will cache the online documentation
 os.environ["PYFBSDK_DEVMODE"] = "True"
 
 
 def main():
-    OutDir = os.path.join(os.path.dirname(__file__),
+    OutDir = os.path.join(CURRENT_DIR,
                           "generated-stub-files",
                           f"motionbuilder-{GetMotionBuilderVersion()}")
     pyfbsdk_stub_generator.Generate(OutDir)
