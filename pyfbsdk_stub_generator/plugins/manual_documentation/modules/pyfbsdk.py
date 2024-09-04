@@ -16,7 +16,7 @@ class FBComponent(ClassBase):
         Types = str
 
     class OwnerNamespace(PropertyBase):
-        Types = (str, "None")
+        Types = (pyfbsdk.FBNamespace, "None")
 
     class PropertyCreate(FunctionBase):
         Parameters = (None, None, None, None, None, Parameter(Type=(pyfbsdk.FBProperty, "None")))
