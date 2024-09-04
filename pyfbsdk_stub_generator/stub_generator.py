@@ -2,62 +2,25 @@ from __future__ import annotations
 
 import typing
 import time
-import sys
 import os
 
-from importlib import reload
 from types import ModuleType
 
 import pyfbsdk
-
-bTest = "builtin" in __name__
-if bTest:
-    # Reload all stub generator modules
-    for ImportedModule in list(sys.modules.values()):
-        if isinstance(ImportedModule, ModuleType) and "pyfbsdk_stub_generator" in ImportedModule.__name__:
-            reload(ImportedModule)
-
-    for Path in (
-        os.path.dirname(os.path.dirname(__file__)),
-        f"C:/Python{sys.version_info.major}{sys.version_info.minor}/lib/site-packages",
-        f"{os.getenv('APPDATA')}/Python/Python{sys.version_info.major}{sys.version_info.minor}/site-packages"
-    ):
-        if Path not in sys.path:
-            sys.path.append(Path)
-    os.environ["PYFBSDK_DEVMODE"] = "True"
 
 from . import plugins
 from .module_types import StubClass
 from . import native_generator
 
-reload(plugins)
-reload(native_generator)
 
 DEFAULT_PLUGINS = plugins.GetDefaultPlugins()
-
-
-TranslationDefaultValues = {
-    "FRAMES_30": "FBTimeCode.FRAMES_30"
-}
-
-# -------------------------------------------------------------
-#                       Structs & Enums
-# -------------------------------------------------------------
-
-
-class FObjectType:
-    Function = 'function'
-    Class = 'class'
-    Property = 'property'
-    Enum = 'type'
 
 
 # -------------------------------------------------------------
 #                       Helper Functios
 # -------------------------------------------------------------
 
-
-def GetMotionBuilderVersion():
+def GetMotionBuilderVersion() -> int:
     """ Get the current version of MotionBuilder """
     return int(2000 + pyfbsdk.FBSystem().Version / 1000)
 
@@ -66,7 +29,7 @@ def GetMotionBuilderVersion():
 #                       Functions
 # -------------------------------------------------------------
 
-def GetBaseContent(Module: ModuleType):
+def GetBaseContent(Module: ModuleType) -> str:
     ModuleName = Module.__name__
     Filepath = os.path.join(os.path.dirname(__file__), "base_content", f"{ModuleName}.pyi")
 
@@ -80,7 +43,7 @@ def GetBaseContent(Module: ModuleType):
     return Content
 
 
-def SortClasses(Classes: list[StubClass]):
+def SortClasses(Classes: list[StubClass]) -> list[StubClass]:
     """ 
     Sort classes based on their parent class
     If a class has another class as their parent class, it'll be placed later in the list
@@ -112,7 +75,7 @@ def SortClasses(Classes: list[StubClass]):
 # ---------------------------------------------------------------------------------
 
 
-class StubGenerator():
+class StubGenerator:
     def __init__(self, Module: ModuleType, Plugins: typing.Iterable[type[plugins.PluginBaseClass]] | None = DEFAULT_PLUGINS):
         self.Module = Module
         self.Version = GetMotionBuilderVersion()
@@ -165,15 +128,16 @@ class StubGenerator():
         return StubString
 
 
-def GenerateModuleStub(Module: ModuleType, Filepath: str) -> str:
+def GeneratePyfbsdkStubFile(Filepath: str) -> str:
     StartTime = time.time()
 
-    Generator = StubGenerator(Module)
-    FileContent = Generator.GenerateString()
-
     # Make sure directory exists
-    if not os.path.isdir(os.path.dirname(Filepath)):
-        os.makedirs(os.path.dirname(Filepath))
+    Directory = os.path.dirname(Filepath)
+    if not os.path.isdir(Directory):
+        os.makedirs(Directory)
+
+    Generator = StubGenerator(pyfbsdk)
+    FileContent = Generator.GenerateString()
 
     with open(Filepath, "w+", encoding="utf-8") as File:
         File.write(FileContent)
@@ -182,14 +146,3 @@ def GenerateModuleStub(Module: ModuleType, Filepath: str) -> str:
     print(f"Generating pyfbsdk stub file took: {round(GenerationTime, 2)}s.")
 
     return Filepath
-
-
-def GeneratePyfbsdkStubFile(Filepath: str):
-    return GenerateModuleStub(pyfbsdk, Filepath)
-
-
-if bTest:
-    ModuleToGenerate = pyfbsdk
-    DEFAULT_OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "generated-stub-files")
-    OutFilepath = os.path.join(DEFAULT_OUTPUT_DIR, f"motionbuilder-{GetMotionBuilderVersion()}", f"{ModuleToGenerate.__name__}.pyi")
-    GenerateModuleStub(ModuleToGenerate, OutFilepath)
