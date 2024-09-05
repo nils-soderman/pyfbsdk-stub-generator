@@ -31,7 +31,7 @@ def GetObjectName(Object) -> str:
     return Object.__name__
 
 
-def GetObjectType(Object) -> FObjectType:
+def GetObjectType(Object) -> str:
     """ Get object type as a string """
     return GetObjectName(type(Object))
 
