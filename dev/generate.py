@@ -4,6 +4,7 @@ Script used to generate the stub files under: ./generated-stub-files/
 This script is also used during development to test the generator, therefore it 
 reloads all of the modules and caches the online documentation on disk.
 """
+from __future__ import annotations
 
 import subprocess
 import sys
@@ -12,8 +13,8 @@ import os
 # from types import ModuleType
 from importlib import reload
 
-CURRENT_DIR = os.path.dirname(__file__)
-REQUIRED_PACKAGES_DIR = os.path.join(CURRENT_DIR, "env")
+ROOT_DIR = os.path.join(os.path.dirname(__file__), "..")
+REQUIRED_PACKAGES_DIR = os.path.join(ROOT_DIR, "env")
 
 # This will cache the online documentation
 os.environ["PYFBSDK_DEVMODE"] = "True"
@@ -30,7 +31,7 @@ def GetPyprojectData(PythonExecutable: str) -> dict:
         sys.path.append(REQUIRED_PACKAGES_DIR)
         import toml
 
-    PyProject = os.path.join(CURRENT_DIR, "pyproject.toml")
+    PyProject = os.path.join(ROOT_DIR, "pyproject.toml")
     with open(PyProject, 'r', encoding="utf8") as File:
         return toml.load(File)
 
@@ -51,7 +52,7 @@ def SetupEnvironment():
         subprocess.run([MoBuPyExe, "-m", "pip", "install", *Dependencies, "--target", REQUIRED_PACKAGES_DIR], check=True)
 
     # Add the required packages to the path
-    for Path in (CURRENT_DIR, REQUIRED_PACKAGES_DIR):
+    for Path in (ROOT_DIR, REQUIRED_PACKAGES_DIR):
         if Path not in sys.path:
             sys.path.append(Path)
 
@@ -70,7 +71,7 @@ def main():
     import pyfbsdk_stub_generator
     from pyfbsdk_stub_generator.stub_generator import GetMotionBuilderVersion
 
-    OutDir = os.path.join(CURRENT_DIR,
+    OutDir = os.path.join(ROOT_DIR,
                           "generated-stub-files",
                           f"motionbuilder-{GetMotionBuilderVersion()}")
 
@@ -78,4 +79,16 @@ def main():
 
 
 if "builtin" in __name__:
+    # Script is running from within MotionBuilder
+    main()
+
+if __name__ == "__main__":
+    # Script is running from MobuPy
+    try:
+        # In versions 2025 and above, the mobupy needs to be initialized before pyfbsdk can be used
+        import pyfbstandalone
+        pyfbstandalone.initialize()
+    except ModuleNotFoundError:
+        pass
+
     main()
