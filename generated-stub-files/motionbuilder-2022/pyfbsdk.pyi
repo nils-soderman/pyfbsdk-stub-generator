@@ -4,9 +4,10 @@ https://github.com/nils-soderman/pyfbsdk-stub-generator
 """
 # pylint: disable=all
 from __future__ import annotations
-from typing import overload, Any, Iterator
+from typing import overload, Any, Iterator, Literal
 import callbackframework
-class Enumeration(int):
+from enum import EnumMeta as _EnumType
+class Enumeration(int, metaclass=_EnumType):
     __slots__:tuple
     names:dict
     values:dict
@@ -18,623 +19,623 @@ class FBAccessMode(Enumeration):
     """pyfbsdk
     
     Data access modes."""
-    kFBAccessModeDisk:FBAccessMode
+    kFBAccessModeDisk=0
     """Access data directly to disk using a cache system."""
-    kFBAccessModeMemory:FBAccessMode
+    kFBAccessModeMemory=1
     """Access data from memory, which means that it will copyed entirely into it."""
 class FBAlphaSource(Enumeration):
     """Shader transparency computation.
     
     There are different way to compute transparency, and this lists the supported options."""
-    kFBAlphaSource2DTransparency:FBAlphaSource
+    kFBAlphaSource2DTransparency=4
     """2D Transparency."""
-    kFBAlphaSourceAccurateAlpha:FBAlphaSource
+    kFBAlphaSourceAccurateAlpha=1
     """Accurate Transparency."""
-    kFBAlphaSourceAdditiveAlpha:FBAlphaSource
+    kFBAlphaSourceAdditiveAlpha=5
     """Additive Transparency."""
-    kFBAlphaSourceMatteAlpha:FBAlphaSource
+    kFBAlphaSourceMatteAlpha=3
     """Matte."""
-    kFBAlphaSourceNoAlpha:FBAlphaSource
+    kFBAlphaSourceNoAlpha=0
     """No transparency."""
-    kFBAlphaSourceTransluscentAlpha:FBAlphaSource
+    kFBAlphaSourceTransluscentAlpha=2
     """Translucent."""
-    kFBAlphaSourceTransluscentZSortAlpha:FBAlphaSource
+    kFBAlphaSourceTransluscentZSortAlpha=6
     """Translucent(Models Z Sort)."""
 class FBAnimationLayerMergeOptions(Enumeration):
     """Merge option for animation layers."""
-    kFBAnimLayerMerge_AllLayers_AllProperties:FBAnimationLayerMergeOptions
+    kFBAnimLayerMerge_AllLayers_AllProperties=3
     """Merge the animation of all properties of the selected models from all the layers to the BaseAnimation layer."""
-    kFBAnimLayerMerge_AllLayers_CompleteScene:FBAnimationLayerMergeOptions
+    kFBAnimLayerMerge_AllLayers_CompleteScene=5
     """Merge the animation of all properties from all the layers to the BaseAnimation layer."""
-    kFBAnimLayerMerge_AllLayers_SelectedProperties:FBAnimationLayerMergeOptions
+    kFBAnimLayerMerge_AllLayers_SelectedProperties=1
     """Merge the animation of the selected properties of the selected models from all the layers to the BaseAnimation layer."""
-    kFBAnimLayerMerge_SelectedLayers_AllProperties:FBAnimationLayerMergeOptions
+    kFBAnimLayerMerge_SelectedLayers_AllProperties=2
     """Merge the animation of all properties of the selected models from the selected layers to the selected layer with the lowest index."""
-    kFBAnimLayerMerge_SelectedLayers_CompleteScene:FBAnimationLayerMergeOptions
+    kFBAnimLayerMerge_SelectedLayers_CompleteScene=4
     """Merge the animation of all properties from the selected layers to the selected layer with the lowest index."""
-    kFBAnimLayerMerge_SelectedLayers_SelectedProperties:FBAnimationLayerMergeOptions
+    kFBAnimLayerMerge_SelectedLayers_SelectedProperties=0
     """Merge the animation of the selected properties of the selected models from the selected layers to the selected layer with the lowest index."""
 class FBAnimationNodeConnectorType(Enumeration):
     """Different types for the animation node connectors."""
-    kFBAnimationNodeConnectorTypeConnectedIn:FBAnimationNodeConnectorType
+    kFBAnimationNodeConnectorTypeConnectedIn=1
     """The animation node input connector is connected to an animation node output connector (valid for input connector only)."""
-    kFBAnimationNodeConnectorTypeConnectedOut:FBAnimationNodeConnectorType
+    kFBAnimationNodeConnectorTypeConnectedOut=2
     """The animation node output connector is connected to at least one animation node input connector (valid for output connector only)."""
-    kFBAnimationNodeConnectorTypeConstantIn:FBAnimationNodeConnectorType
+    kFBAnimationNodeConnectorTypeConstantIn=3
     """The animation node input connector has a constant value set to it (valid for input connector only)."""
-    kFBAnimationNodeConnectorTypeNone:FBAnimationNodeConnectorType
+    kFBAnimationNodeConnectorTypeNone=0
     """The animation node connector is not connected and doesn't have a constant value set to it."""
 class FBArrangeMode(Enumeration):
     """Modes for arranging objects in schematic view."""
-    kHorizontalMode:FBArrangeMode
+    kHorizontalMode=0
     """Arrange all objects horizontally."""
-    kVerticalMode:FBArrangeMode
+    kVerticalMode=1
     """Arrange all objects vertically."""
 class FBAssetMngFileOptions(Enumeration):
     """Behavior of the application when working with managed files."""
-    kFileAddOnNewSave:FBAssetMngFileOptions
+    kFileAddOnNewSave=16
     """Add new file automatically on save."""
-    kFileAddOnNewSave_Ask:FBAssetMngFileOptions
+    kFileAddOnNewSave_Ask=32
     """Ask for adding new file on save."""
-    kFileCheckInOnClose:FBAssetMngFileOptions
+    kFileCheckInOnClose=64
     """Check in file automatically when closing it."""
-    kFileCheckInOnClose_Ask:FBAssetMngFileOptions
+    kFileCheckInOnClose_Ask=128
     """Ask for check in file when closing it."""
-    kFileCheckOutOnLoad:FBAssetMngFileOptions
+    kFileCheckOutOnLoad=1
     """Check out file automatically on load."""
-    kFileCheckOutOnLoad_Ask:FBAssetMngFileOptions
+    kFileCheckOutOnLoad_Ask=2
     """Ask for checkout on load."""
-    kFileOptionsAll:FBAssetMngFileOptions
-    kFileUploadOnSave:FBAssetMngFileOptions
+    kFileOptionsAll=-1
+    kFileUploadOnSave=4
     """Upload file automatically on save."""
-    kFileUploadOnSave_Ask:FBAssetMngFileOptions
+    kFileUploadOnSave_Ask=8
     """Ask for upload on save."""
 class FBAssetMngMenuOptions(Enumeration):
     """Show or hide version control menu items.
     
     Let you specify which functionalities will be available from the menus."""
-    kMenuAddToDatabase:FBAssetMngMenuOptions
+    kMenuAddToDatabase=2
     """File -> Add to database."""
-    kMenuAll:FBAssetMngMenuOptions
+    kMenuAll=-1
     """Support everything."""
-    kMenuCheckIn:FBAssetMngMenuOptions
+    kMenuCheckIn=16
     """Version Control -> Check In."""
-    kMenuCheckOut:FBAssetMngMenuOptions
+    kMenuCheckOut=32
     """Version Control -> Check Out."""
-    kMenuEnable:FBAssetMngMenuOptions
+    kMenuEnable=4096
     """Version Control -> Disable Version Control Integration."""
-    kMenuFileAll:FBAssetMngMenuOptions
+    kMenuFileAll=7
     """Support all elements from the File menu."""
-    kMenuGetLatest:FBAssetMngMenuOptions
+    kMenuGetLatest=8
     """Version Control -> Get Latest."""
-    kMenuOpenFromDatabase:FBAssetMngMenuOptions
+    kMenuOpenFromDatabase=1
     """File -> Open from database."""
-    kMenuShowExplorer:FBAssetMngMenuOptions
+    kMenuShowExplorer=512
     """Version Control -> Show Explorer."""
-    kMenuShowHistory:FBAssetMngMenuOptions
+    kMenuShowHistory=128
     """Version Control -> Show History."""
-    kMenuShowProperties:FBAssetMngMenuOptions
+    kMenuShowProperties=256
     """Version Control -> Show Properties."""
-    kMenuShowReferenceMng:FBAssetMngMenuOptions
+    kMenuShowReferenceMng=1024
     """Version Control -> Show Reference Manager."""
-    kMenuShowSettings:FBAssetMngMenuOptions
+    kMenuShowSettings=2048
     """Version Control -> Show Settings."""
-    kMenuSourceControlAll:FBAssetMngMenuOptions
+    kMenuSourceControlAll=8184
     """Support all elements from the Version Control menu."""
-    kMenuSourceControlMin:FBAssetMngMenuOptions
+    kMenuSourceControlMin=6264
     """Support only the basics functionalities."""
-    kMenuUndoCheckOut:FBAssetMngMenuOptions
+    kMenuUndoCheckOut=64
     """Version Control -> Undo Check Out."""
-    kMenuUploadToDatabase:FBAssetMngMenuOptions
+    kMenuUploadToDatabase=4
     """File -> Upload to database."""
 class FBAttachType(Enumeration):
     """Types of attachments between UI regions.
     
     [See samples: Attach.py,](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_attach_8py-example.html) [BoxLayout.py,](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_box_layout_8py-example.html) [RadioButton.py.](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_radio_button_8py-example.html)"""
-    kFBAttachBottom:FBAttachType
+    kFBAttachBottom=3
     """Attach to bottom [max(y1,y2)]"""
-    kFBAttachCenter:FBAttachType
+    kFBAttachCenter=6
     """Attach to center [center(x1,y1,x2,y2)]"""
-    kFBAttachHeight:FBAttachType
+    kFBAttachHeight=5
     """Attach to height [abs(y2-y1)]"""
-    kFBAttachLeft:FBAttachType
+    kFBAttachLeft=0
     """Attach to left [min(x1,x2)]"""
-    kFBAttachNone:FBAttachType
+    kFBAttachNone=7
     """No attachment."""
-    kFBAttachRight:FBAttachType
+    kFBAttachRight=1
     """Attach to right [max(x1,x2)]"""
-    kFBAttachTop:FBAttachType
+    kFBAttachTop=2
     """Attach to top [min(y1,y2)]"""
-    kFBAttachWidth:FBAttachType
+    kFBAttachWidth=4
     """Attach to width [abs(x2-x1)]"""
 class FBAttenuationType(Enumeration):
     """Light attenuation types."""
-    kFBAttenuationCubic:FBAttenuationType
+    kFBAttenuationCubic=3
     """Cubic attenuation."""
-    kFBAttenuationLinear:FBAttenuationType
+    kFBAttenuationLinear=1
     """Linear attenuation."""
-    kFBAttenuationNone:FBAttenuationType
+    kFBAttenuationNone=0
     """No attenuation."""
-    kFBAttenuationQuadratic:FBAttenuationType
+    kFBAttenuationQuadratic=2
     """Quadratic attenuation."""
 class FBAudioBitDepthMode(Enumeration):
     """Enum [FBAudioBitDepthMode](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_audio_bit_depth_mode.html "Enum FBAudioBitDepthMode.")."""
-    kFBAudioBitDepthMode_16:FBAudioBitDepthMode
+    kFBAudioBitDepthMode_16=1
     """16 bits, Wave file render support."""
-    kFBAudioBitDepthMode_24:FBAudioBitDepthMode
+    kFBAudioBitDepthMode_24=2
     """24 bits, Wave file render support."""
-    kFBAudioBitDepthMode_8:FBAudioBitDepthMode
+    kFBAudioBitDepthMode_8=0
     """8 bits, Wave file render support."""
-    kFBAudioBitDepthMode_FP:FBAudioBitDepthMode
+    kFBAudioBitDepthMode_FP=3
     """FP type audio, Wave file render not support."""
 class FBAudioChannelMode(Enumeration):
     """Enum [FBAudioChannelMode](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_audio_channel_mode.html "Enum FBAudioChannelMode.")."""
-    kFBAudioChannelModeMono:FBAudioChannelMode
+    kFBAudioChannelModeMono=0
     """1 channel, Wave file render support."""
-    kFBAudioChannelModeStereo:FBAudioChannelMode
+    kFBAudioChannelModeStereo=1
     """2 channels, Wave file render support."""
-    kFBAudioChannelMode_4:FBAudioChannelMode
+    kFBAudioChannelMode_4=2
     """4 channels, Wave file render not support."""
-    kFBAudioChannelMode_8:FBAudioChannelMode
+    kFBAudioChannelMode_8=3
     """8 channels, Wave file render not support."""
 class FBAudioOutputLocation(Enumeration):
     """Type of locations where the audio is rendered when rendering a scene using a video format."""
-    FBAudioOutputLocationCount:FBAudioOutputLocation
+    FBAudioOutputLocationCount=3
     """Count."""
-    FBAudioOutputLocationEmbedded:FBAudioOutputLocation
+    FBAudioOutputLocationEmbedded=0
     """The audio is embedded within the video output file."""
-    FBAudioOutputLocationEmbeddedAndStandalone:FBAudioOutputLocation
+    FBAudioOutputLocationEmbeddedAndStandalone=2
     """The audio is embedded within the video output file and is also rendered in a standalone output file."""
-    FBAudioOutputLocationStandalone:FBAudioOutputLocation
+    FBAudioOutputLocationStandalone=1
     """The audio is rendered in a standalone output file."""
 class FBAudioRateMode(Enumeration):
     """Enum [FBAudioRateMode](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_audio_rate_mode.html "Enum FBAudioRateMode.")."""
-    kFBAudioRateMode_100000:FBAudioRateMode
+    kFBAudioRateMode_100000=15
     """100000 hz, Wave file render not support."""
-    kFBAudioRateMode_12000:FBAudioRateMode
+    kFBAudioRateMode_12000=2
     """12000 hz, Wave file render support."""
-    kFBAudioRateMode_12500:FBAudioRateMode
+    kFBAudioRateMode_12500=3
     """12500 hz, Wave file render not support."""
-    kFBAudioRateMode_16000:FBAudioRateMode
+    kFBAudioRateMode_16000=4
     """16000 hz, Wave file render support."""
-    kFBAudioRateMode_22050:FBAudioRateMode
+    kFBAudioRateMode_22050=5
     """22050 hz, Wave file render support."""
-    kFBAudioRateMode_24000:FBAudioRateMode
+    kFBAudioRateMode_24000=6
     """24000 hz, Wave file render support."""
-    kFBAudioRateMode_25000:FBAudioRateMode
+    kFBAudioRateMode_25000=7
     """25000 hz, Wave file render not support."""
-    kFBAudioRateMode_32000:FBAudioRateMode
+    kFBAudioRateMode_32000=8
     """32000 hz, Wave file render support."""
-    kFBAudioRateMode_44100:FBAudioRateMode
+    kFBAudioRateMode_44100=9
     """44100 hz, Wave file render support."""
-    kFBAudioRateMode_48000:FBAudioRateMode
+    kFBAudioRateMode_48000=10
     """48000 hz, Wave file render support."""
-    kFBAudioRateMode_50000:FBAudioRateMode
+    kFBAudioRateMode_50000=11
     """50000 hz, Wave file render not support."""
-    kFBAudioRateMode_64000:FBAudioRateMode
+    kFBAudioRateMode_64000=12
     """64000 hz, Wave file render support."""
-    kFBAudioRateMode_8000:FBAudioRateMode
+    kFBAudioRateMode_8000=0
     """8000 hz, Wave file render support."""
-    kFBAudioRateMode_88200:FBAudioRateMode
+    kFBAudioRateMode_88200=13
     """88200 hz, Wave file render support."""
-    kFBAudioRateMode_96000:FBAudioRateMode
+    kFBAudioRateMode_96000=14
     """96000 hz, Wave file render support."""
-    kFBRAudioateMode_11025:FBAudioRateMode
+    kFBRAudioateMode_11025=1
     """11025 hz, Wave file render support."""
 class FBBatchFileFormat(Enumeration):
     """Different file formats for the batch."""
-    kFBBatchFileFormatAMC:FBBatchFileFormat
+    kFBBatchFileFormatAMC=2
     """File format for Acclaim AMC."""
-    kFBBatchFileFormatBVH:FBBatchFileFormat
+    kFBBatchFileFormatBVH=3
     """File format for Biovision BVH."""
-    kFBBatchFileFormatC3D:FBBatchFileFormat
+    kFBBatchFileFormatC3D=1
     """File format for Vicon C3D."""
-    kFBBatchFileFormatFBX:FBBatchFileFormat
+    kFBBatchFileFormatFBX=5
     """File format for FBX (animation only)."""
-    kFBBatchFileFormatHTR:FBBatchFileFormat
+    kFBBatchFileFormatHTR=4
     """File format for Motion Analysis HTR."""
-    kFBBatchFileFormatTRC:FBBatchFileFormat
+    kFBBatchFileFormatTRC=0
     """File format for Motion Analysis TRC."""
 class FBBatchOnContainsBatchTakes(Enumeration):
     """Different actions to perform when a scene already contains batch takes while in a batch process."""
-    kFBBatchOnContainsBatchTakesSaveAllTakes:FBBatchOnContainsBatchTakes
+    kFBBatchOnContainsBatchTakesSaveAllTakes=1
     """Save all the takes."""
-    kFBBatchOnContainsBatchTakesSaveBatchTakesOnly:FBBatchOnContainsBatchTakes
+    kFBBatchOnContainsBatchTakesSaveBatchTakesOnly=0
     """Save only the batch takes."""
 class FBBatchOnTakeExist(Enumeration):
     """Different actions to perform when a take already exist while in a batch process."""
-    kFBBatchOnTakeExistOverwrite:FBBatchOnTakeExist
+    kFBBatchOnTakeExistOverwrite=0
     """Overwrite the take."""
-    kFBBatchOnTakeExistSkip:FBBatchOnTakeExist
+    kFBBatchOnTakeExistSkip=1
     """Skip the take."""
 class FBBatchProcessType(Enumeration):
     """Different process type for the batch."""
-    kFBBatchProcessTypeConvert:FBBatchProcessType
+    kFBBatchProcessTypeConvert=2
     """Does the load and save."""
-    kFBBatchProcessTypeLoad:FBBatchProcessType
+    kFBBatchProcessTypeLoad=0
     """Load the files and plot the character with every take."""
-    kFBBatchProcessTypeSave:FBBatchProcessType
+    kFBBatchProcessTypeSave=1
     """Save the takes in different files."""
 class FBBatchStatus(Enumeration):
     """Different return values of the Batch process."""
-    kFBBatchStatusActorInputMarkersetHasNoReferenceModel:FBBatchStatus
-    kFBBatchStatusActorInputMarkersetNotCorrectlyAssociated:FBBatchStatus
-    kFBBatchStatusActorInputMarkersetNotSpecified:FBBatchStatus
-    kFBBatchStatusAsfSkeletonFileNotSpecified:FBBatchStatus
-    kFBBatchStatusCantOpenAsfSkeletonFile:FBBatchStatus
-    kFBBatchStatusCharacterHasNoReference:FBBatchStatus
-    kFBBatchStatusCharacterNotCharacterized:FBBatchStatus
-    kFBBatchStatusCharacterNotSpecified:FBBatchStatus
-    kFBBatchStatusError:FBBatchStatus
-    kFBBatchStatusInputActorNotSpecified:FBBatchStatus
-    kFBBatchStatusInputCharacterHasNoReference:FBBatchStatus
-    kFBBatchStatusInputCharacterNotCharacterized:FBBatchStatus
-    kFBBatchStatusInputDirectoryNotValid:FBBatchStatus
-    kFBBatchStatusOutputDirectoryNotValid:FBBatchStatus
-    kFBBatchStatusSuccess:FBBatchStatus
+    kFBBatchStatusActorInputMarkersetHasNoReferenceModel=7
+    kFBBatchStatusActorInputMarkersetNotCorrectlyAssociated=8
+    kFBBatchStatusActorInputMarkersetNotSpecified=6
+    kFBBatchStatusAsfSkeletonFileNotSpecified=12
+    kFBBatchStatusCantOpenAsfSkeletonFile=13
+    kFBBatchStatusCharacterHasNoReference=4
+    kFBBatchStatusCharacterNotCharacterized=3
+    kFBBatchStatusCharacterNotSpecified=2
+    kFBBatchStatusError=1
+    kFBBatchStatusInputActorNotSpecified=5
+    kFBBatchStatusInputCharacterHasNoReference=10
+    kFBBatchStatusInputCharacterNotCharacterized=9
+    kFBBatchStatusInputDirectoryNotValid=11
+    kFBBatchStatusOutputDirectoryNotValid=14
+    kFBBatchStatusSuccess=0
 class FBBodyNodeId(Enumeration):
     """All body nodes.
     
     [See sample: ExportAnimationLibrary.py.](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_export_animation_library_8py-example.html)"""
-    kFBChestNodeId:FBBodyNodeId
+    kFBChestNodeId=10
     """Spine 1."""
-    kFBHeadNodeId:FBBodyNodeId
+    kFBHeadNodeId=20
     """Required."""
-    kFBHipsNodeId:FBBodyNodeId
+    kFBHipsNodeId=0
     """Required."""
-    kFBHipsTranslationNodeId:FBBodyNodeId
-    kFBInvalidNodeId:FBBodyNodeId
-    kFBLastNodeId:FBBodyNodeId
-    kFBLastNodeId_Old:FBBodyNodeId
-    kFBLeftAnkleNodeId:FBBodyNodeId
+    kFBHipsTranslationNodeId=169
+    kFBInvalidNodeId=-1
+    kFBLastNodeId=210
+    kFBLastNodeId_Old=170
+    kFBLeftAnkleNodeId=3
     """Required."""
-    kFBLeftCollarNodeId:FBBodyNodeId
-    kFBLeftElbowNodeId:FBBodyNodeId
+    kFBLeftCollarNodeId=11
+    kFBLeftElbowNodeId=13
     """Required."""
-    kFBLeftElbowRollNode1Id:FBBodyNodeId
+    kFBLeftElbowRollNode1Id=175
     """New leaf roll bone."""
-    kFBLeftElbowRollNode2Id:FBBodyNodeId
+    kFBLeftElbowRollNode2Id=183
     """New leaf roll bone."""
-    kFBLeftElbowRollNode3Id:FBBodyNodeId
+    kFBLeftElbowRollNode3Id=191
     """New leaf roll bone."""
-    kFBLeftElbowRollNode4Id:FBBodyNodeId
+    kFBLeftElbowRollNode4Id=199
     """New leaf roll bone."""
-    kFBLeftElbowRollNode5Id:FBBodyNodeId
+    kFBLeftElbowRollNode5Id=207
     """New leaf roll bone."""
-    kFBLeftElbowRollNodeId:FBBodyNodeId
-    kFBLeftExtraFingerANodeId:FBBodyNodeId
+    kFBLeftElbowRollNodeId=26
+    kFBLeftExtraFingerANodeId=89
     """New extra finger bone."""
-    kFBLeftExtraFingerBNodeId:FBBodyNodeId
+    kFBLeftExtraFingerBNodeId=90
     """New extra finger bone."""
-    kFBLeftExtraFingerCNodeId:FBBodyNodeId
+    kFBLeftExtraFingerCNodeId=91
     """New extra finger bone."""
-    kFBLeftExtraFingerDNodeId:FBBodyNodeId
+    kFBLeftExtraFingerDNodeId=92
     """New extra finger bone."""
-    kFBLeftExtraFingerInNodeId:FBBodyNodeId
+    kFBLeftExtraFingerInNodeId=88
     """New extra finger bone."""
-    kFBLeftExtraFootFingerANodeId:FBBodyNodeId
+    kFBLeftExtraFootFingerANodeId=149
     """New extra finger bone."""
-    kFBLeftExtraFootFingerBNodeId:FBBodyNodeId
+    kFBLeftExtraFootFingerBNodeId=150
     """New extra finger bone."""
-    kFBLeftExtraFootFingerCNodeId:FBBodyNodeId
+    kFBLeftExtraFootFingerCNodeId=151
     """New extra finger bone."""
-    kFBLeftExtraFootFingerDNodeId:FBBodyNodeId
+    kFBLeftExtraFootFingerDNodeId=152
     """New extra finger bone."""
-    kFBLeftExtraFootFingerInNodeId:FBBodyNodeId
+    kFBLeftExtraFootFingerInNodeId=148
     """New extra finger bone."""
-    kFBLeftFootIndexANodeId:FBBodyNodeId
-    kFBLeftFootIndexBNodeId:FBBodyNodeId
-    kFBLeftFootIndexCNodeId:FBBodyNodeId
-    kFBLeftFootIndexDNodeId:FBBodyNodeId
-    kFBLeftFootIndexInNodeId:FBBodyNodeId
-    kFBLeftFootMiddleANodeId:FBBodyNodeId
-    kFBLeftFootMiddleBNodeId:FBBodyNodeId
-    kFBLeftFootMiddleCNodeId:FBBodyNodeId
-    kFBLeftFootMiddleDNodeId:FBBodyNodeId
-    kFBLeftFootMiddleInNodeId:FBBodyNodeId
-    kFBLeftFootNodeId:FBBodyNodeId
-    kFBLeftFootPinkyANodeId:FBBodyNodeId
-    kFBLeftFootPinkyBNodeId:FBBodyNodeId
-    kFBLeftFootPinkyCNodeId:FBBodyNodeId
-    kFBLeftFootPinkyDNodeId:FBBodyNodeId
-    kFBLeftFootPinkyInNodeId:FBBodyNodeId
-    kFBLeftFootRingANodeId:FBBodyNodeId
-    kFBLeftFootRingBNodeId:FBBodyNodeId
-    kFBLeftFootRingCNodeId:FBBodyNodeId
-    kFBLeftFootRingDNodeId:FBBodyNodeId
-    kFBLeftFootRingInNodeId:FBBodyNodeId
-    kFBLeftFootThumbANodeId:FBBodyNodeId
-    kFBLeftFootThumbBNodeId:FBBodyNodeId
-    kFBLeftFootThumbCNodeId:FBBodyNodeId
-    kFBLeftFootThumbDNodeId:FBBodyNodeId
-    kFBLeftFootThumbInNodeId:FBBodyNodeId
-    kFBLeftHandNodeId:FBBodyNodeId
-    kFBLeftHipNodeId:FBBodyNodeId
+    kFBLeftFootIndexANodeId=104
+    kFBLeftFootIndexBNodeId=105
+    kFBLeftFootIndexCNodeId=106
+    kFBLeftFootIndexDNodeId=107
+    kFBLeftFootIndexInNodeId=103
+    kFBLeftFootMiddleANodeId=109
+    kFBLeftFootMiddleBNodeId=110
+    kFBLeftFootMiddleCNodeId=111
+    kFBLeftFootMiddleDNodeId=112
+    kFBLeftFootMiddleInNodeId=108
+    kFBLeftFootNodeId=4
+    kFBLeftFootPinkyANodeId=119
+    kFBLeftFootPinkyBNodeId=120
+    kFBLeftFootPinkyCNodeId=121
+    kFBLeftFootPinkyDNodeId=122
+    kFBLeftFootPinkyInNodeId=118
+    kFBLeftFootRingANodeId=114
+    kFBLeftFootRingBNodeId=115
+    kFBLeftFootRingCNodeId=116
+    kFBLeftFootRingDNodeId=117
+    kFBLeftFootRingInNodeId=113
+    kFBLeftFootThumbANodeId=99
+    kFBLeftFootThumbBNodeId=100
+    kFBLeftFootThumbCNodeId=101
+    kFBLeftFootThumbDNodeId=102
+    kFBLeftFootThumbInNodeId=98
+    kFBLeftHandNodeId=158
+    kFBLeftHipNodeId=1
     """Required."""
-    kFBLeftHipRollNode1Id:FBBodyNodeId
+    kFBLeftHipRollNode1Id=170
     """New leaf roll bone."""
-    kFBLeftHipRollNode2Id:FBBodyNodeId
+    kFBLeftHipRollNode2Id=178
     """New leaf roll bone."""
-    kFBLeftHipRollNode3Id:FBBodyNodeId
+    kFBLeftHipRollNode3Id=186
     """New leaf roll bone."""
-    kFBLeftHipRollNode4Id:FBBodyNodeId
+    kFBLeftHipRollNode4Id=194
     """New leaf roll bone."""
-    kFBLeftHipRollNode5Id:FBBodyNodeId
+    kFBLeftHipRollNode5Id=202
     """New leaf roll bone."""
-    kFBLeftHipRollNodeId:FBBodyNodeId
-    kFBLeftIndexANodeId:FBBodyNodeId
-    kFBLeftIndexBNodeId:FBBodyNodeId
-    kFBLeftIndexCNodeId:FBBodyNodeId
-    kFBLeftIndexDNodeId:FBBodyNodeId
-    kFBLeftIndexInNodeId:FBBodyNodeId
-    kFBLeftKneeNodeId:FBBodyNodeId
+    kFBLeftHipRollNodeId=21
+    kFBLeftIndexANodeId=40
+    kFBLeftIndexBNodeId=41
+    kFBLeftIndexCNodeId=42
+    kFBLeftIndexDNodeId=71
+    kFBLeftIndexInNodeId=70
+    kFBLeftKneeNodeId=2
     """Required."""
-    kFBLeftKneeRollNode1Id:FBBodyNodeId
+    kFBLeftKneeRollNode1Id=171
     """New leaf roll bone."""
-    kFBLeftKneeRollNode2Id:FBBodyNodeId
+    kFBLeftKneeRollNode2Id=179
     """New leaf roll bone."""
-    kFBLeftKneeRollNode3Id:FBBodyNodeId
+    kFBLeftKneeRollNode3Id=187
     """New leaf roll bone."""
-    kFBLeftKneeRollNode4Id:FBBodyNodeId
+    kFBLeftKneeRollNode4Id=195
     """New leaf roll bone."""
-    kFBLeftKneeRollNode5Id:FBBodyNodeId
+    kFBLeftKneeRollNode5Id=203
     """New leaf roll bone."""
-    kFBLeftKneeRollNodeId:FBBodyNodeId
-    kFBLeftMiddleANodeId:FBBodyNodeId
-    kFBLeftMiddleBNodeId:FBBodyNodeId
-    kFBLeftMiddleCNodeId:FBBodyNodeId
-    kFBLeftMiddleDNodeId:FBBodyNodeId
-    kFBLeftMiddleInNodeId:FBBodyNodeId
-    kFBLeftPinkyANodeId:FBBodyNodeId
-    kFBLeftPinkyBNodeId:FBBodyNodeId
-    kFBLeftPinkyCNodeId:FBBodyNodeId
-    kFBLeftPinkyDNodeId:FBBodyNodeId
-    kFBLeftPinkyInNodeId:FBBodyNodeId
-    kFBLeftRingANodeId:FBBodyNodeId
-    kFBLeftRingBNodeId:FBBodyNodeId
-    kFBLeftRingCNodeId:FBBodyNodeId
-    kFBLeftRingDNodeId:FBBodyNodeId
-    kFBLeftRingInNodeId:FBBodyNodeId
-    kFBLeftShoulderNodeId:FBBodyNodeId
+    kFBLeftKneeRollNodeId=22
+    kFBLeftMiddleANodeId=43
+    kFBLeftMiddleBNodeId=44
+    kFBLeftMiddleCNodeId=45
+    kFBLeftMiddleDNodeId=73
+    kFBLeftMiddleInNodeId=72
+    kFBLeftPinkyANodeId=49
+    kFBLeftPinkyBNodeId=50
+    kFBLeftPinkyCNodeId=51
+    kFBLeftPinkyDNodeId=77
+    kFBLeftPinkyInNodeId=76
+    kFBLeftRingANodeId=46
+    kFBLeftRingBNodeId=47
+    kFBLeftRingCNodeId=48
+    kFBLeftRingDNodeId=75
+    kFBLeftRingInNodeId=74
+    kFBLeftShoulderNodeId=12
     """Required."""
-    kFBLeftShoulderRollNode1Id:FBBodyNodeId
+    kFBLeftShoulderRollNode1Id=174
     """New leaf roll bone."""
-    kFBLeftShoulderRollNode2Id:FBBodyNodeId
+    kFBLeftShoulderRollNode2Id=182
     """New leaf roll bone."""
-    kFBLeftShoulderRollNode3Id:FBBodyNodeId
+    kFBLeftShoulderRollNode3Id=190
     """New leaf roll bone."""
-    kFBLeftShoulderRollNode4Id:FBBodyNodeId
+    kFBLeftShoulderRollNode4Id=198
     """New leaf roll bone."""
-    kFBLeftShoulderRollNode5Id:FBBodyNodeId
+    kFBLeftShoulderRollNode5Id=206
     """New leaf roll bone."""
-    kFBLeftShoulderRollNodeId:FBBodyNodeId
-    kFBLeftThumbANodeId:FBBodyNodeId
-    kFBLeftThumbBNodeId:FBBodyNodeId
-    kFBLeftThumbCNodeId:FBBodyNodeId
-    kFBLeftThumbDNodeId:FBBodyNodeId
-    kFBLeftThumbInNodeId:FBBodyNodeId
-    kFBLeftWristNodeId:FBBodyNodeId
+    kFBLeftShoulderRollNodeId=25
+    kFBLeftThumbANodeId=37
+    kFBLeftThumbBNodeId=38
+    kFBLeftThumbCNodeId=39
+    kFBLeftThumbDNodeId=69
+    kFBLeftThumbInNodeId=68
+    kFBLeftWristNodeId=14
     """Required."""
-    kFBNeck1NodeId:FBBodyNodeId
-    kFBNeck2NodeId:FBBodyNodeId
-    kFBNeck3NodeId:FBBodyNodeId
-    kFBNeck4NodeId:FBBodyNodeId
-    kFBNeck5NodeId:FBBodyNodeId
-    kFBNeck6NodeId:FBBodyNodeId
-    kFBNeck7NodeId:FBBodyNodeId
-    kFBNeck8NodeId:FBBodyNodeId
-    kFBNeck9NodeId:FBBodyNodeId
-    kFBNeckNodeId:FBBodyNodeId
-    kFBReferenceNodeId:FBBodyNodeId
-    kFBRightAnkleNodeId:FBBodyNodeId
+    kFBNeck1NodeId=160
+    kFBNeck2NodeId=161
+    kFBNeck3NodeId=162
+    kFBNeck4NodeId=163
+    kFBNeck5NodeId=164
+    kFBNeck6NodeId=165
+    kFBNeck7NodeId=166
+    kFBNeck8NodeId=167
+    kFBNeck9NodeId=168
+    kFBNeckNodeId=19
+    kFBReferenceNodeId=67
+    kFBRightAnkleNodeId=7
     """Required."""
-    kFBRightCollarNodeId:FBBodyNodeId
-    kFBRightElbowNodeId:FBBodyNodeId
+    kFBRightCollarNodeId=15
+    kFBRightElbowNodeId=17
     """Required."""
-    kFBRightElbowRollNode1Id:FBBodyNodeId
+    kFBRightElbowRollNode1Id=177
     """New leaf roll bone."""
-    kFBRightElbowRollNode2Id:FBBodyNodeId
+    kFBRightElbowRollNode2Id=185
     """New leaf roll bone."""
-    kFBRightElbowRollNode3Id:FBBodyNodeId
+    kFBRightElbowRollNode3Id=193
     """New leaf roll bone."""
-    kFBRightElbowRollNode4Id:FBBodyNodeId
+    kFBRightElbowRollNode4Id=201
     """New leaf roll bone."""
-    kFBRightElbowRollNode5Id:FBBodyNodeId
+    kFBRightElbowRollNode5Id=209
     """New leaf roll bone."""
-    kFBRightElbowRollNodeId:FBBodyNodeId
-    kFBRightExtraFingerANodeId:FBBodyNodeId
+    kFBRightElbowRollNodeId=28
+    kFBRightExtraFingerANodeId=94
     """New extra finger bone."""
-    kFBRightExtraFingerBNodeId:FBBodyNodeId
+    kFBRightExtraFingerBNodeId=95
     """New extra finger bone."""
-    kFBRightExtraFingerCNodeId:FBBodyNodeId
+    kFBRightExtraFingerCNodeId=96
     """New extra finger bone."""
-    kFBRightExtraFingerDNodeId:FBBodyNodeId
+    kFBRightExtraFingerDNodeId=97
     """New extra finger bone."""
-    kFBRightExtraFingerInNodeId:FBBodyNodeId
+    kFBRightExtraFingerInNodeId=93
     """New extra finger bone."""
-    kFBRightExtraFootFingerANodeId:FBBodyNodeId
+    kFBRightExtraFootFingerANodeId=154
     """New extra finger bone."""
-    kFBRightExtraFootFingerBNodeId:FBBodyNodeId
+    kFBRightExtraFootFingerBNodeId=155
     """New extra finger bone."""
-    kFBRightExtraFootFingerCNodeId:FBBodyNodeId
+    kFBRightExtraFootFingerCNodeId=156
     """New extra finger bone."""
-    kFBRightExtraFootFingerDNodeId:FBBodyNodeId
+    kFBRightExtraFootFingerDNodeId=157
     """New extra finger bone."""
-    kFBRightExtraFootFingerInNodeId:FBBodyNodeId
+    kFBRightExtraFootFingerInNodeId=153
     """New extra finger bone."""
-    kFBRightFootIndexANodeId:FBBodyNodeId
-    kFBRightFootIndexBNodeId:FBBodyNodeId
-    kFBRightFootIndexCNodeId:FBBodyNodeId
-    kFBRightFootIndexDNodeId:FBBodyNodeId
-    kFBRightFootIndexInNodeId:FBBodyNodeId
-    kFBRightFootMiddleANodeId:FBBodyNodeId
-    kFBRightFootMiddleBNodeId:FBBodyNodeId
-    kFBRightFootMiddleCNodeId:FBBodyNodeId
-    kFBRightFootMiddleDNodeId:FBBodyNodeId
-    kFBRightFootMiddleInNodeId:FBBodyNodeId
-    kFBRightFootNodeId:FBBodyNodeId
-    kFBRightFootPinkyANodeId:FBBodyNodeId
-    kFBRightFootPinkyBNodeId:FBBodyNodeId
-    kFBRightFootPinkyCNodeId:FBBodyNodeId
-    kFBRightFootPinkyDNodeId:FBBodyNodeId
-    kFBRightFootPinkyInNodeId:FBBodyNodeId
-    kFBRightFootRingANodeId:FBBodyNodeId
-    kFBRightFootRingBNodeId:FBBodyNodeId
-    kFBRightFootRingCNodeId:FBBodyNodeId
-    kFBRightFootRingDNodeId:FBBodyNodeId
-    kFBRightFootRingInNodeId:FBBodyNodeId
-    kFBRightFootThumbANodeId:FBBodyNodeId
-    kFBRightFootThumbBNodeId:FBBodyNodeId
-    kFBRightFootThumbCNodeId:FBBodyNodeId
-    kFBRightFootThumbDNodeId:FBBodyNodeId
-    kFBRightFootThumbInNodeId:FBBodyNodeId
-    kFBRightHandNodeId:FBBodyNodeId
-    kFBRightHipNodeId:FBBodyNodeId
+    kFBRightFootIndexANodeId=129
+    kFBRightFootIndexBNodeId=130
+    kFBRightFootIndexCNodeId=131
+    kFBRightFootIndexDNodeId=132
+    kFBRightFootIndexInNodeId=128
+    kFBRightFootMiddleANodeId=134
+    kFBRightFootMiddleBNodeId=135
+    kFBRightFootMiddleCNodeId=136
+    kFBRightFootMiddleDNodeId=137
+    kFBRightFootMiddleInNodeId=133
+    kFBRightFootNodeId=8
+    kFBRightFootPinkyANodeId=144
+    kFBRightFootPinkyBNodeId=145
+    kFBRightFootPinkyCNodeId=146
+    kFBRightFootPinkyDNodeId=147
+    kFBRightFootPinkyInNodeId=143
+    kFBRightFootRingANodeId=139
+    kFBRightFootRingBNodeId=140
+    kFBRightFootRingCNodeId=141
+    kFBRightFootRingDNodeId=142
+    kFBRightFootRingInNodeId=138
+    kFBRightFootThumbANodeId=124
+    kFBRightFootThumbBNodeId=125
+    kFBRightFootThumbCNodeId=126
+    kFBRightFootThumbDNodeId=127
+    kFBRightFootThumbInNodeId=123
+    kFBRightHandNodeId=159
+    kFBRightHipNodeId=5
     """Required."""
-    kFBRightHipRollNode1Id:FBBodyNodeId
+    kFBRightHipRollNode1Id=172
     """New leaf roll bone."""
-    kFBRightHipRollNode2Id:FBBodyNodeId
+    kFBRightHipRollNode2Id=180
     """New leaf roll bone."""
-    kFBRightHipRollNode3Id:FBBodyNodeId
+    kFBRightHipRollNode3Id=188
     """New leaf roll bone."""
-    kFBRightHipRollNode4Id:FBBodyNodeId
+    kFBRightHipRollNode4Id=196
     """New leaf roll bone."""
-    kFBRightHipRollNode5Id:FBBodyNodeId
+    kFBRightHipRollNode5Id=204
     """New leaf roll bone."""
-    kFBRightHipRollNodeId:FBBodyNodeId
-    kFBRightIndexANodeId:FBBodyNodeId
-    kFBRightIndexBNodeId:FBBodyNodeId
-    kFBRightIndexCNodeId:FBBodyNodeId
-    kFBRightIndexDNodeId:FBBodyNodeId
-    kFBRightIndexInNodeId:FBBodyNodeId
-    kFBRightKneeNodeId:FBBodyNodeId
+    kFBRightHipRollNodeId=23
+    kFBRightIndexANodeId=55
+    kFBRightIndexBNodeId=56
+    kFBRightIndexCNodeId=57
+    kFBRightIndexDNodeId=81
+    kFBRightIndexInNodeId=80
+    kFBRightKneeNodeId=6
     """Required."""
-    kFBRightKneeRollNode1Id:FBBodyNodeId
+    kFBRightKneeRollNode1Id=173
     """New leaf roll bone."""
-    kFBRightKneeRollNode2Id:FBBodyNodeId
+    kFBRightKneeRollNode2Id=181
     """New leaf roll bone."""
-    kFBRightKneeRollNode3Id:FBBodyNodeId
+    kFBRightKneeRollNode3Id=189
     """New leaf roll bone."""
-    kFBRightKneeRollNode4Id:FBBodyNodeId
+    kFBRightKneeRollNode4Id=197
     """New leaf roll bone."""
-    kFBRightKneeRollNode5Id:FBBodyNodeId
+    kFBRightKneeRollNode5Id=205
     """New leaf roll bone."""
-    kFBRightKneeRollNodeId:FBBodyNodeId
-    kFBRightMiddleANodeId:FBBodyNodeId
-    kFBRightMiddleBNodeId:FBBodyNodeId
-    kFBRightMiddleCNodeId:FBBodyNodeId
-    kFBRightMiddleDNodeId:FBBodyNodeId
-    kFBRightMiddleInNodeId:FBBodyNodeId
-    kFBRightPinkyANodeId:FBBodyNodeId
-    kFBRightPinkyBNodeId:FBBodyNodeId
-    kFBRightPinkyCNodeId:FBBodyNodeId
-    kFBRightPinkyDNodeId:FBBodyNodeId
-    kFBRightPinkyInNodeId:FBBodyNodeId
-    kFBRightRingANodeId:FBBodyNodeId
-    kFBRightRingBNodeId:FBBodyNodeId
-    kFBRightRingCNodeId:FBBodyNodeId
-    kFBRightRingDNodeId:FBBodyNodeId
-    kFBRightRingInNodeId:FBBodyNodeId
-    kFBRightShoulderNodeId:FBBodyNodeId
+    kFBRightKneeRollNodeId=24
+    kFBRightMiddleANodeId=58
+    kFBRightMiddleBNodeId=59
+    kFBRightMiddleCNodeId=60
+    kFBRightMiddleDNodeId=83
+    kFBRightMiddleInNodeId=82
+    kFBRightPinkyANodeId=64
+    kFBRightPinkyBNodeId=65
+    kFBRightPinkyCNodeId=66
+    kFBRightPinkyDNodeId=87
+    kFBRightPinkyInNodeId=86
+    kFBRightRingANodeId=61
+    kFBRightRingBNodeId=62
+    kFBRightRingCNodeId=63
+    kFBRightRingDNodeId=85
+    kFBRightRingInNodeId=84
+    kFBRightShoulderNodeId=16
     """Required."""
-    kFBRightShoulderRollNode1Id:FBBodyNodeId
+    kFBRightShoulderRollNode1Id=176
     """New leaf roll bone."""
-    kFBRightShoulderRollNode2Id:FBBodyNodeId
+    kFBRightShoulderRollNode2Id=184
     """New leaf roll bone."""
-    kFBRightShoulderRollNode3Id:FBBodyNodeId
+    kFBRightShoulderRollNode3Id=192
     """New leaf roll bone."""
-    kFBRightShoulderRollNode4Id:FBBodyNodeId
+    kFBRightShoulderRollNode4Id=200
     """New leaf roll bone."""
-    kFBRightShoulderRollNode5Id:FBBodyNodeId
+    kFBRightShoulderRollNode5Id=208
     """New leaf roll bone."""
-    kFBRightShoulderRollNodeId:FBBodyNodeId
-    kFBRightThumbANodeId:FBBodyNodeId
-    kFBRightThumbBNodeId:FBBodyNodeId
-    kFBRightThumbCNodeId:FBBodyNodeId
-    kFBRightThumbDNodeId:FBBodyNodeId
-    kFBRightThumbInNodeId:FBBodyNodeId
-    kFBRightWristNodeId:FBBodyNodeId
+    kFBRightShoulderRollNodeId=27
+    kFBRightThumbANodeId=52
+    kFBRightThumbBNodeId=53
+    kFBRightThumbCNodeId=54
+    kFBRightThumbDNodeId=79
+    kFBRightThumbInNodeId=78
+    kFBRightWristNodeId=18
     """Required."""
-    kFBSpine2NodeId:FBBodyNodeId
-    kFBSpine3NodeId:FBBodyNodeId
-    kFBSpine4NodeId:FBBodyNodeId
-    kFBSpine5NodeId:FBBodyNodeId
-    kFBSpine6NodeId:FBBodyNodeId
-    kFBSpine7NodeId:FBBodyNodeId
-    kFBSpine8NodeId:FBBodyNodeId
-    kFBSpine9NodeId:FBBodyNodeId
-    kFBWaistNodeId:FBBodyNodeId
+    kFBSpine2NodeId=29
+    kFBSpine3NodeId=30
+    kFBSpine4NodeId=31
+    kFBSpine5NodeId=32
+    kFBSpine6NodeId=33
+    kFBSpine7NodeId=34
+    kFBSpine8NodeId=35
+    kFBSpine9NodeId=36
+    kFBWaistNodeId=9
     """Required, Spine 0."""
 class FBBodyPartId(Enumeration):
     """Body part for character."""
-    kFBCtrlSetPartChest:FBBodyPartId
+    kFBCtrlSetPartChest=2
     """Chest Body Part."""
-    kFBCtrlSetPartHead:FBBodyPartId
+    kFBCtrlSetPartHead=7
     """Head Body Part."""
-    kFBCtrlSetPartHips:FBBodyPartId
+    kFBCtrlSetPartHips=1
     """Hips Body Part."""
-    kFBCtrlSetPartLeftArm:FBBodyPartId
+    kFBCtrlSetPartLeftArm=3
     """Left Arm Body Part."""
-    kFBCtrlSetPartLeftFoot:FBBodyPartId
+    kFBCtrlSetPartLeftFoot=10
     """Left Foot Body Part."""
-    kFBCtrlSetPartLeftHand:FBBodyPartId
+    kFBCtrlSetPartLeftHand=8
     """Left Hand Body Part."""
-    kFBCtrlSetPartLeftLeg:FBBodyPartId
+    kFBCtrlSetPartLeftLeg=5
     """Left Leg Body Part."""
-    kFBCtrlSetPartNone:FBBodyPartId
+    kFBCtrlSetPartNone=0
     """No part selected."""
-    kFBCtrlSetPartRightArm:FBBodyPartId
+    kFBCtrlSetPartRightArm=4
     """Right Arm Body Part."""
-    kFBCtrlSetPartRightFoot:FBBodyPartId
+    kFBCtrlSetPartRightFoot=11
     """Right Foot Body Part."""
-    kFBCtrlSetPartRightHand:FBBodyPartId
+    kFBCtrlSetPartRightHand=9
     """Right Hand Body Part."""
-    kFBCtrlSetPartRightLeg:FBBodyPartId
+    kFBCtrlSetPartRightLeg=6
     """Right Leg Body Part."""
-    kFBLastCtrlSetPartIndex:FBBodyPartId
+    kFBLastCtrlSetPartIndex=12
     """Part count."""
 class FBBorderStyle(Enumeration):
     """Different border types available.
     
     [See samples: Border.py,](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_border_8py-example.html) [TabPanel.py.](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_tab_panel_8py-example.html)"""
-    kFBEmbossBorder:FBBorderStyle
+    kFBEmbossBorder=2
     """Embossed border."""
-    kFBEmbossEdgeSmoothBorder:FBBorderStyle
+    kFBEmbossEdgeSmoothBorder=4
     """Edged smooth border."""
-    kFBEmbossSmoothBorder:FBBorderStyle
+    kFBEmbossSmoothBorder=3
     """Smooth border."""
-    kFBEmbossSmoothEdgeBorder:FBBorderStyle
+    kFBEmbossSmoothEdgeBorder=5
     """Smoothed edges border."""
-    kFBHighlightBorder:FBBorderStyle
+    kFBHighlightBorder=9
     """Highlight border."""
-    kFBNoBorder:FBBorderStyle
+    kFBNoBorder=0
     """No border."""
-    kFBPickingBorder:FBBorderStyle
+    kFBPickingBorder=10
     """Picking border."""
-    kFBStandardBorder:FBBorderStyle
+    kFBStandardBorder=1
     """Standard border."""
-    kFBStandardEdgeSmoothBorder:FBBorderStyle
+    kFBStandardEdgeSmoothBorder=7
     """Standard edged smooth border."""
-    kFBStandardSmoothBorder:FBBorderStyle
+    kFBStandardSmoothBorder=6
     """Standard smooth border."""
-    kFBStandardSmoothEdgeBorder:FBBorderStyle
+    kFBStandardSmoothEdgeBorder=8
     """Standard smoothed edges border."""
 class FBButtonLook(Enumeration):
     """Button look.
     
     [See sample: Button.py.](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_button_8py-example.html)"""
-    kFBLookAlphaBackground:FBButtonLook
-    kFBLookColorChange:FBButtonLook
-    kFBLookFlat:FBButtonLook
-    kFBLookNormal:FBButtonLook
-    kFBLookPush:FBButtonLook
+    kFBLookAlphaBackground=99
+    kFBLookColorChange=1
+    kFBLookFlat=3
+    kFBLookNormal=0
+    kFBLookPush=2
 class FBButtonState(Enumeration):
     """Possible button states.
     
     Currently, only two button states are possible."""
-    kFBButtonState0:FBButtonState
+    kFBButtonState0=0
     """State is 0, usually meaning not active."""
-    kFBButtonState1:FBButtonState
+    kFBButtonState1=1
     """State is 1, usually meaning active."""
 class FBButtonStyle(Enumeration):
     """Style of buttons.
@@ -642,1703 +643,1703 @@ class FBButtonStyle(Enumeration):
     Not all button styles are completely functional.
     
     [See samples: Button.py,](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_button_8py-example.html) [RadioButton.py.](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_radio_button_8py-example.html)"""
-    kFB2States:FBButtonStyle
+    kFB2States=3
     """2 state button (2 colors)."""
-    kFBBitmap2States:FBButtonStyle
+    kFBBitmap2States=4
     """2 state button with 2 bitmaps."""
-    kFBBitmapButton:FBButtonStyle
+    kFBBitmapButton=1
     """Button with bitmap on it."""
-    kFBCheckbox:FBButtonStyle
+    kFBCheckbox=3
     """Check box."""
-    kFBPushButton:FBButtonStyle
+    kFBPushButton=0
     """Normal button."""
-    kFBRadioButton:FBButtonStyle
+    kFBRadioButton=2
     """Radio button."""
 class FBCameraAntiAliasingMethod(Enumeration):
     """Antialiasing methods."""
-    kFBAntiAliasingSoftware:FBCameraAntiAliasingMethod
+    kFBAntiAliasingSoftware=0
     """Antaliasing in software."""
-    kFBAntialiasingMultiSamplingOnyx:FBCameraAntiAliasingMethod
+    kFBAntialiasingMultiSamplingOnyx=1
     """Multisampling (only on Onyx)."""
 class FBCameraApertureMode(Enumeration):
     """Aperture modes."""
-    kFBApertureFocalLength:FBCameraApertureMode
+    kFBApertureFocalLength=3
     """Focal Length aperture varies."""
-    kFBApertureHorizontal:FBCameraApertureMode
+    kFBApertureHorizontal=1
     """Horizontal aperture varies."""
-    kFBApertureVertHoriz:FBCameraApertureMode
+    kFBApertureVertHoriz=2
     """Vertical and horizontal aperture varies."""
-    kFBApertureVertical:FBCameraApertureMode
+    kFBApertureVertical=0
     """Vertical aperture varies."""
 class FBCameraDistanceMode(Enumeration):
     """Camera plane distance modes."""
-    kFBDistModeAbsoluteFromCamera:FBCameraDistanceMode
+    kFBDistModeAbsoluteFromCamera=1
     """Camera plane distance absolute from camera."""
-    kFBDistModeRelativeToInterest:FBCameraDistanceMode
+    kFBDistModeRelativeToInterest=0
     """Camera plane distance relative to interest."""
 class FBCameraFilmBackType(Enumeration):
     """Filmback types."""
-    kFBFilmBack16mmTheatrical:FBCameraFilmBackType
+    kFBFilmBack16mmTheatrical=1
     """16mm Theatrical."""
-    kFBFilmBack35mm185Projection:FBCameraFilmBackType
+    kFBFilmBack35mm185Projection=6
     """35mm 185 Projection."""
-    kFBFilmBack35mmAcademy:FBCameraFilmBackType
+    kFBFilmBack35mmAcademy=3
     """35mm Academy."""
-    kFBFilmBack35mmAnamorphic:FBCameraFilmBackType
+    kFBFilmBack35mmAnamorphic=7
     """35mm Anamorphic."""
-    kFBFilmBack35mmFullAperture:FBCameraFilmBackType
+    kFBFilmBack35mmFullAperture=5
     """35mm Full Aperture."""
-    kFBFilmBack35mmTVProjection:FBCameraFilmBackType
+    kFBFilmBack35mmTVProjection=4
     """35mm TV Projection."""
-    kFBFilmBack70mmProjection:FBCameraFilmBackType
+    kFBFilmBack70mmProjection=8
     """70mm Projection."""
-    kFBFilmBackCustom:FBCameraFilmBackType
+    kFBFilmBackCustom=0
     """Custom Filmback."""
-    kFBFilmBackDynavision:FBCameraFilmBackType
+    kFBFilmBackDynavision=10
     """Dynavision."""
-    kFBFilmBackIMAX:FBCameraFilmBackType
+    kFBFilmBackIMAX=11
     """IMAX."""
-    kFBFilmBackSuper16mm:FBCameraFilmBackType
+    kFBFilmBackSuper16mm=2
     """Super16mm."""
-    kFBFilmBackVistaVision:FBCameraFilmBackType
+    kFBFilmBackVistaVision=9
     """Vista Vision."""
 class FBCameraFocusDistanceSource(Enumeration):
     """Focus distance sources."""
-    kFBFocusDistanceCameraInterest:FBCameraFocusDistanceSource
+    kFBFocusDistanceCameraInterest=0
     """Interest as source."""
-    kFBFocusDistanceModel:FBCameraFocusDistanceSource
+    kFBFocusDistanceModel=2
     """Another model's position as source."""
-    kFBFocusDistanceSpecificDistance:FBCameraFocusDistanceSource
+    kFBFocusDistanceSpecificDistance=1
     """Specific distance as source."""
 class FBCameraFrameSizeMode(Enumeration):
     """Frame size modes."""
-    kFBFrameSizeFixedHeightResolution:FBCameraFrameSizeMode
+    kFBFrameSizeFixedHeightResolution=4
     """Fixed height resolution."""
-    kFBFrameSizeFixedRatio:FBCameraFrameSizeMode
+    kFBFrameSizeFixedRatio=1
     """Fixed ratio."""
-    kFBFrameSizeFixedResolution:FBCameraFrameSizeMode
+    kFBFrameSizeFixedResolution=2
     """Fixed resolution."""
-    kFBFrameSizeFixedWidthResolution:FBCameraFrameSizeMode
+    kFBFrameSizeFixedWidthResolution=3
     """Fixed width resolution."""
-    kFBFrameSizeWindow:FBCameraFrameSizeMode
+    kFBFrameSizeWindow=0
     """Frame size of window."""
 class FBCameraMatrixType(Enumeration):
     """Camera matrix types in OpenGL convention."""
-    kFBModelView:FBCameraMatrixType
+    kFBModelView=1
     """Camera's combined Model-View matrix."""
-    kFBModelViewProj:FBCameraMatrixType
+    kFBModelViewProj=2
     """Camera's combined Model-View-Projection matrix."""
-    kFBProjInverse:FBCameraMatrixType
+    kFBProjInverse=3
     """Camera's Projection Inverse matrix."""
-    kFBProjection:FBCameraMatrixType
+    kFBProjection=0
     """Camera's Projection matrix."""
 class FBCameraResolutionMode(Enumeration):
     """Resolution modes."""
-    kFBResolution128x128:FBCameraResolutionMode
+    kFBResolution128x128=9
     """128x128."""
-    kFBResolution320x200:FBCameraResolutionMode
+    kFBResolution320x200=7
     """320x200."""
-    kFBResolution320x240:FBCameraResolutionMode
+    kFBResolution320x240=8
     """320x240."""
-    kFBResolution640x480:FBCameraResolutionMode
+    kFBResolution640x480=6
     """640x480."""
-    kFBResolutionCustom:FBCameraResolutionMode
+    kFBResolutionCustom=0
     """Custom resolution mode or From Camera as a render setting."""
-    kFBResolutionD1NTSC:FBCameraResolutionMode
+    kFBResolutionD1NTSC=1
     """D1 NTSC."""
-    kFBResolutionD1PAL:FBCameraResolutionMode
+    kFBResolutionD1PAL=4
     """D1 PAL."""
-    kFBResolutionFullScreen:FBCameraResolutionMode
+    kFBResolutionFullScreen=10
     """FullScreen."""
-    kFBResolutionHD:FBCameraResolutionMode
+    kFBResolutionHD=5
     """HD 1920x1080."""
-    kFBResolutionNTSC:FBCameraResolutionMode
+    kFBResolutionNTSC=2
     """NTSC."""
-    kFBResolutionPAL:FBCameraResolutionMode
+    kFBResolutionPAL=3
     """PAL."""
 class FBCameraSafeAreaMode(Enumeration):
     """Safe area modes."""
-    kFBSafeAreaRound:FBCameraSafeAreaMode
+    kFBSafeAreaRound=1
     """Round safe area."""
-    kFBSafeAreaSquare:FBCameraSafeAreaMode
+    kFBSafeAreaSquare=0
     """Square safe area."""
 class FBCameraSamplingType(Enumeration):
     """Antialiasing sampling types."""
-    kFBSamplingStochastic:FBCameraSamplingType
+    kFBSamplingStochastic=1
     """Stochastic sampling."""
-    kFBSamplingUniform:FBCameraSamplingType
+    kFBSamplingUniform=0
     """Uniform sampling."""
 class FBCameraStereoType(Enumeration):
-    kFBCameraStereoConverged:FBCameraStereoType
-    kFBCameraStereoNone:FBCameraStereoType
-    kFBCameraStereoOff_Axis:FBCameraStereoType
-    kFBCameraStereoParallel:FBCameraStereoType
+    kFBCameraStereoConverged=1
+    kFBCameraStereoNone=0
+    kFBCameraStereoOff_Axis=2
+    kFBCameraStereoParallel=3
 class FBCameraType(Enumeration):
     """Focus distance types."""
-    kFBCameraTypeOrthogonal:FBCameraType
+    kFBCameraTypeOrthogonal=1
     """Specific distance as source."""
-    kFBCameraTypePerspective:FBCameraType
+    kFBCameraTypePerspective=0
     """Interest as source."""
 class FBCameraViewPlaneMode(Enumeration):
     """Camera plane viewing modes."""
-    kFBViewPlaneAlways:FBCameraViewPlaneMode
+    kFBViewPlaneAlways=1
     """Always draw camera plane."""
-    kFBViewPlaneDisabled:FBCameraViewPlaneMode
+    kFBViewPlaneDisabled=0
     """Camera plane disabled."""
-    kFBViewPlaneWhenMedia:FBCameraViewPlaneMode
+    kFBViewPlaneWhenMedia=2
     """Camera plane when media."""
 class FBCellStyle(Enumeration):
     """Different styles of spreadsheet cell styles."""
-    kFBCellStyle2StatesButton:FBCellStyle
+    kFBCellStyle2StatesButton=5
     """2 state button."""
-    kFBCellStyle3StatesButton:FBCellStyle
+    kFBCellStyle3StatesButton=6
     """3 state button."""
-    kFBCellStyleButton:FBCellStyle
+    kFBCellStyleButton=4
     """Button."""
-    kFBCellStyleDefault:FBCellStyle
+    kFBCellStyleDefault=0
     """Default cell style."""
-    kFBCellStyleDouble:FBCellStyle
+    kFBCellStyleDouble=2
     """Double."""
-    kFBCellStyleInteger:FBCellStyle
+    kFBCellStyleInteger=3
     """Integer."""
-    kFBCellStyleMenu:FBCellStyle
+    kFBCellStyleMenu=7
     """Menu."""
-    kFBCellStyleString:FBCellStyle
+    kFBCellStyleString=1
     """String."""
-    kFBCellStyleTime:FBCellStyle
+    kFBCellStyleTime=10
     """Time."""
-    kFBCellStyleView:FBCellStyle
+    kFBCellStyleView=9
     """View (user definable, you need to specify the view using [FBSpread::SetCellView()](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_spread.html#a025dbf3b076a2788386cb9f99900a159 "Set a cell's internal toolkit view."))."""
-    kFBCellStyleVoid:FBCellStyle
+    kFBCellStyleVoid=8
     """Void (no value)."""
 class FBCharacterContactBehaviour(Enumeration):
     """Character Contact Behaviour."""
-    kFBLastContactBehaviour:FBCharacterContactBehaviour
-    kFBParamContactAlwaysSync:FBCharacterContactBehaviour
-    kFBParamContactNeverSync:FBCharacterContactBehaviour
-    kFBParamContactSyncOnKey:FBCharacterContactBehaviour
+    kFBLastContactBehaviour=3
+    kFBParamContactAlwaysSync=2
+    kFBParamContactNeverSync=0
+    kFBParamContactSyncOnKey=1
 class FBCharacterExtensionRetargetMode(Enumeration):
     """Character extension Retarget Mode"""
-    kFBRetargetModeAuto:FBCharacterExtensionRetargetMode
-    kFBRetargetModeManual:FBCharacterExtensionRetargetMode
-    kFBRetargetModeOff:FBCharacterExtensionRetargetMode
+    kFBRetargetModeAuto=1
+    kFBRetargetModeManual=2
+    kFBRetargetModeOff=0
 class FBCharacterExtensionStancePoseMode(Enumeration):
     """Character Extension Stance Pose mode when the stance pose is activated on a character."""
-    kFBStancePose_Always:FBCharacterExtensionStancePoseMode
-    kFBStancePose_Never:FBCharacterExtensionStancePoseMode
-    kFBStancePose_Reference_Selected:FBCharacterExtensionStancePoseMode
-    kFBStancePose_Selected:FBCharacterExtensionStancePoseMode
-    kFBStancePose_Self_Or_Reference_Selected:FBCharacterExtensionStancePoseMode
+    kFBStancePose_Always=4
+    kFBStancePose_Never=0
+    kFBStancePose_Reference_Selected=2
+    kFBStancePose_Selected=1
+    kFBStancePose_Self_Or_Reference_Selected=3
 class FBCharacterHipsTranslationMode(Enumeration):
     """Character Hips Translation modes."""
-    kFBLastHipsTranslationMode:FBCharacterHipsTranslationMode
-    kFBParamHipsTranslationBodyRigid:FBCharacterHipsTranslationMode
-    kFBParamHipsTranslationWorldRigid:FBCharacterHipsTranslationMode
+    kFBLastHipsTranslationMode=2
+    kFBParamHipsTranslationBodyRigid=1
+    kFBParamHipsTranslationWorldRigid=0
 class FBCharacterInputType(Enumeration):
     """Character Input/Output types."""
-    kFBCharacterInputActor:FBCharacterInputType
-    kFBCharacterInputCharacter:FBCharacterInputType
-    kFBCharacterInputMarkerSet:FBCharacterInputType
-    kFBCharacterInputMoCap:FBCharacterInputType
-    kFBCharacterInputStance:FBCharacterInputType
-    kFBCharacterOutputMarkerSet:FBCharacterInputType
+    kFBCharacterInputActor=0
+    kFBCharacterInputCharacter=1
+    kFBCharacterInputMarkerSet=2
+    kFBCharacterInputMoCap=5
+    kFBCharacterInputStance=4
+    kFBCharacterOutputMarkerSet=3
 class FBCharacterKeyingMode(Enumeration):
     """Character keying modes."""
-    kFBCharacterKeyingBodyPart:FBCharacterKeyingMode
-    kFBCharacterKeyingFullBody:FBCharacterKeyingMode
-    kFBCharacterKeyingFullBodyNoPull:FBCharacterKeyingMode
-    kFBCharacterKeyingSelection:FBCharacterKeyingMode
+    kFBCharacterKeyingBodyPart=1
+    kFBCharacterKeyingFullBody=0
+    kFBCharacterKeyingFullBodyNoPull=3
+    kFBCharacterKeyingSelection=2
 class FBCharacterLoadAnimationMethod(Enumeration):
     """This enumeration is used to choose how to load an animation file on a character."""
-    kFBCharacterLoadConnect:FBCharacterLoadAnimationMethod
+    kFBCharacterLoadConnect=0
     """Only connect the loaded character as an input."""
-    kFBCharacterLoadCopy:FBCharacterLoadAnimationMethod
+    kFBCharacterLoadCopy=1
     """Copy keys from loaded character to target character."""
-    kFBCharacterLoadPlot:FBCharacterLoadAnimationMethod
+    kFBCharacterLoadPlot=4
     """Plot animation from loaded character to target character."""
-    kFBCharacterLoadPlotIfSampled:FBCharacterLoadAnimationMethod
+    kFBCharacterLoadPlotIfSampled=3
     """If loaded animation seems sampled, plot animation from loaded character to target character; else retarget."""
-    kFBCharacterLoadRetarget:FBCharacterLoadAnimationMethod
+    kFBCharacterLoadRetarget=2
     """Retarget (copy and correct) keys from loaded character to target character."""
 class FBCharacterPlotWhere(Enumeration):
     """Where to plot a character."""
-    kFBCharacterPlotOnControlRig:FBCharacterPlotWhere
-    kFBCharacterPlotOnSkeleton:FBCharacterPlotWhere
+    kFBCharacterPlotOnControlRig=0
+    kFBCharacterPlotOnSkeleton=1
 class FBCharacterPoseFlag(Enumeration):
     """Character Pose Options flags."""
-    kFBCharacterPoseGravity:FBCharacterPoseFlag
-    kFBCharacterPoseMatchFKTranslation:FBCharacterPoseFlag
-    kFBCharacterPoseMatchPivot:FBCharacterPoseFlag
-    kFBCharacterPoseMatchR:FBCharacterPoseFlag
-    kFBCharacterPoseMatchTX:FBCharacterPoseFlag
-    kFBCharacterPoseMatchTY:FBCharacterPoseFlag
-    kFBCharacterPoseMatchTZ:FBCharacterPoseFlag
-    kFBCharacterPoseMirror:FBCharacterPoseFlag
-    kFBCharacterPoseNoFlag:FBCharacterPoseFlag
-    kFBCharacterPoseUseKeyingGroup:FBCharacterPoseFlag
+    kFBCharacterPoseGravity=2
+    kFBCharacterPoseMatchFKTranslation=256
+    kFBCharacterPoseMatchPivot=64
+    kFBCharacterPoseMatchR=32
+    kFBCharacterPoseMatchTX=4
+    kFBCharacterPoseMatchTY=8
+    kFBCharacterPoseMatchTZ=16
+    kFBCharacterPoseMirror=1
+    kFBCharacterPoseNoFlag=0
+    kFBCharacterPoseUseKeyingGroup=128
 class FBCharacterPoseKeyingMode(Enumeration):
     """Character Pose Keying Mode."""
-    kFBCharacterPoseKeyingModeBodyPart:FBCharacterPoseKeyingMode
-    kFBCharacterPoseKeyingModeCount:FBCharacterPoseKeyingMode
-    kFBCharacterPoseKeyingModeFullBody:FBCharacterPoseKeyingMode
-    kFBCharacterPoseKeyingModeInvalid:FBCharacterPoseKeyingMode
+    kFBCharacterPoseKeyingModeBodyPart=1
+    kFBCharacterPoseKeyingModeCount=2
+    kFBCharacterPoseKeyingModeFullBody=0
+    kFBCharacterPoseKeyingModeInvalid=-1
 class FBCharacterResetProperties(Enumeration):
     """Character Reset Properties Type."""
-    kFBCharacterResetPropertiesAll:FBCharacterResetProperties
-    kFBCharacterResetPropertiesDefinition:FBCharacterResetProperties
-    kFBCharacterResetPropertiesSolving:FBCharacterResetProperties
+    kFBCharacterResetPropertiesAll=0
+    kFBCharacterResetPropertiesDefinition=2
+    kFBCharacterResetPropertiesSolving=1
 class FBCharacterRollSolver(Enumeration):
     """Character Roll Solver version."""
-    kFBLastRollSolver:FBCharacterRollSolver
-    kFBParamRollSolver70:FBCharacterRollSolver
-    kFBParamRollSolver75:FBCharacterRollSolver
+    kFBLastRollSolver=2
+    kFBParamRollSolver70=0
+    kFBParamRollSolver75=1
 class FBClipEnd(Enumeration):
     """Clip end actions."""
-    kFBClipEndEnd:FBClipEnd
+    kFBClipEndEnd=0
     """On clip end stop clip."""
-    kFBClipEndLoop:FBClipEnd
+    kFBClipEndLoop=1
     """On clip end loop clip."""
 class FBClusterMode(Enumeration):
     """Different clustering modes."""
-    kFBClusterAdditive:FBClusterMode
+    kFBClusterAdditive=1
     """Add the values together."""
-    kFBClusterNormalize:FBClusterMode
+    kFBClusterNormalize=0
     """Normalize (values between 0.0 and 1.0 )"""
-    kFBClusterTotal100:FBClusterMode
+    kFBClusterTotal100=2
     """The balanced values will add up to 100 percent."""
 class FBCommPortType(Enumeration):
     """Communication port type."""
-    kFBInternal:FBCommPortType
+    kFBInternal=2
     """Internal."""
-    kFBPhysical:FBCommPortType
+    kFBPhysical=0
     """Physical."""
-    kFBVirtual:FBCommPortType
+    kFBVirtual=1
     """Virtual."""
 class FBCommType(Enumeration):
     """Communications type.
     
     Different base types of communications. There is always the 'other' type in order to use another type of communication."""
-    kFBCommTypeNetworkTCP:FBCommType
+    kFBCommTypeNetworkTCP=2
     """Network (TCP) device."""
-    kFBCommTypeNetworkUDP:FBCommType
+    kFBCommTypeNetworkUDP=4
     """Network (UDP) device."""
-    kFBCommTypeNone:FBCommType
+    kFBCommTypeNone=0
     """A non-communicating device."""
-    kFBCommTypeOther:FBCommType
+    kFBCommTypeOther=32
     """Any other type of communications."""
-    kFBCommTypeSerial:FBCommType
+    kFBCommTypeSerial=1
     """Serial communications."""
-    kFBCommTypeSharedMemory:FBCommType
+    kFBCommTypeSharedMemory=8
     """Accessing shared memory."""
-    kFBCommTypeSimulator:FBCommType
+    kFBCommTypeSimulator=16
     """Software simulator."""
 class FBCommandState(Enumeration):
     """[FBCommandState](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_command_state.html "FBCommandState.")."""
-    kFBCommandStateMute:FBCommandState
+    kFBCommandStateMute=1
     """Mute."""
-    kFBCommandStateMuteBecauseSolo:FBCommandState
+    kFBCommandStateMuteBecauseSolo=3
     """Mute because of solo."""
-    kFBCommandStateSolo:FBCommandState
+    kFBCommandStateSolo=2
     """Solo."""
-    kFBCommandStateStandard:FBCommandState
+    kFBCommandStateStandard=0
     """Standard."""
 class FBConnectionAction(Enumeration):
     """Possible actions when a notify plug event occurs."""
-    kFBBeginChange:FBConnectionAction
+    kFBBeginChange=18
     """Begin change on destination."""
-    kFBBeginReplaceDst:FBConnectionAction
+    kFBBeginReplaceDst=14
     """Begin replace destination during merge."""
-    kFBBeginReplaceSrc:FBConnectionAction
+    kFBBeginReplaceSrc=12
     """Begin replace source during merge."""
-    kFBCandidate:FBConnectionAction
+    kFBCandidate=22
     """Data candidate event, before the data is set."""
-    kFBCandidateGlobal:FBConnectionAction
+    kFBCandidateGlobal=24
     """Data candidate event, global candidate."""
-    kFBCandidated:FBConnectionAction
+    kFBCandidated=23
     """Data candidate event, after the data is set."""
-    kFBConnect:FBConnectionAction
-    kFBConnectDst:FBConnectionAction
+    kFBConnect=2
+    kFBConnectDst=3
     """Connect destination to source."""
-    kFBConnectSrc:FBConnectionAction
+    kFBConnectSrc=2
     """Connect source to destination."""
-    kFBConnected:FBConnectionAction
-    kFBConnectedDst:FBConnectionAction
+    kFBConnected=4
+    kFBConnectedDst=5
     """Connected destination to source."""
-    kFBConnectedOwner:FBConnectionAction
+    kFBConnectedOwner=20
     """Connected owner to destination."""
-    kFBConnectedSrc:FBConnectionAction
+    kFBConnectedSrc=4
     """Connected source to destination."""
-    kFBDescription:FBConnectionAction
+    kFBDescription=36
     """Component description event."""
-    kFBDestroy:FBConnectionAction
+    kFBDestroy=26
     """Component destroy."""
-    kFBDetached:FBConnectionAction
+    kFBDetached=25
     """Component detached from scene."""
-    kFBDisconnect:FBConnectionAction
-    kFBDisconnectDst:FBConnectionAction
+    kFBDisconnect=8
+    kFBDisconnectDst=9
     """Disconnect destination from source."""
-    kFBDisconnectOwner:FBConnectionAction
+    kFBDisconnectOwner=21
     """Disconnect owner from destination."""
-    kFBDisconnectSrc:FBConnectionAction
+    kFBDisconnectSrc=8
     """Disconnect source from destination."""
-    kFBDisconnected:FBConnectionAction
-    kFBDisconnectedDst:FBConnectionAction
+    kFBDisconnected=10
+    kFBDisconnectedDst=11
     """Disconnected destination from source."""
-    kFBDisconnectedSrc:FBConnectionAction
+    kFBDisconnectedSrc=10
     """Disconnected source from destination."""
-    kFBEndChange:FBConnectionAction
+    kFBEndChange=19
     """End change on destination."""
-    kFBEndReplaceDst:FBConnectionAction
+    kFBEndReplaceDst=15
     """End replace destination during merge."""
-    kFBEndReplaceSrc:FBConnectionAction
+    kFBEndReplaceSrc=13
     """End replace source during merge."""
-    kFBKeyingCandidate:FBConnectionAction
+    kFBKeyingCandidate=39
     """Component keying candidate event."""
-    kFBKeyingCurveChange:FBConnectionAction
+    kFBKeyingCurveChange=40
     """Component curve has changed."""
-    kFBKeyingCurveEndChange:FBConnectionAction
+    kFBKeyingCurveEndChange=41
     """Component curve changes in Dopesheet completed."""
-    kFBKeyingDeleteKey:FBConnectionAction
+    kFBKeyingDeleteKey=38
     """Component keying delete event."""
-    kFBKeyingKey:FBConnectionAction
+    kFBKeyingKey=37
     """Component keying add event."""
-    kFBPrefixRename:FBConnectionAction
+    kFBPrefixRename=34
     """Component prefix is going to be renamed."""
-    kFBPrefixRenamed:FBConnectionAction
+    kFBPrefixRenamed=35
     """Component prefix has been renamed."""
-    kFBRename:FBConnectionAction
+    kFBRename=31
     """Component is going to be renamed."""
-    kFBRenamed:FBConnectionAction
+    kFBRenamed=32
     """Component has been renamed."""
-    kFBReorderSrc:FBConnectionAction
+    kFBReorderSrc=16
     """Reorder of source."""
-    kFBReorderedSrc:FBConnectionAction
+    kFBReorderedSrc=17
     """Source has been reordered."""
-    kFBRequestConnectDst:FBConnectionAction
+    kFBRequestConnectDst=1
     """Request connection of destination to source."""
-    kFBRequestConnectSrc:FBConnectionAction
+    kFBRequestConnectSrc=0
     """Request connection of source to destination."""
-    kFBRequestDisconnectDst:FBConnectionAction
+    kFBRequestDisconnectDst=7
     """Request disconnection of destination to source."""
-    kFBRequestDisconnectSrc:FBConnectionAction
+    kFBRequestDisconnectSrc=6
     """Request disconnection of source to destination."""
-    kFBRequestPrefixRename:FBConnectionAction
+    kFBRequestPrefixRename=33
     """Compoent request Prefix Rename."""
-    kFBRequestRename:FBConnectionAction
+    kFBRequestRename=30
     """Component request rename."""
-    kFBReselect:FBConnectionAction
+    kFBReselect=29
     """Component re-selection."""
-    kFBSelect:FBConnectionAction
+    kFBSelect=27
     """Component selection."""
-    kFBUnselect:FBConnectionAction
+    kFBUnselect=28
     """Component de-selection."""
 class FBConnectionType(Enumeration):
     """Connection types available between plugs."""
-    kFBConnectionTypeNone:FBConnectionType
+    kFBConnectionTypeNone=0
     """Default connection type."""
-    kFBConnectionTypeSystem:FBConnectionType
+    kFBConnectionTypeSystem=1
     """System connection type."""
 class FBConsoleChannelType(Enumeration):
     """Console channel types."""
-    kFBConsoleButton:FBConsoleChannelType
+    kFBConsoleButton=1
     """Button."""
-    kFBConsoleDisplay:FBConsoleChannelType
+    kFBConsoleDisplay=6
     """Display."""
-    kFBConsoleEncoder:FBConsoleChannelType
+    kFBConsoleEncoder=4
     """Generic encoder."""
-    kFBConsoleJoystick:FBConsoleChannelType
+    kFBConsoleJoystick=7
     """Joystick."""
-    kFBConsoleKey:FBConsoleChannelType
+    kFBConsoleKey=5
     """Key."""
-    kFBConsoleNull:FBConsoleChannelType
+    kFBConsoleNull=0
     """Generic type."""
-    kFBConsoleSlider:FBConsoleChannelType
+    kFBConsoleSlider=2
     """Slider."""
-    kFBConsoleTransport:FBConsoleChannelType
+    kFBConsoleTransport=3
     """Transport."""
 class FBConstantKeyReducerThresholdType(Enumeration):
     """Different threshold types for the Constant Key Reducer filter."""
-    kFBDefaultThreshold:FBConstantKeyReducerThresholdType
+    kFBDefaultThreshold=3
     """All other curves threshold."""
-    kFBRotationThreshold:FBConstantKeyReducerThresholdType
+    kFBRotationThreshold=1
     """Rotation threshold."""
-    kFBScalingThreshold:FBConstantKeyReducerThresholdType
+    kFBScalingThreshold=2
     """Scaling threshold."""
-    kFBTranslationThreshold:FBConstantKeyReducerThresholdType
+    kFBTranslationThreshold=0
     """Translation threshold."""
 class FBConstructionHistoryState(Enumeration):
     """Construction history manager state."""
-    kFBConstructionHistory_Listening:FBConstructionHistoryState
+    kFBConstructionHistory_Listening=0
     """Construction history is currently listening and recording operations."""
-    kFBConstructionHistory_Replaying:FBConstructionHistoryState
+    kFBConstructionHistory_Replaying=1
     """Construction history is currently replaying an operation."""
 class FBControlSetType(Enumeration):
     """Character ControlSet type."""
-    kFBControlSetTypeFKIK:FBControlSetType
-    kFBControlSetTypeIKOnly:FBControlSetType
-    kFBControlSetTypeNone:FBControlSetType
+    kFBControlSetTypeFKIK=1
+    kFBControlSetTypeIKOnly=2
+    kFBControlSetTypeNone=0
 class FBControllerMode(Enumeration):
     """Controller modes for optical model."""
-    kFBControllerLabelling:FBControllerMode
+    kFBControllerLabelling=1
     """Labelling controller."""
-    kFBControllerNone:FBControllerMode
+    kFBControllerNone=0
     """No controller mode."""
-    kFBControllerRigidBody:FBControllerMode
+    kFBControllerRigidBody=3
     """Rigid body controller."""
-    kFBControllerSegment:FBControllerMode
+    kFBControllerSegment=2
     """Segment controller."""
 class FBDataAsStringFlag(Enumeration):
     """[FBDataAsStringFlag](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_data_as_string_flag.html "FBDataAsStringFlag.")."""
-    kFBDataAsStringPersistence:FBDataAsStringFlag
+    kFBDataAsStringPersistence=1
     """Convert data to string type for storage."""
-    kFBDataAsStringUI:FBDataAsStringFlag
+    kFBDataAsStringUI=0
     """Convert data to string type for UI display."""
 class FBDeckTransportMode(Enumeration):
     """[FBDeckTransportMode](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_deck_transport_mode.html "FBDeckTransportMode.")."""
-    kFBDeckTransportMain:FBDeckTransportMode
+    kFBDeckTransportMain=2
     """Transport main."""
-    kFBDeckTransportMaster:FBDeckTransportMode
-    kFBDeckTransportNone:FBDeckTransportMode
+    kFBDeckTransportMaster=2
+    kFBDeckTransportNone=0
     """No transport interaction."""
-    kFBDeckTransportSlave:FBDeckTransportMode
-    kFBDeckTransportSync:FBDeckTransportMode
+    kFBDeckTransportSlave=1
+    kFBDeckTransportSync=1
     """Sync to transport controls."""
 class FBDeformerType(Enumeration):
     """Determine the deformer type.
     
     kFBDeformerSkeleton Skeleton (Bone) driven skinning deformer.kFBDeformerPointCache Pre-recorded point cache deformer.kFBGeometryMapping_BY_POLYGON_VERTEX There will be one mapping coordinate for each vertex, for each polygon/strip it is part of. This means that a vertex will have as many mapping coordinates as polygons it is part of.kFBGeometryMapping_BY_POLYGON There can be only one mapping coordinate for the whole polygon/strip.kFBGeometryMapping_BY_EDGE There will be one mapping coordinate for each unique edge in the mesh. This is meant to be used with smoothing layer elements.kFBGeometryMapping_ALL_SAME There can be only one mapping coordinate for the whole surface."""
-    kFBDeformerPointCache:FBDeformerType
-    kFBDeformerSkeleton:FBDeformerType
-    kFBDeformerUnkown:FBDeformerType
+    kFBDeformerPointCache=2
+    kFBDeformerSkeleton=1
+    kFBDeformerUnkown=0
 class FBDeviceKeyboardKey(Enumeration):
     """Keyboard keys (for input)."""
-    kFBDKey0:FBDeviceKeyboardKey
+    kFBDKey0=20
     """'0'."""
-    kFBDKey1:FBDeviceKeyboardKey
+    kFBDKey1=11
     """'1'."""
-    kFBDKey2:FBDeviceKeyboardKey
+    kFBDKey2=12
     """'2'."""
-    kFBDKey3:FBDeviceKeyboardKey
+    kFBDKey3=13
     """'3'."""
-    kFBDKey4:FBDeviceKeyboardKey
+    kFBDKey4=14
     """'4'."""
-    kFBDKey5:FBDeviceKeyboardKey
+    kFBDKey5=15
     """'5'."""
-    kFBDKey6:FBDeviceKeyboardKey
+    kFBDKey6=16
     """'6'."""
-    kFBDKey7:FBDeviceKeyboardKey
+    kFBDKey7=17
     """'7'."""
-    kFBDKey8:FBDeviceKeyboardKey
+    kFBDKey8=18
     """'8'."""
-    kFBDKey9:FBDeviceKeyboardKey
+    kFBDKey9=19
     """'9'."""
-    kFBDKeyArrowDown:FBDeviceKeyboardKey
+    kFBDKeyArrowDown=7
     """Down."""
-    kFBDKeyArrowLeft:FBDeviceKeyboardKey
+    kFBDKeyArrowLeft=4
     """Left."""
-    kFBDKeyArrowRight:FBDeviceKeyboardKey
+    kFBDKeyArrowRight=6
     """Right."""
-    kFBDKeyArrowUp:FBDeviceKeyboardKey
+    kFBDKeyArrowUp=5
     """Up."""
-    kFBDKeyEnd:FBDeviceKeyboardKey
+    kFBDKeyEnd=2
     """End."""
-    kFBDKeyEscape:FBDeviceKeyboardKey
+    kFBDKeyEscape=9
     """Escape."""
-    kFBDKeyF1:FBDeviceKeyboardKey
+    kFBDKeyF1=21
     """'F1'."""
-    kFBDKeyF10:FBDeviceKeyboardKey
+    kFBDKeyF10=30
     """'F10'."""
-    kFBDKeyF11:FBDeviceKeyboardKey
+    kFBDKeyF11=31
     """'F11'."""
-    kFBDKeyF12:FBDeviceKeyboardKey
+    kFBDKeyF12=32
     """'F12'."""
-    kFBDKeyF2:FBDeviceKeyboardKey
+    kFBDKeyF2=22
     """'F2'."""
-    kFBDKeyF3:FBDeviceKeyboardKey
+    kFBDKeyF3=23
     """'F3'."""
-    kFBDKeyF4:FBDeviceKeyboardKey
+    kFBDKeyF4=24
     """'F4'."""
-    kFBDKeyF5:FBDeviceKeyboardKey
+    kFBDKeyF5=25
     """'F5'"""
-    kFBDKeyF6:FBDeviceKeyboardKey
+    kFBDKeyF6=26
     """'F6'."""
-    kFBDKeyF7:FBDeviceKeyboardKey
+    kFBDKeyF7=27
     """'F7'."""
-    kFBDKeyF8:FBDeviceKeyboardKey
+    kFBDKeyF8=28
     """'F8'."""
-    kFBDKeyF9:FBDeviceKeyboardKey
+    kFBDKeyF9=29
     """'F9'."""
-    kFBDKeyHome:FBDeviceKeyboardKey
+    kFBDKeyHome=3
     """Home."""
-    kFBDKeyPageDown:FBDeviceKeyboardKey
+    kFBDKeyPageDown=1
     """Page Down."""
-    kFBDKeyPageUp:FBDeviceKeyboardKey
+    kFBDKeyPageUp=0
     """Page Up."""
-    kFBDKeyReturn:FBDeviceKeyboardKey
+    kFBDKeyReturn=8
     """Return."""
-    kFBDKeySpace:FBDeviceKeyboardKey
+    kFBDKeySpace=10
     """Space bar."""
 class FBDeviceSamplingMode(Enumeration):
     """Recording types.
     
     The different values for this will control the way the keys are added when the device is being recorded. There are four different types of recording keys for devices:Hardware Timestamping. This case is when the hardware provides timestamps with each packet.Hardware Frequency. The hardware is guaranteed to provide packets at a given frequency.Auto Frequency Packets are coming in at a fixed, unknown frequency. The recorded data will be resampled to be equidistant.Software Timestamping. The application will provide a timestamp for each packet depending on when it receives the data."""
-    kFBAutoFrequency:FBDeviceSamplingMode
+    kFBAutoFrequency=2
     """Device is running at unknown, fixed frequency."""
-    kFBHardwareFrequency:FBDeviceSamplingMode
+    kFBHardwareFrequency=1
     """Device is running at known, fixed frequency."""
-    kFBHardwareTimestamp:FBDeviceSamplingMode
+    kFBHardwareTimestamp=0
     """Device supplies timestamp."""
-    kFBSoftwareTimestamp:FBDeviceSamplingMode
+    kFBSoftwareTimestamp=3
     """The software will timestamp packets as they arrive."""
 class FBDisplayMode(Enumeration):
     """Model display options."""
-    kFBDisplayModeCount:FBDisplayMode
+    kFBDisplayModeCount=5
     """End of enum, this value indicates the number of display modes available."""
-    kFBDisplayModeDefault:FBDisplayMode
+    kFBDisplayModeDefault=0
     """Use default display mode."""
-    kFBDisplayModeFlatShade:FBDisplayMode
+    kFBDisplayModeFlatShade=3
     """Flat shading."""
-    kFBDisplayModeHardShade:FBDisplayMode
+    kFBDisplayModeHardShade=2
     """Hard shading."""
-    kFBDisplayModeTexture:FBDisplayMode
+    kFBDisplayModeTexture=1
     """Textures are displayed."""
-    kFBDisplayModeWireFrame:FBDisplayMode
+    kFBDisplayModeWireFrame=4
     """Wire-frame rendering."""
 class FBDisplayWhat(Enumeration):
     """Model display mask This mask determines what types of models are displayed by the renderer."""
-    kFBDisplay3dIcon:FBDisplayWhat
+    kFBDisplay3dIcon=64
     """3D icons are displayed (3D icons are 3D elements that do not exist in the scene)."""
-    kFBDisplayAll:FBDisplayWhat
+    kFBDisplayAll=255
     """Everything is displayed."""
-    kFBDisplayCamera:FBDisplayWhat
+    kFBDisplayCamera=32
     """Cameras are displayed."""
-    kFBDisplayCenter:FBDisplayWhat
+    kFBDisplayCenter=8
     """Centers are displayed."""
-    kFBDisplayLight:FBDisplayWhat
+    kFBDisplayLight=16
     """Lights are displayed."""
-    kFBDisplayMarker:FBDisplayWhat
+    kFBDisplayMarker=2
     """Markers are displayed."""
-    kFBDisplayNone:FBDisplayWhat
+    kFBDisplayNone=0
     """Nothing is displayed."""
-    kFBDisplayNull:FBDisplayWhat
+    kFBDisplayNull=1
     """Null models are displayed."""
-    kFBDisplaySkeleton:FBDisplayWhat
+    kFBDisplaySkeleton=4
     """Skeletons and bones are displayed."""
 class FBDragAndDropState(Enumeration):
     """State of Drag and Drop.
     
     [See samples: PropertyDrop.py,](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_property_drop_8py-example.html) [Spread.py.](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_spread_8py-example.html)"""
-    kFBDragAndDropBegin:FBDragAndDropState
+    kFBDragAndDropBegin=0
     """Begin a drag and drop sequence."""
-    kFBDragAndDropDrag:FBDragAndDropState
+    kFBDragAndDropDrag=1
     """Dragging."""
-    kFBDragAndDropDrop:FBDragAndDropState
+    kFBDragAndDropDrop=2
     """Dropping."""
-    kFBDragAndDropEnd:FBDragAndDropState
+    kFBDragAndDropEnd=3
     """End of drag and drop."""
-    kFBDragOnEmpty:FBDragAndDropState
+    kFBDragOnEmpty=4
     """Empty the drag and drop stack."""
-    kFBDragOnEmptyDrop:FBDragAndDropState
+    kFBDragOnEmptyDrop=5
     """Dropping empty stack."""
 class FBEffectorId(Enumeration):
     """All effector nodes."""
-    kFBChestEndEffectorId:FBEffectorId
-    kFBChestOriginEffectorId:FBEffectorId
-    kFBHeadEffectorId:FBEffectorId
-    kFBHipsEffectorId:FBEffectorId
-    kFBInvalidEffectorId:FBEffectorId
-    kFBLastEffectorId:FBEffectorId
-    kFBLeftAnkleEffectorId:FBEffectorId
-    kFBLeftElbowEffectorId:FBEffectorId
-    kFBLeftFootEffectorId:FBEffectorId
-    kFBLeftFootExtraFingerEffectorId:FBEffectorId
-    kFBLeftFootIndexEffectorId:FBEffectorId
-    kFBLeftFootMiddleEffectorId:FBEffectorId
-    kFBLeftFootPinkyEffectorId:FBEffectorId
-    kFBLeftFootRingEffectorId:FBEffectorId
-    kFBLeftFootThumbEffectorId:FBEffectorId
-    kFBLeftHandEffectorId:FBEffectorId
-    kFBLeftHandExtraFingerEffectorId:FBEffectorId
-    kFBLeftHandIndexEffectorId:FBEffectorId
-    kFBLeftHandMiddleEffectorId:FBEffectorId
-    kFBLeftHandPinkyEffectorId:FBEffectorId
-    kFBLeftHandRingEffectorId:FBEffectorId
-    kFBLeftHandThumbEffectorId:FBEffectorId
-    kFBLeftHipEffectorId:FBEffectorId
-    kFBLeftKneeEffectorId:FBEffectorId
-    kFBLeftShoulderEffectorId:FBEffectorId
-    kFBLeftWristEffectorId:FBEffectorId
-    kFBRightAnkleEffectorId:FBEffectorId
-    kFBRightElbowEffectorId:FBEffectorId
-    kFBRightFootEffectorId:FBEffectorId
-    kFBRightFootExtraFingerEffectorId:FBEffectorId
-    kFBRightFootIndexEffectorId:FBEffectorId
-    kFBRightFootMiddleEffectorId:FBEffectorId
-    kFBRightFootPinkyEffectorId:FBEffectorId
-    kFBRightFootRingEffectorId:FBEffectorId
-    kFBRightFootThumbEffectorId:FBEffectorId
-    kFBRightHandEffectorId:FBEffectorId
-    kFBRightHandExtraFingerEffectorId:FBEffectorId
-    kFBRightHandIndexEffectorId:FBEffectorId
-    kFBRightHandMiddleEffectorId:FBEffectorId
-    kFBRightHandPinkyEffectorId:FBEffectorId
-    kFBRightHandRingEffectorId:FBEffectorId
-    kFBRightHandThumbEffectorId:FBEffectorId
-    kFBRightHipEffectorId:FBEffectorId
-    kFBRightKneeEffectorId:FBEffectorId
-    kFBRightShoulderEffectorId:FBEffectorId
-    kFBRightWristEffectorId:FBEffectorId
+    kFBChestEndEffectorId=10
+    kFBChestOriginEffectorId=9
+    kFBHeadEffectorId=15
+    kFBHipsEffectorId=0
+    kFBInvalidEffectorId=-1
+    kFBLastEffectorId=44
+    kFBLeftAnkleEffectorId=1
+    kFBLeftElbowEffectorId=7
+    kFBLeftFootEffectorId=11
+    kFBLeftFootExtraFingerEffectorId=37
+    kFBLeftFootIndexEffectorId=33
+    kFBLeftFootMiddleEffectorId=34
+    kFBLeftFootPinkyEffectorId=36
+    kFBLeftFootRingEffectorId=35
+    kFBLeftFootThumbEffectorId=32
+    kFBLeftHandEffectorId=18
+    kFBLeftHandExtraFingerEffectorId=25
+    kFBLeftHandIndexEffectorId=21
+    kFBLeftHandMiddleEffectorId=22
+    kFBLeftHandPinkyEffectorId=24
+    kFBLeftHandRingEffectorId=23
+    kFBLeftHandThumbEffectorId=20
+    kFBLeftHipEffectorId=16
+    kFBLeftKneeEffectorId=5
+    kFBLeftShoulderEffectorId=13
+    kFBLeftWristEffectorId=3
+    kFBRightAnkleEffectorId=2
+    kFBRightElbowEffectorId=8
+    kFBRightFootEffectorId=12
+    kFBRightFootExtraFingerEffectorId=43
+    kFBRightFootIndexEffectorId=39
+    kFBRightFootMiddleEffectorId=40
+    kFBRightFootPinkyEffectorId=42
+    kFBRightFootRingEffectorId=41
+    kFBRightFootThumbEffectorId=38
+    kFBRightHandEffectorId=19
+    kFBRightHandExtraFingerEffectorId=31
+    kFBRightHandIndexEffectorId=27
+    kFBRightHandMiddleEffectorId=28
+    kFBRightHandPinkyEffectorId=30
+    kFBRightHandRingEffectorId=29
+    kFBRightHandThumbEffectorId=26
+    kFBRightHipEffectorId=17
+    kFBRightKneeEffectorId=6
+    kFBRightShoulderEffectorId=14
+    kFBRightWristEffectorId=4
 class FBEffectorSetID(Enumeration):
     """Effector ID identifier."""
-    EFBffectorSetAux7:FBEffectorSetID
-    FBEffectorSetAux1:FBEffectorSetID
-    FBEffectorSetAux10:FBEffectorSetID
-    FBEffectorSetAux11:FBEffectorSetID
-    FBEffectorSetAux12:FBEffectorSetID
-    FBEffectorSetAux13:FBEffectorSetID
-    FBEffectorSetAux14:FBEffectorSetID
-    FBEffectorSetAux2:FBEffectorSetID
-    FBEffectorSetAux3:FBEffectorSetID
-    FBEffectorSetAux4:FBEffectorSetID
-    FBEffectorSetAux5:FBEffectorSetID
-    FBEffectorSetAux6:FBEffectorSetID
-    FBEffectorSetAux8:FBEffectorSetID
-    FBEffectorSetAux9:FBEffectorSetID
-    FBEffectorSetDefault:FBEffectorSetID
-    FBLastEffectorSetIndex:FBEffectorSetID
+    EFBffectorSetAux7=7
+    FBEffectorSetAux1=1
+    FBEffectorSetAux10=10
+    FBEffectorSetAux11=11
+    FBEffectorSetAux12=12
+    FBEffectorSetAux13=13
+    FBEffectorSetAux14=14
+    FBEffectorSetAux2=2
+    FBEffectorSetAux3=3
+    FBEffectorSetAux4=4
+    FBEffectorSetAux5=5
+    FBEffectorSetAux6=6
+    FBEffectorSetAux8=8
+    FBEffectorSetAux9=9
+    FBEffectorSetDefault=0
+    FBLastEffectorSetIndex=15
 class FBElementAction(Enumeration):
     """[Enumeration](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_enumeration.html "Enumeration mapping.") that describe the different actions available on a scene element depending on the current context."""
-    kFBElementActionAppend:FBElementAction
+    kFBElementActionAppend=1
     """Append the elements to the current scene elements (when loading or merging)."""
-    kFBElementActionDiscard:FBElementAction
+    kFBElementActionDiscard=3
     """Do not consider the element (when loading, merging and saving)."""
-    kFBElementActionMerge:FBElementAction
+    kFBElementActionMerge=2
     """Merge the elements from the file in the current scene (when merging)."""
-    kFBElementActionSave:FBElementAction
+    kFBElementActionSave=0
     """Save the element (when saving)."""
 class FBEventAnimationNodeType(Enumeration):
     """Event based on animation node.
     
     Types of transformation."""
-    kFBEventAnimationNodeConstraintChange:FBEventAnimationNodeType
-    kFBEventAnimationNodeDataChange:FBEventAnimationNodeType
-    kFBEventAnimationNodeNone:FBEventAnimationNodeType
+    kFBEventAnimationNodeConstraintChange=1
+    kFBEventAnimationNodeDataChange=0
+    kFBEventAnimationNodeNone=2
 class FBEventName(Enumeration):
     """These events are used internally by the Python Callback mecanism.
     
     These are not meant to be manipulated by a user."""
-    kFBEventActivate:FBEventName
-    kFBEventCellChange:FBEventName
-    kFBEventChange:FBEventName
-    kFBEventColumnClick:FBEventName
-    kFBEventDoubleClick:FBEventName
-    kFBEventDragAndDrop:FBEventName
-    kFBEventEnter:FBEventName
-    kFBEventExit:FBEventName
-    kFBEventExpose:FBEventName
-    kFBEventFileExit:FBEventName
-    kFBEventFileMerge:FBEventName
-    kFBEventFileNew:FBEventName
-    kFBEventFileNewCompleted:FBEventName
-    kFBEventFileOpen:FBEventName
-    kFBEventFileOpenCompleted:FBEventName
-    kFBEventFileSave:FBEventName
-    kFBEventFileSaveCompleted:FBEventName
-    kFBEventIdle:FBEventName
-    kFBEventInput:FBEventName
-    kFBEventMenu:FBEventName
-    kFBEventOnClick:FBEventName
-    kFBEventOnClickCheck:FBEventName
-    kFBEventResize:FBEventName
-    kFBEventRowClick:FBEventName
-    kFBEventShow:FBEventName
-    kFBEventTransaction:FBEventName
-    kFBEventTreeCollapsed:FBEventName
-    kFBEventTreeCollapsing:FBEventName
-    kFBEventTreeExpanded:FBEventName
-    kFBEventTreeExpanding:FBEventName
-    kFBEventTreeSelect:FBEventName
-    kFBEventUnbindSDK:FBEventName
+    kFBEventActivate=0
+    kFBEventCellChange=35
+    kFBEventChange=34
+    kFBEventColumnClick=37
+    kFBEventDoubleClick=9
+    kFBEventDragAndDrop=2
+    kFBEventEnter=26
+    kFBEventExit=27
+    kFBEventExpose=6
+    kFBEventFileExit=48
+    kFBEventFileMerge=49
+    kFBEventFileNew=43
+    kFBEventFileNewCompleted=42
+    kFBEventFileOpen=45
+    kFBEventFileOpenCompleted=44
+    kFBEventFileSave=47
+    kFBEventFileSaveCompleted=46
+    kFBEventIdle=28
+    kFBEventInput=3
+    kFBEventMenu=4
+    kFBEventOnClick=24
+    kFBEventOnClickCheck=25
+    kFBEventResize=7
+    kFBEventRowClick=36
+    kFBEventShow=1
+    kFBEventTransaction=8
+    kFBEventTreeCollapsed=41
+    kFBEventTreeCollapsing=40
+    kFBEventTreeExpanded=39
+    kFBEventTreeExpanding=38
+    kFBEventTreeSelect=5
+    kFBEventUnbindSDK=54
 class FBExistingClipAction(Enumeration):
     """Action to perform, when preparing an Audio In object to record, when the action clip associated to the recording path is already in the scene."""
-    kFBExistingClipAbortOperation:FBExistingClipAction
+    kFBExistingClipAbortOperation=2
     """Cancel preparing the audio in to record."""
-    kFBExistingClipAskUser:FBExistingClipAction
+    kFBExistingClipAskUser=0
     """Ask the user for desired operation via a dialog."""
-    kFBExistingClipRemove:FBExistingClipAction
+    kFBExistingClipRemove=1
     """Remove the action clip from the scene."""
 class FBExistingFileAction(Enumeration):
     """Action to perform, when preparing an Audio In object to record, when the action clip associated to the recording path already exists on disk and is not empty."""
-    kFBExistingFileAbortOperation:FBExistingFileAction
+    kFBExistingFileAbortOperation=3
     """Cancel preparing the audio in to record."""
-    kFBExistingFileAppend:FBExistingFileAction
+    kFBExistingFileAppend=2
     """Append the new recording to existing recording. Warning: Be sure that the current file format match your recording option!"""
-    kFBExistingFileAskUser:FBExistingFileAction
+    kFBExistingFileAskUser=0
     """Ask the user for desired operation via a dialog."""
-    kFBExistingFileOverwrite:FBExistingFileAction
+    kFBExistingFileOverwrite=1
     """Overwrite the existing file on disk."""
 class FBExtrapolationMode(Enumeration):
     """Modes for pre / post extrapolation."""
-    kFCurveExtrapolationConst:FBExtrapolationMode
-    kFCurveExtrapolationKeepSlope:FBExtrapolationMode
-    kFCurveExtrapolationMirrorRepetition:FBExtrapolationMode
-    kFCurveExtrapolationRelativeRepetition:FBExtrapolationMode
-    kFCurveExtrapolationRepetition:FBExtrapolationMode
+    kFCurveExtrapolationConst=1
+    kFCurveExtrapolationKeepSlope=4
+    kFCurveExtrapolationMirrorRepetition=3
+    kFCurveExtrapolationRelativeRepetition=5
+    kFCurveExtrapolationRepetition=2
 class FBFCurveEventType(Enumeration):
     """This enum indicates what modification was made to a tracked FCurve."""
-    kFBFCurveEventTypeDerivativedChanged:FBFCurveEventType
+    kFBFCurveEventTypeDerivativedChanged=16
     """A key left/right/both derivative was changed, please note that this event can affect the key specified in the event index and the following key."""
-    kFBFCurveEventTypeKeyAdded:FBFCurveEventType
+    kFBFCurveEventTypeKeyAdded=1
     """A new key was added."""
-    kFBFCurveEventTypeKeyBiasChanged:FBFCurveEventType
+    kFBFCurveEventTypeKeyBiasChanged=16384
     """A key bias was changed (only valid on TCB key)"""
-    kFBFCurveEventTypeKeyContinuityChanged:FBFCurveEventType
+    kFBFCurveEventTypeKeyContinuityChanged=8192
     """A key continuity was changed (only valid on TCB key)"""
-    kFBFCurveEventTypeKeyInterpolationChanged:FBFCurveEventType
+    kFBFCurveEventTypeKeyInterpolationChanged=32
     """A key interpolation mode was changed."""
-    kFBFCurveEventTypeKeyMassOperation:FBFCurveEventType
+    kFBFCurveEventTypeKeyMassOperation=131072
     """An operation affecting multiple keys was made."""
-    kFBFCurveEventTypeKeyPostExtrapolationChanged:FBFCurveEventType
+    kFBFCurveEventTypeKeyPostExtrapolationChanged=65536
     """A curve post-extrapolation value was changed."""
-    kFBFCurveEventTypeKeyPreExtrapolationChanged:FBFCurveEventType
+    kFBFCurveEventTypeKeyPreExtrapolationChanged=32768
     """A curve pre-extrapolation value was changed."""
-    kFBFCurveEventTypeKeyRemoved:FBFCurveEventType
+    kFBFCurveEventTypeKeyRemoved=2
     """A key was removed."""
-    kFBFCurveEventTypeKeyTangentBreakChanged:FBFCurveEventType
+    kFBFCurveEventTypeKeyTangentBreakChanged=128
     """A key break mode was changed."""
-    kFBFCurveEventTypeKeyTangentChanged:FBFCurveEventType
+    kFBFCurveEventTypeKeyTangentChanged=64
     """A key tangent was changed."""
-    kFBFCurveEventTypeKeyTangentClampModeChanged:FBFCurveEventType
+    kFBFCurveEventTypeKeyTangentClampModeChanged=256
     """A key clamping mode was changed."""
-    kFBFCurveEventTypeKeyTangentConstantChanged:FBFCurveEventType
+    kFBFCurveEventTypeKeyTangentConstantChanged=512
     """A key constant mode was changed."""
-    kFBFCurveEventTypeKeyTensionChanged:FBFCurveEventType
+    kFBFCurveEventTypeKeyTensionChanged=4096
     """A key tension was changed (only valid on TCB key)"""
-    kFBFCurveEventTypeKeyTimeChanged:FBFCurveEventType
+    kFBFCurveEventTypeKeyTimeChanged=4
     """A key time was changed."""
-    kFBFCurveEventTypeKeyValueChanged:FBFCurveEventType
+    kFBFCurveEventTypeKeyValueChanged=8
     """A key value was changed."""
-    kFBFCurveEventTypeKeyVelocityChanged:FBFCurveEventType
+    kFBFCurveEventTypeKeyVelocityChanged=1024
     """A key velocity was changed."""
-    kFBFCurveEventTypeKeyWeightChanged:FBFCurveEventType
+    kFBFCurveEventTypeKeyWeightChanged=2048
     """A key left/right weight was changed, please note that this event can affect the key specified in the event index and the following key."""
-    kFBFCurveEventTypeUnknownOperation:FBFCurveEventType
+    kFBFCurveEventTypeUnknownOperation=0
     """Invalid event."""
 class FBFileFormatAndVersion(Enumeration):
-    kFBDefaultFormatAndVersion:FBFileFormatAndVersion
+    kFBDefaultFormatAndVersion=8
     """Default Format and Version."""
-    kFBFBX2010:FBFileFormatAndVersion
+    kFBFBX2010=0
     """It's FBX Version 6. Note: it's not equivalent to MotionBuilder 2010 Native FBX format."""
-    kFBFBX2011:FBFileFormatAndVersion
+    kFBFBX2011=1
     """FBX Version 2011."""
-    kFBFBX2012:FBFileFormatAndVersion
+    kFBFBX2012=2
     """FBX Version 2012."""
-    kFBFBX2013:FBFileFormatAndVersion
+    kFBFBX2013=3
     """FBX Version 2013."""
-    kFBFBX2014_2015:FBFileFormatAndVersion
+    kFBFBX2014_2015=4
     """FBX Version 2014/2015."""
-    kFBFBX2016:FBFileFormatAndVersion
+    kFBFBX2016=5
     """FBX Version 2016."""
-    kFBFBX2018:FBFileFormatAndVersion
+    kFBFBX2018=6
     """FBX Version 2018."""
-    kFBFBX2019:FBFileFormatAndVersion
+    kFBFBX2019=7
     """FBX Version 2019."""
-    kFBFBX2020:FBFileFormatAndVersion
+    kFBFBX2020=8
     """FBX Version 2020."""
 class FBFileMonitoringType(Enumeration):
     """File Monitoring Type."""
-    kFBFileMonitoring_ANIMATIONCLIP:FBFileMonitoringType
+    kFBFileMonitoring_ANIMATIONCLIP=2
     """Animation clip change monitoring."""
-    kFBFileMonitoring_FILEREFERENCE:FBFileMonitoringType
+    kFBFileMonitoring_FILEREFERENCE=3
     """File Reference change monitoring."""
-    kFBFileMonitoring_InvalidIndex:FBFileMonitoringType
+    kFBFileMonitoring_InvalidIndex=0
     """Invalid value."""
-    kFBFileMonitoring_MAINSCENE:FBFileMonitoringType
+    kFBFileMonitoring_MAINSCENE=1
     """Main Scene change monitoring."""
-    kFBFileMonitoring_PYTHONEDITORSCRIPT:FBFileMonitoringType
+    kFBFileMonitoring_PYTHONEDITORSCRIPT=4
     """Python Editor Script change monitoring."""
 class FBFilePopupStyle(Enumeration):
     """Different types of file popup windows.
     
     [See samples: FBFilePopup.py,](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_f_b_file_popup_8py-example.html) [FBFolderPopup.py.](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_f_b_folder_popup_8py-example.html)"""
-    kFBFilePopupOpen:FBFilePopupStyle
+    kFBFilePopupOpen=0
     """Open file popup (Shows 'Open Directory')."""
-    kFBFilePopupSave:FBFilePopupStyle
+    kFBFilePopupSave=1
     """Save file popup (Shows 'Save Directory')."""
 class FBFilterType(Enumeration):
     """Filter types.
     
     A filter can be of one or both types in order to process data on single or multiple curves of data. Ex: a gimble killer filter needs to be of type vector because the three curves are inter-dependant."""
-    kFBFilterNumber:FBFilterType
+    kFBFilterNumber=1
     """Filter single FCurves."""
-    kFBFilterVector:FBFilterType
+    kFBFilterVector=2
     """Filter a vector (3 FCurves)."""
 class FBFloorContactID(Enumeration):
     """Floor contact for the given index."""
-    FBLastCharacterMember:FBFloorContactID
-    FBLeftFootMemberIndex:FBFloorContactID
-    FBLeftHandMemberIndex:FBFloorContactID
-    FBRightFootMemberIndex:FBFloorContactID
-    FBRightHandMemberIndex:FBFloorContactID
+    FBLastCharacterMember=4
+    FBLeftFootMemberIndex=2
+    FBLeftHandMemberIndex=0
+    FBRightFootMemberIndex=3
+    FBRightHandMemberIndex=1
 class FBFogMode(Enumeration):
     """Fog falloff modes."""
-    kFBFogModeExponential:FBFogMode
+    kFBFogModeExponential=1
     """Exponential falloff."""
-    kFBFogModeLinear:FBFogMode
+    kFBFogModeLinear=0
     """Linear falloff."""
-    kFBFogModeSquareExponential:FBFogMode
+    kFBFogModeSquareExponential=2
     """Squared exponential falloff."""
 class FBGapMode(Enumeration):
     """Gap interpolation modes."""
-    kFBGapBezier:FBGapMode
+    kFBGapBezier=3
     """Bezier interpolation."""
-    kFBGapConstant:FBGapMode
+    kFBGapConstant=1
     """Constant interpolation."""
-    kFBGapCurve:FBGapMode
+    kFBGapCurve=4
     """Cubic/curve interpolation."""
-    kFBGapLinear:FBGapMode
+    kFBGapLinear=2
     """Linear interpolation."""
-    kFBGapRigidBody:FBGapMode
+    kFBGapRigidBody=0
     """Use rigid body information."""
-    kFBGapSample:FBGapMode
+    kFBGapSample=5
     """Sampled data."""
 class FBGenerationMode(Enumeration):
     """Generation modes for optical model."""
-    kFBGenerationFast:FBGenerationMode
+    kFBGenerationFast=1
     """Fast re-generation."""
-    kFBGenerationNone:FBGenerationMode
+    kFBGenerationNone=0
     """No re-generation."""
 class FBGeometryArrayElementType(Enumeration):
     """Type of data when requesting an array."""
-    kFBGeometryArrayElementType_Float:FBGeometryArrayElementType
-    kFBGeometryArrayElementType_Float2:FBGeometryArrayElementType
-    kFBGeometryArrayElementType_Float3:FBGeometryArrayElementType
+    kFBGeometryArrayElementType_Float=2
+    kFBGeometryArrayElementType_Float2=3
+    kFBGeometryArrayElementType_Float3=4
     """Each element is an array of 3 float."""
-    kFBGeometryArrayElementType_Float4:FBGeometryArrayElementType
+    kFBGeometryArrayElementType_Float4=5
     """Each element is an array of 4 float."""
-    kFBGeometryArrayElementType_FloatMatrix4x4:FBGeometryArrayElementType
-    kFBGeometryArrayElementType_Integer:FBGeometryArrayElementType
-    kFBGeometryArrayElementType_IntegerArrayPointer:FBGeometryArrayElementType
-    kFBGeometryArrayElementType_Unknown:FBGeometryArrayElementType
+    kFBGeometryArrayElementType_FloatMatrix4x4=6
+    kFBGeometryArrayElementType_Integer=1
+    kFBGeometryArrayElementType_IntegerArrayPointer=7
+    kFBGeometryArrayElementType_Unknown=0
 class FBGeometryArrayID(Enumeration):
     """ID to use when requesting a specific array of data for a model.
     
     [See sample: VertexArrayManipulation.py.](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/_samples_0c_geometry_0c_vertex_array_manipulation_8py-example.html)"""
-    kFBGeometryArrayID_Binormal:FBGeometryArrayID
+    kFBGeometryArrayID_Binormal=8
     """ID to the Binormal array."""
-    kFBGeometryArrayID_Color:FBGeometryArrayID
+    kFBGeometryArrayID_Color=16
     """ID to the Vertex Color Array."""
-    kFBGeometryArrayID_Normal:FBGeometryArrayID
+    kFBGeometryArrayID_Normal=2
     """ID to the Normal by Point array."""
-    kFBGeometryArrayID_Point:FBGeometryArrayID
+    kFBGeometryArrayID_Point=1
     """ID to the Point array."""
-    kFBGeometryArrayID_Tangent:FBGeometryArrayID
+    kFBGeometryArrayID_Tangent=4
     """ID to the Tangent array."""
 class FBGeometryMappingMode(Enumeration):
     """Determine how the element is mapped on a surface.
     
     kFBGeometryMapping_NONE The mapping is undetermined.kFBGeometryMapping_BY_CONTROL_POINT There will be one mapping coordinate for each surface control point/vertex.kFBGeometryMapping_BY_POLYGON_VERTEX There will be one mapping coordinate for each vertex, for each polygon/strip it is part of. This means that a vertex will have as many mapping coordinates as polygons it is part of.kFBGeometryMapping_BY_POLYGON There can be only one mapping coordinate for the whole polygon/strip.kFBGeometryMapping_BY_EDGE There will be one mapping coordinate for each unique edge in the mesh. This is meant to be used with smoothing layer elements.kFBGeometryMapping_ALL_SAME There can be only one mapping coordinate for the whole surface."""
-    kFBGeometryMapping_ALL_SAME:FBGeometryMappingMode
-    kFBGeometryMapping_BY_CONTROL_POINT:FBGeometryMappingMode
-    kFBGeometryMapping_BY_EDGE:FBGeometryMappingMode
-    kFBGeometryMapping_BY_POLYGON:FBGeometryMappingMode
-    kFBGeometryMapping_BY_POLYGON_VERTEX:FBGeometryMappingMode
-    kFBGeometryMapping_NONE:FBGeometryMappingMode
+    kFBGeometryMapping_ALL_SAME=5
+    kFBGeometryMapping_BY_CONTROL_POINT=1
+    kFBGeometryMapping_BY_EDGE=4
+    kFBGeometryMapping_BY_POLYGON=3
+    kFBGeometryMapping_BY_POLYGON_VERTEX=2
+    kFBGeometryMapping_NONE=0
 class FBGeometryPrimitiveType(Enumeration):
-    kFBGeometry_LINES:FBGeometryPrimitiveType
-    kFBGeometry_LINE_LOOP:FBGeometryPrimitiveType
-    kFBGeometry_LINE_STRIP:FBGeometryPrimitiveType
-    kFBGeometry_POINTS:FBGeometryPrimitiveType
-    kFBGeometry_POLYGON:FBGeometryPrimitiveType
-    kFBGeometry_QUADS:FBGeometryPrimitiveType
-    kFBGeometry_QUADS_STRIP:FBGeometryPrimitiveType
-    kFBGeometry_TRIANGLES:FBGeometryPrimitiveType
-    kFBGeometry_TRIANGLE_FAN:FBGeometryPrimitiveType
-    kFBGeometry_TRIANGLE_STRIP:FBGeometryPrimitiveType
+    kFBGeometry_LINES=1
+    kFBGeometry_LINE_LOOP=2
+    kFBGeometry_LINE_STRIP=3
+    kFBGeometry_POINTS=0
+    kFBGeometry_POLYGON=9
+    kFBGeometry_QUADS=7
+    kFBGeometry_QUADS_STRIP=8
+    kFBGeometry_TRIANGLES=4
+    kFBGeometry_TRIANGLE_FAN=6
+    kFBGeometry_TRIANGLE_STRIP=5
 class FBGeometryReferenceMode(Enumeration):
     """Determine how the mapping information is stored in the array of coordinate.
     
     kFBGeometryReference_DIRECT This indicates that the mapping information for the n'th element is found in the n'th place of DirectArray.kFBGeometryReference_INDEX, This indicates that the mapping information for the n'th element is found in the n'th place of IndexArray.kFBGeometryReference_INDEX_TO_DIRECT This indicates that the KLayerElementTemplate::mIndexArray contains, for the n'th element, an index in the KLayerElementTemplate::mDirectArray array of mapping elements. eINDEX_TO_DIRECT is usually useful to store coordinates for eBY_POLYGON_VERTEX mapping mode elements. Since the same coordinates are usually repeated a large number of times, it saves spaces to store the coordinate only one time and refer to them with an index. Materials and Textures are also referenced with this mode and the actual Material/Texture can be accessed via the KLayerElementTemplate::mDirectArray"""
-    kFBGeometryReference_DIRECT:FBGeometryReferenceMode
-    kFBGeometryReference_INDEX:FBGeometryReferenceMode
-    kFBGeometryReference_INDEX_TO_DIRECT:FBGeometryReferenceMode
+    kFBGeometryReference_DIRECT=0
+    kFBGeometryReference_INDEX=1
+    kFBGeometryReference_INDEX_TO_DIRECT=2
 class FBGlobalEvalCallbackTiming(Enumeration):
     """Global Evaluation callback timing.
     
     Let the user to register callback function at different stage of background evaluation."""
-    kFBGlobalEvalCallbackAfterDAG:FBGlobalEvalCallbackTiming
+    kFBGlobalEvalCallbackAfterDAG=1
     """Invoked after all DAG (Transformation & Deformation) evaluation tasks finished in evaluation pipeline / thread."""
-    kFBGlobalEvalCallbackAfterDeform:FBGlobalEvalCallbackTiming
+    kFBGlobalEvalCallbackAfterDeform=2
     """Invoked after all deformation tasks finished in evaluation pipeline / thread."""
-    kFBGlobalEvalCallbackAfterPlottingFrame:FBGlobalEvalCallbackTiming
+    kFBGlobalEvalCallbackAfterPlottingFrame=7
     """Invoked after plotting a frame."""
-    kFBGlobalEvalCallbackAfterRender:FBGlobalEvalCallbackTiming
+    kFBGlobalEvalCallbackAfterRender=5
     """Invoked in rendering pipeline, after any rendering tasks finish (just before swapping GL back/front buffer)."""
-    kFBGlobalEvalCallbackBeforeDAG:FBGlobalEvalCallbackTiming
+    kFBGlobalEvalCallbackBeforeDAG=0
     """Invoked before any DAG (Transformation & Deformation) evaluation tasks started in evaluation pipeline / thread."""
-    kFBGlobalEvalCallbackBeforePlottingFrame:FBGlobalEvalCallbackTiming
+    kFBGlobalEvalCallbackBeforePlottingFrame=6
     """Invoked before plotting a frame."""
-    kFBGlobalEvalCallbackBeforeRender:FBGlobalEvalCallbackTiming
+    kFBGlobalEvalCallbackBeforeRender=4
     """Invoked in rendering pipeline, before any rendering tasks start (immediately after clearing GL back buffer)."""
-    kFBGlobalEvalCallbackSyn:FBGlobalEvalCallbackTiming
+    kFBGlobalEvalCallbackSyn=3
     """Invoked when both evaluation & rendering pipelines / threads are stopped. Useful for some complicated scene change tasks to avoid race condition."""
 class FBHUDElementHAlignment(Enumeration):
-    kFBHUDCenter:FBHUDElementHAlignment
+    kFBHUDCenter=2
     """Center."""
-    kFBHUDLeft:FBHUDElementHAlignment
+    kFBHUDLeft=0
     """Left alignment."""
-    kFBHUDRight:FBHUDElementHAlignment
+    kFBHUDRight=1
     """Right alignment."""
 class FBHUDElementVAlignment(Enumeration):
-    kFBHUDBottom:FBHUDElementVAlignment
+    kFBHUDBottom=0
     """Bottom alignment."""
-    kFBHUDTop:FBHUDElementVAlignment
+    kFBHUDTop=1
     """Top alignment."""
-    kFBHUDVCenter:FBHUDElementVAlignment
+    kFBHUDVCenter=2
     """Center."""
 class FBIconPosition(Enumeration):
     """Different icon positions possible."""
-    kFBIconLeft:FBIconPosition
+    kFBIconLeft=0
     """Icon on left of text."""
-    kFBIconTop:FBIconPosition
+    kFBIconTop=1
     """Icon on top of text."""
 class FBImageFormat(Enumeration):
     """Image formats."""
-    kFBImageFormatABGR32:FBImageFormat
-    kFBImageFormatARGB32:FBImageFormat
-    kFBImageFormatBGR16:FBImageFormat
-    kFBImageFormatBGR24:FBImageFormat
-    kFBImageFormatBGRA32:FBImageFormat
-    kFBImageFormatRGB24:FBImageFormat
-    kFBImageFormatRGBA32:FBImageFormat
-    kFBImageFormatUnknown:FBImageFormat
+    kFBImageFormatABGR32=5
+    kFBImageFormatARGB32=6
+    kFBImageFormatBGR16=4
+    kFBImageFormatBGR24=3
+    kFBImageFormatBGRA32=2
+    kFBImageFormatRGB24=1
+    kFBImageFormatRGBA32=0
+    kFBImageFormatUnknown=7
 class FBImageInterleaveType(Enumeration):
     """Image field interleave types."""
-    kFBImageInterleaveTypeAverage:FBImageInterleaveType
-    kFBImageInterleaveTypeEven:FBImageInterleaveType
-    kFBImageInterleaveTypeFullFrame:FBImageInterleaveType
-    kFBImageInterleaveTypeOdd:FBImageInterleaveType
+    kFBImageInterleaveTypeAverage=3
+    kFBImageInterleaveTypeEven=2
+    kFBImageInterleaveTypeFullFrame=0
+    kFBImageInterleaveTypeOdd=1
 class FBImageInterpolationType(Enumeration):
     """Image interpolation types."""
-    kFBImageInterpolationTypeDuplicate:FBImageInterpolationType
-    kFBImageInterpolationTypeLinear:FBImageInterpolationType
-    kFBImageInterpolationTypeNone:FBImageInterpolationType
+    kFBImageInterpolationTypeDuplicate=1
+    kFBImageInterpolationTypeLinear=2
+    kFBImageInterpolationTypeNone=0
 class FBImageType(Enumeration):
     """Image types."""
-    kFBImageTypeField:FBImageType
-    kFBImageTypeFrame:FBImageType
+    kFBImageTypeField=1
+    kFBImageTypeFrame=0
 class FBInputKey(Enumeration):
     """Keyboard inputs."""
-    kFBKeyBackSpace:FBInputKey
+    kFBKeyBackSpace=8
     """Backspace."""
-    kFBKeyDel:FBInputKey
+    kFBKeyDel=302
     """Delete."""
-    kFBKeyDown:FBInputKey
+    kFBKeyDown=296
     """Down."""
-    kFBKeyEnd:FBInputKey
+    kFBKeyEnd=291
     """End."""
-    kFBKeyEscape:FBInputKey
+    kFBKeyEscape=27
     """Escape."""
-    kFBKeyF1:FBInputKey
+    kFBKeyF1=368
     """F1."""
-    kFBKeyF10:FBInputKey
+    kFBKeyF10=377
     """F10."""
-    kFBKeyF11:FBInputKey
+    kFBKeyF11=378
     """F11."""
-    kFBKeyF12:FBInputKey
+    kFBKeyF12=379
     """F12."""
-    kFBKeyF2:FBInputKey
+    kFBKeyF2=369
     """F2."""
-    kFBKeyF3:FBInputKey
+    kFBKeyF3=370
     """F3."""
-    kFBKeyF4:FBInputKey
+    kFBKeyF4=371
     """F4."""
-    kFBKeyF5:FBInputKey
+    kFBKeyF5=372
     """F5."""
-    kFBKeyF6:FBInputKey
+    kFBKeyF6=373
     """F6."""
-    kFBKeyF7:FBInputKey
+    kFBKeyF7=374
     """F7."""
-    kFBKeyF8:FBInputKey
+    kFBKeyF8=375
     """F8."""
-    kFBKeyF9:FBInputKey
+    kFBKeyF9=376
     """F9."""
-    kFBKeyHome:FBInputKey
+    kFBKeyHome=292
     """Home."""
-    kFBKeyIns:FBInputKey
+    kFBKeyIns=301
     """Insert."""
-    kFBKeyLeft:FBInputKey
+    kFBKeyLeft=293
     """Left."""
-    kFBKeyPageDown:FBInputKey
+    kFBKeyPageDown=290
     """Page Down."""
-    kFBKeyPageUp:FBInputKey
+    kFBKeyPageUp=289
     """Page Up."""
-    kFBKeyReturn:FBInputKey
+    kFBKeyReturn=13
     """Return."""
-    kFBKeyRight:FBInputKey
+    kFBKeyRight=295
     """Right."""
-    kFBKeyTab:FBInputKey
+    kFBKeyTab=9
     """Tab."""
-    kFBKeyUp:FBInputKey
+    kFBKeyUp=294
     """Up."""
 class FBInputModifier(Enumeration):
     """Input Modifiers (Ctrl, Alt, Shift)."""
-    kFBKeyAlt:FBInputModifier
+    kFBKeyAlt=4
     """Alt was pressed."""
-    kFBKeyCtrl:FBInputModifier
+    kFBKeyCtrl=2
     """Control was pressed."""
-    kFBKeyNone:FBInputModifier
+    kFBKeyNone=0
     """No modifier."""
-    kFBKeyShift:FBInputModifier
+    kFBKeyShift=1
     """Shift was pressed."""
 class FBInputType(Enumeration):
     """Types of input events.
     
     [See sample: KeyboardMapper.py.](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/_complex_tools_0c_keyboard_mapper_8py-example.html)"""
-    kFBButtonDoubleClick:FBInputType
+    kFBButtonDoubleClick=5
     """A mouse button was double clicked."""
-    kFBButtonPress:FBInputType
+    kFBButtonPress=2
     """A mouse button was pressed."""
-    kFBButtonRelease:FBInputType
+    kFBButtonRelease=3
     """A mouse button was released."""
-    kFBDragging:FBInputType
+    kFBDragging=9
     """The mouse is dragging items."""
-    kFBDropping:FBInputType
+    kFBDropping=10
     """The mouse is dropping items."""
-    kFBKeyPress:FBInputType
+    kFBKeyPress=0
     """A keyboard key was pressed."""
-    kFBKeyPressRaw:FBInputType
+    kFBKeyPressRaw=11
     """A keyboard key was pressed."""
-    kFBKeyRelease:FBInputType
+    kFBKeyRelease=1
     """A keyboard key was released."""
-    kFBKeyReleaseRaw:FBInputType
+    kFBKeyReleaseRaw=12
     """A keyboard key was released."""
-    kFBMotionNotify:FBInputType
+    kFBMotionNotify=4
     """The mouse has been moved."""
-    kFBMouseEnter:FBInputType
+    kFBMouseEnter=6
     """The mouse pointer is entering the window."""
-    kFBMouseLeave:FBInputType
+    kFBMouseLeave=7
     """The mouse pointer is leaving the window."""
-    kFBMouseWheelNotify:FBInputType
+    kFBMouseWheelNotify=8
     """The mouse wheel has moved."""
-    kFBUnknownInput:FBInputType
+    kFBUnknownInput=13
     """The internal event could not be translated."""
 class FBInsertSegmentMode(Enumeration):
     """Insert segment modes."""
-    kFBInsertSegmentFromStart:FBInsertSegmentMode
+    kFBInsertSegmentFromStart=2
     """Insert from start."""
-    kFBInsertSegmentToEnd:FBInsertSegmentMode
+    kFBInsertSegmentToEnd=1
     """Insert to end."""
-    kFBInsertSegmentWhole:FBInsertSegmentMode
+    kFBInsertSegmentWhole=0
     """Insert whole."""
 class FBInterpolation(Enumeration):
     """Types of interpolation for an FCurve."""
-    kFBInterpolationConstant:FBInterpolation
+    kFBInterpolationConstant=0
     """Constant interpolation."""
-    kFBInterpolationCubic:FBInterpolation
+    kFBInterpolationCubic=2
     """Cubic interpolation."""
-    kFBInterpolationCustom:FBInterpolation
+    kFBInterpolationCustom=3
     """Custom interpolation."""
-    kFBInterpolationLinear:FBInterpolation
+    kFBInterpolationLinear=1
     """Linear interpolation."""
 class FBInterpolatorCurveType(Enumeration):
     """Types of interpolator for an FCurve."""
-    kFBInterpolatorCurveFastIn:FBInterpolatorCurveType
-    kFBInterpolatorCurveFastOut:FBInterpolatorCurveType
-    kFBInterpolatorCurveLast:FBInterpolatorCurveType
-    kFBInterpolatorCurveLinearIn:FBInterpolatorCurveType
-    kFBInterpolatorCurveLinearOut:FBInterpolatorCurveType
-    kFBInterpolatorCurveSlowIn:FBInterpolatorCurveType
-    kFBInterpolatorCurveSlowOut:FBInterpolatorCurveType
-    kFBInterpolatorCurveSmoothIn:FBInterpolatorCurveType
-    kFBInterpolatorCurveSmoothOut:FBInterpolatorCurveType
+    kFBInterpolatorCurveFastIn=6
+    kFBInterpolatorCurveFastOut=7
+    kFBInterpolatorCurveLast=8
+    kFBInterpolatorCurveLinearIn=0
+    kFBInterpolatorCurveLinearOut=1
+    kFBInterpolatorCurveSlowIn=4
+    kFBInterpolatorCurveSlowOut=5
+    kFBInterpolatorCurveSmoothIn=2
+    kFBInterpolatorCurveSmoothOut=3
 class FBKeyingGroupType(Enumeration):
     """Keying group types."""
-    kFBKeyingGroupGlobal:FBKeyingGroupType
+    kFBKeyingGroupGlobal=0
     """All selected objects with the same properties as those defined in the keying group will be keyed."""
-    kFBKeyingGroupLocal:FBKeyingGroupType
+    kFBKeyingGroupLocal=2
     """Only properties of objects specified in the keying group will be keyed."""
-    kFBKeyingGroupObjectType:FBKeyingGroupType
+    kFBKeyingGroupObjectType=1
     """All selected objects of the specified type in the keying group with the same properties as those defined in the keying group will be keyed."""
 class FBLayerMode(Enumeration):
     """Layer mode."""
-    kFBLayerModeAdditive:FBLayerMode
+    kFBLayerModeAdditive=0
     """Layer value will be added to the other layers to computed the final value."""
-    kFBLayerModeInvalidIndex:FBLayerMode
+    kFBLayerModeInvalidIndex=-1
     """Invalid value."""
-    kFBLayerModeOverride:FBLayerMode
+    kFBLayerModeOverride=1
     """Layer value will override the value of the other precedent layers."""
-    kFBLayerModeOverridePassthrough:FBLayerMode
+    kFBLayerModeOverridePassthrough=2
     """If the layer has a weight of 75%, the precedent layers will have a combined effect of 25% on the final value. Setting the weight to 100% is similar to setting the layer in override."""
 class FBLayerRotationMode(Enumeration):
     """Rotation mode for layer."""
-    kFBLayerRotationModeEulerRotation:FBLayerRotationMode
+    kFBLayerRotationModeEulerRotation=0
     """The rotation will be computed component by component."""
-    kFBLayerRotationModeInvalidIndex:FBLayerRotationMode
+    kFBLayerRotationModeInvalidIndex=-1
     """Invalid value."""
-    kFBLayerRotationModeQuaternionRotation:FBLayerRotationMode
+    kFBLayerRotationModeQuaternionRotation=1
     """The rotation will be computed using quaternion."""
 class FBLightType(Enumeration):
     """Light types."""
-    kFBLightTypeArea:FBLightType
+    kFBLightTypeArea=3
     """Area light."""
-    kFBLightTypeInfinite:FBLightType
+    kFBLightTypeInfinite=1
     """Infinite light (plane)."""
-    kFBLightTypePoint:FBLightType
+    kFBLightTypePoint=0
     """Point light."""
-    kFBLightTypeSpot:FBLightType
+    kFBLightTypeSpot=2
     """Spot light."""
 class FBListStyle(Enumeration):
     """List style or direction.
     
     [See samples: List.py,](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_list_8py-example.html) [ToolCommunicationReceiver.py.](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_tool_communication_receiver_8py-example.html)"""
-    kFBDropDownList:FBListStyle
+    kFBDropDownList=0
     """Drop down list."""
-    kFBVerticalList:FBListStyle
+    kFBVerticalList=1
     """Vertical list."""
 class FBManipulatorPickType(Enumeration):
     """Types of manipulator picking."""
-    FBPickObjects:FBManipulatorPickType
+    FBPickObjects=0
     """Pick objects."""
-    FBPickPoints:FBManipulatorPickType
+    FBPickPoints=1
     """Pick points."""
-    FBPickSurfaces:FBManipulatorPickType
+    FBPickSurfaces=2
     """Pick surfaces."""
 class FBManipulatorTransformType(Enumeration):
     """Manipulator transform stles."""
-    kFBManipulatorTransformNone:FBManipulatorTransformType
+    kFBManipulatorTransformNone=0
     """No manipulator."""
-    kFBManipulatorTransformRotation:FBManipulatorTransformType
+    kFBManipulatorTransformRotation=2
     """Rotation manipulator."""
-    kFBManipulatorTransformScaling:FBManipulatorTransformType
+    kFBManipulatorTransformScaling=3
     """Scaling manipulator."""
-    kFBManipulatorTransformTranslation:FBManipulatorTransformType
+    kFBManipulatorTransformTranslation=1
     """Translation manipulator."""
 class FBMarkerLook(Enumeration):
     """Look of the marker."""
-    kFBMarkerLookAimRollGoal:FBMarkerLook
+    kFBMarkerLookAimRollGoal=13
     """Aim & Roll goal."""
-    kFBMarkerLookBone:FBMarkerLook
+    kFBMarkerLookBone=7
     """Bone."""
-    kFBMarkerLookBox:FBMarkerLook
+    kFBMarkerLookBox=9
     """Box."""
-    kFBMarkerLookCapsule:FBMarkerLook
+    kFBMarkerLookCapsule=4
     """Capsule."""
-    kFBMarkerLookCircle:FBMarkerLook
+    kFBMarkerLookCircle=6
     """Circle."""
-    kFBMarkerLookCube:FBMarkerLook
+    kFBMarkerLookCube=0
     """Cube."""
-    kFBMarkerLookHardCross:FBMarkerLook
+    kFBMarkerLookHardCross=1
     """Thick cross."""
-    kFBMarkerLookLightCross:FBMarkerLook
+    kFBMarkerLookLightCross=2
     """Wireframe cross."""
-    kFBMarkerLookNone:FBMarkerLook
+    kFBMarkerLookNone=10
     """None."""
-    kFBMarkerLookRigidGoal:FBMarkerLook
+    kFBMarkerLookRigidGoal=11
     """Rigid goal."""
-    kFBMarkerLookRotationGoal:FBMarkerLook
+    kFBMarkerLookRotationGoal=12
     """Rotation goal."""
-    kFBMarkerLookSphere:FBMarkerLook
+    kFBMarkerLookSphere=3
     """Sphere."""
-    kFBMarkerLookSquare:FBMarkerLook
+    kFBMarkerLookSquare=5
     """Square."""
-    kFBMarkerLookStick:FBMarkerLook
+    kFBMarkerLookStick=8
     """Box with a sphere on one end."""
 class FBMarkerResolutionLevel(Enumeration):
     """Resolution of marker mesh sphere and capsule (Quality)."""
-    kFBMarkerHighResolution:FBMarkerResolutionLevel
+    kFBMarkerHighResolution=2
     """Highest resolution."""
-    kFBMarkerLowResolution:FBMarkerResolutionLevel
+    kFBMarkerLowResolution=0
     """Lowest resolution."""
-    kFBMarkerMediumResolution:FBMarkerResolutionLevel
+    kFBMarkerMediumResolution=1
     """Medium resolution."""
 class FBMarkerType(Enumeration):
     """Type of the marker."""
-    kFBMarkerTypeFKEffector:FBMarkerType
+    kFBMarkerTypeFKEffector=2
     """FK effector."""
-    kFBMarkerTypeIKEffector:FBMarkerType
+    kFBMarkerTypeIKEffector=3
     """IK effector."""
-    kFBMarkerTypeOptical:FBMarkerType
+    kFBMarkerTypeOptical=1
     """Optical."""
-    kFBMarkerTypeStandard:FBMarkerType
+    kFBMarkerTypeStandard=0
     """Standard."""
 class FBMaterialTextureType(Enumeration):
     """Various Material texture channels' type.
     
     [See samples: LayeredTexture.py,](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/_samples_0c_material_and_texture_0c_layered_texture_8py-example.html) [MaterialAndTexture.py,](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/_samples_0c_material_and_texture_0c_material_and_texture_8py-example.html) [TextureAnimation.py,](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/_samples_0c_material_and_texture_0c_texture_animation_8py-example.html) [VideoInput.py,](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/_samples_0c_video_0c_video_input_8py-example.html) [VideoMemory.py.](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/_samples_0c_video_0c_video_memory_8py-example.html)"""
-    kFBMaterialTextureAmbient:FBMaterialTextureType
-    kFBMaterialTextureAmbientFactor:FBMaterialTextureType
-    kFBMaterialTextureBump:FBMaterialTextureType
-    kFBMaterialTextureDiffuse:FBMaterialTextureType
-    kFBMaterialTextureDiffuseFactor:FBMaterialTextureType
-    kFBMaterialTextureEmissive:FBMaterialTextureType
-    kFBMaterialTextureEmissiveFactor:FBMaterialTextureType
-    kFBMaterialTextureNormalMap:FBMaterialTextureType
-    kFBMaterialTextureReflection:FBMaterialTextureType
-    kFBMaterialTextureReflectionFactor:FBMaterialTextureType
-    kFBMaterialTextureShiness:FBMaterialTextureType
-    kFBMaterialTextureSpecular:FBMaterialTextureType
-    kFBMaterialTextureSpecularFactor:FBMaterialTextureType
-    kFBMaterialTextureTransparent:FBMaterialTextureType
-    kFBMaterialTextureTransparentFactor:FBMaterialTextureType
+    kFBMaterialTextureAmbient=2
+    kFBMaterialTextureAmbientFactor=3
+    kFBMaterialTextureBump=9
+    kFBMaterialTextureDiffuse=4
+    kFBMaterialTextureDiffuseFactor=5
+    kFBMaterialTextureEmissive=0
+    kFBMaterialTextureEmissiveFactor=1
+    kFBMaterialTextureNormalMap=10
+    kFBMaterialTextureReflection=13
+    kFBMaterialTextureReflectionFactor=14
+    kFBMaterialTextureShiness=8
+    kFBMaterialTextureSpecular=6
+    kFBMaterialTextureSpecularFactor=7
+    kFBMaterialTextureTransparent=11
+    kFBMaterialTextureTransparentFactor=12
 class FBMenuItemType(Enumeration):
     """Types of menu items available."""
-    kFBMenuItemMotionExport:FBMenuItemType
+    kFBMenuItemMotionExport=2
     """Motion Files->Export."""
-    kFBMenuItemMotionImport:FBMenuItemType
+    kFBMenuItemMotionImport=0
     """Motion Files->Import."""
-    kFBMenuItemSceneExport:FBMenuItemType
+    kFBMenuItemSceneExport=3
     """Scenes->Export."""
-    kFBMenuItemSceneImport:FBMenuItemType
+    kFBMenuItemSceneImport=1
     """Scenes->Import."""
 class FBMergeLayerMode(Enumeration):
     """Merge layer mode for animation layers.
     
     This will specify the mode of the resulting merged layer, if applicable (To BaseAnimation layer mode cannot be modified)."""
-    kFBMergeLayerModeAdditive:FBMergeLayerMode
+    kFBMergeLayerModeAdditive=1
     """The resulting layer will be in additive mode, if possible."""
-    kFBMergeLayerModeAutomatic:FBMergeLayerMode
+    kFBMergeLayerModeAutomatic=0
     """The resulting layer will be in override mode if one of the source layer is in override, otherwise, it will be in additive mode."""
-    kFBMergeLayerModeOverride:FBMergeLayerMode
+    kFBMergeLayerModeOverride=2
     """The resulting layer will be in override mode, if possible."""
 class FBMirrorPlaneType(Enumeration):
     """Mirror Plane Type."""
-    kFBMirrorPlaneTypeAuto:FBMirrorPlaneType
-    kFBMirrorPlaneTypeCount:FBMirrorPlaneType
-    kFBMirrorPlaneTypeEquation:FBMirrorPlaneType
-    kFBMirrorPlaneTypeInvalid:FBMirrorPlaneType
-    kFBMirrorPlaneTypeUser:FBMirrorPlaneType
-    kFBMirrorPlaneTypeXY:FBMirrorPlaneType
-    kFBMirrorPlaneTypeXZ:FBMirrorPlaneType
-    kFBMirrorPlaneTypeZY:FBMirrorPlaneType
+    kFBMirrorPlaneTypeAuto=0
+    kFBMirrorPlaneTypeCount=6
+    kFBMirrorPlaneTypeEquation=5
+    kFBMirrorPlaneTypeInvalid=-1
+    kFBMirrorPlaneTypeUser=4
+    kFBMirrorPlaneTypeXY=2
+    kFBMirrorPlaneTypeXZ=3
+    kFBMirrorPlaneTypeZY=1
 class FBModelCullingMode(Enumeration):
     """Model Culling Mode."""
-    kFBCullingOff:FBModelCullingMode
+    kFBCullingOff=0
     """Culling Off."""
-    kFBCullingOnCCW:FBModelCullingMode
+    kFBCullingOnCCW=1
     """Culling with Counter Clock Wise."""
-    kFBCullingOnCW:FBModelCullingMode
+    kFBCullingOnCW=2
     """Culling with Clock Wise."""
 class FBModelEvaluationTaskType(Enumeration):
-    kFBModelEvaluationBBox:FBModelEvaluationTaskType
+    kFBModelEvaluationBBox=1
     """Model's bouding box computation task (approximately for deformable model)"""
-    kFBModelEvaluationDeform:FBModelEvaluationTaskType
+    kFBModelEvaluationDeform=2
     """Model's deformation task (for deformable model)"""
-    kFBModelEvaluationTransform:FBModelEvaluationTaskType
+    kFBModelEvaluationTransform=0
     """Model's transformation evaluation task (Global )"""
 class FBModelHiercharyTraverserType(Enumeration):
     """Types of hierarchy traverser search type."""
-    kModelTraverserBreadthFirst:FBModelHiercharyTraverserType
+    kModelTraverserBreadthFirst=1
     """Breadth-first search."""
-    kModelTraverserDepthFirst:FBModelHiercharyTraverserType
+    kModelTraverserDepthFirst=0
     """Depth-first search."""
 class FBModelRotationOrder(Enumeration):
     """Ways to apply Rotation."""
-    kFBEulerXYZ:FBModelRotationOrder
+    kFBEulerXYZ=0
     """XYZ Euler Order."""
-    kFBEulerXZY:FBModelRotationOrder
+    kFBEulerXZY=1
     """XZY Euler Order."""
-    kFBEulerYXZ:FBModelRotationOrder
+    kFBEulerYXZ=3
     """YXZ Euler Order."""
-    kFBEulerYZX:FBModelRotationOrder
+    kFBEulerYZX=2
     """YZX Euler Order."""
-    kFBEulerZXY:FBModelRotationOrder
+    kFBEulerZXY=4
     """ZXY Euler Order."""
-    kFBEulerZYX:FBModelRotationOrder
+    kFBEulerZYX=5
     """ZYX Euler Order."""
-    kFBSphericXYZ:FBModelRotationOrder
+    kFBSphericXYZ=6
     """Spheric XYZ Order."""
 class FBModelSelection(Enumeration):
     """Different model selection available."""
-    kFBAllModels:FBModelSelection
+    kFBAllModels=6
     """Will imports motion into the hierarchies of all models in your scene. This is the only merge option when nothing is selected."""
-    kFBCreateModels:FBModelSelection
+    kFBCreateModels=1
     """Will create the models in the motion file, used when there is no model to match in the scene."""
-    kFBInHierarchy:FBModelSelection
+    kFBInHierarchy=5
     """Will find the root node and will try to merge the data on the hierarchy, only useful if one model is selected."""
-    kFBNone:FBModelSelection
+    kFBNone=0
     """No selection mode specified."""
-    kFBPrefixGroupContainingModel:FBModelSelection
+    kFBPrefixGroupContainingModel=4
     """Will finds the top node with the same prefix and imports the motion as if you selected kFBInHierarchy. If the selected node has the prefix, this merge option is the same as selecting kFBSelectedModelAndChildren. If no nodes are found with the prefix, this merge option operates the same as kFBSelectedModels. Only available when one model is selected."""
-    kFBSelectedModelAndChildren:FBModelSelection
+    kFBSelectedModelAndChildren=3
     """Will try to match the models from the file to those selected in the scene, as well as the children of the selected models."""
-    kFBSelectedModels:FBModelSelection
+    kFBSelectedModels=2
     """Will Merges data with only the selected nodes or models."""
 class FBModelShadingMode(Enumeration):
     """Modes for model shading.
     
     [See samples: FBModelCube.py,](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_f_b_model_cube_8py-example.html) [GeometryInstancing.py,](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/_samples_0c_geometry_0c_geometry_instancing_8py-example.html) [VertexArrayManipulation.py,](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/_samples_0c_geometry_0c_vertex_array_manipulation_8py-example.html) [VertexColor.py.](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/_samples_0c_geometry_0c_vertex_color_8py-example.html)"""
-    kFBModelShadingAll:FBModelShadingMode
+    kFBModelShadingAll=6
     """Lighted, shaded, textured shading."""
-    kFBModelShadingDefault:FBModelShadingMode
+    kFBModelShadingDefault=0
     """Default shading."""
-    kFBModelShadingFlat:FBModelShadingMode
+    kFBModelShadingFlat=2
     """Flat shading."""
-    kFBModelShadingHard:FBModelShadingMode
+    kFBModelShadingHard=4
     """Hard shading."""
-    kFBModelShadingLight:FBModelShadingMode
+    kFBModelShadingLight=3
     """Lighted shading."""
-    kFBModelShadingTexture:FBModelShadingMode
+    kFBModelShadingTexture=5
     """Textured shading."""
-    kFBModelShadingWire:FBModelShadingMode
+    kFBModelShadingWire=1
     """Wireframe shading."""
 class FBModelTemplateStyle(Enumeration):
     """Model template styles When creating model templates, this parameter will affect the actual model created (associated with the model template)."""
-    kFBModelTemplateCamera:FBModelTemplateStyle
+    kFBModelTemplateCamera=6
     """Camera."""
-    kFBModelTemplateCameraInterest:FBModelTemplateStyle
+    kFBModelTemplateCameraInterest=8
     """Camera interest."""
-    kFBModelTemplateGeometry:FBModelTemplateStyle
+    kFBModelTemplateGeometry=7
     """Generic geometry."""
-    kFBModelTemplateLight:FBModelTemplateStyle
+    kFBModelTemplateLight=9
     """Light."""
-    kFBModelTemplateMarker:FBModelTemplateStyle
+    kFBModelTemplateMarker=2
     """Marker."""
-    kFBModelTemplateNone:FBModelTemplateStyle
+    kFBModelTemplateNone=0
     """No style."""
-    kFBModelTemplateNull:FBModelTemplateStyle
+    kFBModelTemplateNull=1
     """Null."""
-    kFBModelTemplateOptical:FBModelTemplateStyle
+    kFBModelTemplateOptical=10
     """Optical model (not supported yet)."""
-    kFBModelTemplateRoot:FBModelTemplateStyle
+    kFBModelTemplateRoot=3
     """Root (3 axes)."""
-    kFBModelTemplateSensor:FBModelTemplateStyle
+    kFBModelTemplateSensor=4
     """Yellow magnetic sensor."""
-    kFBModelTemplateSkeleton:FBModelTemplateStyle
+    kFBModelTemplateSkeleton=5
     """Skeleton limb."""
 class FBModelTransformationType(Enumeration):
     """Types of transformation vector/matrices possible.
     
     [See samples: FBModelCube.py,](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_f_b_model_cube_8py-example.html) [GeometryInstancing.py,](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/_samples_0c_geometry_0c_geometry_instancing_8py-example.html) [VertexArrayManipulation.py.](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/_samples_0c_geometry_0c_vertex_array_manipulation_8py-example.html)"""
-    kModelInverse_Rotation:FBModelTransformationType
+    kModelInverse_Rotation=6
     """Inverse rotation."""
-    kModelInverse_Scaling:FBModelTransformationType
+    kModelInverse_Scaling=8
     """Inverse scaling."""
-    kModelInverse_Transformation:FBModelTransformationType
+    kModelInverse_Transformation=5
     """Inverse transformation."""
-    kModelInverse_Transformation_Geometry:FBModelTransformationType
+    kModelInverse_Transformation_Geometry=9
     """Inverse of transformation plus geometry offset."""
-    kModelInverse_Translation:FBModelTransformationType
+    kModelInverse_Translation=7
     """Inverse translation."""
-    kModelRotation:FBModelTransformationType
+    kModelRotation=1
     """Rotation."""
-    kModelScaling:FBModelTransformationType
+    kModelScaling=3
     """Scaling."""
-    kModelTransformation:FBModelTransformationType
+    kModelTransformation=0
     """Transformation."""
-    kModelTransformation_Geometry:FBModelTransformationType
+    kModelTransformation_Geometry=4
     """Transformation plus geometry offset"""
-    kModelTranslation:FBModelTransformationType
+    kModelTranslation=2
     """Translation."""
 class FBNamespaceAction(Enumeration):
     """Namespace flags.
     
     [See samples: FBGetSelectedModels.py,](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_f_b_get_selected_models_8py-example.html) [FBGroup.py.](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_f_b_group_8py-example.html)"""
-    kFBConcatNamespace:FBNamespaceAction
+    kFBConcatNamespace=0
     """Use to add a namespace name to object."""
-    kFBRemoveAllNamespace:FBNamespaceAction
+    kFBRemoveAllNamespace=2
     """Remove all the namespace name."""
-    kFBReplaceNamespace:FBNamespaceAction
+    kFBReplaceNamespace=1
     """Use to replace a define namespace."""
 class FBNewKeyInterpolationType(Enumeration):
     """Key Interpolation Type to use when creating new keys."""
-    kFBNewKeyInterpolation_Auto:FBNewKeyInterpolationType
+    kFBNewKeyInterpolation_Auto=0
     """Auto interpolation type."""
-    kFBNewKeyInterpolation_Custom0:FBNewKeyInterpolationType
+    kFBNewKeyInterpolation_Custom0=9
     """Custom 0 interpolation type."""
-    kFBNewKeyInterpolation_Custom1:FBNewKeyInterpolationType
+    kFBNewKeyInterpolation_Custom1=10
     """Custom 1 interpolation type."""
-    kFBNewKeyInterpolation_Custom2:FBNewKeyInterpolationType
+    kFBNewKeyInterpolation_Custom2=11
     """Custom 2 interpolation type."""
-    kFBNewKeyInterpolation_Fixed:FBNewKeyInterpolationType
+    kFBNewKeyInterpolation_Fixed=8
     """Fixed interpolation type."""
-    kFBNewKeyInterpolation_Linear:FBNewKeyInterpolationType
+    kFBNewKeyInterpolation_Linear=3
     """Linear interpolation type."""
-    kFBNewKeyInterpolation_None:FBNewKeyInterpolationType
+    kFBNewKeyInterpolation_None=-1
     """Invalid interpolation type, could be returned by the system if it is in an uninitialized state. Don't use this mode."""
-    kFBNewKeyInterpolation_Smooth:FBNewKeyInterpolationType
+    kFBNewKeyInterpolation_Smooth=6
     """Smooth interpolation type."""
-    kFBNewKeyInterpolation_SmoothClamp:FBNewKeyInterpolationType
+    kFBNewKeyInterpolation_SmoothClamp=7
     """Smooth Clamp interpolation type."""
-    kFBNewKeyInterpolation_Spline:FBNewKeyInterpolationType
+    kFBNewKeyInterpolation_Spline=1
     """Spline interpolation type."""
-    kFBNewKeyInterpolation_SplineClamp:FBNewKeyInterpolationType
+    kFBNewKeyInterpolation_SplineClamp=2
     """Spline Clamp interpolation type."""
-    kFBNewKeyInterpolation_Step:FBNewKeyInterpolationType
+    kFBNewKeyInterpolation_Step=4
     """Step interpolation type."""
-    kFBNewKeyInterpolation_TCB:FBNewKeyInterpolationType
+    kFBNewKeyInterpolation_TCB=5
     """TCB interpolation type."""
 class FBNurbType(Enumeration):
     """Surface types."""
-    kFBNurbTypeClosed:FBNurbType
+    kFBNurbTypeClosed=1
     """Closed Type Nurb."""
-    kFBNurbTypeOpen:FBNurbType
+    kFBNurbTypeOpen=2
     """Open Type Nurb."""
-    kFBNurbTypePeriodic:FBNurbType
+    kFBNurbTypePeriodic=0
     """Periodic Type Nurb."""
 class FBObjectFlag(Enumeration):
     """Available flags for any component."""
-    kFBFlagAllocated:FBObjectFlag
+    kFBFlagAllocated=32768
     """Object is allocated, so it must call 'delete this' on destroy."""
-    kFBFlagBrowsable:FBObjectFlag
+    kFBFlagBrowsable=512
     """Visible in the Scene Navigator/Schematic View/Property View/Model View. If disabled, the object representation in the navigator will not be visible. In the Schematic View, system object are not shown and other objects will still be visible, but a red X will be drawn on them. It is not possible to select the object in the Schematic View. After disabling that flag of a selected object, it will still be selected to allow a script based on selection to work. It will then be possible for a user to deselect the object, but it will not be possible to select it."""
-    kFBFlagClonable:FBObjectFlag
+    kFBFlagClonable=16
     """Can be cloned. If disabled, the "Duplicate" option will be removed in the contextual menu."""
-    kFBFlagDeletable:FBObjectFlag
+    kFBFlagDeletable=2
     """Can be deleted."""
-    kFBFlagDetachable:FBObjectFlag
+    kFBFlagDetachable=2048
     """Object can be "detached". Used by the apply manager contextual menu."""
-    kFBFlagKeyable:FBObjectFlag
+    kFBFlagKeyable=16384
     """Object can Key his property. (System Camera can't)"""
-    kFBFlagMergeable:FBObjectFlag
+    kFBFlagMergeable=256
     """Can be merged."""
-    kFBFlagNamespaceEditable:FBObjectFlag
+    kFBFlagNamespaceEditable=8388608
     """Allow editing on the namespace objects. If disabled, the "Add/Remove Namespace..." option is removed from the contextual menu."""
-    kFBFlagNewable:FBObjectFlag
+    kFBFlagNewable=64
     """Deleted on File->New."""
-    kFBFlagParentable:FBObjectFlag
+    kFBFlagParentable=1024
     """Object (model) can be "parented". Used by the apply manager contextual menu."""
-    kFBFlagRenamable:FBObjectFlag
+    kFBFlagRenamable=128
     """Can be renamed."""
-    kFBFlagSavable:FBObjectFlag
+    kFBFlagSavable=4
     """Can be saved."""
-    kFBFlagSelectable:FBObjectFlag
+    kFBFlagSelectable=1
     """Can be selected. If disabled, representation of the object, like in the navigator, can still be selected and can still affect the original object."""
-    kFBFlagStorable6:FBObjectFlag
+    kFBFlagStorable6=131072
     """System/Obsolete."""
-    kFBFlagStorableData6:FBObjectFlag
+    kFBFlagStorableData6=262144
     """System/Obsolete."""
-    kFBFlagStory:FBObjectFlag
+    kFBFlagStory=65536
     """Object created/used by the Story tool. Useful flag for filtering Story objects."""
-    kFBFlagSystem:FBObjectFlag
+    kFBFlagSystem=32
     """Created from System (not from user)"""
-    kFBFlagUndoable:FBObjectFlag
+    kFBFlagUndoable=4096
     """Object can undo its actions and states, in a global Undo Stack."""
-    kFBFlagUndoableSeparately:FBObjectFlag
+    kFBFlagUndoableSeparately=8192
     """Object which has kFlagUndoableSeparately flag turned on will have a separate Undo Stack."""
-    kFBFlagUniqueName:FBObjectFlag
+    kFBFlagUniqueName=2097152
     """< Used in FBX SDK native IO, force bindary format for the bindary data."""
-    kFBFlagVisible:FBObjectFlag
+    kFBFlagVisible=8
     """Can be visible. If disabled, the object will still be available in the navigator, it is only hidden in the viewer."""
 class FBObjectPoseMirrorOptionsFlag(Enumeration):
     """ObjectPoseMirrorOptions flags."""
-    kFBObjectPoseMirrorOptionsNoFlag:FBObjectPoseMirrorOptionsFlag
-    kFBObjectPoseMirrorOptionsUpdateLocal:FBObjectPoseMirrorOptionsFlag
-    kFBObjectPoseMirrorOptionsUpdateLocalMirrorParent:FBObjectPoseMirrorOptionsFlag
-    kFBObjectPoseMirrorOptionsUpdateLocalRef:FBObjectPoseMirrorOptionsFlag
-    kFBObjectPoseMirrorOptionsUpdateLocalRefMirrorRef:FBObjectPoseMirrorOptionsFlag
+    kFBObjectPoseMirrorOptionsNoFlag=0
+    kFBObjectPoseMirrorOptionsUpdateLocal=1
+    kFBObjectPoseMirrorOptionsUpdateLocalMirrorParent=2
+    kFBObjectPoseMirrorOptionsUpdateLocalRef=4
+    kFBObjectPoseMirrorOptionsUpdateLocalRefMirrorRef=8
 class FBObjectPoseOptionsFlag(Enumeration):
     """ObjectPoseOptions flags."""
-    kFBObjectPoseOptionsNoFlag:FBObjectPoseOptionsFlag
-    kFBObjectPoseOptionsRotation:FBObjectPoseOptionsFlag
-    kFBObjectPoseOptionsScaling:FBObjectPoseOptionsFlag
-    kFBObjectPoseOptionsTranslationX:FBObjectPoseOptionsFlag
-    kFBObjectPoseOptionsTranslationY:FBObjectPoseOptionsFlag
-    kFBObjectPoseOptionsTranslationZ:FBObjectPoseOptionsFlag
+    kFBObjectPoseOptionsNoFlag=0
+    kFBObjectPoseOptionsRotation=8
+    kFBObjectPoseOptionsScaling=16
+    kFBObjectPoseOptionsTranslationX=1
+    kFBObjectPoseOptionsTranslationY=2
+    kFBObjectPoseOptionsTranslationZ=4
 class FBObjectStatus(Enumeration):
     """Available lifetime status for any component."""
-    kFBStatusClearing:FBObjectStatus
+    kFBStatusClearing=32
     """Object is in clearing operations (File new)."""
-    kFBStatusCreating:FBObjectStatus
+    kFBStatusCreating=1
     """Object is in creation operations."""
-    kFBStatusDestroying:FBObjectStatus
+    kFBStatusDestroying=16
     """Object is in destruction operations."""
-    kFBStatusMerging:FBObjectStatus
+    kFBStatusMerging=8
     """Object is in Merging operations."""
-    kFBStatusRetrieving:FBObjectStatus
+    kFBStatusRetrieving=4
     """Object is in retrieving operations."""
-    kFBStatusStoring:FBObjectStatus
+    kFBStatusStoring=2
     """Object is in storing operations."""
 class FBOneClickApplication(Enumeration):
     """Possible application for One-Click interop with MotionBuilder."""
-    kFBOneClick3dsMax:FBOneClickApplication
+    kFBOneClick3dsMax=2
     """3ds Max."""
-    kFBOneClickMaya:FBOneClickApplication
+    kFBOneClickMaya=1
     """Maya."""
-    kFBOneClickNone:FBOneClickApplication
+    kFBOneClickNone=0
     """No application."""
-    kFBOneClickSoftimage:FBOneClickApplication
+    kFBOneClickSoftimage=3
     """Softimage."""
 class FBOrientation(Enumeration):
     """General directions for UI components.  DEPRICATED use ParallelEvaluation on [FBEvaluateManager](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_evaluate_manager.html) insteadAvailable DAG parallel schedule algorithm
     
     [See samples: Container.py,](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_container_8py-example.html) [Slider.py.](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_slider_8py-example.html)"""
-    kFBHorizontal:FBOrientation
+    kFBHorizontal=0
     """Horizontal."""
-    kFBVertical:FBOrientation
+    kFBVertical=1
     """Vertical"""
 class FBParallelScheduleType(Enumeration):
-    kFBParallelScheduleAdvanced:FBParallelScheduleType
+    kFBParallelScheduleAdvanced=2
     """Advanced parallel schedule, task dependency analyzation will be able to across ative constraint, and plus motion hierarchy."""
-    kFBParallelScheduleSerial:FBParallelScheduleType
+    kFBParallelScheduleSerial=0
     """No parallel schedule, use sequential evaluation order instead."""
-    kFBParallelScheduleSimple:FBParallelScheduleType
+    kFBParallelScheduleSimple=1
     """Simple parallel schedule, mainly analyze the task dependency based on Motion Hierarchy (scene graph), but don't across active constraint."""
 class FBParity(Enumeration):
     """Parity modes."""
-    kFBParityEven:FBParity
+    kFBParityEven=2
     """Even parity."""
-    kFBParityNone:FBParity
+    kFBParityNone=0
     """No parity."""
-    kFBParityOdd:FBParity
+    kFBParityOdd=1
     """Odd parity."""
 class FBPickingMode(Enumeration):
     """3D picking mode."""
-    kFBPickingModeCount:FBPickingMode
+    kFBPickingModeCount=3
     """End of enum, this valued indicates the number of picking modes available."""
-    kFBPickingModeModelsOnly:FBPickingMode
+    kFBPickingModeModelsOnly=2
     """Models-only mode (no nulls or skeletons are displayed)."""
-    kFBPickingModeStandard:FBPickingMode
+    kFBPickingModeStandard=0
     """Standard picking mode."""
-    kFBPickingModeXRay:FBPickingMode
+    kFBPickingModeXRay=1
     """X-Ray picking mode (obstructed models are displayed in overlay)."""
 class FBPlayMode(Enumeration):
     """Play modes."""
-    kFBPlayModeLoop:FBPlayMode
+    kFBPlayModeLoop=3
     """Loop clip."""
-    kFBPlayModeNoPlay:FBPlayMode
+    kFBPlayModeNoPlay=0
     """No play (most common)."""
-    kFBPlayModePlay:FBPlayMode
+    kFBPlayModePlay=2
     """Play clip."""
-    kFBPlayModePlayToEnd:FBPlayMode
+    kFBPlayModePlayToEnd=4
     """Play clip to end."""
-    kFBPlayModePreviewToEnd:FBPlayMode
+    kFBPlayModePreviewToEnd=1
     """Preview clip until end."""
 class FBPlayerControlChangeType(Enumeration):
     """Types of player control change events."""
-    kFBPlayerControlGoto:FBPlayerControlChangeType
+    kFBPlayerControlGoto=6
     """Goto."""
-    kFBPlayerControlNone:FBPlayerControlChangeType
+    kFBPlayerControlNone=0
     """None."""
-    kFBPlayerControlPlay:FBPlayerControlChangeType
+    kFBPlayerControlPlay=1
     """Play."""
-    kFBPlayerControlPlayReverse:FBPlayerControlChangeType
+    kFBPlayerControlPlayReverse=2
     """Play reverse."""
-    kFBPlayerControlRecordModeOff:FBPlayerControlChangeType
+    kFBPlayerControlRecordModeOff=8
     """Record mode off."""
-    kFBPlayerControlRecordModeOn:FBPlayerControlChangeType
+    kFBPlayerControlRecordModeOn=7
     """Record mode on."""
-    kFBPlayerControlStepBackward:FBPlayerControlChangeType
+    kFBPlayerControlStepBackward=5
     """Step backward."""
-    kFBPlayerControlStepForward:FBPlayerControlChangeType
+    kFBPlayerControlStepForward=4
     """Step forward."""
-    kFBPlayerControlStop:FBPlayerControlChangeType
+    kFBPlayerControlStop=3
     """Stop."""
 class FBPlotAllowed(Enumeration):
     """[FBPlotAllowed](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_plot_allowed.html "FBPlotAllowed")"""
-    kFBPlotAllowed_Both:FBPlotAllowed
-    kFBPlotAllowed_ControlRig:FBPlotAllowed
-    kFBPlotAllowed_None:FBPlotAllowed
-    kFBPlotAllowed_Skeleton:FBPlotAllowed
+    kFBPlotAllowed_Both=3
+    kFBPlotAllowed_ControlRig=2
+    kFBPlotAllowed_None=0
+    kFBPlotAllowed_Skeleton=1
 class FBPlotTangentMode(Enumeration):
     """The tangent mode for plotted curve."""
-    kFBPlotTangentModeAuto:FBPlotTangentMode
-    kFBPlotTangentModeSmooth:FBPlotTangentMode
-    kFBPlotTangentModeSmoothClamp:FBPlotTangentMode
-    kFBPlotTangentModeSpline:FBPlotTangentMode
-    kFBPlotTangentModeSplineClamp:FBPlotTangentMode
+    kFBPlotTangentModeAuto=4
+    kFBPlotTangentModeSmooth=0
+    kFBPlotTangentModeSmoothClamp=1
+    kFBPlotTangentModeSpline=2
+    kFBPlotTangentModeSplineClamp=3
 class FBPlugModificationFlag(Enumeration):
-    kFBAllConnectionModified:FBPlugModificationFlag
-    kFBAllCustomPropertyModified:FBPlugModificationFlag
-    kFBAllDataModified:FBPlugModificationFlag
-    kFBAllKeyingModified:FBPlugModificationFlag
-    kFBAllModifiedMask:FBPlugModificationFlag
-    kFBAllStateModified:FBPlugModificationFlag
-    kFBContentAllModifiedMask:FBPlugModificationFlag
-    kFBContentConnectionModified:FBPlugModificationFlag
+    kFBAllConnectionModified=507904
+    kFBAllCustomPropertyModified=1572864
+    kFBAllDataModified=768
+    kFBAllKeyingModified=3072
+    kFBAllModifiedMask=2096896
+    kFBAllStateModified=12288
+    kFBContentAllModifiedMask=1321472
+    kFBContentConnectionModified=262144
     """Owner object/namespace has connection modified property/objects."""
-    kFBContentCustomPropertyModified:FBPlugModificationFlag
+    kFBContentCustomPropertyModified=1048576
     """Owner object/Namespace has dirty property/objects."""
-    kFBContentDataModified:FBPlugModificationFlag
+    kFBContentDataModified=512
     """Owner object/Namespace has data dirty property/objects."""
-    kFBContentKeyingModified:FBPlugModificationFlag
+    kFBContentKeyingModified=2048
     """Owner object/Namespace has data dirty property/objects."""
-    kFBContentStateModified:FBPlugModificationFlag
+    kFBContentStateModified=8192
     """Owner object/Namespace has state dirty property/objects."""
-    kFBPlugAllContent:FBPlugModificationFlag
+    kFBPlugAllContent=0
     """None Modified."""
-    kFBSelfAllModifiedMask:FBPlugModificationFlag
-    kFBSelfConnectionDstObjectModified:FBPlugModificationFlag
+    kFBSelfAllModifiedMask=775424
+    kFBSelfConnectionDstObjectModified=65536
     """The dst object of this plug has been modified."""
-    kFBSelfConnectionDstPropertyModified:FBPlugModificationFlag
+    kFBSelfConnectionDstPropertyModified=131072
     """The dst property of this plug has been modified."""
-    kFBSelfConnectionModifiedMask:FBPlugModificationFlag
-    kFBSelfConnectionSrcObjectModified:FBPlugModificationFlag
+    kFBSelfConnectionModifiedMask=245760
+    kFBSelfConnectionSrcObjectModified=16384
     """The src object of this plug has been modified."""
-    kFBSelfConnectionSrcPropertyModified:FBPlugModificationFlag
+    kFBSelfConnectionSrcPropertyModified=32768
     """The src property of this plug has been modified."""
-    kFBSelfCustomPropertyModified:FBPlugModificationFlag
+    kFBSelfCustomPropertyModified=524288
     """Object custom property change."""
-    kFBSelfDataModified:FBPlugModificationFlag
+    kFBSelfDataModified=256
     """Object/Property itself has been dirty, in case of property get dirty, its owner object will be set dirty as well."""
-    kFBSelfKeyingModified:FBPlugModificationFlag
+    kFBSelfKeyingModified=1024
     """Object/Property itself has been dirty, in case of property get dirty, its owner object will be set dirty as well."""
-    kFBSelfStateModified:FBPlugModificationFlag
+    kFBSelfStateModified=4096
     """Object/Property naming change."""
 class FBPlugStatusFlag(Enumeration):
-    kFBOwnedByUndo:FBPlugStatusFlag
+    kFBOwnedByUndo=2097152
     """Plug is owned by undo framework."""
-    kFBPlugStatusFlagNone:FBPlugStatusFlag
+    kFBPlugStatusFlagNone=0
     """Plug has no status set."""
-    kFBStatusMask:FBPlugStatusFlag
+    kFBStatusMask=2097152
 class FBPopupInputType(Enumeration):
     """User input types for a popup.
     
     [See samples: RePrefixAllMarkers.py,](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_re_prefix_all_markers_8py-example.html) [SelectModelsWithNameContainingSubstring.py,](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_select_models_with_name_containing_substring_8py-example.html) [FBMessageBoxGetUserValue.py.](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_f_b_message_box_get_user_value_8py-example.html)"""
-    kFBPopupBool:FBPopupInputType
+    kFBPopupBool=0
     """Boolean input."""
-    kFBPopupChar:FBPopupInputType
+    kFBPopupChar=1
     """Character input."""
-    kFBPopupDouble:FBPopupInputType
+    kFBPopupDouble=5
     """Double input."""
-    kFBPopupFloat:FBPopupInputType
+    kFBPopupFloat=4
     """Float input."""
-    kFBPopupInt:FBPopupInputType
+    kFBPopupInt=3
     """Integer input."""
-    kFBPopupPassword:FBPopupInputType
+    kFBPopupPassword=6
     """Password input (String with '*'s)."""
-    kFBPopupString:FBPopupInputType
+    kFBPopupString=2
     """String input."""
 class FBPoseTransformType(Enumeration):
     """Transform mode of pose."""
-    kFBPoseTransformGlobal:FBPoseTransformType
-    kFBPoseTransformInvalid:FBPoseTransformType
-    kFBPoseTransformLocal:FBPoseTransformType
-    kFBPoseTransformLocalRef:FBPoseTransformType
-    kFBPoseTransformTypeCount:FBPoseTransformType
+    kFBPoseTransformGlobal=1
+    kFBPoseTransformInvalid=-1
+    kFBPoseTransformLocal=0
+    kFBPoseTransformLocalRef=2
+    kFBPoseTransformTypeCount=3
 class FBPoseType(Enumeration):
     """Types of pose."""
-    kFBBindPose:FBPoseType
+    kFBBindPose=0
     """Bind pose."""
-    kFBRestPose:FBPoseType
+    kFBRestPose=1
     """Rest pose."""
 class FBProfilingMode(Enumeration):
     """Available Profiling modes."""
-    kFBProfilingModeAllHi:FBProfilingMode
+    kFBProfilingModeAllHi=6
     """Collect profiling for all known tasks . For large scenes there should be an influence on performance."""
-    kFBProfilingModeAllLow:FBProfilingMode
+    kFBProfilingModeAllLow=5
     """Collect profiling for all known tasks that doesn't increase remarkably with scene size. For large scenes this will not influence performance."""
-    kFBProfilingModeDevices:FBProfilingMode
+    kFBProfilingModeDevices=3
     """Collect profiling for device Input/Output and Device Evaluation."""
-    kFBProfilingModeDisabled:FBProfilingMode
+    kFBProfilingModeDisabled=0
     """All profiling disabled, this include Viewer profiling. For the other modes, when EvaluationDepth is 0, only base information is profiled, such as FPS and evaluation rate."""
-    kFBProfilingModeEvaluation:FBProfilingMode
+    kFBProfilingModeEvaluation=1
     """Collect profiling for all known evaluation tasks (default mode)."""
-    kFBProfilingModeRendering:FBProfilingMode
+    kFBProfilingModeRendering=2
     """Collect profiling for all known rendering tasks."""
-    kFBProfilingModeSDK:FBProfilingMode
+    kFBProfilingModeSDK=4
     """Collect profiling for SDK."""
 class FBPropertyComponents(Enumeration):
     """Property Components Bit Field (XYZ, RGB, RGBA, UV, XYZW, etc.)."""
-    kFBPropertyComponent0:FBPropertyComponents
+    kFBPropertyComponent0=1
     """First component (e.g.: X, Red, etc.)."""
-    kFBPropertyComponent1:FBPropertyComponents
+    kFBPropertyComponent1=2
     """Second component (e.g.: Y, Green, etc.)."""
-    kFBPropertyComponent2:FBPropertyComponents
+    kFBPropertyComponent2=4
     """Third component (e.g.: Z, Blue, etc.)."""
-    kFBPropertyComponent3:FBPropertyComponents
+    kFBPropertyComponent3=8
     """Fourth component (e.g.: W, Alpha, etc.)."""
-    kFBPropertyComponentAll:FBPropertyComponents
+    kFBPropertyComponentAll=15
     """All components."""
 class FBPropertyFlag(Enumeration):
     """Available flags for [FBProperty](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property.html "Generic application property.") objects. PropertyList: Actor.
@@ -2348,725 +2349,725 @@ class FBPropertyFlag(Enumeration):
     [See sample: PropertyDrop.py.](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_property_drop_8py-example.html)
     
     These classes are under development and may change dramatically between versions."""
-    kFBDrivenSetByMain:FBPropertyFlag
+    kFBDrivenSetByMain=1024
     """Driven property can be modified, valid only when the main property is modified."""
-    kFBDynamicHidden:FBPropertyFlag
+    kFBDynamicHidden=512
     """This flag is used to show/hide the property in the propertiview. When turn on/ff DynamicHidden flag, this property will show/hide. The nodes hidden by this flag still exist in UI."""
-    kFBLoadedUserProperty:FBPropertyFlag
+    kFBLoadedUserProperty=2048
     """This property is loaded from file."""
-    kFBPropertyFlagAnimated:FBPropertyFlag
-    kFBPropertyFlagDisableProperty:FBPropertyFlag
-    kFBPropertyFlagDrivenProperty:FBPropertyFlag
+    kFBPropertyFlagAnimated=16
+    kFBPropertyFlagDisableProperty=4
+    kFBPropertyFlagDrivenProperty=8
     """This is property is connected and driven by other same type of main property, and it always ask value from its main property."""
-    kFBPropertyFlagForceStaticProperty:FBPropertyFlag
-    kFBPropertyFlagHideProperty:FBPropertyFlag
+    kFBPropertyFlagForceStaticProperty=2
+    kFBPropertyFlagHideProperty=1
     """This flag is used to show/hide the property in the propertiview. However, when turn on/off HidePropertry flag, this property won't show/hide unless you reload the UI. The nodes hidden by this flag are removed from UI."""
-    kFBPropertyFlagNotSavable:FBPropertyFlag
+    kFBPropertyFlagNotSavable=32
     """Should not be saved to or loaded from an FBX file."""
-    kFBPropertyFlagNotSet:FBPropertyFlag
-    kFBPropertyFlagNotUserDeletable:FBPropertyFlag
-    kFBPropertyFlagReadOnly:FBPropertyFlag
-    kFBSlaveSetByMaster:FBPropertyFlag
-    kFBValueAllocated:FBPropertyFlag
+    kFBPropertyFlagNotSet=0
+    kFBPropertyFlagNotUserDeletable=128
+    kFBPropertyFlagReadOnly=64
+    kFBSlaveSetByMaster=1024
+    kFBValueAllocated=256
     """The value has been allocated and must be delete in destructor."""
 class FBPropertyStateEventType(Enumeration):
     """This enum indicates what modification was made to the animation of a tracked property. Property class: const char * (String)."""
-    kFBPropertyStateEventTypeAttached:FBPropertyStateEventType
+    kFBPropertyStateEventTypeAttached=1
     """Property connector was added (can happen when undoing a delete operation, which set back the property active in the scene)"""
-    kFBPropertyStateEventTypeDestroyed:FBPropertyStateEventType
+    kFBPropertyStateEventTypeDestroyed=4
     """Property connector was destroyed (property animation was deleted)"""
-    kFBPropertyStateEventTypeDetached:FBPropertyStateEventType
+    kFBPropertyStateEventTypeDetached=2
     """Property connector was detached (property animation was delete from the scene, but it still keep in case an undo operation is done)"""
-    kFBPropertyStateEventTypeMassOperation:FBPropertyStateEventType
+    kFBPropertyStateEventTypeMassOperation=8
     """Property was heavily modified (switching to story tool, story clip deleted...)"""
-    kFBPropertyStateEventTypeUnknownOperation:FBPropertyStateEventType
+    kFBPropertyStateEventTypeUnknownOperation=0
     """Invalid event."""
 class FBPropertyType(Enumeration):
     """Property types.
     
     [See sample: CustomProperty.py.](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_custom_property_8py-example.html)"""
-    kFBPT_Action:FBPropertyType
+    kFBPT_Action=18
     """action."""
-    kFBPT_ColorRGB:FBPropertyType
+    kFBPT_ColorRGB=16
     """colorrgb."""
-    kFBPT_ColorRGBA:FBPropertyType
+    kFBPT_ColorRGBA=17
     """colorrgba."""
-    kFBPT_Reference:FBPropertyType
+    kFBPT_Reference=19
     """reference."""
-    kFBPT_Time:FBPropertyType
+    kFBPT_Time=9
     """time."""
-    kFBPT_TimeCode:FBPropertyType
+    kFBPT_TimeCode=10
     """timecode."""
-    kFBPT_TimeSpan:FBPropertyType
+    kFBPT_TimeSpan=20
     """timespan."""
-    kFBPT_Vector2D:FBPropertyType
+    kFBPT_Vector2D=22
     """vector2d."""
-    kFBPT_Vector3D:FBPropertyType
+    kFBPT_Vector3D=15
     """vector3d."""
-    kFBPT_Vector4D:FBPropertyType
+    kFBPT_Vector4D=14
     """vector4d."""
-    kFBPT_bool:FBPropertyType
+    kFBPT_bool=4
     """bool."""
-    kFBPT_charptr:FBPropertyType
+    kFBPT_charptr=7
     """charptr."""
-    kFBPT_double:FBPropertyType
+    kFBPT_double=6
     """double."""
-    kFBPT_enum:FBPropertyType
+    kFBPT_enum=8
     """enum."""
-    kFBPT_event:FBPropertyType
+    kFBPT_event=12
     """event."""
-    kFBPT_float:FBPropertyType
+    kFBPT_float=5
     """float."""
-    kFBPT_int:FBPropertyType
+    kFBPT_int=1
     """int."""
-    kFBPT_kReference:FBPropertyType
+    kFBPT_kReference=21
     """kReference."""
-    kFBPT_object:FBPropertyType
+    kFBPT_object=11
     """object."""
-    kFBPT_stringlist:FBPropertyType
+    kFBPT_stringlist=13
     """stringlist."""
-    kFBPT_unknown:FBPropertyType
+    kFBPT_unknown=0
     """unknow."""
 class FBPropertyViewType(Enumeration):
     """Property view set type."""
-    kFBViewByObject:FBPropertyViewType
+    kFBViewByObject=2
     """Object property view."""
-    kFBViewByObjectType:FBPropertyViewType
+    kFBViewByObjectType=1
     """Class type property view."""
-    kFBViewGlobal:FBPropertyViewType
+    kFBViewGlobal=0
     """Global property view."""
 class FBRSType(Enumeration):
     """RS type for serial port."""
-    kFBRS232:FBRSType
+    kFBRS232=0
     """RS-232 serial protocol."""
-    kFBRS422:FBRSType
+    kFBRS422=1
     """RS-422 serial protocol."""
 class FBRecalcMarkerSetOffset(Enumeration):
     """Recalculate MarkerSet offset for?"""
-    kFBRecalcMarkerSetOffsetROnly:FBRecalcMarkerSetOffset
+    kFBRecalcMarkerSetOffsetROnly=1
     """Recalculate MarkerSet offset for R Only."""
-    kFBRecalcMarkerSetOffsetTR:FBRecalcMarkerSetOffset
+    kFBRecalcMarkerSetOffsetTR=0
     """Recalculate MarkerSet offset for TR."""
 class FBRenderingPass(Enumeration):
     """Rendering Pass.
     
     Use with [FBShader::RenderingPass](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_shader.html#aaeb747d0fcc5d53368c2efb2285991aa "Read Write Property: Rendering pass object are shaded in.") properties to make the shader be called at any pass. Passes will be called in the order of the enum."""
-    kFBPassAddColor:FBRenderingPass
+    kFBPassAddColor=128
     """Models are blended additively."""
-    kFBPassFlat:FBRenderingPass
+    kFBPassFlat=2
     """Lighting off."""
-    kFBPassInvalid:FBRenderingPass
+    kFBPassInvalid=0
     """No pass selected."""
-    kFBPassLighted:FBRenderingPass
+    kFBPassLighted=4
     """Lighting on."""
-    kFBPassMatte:FBRenderingPass
+    kFBPassMatte=8
     """Alpha > 0.5 will show up."""
-    kFBPassPostRender:FBRenderingPass
+    kFBPassPostRender=512
     """After everything."""
-    kFBPassPreRender:FBRenderingPass
+    kFBPassPreRender=1
     """Before anything."""
-    kFBPassTranslucent:FBRenderingPass
+    kFBPassTranslucent=64
     """Models are blended."""
-    kFBPassTranslucentZSort:FBRenderingPass
+    kFBPassTranslucentZSort=256
     """Models are sorted and blended."""
-    kFBPassZTranslucent:FBRenderingPass
+    kFBPassZTranslucent=16
     """Writes to depth buffer."""
-    kFBPassZTranslucentAlphaTest:FBRenderingPass
+    kFBPassZTranslucentAlphaTest=32
     """Writes to depth buffer where Alpha > 0.5."""
 class FBRigidBodyMode(Enumeration):
     """Rigid body modes."""
-    kFBRigidBodyBest:FBRigidBodyMode
+    kFBRigidBodyBest=1
     """Best rigid body mode."""
-    kFBRigidBodyFast:FBRigidBodyMode
+    kFBRigidBodyFast=0
     """Fast rigid body mode."""
 class FBRootHMode(Enumeration):
-    kFBRootHAbsoluteDifference:FBRootHMode
-    kFBRootHRelativeDifference:FBRootHMode
+    kFBRootHAbsoluteDifference=0
+    kFBRootHRelativeDifference=1
 class FBRootRMode(Enumeration):
-    kFBRootRAbsoluteDifference:FBRootRMode
-    kFBRootRRelativeDifference:FBRootRMode
+    kFBRootRAbsoluteDifference=0
+    kFBRootRRelativeDifference=1
 class FBRootSpeedMode(Enumeration):
-    kFBRootSpeedAbsoluteDifference:FBRootSpeedMode
-    kFBRootSpeedRelativeDifference:FBRootSpeedMode
+    kFBRootSpeedAbsoluteDifference=0
+    kFBRootSpeedRelativeDifference=1
 class FBRootXZMode(Enumeration):
-    kFBRootXZAbsoluteDifference:FBRootXZMode
-    kFBRootXZRelativeDifference:FBRootXZMode
+    kFBRootXZAbsoluteDifference=0
+    kFBRootXZRelativeDifference=1
 class FBRotationFilter(Enumeration):
     """Rotation filters."""
-    kFBRotationFilterGimbleKiller:FBRotationFilter
-    kFBRotationFilterNone:FBRotationFilter
-    kFBRotationFilterUnroll:FBRotationFilter
+    kFBRotationFilterGimbleKiller=1
+    kFBRotationFilterNone=0
+    kFBRotationFilterUnroll=2
 class FBRotationOrder(Enumeration):
     """Specify the Euler rotation order."""
-    kFBXYZ:FBRotationOrder
+    kFBXYZ=0
     """XYZ"""
-    kFBXZY:FBRotationOrder
+    kFBXZY=1
     """XZY."""
-    kFBYXZ:FBRotationOrder
+    kFBYXZ=2
     """YXZ."""
-    kFBYZX:FBRotationOrder
+    kFBYZX=3
     """YZX"""
-    kFBZXY:FBRotationOrder
+    kFBZXY=4
     """ZXY"""
-    kFBZYX:FBRotationOrder
+    kFBZYX=5
     """ZYX."""
 class FBSceneChangeType(Enumeration):
     """Types of model selection events.
     
     [See sample: PropertyDrop.py.](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_property_drop_8py-example.html)"""
-    kFBSceneChangeActivate:FBSceneChangeType
+    kFBSceneChangeActivate=19
     """Activate."""
-    kFBSceneChangeAddChild:FBSceneChangeType
+    kFBSceneChangeAddChild=4
     """Child added."""
-    kFBSceneChangeAttach:FBSceneChangeType
+    kFBSceneChangeAttach=2
     """Object attached."""
-    kFBSceneChangeChangeName:FBSceneChangeType
+    kFBSceneChangeChangeName=30
     """Object change name."""
-    kFBSceneChangeChangedName:FBSceneChangeType
+    kFBSceneChangeChangedName=31
     """Object changed name."""
-    kFBSceneChangeChangedParent:FBSceneChangeType
+    kFBSceneChangeChangedParent=35
     """Object changed parent."""
-    kFBSceneChangeClearBegin:FBSceneChangeType
+    kFBSceneChangeClearBegin=23
     """Begin clearing file (file new)"""
-    kFBSceneChangeClearEnd:FBSceneChangeType
+    kFBSceneChangeClearEnd=24
     """End clearing file (file new)"""
-    kFBSceneChangeDeactivate:FBSceneChangeType
+    kFBSceneChangeDeactivate=20
     """Deactivate."""
-    kFBSceneChangeDestroy:FBSceneChangeType
+    kFBSceneChangeDestroy=1
     """Object destroyed."""
-    kFBSceneChangeDetach:FBSceneChangeType
+    kFBSceneChangeDetach=3
     """Object detached."""
-    kFBSceneChangeFocus:FBSceneChangeType
+    kFBSceneChangeFocus=34
     """Object have focus."""
-    kFBSceneChangeHardSelect:FBSceneChangeType
+    kFBSceneChangeHardSelect=18
     """Hard selection."""
-    kFBSceneChangeLoadBegin:FBSceneChangeType
+    kFBSceneChangeLoadBegin=21
     """Begin loading file."""
-    kFBSceneChangeLoadEnd:FBSceneChangeType
+    kFBSceneChangeLoadEnd=22
     """End loading file."""
-    kFBSceneChangeMergeTransactionBegin:FBSceneChangeType
+    kFBSceneChangeMergeTransactionBegin=27
     """Begin merge transaction."""
-    kFBSceneChangeMergeTransactionEnd:FBSceneChangeType
+    kFBSceneChangeMergeTransactionEnd=28
     """End merge transaction."""
-    kFBSceneChangeNone:FBSceneChangeType
+    kFBSceneChangeNone=0
     """Unknown event."""
-    kFBSceneChangePreParent:FBSceneChangeType
+    kFBSceneChangePreParent=32
     """Before object parenting."""
-    kFBSceneChangePreUnparent:FBSceneChangeType
+    kFBSceneChangePreUnparent=33
     """Before object unparenting."""
-    kFBSceneChangeReSelect:FBSceneChangeType
+    kFBSceneChangeReSelect=29
     """Re-selection."""
-    kFBSceneChangeRemoveChild:FBSceneChangeType
+    kFBSceneChangeRemoveChild=5
     """Child removed."""
-    kFBSceneChangeRename:FBSceneChangeType
+    kFBSceneChangeRename=8
     """Before object rename."""
-    kFBSceneChangeRenamePrefix:FBSceneChangeType
+    kFBSceneChangeRenamePrefix=9
     """Before object rename prefix."""
-    kFBSceneChangeRenameUnique:FBSceneChangeType
+    kFBSceneChangeRenameUnique=10
     """Before object rename unique."""
-    kFBSceneChangeRenameUniquePrefix:FBSceneChangeType
+    kFBSceneChangeRenameUniquePrefix=11
     """Before object rename unique prefix."""
-    kFBSceneChangeRenamed:FBSceneChangeType
+    kFBSceneChangeRenamed=12
     """After object rename."""
-    kFBSceneChangeRenamedPrefix:FBSceneChangeType
+    kFBSceneChangeRenamedPrefix=13
     """After object rename prefix."""
-    kFBSceneChangeRenamedUnique:FBSceneChangeType
+    kFBSceneChangeRenamedUnique=14
     """After object rename unique."""
-    kFBSceneChangeRenamedUniquePrefix:FBSceneChangeType
+    kFBSceneChangeRenamedUniquePrefix=15
     """After object rename unique prefix."""
-    kFBSceneChangeReorder:FBSceneChangeType
+    kFBSceneChangeReorder=36
     """Object reorder."""
-    kFBSceneChangeReordered:FBSceneChangeType
+    kFBSceneChangeReordered=37
     """Object reordered."""
-    kFBSceneChangeSelect:FBSceneChangeType
+    kFBSceneChangeSelect=6
     """Object selection."""
-    kFBSceneChangeSoftSelect:FBSceneChangeType
+    kFBSceneChangeSoftSelect=16
     """Soft selection."""
-    kFBSceneChangeSoftUnselect:FBSceneChangeType
+    kFBSceneChangeSoftUnselect=17
     """Soft deselection."""
-    kFBSceneChangeTransactionBegin:FBSceneChangeType
+    kFBSceneChangeTransactionBegin=25
     """Begin transaction."""
-    kFBSceneChangeTransactionEnd:FBSceneChangeType
+    kFBSceneChangeTransactionEnd=26
     """End transaction."""
-    kFBSceneChangeUnselect:FBSceneChangeType
+    kFBSceneChangeUnselect=7
     """Object deselection."""
 class FBSegmentMode(Enumeration):
     """Segment modes."""
-    kFBSegmentAll:FBSegmentMode
+    kFBSegmentAll=2
     """Use all."""
-    kFBSegmentMarker:FBSegmentMode
+    kFBSegmentMarker=0
     """Use marker."""
-    kFBSegmentRigidBody:FBSegmentMode
+    kFBSegmentRigidBody=1
     """Use rigid body."""
 class FBShadowFrameType(Enumeration):
     """Shadow calculation methods."""
-    kFBShadowFrameTypeShadowCaster:FBShadowFrameType
+    kFBShadowFrameTypeShadowCaster=1
     """Bases the shadow calculation on the shadow of the caster."""
-    kFBShadowFrameTypeShadowCubeMap:FBShadowFrameType
+    kFBShadowFrameTypeShadowCubeMap=2
     """Undocumented or unsupported."""
-    kFBShadowFrameTypeShadowReceiver:FBShadowFrameType
+    kFBShadowFrameTypeShadowReceiver=0
     """Bases the shadow calculation on the shadow of the receiver."""
 class FBShadowType(Enumeration):
     """Shadow types.
     
     The different types of shadow mapping."""
-    kFBShadowTypeLightMapProjectiveTexture:FBShadowType
+    kFBShadowTypeLightMapProjectiveTexture=2
     """Uses a texture projection as a shadow."""
-    kFBShadowTypeShadowOpaquePlanar:FBShadowType
+    kFBShadowTypeShadowOpaquePlanar=5
     """Similar to the Planar Shadow, except that it treats all objects as opaque."""
-    kFBShadowTypeShadowProjectiveTexture:FBShadowType
+    kFBShadowTypeShadowProjectiveTexture=1
     """Uses a texture projection to create a shadow."""
-    kFBShadowTypeShadowTranslucentPlanar:FBShadowType
+    kFBShadowTypeShadowTranslucentPlanar=0
     """Use this shadow type to create darkened shadow areas only on planar surfaces."""
-    kFBShadowTypeZLightMapProjectiveTexture:FBShadowType
+    kFBShadowTypeZLightMapProjectiveTexture=4
     """Similar to the Projective Light Map except that it uses a boolean algorithm to create a self-shadow."""
-    kFBShadowTypeZShadowProjectiveTexture:FBShadowType
+    kFBShadowTypeZShadowProjectiveTexture=3
     """Similar to the Projective Shadow, except that it uses a boolean algorithm to create a self-shadow."""
 class FBSkeletonLook(Enumeration):
     """Look of the skeleton."""
-    kFBSkeletonLookBone:FBSkeletonLook
+    kFBSkeletonLookBone=0
     """Bone."""
-    kFBSkeletonLookBox:FBSkeletonLook
+    kFBSkeletonLookBox=6
     """Box."""
-    kFBSkeletonLookCapsule:FBSkeletonLook
+    kFBSkeletonLookCapsule=5
     """Capsule."""
-    kFBSkeletonLookCircle:FBSkeletonLook
+    kFBSkeletonLookCircle=7
     """Circle."""
-    kFBSkeletonLookCube:FBSkeletonLook
+    kFBSkeletonLookCube=1
     """Cube."""
-    kFBSkeletonLookHardCross:FBSkeletonLook
+    kFBSkeletonLookHardCross=2
     """Thick cross."""
-    kFBSkeletonLookLightCross:FBSkeletonLook
+    kFBSkeletonLookLightCross=3
     """Wireframe cross."""
-    kFBSkeletonLookSphere:FBSkeletonLook
+    kFBSkeletonLookSphere=4
     """Sphere."""
-    kFBSkeletonLookSquare:FBSkeletonLook
+    kFBSkeletonLookSquare=8
     """Square."""
-    kFBSkeletonLookStick:FBSkeletonLook
+    kFBSkeletonLookStick=9
     """Box with a sphere on one end."""
 class FBSkeletonNodeId(Enumeration):
     """All Skeleton nodes"""
-    kFBSkeletonChestIndex:FBSkeletonNodeId
-    kFBSkeletonHeadIndex:FBSkeletonNodeId
-    kFBSkeletonHipsIndex:FBSkeletonNodeId
-    kFBSkeletonInvalidIndex:FBSkeletonNodeId
-    kFBSkeletonLastIndex:FBSkeletonNodeId
-    kFBSkeletonLeftAnkleIndex:FBSkeletonNodeId
-    kFBSkeletonLeftCollarIndex:FBSkeletonNodeId
-    kFBSkeletonLeftElbowIndex:FBSkeletonNodeId
-    kFBSkeletonLeftFootIndex:FBSkeletonNodeId
-    kFBSkeletonLeftHipIndex:FBSkeletonNodeId
-    kFBSkeletonLeftIndexAIndex:FBSkeletonNodeId
-    kFBSkeletonLeftIndexBIndex:FBSkeletonNodeId
-    kFBSkeletonLeftIndexCIndex:FBSkeletonNodeId
-    kFBSkeletonLeftKneeIndex:FBSkeletonNodeId
-    kFBSkeletonLeftMiddleAIndex:FBSkeletonNodeId
-    kFBSkeletonLeftMiddleBIndex:FBSkeletonNodeId
-    kFBSkeletonLeftMiddleCIndex:FBSkeletonNodeId
-    kFBSkeletonLeftPinkyAIndex:FBSkeletonNodeId
-    kFBSkeletonLeftPinkyBIndex:FBSkeletonNodeId
-    kFBSkeletonLeftPinkyCIndex:FBSkeletonNodeId
-    kFBSkeletonLeftRingAIndex:FBSkeletonNodeId
-    kFBSkeletonLeftRingBIndex:FBSkeletonNodeId
-    kFBSkeletonLeftRingCIndex:FBSkeletonNodeId
-    kFBSkeletonLeftShoulderIndex:FBSkeletonNodeId
-    kFBSkeletonLeftThumbAIndex:FBSkeletonNodeId
-    kFBSkeletonLeftThumbBIndex:FBSkeletonNodeId
-    kFBSkeletonLeftThumbCIndex:FBSkeletonNodeId
-    kFBSkeletonLeftWristIndex:FBSkeletonNodeId
-    kFBSkeletonNeckIndex:FBSkeletonNodeId
-    kFBSkeletonReferenceIndex:FBSkeletonNodeId
-    kFBSkeletonRightAnkleIndex:FBSkeletonNodeId
-    kFBSkeletonRightCollarIndex:FBSkeletonNodeId
-    kFBSkeletonRightElbowIndex:FBSkeletonNodeId
-    kFBSkeletonRightFootIndex:FBSkeletonNodeId
-    kFBSkeletonRightHipIndex:FBSkeletonNodeId
-    kFBSkeletonRightIndexAIndex:FBSkeletonNodeId
-    kFBSkeletonRightIndexBIndex:FBSkeletonNodeId
-    kFBSkeletonRightIndexCIndex:FBSkeletonNodeId
-    kFBSkeletonRightKneeIndex:FBSkeletonNodeId
-    kFBSkeletonRightMiddleAIndex:FBSkeletonNodeId
-    kFBSkeletonRightMiddleBIndex:FBSkeletonNodeId
-    kFBSkeletonRightMiddleCIndex:FBSkeletonNodeId
-    kFBSkeletonRightPinkyAIndex:FBSkeletonNodeId
-    kFBSkeletonRightPinkyBIndex:FBSkeletonNodeId
-    kFBSkeletonRightPinkyCIndex:FBSkeletonNodeId
-    kFBSkeletonRightRingAIndex:FBSkeletonNodeId
-    kFBSkeletonRightRingBIndex:FBSkeletonNodeId
-    kFBSkeletonRightRingCIndex:FBSkeletonNodeId
-    kFBSkeletonRightShoulderIndex:FBSkeletonNodeId
-    kFBSkeletonRightThumbAIndex:FBSkeletonNodeId
-    kFBSkeletonRightThumbBIndex:FBSkeletonNodeId
-    kFBSkeletonRightThumbCIndex:FBSkeletonNodeId
-    kFBSkeletonRightWristIndex:FBSkeletonNodeId
-    kFBSkeletonWaistIndex:FBSkeletonNodeId
+    kFBSkeletonChestIndex=10
+    kFBSkeletonHeadIndex=20
+    kFBSkeletonHipsIndex=0
+    kFBSkeletonInvalidIndex=-1
+    kFBSkeletonLastIndex=52
+    kFBSkeletonLeftAnkleIndex=3
+    kFBSkeletonLeftCollarIndex=11
+    kFBSkeletonLeftElbowIndex=13
+    kFBSkeletonLeftFootIndex=4
+    kFBSkeletonLeftHipIndex=1
+    kFBSkeletonLeftIndexAIndex=24
+    kFBSkeletonLeftIndexBIndex=25
+    kFBSkeletonLeftIndexCIndex=26
+    kFBSkeletonLeftKneeIndex=2
+    kFBSkeletonLeftMiddleAIndex=27
+    kFBSkeletonLeftMiddleBIndex=28
+    kFBSkeletonLeftMiddleCIndex=29
+    kFBSkeletonLeftPinkyAIndex=33
+    kFBSkeletonLeftPinkyBIndex=34
+    kFBSkeletonLeftPinkyCIndex=35
+    kFBSkeletonLeftRingAIndex=30
+    kFBSkeletonLeftRingBIndex=31
+    kFBSkeletonLeftRingCIndex=32
+    kFBSkeletonLeftShoulderIndex=12
+    kFBSkeletonLeftThumbAIndex=21
+    kFBSkeletonLeftThumbBIndex=22
+    kFBSkeletonLeftThumbCIndex=23
+    kFBSkeletonLeftWristIndex=14
+    kFBSkeletonNeckIndex=19
+    kFBSkeletonReferenceIndex=51
+    kFBSkeletonRightAnkleIndex=7
+    kFBSkeletonRightCollarIndex=15
+    kFBSkeletonRightElbowIndex=17
+    kFBSkeletonRightFootIndex=8
+    kFBSkeletonRightHipIndex=5
+    kFBSkeletonRightIndexAIndex=39
+    kFBSkeletonRightIndexBIndex=40
+    kFBSkeletonRightIndexCIndex=41
+    kFBSkeletonRightKneeIndex=6
+    kFBSkeletonRightMiddleAIndex=42
+    kFBSkeletonRightMiddleBIndex=43
+    kFBSkeletonRightMiddleCIndex=44
+    kFBSkeletonRightPinkyAIndex=48
+    kFBSkeletonRightPinkyBIndex=49
+    kFBSkeletonRightPinkyCIndex=50
+    kFBSkeletonRightRingAIndex=45
+    kFBSkeletonRightRingBIndex=46
+    kFBSkeletonRightRingCIndex=47
+    kFBSkeletonRightShoulderIndex=16
+    kFBSkeletonRightThumbAIndex=36
+    kFBSkeletonRightThumbBIndex=37
+    kFBSkeletonRightThumbCIndex=38
+    kFBSkeletonRightWristIndex=18
+    kFBSkeletonWaistIndex=9
 class FBSkeletonResolutionLevel(Enumeration):
     """Resolution of skeleton sphere, capsule and stick (Quality)."""
-    kFBSkeletonHighResolution:FBSkeletonResolutionLevel
+    kFBSkeletonHighResolution=2
     """Highest resolution."""
-    kFBSkeletonLowResolution:FBSkeletonResolutionLevel
+    kFBSkeletonLowResolution=0
     """Lowest resolution."""
-    kFBSkeletonMediumResolution:FBSkeletonResolutionLevel
+    kFBSkeletonMediumResolution=1
     """Medium resolution."""
 class FBSplitStyle(Enumeration):
     """Type of split style (sub-division) for layout."""
-    kFBHSplit:FBSplitStyle
+    kFBHSplit=1
     """Horizontal split."""
-    kFBHVSplit:FBSplitStyle
+    kFBHVSplit=3
     """Horizontal and Vertical split."""
-    kFBNoSplit:FBSplitStyle
+    kFBNoSplit=0
     """No split."""
-    kFBVSplit:FBSplitStyle
+    kFBVSplit=2
     """Vertical split."""
 class FBStereoDisplayMode(Enumeration):
-    kFBStereoDisplayActive:FBStereoDisplayMode
+    kFBStereoDisplayActive=3
     """Display in active mode. User must enable OpenGL quad stereo buffer, and choose approriate stereo mode in video card hardware's config app."""
-    kFBStereoDisplayAnaglyph:FBStereoDisplayMode
+    kFBStereoDisplayAnaglyph=6
     """Display in Analygh stereo mode."""
-    kFBStereoDisplayAnaglyphLuminance:FBStereoDisplayMode
+    kFBStereoDisplayAnaglyphLuminance=7
     """Display in Luminance Analygh stereo mode."""
-    kFBStereoDisplayCenterEye:FBStereoDisplayMode
+    kFBStereoDisplayCenterEye=0
     """Display in Center Eye Camera, No Stereo effect."""
-    kFBStereoDisplayCheckerboard:FBStereoDisplayMode
+    kFBStereoDisplayCheckerboard=5
     """Display in Checkboard Interlace stereo mode."""
-    kFBStereoDisplayFreeviewCrossed:FBStereoDisplayMode
+    kFBStereoDisplayFreeviewCrossed=9
     """Display in crossed free view stereo mode."""
-    kFBStereoDisplayFreeviewParallel:FBStereoDisplayMode
+    kFBStereoDisplayFreeviewParallel=8
     """Display in parallel free view stereo mode."""
-    kFBStereoDisplayHorizontalInterlace:FBStereoDisplayMode
+    kFBStereoDisplayHorizontalInterlace=4
     """Display in Horizontal Interlace stereo mode."""
-    kFBStereoDisplayLeftEye:FBStereoDisplayMode
+    kFBStereoDisplayLeftEye=1
     """Display in Left Eye Caerma, No Stereo effect."""
-    kFBStereoDisplayModeCount:FBStereoDisplayMode
+    kFBStereoDisplayModeCount=10
     """update this count value when add new mode"""
-    kFBStereoDisplayRightEye:FBStereoDisplayMode
+    kFBStereoDisplayRightEye=2
     """Display in Right Eye Caerma, No Stereo effect."""
 class FBStoryClipAlignmentType(Enumeration):
     """Alignment Types when aligning clips."""
-    kFBStoryClipAlignmentBeginningNext:FBStoryClipAlignmentType
+    kFBStoryClipAlignmentBeginningNext=3
     """Align selected clips to the beginning of the next clip."""
-    kFBStoryClipAlignmentBeginningNextAllAligned:FBStoryClipAlignmentType
+    kFBStoryClipAlignmentBeginningNextAllAligned=4
     """Align selected clips to the beginning of the next clip, all clips will be align to the selected clip position."""
-    kFBStoryClipAlignmentBeginningNextWithOffset:FBStoryClipAlignmentType
+    kFBStoryClipAlignmentBeginningNextWithOffset=7
     """Align selected clips to the beginning of the next clip, while keeping the relative offset."""
-    kFBStoryClipAlignmentCurrentTimeline:FBStoryClipAlignmentType
+    kFBStoryClipAlignmentCurrentTimeline=0
     """Align all selected clips with the current time."""
-    kFBStoryClipAlignmentCurrentTimelineWithOffset:FBStoryClipAlignmentType
+    kFBStoryClipAlignmentCurrentTimelineWithOffset=5
     """Align all selected clips with the current time, while keeping the relative offset."""
-    kFBStoryClipAlignmentEndPrevious:FBStoryClipAlignmentType
+    kFBStoryClipAlignmentEndPrevious=1
     """Align selected clips to the end of the previous clip."""
-    kFBStoryClipAlignmentEndPreviousAllAligned:FBStoryClipAlignmentType
+    kFBStoryClipAlignmentEndPreviousAllAligned=2
     """Align selected clips to the end of the previous clip, all clips will be align to the selected clip position."""
-    kFBStoryClipAlignmentEndPreviousWithOffset:FBStoryClipAlignmentType
+    kFBStoryClipAlignmentEndPreviousWithOffset=6
     """Align selected clips to the end of the previous clip, while keeping the relative offset."""
 class FBStoryClipChangeType(Enumeration):
     """Types of clip change events, matching KEventClip.eType Expose only kFBStoryClipMoveClip and kFBStoryClipRemoved for now."""
-    kFBStoryClipMoveBlend:FBStoryClipChangeType
+    kFBStoryClipMoveBlend=3
     """Clip move blend."""
-    kFBStoryClipMoveClip:FBStoryClipChangeType
+    kFBStoryClipMoveClip=1
     """Clip moved."""
-    kFBStoryClipMoveData:FBStoryClipChangeType
+    kFBStoryClipMoveData=2
     """Clip data moved."""
-    kFBStoryClipNotSet:FBStoryClipChangeType
+    kFBStoryClipNotSet=0
     """Clip none."""
-    kFBStoryClipRemoved:FBStoryClipChangeType
+    kFBStoryClipRemoved=5
     """Clip removed."""
-    kFBStoryClipUpdateUI:FBStoryClipChangeType
+    kFBStoryClipUpdateUI=4
     """Clip UI update."""
 class FBStoryClipCompMode(Enumeration):
     """Compensation Modes for story character clips."""
-    kFBStoryClipAuto:FBStoryClipCompMode
+    kFBStoryClipAuto=1
     """Automatic compensation."""
-    kFBStoryClipOff:FBStoryClipCompMode
+    kFBStoryClipOff=0
     """No compensation."""
-    kFBStoryClipUser:FBStoryClipCompMode
+    kFBStoryClipUser=2
     """User defined compensation."""
 class FBStoryClipGhostTimeMode(Enumeration):
     """Time mode to display ghost."""
-    kFBStoryClipGhostCurrent:FBStoryClipGhostTimeMode
+    kFBStoryClipGhostCurrent=0
     """Show the ghost at current time of the clip."""
-    kFBStoryClipGhostCustom:FBStoryClipGhostTimeMode
+    kFBStoryClipGhostCustom=3
     """Show the ghost at custom time of the clip. See GhostManipulatorCustomTime property."""
-    kFBStoryClipGhostStart:FBStoryClipGhostTimeMode
+    kFBStoryClipGhostStart=1
     """Show the ghost at start time of the clip."""
-    kFBStoryClipGhostStop:FBStoryClipGhostTimeMode
+    kFBStoryClipGhostStop=2
     """Show the ghost at stop time of the clip."""
 class FBStoryClipMatchingRotationType(Enumeration):
     """Matching Rotation Types, when matching clips to each other."""
-    kFBStoryClipMatchingRotationDefault:FBStoryClipMatchingRotationType
+    kFBStoryClipMatchingRotationDefault=3
     """Uses the matching translation type stored in the Application configuration file: [Story] > MatchRotation. This value, in the configuration file, is update each time a matching is done, with the selected value."""
-    kFBStoryClipMatchingRotationGravityXZ:FBStoryClipMatchingRotationType
+    kFBStoryClipMatchingRotationGravityXZ=2
     """Rotates a selected clip's match object around the global Y axis."""
-    kFBStoryClipMatchingRotationNone:FBStoryClipMatchingRotationType
+    kFBStoryClipMatchingRotationNone=0
     """The clip's match object is not rotated to match another clip's animation."""
-    kFBStoryClipMatchingRotationXYZ:FBStoryClipMatchingRotationType
+    kFBStoryClipMatchingRotationXYZ=1
     """Rotates a selected clip's match object to the same orientation as the previous clip's match object."""
 class FBStoryClipMatchingTimeType(Enumeration):
     """Matching Time Types, when matching clips to each other."""
-    kFBStoryClipMatchingTimeBetweenPreviousAndSelectedClip:FBStoryClipMatchingTimeType
+    kFBStoryClipMatchingTimeBetweenPreviousAndSelectedClip=2
     """Matches the selected clip and the previous clip at the middle of the blend."""
-    kFBStoryClipMatchingTimeBetweenSelectedAndNextClip:FBStoryClipMatchingTimeType
+    kFBStoryClipMatchingTimeBetweenSelectedAndNextClip=5
     """Matches the selected clip and the next clip at the middle of the blend."""
-    kFBStoryClipMatchingTimeCurrentTime:FBStoryClipMatchingTimeType
+    kFBStoryClipMatchingTimeCurrentTime=0
     """Matches the start of the selected clip to the previous/next clip at the current time."""
-    kFBStoryClipMatchingTimeDefault:FBStoryClipMatchingTimeType
+    kFBStoryClipMatchingTimeDefault=7
     """Uses the matching time type stored in the Application configuration file: [Story] > MatchWhen. This value, in the configuration file, is update each time a matching is done, with the selected value."""
-    kFBStoryClipMatchingTimeEndOfPreviousClip:FBStoryClipMatchingTimeType
+    kFBStoryClipMatchingTimeEndOfPreviousClip=3
     """Matches the end of the blend with the selected clip to the end of the previous clip."""
-    kFBStoryClipMatchingTimeEndOfSelectedClip:FBStoryClipMatchingTimeType
+    kFBStoryClipMatchingTimeEndOfSelectedClip=6
     """Matches the end of the selected clip to the end of the blend with the previous clip."""
-    kFBStoryClipMatchingTimeStartOfNextClip:FBStoryClipMatchingTimeType
+    kFBStoryClipMatchingTimeStartOfNextClip=4
     """Matches the start of the blend with the selected clip to the start of the next clip."""
-    kFBStoryClipMatchingTimeStartOfSelectedClip:FBStoryClipMatchingTimeType
+    kFBStoryClipMatchingTimeStartOfSelectedClip=1
     """Matches the start of the selected clip to the start of the blend with the previous clip."""
 class FBStoryClipMatchingTranslationType(Enumeration):
     """Matching Translation, Types when matching clips to each other."""
-    kFBStoryClipMatchingTranslationDefault:FBStoryClipMatchingTranslationType
+    kFBStoryClipMatchingTranslationDefault=3
     """Uses the matching translation type stored in the Application configuration file: [Story] > MatchTranslation. This value, in the configuration file, is update each time a matching is done, with the selected value."""
-    kFBStoryClipMatchingTranslationGravityXZ:FBStoryClipMatchingTranslationType
+    kFBStoryClipMatchingTranslationGravityXZ=2
     """Translates a selected clip's match object along the global X and Z axes."""
-    kFBStoryClipMatchingTranslationNone:FBStoryClipMatchingTranslationType
+    kFBStoryClipMatchingTranslationNone=0
     """The clip's match object is not translated to match another clip's animation."""
-    kFBStoryClipMatchingTranslationXYZ:FBStoryClipMatchingTranslationType
+    kFBStoryClipMatchingTranslationXYZ=1
     """Translates a selected clip's match object to the same location as the previous clip's match object."""
 class FBStoryClipMirrorPlane(Enumeration):
     """Several mirror planes to mirror animation."""
-    kFBStoryClipMirrorPlaneXY:FBStoryClipMirrorPlane
+    kFBStoryClipMirrorPlaneXY=0
     """X-Y plane."""
-    kFBStoryClipMirrorPlaneXZ:FBStoryClipMirrorPlane
+    kFBStoryClipMirrorPlaneXZ=2
     """X-Z plane."""
-    kFBStoryClipMirrorPlaneZY:FBStoryClipMirrorPlane
+    kFBStoryClipMirrorPlaneZY=1
     """Z-Y plane."""
 class FBStoryClipNodeFunction(Enumeration):
     """Node function."""
-    kFBStoryClipNodeAverage:FBStoryClipNodeFunction
+    kFBStoryClipNodeAverage=0
     """Average."""
-    kFBStoryClipNodeFloorProjection:FBStoryClipNodeFunction
+    kFBStoryClipNodeFloorProjection=1
     """Project on XZ plane."""
-    kFBStoryClipNodeNone:FBStoryClipNodeFunction
+    kFBStoryClipNodeNone=2
     """None."""
 class FBStoryClipShowGhostMode(Enumeration):
     """Show Ghost Modes for story animation clips."""
-    kFBStoryClipAlways:FBStoryClipShowGhostMode
+    kFBStoryClipAlways=0
     """Always show the ghost."""
-    kFBStoryClipTimeCursor:FBStoryClipShowGhostMode
+    kFBStoryClipTimeCursor=1
     """Show the ghost only on time cursor."""
-    kFBStoryClipTimeCustom:FBStoryClipShowGhostMode
+    kFBStoryClipTimeCustom=2
     """Show the ghost for custom time frame."""
 class FBStoryClipSolveMode(Enumeration):
     """Solve Modes for story character clips."""
-    kFBStoryClipAnimFkIk:FBStoryClipSolveMode
+    kFBStoryClipAnimFkIk=2
     """Solve forward and inverse kinematic animation."""
-    kFBStoryClipAnimSkeleton:FBStoryClipSolveMode
+    kFBStoryClipAnimSkeleton=1
     """Solve skeleton animation."""
-    kFBStoryClipAnimSkeletonIk:FBStoryClipSolveMode
+    kFBStoryClipAnimSkeletonIk=3
     """Solve skeleton inverse kinematic animation."""
-    kFBStoryClipRetargetSkeleton:FBStoryClipSolveMode
+    kFBStoryClipRetargetSkeleton=0
     """Solve retarget skeleton."""
 class FBStoryClipTimeWarpInterpolatorType(Enumeration):
     """Types of TimeWrap Interpolator for Story Clips."""
-    kFBStoryClipTimeWarpInterpolatorCustom:FBStoryClipTimeWarpInterpolatorType
+    kFBStoryClipTimeWarpInterpolatorCustom=0
     """'Custom' TimeWarp Interpolation"""
-    kFBStoryClipTimeWarpInterpolatorGoingFaster:FBStoryClipTimeWarpInterpolatorType
+    kFBStoryClipTimeWarpInterpolatorGoingFaster=3
     """'Going Faster' TimeWarp Interpolation"""
-    kFBStoryClipTimeWarpInterpolatorGoingFasterReversed:FBStoryClipTimeWarpInterpolatorType
+    kFBStoryClipTimeWarpInterpolatorGoingFasterReversed=7
     """'Reversed, Going Faster' TimeWarp Interpolation"""
-    kFBStoryClipTimeWarpInterpolatorLinear:FBStoryClipTimeWarpInterpolatorType
+    kFBStoryClipTimeWarpInterpolatorLinear=1
     """'Normal' TimeWarp Interpolation"""
-    kFBStoryClipTimeWarpInterpolatorLinearReversed:FBStoryClipTimeWarpInterpolatorType
+    kFBStoryClipTimeWarpInterpolatorLinearReversed=5
     """'Reversed' TimeWarp Interpolation"""
-    kFBStoryClipTimeWarpInterpolatorSlowingDown:FBStoryClipTimeWarpInterpolatorType
+    kFBStoryClipTimeWarpInterpolatorSlowingDown=4
     """'Slowing Down' TimeWarp Interpolation"""
-    kFBStoryClipTimeWarpInterpolatorSlowingDownReversed:FBStoryClipTimeWarpInterpolatorType
+    kFBStoryClipTimeWarpInterpolatorSlowingDownReversed=8
     """'Reversed, Slowing Down' TimeWarp Interpolation"""
-    kFBStoryClipTimeWarpInterpolatorSmoothedEnds:FBStoryClipTimeWarpInterpolatorType
+    kFBStoryClipTimeWarpInterpolatorSmoothedEnds=2
     """'Smoothed Ends' TimeWarp Interpolation"""
-    kFBStoryClipTimeWarpInterpolatorSmoothedEndsReversed:FBStoryClipTimeWarpInterpolatorType
+    kFBStoryClipTimeWarpInterpolatorSmoothedEndsReversed=6
     """'Reversed, Smoothed Ends' TimeWarp Interpolation"""
 class FBStoryGroupClipAlignmentType(Enumeration):
     """Alignment Types when aligning groups."""
-    kFBStoryGroupClipAlignmentBeginningNextWithOffset:FBStoryGroupClipAlignmentType
+    kFBStoryGroupClipAlignmentBeginningNextWithOffset=2
     """Align the clips contained in the group clip to the beginning of the next clip, while keeping the relative offset."""
-    kFBStoryGroupClipAlignmentCurrentTimeline:FBStoryGroupClipAlignmentType
+    kFBStoryGroupClipAlignmentCurrentTimeline=0
     """Align the clips contained in the group clip with the current time."""
-    kFBStoryGroupClipAlignmentEndPreviousWithOffset:FBStoryGroupClipAlignmentType
+    kFBStoryGroupClipAlignmentEndPreviousWithOffset=1
     """Align the clips contained in the group clip to the end of the previous clip, while keeping the relative offset."""
 class FBStoryTrackBodyPart(Enumeration):
     """Body Parts for story track character."""
-    kFBStoryTrackBodyPartAll:FBStoryTrackBodyPart
-    kFBStoryTrackBodyPartExtensions:FBStoryTrackBodyPart
-    kFBStoryTrackBodyPartHead:FBStoryTrackBodyPart
-    kFBStoryTrackBodyPartLeftArm:FBStoryTrackBodyPart
-    kFBStoryTrackBodyPartLeftFoot:FBStoryTrackBodyPart
-    kFBStoryTrackBodyPartLeftHand:FBStoryTrackBodyPart
-    kFBStoryTrackBodyPartLeftLeg:FBStoryTrackBodyPart
-    kFBStoryTrackBodyPartLeftShoulder:FBStoryTrackBodyPart
-    kFBStoryTrackBodyPartLowerBody:FBStoryTrackBodyPart
-    kFBStoryTrackBodyPartNone:FBStoryTrackBodyPart
-    kFBStoryTrackBodyPartProps:FBStoryTrackBodyPart
-    kFBStoryTrackBodyPartRightArm:FBStoryTrackBodyPart
-    kFBStoryTrackBodyPartRightFoot:FBStoryTrackBodyPart
-    kFBStoryTrackBodyPartRightHand:FBStoryTrackBodyPart
-    kFBStoryTrackBodyPartRightLeg:FBStoryTrackBodyPart
-    kFBStoryTrackBodyPartRightShoulder:FBStoryTrackBodyPart
-    kFBStoryTrackBodyPartSpine:FBStoryTrackBodyPart
-    kFBStoryTrackBodyPartUpperBody:FBStoryTrackBodyPart
+    kFBStoryTrackBodyPartAll=10239
+    kFBStoryTrackBodyPartExtensions=4096
+    kFBStoryTrackBodyPartHead=1
+    kFBStoryTrackBodyPartLeftArm=14
+    kFBStoryTrackBodyPartLeftFoot=128
+    kFBStoryTrackBodyPartLeftHand=4
+    kFBStoryTrackBodyPartLeftLeg=384
+    kFBStoryTrackBodyPartLeftShoulder=2
+    kFBStoryTrackBodyPartLowerBody=1920
+    kFBStoryTrackBodyPartNone=0
+    kFBStoryTrackBodyPartProps=2048
+    kFBStoryTrackBodyPartRightArm=112
+    kFBStoryTrackBodyPartRightFoot=512
+    kFBStoryTrackBodyPartRightHand=32
+    kFBStoryTrackBodyPartRightLeg=1536
+    kFBStoryTrackBodyPartRightShoulder=16
+    kFBStoryTrackBodyPartSpine=8192
+    kFBStoryTrackBodyPartUpperBody=8319
 class FBStoryTrackGhostShowMode(Enumeration):
     """Ghost Show Modes for story animation tracks."""
-    kFBStoryTrackShowAllClips:FBStoryTrackGhostShowMode
+    kFBStoryTrackShowAllClips=0
     """Show the ghosts for all the clips on the track."""
-    kFBStoryTrackShowCurrentTimeAdjacentClips:FBStoryTrackGhostShowMode
+    kFBStoryTrackShowCurrentTimeAdjacentClips=1
     """Show the ghosts only for the previous clip, current clip, and next clip relative to current time."""
 class FBStoryTrackRefMode(Enumeration):
     """References Modes for story animation tracks."""
-    kFBStoryTrackAdditive:FBStoryTrackRefMode
+    kFBStoryTrackAdditive=1
     """Additive track."""
-    kFBStoryTrackOverride:FBStoryTrackRefMode
+    kFBStoryTrackOverride=0
     """Override track."""
 class FBStoryTrackType(Enumeration):
     """Types for new story tracks.
     
     [See samples: CreateShotClip.py,](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_create_shot_clip_8py-example.html) [AudioTrackSetupTool.py.](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/_complex_tools_0c_audio_track_setup_tool_8py-example.html)"""
-    kFBStoryTrackAnimation:FBStoryTrackType
+    kFBStoryTrackAnimation=0
     """Animation track."""
-    kFBStoryTrackAudio:FBStoryTrackType
+    kFBStoryTrackAudio=6
     """Audio track."""
-    kFBStoryTrackCamera:FBStoryTrackType
+    kFBStoryTrackCamera=1
     """Camera animation track."""
-    kFBStoryTrackCharacter:FBStoryTrackType
+    kFBStoryTrackCharacter=2
     """Character animation track."""
-    kFBStoryTrackCommand:FBStoryTrackType
+    kFBStoryTrackCommand=4
     """Command track."""
-    kFBStoryTrackConstraint:FBStoryTrackType
+    kFBStoryTrackConstraint=3
     """Constraint track."""
-    kFBStoryTrackShot:FBStoryTrackType
+    kFBStoryTrackShot=5
     """Shot track."""
-    kFBStoryTrackVideo:FBStoryTrackType
+    kFBStoryTrackVideo=7
     """Video track."""
 class FBSurfaceMode(Enumeration):
     """Surface modes."""
-    kFBSurfaceModeHigh:FBSurfaceMode
+    kFBSurfaceModeHigh=4
     """High quality."""
-    kFBSurfaceModeHighNoNormals:FBSurfaceMode
+    kFBSurfaceModeHighNoNormals=3
     """High quality, no normals."""
-    kFBSurfaceModeLow:FBSurfaceMode
+    kFBSurfaceModeLow=2
     """Low quality."""
-    kFBSurfaceModeLowNoNormals:FBSurfaceMode
+    kFBSurfaceModeLowNoNormals=1
     """Low quality, no normals."""
-    kFBSurfaceModeRaw:FBSurfaceMode
+    kFBSurfaceModeRaw=0
     """Raw data."""
 class FBSurfaceType(Enumeration):
     """Surface types."""
-    kFBSurfaceTypeBezier:FBSurfaceType
+    kFBSurfaceTypeBezier=0
     """Bezier surface."""
-    kFBSurfaceTypeBezierQuadric:FBSurfaceType
+    kFBSurfaceTypeBezierQuadric=1
     """Bezier Quadric surface."""
-    kFBSurfaceTypeBspline:FBSurfaceType
+    kFBSurfaceTypeBspline=3
     """BSpline surface."""
-    kFBSurfaceTypeCardinal:FBSurfaceType
+    kFBSurfaceTypeCardinal=2
     """Cardinal surface."""
-    kFBSurfaceTypeLinear:FBSurfaceType
+    kFBSurfaceTypeLinear=4
     """Linear surface."""
 class FBSyncActivationAndVisibilityMode(Enumeration):
     """Sync mode for Constraints' Activeness and Models' visibility belonging to the Character Extension."""
-    kFBSyncMode_None:FBSyncActivationAndVisibilityMode
-    kFBSyncMode_WithContolRig:FBSyncActivationAndVisibilityMode
-    kFBSyncMode_WithOthersThanControlRig:FBSyncActivationAndVisibilityMode
+    kFBSyncMode_None=0
+    kFBSyncMode_WithContolRig=1
+    kFBSyncMode_WithOthersThanControlRig=2
 class FBTCPIPSocketType(Enumeration):
     """Types of TCP/IP Sockets."""
-    kFBTCPIP_DGRAM:FBTCPIPSocketType
+    kFBTCPIP_DGRAM=1
     """Datagrams (UDP)."""
-    kFBTCPIP_RAW:FBTCPIPSocketType
+    kFBTCPIP_RAW=2
     """Raw data (TCP)."""
-    kFBTCPIP_Stream:FBTCPIPSocketType
+    kFBTCPIP_Stream=0
     """Streaming data (TCP)."""
 class FBTakeChangeType(Enumeration):
     """Types of take change events."""
-    kFBTakeChangeAdded:FBTakeChangeType
-    kFBTakeChangeClosed:FBTakeChangeType
-    kFBTakeChangeMoved:FBTakeChangeType
-    kFBTakeChangeNone:FBTakeChangeType
-    kFBTakeChangeOpened:FBTakeChangeType
-    kFBTakeChangeRemoved:FBTakeChangeType
-    kFBTakeChangeRenamed:FBTakeChangeType
-    kFBTakeChangeUpdated:FBTakeChangeType
+    kFBTakeChangeAdded=0
+    kFBTakeChangeClosed=3
+    kFBTakeChangeMoved=6
+    kFBTakeChangeNone=7
+    kFBTakeChangeOpened=2
+    kFBTakeChangeRemoved=1
+    kFBTakeChangeRenamed=4
+    kFBTakeChangeUpdated=5
 class FBTakeSpanOnLoad(Enumeration):
     """This enumeration indicate the how to set the take start and end points on after a load."""
-    kFBFrameAnimation:FBTakeSpanOnLoad
+    kFBFrameAnimation=2
     """Have the take's span match the first and last key in the take."""
-    kFBImportFromFile:FBTakeSpanOnLoad
+    kFBImportFromFile=1
     """Set the current take's span according what is set in the loaded file."""
-    kFBLeaveAsIs:FBTakeSpanOnLoad
+    kFBLeaveAsIs=0
     """Use the current take's start and end point as defined before the load."""
 class FBTangentClampMode(Enumeration):
     """Different clamping modes for the tangents."""
-    kFBTangentClampModeClamped:FBTangentClampMode
+    kFBTangentClampModeClamped=1
     """The tangent will be flattened when the key is placed at the same value as an adjacent key."""
-    kFBTangentClampModeNone:FBTangentClampMode
+    kFBTangentClampModeNone=0
     """The tangent will act normally."""
 class FBTangentConstantMode(Enumeration):
     """Different constant modes for the tangents."""
-    kFBTangentConstantModeNext:FBTangentConstantMode
+    kFBTangentConstantModeNext=1
     """The tangent will contain the value of the next keyframe."""
-    kFBTangentConstantModeNormal:FBTangentConstantMode
+    kFBTangentConstantModeNormal=0
     """The tangent will contain the value of the current keyframe until the next keyframe."""
 class FBTangentCustomIndex(Enumeration):
     """Custom tangent index for the tangents."""
-    kFBTangentCustomIndex0:FBTangentCustomIndex
+    kFBTangentCustomIndex0=0
     """First custom tangent type registered in the system."""
-    kFBTangentCustomIndex1:FBTangentCustomIndex
+    kFBTangentCustomIndex1=1
     """Second custom tangent type registered in the system."""
-    kFBTangentCustomIndex2:FBTangentCustomIndex
+    kFBTangentCustomIndex2=2
     """Third custom tangent type registered in the system."""
 class FBTangentMode(Enumeration):
     """Methods of tangent calculation.
     
     This is only relevant when interpolation is CUBIC."""
-    kFBTangentModeAuto:FBTangentMode
+    kFBTangentModeAuto=0
     """This is the equivalent to a cardinal spline with no parametrization. In the UI, it is identified as Smooth."""
-    kFBTangentModeBreak:FBTangentMode
+    kFBTangentModeBreak=3
     """Like USER but left slope may differ from right."""
-    kFBTangentModeClampProgressive:FBTangentMode
+    kFBTangentModeClampProgressive=5
     """Time independent, will flatten the tangent handles when the key value goes over or under the previous and next key values. In the UI, it is identified as Auto."""
-    kFBTangentModeTCB:FBTangentMode
+    kFBTangentModeTCB=1
     """TCB spline (3 parameters: TENSION, CONTINUITY, BIAS)"""
-    kFBTangentModeTimeIndependent:FBTangentMode
+    kFBTangentModeTimeIndependent=4
     """Time independent, is calculated based upon the slope between the previous and next key values. In the UI, it is identified as Spline."""
-    kFBTangentModeUser:FBTangentMode
+    kFBTangentModeUser=2
     """Used to represent all splines with no lost data (HERMITE, BEZIER, CATMUL, etc.)"""
 class FBTangentWeightMode(Enumeration):
     """Active tangent weight, no/one/both side are active on a key.
     
     Please note, the left value is for the next key, as the current key contains the tangent weight information for the next key. To disable the weight on the left side of a key at index "i", you need to disable "kFBTangentWeightModeNextLeft" the "i-1" key."""
-    kFBTangentWeightModeBoth:FBTangentWeightMode
+    kFBTangentWeightModeBoth=3
     """Right tangent and next key left tangent weight are active."""
-    kFBTangentWeightModeNextLeft:FBTangentWeightMode
+    kFBTangentWeightModeNextLeft=2
     """Next key left tangent weight active."""
-    kFBTangentWeightModeNone:FBTangentWeightMode
+    kFBTangentWeightModeNone=0
     """Tangent weight disabled."""
-    kFBTangentWeightModeRight:FBTangentWeightMode
+    kFBTangentWeightModeRight=1
     """Right tangent weight active."""
 class FBTextJustify(Enumeration):
     """Text justification styles.
     
     [See samples: Button.py,](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_button_8py-example.html) [Label.py.](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_label_8py-example.html)"""
-    kFBTextJustifyCenter:FBTextJustify
+    kFBTextJustifyCenter=2
     """Center alignment."""
-    kFBTextJustifyLeft:FBTextJustify
+    kFBTextJustifyLeft=0
     """Left justify."""
-    kFBTextJustifyRight:FBTextJustify
+    kFBTextJustifyRight=1
     """Right justify."""
 class FBTextStyle(Enumeration):
     """Text appearance styles.
     
     [See sample: Label.py.](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_label_8py-example.html)"""
-    kFBTextStyleBold:FBTextStyle
+    kFBTextStyleBold=1
     """Bold."""
-    kFBTextStyleItalic:FBTextStyle
+    kFBTextStyleItalic=2
     """Italic."""
-    kFBTextStyleNone:FBTextStyle
+    kFBTextStyleNone=0
     """Normal."""
-    kFBTextStyleUnderlined:FBTextStyle
+    kFBTextStyleUnderlined=4
     """Underlined."""
 class FBTextureBlendMode(Enumeration):
     """Texture blend modes.
@@ -3074,365 +3075,365 @@ class FBTextureBlendMode(Enumeration):
     How the texture is blended with another.
     
     [See samples: LayeredTexture.py,](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/_samples_0c_material_and_texture_0c_layered_texture_8py-example.html) [TextureAnimation.py.](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/_samples_0c_material_and_texture_0c_texture_animation_8py-example.html)"""
-    kFBTextureBlendAdditive:FBTextureBlendMode
+    kFBTextureBlendAdditive=1
     """Layer addition."""
-    kFBTextureBlendModulate:FBTextureBlendMode
+    kFBTextureBlendModulate=2
     """Layer multiplication."""
-    kFBTextureBlendModulate2:FBTextureBlendMode
+    kFBTextureBlendModulate2=3
     """Layer multiplication + brightness."""
-    kFBTextureBlendTranslucent:FBTextureBlendMode
+    kFBTextureBlendTranslucent=0
     """Layer transparency."""
 class FBTextureMapping(Enumeration):
     """Texture mapping modes.
     
     How the texture is mapped."""
-    kFBTextureMappingCylindrical:FBTextureMapping
+    kFBTextureMappingCylindrical=6
     """Cylindrical mapping."""
-    kFBTextureMappingEnvironment:FBTextureMapping
+    kFBTextureMappingEnvironment=7
     """Environment mapping."""
-    kFBTextureMappingProjection:FBTextureMapping
+    kFBTextureMappingProjection=8
     """Projection mapping."""
-    kFBTextureMappingSpherical:FBTextureMapping
+    kFBTextureMappingSpherical=5
     """Spherical mapping."""
-    kFBTextureMappingUV:FBTextureMapping
+    kFBTextureMappingUV=1
     """UV mapping."""
-    kFBTextureMappingXY:FBTextureMapping
+    kFBTextureMappingXY=2
     """XY mapping."""
-    kFBTextureMappingXZ:FBTextureMapping
+    kFBTextureMappingXZ=4
     """XZ mapping."""
-    kFBTextureMappingYZ:FBTextureMapping
+    kFBTextureMappingYZ=3
     """YZ mapping."""
-    kFBTextureNoMapping:FBTextureMapping
+    kFBTextureNoMapping=0
     """No mapping."""
 class FBTextureUseType(Enumeration):
     """Texture Use Type.
     
     How the texture is used."""
-    kFBTextureUseAll:FBTextureUseType
+    kFBTextureUseAll=0
     """All textures."""
-    kFBTextureUseBumpNormalMap:FBTextureUseType
+    kFBTextureUseBumpNormalMap=6
     """Bump Normal Map, work with model."""
-    kFBTextureUseColor:FBTextureUseType
+    kFBTextureUseColor=1
     """standard color type, work with material."""
-    kFBTextureUseLightMap:FBTextureUseType
+    kFBTextureUseLightMap=3
     """Light Map, work with model."""
-    kFBTextureUseShadowMap:FBTextureUseType
+    kFBTextureUseShadowMap=2
     """Shadow Map, work with model."""
-    kFBTextureUseSphereReflexionMap:FBTextureUseType
+    kFBTextureUseSphereReflexionMap=5
     """Sphere Reflexion Map, work with model."""
-    kFBTextureUseSphericalReflexionMap:FBTextureUseType
+    kFBTextureUseSphericalReflexionMap=4
     """Spherical Reflexion Map, work with model."""
 class FBTimeMarkAction(Enumeration):
     """Time (Global & Take) Mark assigned action."""
-    kFBTimeMarkAction_Loop:FBTimeMarkAction
+    kFBTimeMarkAction_Loop=2
     """When reaching the mark, the playback loops to previous global mark (or start frame if any)."""
-    kFBTimeMarkAction_None:FBTimeMarkAction
+    kFBTimeMarkAction_None=0
     """No action. The mark is just visual hint."""
-    kFBTimeMarkAction_Stop:FBTimeMarkAction
+    kFBTimeMarkAction_Stop=1
     """When reaching the mark, the playback stops."""
 class FBTimeMode(Enumeration):
     """Different time modes available."""
-    kFBTimeMode1000Frames:FBTimeMode
+    kFBTimeMode1000Frames=1
     """1000 : 1 millisecond"""
-    kFBTimeMode100Frames:FBTimeMode
+    kFBTimeMode100Frames=4
     """100"""
-    kFBTimeMode11988Frames:FBTimeMode
+    kFBTimeMode11988Frames=3
     """~119.88"""
-    kFBTimeMode120Frames:FBTimeMode
+    kFBTimeMode120Frames=2
     """120"""
-    kFBTimeMode23976Frames:FBTimeMode
+    kFBTimeMode23976Frames=16
     """~23.976"""
-    kFBTimeMode24Frames:FBTimeMode
+    kFBTimeMode24Frames=15
     """24"""
-    kFBTimeMode25Frames:FBTimeMode
+    kFBTimeMode25Frames=14
     """25"""
-    kFBTimeMode2997Frames:FBTimeMode
+    kFBTimeMode2997Frames=13
     """~29.97 full"""
-    kFBTimeMode2997Frames_Drop:FBTimeMode
+    kFBTimeMode2997Frames_Drop=12
     """~29.97 drop"""
-    kFBTimeMode30Frames:FBTimeMode
+    kFBTimeMode30Frames=11
     """30"""
-    kFBTimeMode48Frames:FBTimeMode
+    kFBTimeMode48Frames=10
     """48"""
-    kFBTimeMode50Frames:FBTimeMode
+    kFBTimeMode50Frames=9
     """50"""
-    kFBTimeMode5994Frames:FBTimeMode
+    kFBTimeMode5994Frames=8
     """~59.94"""
-    kFBTimeMode60Frames:FBTimeMode
+    kFBTimeMode60Frames=7
     """60"""
-    kFBTimeMode72Frames:FBTimeMode
+    kFBTimeMode72Frames=6
     """72"""
-    kFBTimeMode96Frames:FBTimeMode
+    kFBTimeMode96Frames=5
     """96"""
-    kFBTimeModeCustom:FBTimeMode
+    kFBTimeModeCustom=17
     """Custom framerate."""
-    kFBTimeModeDefault:FBTimeMode
+    kFBTimeModeDefault=0
     """Default Time Mode."""
 class FBTimeReferential(Enumeration):
     """[FBCommandState](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_command_state.html "FBCommandState.")."""
-    kFBTimeReferentialAction:FBTimeReferential
+    kFBTimeReferentialAction=0
     """Action."""
-    kFBTimeReferentialEdit:FBTimeReferential
+    kFBTimeReferentialEdit=2
     """Edit."""
-    kFBTimeReferentialShot:FBTimeReferential
+    kFBTimeReferentialShot=1
     """Shot."""
 class FBToolPossibleDockPosition(Enumeration):
-    kFBToolPossibleDockPosBottom:FBToolPossibleDockPosition
-    kFBToolPossibleDockPosLeft:FBToolPossibleDockPosition
-    kFBToolPossibleDockPosNone:FBToolPossibleDockPosition
-    kFBToolPossibleDockPosRight:FBToolPossibleDockPosition
-    kFBToolPossibleDockPosTop:FBToolPossibleDockPosition
+    kFBToolPossibleDockPosBottom=8
+    kFBToolPossibleDockPosLeft=2
+    kFBToolPossibleDockPosNone=0
+    kFBToolPossibleDockPosRight=4
+    kFBToolPossibleDockPosTop=1
 class FBTransportLoopMode(Enumeration):
     """Available loop modes for the transport control."""
-    kFBTransportLoopCurrentTake:FBTransportLoopMode
+    kFBTransportLoopCurrentTake=1
     """Playback looping the current take."""
-    kFBTransportLoopThroughAllTakes:FBTransportLoopMode
+    kFBTransportLoopThroughAllTakes=2
     """Playback from the current take through all takes in order then stops."""
-    kFBTransportNoLoop:FBTransportLoopMode
+    kFBTransportNoLoop=0
     """Playback not looping."""
 class FBTransportMode(Enumeration):
     """Transport modes."""
-    kFBTransportGoto:FBTransportMode
-    kFBTransportGotoPrepare:FBTransportMode
+    kFBTransportGoto=15
+    kFBTransportGotoPrepare=16
     """!< Goto."""
-    kFBTransportGotoReady:FBTransportMode
-    kFBTransportJog:FBTransportMode
-    kFBTransportJogPrepare:FBTransportMode
+    kFBTransportGotoReady=17
+    kFBTransportJog=12
+    kFBTransportJogPrepare=13
     """!< Jog."""
-    kFBTransportJogReady:FBTransportMode
-    kFBTransportPlay:FBTransportMode
-    kFBTransportPlayPrepare:FBTransportMode
+    kFBTransportJogReady=14
+    kFBTransportPlay=0
+    kFBTransportPlayPrepare=1
     """!< Play mode"""
-    kFBTransportPlayReady:FBTransportMode
-    kFBTransportPlayReverse:FBTransportMode
-    kFBTransportPlayReversePrepare:FBTransportMode
+    kFBTransportPlayReady=2
+    kFBTransportPlayReverse=9
+    kFBTransportPlayReversePrepare=10
     """!< Play reverse."""
-    kFBTransportPlayReverseReady:FBTransportMode
-    kFBTransportShuttle:FBTransportMode
-    kFBTransportShuttlePrepare:FBTransportMode
+    kFBTransportPlayReverseReady=11
+    kFBTransportShuttle=6
+    kFBTransportShuttlePrepare=7
     """!< Shuttle mode"""
-    kFBTransportShuttleReady:FBTransportMode
-    kFBTransportStepBackward:FBTransportMode
-    kFBTransportStepBackwardPrepare:FBTransportMode
+    kFBTransportShuttleReady=8
+    kFBTransportStepBackward=21
+    kFBTransportStepBackwardPrepare=22
     """!< Step backward."""
-    kFBTransportStepBackwardReady:FBTransportMode
-    kFBTransportStepForward:FBTransportMode
-    kFBTransportStepForwardPrepare:FBTransportMode
+    kFBTransportStepBackwardReady=23
+    kFBTransportStepForward=18
+    kFBTransportStepForwardPrepare=19
     """!< Step forward"""
-    kFBTransportStepForwardReady:FBTransportMode
-    kFBTransportStop:FBTransportMode
-    kFBTransportStopPost:FBTransportMode
+    kFBTransportStepForwardReady=20
+    kFBTransportStop=3
+    kFBTransportStopPost=4
     """!< Stop mode"""
-    kFBTransportStopReady:FBTransportMode
+    kFBTransportStopReady=5
 class FBTransportPlaySpeed(Enumeration):
     """Available transport control play speed."""
-    kFBSpeed_10x:FBTransportPlaySpeed
+    kFBSpeed_10x=11
     """10x"""
-    kFBSpeed_1_10x:FBTransportPlaySpeed
+    kFBSpeed_1_10x=0
     """0.10x"""
-    kFBSpeed_1_2x:FBTransportPlaySpeed
+    kFBSpeed_1_2x=4
     """0.50x"""
-    kFBSpeed_1_3x:FBTransportPlaySpeed
+    kFBSpeed_1_3x=3
     """0.33x"""
-    kFBSpeed_1_4x:FBTransportPlaySpeed
+    kFBSpeed_1_4x=2
     """0.25x"""
-    kFBSpeed_1_5x:FBTransportPlaySpeed
+    kFBSpeed_1_5x=1
     """0.20x"""
-    kFBSpeed_1x:FBTransportPlaySpeed
+    kFBSpeed_1x=5
     """1x"""
-    kFBSpeed_2x:FBTransportPlaySpeed
+    kFBSpeed_2x=7
     """2x"""
-    kFBSpeed_3x:FBTransportPlaySpeed
+    kFBSpeed_3x=8
     """3x"""
-    kFBSpeed_4x:FBTransportPlaySpeed
+    kFBSpeed_4x=9
     """4x"""
-    kFBSpeed_5x:FBTransportPlaySpeed
+    kFBSpeed_5x=10
     """5x"""
-    kFBSpeed_ALL_FR:FBTransportPlaySpeed
+    kFBSpeed_ALL_FR=6
     """All frames."""
-    kFBSpeed_Custom:FBTransportPlaySpeed
+    kFBSpeed_Custom=12
     """Custom speed."""
 class FBTransportSnapMode(Enumeration):
     """Available snap methods for the transport control."""
-    kFBTransportSnapModeNoSnap:FBTransportSnapMode
+    kFBTransportSnapModeNoSnap=0
     """No snapping is applied."""
-    kFBTransportSnapModePlayOnFrames:FBTransportSnapMode
+    kFBTransportSnapModePlayOnFrames=2
     """When playing, plays to exact frames."""
-    kFBTransportSnapModeSnapAndPlayOnFrames:FBTransportSnapMode
+    kFBTransportSnapModeSnapAndPlayOnFrames=3
     """Combines both Snap and Play on frames modes."""
-    kFBTransportSnapModeSnapOnFrames:FBTransportSnapMode
+    kFBTransportSnapModeSnapOnFrames=1
     """Snaps to an exact frame when modifying the current time."""
 class FBTransportTimeFormat(Enumeration):
     """Available transport control time display."""
-    kFBTimeFormatFrame:FBTransportTimeFormat
+    kFBTimeFormatFrame=1
     """Frame time display mode."""
-    kFBTimeFormatTimecode:FBTransportTimeFormat
+    kFBTimeFormatTimecode=0
     """Timecode time display mode."""
 class FBTriggerStyle(Enumeration):
     """Audio clips' trigger styles."""
-    kFBTriggerStyleContinue:FBTriggerStyle
+    kFBTriggerStyleContinue=0
     """Previously triggered clips that are still playing won't be stopped and mixing will occur."""
-    kFBTriggerStyleCut:FBTriggerStyle
+    kFBTriggerStyleCut=1
     """Previously triggered clips that are still playing will be stopped."""
-    kFBTriggerStyleToggle:FBTriggerStyle
+    kFBTriggerStyleToggle=2
     """If a previously triggered clip is playing, it will only be stopped, otherwise a new starts playing. No mixing and no loop."""
 class FBUpAxis(Enumeration):
     """This enumeration indicates which up axis is used in the motion file (so far, only effective when loading c3d files)."""
-    kFBUpAxisY:FBUpAxis
+    kFBUpAxisY=0
     """Use the Y-axis as the up axis."""
-    kFBUpAxisZ:FBUpAxis
+    kFBUpAxisZ=1
     """Use the Z-axis as the up axis."""
 class FBUseChnMode(Enumeration):
     """Use Channel modes."""
-    kFBUseChannelBoth:FBUseChnMode
+    kFBUseChannelBoth=2
     """Default mode, where each channel play in its respective speaker."""
-    kFBUseChannelLeftOnly:FBUseChnMode
+    kFBUseChannelLeftOnly=0
     """Left channel will be played in both speakers."""
-    kFBUseChannelRightOnly:FBUseChnMode
+    kFBUseChannelRightOnly=1
     """Right channel will be played in both speakers."""
 class FBVideoCodecMode(Enumeration):
     """Enum [FBVideoRenderDepth](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_video_render_depth.html "Enum FBVideoRenderDepth.").
     
     [See sample: render.py.](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/_rendering_0crender_8py-example.html)"""
-    FBVideoCodecAsk:FBVideoCodecMode
+    FBVideoCodecAsk=0
     """Pop codec selection dialog each render."""
-    FBVideoCodecStored:FBVideoCodecMode
+    FBVideoCodecStored=2
     """Pop dialog and stored its value"""
-    FBVideoCodecUncompressed:FBVideoCodecMode
+    FBVideoCodecUncompressed=1
     """Assume uncompressed codec."""
 class FBVideoFormat(Enumeration):
     """Video color modes."""
-    kFBVideoFormat_422:FBVideoFormat
-    kFBVideoFormat_ABGR_32:FBVideoFormat
-    kFBVideoFormat_ARGB_32:FBVideoFormat
-    kFBVideoFormat_Any:FBVideoFormat
-    kFBVideoFormat_BGRA_32:FBVideoFormat
-    kFBVideoFormat_BGR_16:FBVideoFormat
-    kFBVideoFormat_BGR_24:FBVideoFormat
-    kFBVideoFormat_Other:FBVideoFormat
-    kFBVideoFormat_RGBA_32:FBVideoFormat
-    kFBVideoFormat_RGB_24:FBVideoFormat
+    kFBVideoFormat_422=9
+    kFBVideoFormat_ABGR_32=7
+    kFBVideoFormat_ARGB_32=8
+    kFBVideoFormat_Any=0
+    kFBVideoFormat_BGRA_32=4
+    kFBVideoFormat_BGR_16=6
+    kFBVideoFormat_BGR_24=5
+    kFBVideoFormat_Other=1
+    kFBVideoFormat_RGBA_32=2
+    kFBVideoFormat_RGB_24=3
 class FBVideoInterlaceMode(Enumeration):
     """Video interlace modes."""
-    kFBVideoInterlaceFullFrameEven:FBVideoInterlaceMode
+    kFBVideoInterlaceFullFrameEven=3
     """Full frame (even field)."""
-    kFBVideoInterlaceFullFrameOdd:FBVideoInterlaceMode
+    kFBVideoInterlaceFullFrameOdd=4
     """Full frame (odd field)."""
-    kFBVideoInterlaceHalfFrameEven:FBVideoInterlaceMode
+    kFBVideoInterlaceHalfFrameEven=1
     """Half frame (even field)."""
-    kFBVideoInterlaceHalfFrameOdd:FBVideoInterlaceMode
+    kFBVideoInterlaceHalfFrameOdd=2
     """Half frame (odd field)."""
-    kFBVideoInterlaceNone:FBVideoInterlaceMode
+    kFBVideoInterlaceNone=0
     """No interacling."""
 class FBVideoLiveType(Enumeration):
     """Video Live type."""
-    kFBVideoLiveBasic:FBVideoLiveType
+    kFBVideoLiveBasic=1
     """Basic video input, like webcam and dv camera."""
-    kFBVideoLiveDefault:FBVideoLiveType
+    kFBVideoLiveDefault=0
     """Generic video input, type not specified."""
 class FBVideoProxyMode(Enumeration):
     """Video proxy modes."""
-    kFBVideoProxyAlways:FBVideoProxyMode
+    kFBVideoProxyAlways=2
     """Always video proxy."""
-    kFBVideoProxyNone:FBVideoProxyMode
+    kFBVideoProxyNone=0
     """No video proxy."""
-    kFBVideoProxyOnPlay:FBVideoProxyMode
+    kFBVideoProxyOnPlay=1
     """Video proxy on play."""
 class FBVideoRenderDepth(Enumeration):
     """Enum [FBVideoRenderDepth](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_video_render_depth.html "Enum FBVideoRenderDepth.").
     
     [See samples: render.py,](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/_rendering_0crender_8py-example.html) [render.py.](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/_rendering_0crender_8py-example.html)"""
-    FBVideoRender24Bits:FBVideoRenderDepth
+    FBVideoRender24Bits=0
     """24 bits"""
-    FBVideoRender32Bits:FBVideoRenderDepth
+    FBVideoRender32Bits=1
     """32 bits"""
-    FBVideoRenderDepthCount:FBVideoRenderDepth
+    FBVideoRenderDepthCount=2
     """Depth Count."""
 class FBVideoRenderFieldMode(Enumeration):
     """Enum [FBVideoRenderFieldMode](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_video_render_field_mode.html "Enum FBVideoRenderFieldMode.")."""
-    FBFieldModeCount:FBVideoRenderFieldMode
+    FBFieldModeCount=5
     """Count."""
-    FBFieldModeField0:FBVideoRenderFieldMode
+    FBFieldModeField0=1
     """Field 0."""
-    FBFieldModeField1:FBVideoRenderFieldMode
+    FBFieldModeField1=2
     """Field 1."""
-    FBFieldModeHalfField0:FBVideoRenderFieldMode
+    FBFieldModeHalfField0=3
     """Half Field 0."""
-    FBFieldModeHalfField1:FBVideoRenderFieldMode
+    FBFieldModeHalfField1=4
     """Half Field 1."""
-    FBFieldModeNoField:FBVideoRenderFieldMode
+    FBFieldModeNoField=0
     """No Field."""
 class FBVideoRenderViewingMode(Enumeration):
     """Enum [FBVideoRenderViewingMode](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_video_render_viewing_mode.html "Enum FBVideoRenderViewingMode.")."""
-    FBViewingModeCount:FBVideoRenderViewingMode
+    FBViewingModeCount=4
     """Count."""
-    FBViewingModeCurrent:FBVideoRenderViewingMode
+    FBViewingModeCurrent=3
     """Current."""
-    FBViewingModeModelsOnly:FBVideoRenderViewingMode
+    FBViewingModeModelsOnly=1
     """Model Only."""
-    FBViewingModeStandard:FBVideoRenderViewingMode
+    FBViewingModeStandard=0
     """Standard."""
-    FBViewingModeXRay:FBVideoRenderViewingMode
+    FBViewingModeXRay=2
     """X-Ray."""
 class FBVideoResolution(Enumeration):
     """Video Resolution (1D)"""
-    kFBVideo_RES_1:FBVideoResolution
-    kFBVideo_RES_128:FBVideoResolution
-    kFBVideo_RES_16:FBVideoResolution
-    kFBVideo_RES_1K:FBVideoResolution
-    kFBVideo_RES_2:FBVideoResolution
-    kFBVideo_RES_256:FBVideoResolution
-    kFBVideo_RES_2K:FBVideoResolution
-    kFBVideo_RES_32:FBVideoResolution
-    kFBVideo_RES_4:FBVideoResolution
-    kFBVideo_RES_4K:FBVideoResolution
-    kFBVideo_RES_512:FBVideoResolution
-    kFBVideo_RES_64:FBVideoResolution
-    kFBVideo_RES_8:FBVideoResolution
-    kFBVideo_RES_8K:FBVideoResolution
-    kFBVideo_RES_FULL:FBVideoResolution
+    kFBVideo_RES_1=1
+    kFBVideo_RES_128=8
+    kFBVideo_RES_16=5
+    kFBVideo_RES_1K=11
+    kFBVideo_RES_2=2
+    kFBVideo_RES_256=9
+    kFBVideo_RES_2K=12
+    kFBVideo_RES_32=6
+    kFBVideo_RES_4=3
+    kFBVideo_RES_4K=13
+    kFBVideo_RES_512=10
+    kFBVideo_RES_64=7
+    kFBVideo_RES_8=4
+    kFBVideo_RES_8K=14
+    kFBVideo_RES_FULL=0
 class FBVideoStorageMode(Enumeration):
     """Video storage modes."""
-    kFBVideoStorageDisk:FBVideoStorageMode
+    kFBVideoStorageDisk=0
     """Storage on disk."""
-    kFBVideoStorageDiskAsync:FBVideoStorageMode
+    kFBVideoStorageDiskAsync=2
     """Storage on disk async access."""
-    kFBVideoStorageMemory:FBVideoStorageMode
+    kFBVideoStorageMemory=1
     """Storage in memory."""
 class FBViewerMode(Enumeration):
     """Different viewer modes for the 3D viewer."""
-    kFBViewerModeFourWindow:FBViewerMode
+    kFBViewerModeFourWindow=3
     """View four panes."""
-    kFBViewerModeOneWindow:FBViewerMode
+    kFBViewerModeOneWindow=0
     """View one pane."""
-    kFBViewerModeSchematic:FBViewerMode
+    kFBViewerModeSchematic=4
     """Schematic view."""
-    kFBViewerModeThreeWindow:FBViewerMode
+    kFBViewerModeThreeWindow=2
     """View three panes."""
-    kFBViewerModeTwoWindow:FBViewerMode
+    kFBViewerModeTwoWindow=1
     """View two panes."""
 class FBVisibilityState(Enumeration):
     """Visibility state."""
-    kFBVisibilityAll:FBVisibilityState
+    kFBVisibilityAll=1
     """All objects requested are visible."""
-    kFBVisibilityAny:FBVisibilityState
+    kFBVisibilityAny=0
     """Any object requested is visible."""
-    kFBVisibilityInvalid:FBVisibilityState
+    kFBVisibilityInvalid=3
     """Invalid visibility request."""
-    kFBVisibilitySome:FBVisibilityState
+    kFBVisibilitySome=2
     """Some objects (at least one, but not all) requested are visible."""
 class kDeviceIOs(Enumeration):
-    kIOPlayModeRead:kDeviceIOs
-    kIOPlayModeWrite:kDeviceIOs
-    kIOStopModeRead:kDeviceIOs
-    kIOStopModeWrite:kDeviceIOs
+    kIOPlayModeRead=1
+    kIOPlayModeWrite=3
+    kIOStopModeRead=0
+    kIOStopModeWrite=2
 class kDeviceOperations(Enumeration):
-    kOpAutoDetect:kDeviceOperations
-    kOpDone:kDeviceOperations
-    kOpInit:kDeviceOperations
-    kOpReset:kDeviceOperations
-    kOpStart:kDeviceOperations
-    kOpStop:kDeviceOperations
+    kOpAutoDetect=2
+    kOpDone=5
+    kOpInit=0
+    kOpReset=4
+    kOpStart=1
+    kOpStop=3
 class FBAddRegionParam():
     """This class provide a placeholder to put values necessary to create a Region with [FBLayout.AddRegion](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_layout.html#ada9608d3cc29bcfcb802803c582c7e82 "Add a region to the layout.").
     
@@ -4250,9 +4251,12 @@ class FBFCurveEvent(FBEvent):
     """Read Only Property: Index of the first key which is involved in the event."""
     KeyIndexStop:int
     """Read Only Property: Index of the last key which is involved in the event."""
-    ParentAnimationNode:property
-    ParentComponent:property
-    ParentProperty:property
+    ParentAnimationNode:FBAnimationNode
+    ParentComponent:FBComponent
+    @property
+    def ParentProperty(self)->FBPropertyAnimatable:...
+    @ParentProperty.setter
+    def ParentProperty(self, Value: FBPropertyAnimatable|Any):...
     def __init__(self):
         """### Parameters:
             - Event: Base event (internal) to obtain information from."""
@@ -4989,8 +4993,8 @@ class FBPropertyStateEvent(FBEvent):
     """This class is used when the state of a property tracked by the [FBFCurveEventManager](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_f_curve_event_manager.html "FCurve Event Manager Interface to the FBFCurveEventManager.") is changed."""
     EventType:FBPropertyStateEventType
     """Read Only Property: Event type, please see the [FBPropertyStateEventType](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_state_event_type.html "This enum indicates what modification was made to the animation of a tracked property....") for the possible types."""
-    ParentComponent:property
-    Property:property
+    ParentComponent:FBComponent
+    Property:FBProperty
     def __init__(self):
         """### Parameters:
             - Event: Base event (internal) to obtain information from."""
@@ -5373,12 +5377,12 @@ class FBComponent(FBPlug):
     [See sample: ReplaceNamespace.py.](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_replace_namespace_8py-example.html)"""
     Components:FBPropertyListComponent
     """List: List of components."""
-    FullName:property
+    FullName:str
     LongName:str
     """Read Write Property: Name and namespace for object."""
     Name:str
     """Read Write Property: Unique name of object. [See sample: RemoveSuffixFromNameOfSceneElements.py.](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_remove_suffix_from_name_of_scene_elements_8py-example.html)"""
-    OwnerNamespace:property
+    OwnerNamespace:FBNamespace|None
     Parents:FBPropertyListComponent
     """List: Parents."""
     PropertyList:FBPropertyManager
@@ -5487,17 +5491,6 @@ class FBComponent(FBPlug):
         ### Returns:
         True if the reference property could be added."""
         ...
-    def PropertyCreate(self,Name:str,Type:FBPropertyType,DataType:str,Animatable:bool,IsUser:bool,ReferenceSource:FBProperty|None,/)->Any:
-        """Create user or dynamic property.
-        
-        ### Parameters:
-            - Name: The name of the property.
-            - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_type.html "Property types.").
-            - DataType: DataType of the property.
-            - Animatable: To specify if the property can be animated.
-            - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
-            - ReferenceSource: Specifies the property that a reference refers to."""
-        ...
     def PropertyGetModifiedList(self,arg2:FBPlugModificationFlag,/)->FBPropertyList:
         """Get list of properties which have been modified since last loading.
         
@@ -5524,6 +5517,366 @@ class FBComponent(FBPlug):
         ### Parameters:
             - Status: Status to change.
             - Value: Value to change the status to."""
+        ...
+    @overload
+    def PropertyCreate(self,Name:str,Type:Literal[FBPropertyType.kFBPT_int],DataType:str,Animatable:Literal[False],IsUser:bool,ReferenceSource:FBProperty|None,/)->FBPropertyInt:
+        """Create user or dynamic property.
+        
+        ### Parameters:
+            - Name: The name of the property.
+            - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+            - DataType: DataType of the property.
+            - Animatable: To specify if the property can be animated.
+            - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
+            - ReferenceSource: Specifies the property that a reference refers to."""
+        ...
+    @overload
+    def PropertyCreate(self,Name:str,Type:Literal[FBPropertyType.kFBPT_int],DataType:str,Animatable:Literal[True],IsUser:bool,ReferenceSource:FBProperty|None,/)->FBPropertyAnimatableInt:
+        """Create user or dynamic property.
+        
+        ### Parameters:
+            - Name: The name of the property.
+            - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+            - DataType: DataType of the property.
+            - Animatable: To specify if the property can be animated.
+            - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
+            - ReferenceSource: Specifies the property that a reference refers to."""
+        ...
+    @overload
+    def PropertyCreate(self,Name:str,Type:Literal[FBPropertyType.kFBPT_bool],DataType:str,Animatable:Literal[False],IsUser:bool,ReferenceSource:FBProperty|None,/)->FBPropertyBool:
+        """Create user or dynamic property.
+        
+        ### Parameters:
+            - Name: The name of the property.
+            - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+            - DataType: DataType of the property.
+            - Animatable: To specify if the property can be animated.
+            - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
+            - ReferenceSource: Specifies the property that a reference refers to."""
+        ...
+    @overload
+    def PropertyCreate(self,Name:str,Type:Literal[FBPropertyType.kFBPT_bool],DataType:str,Animatable:Literal[True],IsUser:bool,ReferenceSource:FBProperty|None,/)->FBPropertyAnimatableBool:
+        """Create user or dynamic property.
+        
+        ### Parameters:
+            - Name: The name of the property.
+            - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+            - DataType: DataType of the property.
+            - Animatable: To specify if the property can be animated.
+            - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
+            - ReferenceSource: Specifies the property that a reference refers to."""
+        ...
+    @overload
+    def PropertyCreate(self,Name:str,Type:Literal[FBPropertyType.kFBPT_float],DataType:str,Animatable:Literal[False],IsUser:bool,ReferenceSource:FBProperty|None,/)->FBPropertyFloat:
+        """Create user or dynamic property.
+        
+        ### Parameters:
+            - Name: The name of the property.
+            - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+            - DataType: DataType of the property.
+            - Animatable: To specify if the property can be animated.
+            - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
+            - ReferenceSource: Specifies the property that a reference refers to."""
+        ...
+    @overload
+    def PropertyCreate(self,Name:str,Type:Literal[FBPropertyType.kFBPT_double],DataType:str,Animatable:Literal[False],IsUser:bool,ReferenceSource:FBProperty|None,/)->FBPropertyDouble:
+        """Create user or dynamic property.
+        
+        ### Parameters:
+            - Name: The name of the property.
+            - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+            - DataType: DataType of the property.
+            - Animatable: To specify if the property can be animated.
+            - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
+            - ReferenceSource: Specifies the property that a reference refers to."""
+        ...
+    @overload
+    def PropertyCreate(self,Name:str,Type:Literal[FBPropertyType.kFBPT_double],DataType:str,Animatable:Literal[True],IsUser:bool,ReferenceSource:FBProperty|None,/)->FBPropertyAnimatableDouble:
+        """Create user or dynamic property.
+        
+        ### Parameters:
+            - Name: The name of the property.
+            - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+            - DataType: DataType of the property.
+            - Animatable: To specify if the property can be animated.
+            - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
+            - ReferenceSource: Specifies the property that a reference refers to."""
+        ...
+    @overload
+    def PropertyCreate(self,Name:str,Type:Literal[FBPropertyType.kFBPT_charptr],DataType:str,Animatable:bool,IsUser:bool,ReferenceSource:FBProperty|None,/)->FBPropertyString:
+        """Create user or dynamic property.
+        
+        ### Parameters:
+            - Name: The name of the property.
+            - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+            - DataType: DataType of the property.
+            - Animatable: To specify if the property can be animated.
+            - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
+            - ReferenceSource: Specifies the property that a reference refers to."""
+        ...
+    @overload
+    def PropertyCreate(self,Name:str,Type:Literal[FBPropertyType.kFBPT_enum],DataType:str,Animatable:Literal[False],IsUser:bool,ReferenceSource:FBProperty|None,/)->FBPropertyEnum:
+        """Create user or dynamic property.
+        
+        ### Parameters:
+            - Name: The name of the property.
+            - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+            - DataType: DataType of the property.
+            - Animatable: To specify if the property can be animated.
+            - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
+            - ReferenceSource: Specifies the property that a reference refers to."""
+        ...
+    @overload
+    def PropertyCreate(self,Name:str,Type:Literal[FBPropertyType.kFBPT_enum],DataType:str,Animatable:Literal[True],IsUser:bool,ReferenceSource:FBProperty|None,/)->FBPropertyAnimatableEnum:
+        """Create user or dynamic property.
+        
+        ### Parameters:
+            - Name: The name of the property.
+            - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+            - DataType: DataType of the property.
+            - Animatable: To specify if the property can be animated.
+            - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
+            - ReferenceSource: Specifies the property that a reference refers to."""
+        ...
+    @overload
+    def PropertyCreate(self,Name:str,Type:Literal[FBPropertyType.kFBPT_Time],DataType:str,Animatable:Literal[False],IsUser:bool,ReferenceSource:FBProperty|None,/)->FBPropertyTime:
+        """Create user or dynamic property.
+        
+        ### Parameters:
+            - Name: The name of the property.
+            - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+            - DataType: DataType of the property.
+            - Animatable: To specify if the property can be animated.
+            - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
+            - ReferenceSource: Specifies the property that a reference refers to."""
+        ...
+    @overload
+    def PropertyCreate(self,Name:str,Type:Literal[FBPropertyType.kFBPT_Time],DataType:str,Animatable:Literal[True],IsUser:bool,ReferenceSource:FBProperty|None,/)->FBPropertyAnimatableTime:
+        """Create user or dynamic property.
+        
+        ### Parameters:
+            - Name: The name of the property.
+            - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+            - DataType: DataType of the property.
+            - Animatable: To specify if the property can be animated.
+            - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
+            - ReferenceSource: Specifies the property that a reference refers to."""
+        ...
+    @overload
+    def PropertyCreate(self,Name:str,Type:Literal[FBPropertyType.kFBPT_TimeCode],DataType:str,Animatable:Literal[False],IsUser:bool,ReferenceSource:FBProperty|None,/)->FBPropertyTimeCode:
+        """Create user or dynamic property.
+        
+        ### Parameters:
+            - Name: The name of the property.
+            - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+            - DataType: DataType of the property.
+            - Animatable: To specify if the property can be animated.
+            - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
+            - ReferenceSource: Specifies the property that a reference refers to."""
+        ...
+    @overload
+    def PropertyCreate(self,Name:str,Type:Literal[FBPropertyType.kFBPT_TimeCode],DataType:str,Animatable:Literal[True],IsUser:bool,ReferenceSource:FBProperty|None,/)->FBPropertyAnimatableTimeCode:
+        """Create user or dynamic property.
+        
+        ### Parameters:
+            - Name: The name of the property.
+            - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+            - DataType: DataType of the property.
+            - Animatable: To specify if the property can be animated.
+            - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
+            - ReferenceSource: Specifies the property that a reference refers to."""
+        ...
+    @overload
+    def PropertyCreate(self,Name:str,Type:Literal[FBPropertyType.kFBPT_object],DataType:str,Animatable:Literal[False],IsUser:bool,ReferenceSource:FBProperty|None,/)->FBPropertyListObject:
+        """Create user or dynamic property.
+        
+        ### Parameters:
+            - Name: The name of the property.
+            - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+            - DataType: DataType of the property.
+            - Animatable: To specify if the property can be animated.
+            - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
+            - ReferenceSource: Specifies the property that a reference refers to."""
+        ...
+    @overload
+    def PropertyCreate(self,Name:str,Type:Literal[FBPropertyType.kFBPT_event],DataType:str,Animatable:Literal[False],IsUser:bool,ReferenceSource:FBProperty|None,/)->FBProperty:
+        """Create user or dynamic property.
+        
+        ### Parameters:
+            - Name: The name of the property.
+            - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+            - DataType: DataType of the property.
+            - Animatable: To specify if the property can be animated.
+            - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
+            - ReferenceSource: Specifies the property that a reference refers to."""
+        ...
+    @overload
+    def PropertyCreate(self,Name:str,Type:Literal[FBPropertyType.kFBPT_stringlist],DataType:str,Animatable:Literal[False],IsUser:bool,ReferenceSource:FBProperty|None,/)->FBPropertyStringList:
+        """Create user or dynamic property.
+        
+        ### Parameters:
+            - Name: The name of the property.
+            - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+            - DataType: DataType of the property.
+            - Animatable: To specify if the property can be animated.
+            - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
+            - ReferenceSource: Specifies the property that a reference refers to."""
+        ...
+    @overload
+    def PropertyCreate(self,Name:str,Type:Literal[FBPropertyType.kFBPT_Vector4D],DataType:str,Animatable:Literal[False],IsUser:bool,ReferenceSource:FBProperty|None,/)->FBPropertyVector4d:
+        """Create user or dynamic property.
+        
+        ### Parameters:
+            - Name: The name of the property.
+            - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+            - DataType: DataType of the property.
+            - Animatable: To specify if the property can be animated.
+            - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
+            - ReferenceSource: Specifies the property that a reference refers to."""
+        ...
+    @overload
+    def PropertyCreate(self,Name:str,Type:Literal[FBPropertyType.kFBPT_Vector4D],DataType:str,Animatable:Literal[True],IsUser:bool,ReferenceSource:FBProperty|None,/)->FBPropertyAnimatableVector4d:
+        """Create user or dynamic property.
+        
+        ### Parameters:
+            - Name: The name of the property.
+            - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+            - DataType: DataType of the property.
+            - Animatable: To specify if the property can be animated.
+            - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
+            - ReferenceSource: Specifies the property that a reference refers to."""
+        ...
+    @overload
+    def PropertyCreate(self,Name:str,Type:Literal[FBPropertyType.kFBPT_Vector3D],DataType:str,Animatable:Literal[False],IsUser:bool,ReferenceSource:FBProperty|None,/)->FBPropertyVector3d:
+        """Create user or dynamic property.
+        
+        ### Parameters:
+            - Name: The name of the property.
+            - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+            - DataType: DataType of the property.
+            - Animatable: To specify if the property can be animated.
+            - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
+            - ReferenceSource: Specifies the property that a reference refers to."""
+        ...
+    @overload
+    def PropertyCreate(self,Name:str,Type:Literal[FBPropertyType.kFBPT_Vector3D],DataType:str,Animatable:Literal[True],IsUser:bool,ReferenceSource:FBProperty|None,/)->FBPropertyAnimatableVector3d:
+        """Create user or dynamic property.
+        
+        ### Parameters:
+            - Name: The name of the property.
+            - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+            - DataType: DataType of the property.
+            - Animatable: To specify if the property can be animated.
+            - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
+            - ReferenceSource: Specifies the property that a reference refers to."""
+        ...
+    @overload
+    def PropertyCreate(self,Name:str,Type:Literal[FBPropertyType.kFBPT_ColorRGB],DataType:str,Animatable:Literal[False],IsUser:bool,ReferenceSource:FBProperty|None,/)->FBPropertyColor:
+        """Create user or dynamic property.
+        
+        ### Parameters:
+            - Name: The name of the property.
+            - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+            - DataType: DataType of the property.
+            - Animatable: To specify if the property can be animated.
+            - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
+            - ReferenceSource: Specifies the property that a reference refers to."""
+        ...
+    @overload
+    def PropertyCreate(self,Name:str,Type:Literal[FBPropertyType.kFBPT_ColorRGB],DataType:str,Animatable:Literal[True],IsUser:bool,ReferenceSource:FBProperty|None,/)->FBPropertyAnimatableColor:
+        """Create user or dynamic property.
+        
+        ### Parameters:
+            - Name: The name of the property.
+            - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+            - DataType: DataType of the property.
+            - Animatable: To specify if the property can be animated.
+            - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
+            - ReferenceSource: Specifies the property that a reference refers to."""
+        ...
+    @overload
+    def PropertyCreate(self,Name:str,Type:Literal[FBPropertyType.kFBPT_ColorRGBA],DataType:str,Animatable:Literal[False],IsUser:bool,ReferenceSource:FBProperty|None,/)->FBPropertyColorAndAlpha:
+        """Create user or dynamic property.
+        
+        ### Parameters:
+            - Name: The name of the property.
+            - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+            - DataType: DataType of the property.
+            - Animatable: To specify if the property can be animated.
+            - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
+            - ReferenceSource: Specifies the property that a reference refers to."""
+        ...
+    @overload
+    def PropertyCreate(self,Name:str,Type:Literal[FBPropertyType.kFBPT_ColorRGBA],DataType:str,Animatable:Literal[True],IsUser:bool,ReferenceSource:FBProperty|None,/)->FBPropertyAnimatableColorAndAlpha:
+        """Create user or dynamic property.
+        
+        ### Parameters:
+            - Name: The name of the property.
+            - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+            - DataType: DataType of the property.
+            - Animatable: To specify if the property can be animated.
+            - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
+            - ReferenceSource: Specifies the property that a reference refers to."""
+        ...
+    @overload
+    def PropertyCreate(self,Name:str,Type:Literal[FBPropertyType.kFBPT_Action],DataType:str,Animatable:Literal[False],IsUser:bool,ReferenceSource:FBProperty|None,/)->FBPropertyAction:
+        """Create user or dynamic property.
+        
+        ### Parameters:
+            - Name: The name of the property.
+            - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+            - DataType: DataType of the property.
+            - Animatable: To specify if the property can be animated.
+            - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
+            - ReferenceSource: Specifies the property that a reference refers to."""
+        ...
+    @overload
+    def PropertyCreate(self,Name:str,Type:Literal[FBPropertyType.kFBPT_Action],DataType:str,Animatable:Literal[True],IsUser:bool,ReferenceSource:FBProperty|None,/)->FBPropertyAnimatableAction:
+        """Create user or dynamic property.
+        
+        ### Parameters:
+            - Name: The name of the property.
+            - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+            - DataType: DataType of the property.
+            - Animatable: To specify if the property can be animated.
+            - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
+            - ReferenceSource: Specifies the property that a reference refers to."""
+        ...
+    @overload
+    def PropertyCreate(self,Name:str,Type:Literal[FBPropertyType.kFBPT_Vector2D],DataType:str,Animatable:Literal[False],IsUser:bool,ReferenceSource:FBProperty|None,/)->FBPropertyVector2d:
+        """Create user or dynamic property.
+        
+        ### Parameters:
+            - Name: The name of the property.
+            - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+            - DataType: DataType of the property.
+            - Animatable: To specify if the property can be animated.
+            - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
+            - ReferenceSource: Specifies the property that a reference refers to."""
+        ...
+    @overload
+    def PropertyCreate(self,Name:str,Type:Literal[FBPropertyType.kFBPT_Vector2D],DataType:str,Animatable:Literal[True],IsUser:bool,ReferenceSource:FBProperty|None,/)->FBPropertyAnimatableVector2d:
+        """Create user or dynamic property.
+        
+        ### Parameters:
+            - Name: The name of the property.
+            - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+            - DataType: DataType of the property.
+            - Animatable: To specify if the property can be animated.
+            - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
+            - ReferenceSource: Specifies the property that a reference refers to."""
+        ...
+    @overload
+    def PropertyCreate(self,Name:str,Type:FBPropertyType,DataType:str,Animatable:bool,IsUser:bool,ReferenceSource:FBProperty|None,/)->FBProperty|None:
+        """Create user or dynamic property.
+        
+        ### Parameters:
+            - Name: The name of the property.
+            - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+            - DataType: DataType of the property.
+            - Animatable: To specify if the property can be animated.
+            - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
+            - ReferenceSource: Specifies the property that a reference refers to."""
         ...
 class FBPropertyVector4d(FBProperty):
     Data:FBVector4d
@@ -5723,20 +6076,13 @@ class FBPropertyStringList(FBProperty):
         ### Returns:
         number of elements in list."""
         ...
-    def __setitem__(self,Index:int,Value:str,/):
-        """Sets the ith components Corresponds to python: v[1] = my_component.
-        
-        ### Parameters:
-            - Index: Index of the components to set
-            - Value: a str to set"""
-        ...
     def append(self,Value:str,/):
         """Append new str at end of list.
         
         ### Parameters:
             - Value: to append"""
         ...
-    def count(self,arg2,/)->int:
+    def count(self,Object:str,/)->int:
         """Returns the number of elements.
         
         Corresponds to python: del propertyList[2]
@@ -5785,7 +6131,7 @@ class FBPropertyStringList(FBProperty):
         ### Returns:
         Returns the element that was removed."""
         ...
-    def remove(self,Index:int,/):
+    def remove(self,Object:str,/):
         """Remove an element in list.
         
         ### Parameters:
@@ -5809,19 +6155,18 @@ class FBPropertyListTreeNode(FBProperty):
     
     These classes are under development and may change dramatically between versions."""
     Data:list[FBTreeNode]
-    def __contains__(self,arg2,/)->bool:...
+    def __contains__(self,Object:FBTreeNode,/)->bool:...
     def __delitem__(self,arg2:int,/):...
     def __getitem__(self,Index:int,/)->FBTreeNode:...
     def __len__(self)->int:...
-    def __setitem__(self,arg2,arg3,/):...
-    def append(self,arg2,/):...
-    def count(self,arg2,/)->int:...
-    def insert(self,arg2:int,arg3,/):...
+    def append(self,Object:FBTreeNode,/):...
+    def count(self,Object:FBTreeNode,/)->int:...
+    def insert(self,Index:int,Object:FBTreeNode,/):...
     @overload
-    def pop(self)->Any:...
+    def pop(self)->FBTreeNode:...
     @overload
-    def pop(self,arg2,/)->Any:...
-    def remove(self,arg2,/):...
+    def pop(self,Index:int,/)->FBTreeNode:...
+    def remove(self,Object:FBTreeNode,/):...
     def removeAll(self):...
     def __iter__(self)->Iterator[FBTreeNode]:...
 class FBPropertyListComponent(FBProperty):
@@ -5864,20 +6209,13 @@ class FBPropertyListComponent(FBProperty):
         ### Returns:
         number of elements in list."""
         ...
-    def __setitem__(self,Index:int,ComponentValue:FBComponent,/):
-        """Sets the ith components Corresponds to python: v[1] = my_component.
-        
-        ### Parameters:
-            - Index: Index of the components to set
-            - ComponentValue: a [FBComponent](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html "MotionBuilder SDK base class.") to set"""
-        ...
     def append(self,Comp:FBComponent,/):
         """Append new [FBComponent](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html "MotionBuilder SDK base class.") at end of list.
         
         ### Parameters:
             - Comp: to append"""
         ...
-    def count(self,arg2,/)->int:
+    def count(self,Object:FBComponent,/)->int:
         """Returns the number of elements.
         
         Corresponds to python: del propertyList[2]
@@ -5908,7 +6246,7 @@ class FBPropertyListComponent(FBProperty):
         ### Returns:
         Returns the element that was removed."""
         ...
-    def remove(self,Index:int,/):
+    def remove(self,Object:FBComponent,/):
         """Remove an element in list.
         
         ### Parameters:
@@ -5928,8 +6266,8 @@ class FBPropertyList(FBProperty):
     len(propertyList)
     print(propertyList[0])
     ```"""
-    Data:property
-    def __contains__(self,arg2,/)->bool:...
+    Data:list[Any]
+    def __contains__(self,Object:Any,/)->bool:...
     def __delitem__(self,arg2:int,/):...
     def __getitem__(self,Index:int,/)->Any:
         """Returns the ith component Corresponds to python: print l[1].
@@ -5945,104 +6283,265 @@ class FBPropertyList(FBProperty):
         
         Corresponds to python: len(object)"""
         ...
-    def __setitem__(self,arg2,arg3,/):...
-    def append(self,arg2,/):...
-    def count(self,arg2,/)->int:...
-    def insert(self,arg2:int,arg3,/):...
+    def append(self,Object:Any,/):...
+    def count(self,Object:Any,/)->int:...
+    def insert(self,Index:int,Object:Any,/):...
     @overload
     def pop(self)->Any:...
     @overload
-    def pop(self,arg2,/)->Any:...
-    def remove(self,arg2,/):...
+    def pop(self,Index:int,/)->Any:...
+    def remove(self,Object:Any,/):...
     def removeAll(self):...
     def __iter__(self)->Iterator[Any]:...
 class FBPropertyListVideoOut(FBPropertyListComponent):
     Data:list[FBVideoOut]
+    def __contains__(self,Object:FBVideoOut,/)->bool:...
     def __getitem__(self,Index:int,/)->FBVideoOut:...
+    def append(self,Object:FBVideoOut,/):...
+    def count(self,Object:FBVideoOut,/)->int:...
+    def insert(self,Index:int,Object:FBVideoOut,/):...
+    @overload
+    def pop(self)->FBVideoOut:...
+    @overload
+    def pop(self,Index:int,/)->FBVideoOut:...
+    def remove(self,Object:FBVideoOut,/):...
     def __iter__(self)->Iterator[FBVideoOut]:...
 class FBPropertyListVideoIn(FBPropertyListComponent):
     """PropertyList: VideoOut"""
     Data:list[FBVideoIn]
+    def __contains__(self,Object:FBVideoIn,/)->bool:...
     def __getitem__(self,Index:int,/)->FBVideoIn:...
+    def append(self,Object:FBVideoIn,/):...
+    def count(self,Object:FBVideoIn,/)->int:...
+    def insert(self,Index:int,Object:FBVideoIn,/):...
+    @overload
+    def pop(self)->FBVideoIn:...
+    @overload
+    def pop(self,Index:int,/)->FBVideoIn:...
+    def remove(self,Object:FBVideoIn,/):...
     def __iter__(self)->Iterator[FBVideoIn]:...
 class FBPropertyListVideoClip(FBPropertyListComponent):
     """PropertyList: VideoIn"""
     Data:list[FBVideoClip]
+    def __contains__(self,Object:FBVideoClip,/)->bool:...
     def __getitem__(self,Index:int,/)->FBVideoClip:...
+    def append(self,Object:FBVideoClip,/):...
+    def count(self,Object:FBVideoClip,/)->int:...
+    def insert(self,Index:int,Object:FBVideoClip,/):...
+    @overload
+    def pop(self)->FBVideoClip:...
+    @overload
+    def pop(self,Index:int,/)->FBVideoClip:...
+    def remove(self,Object:FBVideoClip,/):...
     def __iter__(self)->Iterator[FBVideoClip]:...
 class FBPropertyListUserObject(FBPropertyListComponent):
     """PropertyList: VideoClip"""
     Data:list[FBUserObject]
+    def __contains__(self,Object:FBUserObject,/)->bool:...
     def __getitem__(self,Index:int,/)->FBUserObject:...
+    def append(self,Object:FBUserObject,/):...
+    def count(self,Object:FBUserObject,/)->int:...
+    def insert(self,Index:int,Object:FBUserObject,/):...
+    @overload
+    def pop(self)->FBUserObject:...
+    @overload
+    def pop(self,Index:int,/)->FBUserObject:...
+    def remove(self,Object:FBUserObject,/):...
     def __iter__(self)->Iterator[FBUserObject]:...
 class FBPropertyListTexture(FBPropertyListComponent):
     Data:list[FBTexture]
+    def __contains__(self,Object:FBTexture,/)->bool:...
     def __getitem__(self,Index:int,/)->FBTexture:...
+    def append(self,Object:FBTexture,/):...
+    def count(self,Object:FBTexture,/)->int:...
+    def insert(self,Index:int,Object:FBTexture,/):...
+    @overload
+    def pop(self)->FBTexture:...
+    @overload
+    def pop(self,Index:int,/)->FBTexture:...
+    def remove(self,Object:FBTexture,/):...
     def __iter__(self)->Iterator[FBTexture]:...
 class FBPropertyListTake(FBPropertyListComponent):
     """PropertyList: Texture"""
     Data:list[FBTake]
+    def __contains__(self,Object:FBTake,/)->bool:...
     def __getitem__(self,Index:int,/)->FBTake:...
+    def append(self,Object:FBTake,/):...
+    def count(self,Object:FBTake,/)->int:...
+    def insert(self,Index:int,Object:FBTake,/):...
+    @overload
+    def pop(self)->FBTake:...
+    @overload
+    def pop(self,Index:int,/)->FBTake:...
+    def remove(self,Object:FBTake,/):...
     def __iter__(self)->Iterator[FBTake]:...
 class FBPropertyListStoryTrack(FBPropertyListComponent):
     """List: Take"""
     Data:list[FBStoryTrack]
+    def __contains__(self,Object:FBStoryTrack,/)->bool:...
     def __getitem__(self,Index:int,/)->FBStoryTrack:...
+    def append(self,Object:FBStoryTrack,/):...
+    def count(self,Object:FBStoryTrack,/)->int:...
+    def insert(self,Index:int,Object:FBStoryTrack,/):...
+    @overload
+    def pop(self)->FBStoryTrack:...
+    @overload
+    def pop(self,Index:int,/)->FBStoryTrack:...
+    def remove(self,Object:FBStoryTrack,/):...
     def __iter__(self)->Iterator[FBStoryTrack]:...
 class FBPropertyListStorySubTrack(FBPropertyListComponent):
     """List: StoryTrack"""
-    Data:property
-    def __getitem__(self,arg2,/)->Any:...
-    def __iter__(self)->Iterator[Any]:...
+    Data:list[FBComponent]
+    def __contains__(self,Object:FBComponent,/)->bool:...
+    def __getitem__(self,Index:int,/)->FBComponent:...
+    def append(self,Object:FBComponent,/):...
+    def count(self,Object:FBComponent,/)->int:...
+    def insert(self,Index:int,Object:FBComponent,/):...
+    @overload
+    def pop(self)->FBComponent:...
+    @overload
+    def pop(self,Index:int,/)->FBComponent:...
+    def remove(self,Object:FBComponent,/):...
+    def __iter__(self)->Iterator[FBComponent]:...
 class FBPropertyListStoryFolder(FBPropertyListComponent):
     """List: StorySubTrack"""
     Data:list[FBStoryFolder]
+    def __contains__(self,Object:FBStoryFolder,/)->bool:...
     def __getitem__(self,Index:int,/)->FBStoryFolder:...
+    def append(self,Object:FBStoryFolder,/):...
+    def count(self,Object:FBStoryFolder,/)->int:...
+    def insert(self,Index:int,Object:FBStoryFolder,/):...
+    @overload
+    def pop(self)->FBStoryFolder:...
+    @overload
+    def pop(self,Index:int,/)->FBStoryFolder:...
+    def remove(self,Object:FBStoryFolder,/):...
     def __iter__(self)->Iterator[FBStoryFolder]:...
 class FBPropertyListStoryDetails(FBPropertyListComponent):
     """List: StoryFolder"""
-    Data:property
-    def __getitem__(self,arg2,/)->Any:...
-    def __iter__(self)->Iterator[Any]:...
+    Data:list[FBComponent]
+    def __contains__(self,Object:FBComponent,/)->bool:...
+    def __getitem__(self,Index:int,/)->FBComponent:...
+    def append(self,Object:FBComponent,/):...
+    def count(self,Object:FBComponent,/)->int:...
+    def insert(self,Index:int,Object:FBComponent,/):...
+    @overload
+    def pop(self)->FBComponent:...
+    @overload
+    def pop(self,Index:int,/)->FBComponent:...
+    def remove(self,Object:FBComponent,/):...
+    def __iter__(self)->Iterator[FBComponent]:...
 class FBPropertyListStoryClip(FBPropertyListComponent):
     """List: Story track Details"""
     Data:list[FBStoryClip]
+    def __contains__(self,Object:FBStoryClip,/)->bool:...
     def __getitem__(self,Index:int,/)->FBStoryClip:...
+    def append(self,Object:FBStoryClip,/):...
+    def count(self,Object:FBStoryClip,/)->int:...
+    def insert(self,Index:int,Object:FBStoryClip,/):...
+    @overload
+    def pop(self)->FBStoryClip:...
+    @overload
+    def pop(self,Index:int,/)->FBStoryClip:...
+    def remove(self,Object:FBStoryClip,/):...
     def __iter__(self)->Iterator[FBStoryClip]:...
 class FBPropertyListShader(FBPropertyListComponent):
     """List: StoryClip"""
     Data:list[FBShader]
+    def __contains__(self,Object:FBShader,/)->bool:...
     def __getitem__(self,Index:int,/)->FBShader:...
+    def append(self,Object:FBShader,/):...
+    def count(self,Object:FBShader,/)->int:...
+    def insert(self,Index:int,Object:FBShader,/):...
+    @overload
+    def pop(self)->FBShader:...
+    @overload
+    def pop(self,Index:int,/)->FBShader:...
+    def remove(self,Object:FBShader,/):...
     def __iter__(self)->Iterator[FBShader]:...
 class FBPropertyListSet(FBPropertyListComponent):
     """PropertyList: Shader"""
     Data:list[FBSet]
+    def __contains__(self,Object:FBSet,/)->bool:...
     def __getitem__(self,Index:int,/)->FBSet:...
+    def append(self,Object:FBSet,/):...
+    def count(self,Object:FBSet,/)->int:...
+    def insert(self,Index:int,Object:FBSet,/):...
+    @overload
+    def pop(self)->FBSet:...
+    @overload
+    def pop(self,Index:int,/)->FBSet:...
+    def remove(self,Object:FBSet,/):...
     def __iter__(self)->Iterator[FBSet]:...
 class FBPropertyListRendererCallback(FBPropertyListComponent):
     """PropertyList: Device optical marker"""
     Data:list[FBRendererCallback]
+    def __contains__(self,Object:FBRendererCallback,/)->bool:...
     def __getitem__(self,Index:int,/)->FBRendererCallback:...
+    def append(self,Object:FBRendererCallback,/):...
+    def count(self,Object:FBRendererCallback,/)->int:...
+    def insert(self,Index:int,Object:FBRendererCallback,/):...
+    @overload
+    def pop(self)->FBRendererCallback:...
+    @overload
+    def pop(self,Index:int,/)->FBRendererCallback:...
+    def remove(self,Object:FBRendererCallback,/):...
     def __iter__(self)->Iterator[FBRendererCallback]:...
 class FBPropertyListPose(FBPropertyListComponent):
     """PropertyList: Texture"""
     Data:list[FBPose]
+    def __contains__(self,Object:FBPose,/)->bool:...
     def __getitem__(self,Index:int,/)->FBPose:...
+    def append(self,Object:FBPose,/):...
+    def count(self,Object:FBPose,/)->int:...
+    def insert(self,Index:int,Object:FBPose,/):...
+    @overload
+    def pop(self)->FBPose:...
+    @overload
+    def pop(self,Index:int,/)->FBPose:...
+    def remove(self,Object:FBPose,/):...
     def __iter__(self)->Iterator[FBPose]:...
 class FBPropertyListPivot(FBPropertyListComponent):
     """List: Model"""
-    Data:property
-    def __getitem__(self,arg2,/)->Any:...
-    def __iter__(self)->Iterator[Any]:...
+    Data:list[FBComponent]
+    def __contains__(self,Object:FBComponent,/)->bool:...
+    def __getitem__(self,Index:int,/)->FBComponent:...
+    def append(self,Object:FBComponent,/):...
+    def count(self,Object:FBComponent,/)->int:...
+    def insert(self,Index:int,Object:FBComponent,/):...
+    @overload
+    def pop(self)->FBComponent:...
+    @overload
+    def pop(self,Index:int,/)->FBComponent:...
+    def remove(self,Object:FBComponent,/):...
+    def __iter__(self)->Iterator[FBComponent]:...
 class FBPropertyListPhysicalProperties(FBPropertyListComponent):
     """List: Story Clip pivot models"""
     Data:list[FBPhysicalProperties]
+    def __contains__(self,Object:FBPhysicalProperties,/)->bool:...
     def __getitem__(self,Index:int,/)->FBPhysicalProperties:...
+    def append(self,Object:FBPhysicalProperties,/):...
+    def count(self,Object:FBPhysicalProperties,/)->int:...
+    def insert(self,Index:int,Object:FBPhysicalProperties,/):...
+    @overload
+    def pop(self)->FBPhysicalProperties:...
+    @overload
+    def pop(self,Index:int,/)->FBPhysicalProperties:...
+    def remove(self,Object:FBPhysicalProperties,/):...
     def __iter__(self)->Iterator[FBPhysicalProperties]:...
 class FBPropertyListObjectPose(FBPropertyListComponent):
     """PropertyList: Device optical marker"""
     Data:list[FBObjectPose]
+    def __contains__(self,Object:FBObjectPose,/)->bool:...
     def __getitem__(self,Index:int,/)->FBObjectPose:...
+    def append(self,Object:FBObjectPose,/):...
+    def count(self,Object:FBObjectPose,/)->int:...
+    def insert(self,Index:int,Object:FBObjectPose,/):...
+    @overload
+    def pop(self)->FBObjectPose:...
+    @overload
+    def pop(self,Index:int,/)->FBObjectPose:...
+    def remove(self,Object:FBObjectPose,/):...
     def __iter__(self)->Iterator[FBObjectPose]:...
 class FBPropertyListObject(FBPropertyListComponent):
     """List-like structure fo system elements.
@@ -6050,7 +6549,7 @@ class FBPropertyListObject(FBPropertyListComponent):
     PropertyList: ObjectPose.
     
     This container supports most of the list interface, but is limited to contain only [FBComponent](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html "MotionBuilder SDK base class.") objects. New objects can be added, or objects in the list can be removed. The cardinality of the list and the use of the contained object will vary according the container object type. This class supports slice access for query, but not for assignment."""
-    Data:property
+    Data:list[FBComponent]
     def GetSingleConnect(self)->bool:
         """Get if the connection support only one connection.
         
@@ -6063,185 +6562,500 @@ class FBPropertyListObject(FBPropertyListComponent):
         ### Parameters:
             - SingleConnect: set to true for only one connection allowed."""
         ...
-    def __getitem__(self,arg2,/)->Any:...
-    def __iter__(self)->Iterator[Any]:...
+    def __contains__(self,Object:FBComponent,/)->bool:...
+    def __getitem__(self,Index:int,/)->FBComponent:...
+    def append(self,Object:FBComponent,/):...
+    def count(self,Object:FBComponent,/)->int:...
+    def insert(self,Index:int,Object:FBComponent,/):...
+    @overload
+    def pop(self)->FBComponent:...
+    @overload
+    def pop(self,Index:int,/)->FBComponent:...
+    def remove(self,Object:FBComponent,/):...
+    def __iter__(self)->Iterator[FBComponent]:...
 class FBPropertyListNote(FBPropertyListComponent):
     """List of scene objects.
     
     This list is a more generic container often used as object properties. The types of actual object that it can contain can be specialized."""
     Data:list[FBNote]
+    def __contains__(self,Object:FBNote,/)->bool:...
     def __getitem__(self,Index:int,/)->FBNote:...
+    def append(self,Object:FBNote,/):...
+    def count(self,Object:FBNote,/)->int:...
+    def insert(self,Index:int,Object:FBNote,/):...
+    @overload
+    def pop(self)->FBNote:...
+    @overload
+    def pop(self,Index:int,/)->FBNote:...
+    def remove(self,Object:FBNote,/):...
     def __iter__(self)->Iterator[FBNote]:...
 class FBPropertyListNamespace(FBPropertyListComponent):
     """List: Note"""
     Data:list[FBNamespace]
+    def __contains__(self,Object:FBNamespace,/)->bool:...
     def __getitem__(self,Index:int,/)->FBNamespace:...
+    def append(self,Object:FBNamespace,/):...
+    def count(self,Object:FBNamespace,/)->int:...
+    def insert(self,Index:int,Object:FBNamespace,/):...
+    @overload
+    def pop(self)->FBNamespace:...
+    @overload
+    def pop(self,Index:int,/)->FBNamespace:...
+    def remove(self,Object:FBNamespace,/):...
     def __iter__(self)->Iterator[FBNamespace]:...
 class FBPropertyListMotionClip(FBPropertyListComponent):
     """List: Namespace"""
     Data:list[FBMotionClip]
+    def __contains__(self,Object:FBMotionClip,/)->bool:...
     def __getitem__(self,Index:int,/)->FBMotionClip:...
+    def append(self,Object:FBMotionClip,/):...
+    def count(self,Object:FBMotionClip,/)->int:...
+    def insert(self,Index:int,Object:FBMotionClip,/):...
+    @overload
+    def pop(self)->FBMotionClip:...
+    @overload
+    def pop(self,Index:int,/)->FBMotionClip:...
+    def remove(self,Object:FBMotionClip,/):...
     def __iter__(self)->Iterator[FBMotionClip]:...
 class FBPropertyListModelSkeleton(FBPropertyListComponent):
     """PropertyList: ModelTemplate."""
     Data:list[FBModelSkeleton]
+    def __contains__(self,Object:FBModelSkeleton,/)->bool:...
     def __getitem__(self,Index:int,/)->FBModelSkeleton:...
+    def append(self,Object:FBModelSkeleton,/):...
+    def count(self,Object:FBModelSkeleton,/)->int:...
+    def insert(self,Index:int,Object:FBModelSkeleton,/):...
+    @overload
+    def pop(self)->FBModelSkeleton:...
+    @overload
+    def pop(self,Index:int,/)->FBModelSkeleton:...
+    def remove(self,Object:FBModelSkeleton,/):...
     def __iter__(self)->Iterator[FBModelSkeleton]:...
 class FBPropertyListModelOptical(FBPropertyListComponent):
     """PropertyList: ModelSkeleton."""
     Data:list[FBModelOptical]
+    def __contains__(self,Object:FBModelOptical,/)->bool:...
     def __getitem__(self,Index:int,/)->FBModelOptical:...
+    def append(self,Object:FBModelOptical,/):...
+    def count(self,Object:FBModelOptical,/)->int:...
+    def insert(self,Index:int,Object:FBModelOptical,/):...
+    @overload
+    def pop(self)->FBModelOptical:...
+    @overload
+    def pop(self,Index:int,/)->FBModelOptical:...
+    def remove(self,Object:FBModelOptical,/):...
     def __iter__(self)->Iterator[FBModelOptical]:...
 class FBPropertyListModel(FBPropertyListComponent):
     """PropertyList: Device optical marker"""
     Data:list[FBModel]
+    def __contains__(self,Object:FBModel,/)->bool:...
     def __getitem__(self,Index:int,/)->FBModel:...
+    def append(self,Object:FBModel,/):...
+    def count(self,Object:FBModel,/)->int:...
+    def insert(self,Index:int,Object:FBModel,/):...
+    @overload
+    def pop(self)->FBModel:...
+    @overload
+    def pop(self,Index:int,/)->FBModel:...
+    def remove(self,Object:FBModel,/):...
     def __iter__(self)->Iterator[FBModel]:...
 class FBPropertyListMaterial(FBPropertyListComponent):
     """List: Model"""
     Data:list[FBMaterial]
+    def __contains__(self,Object:FBMaterial,/)->bool:...
     def __getitem__(self,Index:int,/)->FBMaterial:...
+    def append(self,Object:FBMaterial,/):...
+    def count(self,Object:FBMaterial,/)->int:...
+    def insert(self,Index:int,Object:FBMaterial,/):...
+    @overload
+    def pop(self)->FBMaterial:...
+    @overload
+    def pop(self,Index:int,/)->FBMaterial:...
+    def remove(self,Object:FBMaterial,/):...
     def __iter__(self)->Iterator[FBMaterial]:...
 class FBPropertyListMarkerSet(FBPropertyListComponent):
     """PropertyList: Material"""
     Data:list[FBMarkerSet]
+    def __contains__(self,Object:FBMarkerSet,/)->bool:...
     def __getitem__(self,Index:int,/)->FBMarkerSet:...
+    def append(self,Object:FBMarkerSet,/):...
+    def count(self,Object:FBMarkerSet,/)->int:...
+    def insert(self,Index:int,Object:FBMarkerSet,/):...
+    @overload
+    def pop(self)->FBMarkerSet:...
+    @overload
+    def pop(self,Index:int,/)->FBMarkerSet:...
+    def remove(self,Object:FBMarkerSet,/):...
     def __iter__(self)->Iterator[FBMarkerSet]:...
 class FBPropertyListLight(FBPropertyListComponent):
     """PropertyList: Manipulator."""
     Data:list[FBLight]
+    def __contains__(self,Object:FBLight,/)->bool:...
     def __getitem__(self,Index:int,/)->FBLight:...
+    def append(self,Object:FBLight,/):...
+    def count(self,Object:FBLight,/)->int:...
+    def insert(self,Index:int,Object:FBLight,/):...
+    @overload
+    def pop(self)->FBLight:...
+    @overload
+    def pop(self,Index:int,/)->FBLight:...
+    def remove(self,Object:FBLight,/):...
     def __iter__(self)->Iterator[FBLight]:...
 class FBPropertyListKeyingGroup(FBPropertyListComponent):
     """PropertyList: Light"""
     Data:list[FBKeyingGroup]
+    def __contains__(self,Object:FBKeyingGroup,/)->bool:...
     def __getitem__(self,Index:int,/)->FBKeyingGroup:...
+    def append(self,Object:FBKeyingGroup,/):...
+    def count(self,Object:FBKeyingGroup,/)->int:...
+    def insert(self,Index:int,Object:FBKeyingGroup,/):...
+    @overload
+    def pop(self)->FBKeyingGroup:...
+    @overload
+    def pop(self,Index:int,/)->FBKeyingGroup:...
+    def remove(self,Object:FBKeyingGroup,/):...
     def __iter__(self)->Iterator[FBKeyingGroup]:...
 class FBPropertyListHandle(FBPropertyListComponent):
     """PropertyList: KeyingGroup."""
     Data:list[FBHandle]
+    def __contains__(self,Object:FBHandle,/)->bool:...
     def __getitem__(self,Index:int,/)->FBHandle:...
+    def append(self,Object:FBHandle,/):...
+    def count(self,Object:FBHandle,/)->int:...
+    def insert(self,Index:int,Object:FBHandle,/):...
+    @overload
+    def pop(self)->FBHandle:...
+    @overload
+    def pop(self,Index:int,/)->FBHandle:...
+    def remove(self,Object:FBHandle,/):...
     def __iter__(self)->Iterator[FBHandle]:...
 class FBPropertyListHUDElement(FBPropertyListComponent):
     """PropertyList: Handle."""
     Data:list[FBHUDElement]
+    def __contains__(self,Object:FBHUDElement,/)->bool:...
     def __getitem__(self,Index:int,/)->FBHUDElement:...
+    def append(self,Object:FBHUDElement,/):...
+    def count(self,Object:FBHUDElement,/)->int:...
+    def insert(self,Index:int,Object:FBHUDElement,/):...
+    @overload
+    def pop(self)->FBHUDElement:...
+    @overload
+    def pop(self,Index:int,/)->FBHUDElement:...
+    def remove(self,Object:FBHUDElement,/):...
     def __iter__(self)->Iterator[FBHUDElement]:...
 class FBPropertyListHUD(FBPropertyListComponent):
     """PropertyList: Handle."""
     Data:list[FBHUD]
+    def __contains__(self,Object:FBHUD,/)->bool:...
     def __getitem__(self,Index:int,/)->FBHUD:...
+    def append(self,Object:FBHUD,/):...
+    def count(self,Object:FBHUD,/)->int:...
+    def insert(self,Index:int,Object:FBHUD,/):...
+    @overload
+    def pop(self)->FBHUD:...
+    @overload
+    def pop(self,Index:int,/)->FBHUD:...
+    def remove(self,Object:FBHUD,/):...
     def __iter__(self)->Iterator[FBHUD]:...
 class FBPropertyListGroup(FBPropertyListComponent):
     """PropertyList: Handle."""
     Data:list[FBGroup]
+    def __contains__(self,Object:FBGroup,/)->bool:...
     def __getitem__(self,Index:int,/)->FBGroup:...
+    def append(self,Object:FBGroup,/):...
+    def count(self,Object:FBGroup,/)->int:...
+    def insert(self,Index:int,Object:FBGroup,/):...
+    @overload
+    def pop(self)->FBGroup:...
+    @overload
+    def pop(self,Index:int,/)->FBGroup:...
+    def remove(self,Object:FBGroup,/):...
     def __iter__(self)->Iterator[FBGroup]:...
 class FBPropertyListFolder(FBPropertyListComponent):
     """List: Group"""
     Data:list[FBFolder]
+    def __contains__(self,Object:FBFolder,/)->bool:...
     def __getitem__(self,Index:int,/)->FBFolder:...
+    def append(self,Object:FBFolder,/):...
+    def count(self,Object:FBFolder,/)->int:...
+    def insert(self,Index:int,Object:FBFolder,/):...
+    @overload
+    def pop(self)->FBFolder:...
+    @overload
+    def pop(self,Index:int,/)->FBFolder:...
+    def remove(self,Object:FBFolder,/):...
     def __iter__(self)->Iterator[FBFolder]:...
 class FBPropertyListFileReference(FBPropertyListComponent):
     """PropertyList: Folder"""
     Data:list[FBFileReference]
+    def __contains__(self,Object:FBFileReference,/)->bool:...
     def __getitem__(self,Index:int,/)->FBFileReference:...
+    def append(self,Object:FBFileReference,/):...
+    def count(self,Object:FBFileReference,/)->int:...
+    def insert(self,Index:int,Object:FBFileReference,/):...
+    @overload
+    def pop(self)->FBFileReference:...
+    @overload
+    def pop(self,Index:int,/)->FBFileReference:...
+    def remove(self,Object:FBFileReference,/):...
     def __iter__(self)->Iterator[FBFileReference]:...
 class FBPropertyListDevice(FBPropertyListComponent):
     Data:list[FBDevice]
+    def __contains__(self,Object:FBDevice,/)->bool:...
     def __getitem__(self,Index:int,/)->FBDevice:...
+    def append(self,Object:FBDevice,/):...
+    def count(self,Object:FBDevice,/)->int:...
+    def insert(self,Index:int,Object:FBDevice,/):...
+    @overload
+    def pop(self)->FBDevice:...
+    @overload
+    def pop(self,Index:int,/)->FBDevice:...
+    def remove(self,Object:FBDevice,/):...
     def __iter__(self)->Iterator[FBDevice]:...
 class FBPropertyListDeformer(FBPropertyListComponent):
     """PropertyList: Device"""
     Data:list[FBDeformer]
+    def __contains__(self,Object:FBDeformer,/)->bool:...
     def __getitem__(self,Index:int,/)->FBDeformer:...
+    def append(self,Object:FBDeformer,/):...
+    def count(self,Object:FBDeformer,/)->int:...
+    def insert(self,Index:int,Object:FBDeformer,/):...
+    @overload
+    def pop(self)->FBDeformer:...
+    @overload
+    def pop(self,Index:int,/)->FBDeformer:...
+    def remove(self,Object:FBDeformer,/):...
     def __iter__(self)->Iterator[FBDeformer]:...
 class FBPropertyListDeck(FBPropertyListComponent):
     Data:list[FBDeck]
+    def __contains__(self,Object:FBDeck,/)->bool:...
     def __getitem__(self,Index:int,/)->FBDeck:...
+    def append(self,Object:FBDeck,/):...
+    def count(self,Object:FBDeck,/)->int:...
+    def insert(self,Index:int,Object:FBDeck,/):...
+    @overload
+    def pop(self)->FBDeck:...
+    @overload
+    def pop(self,Index:int,/)->FBDeck:...
+    def remove(self,Object:FBDeck,/):...
     def __iter__(self)->Iterator[FBDeck]:...
 class FBPropertyListControlSet(FBPropertyListComponent):
     """PropertyList: Deck"""
     Data:list[FBControlSet]
+    def __contains__(self,Object:FBControlSet,/)->bool:...
     def __getitem__(self,Index:int,/)->FBControlSet:...
+    def append(self,Object:FBControlSet,/):...
+    def count(self,Object:FBControlSet,/)->int:...
+    def insert(self,Index:int,Object:FBControlSet,/):...
+    @overload
+    def pop(self)->FBControlSet:...
+    @overload
+    def pop(self,Index:int,/)->FBControlSet:...
+    def remove(self,Object:FBControlSet,/):...
     def __iter__(self)->Iterator[FBControlSet]:...
 class FBPropertyListConstraintSolver(FBPropertyListComponent):
     """PropertyList: MarkerSet.
     
     These classes are under development and may change dramatically between versions."""
     Data:list[FBConstraintSolver]
+    def __contains__(self,Object:FBConstraintSolver,/)->bool:...
     def __getitem__(self,Index:int,/)->FBConstraintSolver:...
+    def append(self,Object:FBConstraintSolver,/):...
+    def count(self,Object:FBConstraintSolver,/)->int:...
+    def insert(self,Index:int,Object:FBConstraintSolver,/):...
+    @overload
+    def pop(self)->FBConstraintSolver:...
+    @overload
+    def pop(self,Index:int,/)->FBConstraintSolver:...
+    def remove(self,Object:FBConstraintSolver,/):...
     def __iter__(self)->Iterator[FBConstraintSolver]:...
 class FBPropertyListActor(FBPropertyListComponent):
     """PropertyList: Actor face.
     
     These classes are under development and may change dramatically between versions."""
     Data:list[FBActor]
+    def __contains__(self,Object:FBActor,/)->bool:...
     def __getitem__(self,Index:int,/)->FBActor:...
+    def append(self,Object:FBActor,/):...
+    def count(self,Object:FBActor,/)->int:...
+    def insert(self,Index:int,Object:FBActor,/):...
+    @overload
+    def pop(self)->FBActor:...
+    @overload
+    def pop(self,Index:int,/)->FBActor:...
+    def remove(self,Object:FBActor,/):...
     def __iter__(self)->Iterator[FBActor]:...
 class FBPropertyListActorFace(FBPropertyListComponent):
     Data:list[FBActorFace]
+    def __contains__(self,Object:FBActorFace,/)->bool:...
     def __getitem__(self,Index:int,/)->FBActorFace:...
+    def append(self,Object:FBActorFace,/):...
+    def count(self,Object:FBActorFace,/)->int:...
+    def insert(self,Index:int,Object:FBActorFace,/):...
+    @overload
+    def pop(self)->FBActorFace:...
+    @overload
+    def pop(self,Index:int,/)->FBActorFace:...
+    def remove(self,Object:FBActorFace,/):...
     def __iter__(self)->Iterator[FBActorFace]:...
 class FBPropertyListAudioClip(FBPropertyListComponent):
     """List: AudioIn"""
     Data:list[FBAudioClip]
+    def __contains__(self,Object:FBAudioClip,/)->bool:...
     def __getitem__(self,Index:int,/)->FBAudioClip:...
+    def append(self,Object:FBAudioClip,/):...
+    def count(self,Object:FBAudioClip,/)->int:...
+    def insert(self,Index:int,Object:FBAudioClip,/):...
+    @overload
+    def pop(self)->FBAudioClip:...
+    @overload
+    def pop(self,Index:int,/)->FBAudioClip:...
+    def remove(self,Object:FBAudioClip,/):...
     def __iter__(self)->Iterator[FBAudioClip]:...
 class FBPropertyListAudioIn(FBPropertyListComponent):
     """List: AudioOut"""
     Data:list[FBAudioIn]
+    def __contains__(self,Object:FBAudioIn,/)->bool:...
     def __getitem__(self,Index:int,/)->FBAudioIn:...
+    def append(self,Object:FBAudioIn,/):...
+    def count(self,Object:FBAudioIn,/)->int:...
+    def insert(self,Index:int,Object:FBAudioIn,/):...
+    @overload
+    def pop(self)->FBAudioIn:...
+    @overload
+    def pop(self,Index:int,/)->FBAudioIn:...
+    def remove(self,Object:FBAudioIn,/):...
     def __iter__(self)->Iterator[FBAudioIn]:...
 class FBPropertyListAudioOut(FBPropertyListComponent):
     """List: Box informations for constraint relation."""
     Data:list[FBAudioOut]
+    def __contains__(self,Object:FBAudioOut,/)->bool:...
     def __getitem__(self,Index:int,/)->FBAudioOut:...
+    def append(self,Object:FBAudioOut,/):...
+    def count(self,Object:FBAudioOut,/)->int:...
+    def insert(self,Index:int,Object:FBAudioOut,/):...
+    @overload
+    def pop(self)->FBAudioOut:...
+    @overload
+    def pop(self,Index:int,/)->FBAudioOut:...
+    def remove(self,Object:FBAudioOut,/):...
     def __iter__(self)->Iterator[FBAudioOut]:...
 class FBPropertyListBox(FBPropertyListComponent):
     """PropertyList: Camera"""
     Data:list[FBBox]
+    def __contains__(self,Object:FBBox,/)->bool:...
     def __getitem__(self,Index:int,/)->FBBox:...
+    def append(self,Object:FBBox,/):...
+    def count(self,Object:FBBox,/)->int:...
+    def insert(self,Index:int,Object:FBBox,/):...
+    @overload
+    def pop(self)->FBBox:...
+    @overload
+    def pop(self,Index:int,/)->FBBox:...
+    def remove(self,Object:FBBox,/):...
     def __iter__(self)->Iterator[FBBox]:...
 class FBPropertyListCamera(FBPropertyListComponent):
     """PropertyList: Character.
     
     These classes are under development and may change dramatically between versions."""
     Data:list[FBCamera]
+    def __contains__(self,Object:FBCamera,/)->bool:...
     def __getitem__(self,Index:int,/)->FBCamera:...
+    def append(self,Object:FBCamera,/):...
+    def count(self,Object:FBCamera,/)->int:...
+    def insert(self,Index:int,Object:FBCamera,/):...
+    @overload
+    def pop(self)->FBCamera:...
+    @overload
+    def pop(self,Index:int,/)->FBCamera:...
+    def remove(self,Object:FBCamera,/):...
     def __iter__(self)->Iterator[FBCamera]:...
 class FBPropertyListCharacter(FBPropertyListComponent):
     Data:list[FBCharacter]
+    def __contains__(self,Object:FBCharacter,/)->bool:...
     def __getitem__(self,Index:int,/)->FBCharacter:...
+    def append(self,Object:FBCharacter,/):...
+    def count(self,Object:FBCharacter,/)->int:...
+    def insert(self,Index:int,Object:FBCharacter,/):...
+    @overload
+    def pop(self)->FBCharacter:...
+    @overload
+    def pop(self,Index:int,/)->FBCharacter:...
+    def remove(self,Object:FBCharacter,/):...
     def __iter__(self)->Iterator[FBCharacter]:...
 class FBPropertyListCharacterExtension(FBPropertyListComponent):
     """Character extension property list. PropertyList: Character face.
     
     These classes are under development and may change dramatically between versions."""
     Data:list[FBCharacterExtension]
+    def __contains__(self,Object:FBCharacterExtension,/)->bool:...
     def __getitem__(self,Index:int,/)->FBCharacterExtension:...
+    def append(self,Object:FBCharacterExtension,/):...
+    def count(self,Object:FBCharacterExtension,/)->int:...
+    def insert(self,Index:int,Object:FBCharacterExtension,/):...
+    @overload
+    def pop(self)->FBCharacterExtension:...
+    @overload
+    def pop(self,Index:int,/)->FBCharacterExtension:...
+    def remove(self,Object:FBCharacterExtension,/):...
     def __iter__(self)->Iterator[FBCharacterExtension]:...
 class FBPropertyListCharacterFace(FBPropertyListComponent):
     """PropertyList: CharacterMarkerSet.
     
     These classes are under development and may change dramatically between versions."""
     Data:list[FBCharacterFace]
+    def __contains__(self,Object:FBCharacterFace,/)->bool:...
     def __getitem__(self,Index:int,/)->FBCharacterFace:...
+    def append(self,Object:FBCharacterFace,/):...
+    def count(self,Object:FBCharacterFace,/)->int:...
+    def insert(self,Index:int,Object:FBCharacterFace,/):...
+    @overload
+    def pop(self)->FBCharacterFace:...
+    @overload
+    def pop(self,Index:int,/)->FBCharacterFace:...
+    def remove(self,Object:FBCharacterFace,/):...
     def __iter__(self)->Iterator[FBCharacterFace]:...
 class FBPropertyListCharacterMarkerSet(FBPropertyListComponent):
     """PropertyList: CharacterPose."""
     Data:list[FBCharacterMarkerSet]
+    def __contains__(self,Object:FBCharacterMarkerSet,/)->bool:...
     def __getitem__(self,Index:int,/)->FBCharacterMarkerSet:...
+    def append(self,Object:FBCharacterMarkerSet,/):...
+    def count(self,Object:FBCharacterMarkerSet,/)->int:...
+    def insert(self,Index:int,Object:FBCharacterMarkerSet,/):...
+    @overload
+    def pop(self)->FBCharacterMarkerSet:...
+    @overload
+    def pop(self,Index:int,/)->FBCharacterMarkerSet:...
+    def remove(self,Object:FBCharacterMarkerSet,/):...
     def __iter__(self)->Iterator[FBCharacterMarkerSet]:...
 class FBPropertyListCharacterPose(FBPropertyListComponent):
     """PropertyList: Concrete class for PropertyList of component"""
     Data:list[FBCharacterPose]
+    def __contains__(self,Object:FBCharacterPose,/)->bool:...
     def __getitem__(self,Index:int,/)->FBCharacterPose:...
+    def append(self,Object:FBCharacterPose,/):...
+    def count(self,Object:FBCharacterPose,/)->int:...
+    def insert(self,Index:int,Object:FBCharacterPose,/):...
+    @overload
+    def pop(self)->FBCharacterPose:...
+    @overload
+    def pop(self,Index:int,/)->FBCharacterPose:...
+    def remove(self,Object:FBCharacterPose,/):...
     def __iter__(self)->Iterator[FBCharacterPose]:...
 class FBPropertyListConstraint(FBPropertyListComponent):
     """PropertyList: Constraint solver"""
     Data:list[FBConstraint]
+    def __contains__(self,Object:FBConstraint,/)->bool:...
     def __getitem__(self,Index:int,/)->FBConstraint:...
+    def append(self,Object:FBConstraint,/):...
+    def count(self,Object:FBConstraint,/)->int:...
+    def insert(self,Index:int,Object:FBConstraint,/):...
+    @overload
+    def pop(self)->FBConstraint:...
+    @overload
+    def pop(self,Index:int,/)->FBConstraint:...
+    def remove(self,Object:FBConstraint,/):...
     def __iter__(self)->Iterator[FBConstraint]:...
 class FBPropertyInt(FBProperty):
     Data:int
@@ -10966,7 +11780,7 @@ class FBModel(FBBox):
     """List: Children for model."""
     ConstrainDeformable:bool
     """Read Write Property: Model constraint deformable. Not Savable"""
-    CullingMode:property
+    CullingMode:FBModelCullingMode
     Deformers:FBPropertyListDeformer
     """List: Deformers (Skeleton Deformer or Point Cache Deformer)."""
     GeometricRotation:FBVector3d
@@ -11377,12 +12191,8 @@ class FBLight(FBModel):
     """Read Write Property: Cast light on object?"""
     CastShadows:bool
     """Read Write Property: Cast shadows on object?"""
-    @property
-    def ConeAngle(self)->FBPropertyAnimatableDouble:
-        """DEPRECATED  Equivalent to OuterAngle."""
-        ...
-    @ConeAngle.setter
-    def ConeAngle(self, Value: FBPropertyAnimatableDouble|float):...
+    ConeAngle:float
+    """DEPRECATED  Equivalent to OuterAngle."""
     @property
     def DiffuseColor(self)->FBPropertyAnimatableColor:
         """Read Write Property: Color: Diffuse color."""
@@ -11465,8 +12275,14 @@ class FBCamera(FBModel):
     When you look at a scene in the MotionBuilder Viewer, you are using a camera view.There are two types of cameras: Producer cameras. By default one of the producer cameras is used. These are always present. They can be configured but not destroyed. Custom cameras, created by the user.The SystemCamera property indicates whether a given camera is a producer or a custom camera.When you create a camera you should make it visible with the show property (inherited from [FBModel](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_model.html "Model class.")).Use [FBCameraSwitcher](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_camera_switcher.html "Camera switcher.") to get and set the current camera. For usage, see the Python sample CameraSwitcher.py.To see how to create a camera with a marker as an interest, see the Python sample code in FBCamera.py. For usage in C++, see the manipcamera sample.
     
     [See samples: NewCamera.py,](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_new_camera_8py-example.html) [RenderLayers.py,](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/_rendering_0c_render_layers_8py-example.html) [CameraSwitcher.py,](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/_samples_0c_camera_0c_camera_switcher_8py-example.html) [SetAllCamerasBackgroundColor.py,](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_set_all_cameras_background_color_8py-example.html) [SetAllCamerasBackgroundColorFromCurrentCamera.py,](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_set_all_cameras_background_color_from_current_camera_8py-example.html) [SetAllCamerasBackgroundColorFromFirstSelectedCamera.py,](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_set_all_cameras_background_color_from_first_selected_camera_8py-example.html) [FBCamera.py.](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_f_b_camera_8py-example.html)"""
-    AnimatableFarPlane:property
-    AnimatableNearPlane:property
+    @property
+    def AnimatableFarPlane(self)->FBPropertyAnimatableDouble:...
+    @AnimatableFarPlane.setter
+    def AnimatableFarPlane(self, Value: FBPropertyAnimatableDouble|float):...
+    @property
+    def AnimatableNearPlane(self)->FBPropertyAnimatableDouble:...
+    @AnimatableNearPlane.setter
+    def AnimatableNearPlane(self, Value: FBPropertyAnimatableDouble|float):...
     AntiAliasingIntensity:float
     """Read Write Property: Anti-aliasing intensity."""
     AntiAliasingMethod:FBCameraAntiAliasingMethod
@@ -13522,7 +14338,7 @@ class FBActionManager(FBComponent):
     """Action Manager class.
     
     This class is introduced to enable users to access to the actions related functions. between versions."""
-    CurrentInteractionMode:property
+    CurrentInteractionMode:str
     def __init__(self):...
 class FBConstraintManager(FBComponent):
     """Constraint manager.
@@ -16561,7 +17377,7 @@ class FBNamespace(FBComponent):
     This class is an interface to manipulate object's containing in the scene."""
     ChildrenNamespaces:FBPropertyListNamespace
     """List: Direct Children Namespace Objects."""
-    ContentCount:property
+    ContentCount:int
     ContentLocked:bool
     """Read Write Property: Content locking state."""
     def GetContent(self,Index:int,/)->FBComponent:
@@ -16585,7 +17401,7 @@ class FBNamespace(FBComponent):
             - TypeInfo: the typeInfo of the type of interested object, 0 for all the objects.
             - ExactTypeMatch: if **True**, the derived typeInfo won't be considered (For example, [FBCamera](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_camera.html "Creates custom cameras and manages system cameras.") won't be considered when passing [FBModel::TypeInfo](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html#a9b39fba51413fa925a0d94d2feb13bf9 "Contains the Type information of the object."))."""
         ...
-    def __init__(self,SingleLevelNamespace:str,ParentNSObj:FBNamespace,/):
+    def __init__(self,SingleLevelNamespace:str,ParentNSObj:FBNamespace|None,/):
         """Create a new direct children namespace object
         ### Parameters:
             - SingleLevelNamespace: [FBNamespace](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_namespace.html "Objects Containing class.") name. This name will be used as namespace itself. this name string shouldn't contain namespace string separator ":".
@@ -19133,8 +19949,8 @@ class FBTimeCode():
     """-30.0f"""
     FRAMES_5994:float
     """-59.94f"""
-    Frame:property
-    FrameRate:property
+    Frame:float
+    FrameRate:float
     MPAL_30:float
     """-29.971f Currently not supported : "1" is added just to differentiate from NTSC_FULL(-29.97f)"""
     NTSC_DROP:float
@@ -21447,15 +22263,15 @@ class FBVideoGrabOptions():
     """Read Write Property: Grabbing destination file."""
     RenderAudio:bool
     """Read Write Property: If true and there's audio in the scene, render the audio as well."""
-    RendererCallbackIndex:property
-    RendererCallbackPrefIndex:property
+    RendererCallbackIndex:int
+    RendererCallbackPrefIndex:int
     ShowCameraLabel:bool
     """Read Write Property: If true, display camera label information."""
     ShowSafeArea:bool
     """Read Write Property: If true, display safe area."""
     ShowTimeCode:bool
     """Read Write Property: If true, display time code information."""
-    StereoDisplayMode:property
+    StereoDisplayMode:FBStereoDisplayMode
     StillImageCompression:int
     """Property: Compression ratio for image(jpg) 0-100 where 0=Greatest compression, 100=Least Compression."""
     TimeSpan:FBTimeSpan
@@ -23147,3 +23963,4 @@ def ShowToolByName(ToolName:str,ResizeWnd:bool=True,/)->FBTool:
     ### Returns:
     A pointer to the FBTool object, `None` otherwise."""
     ...
+
