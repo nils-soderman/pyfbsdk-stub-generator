@@ -24,7 +24,7 @@ If you want to generate your own stub files for your MotionBuilder version:
 
 1. Install the module through pip:
 ```cmd
-python -m pip install pyfbsdk-stub-generator
+python -m pip install git+https://github.com/nils-soderman/pyfbsdk-stub-generator.git
 ```
 
 2. From within MotionBuilder, run:
