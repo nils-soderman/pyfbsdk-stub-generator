@@ -9,43 +9,71 @@ import subprocess
 import sys
 import os
 
-from types import ModuleType
+# from types import ModuleType
 from importlib import reload
 
 CURRENT_DIR = os.path.dirname(__file__)
 REQUIRED_PACKAGES_DIR = os.path.join(CURRENT_DIR, "env")
 
-# Install required packages
-if not os.path.exists(REQUIRED_PACKAGES_DIR):
-    MoBuPyExe = os.path.join(os.path.dirname(sys.executable), "mobupy.exe")
-    Requirements = os.path.join(CURRENT_DIR, "requirements.txt")
-    subprocess.run([MoBuPyExe, "-m", "pip", "install", "-r", Requirements, "--target", REQUIRED_PACKAGES_DIR], check=True)
-
-# Add the required packages to the path
-for Path in (
-    CURRENT_DIR,
-    REQUIRED_PACKAGES_DIR,
-):
-    if Path not in sys.path:
-        sys.path.append(Path)
-
-
-import pyfbsdk_stub_generator
-from pyfbsdk_stub_generator.stub_generator import GetMotionBuilderVersion
-
-# Reload all stub generator modules
-for ImportedModule in list(sys.modules.values()):
-    if isinstance(ImportedModule, ModuleType) and "pyfbsdk_stub_generator" in ImportedModule.__name__:
-        reload(ImportedModule)
-
 # This will cache the online documentation
 os.environ["PYFBSDK_DEVMODE"] = "True"
 
 
+def GetPyprojectData(PythonExecutable: str) -> dict:
+    """ 
+    Read the pyproject.toml file and return the data as a dictionary.
+    """
+    try:
+        import toml
+    except ImportError:
+        subprocess.run([PythonExecutable, "-m", "pip", "install", "toml", "--target", REQUIRED_PACKAGES_DIR], check=True)
+        sys.path.append(REQUIRED_PACKAGES_DIR)
+        import toml
+
+    PyProject = os.path.join(CURRENT_DIR, "pyproject.toml")
+    with open(PyProject, 'r', encoding="utf8") as File:
+        return toml.load(File)
+
+
+def GetPyProjectDependencies(PythonExecutable: str) -> list[str]:
+    """ 
+    Read the pyproject.toml file and return the dependencies as a dictionary.
+    """
+    return GetPyprojectData(PythonExecutable).get('project', {}).get('dependencies', [])
+
+
+def SetupEnvironment():
+    # Install required packages
+    if not os.path.exists(REQUIRED_PACKAGES_DIR):
+        MoBuPyExe = os.path.join(os.path.dirname(sys.executable), "mobupy.exe")
+        Dependencies = GetPyProjectDependencies(MoBuPyExe)
+
+        subprocess.run([MoBuPyExe, "-m", "pip", "install", *Dependencies, "--target", REQUIRED_PACKAGES_DIR], check=True)
+
+    # Add the required packages to the path
+    for Path in (CURRENT_DIR, REQUIRED_PACKAGES_DIR):
+        if Path not in sys.path:
+            sys.path.append(Path)
+
+
+def ReloadPyfbsdkStubGenerator():
+    """ Reload all of the modules that are part of the pyfbsdk_stub_generator package """
+    for ImportedModule in list(sys.modules.values()):
+        if "pyfbsdk_stub_generator" in ImportedModule.__name__:
+            reload(ImportedModule)
+
+
 def main():
+    SetupEnvironment()
+    ReloadPyfbsdkStubGenerator()
+
+    import pyfbsdk_stub_generator
+    from pyfbsdk_stub_generator.stub_generator import GetMotionBuilderVersion
+
     OutDir = os.path.join(CURRENT_DIR,
                           "generated-stub-files",
                           f"motionbuilder-{GetMotionBuilderVersion()}")
+
     pyfbsdk_stub_generator.Generate(OutDir)
 
 

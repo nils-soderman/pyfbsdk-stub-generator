@@ -228,6 +228,7 @@ good-names=i,
            _,
            self,
            cls,
+           main,
            
            # These are from markdownify
            el,
