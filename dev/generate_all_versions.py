@@ -7,13 +7,14 @@ import subprocess
 import winreg
 import os
 
+MOTIONBUILDER_KEY = r"SOFTWARE\Autodesk\MotionBuilder"
 
 def GetInstalledMotionBuilderVersions():
     """ 
     Get all of the MotionBuilder versions installed on the system.
     """
 
-    with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, r"SOFTWARE\Autodesk\MotionBuilder") as Key:
+    with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, MOTIONBUILDER_KEY) as Key:
         Index = 0
         while True:
             try:
@@ -28,7 +29,7 @@ def GetMotionBuilderInstallDirectory(Version: int) -> str:
     Get the path to the MotionBuilder version.
     """
 
-    with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, r"SOFTWARE\Autodesk\MotionBuilder") as Key:
+    with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, MOTIONBUILDER_KEY) as Key:
         with winreg.OpenKey(Key, str(Version)) as VersionKey:
             return winreg.QueryValueEx(VersionKey, "InstallPath")[0]
 
