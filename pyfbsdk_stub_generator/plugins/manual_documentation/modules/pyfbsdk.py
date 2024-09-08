@@ -1,10 +1,12 @@
-from __future__ import annotations
+# pylint: disable=invalid-name
 
-from typing import Any
+from __future__ import annotations
 
 import pyfbsdk
 
 from ..doc_bases import Parameter, FunctionBase, ClassBase, PropertyBase
+
+from typing import Iterator
 
 
 # ---------------------------------------------------------------------
@@ -103,6 +105,12 @@ class FBFCurveEvent(ClassBase):
 
     class ParentProperty(PropertyBase):
         Types = pyfbsdk.FBPropertyAnimatable
+
+
+class FBPropertyManager(ClassBase):
+    class __getitem__(FunctionBase):
+        Parameters = (Parameter("Index", int),)
+        ReturnType = pyfbsdk.FBProperty
 
 # ---------------------------------------------------------------------
 #                          Functions
