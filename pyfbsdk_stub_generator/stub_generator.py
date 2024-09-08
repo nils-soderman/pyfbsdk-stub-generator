@@ -123,6 +123,8 @@ class StubGenerator:
             StubString += "\n".join([x.GetAsString(bOverload) for x in FunctionGroup])
             StubString += "\n"
 
+        StubString = StubString.replace("    ", "\t") # Make sure tabs are used
+
         StubString += "\n"
 
         return StubString

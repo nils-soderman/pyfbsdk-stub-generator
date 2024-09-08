@@ -4,11 +4,18 @@ import typing
 import copy
 
 ALWAYS_CREATE_ELLIPSIS = True
-TAB_CHARACTER = "    "
+TAB_CHARACTER = "\t"
 
 
-def Indent(Text: str):
-    return TAB_CHARACTER + f"\n{TAB_CHARACTER}".join(Text.split("\n"))
+def Indent(Text: str) -> str:
+    Lines = []
+    for Line in Text.split("\n"):
+        if Line.strip():
+            Lines.append(TAB_CHARACTER + Line)
+        else:
+            Lines.append("")
+
+    return "\n".join(Lines)
 
 
 class StubBase():
@@ -33,7 +40,12 @@ class StubBase():
 
     def GetDocString(self):
         if self.DocString:
-            return f'""\"{self.DocString.strip()}"""'
+            # Strip each line of unnecessary whitespace
+            Lines = self.DocString.split("\n")
+            Lines = [x.rstrip() for x in Lines]
+            Docstring = "\n".join(Lines)
+
+            return f'\"""{Docstring.strip()}"""'
         return ""
 
     def GetRequirements(self) -> list:

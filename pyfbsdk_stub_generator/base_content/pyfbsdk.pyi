@@ -8,10 +8,10 @@ from typing import overload, Any, Iterator, Literal
 import callbackframework
 from enum import EnumMeta as _EnumType
 class Enumeration(int, metaclass=_EnumType):
-    __slots__:tuple
-    names:dict
-    values:dict
-    @overload
-    def __init__(self,value:str|int=0,/):...
-    @overload
-    def __init__(self,value:str|bytes|bytearray,/,base:int): ...
+	__slots__:tuple
+	names:dict
+	values:dict
+	@overload
+	def __init__(self,value:str|int=0,/):...
+	@overload
+	def __init__(self,value:str|bytes|bytearray,/,base:int): ...
