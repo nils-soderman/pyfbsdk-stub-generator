@@ -3451,7 +3451,7 @@ class kDeviceOperations(Enumeration):
 	kOpReset=4
 	kOpStart=1
 	kOpStop=3
-class FBAddRegionParam():
+class FBAddRegionParam:
 	"""This class provide a placeholder to put values necessary to create a Region with [FBLayout.AddRegion](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_layout.html#ada9608d3cc29bcfcb802803c582c7e82 "Add a region to the layout.").
 
 	Each region components: X, Y, Width and Height needs its own [FBAddRegionParam](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_add_region_param.html "This class provide a placeholder to put values necessary to create a Region with FBLayout...."). ex: x = [FBAddRegionParam](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_add_region_param.html "This class provide a placeholder to put values necessary to create a Region with FBLayout....")(0,[FBAttachType.kFBAttachLeft](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_attach_type.html#a515a9fce5f31a6a352618a99ccebd358 "Attach to left [min(x1,x2)]"),"") y = [FBAddRegionParam](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_add_region_param.html "This class provide a placeholder to put values necessary to create a Region with FBLayout....")(0,[FBAttachType.kFBAttachTop](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_attach_type.html#acf522b0b312ed5f748dd443b9c1f725b "Attach to top [min(y1,y2)]"),"") w = [FBAddRegionParam](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_add_region_param.html "This class provide a placeholder to put values necessary to create a Region with FBLayout....")(0,[FBAttachType.kFBAttachRight](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_attach_type.html#adb2cd1fac6e9229996167824546e0c00 "Attach to right [max(x1,x2)]"),"") h = [FBAddRegionParam](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_add_region_param.html "This class provide a placeholder to put values necessary to create a Region with FBLayout....")(25,[FBAttachType.kFBAttachNone](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_attach_type.html#acd7210d36736844518c582980ef225b8 "No attachment."),"") mainLyt.AddRegion("main","main", x, y, w, h)"""
@@ -3472,7 +3472,7 @@ class FBAddRegionParam():
 			- Relative: Name of Region to attach relative to.
 			- Mult: Multiplier of relative value."""
 		...
-class FBAudioRenderOptions():
+class FBAudioRenderOptions:
 	"""Audio Render Options structure.
 
 	Contain options to control how the audio rendering will occur.
@@ -3489,7 +3489,7 @@ class FBAudioRenderOptions():
 	TimeSpan:FBTimeSpan
 	"""Property: Start and stop selection time to render."""
 	def __init__(self):...
-class FBBatchOptions():
+class FBBatchOptions:
 	"""Option parameters for the batch process."""
 	Character:FBCharacter
 	"""Read Write Property: The character to receive the animation."""
@@ -3532,7 +3532,7 @@ class FBBatchOptions():
 	WriteTranslation:bool
 	"""Read Write Property: Write translation animation data included with Acclaim AMC files."""
 	def __init__(self):...
-class FBCallback():
+class FBCallback:
 	"""This class is used for the internal callback framework and is not meant to be used by clients."""
 	Callback:Any
 	"""Read Property: Python callback that will called when the [FBCallback](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_callback.html "This class is used for the internal callback framework and is not meant to be used by clients.") is executed."""
@@ -3541,7 +3541,7 @@ class FBCallback():
 	Wrapper:Any
 	"""Read Property: Pyfbsdk Wrapper that is the owner of the callback."""
 	def __init__(self,arg2,arg3:FBEventName,arg4,/):...
-class FBCharacterPoseOptions():
+class FBCharacterPoseOptions:
 	"""Stores options for operations on poses.
 
 	This class exposes the object used to store the options for operations on object poses. Before using a [FBCharacterPoseOptions](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_character_pose_options.html "Stores options for operations on poses."), you need to specify the various members of the object. Here are the default values of a [FBCharacterPoseOptions](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_character_pose_options.html "Stores options for operations on poses.") object: mCharacterPoseKeyingMode = kFBCharacterPoseKeyingModeFullBody mModelToMatch = NULL mMirrorPlaneType = kFBMirrorPlaneTypeAuto mMirrorPlaneEquation = 1.0, 0.0, 0.0, 0.0 mMirrorPlaneTiltAngle = 90.0 mMirrorPlanePanAngle = 0.0 Flag = kFBCharacterPoseNoFlag You need to change at least the Flag value by using [SetFlag()](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_character_pose_options.html#af1e61ff84dbda2a16ac7f0eb5c05f0d4 "Set a flag value.") to set how the pose will be pasted; see the [FBCharacterPoseFlag](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_character_pose_flag.html "Character Pose Options flags.") enum for the various options."""
@@ -3577,7 +3577,7 @@ class FBCharacterPoseOptions():
 			- Value: Value to set."""
 		...
 	def __init__(self):...
-class FBColor():
+class FBColor:
 	"""[FBColor](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_color.html "FBColor class.") class.
 
 	Color vector.
@@ -3676,7 +3676,7 @@ class FBColor():
 	@overload
 	def __truediv__(self,arg2,/)->FBColor:...
 	def __iter__(self)->Iterator[float]:...
-class FBColorAndAlpha():
+class FBColorAndAlpha:
 	"""[FBColorAndAlpha](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_color_and_alpha.html "FBColorAndAlpha class.") class.
 
 	Color and alpha vector.
@@ -3773,7 +3773,7 @@ class FBColorAndAlpha():
 	@overload
 	def __truediv__(self,arg2,/)->FBColorAndAlpha:...
 	def __iter__(self)->Iterator[float]:...
-class FBComponentList():
+class FBComponentList:
 	"""[FBComponentList](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_component_list.html "FBComponentList class.") class.
 
 	This class implements a special sort of list that can only contain instances of [FBComponent](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_component.html "MotionBuilder SDK base class.") objects. To users it behaves as a tuple, since it is not possible to add new objects in the list. Only methods or function that uses [FBComponentList](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_component_list.html "FBComponentList class.") as argument can insert new objects. Users can query the content of the list with the bracket operator.
@@ -3806,7 +3806,7 @@ class FBComponentList():
 	def count(self)->int:...
 	def removeAll(self):...
 	def __iter__(self)->Iterator[FBComponent]:...
-class FBConfigFile():
+class FBConfigFile:
 	"""Interface to the application config files.
 
 	This class allows client code to generate, modify and query configuration files. Config files will be automatically created when needed. They will be located in the /bin/config folder or an explicitly specified folder depending on the constructor used.
@@ -3869,7 +3869,7 @@ class FBConfigFile():
 			- VirtualMode: Enable this to limit disk access, file will only be read at construction and written at destruction.
 			- ClearFile: Remove all existing content from the config file."""
 		...
-class FBConstraintInfo():
+class FBConstraintInfo:
 	"""Constraint information class.
 
 	This data structure is passed to the real-time evaluation callback for a constraint (AnimationNodeNotify())."""
@@ -3885,7 +3885,7 @@ class FBConstraintInfo():
 		### Returns:
 		true if 'zero' was requeststed."""
 		...
-class FBConstructionOperation():
+class FBConstructionOperation:
 	"""[FBConstructionOperation](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_construction_operation.html "FBConstructionOperation is used to represent an operation in the construction history.") is used to represent an operation in the construction history.
 
 	The operation can be any valid script. Currently, only python scripts are supported.An instance of this class defaults to the correct value in order to add a new construction history. If the workgroup plugin is loaded, the operation will be replicated on all machine within a session."""
@@ -3936,7 +3936,7 @@ class FBConstructionOperation():
 			- script: Script content as a string. Defaults to empty."""
 		...
 	def __init__(self,arg2:str|None=None,/):...
-class FBDeviceNotifyInfo():
+class FBDeviceNotifyInfo:
 	"""Device Input and Output Notification information structure.
 
 	This structure is passed to the real-time device IO callback DeviceIONotify. It furnishes the device callback with the system time, local time, and sync counts for the current device cycle."""
@@ -3958,7 +3958,7 @@ class FBDeviceNotifyInfo():
 		### Returns:
 		Current system time."""
 		...
-class FBDirMap():
+class FBDirMap:
 	def Add(self,SourceDir:str,TargetDir:str,/):
 		"""Adds an entry in the map.
 
@@ -3984,7 +3984,7 @@ class FBDirMap():
 			- Path: The path to process"""
 		...
 	def __init__(self):...
-class FBEvaluateInfo():
+class FBEvaluateInfo:
 	"""AnimationNodeNotify evaluation information.
 
 	This structure is passed to the AnimationNodeNotify calls (in Constraints, Devices, and Boxes), giving the connectors information with regards to the start or stop times of the evaluation. In general, only the start time is of interest for the current evaluation cycle. The advantage of the structure is to have a common time for the evaluation of all the elements in the scene."""
@@ -4018,7 +4018,7 @@ class FBEvaluateInfo():
 		### Returns:
 		true if local time is stopped."""
 		...
-class FBEvent():
+class FBEvent:
 	"""Base Event class."""
 	Type:int
 	"""Read Only Property: Type of event."""
@@ -4278,7 +4278,7 @@ class FBFCurveEvent(FBEvent):
 		"""### Parameters:
 			- Event: Base event (internal) to obtain information from."""
 		...
-class FBFCurveKey():
+class FBFCurveKey:
 	"""KeyFrame for an FCurve.
 
 	[See sample: StartKeysAtCurrentTime.py.](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/_tasks_0c_start_keys_at_current_time_8py-example.html)"""
@@ -4325,7 +4325,7 @@ class FBFCurveKey():
 	Value:float
 	"""Read Write Property: Value of Key"""
 	def __init__(self):...
-class FBFilePopup():
+class FBFilePopup:
 	"""File Popup (for open/save).
 
 	[See samples: AudioTrackSetupTool.py,](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/_complex_tools_0c_audio_track_setup_tool_8py-example.html) [FBFilePopup.py.](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/_u_i_0c_f_b_file_popup_8py-example.html)"""
@@ -4348,7 +4348,7 @@ class FBFilePopup():
 		true if OK is clicked by user."""
 		...
 	def __init__(self):...
-class FBFilterManager():
+class FBFilterManager:
 	"""Filter manager.
 
 	This class provides list of all available filter types and a factory method in order to create an instance of the desired filter type.This manager will list both built-in and plug-in filters.See the class [FBFilter](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_filter.html "Filters are used to modify motion capture data.") for more details.Filter type names are not localised, and are the same as presented in the GUI.The following sample code shows how to use C++ or Python to create an instance of the orfilter_template filter and set one of its property. For the sample code to work, the plugin must have been compiled and copied in the plugins folder prior to the application startup.Sample C++ code:
@@ -4409,7 +4409,7 @@ class FBFilterManager():
 		A pointer to a filter instance, or a NULL if the type name was invalid."""
 		...
 	def __init__(self):...
-class FBFolderPopup():
+class FBFolderPopup:
 	"""Folder Popup (for selecting a directory).
 
 	[See samples: RenderLayers.py,](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/_rendering_0c_render_layers_8py-example.html) [BatchExportCharacterAnimationTool.py,](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/_tasks_0c_batch_export_character_animation_tool_8py-example.html) [RenameFirstTakeOnMultipleFiles.py,](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/_tasks_0c_rename_first_take_on_multiple_files_8py-example.html) [FBFolderPopup.py.](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/_u_i_0c_f_b_folder_popup_8py-example.html)"""
@@ -4424,7 +4424,7 @@ class FBFolderPopup():
 		true if OK is clicked by user."""
 		...
 	def __init__(self):...
-class FBMatrix():
+class FBMatrix:
 	"""[FBMatrix](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_matrix.html "FBMatrix class.") class.
 
 	Four x Four (double) Matrix.
@@ -4534,7 +4534,7 @@ class FBMatrix():
 		...
 	def __sub__(self,arg2:FBMatrix,/)->FBMatrix:...
 	def __iter__(self)->Iterator[float]:...
-class FBModelList():
+class FBModelList:
 	"""[FBModelList](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_model_list.html "FBModelList class.") class.
 
 	This class implements a special sort of list that can only contain instances of [FBModel](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_model.html "Model class.") objects. Users can query the content of the list with the bracket operator.
@@ -4594,7 +4594,7 @@ class FBModelList():
 		"""Empty the list from all models."""
 		...
 	def __iter__(self)->Iterator[FBModel]:...
-class FBMultiLangManager():
+class FBMultiLangManager:
 	"""Language manager.
 
 	The class [FBMultiLangManager](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_multi_lang_manager.html "Language manager.") indicates the supported languages and allows to query and change the current language.The support for localization is done using conversion tables from internal names to language specific names, so that they can be used in the GUI and other human readable contexts.At this time, changing the current language will not affect the GUI. Only calls to functions '[FBGetMultiLangText()](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/namespacepyfbsdk.html#a9de6515574f954b9380ba76dfdf60ce0 "Name lookup in the context of an object.")' will be affected.The following sample code lists the names of the supported languages:Python sample code:
@@ -4643,7 +4643,7 @@ class FBMultiLangManager():
 		Setting the current language will affect the lookup done with the functions FBGetMultiLangText, but will not have any effect on the GUI."""
 		...
 	def __init__(self):...
-class FBNormal():
+class FBNormal:
 	@overload
 	def CopyFrom(self,arg2:FBNormal,/)->FBNormal:...
 	@overload
@@ -4704,7 +4704,7 @@ class FBNormal():
 	@overload
 	def __truediv__(self,arg2,/)->FBNormal:...
 	def __iter__(self)->Iterator[float]:...
-class FBObjectPoseMirrorOptions():
+class FBObjectPoseMirrorOptions:
 	"""[FBObjectPoseMirrorOptions](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_object_pose_mirror_options.html "FBObjectPoseMirrorOptions class.") class.
 
 	This class exposes the object used to store the options for the mirror of an object pose."""
@@ -4730,7 +4730,7 @@ class FBObjectPoseMirrorOptions():
 			- Value: Value to set."""
 		...
 	def __init__(self):...
-class FBObjectPoseOptions():
+class FBObjectPoseOptions:
 	"""[FBObjectPoseOptions](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_object_pose_options.html "FBObjectPoseOptions class.") class.
 
 	This class exposes the object used to store the options for operations on object poses."""
@@ -4762,7 +4762,7 @@ class FBObjectPoseOptions():
 			- Value: Value to set."""
 		...
 	def __init__(self):...
-class FBPickInfosList():
+class FBPickInfosList:
 	"""[FBPickInfosList](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_pick_infos_list.html "FBPickInfosList class.") class.
 
 	This class implements a special sort of list that can only contains a pick info which is a tuple<FBModel, FBVector3d>. A pick info give the position ([FBVector3d](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_vector3d.html "Vector3d class.")) and the model ([FBModel](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_model.html "Model class.")) that was pick on screen.
@@ -4796,7 +4796,7 @@ class FBPickInfosList():
 		...
 	def count(self)->int:...
 	def __iter__(self)->Iterator[tuple[FBModel,FBVector3d]]:...
-class FBPlotOptions():
+class FBPlotOptions:
 	"""Option parameters for plotting.
 
 	[See samples: PlotNonSelectedCharStoryTracks.py,](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/_tasks_0c_plot_non_selected_char_story_tracks_8py-example.html) [PlotSelectedCharStoryTracks.py.](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/_tasks_0c_plot_selected_char_story_tracks_8py-example.html)"""
@@ -4825,13 +4825,13 @@ class FBPlotOptions():
 	UseConstantKeyReducer:bool
 	"""Read Write Property: Should we use a constant key reducer with the filter?"""
 	def __init__(self):...
-class FBPlugList():
+class FBPlugList:
 	def GetCount(self)->int:...
 	def __getitem__(self,arg2,/)->Any:...
 	def __init__(self):...
 	def __len__(self)->int:...
 	def __iter__(self)->Iterator[Any]:...
-class FBProfileTaskCycle():
+class FBProfileTaskCycle:
 	"""[FBProfileTaskCycle](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_profile_task_cycle.html "FBProfileTaskCycle.").
 
 	Real-time profiling information for a specific task. Profiling information can be collected for:Evaluation: models, constraints, characters, story tracksDevices: DeviceIONotify, DeviceEvaluationNotifyRendering: renderer, render passes (like: Translucent, TranslucentZSort, Selected, OtherPrimitive, SelectiveLighting, etc)SDKInternal synchronization (idle callback, buffer swap, waiting on evaluation to finish before starting new rendering)When profiling a scene within a MotionBuilder session you can discover what tasks are being performed when and for how long. You can use this information to troubleshoot lengthy or repetitive actions, and use MotionBuilder more efficiently.A task is defined as a definite piece of work within MotionBuilder such as the evaluation of a character. If the same task is run numerous times it is called a task cycle. From within a scene, the hierary and dependents of the scene make up the task cycles. A task cycle spends its time computing a specific task within a task parent cycle.A task parent cycle is a hierarchy of individual task cycles, where the parent and child relationship is known to MotionBuilder and displayed in the profiling center.For example, these are all task cycles which are all parented to each other; Eval is parent of TransformNode_Active, which is a parent of Constraint, which is a parent of Character, which is in turn a parent of TransformNode_Active.This is because the evaluation is called for one model which triggers evaluation of the character which then calls the evaluation of the rest of IK/FK models.When an evaluation starts, it calls the evaluation of the character, the time will be computed for time spent on the sample. Then possibly another character is evaluated, so again the time will be computed for the time spent on this sample. This time will be added to the previous sample since that evaluation has not finished yet. The evaluation here is parented, since they both have started but not finished, all children samples are summed. When the evaluation stops, you change the sample for the children.Note: The evaluation dependency/order will be different for each scene.As you can see profiling of task cycles is done by collecting samples. Samples are added to one inside parent sample. The number of samples collected is controlled by the profiler buffer size property.Here are the steps to add profiling into a constraint, a device, or any other class that uses real-time evaluation: 1) Declare FBProfiler_CreateTaskCycle( MyConstraint, 0.5, 0.5, 0.5 ) in MyConstraint.cxx, before the constructor and AnimationNodeNotify function. 2) Set up FBProfiling_SetupTaskCycle( MyConstraint ) in the constuctor MyConstraint::MyConstraint(). 3) At the beginning of MyConstraint::AnimationNodeNotify create the variable: FBProfilerHelper lProfiling( FBProfiling_TaskCycleIndex( MyConstraint ), pEvaluateInfo ); The sample for task will start at the creation of FBProfilerHelper object and stop at the destruction of this object, when returning from AnimationNodeNotify will be done."""
@@ -4875,7 +4875,7 @@ class FBProfileTaskCycle():
 	def IsStarted(self)->bool:
 		"""Test to see if sampling has started."""
 		...
-class FBProfileTimeEvent():
+class FBProfileTimeEvent:
 	"""[FBProfileTimeEvent](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_profile_time_event.html "FBProfileTimeEvent.").
 
 	Time event information is collected during sampling (activated with a property in [FBProfiler](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_profiler.html "FBProfiler.") ActiveSampling). Events that can be collected are: render, evaluation, model evaluation, model deformation, synchronization of evaluation and rendering, playback commands, etc.Sampling will stop when the buffers maximum size is reached (maximum is 10MB).Currently users are not able to register any new events from ORSDK/python"""
@@ -4901,7 +4901,7 @@ class FBProfileTimeEvent():
 
 		Some actions that takes more time to execute or when other events can occur inbetween are collected with start time event at begin and end time event at finish."""
 		...
-class FBPropertyListAnimationNode():
+class FBPropertyListAnimationNode:
 	"""List of animation nodes. List: AudioClip"""
 	def FindByLabel(self,NodeLabel:str,/)->FBAnimationNode:
 		"""Returns the animation node from its label.
@@ -4915,70 +4915,70 @@ class FBPropertyListAnimationNode():
 	def __getitem__(self,Index:int,/)->FBAnimationNode:...
 	def __len__(self)->int:...
 	def __iter__(self)->Iterator[FBAnimationNode]:...
-class FBPropertyListDeviceInstrument():
+class FBPropertyListDeviceInstrument:
 	"""List of instruments. PropertyList: Device optical marker"""
 	def __getitem__(self,Index:int,/)->FBDeviceInstrument:...
 	def __len__(self)->int:...
 	def __iter__(self)->Iterator[FBDeviceInstrument]:...
-class FBPropertyListDeviceOpticalMarker():
+class FBPropertyListDeviceOpticalMarker:
 	def __getitem__(self,Index:int,/)->FBDeviceOpticalMarker:...
 	def __len__(self)->int:...
 	def __iter__(self)->Iterator[FBDeviceOpticalMarker]:...
-class FBPropertyListFCurveKey():
+class FBPropertyListFCurveKey:
 	"""List of FCurveKey. List: FileReference"""
 	def __getitem__(self,Index:int,/)->FBFCurveKey:...
 	def __len__(self)->int:...
 	def __iter__(self)->Iterator[FBFCurveKey]:...
-class FBPropertyListManipulator():
+class FBPropertyListManipulator:
 	"""PropertyList: Device optical marker"""
 	def __getitem__(self,Index:int,/)->FBManipulator:...
 	def __len__(self)->int:...
 	def __iter__(self)->Iterator[FBManipulator]:...
-class FBPropertyListMarkerSegment():
+class FBPropertyListMarkerSegment:
 	"""PropertyList: MarkerSet.
 
 	These classes are under development and may change dramatically between versions."""
 	def __getitem__(self,arg2,/)->FBOpticalSegment:...
 	def __len__(self)->int:...
 	def __iter__(self)->Iterator[FBOpticalSegment]:...
-class FBPropertyListModelMarkerOptical():
+class FBPropertyListModelMarkerOptical:
 	"""PropertyList: ModelOptical."""
 	def __getitem__(self,Index:int,/)->FBModelMarkerOptical:...
 	def __len__(self)->int:...
 	def __iter__(self)->Iterator[FBModelMarkerOptical]:...
-class FBPropertyListModelTemplate():
+class FBPropertyListModelTemplate:
 	"""PropertyList: ModelTemplateBinding."""
 	def __getitem__(self,Index:int,/)->FBModelTemplate:...
 	def __len__(self)->int:...
 	def __iter__(self)->Iterator[FBModelTemplate]:...
-class FBPropertyListModelTemplateBinding():
+class FBPropertyListModelTemplateBinding:
 	"""List: MotionClip
 
 	PropertyList: MotionClip"""
 	def __getitem__(self,arg2,/)->Any:...
 	def __len__(self)->int:...
 	def __iter__(self)->Iterator[Any]:...
-class FBPropertyListOpticalGap():
+class FBPropertyListOpticalGap:
 	"""PropertyList: Device optical marker"""
 	def __getitem__(self,Index:int,/)->FBOpticalGap:...
 	def __len__(self)->int:...
 	def __iter__(self)->Iterator[FBOpticalGap]:...
-class FBPropertyListOpticalSegment():
+class FBPropertyListOpticalSegment:
 	"""PropertyList: Physical properties"""
 	def __getitem__(self,Index:int,/)->FBOpticalSegment:...
 	def __len__(self)->int:...
 	def __iter__(self)->Iterator[FBOpticalSegment]:...
-class FBPropertyListRigidBody():
+class FBPropertyListRigidBody:
 	"""PropertyList: Device optical marker"""
 	def __getitem__(self,Index:int,/)->FBRigidBody:...
 	def __len__(self)->int:...
 	def __iter__(self)->Iterator[FBRigidBody]:...
-class FBPropertyListRigidBodyMarkers():
+class FBPropertyListRigidBodyMarkers:
 	"""List: Set"""
 	def __getitem__(self,arg2,/)->Any:...
 	def __len__(self)->int:...
 	def __iter__(self)->Iterator[Any]:...
-class FBPropertyManager():
+class FBPropertyManager:
 	"""Property Manager.
 
 	The property manager exists in all [FBComponent](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_component.html "MotionBuilder SDK base class.") objects, and contains an array of all the registered properties. These properties may be SDK properties, internal properties or both."""
@@ -5016,7 +5016,7 @@ class FBPropertyStateEvent(FBEvent):
 		"""### Parameters:
 			- Event: Base event (internal) to obtain information from."""
 		...
-class FBPropertyViewDefinition():
+class FBPropertyViewDefinition:
 	"""[FBProperty](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_property.html "Generic application property.") View.
 
 	View definition for one property."""
@@ -5035,7 +5035,7 @@ class FBPropertyViewDefinition():
 	def SetSaved(self,pTrue:bool,ApplyUpHierarchy:bool,/):
 		"""Set view to be saved on view manager store."""
 		...
-class FBPropertyViewList():
+class FBPropertyViewList:
 	"""[FBProperty](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_property.html "Generic application property.") View List.
 
 	Hold list of description for view set."""
@@ -5064,7 +5064,7 @@ class FBPropertyViewList():
 		### Returns:
 		true when pPropertyViewDefinition got removed and free (should not be called on non editable view list)."""
 		...
-class FBPythonWrapper():
+class FBPythonWrapper:
 	"""Base class of [FBPlug](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_plug.html "Connections Basic Open Reality SDK Element.") in Python.
 
 	This class act as a bridge between the ORSDK C++ world and the Python world. Since each Python objects wrap a ORSDK object we need a way to notify Python if the ORSDK object is destroyed.
@@ -5123,7 +5123,7 @@ class FBPlug(FBPythonWrapper):
 	def SetSelfModified(self,arg2:FBPlugModificationFlag,arg3,/):...
 	def SetStatusFlag(self,arg2:FBPlugStatusFlag,arg3,/):...
 	def SwapSrc(self,arg2,arg3,/)->bool:...
-class FBRenderOptions():
+class FBRenderOptions:
 	def GetIDBufferPickingAlphaThreshold(self)->float:
 		"""Get IDBuffer Picking Alpha threshold.
 
@@ -18508,7 +18508,7 @@ class FBRigidBody(FBComponent):
 		"""### Parameters:
 			- Optical: Optical model(default=NULL)."""
 		...
-class FBSVector():
+class FBSVector:
 	"""Three dimensional scaling vector.
 
 	[See sample: Vectors.py.](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/_samples_0c_math_0c_vectors_8py-example.html)"""
@@ -19049,7 +19049,7 @@ class FBShaderLighted(FBShader):
 		"""### Parameters:
 			- Name: Name of shader."""
 		...
-class FBShaderManager():
+class FBShaderManager:
 	"""Shader manager.
 
 	This class provides access to the list of available shaders, both system shaders and user shaders. The list comes in two versions:ShaderTypeNames : which gives the internal names of the shaders,ShaderTypeNamesLocalized : uses the GUI names of the shaders.Both of these lists will have the same number of elements. The strings at position i in the lists refer to the same shader type. In cases where there is no localized version of the shader name, the internal name will be used in ShaderTypeNamesLocalized, thus ensuring consistency between the two lists.It also provides a generic shader creation method that uses the shader type name, internal or localized, to create the new shader instance.The destruction of shaders is achieved by calling the FBDelete method of a shader instance.The list of all the instantiated shaders can be obtained from instances of classes [FBSystem](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_system.html "Provides access to the underlying system, and the MotionBuilder scene.") or [FBScene](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_scene.html "Access to the MotionBuilder scene."). Both classes have a Shaders property which lists the existing shader instances.Strings are used instead of enum, define or typedef values to refer to shader types as this proves to be more flexible.The system has a default shader of type 'Lighted'. Do not attempt to destroy it.The use of localized names in shader creation is non portable as it is dependent of the current language used by the application. The name may also change from one version to another. Using the internal name is the only way to ensure portable shader creation.Sample C++ code:
@@ -19128,7 +19128,7 @@ class FBShaderManager():
 		A pointer to the newly created shader object, or a NULL pointer if the type name was not recognised."""
 		...
 	def __init__(self):...
-class FBShaderModelInfo():
+class FBShaderModelInfo:
 	Model:FBModel
 	"""Read Write Property: Shader mModel"""
 	Model_Version:int
@@ -19187,7 +19187,7 @@ class FBShaderShadowLive(FBShader):
 		"""### Parameters:
 			- Name: Name of shader."""
 		...
-class FBSkeletonState():
+class FBSkeletonState:
 	def GetNodeMatrix(self,SkeletonId:FBSkeletonNodeId,SkeletonGlobalMatrix:FBMatrix,/):
 		"""Returned global matrix associated to the given Index.
 
@@ -19707,7 +19707,7 @@ class FBStoryGroupClip(FBComponent):
 		"""### Parameters:
 			- AffectedClipObject: Clips that will be controlled by the group clip."""
 		...
-class FBStringList():
+class FBStringList:
 	"""String list.
 
 	[See sample: Memo.py.](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/_u_i_0c_memo_8py-example.html)"""
@@ -20169,7 +20169,7 @@ class FBLayeredTexture(FBTexture):
 		"""### Parameters:
 			- Name: Name of texture media. Can be a NULL pointer. If set, this will create a [FBVideo](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_video.html "Video media class.") object used as the Video property."""
 		...
-class FBTime():
+class FBTime:
 	"""Time data structure.
 
 	[See samples: FBTime.py,](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/_basic_operations_0c_f_b_time_8py-example.html) [CameraSwitcher.py,](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/_samples_0c_camera_0c_camera_switcher_8py-example.html) [ExportAnimationLibrary.py,](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/_tasks_0c_export_animation_library_8py-example.html) [StartKeysAtCurrentTime.py.](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/_tasks_0c_start_keys_at_current_time_8py-example.html)"""
@@ -20325,7 +20325,7 @@ class FBTime():
 	def __sub__(self,arg2:FBTime,/)->FBTime:...
 	@overload
 	def __sub__(self,arg2,/)->FBTime:...
-class FBTimeCode():
+class FBTimeCode:
 	"""TimeCode data structure.
 
 	[See sample: TimeCodeKeying.py.](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/_tasks_0c_time_code_keying_8py-example.html)"""
@@ -21686,7 +21686,7 @@ class FBAnimationNode(FBComponent):
 		"""### Parameters:
 			- Name: Name of animation node (default is NULL)."""
 		...
-class FBTimeSpan():
+class FBTimeSpan:
 	"""TimeSpan class."""
 	def GetDirection(self)->int:
 		"""Get the direction of the timespan.
@@ -22178,7 +22178,7 @@ class FBTreeNode(FBComponent):
 	"""Read Write Property: Is [FBTreeNode](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_tree_node.html "A node in the tree view.") checked."""
 	Reference:int
 	"""Read Write Property: Data to be associated to this node."""
-class FBUV():
+class FBUV:
 	@overload
 	def CopyFrom(self,arg2:FBUV,/)->FBUV:...
 	@overload
@@ -22328,7 +22328,7 @@ class FBUserObject(FBBox):
 		"""### Parameters:
 			- Name: User object name."""
 		...
-class FBVector2d():
+class FBVector2d:
 	"""Vector2d class.
 
 	This class creates a list like object, which can be modified using the list protocol method. But unlike lists, its length is fixed: it always contain 2 floating point values. Thus it does not support the any list methods that would affect its length. The values within can be changed, usually via the bracket operator.
@@ -22423,7 +22423,7 @@ class FBVector2d():
 	@overload
 	def __truediv__(self,arg2,/)->FBVector2d:...
 	def __iter__(self)->Iterator[float]:...
-class FBVector3d():
+class FBVector3d:
 	"""Vector3d class.
 
 	This class creates a list like object, which can be modified using the list protocol method. But unlike lists, its length is fixed: it always contain 3 floating point values. Thus it does not support the any list methods that would affect its length. The values within can be changed, usually via the bracket operator.
@@ -22524,7 +22524,7 @@ class FBVector3d():
 	@overload
 	def __truediv__(self,arg2,/)->FBVector3d:...
 	def __iter__(self)->Iterator[float]:...
-class FBVector4d():
+class FBVector4d:
 	"""Vector4d class.
 
 	This class creates a list like object, which can be modified using the list protocol method. But unlike lists, its length is fixed: it always contain 4 floating point values. Thus it does not support the any list methods that would affect its length. The values within can be changed, usually via the bracket operator.
@@ -22625,7 +22625,7 @@ class FBVector4d():
 	@overload
 	def __truediv__(self,arg2,/)->FBVector4d:...
 	def __iter__(self)->Iterator[float]:...
-class FBVertex():
+class FBVertex:
 	"""Vertex class.
 
 	Similar in use to [FBVector4d](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_vector4d.html "Vector4d class.")
@@ -22848,7 +22848,7 @@ class FBVideoClipImageDDS(FBVideoClipImage):
 		"""### Parameters:
 			- Name: Name of DDS image file."""
 		...
-class FBVideoCodecManager():
+class FBVideoCodecManager:
 	"""Video Codec manager class.
 
 	Use to set or get codec used and codec params
@@ -22893,7 +22893,7 @@ class FBVideoCodecManager():
 			- CodecId: the codec id to set as default"""
 		...
 	def __init__(self):...
-class FBVideoGrabOptions():
+class FBVideoGrabOptions:
 	"""Video Grabbing Options.
 
 	Contain options to control how the grabbing process will occur."""
@@ -23101,7 +23101,7 @@ class FBVideoOut(FBVideo):
 	Online:bool
 	"""Read Write Property: If true, the device is online and will output display."""
 	def __init__(self):...
-class FBViewingOptions():
+class FBViewingOptions:
 	"""Viewing options for rendering.
 
 	The [FBRenderer](https://help.autodesk.com/cloudhelp/2025/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_renderer.html "Open Reality renderer interface.") allows to get and set those options."""

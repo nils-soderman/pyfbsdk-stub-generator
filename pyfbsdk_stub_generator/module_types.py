@@ -192,8 +192,10 @@ class StubClass(StubBase):
 
     def GetAsString(self):
         ParentClassesAsString = ','.join(self.Parents)
+        if ParentClassesAsString:
+            ParentClassesAsString = f"({ParentClassesAsString})"
 
-        ClassAsString = f"class {self.Name}({ParentClassesAsString}):\n"
+        ClassAsString = f"class {self.Name}{ParentClassesAsString}:\n"
 
         if self.GetDocString():
             ClassAsString += f"{Indent(self.GetDocString())}\n"
