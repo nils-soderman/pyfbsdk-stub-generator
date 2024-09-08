@@ -130,7 +130,7 @@ class StubFunction(StubBase):
 
         FunctionAsString += f'def {self.Name}({self.GetParamsAsString()})'
 
-        if self.ReturnType and self.ReturnType != "None":
+        if not (self.Name.startswith("__") and self.ReturnType == "None"):
             FunctionAsString += f'->{self.ReturnType}'
 
         FunctionAsString += ":"
