@@ -4042,11 +4042,14 @@ class FBEventConnectionDataNotify(FBEvent):
 			- Event: Base event (internal) to obtain information from."""
 		...
 class FBEventConnectionKeyingNotify(FBEvent):
-	Action:property
-	Plug:property
-	Property:property
-	StartTime:property
-	StopTime:property
+	Action:FBConnectionAction
+	Plug:FBPlug
+	@property
+	def Property(self)->FBPropertyAnimatable:...
+	@Property.setter
+	def Property(self, Value: FBPropertyAnimatable|Any):...
+	StartTime:FBTime
+	StopTime:FBTime
 	def __init__(self):
 		"""### Parameters:
 			- Event: Base event (internal) to obtain information from."""
@@ -4130,7 +4133,7 @@ class FBEventDragAndDrop(FBEvent):
 		Number of items in DragAndDrop list."""
 		...
 class FBEventEvalGlobalCallback(FBEvent):
-	Timing:property
+	Timing:FBGlobalEvalCallbackTiming
 class FBEventExpose(FBEvent):
 	"""Event sent when a control needs to be displayed."""
 	...
@@ -4242,9 +4245,9 @@ class FBEventVideoFrameRendering(FBEvent):
 		eBeginRendering:FBEventVideoFrameRendering.EState
 		eEndRendering:FBEventVideoFrameRendering.EState
 		eRendering:FBEventVideoFrameRendering.EState
-	FrameCount:property
-	FrameNumber:property
-	State:property
+	FrameCount:int
+	FrameNumber:int
+	State:EState
 	eBeginRendering:FBEventVideoFrameRendering.EState
 	eEndRendering:FBEventVideoFrameRendering.EState
 	eRendering:FBEventVideoFrameRendering.EState
@@ -23634,7 +23637,7 @@ class FBScrollBox(FBVisualComponent):
 	def __init__(self):...
 class FBPropertyConnectionEditor(FBVisualComponent):
 	"""Property Connection Editor."""
-	Property:property
+	Property:FBProperty
 	"""Read Write Property: Property to edit connections. Set to NULL to disable."""
 	def PopupList(self)->None:
 		"""Launch a list of connected objects."""
@@ -24044,7 +24047,7 @@ class FBEditPropertyModern(FBVisualComponent):
 	"""Read Write Property: Indicate the large increment applied when click-draging on the property value (usually left-click-dragging)"""
 	Precision:float
 	"""Read Write Property: Used to specify the width and precision of the value shown. A value of 7.2 indicates to show at minimum 7 numbers, with 2 decimals."""
-	Property:property
+	Property:FBProperty
 	"""Read Write Property: Property to edit. Set to NULL to disable."""
 	SliderMax:float
 	"""Read Write Property: Should the property be editable using a slider, set the maximum value atainable with the slider."""
@@ -24085,7 +24088,7 @@ class FBEditProperty(FBVisualComponent):
 	"""Read Write Property: Indicate the large increment applied when click-draging on the property value (usually left-click-dragging)"""
 	Precision:float
 	"""Read Write Property: Used to specify the width and precision of the value shown. A value of 7.2 indicates to show at minimum 7 numbers, with 2 decimals."""
-	Property:property
+	Property:FBProperty
 	"""Read Write Property: Property to edit. Set to NULL to disable."""
 	SliderMax:float
 	"""Read Write Property: Should the property be editable using a slider, set the maximum value atainable with the slider."""

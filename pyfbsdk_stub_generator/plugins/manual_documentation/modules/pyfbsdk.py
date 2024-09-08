@@ -112,6 +112,50 @@ class FBPropertyManager(ClassBase):
         Parameters = (Parameter("Index", int),)
         ReturnType = pyfbsdk.FBProperty
 
+class FBEventEvalGlobalCallback(ClassBase):
+    class Timing(PropertyBase):
+        Types = pyfbsdk.FBGlobalEvalCallbackTiming
+
+class FBEventConnectionKeyingNotify(ClassBase):
+    class Action(PropertyBase):
+        Types = pyfbsdk.FBConnectionAction
+
+    class Plug(PropertyBase):
+        Types = pyfbsdk.FBPlug
+
+    class Property(PropertyBase):
+        Types = pyfbsdk.FBPropertyAnimatable
+
+    class StartTime(PropertyBase):
+        Types = pyfbsdk.FBTime
+
+    class StopTime(PropertyBase):
+        Types = pyfbsdk.FBTime
+
+
+class FBEventVideoFrameRendering(ClassBase):
+    class FrameCount(PropertyBase):
+        Types = int
+
+    class FrameNumber(PropertyBase):
+        Types = int
+
+    class State(PropertyBase):
+        Types = pyfbsdk.FBEventVideoFrameRendering.EState
+
+
+class FBPropertyConnectionEditor(ClassBase):
+    class Property(PropertyBase):
+        Types = pyfbsdk.FBProperty
+
+class FBEditPropertyModern(ClassBase):
+    class Property(PropertyBase):
+        Types = pyfbsdk.FBProperty
+
+class FBEditProperty(ClassBase):
+    class Property(PropertyBase):
+        Types = pyfbsdk.FBProperty
+
 # ---------------------------------------------------------------------
 #                          Functions
 # ---------------------------------------------------------------------
