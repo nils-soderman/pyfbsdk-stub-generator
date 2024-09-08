@@ -1,14 +1,12 @@
 from __future__ import annotations
 
-import os
-
 from types import ModuleType
 from importlib import reload
 
 from .documentation_scraper import table_of_contents
 
 from .documentation_scraper.page_parser import MemberItem, GetParameterNiceName
-from ..plugin import PluginBaseClass
+from ..plugin_base import PluginBaseClass
 from ...module_types import StubClass, StubFunction, StubParameter, StubProperty
 
 reload(table_of_contents)

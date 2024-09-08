@@ -4,7 +4,7 @@ And remove the type of the Enum properties, to make them act like a `Literal[enu
 """
 from __future__ import annotations
 
-from ..plugin import PluginBaseClass
+from ..plugin_base import PluginBaseClass
 from ...module_types import StubClass
 
 

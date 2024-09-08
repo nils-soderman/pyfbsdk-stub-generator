@@ -6,7 +6,7 @@ import inspect
 from typing import TypeVar, Generator
 
 from .doc_bases import FunctionBase, ClassBase, PropertyBase
-from ..plugin import PluginBaseClass
+from ..plugin_base import PluginBaseClass
 from ...module_types import StubClass, StubFunction, StubParameter, StubProperty
 
 T = TypeVar('T')

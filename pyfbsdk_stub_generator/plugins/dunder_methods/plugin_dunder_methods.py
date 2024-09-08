@@ -1,9 +1,7 @@
 
 from __future__ import annotations
 
-from pyfbsdk_stub_generator.module_types import StubClass, StubFunction
-
-from ..plugin import PluginBaseClass
+from ..plugin_base import PluginBaseClass
 from ...module_types import StubClass, StubFunction, StubParameter, StubProperty
 
 # Dunder methods that we want to assume they return self

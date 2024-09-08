@@ -105,7 +105,8 @@ disable=raw-checker-failed,
         import-outside-toplevel,
         too-many-locals,
         too-many-branches,
-        too-many-nested-blocks
+        too-many-nested-blocks,
+        relative-beyond-top-level
         
 
 # Enable the message, report, category or checker with the given id(s). You can

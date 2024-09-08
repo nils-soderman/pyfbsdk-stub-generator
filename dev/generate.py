@@ -86,7 +86,7 @@ if __name__ == "__main__":
     # Script is running from MobuPy
     try:
         # In versions 2025 and above, the mobupy needs to be initialized before pyfbsdk can be used
-        import pyfbstandalone
+        import pyfbstandalone # type: ignore
         pyfbstandalone.initialize()
     except ModuleNotFoundError:
         pass

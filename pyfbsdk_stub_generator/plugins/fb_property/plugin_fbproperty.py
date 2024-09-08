@@ -3,10 +3,11 @@ This plugin patches the FBProperty classes to make sure properties and functions
 """
 from __future__ import annotations
 
-import pyfbsdk
 import copy
 
-from ..plugin import PluginBaseClass
+import pyfbsdk
+
+from ..plugin_base import PluginBaseClass
 from ...module_types import StubClass, StubFunction
 
 NAME_INDEX = "Index"
@@ -163,7 +164,7 @@ class PluginFbProperty(PluginBaseClass):
         Function = Functions[0]
 
         # Make a new copy of the function list
-        NewFunctionList = []
+        NewFunctionList: list[StubFunction] = []
 
         for PropertyType in pyfbsdk.FBPropertyType.values.values():
             if PropertyType not in PROPERTY_TYPE_MAP:

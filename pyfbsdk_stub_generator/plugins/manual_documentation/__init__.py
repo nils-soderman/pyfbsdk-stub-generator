@@ -1,1 +1,0 @@
-from .plugin_manual_docs import PluginManualDocumentation
