@@ -3450,7 +3450,7 @@ class kDeviceOperations(Enumeration):
 	kOpReset=4
 	kOpStart=1
 	kOpStop=3
-class FBAddRegionParam():
+class FBAddRegionParam:
 	"""This class provide a placeholder to put values necessary to create a Region with [FBLayout.AddRegion](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_layout.html#ada9608d3cc29bcfcb802803c582c7e82 "Add a region to the layout.").
 
 	Each region components: X, Y, Width and Height needs its own [FBAddRegionParam](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_add_region_param.html "This class provide a placeholder to put values necessary to create a Region with FBLayout...."). ex: x = [FBAddRegionParam](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_add_region_param.html "This class provide a placeholder to put values necessary to create a Region with FBLayout....")(0,[FBAttachType.kFBAttachLeft](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_attach_type.html#a515a9fce5f31a6a352618a99ccebd358 "Attach to left [min(x1,x2)]"),"") y = [FBAddRegionParam](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_add_region_param.html "This class provide a placeholder to put values necessary to create a Region with FBLayout....")(0,[FBAttachType.kFBAttachTop](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_attach_type.html#acf522b0b312ed5f748dd443b9c1f725b "Attach to top [min(y1,y2)]"),"") w = [FBAddRegionParam](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_add_region_param.html "This class provide a placeholder to put values necessary to create a Region with FBLayout....")(0,[FBAttachType.kFBAttachRight](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_attach_type.html#adb2cd1fac6e9229996167824546e0c00 "Attach to right [max(x1,x2)]"),"") h = [FBAddRegionParam](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_add_region_param.html "This class provide a placeholder to put values necessary to create a Region with FBLayout....")(25,[FBAttachType.kFBAttachNone](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_attach_type.html#acd7210d36736844518c582980ef225b8 "No attachment."),"") mainLyt.AddRegion("main","main", x, y, w, h)"""
@@ -3471,7 +3471,7 @@ class FBAddRegionParam():
 			- Relative: Name of Region to attach relative to.
 			- Mult: Multiplier of relative value."""
 		...
-class FBAudioRenderOptions():
+class FBAudioRenderOptions:
 	"""Audio Render Options structure.
 
 	Contain options to control how the audio rendering will occur.
@@ -3488,7 +3488,7 @@ class FBAudioRenderOptions():
 	TimeSpan:FBTimeSpan
 	"""Property: Start and stop selection time to render."""
 	def __init__(self):...
-class FBBatchOptions():
+class FBBatchOptions:
 	"""Option parameters for the batch process."""
 	Character:FBCharacter
 	"""Read Write Property: The character to receive the animation."""
@@ -3531,7 +3531,7 @@ class FBBatchOptions():
 	WriteTranslation:bool
 	"""Read Write Property: Write translation animation data included with Acclaim AMC files."""
 	def __init__(self):...
-class FBCallback():
+class FBCallback:
 	"""This class is used for the internal callback framework and is not meant to be used by clients."""
 	Callback:Any
 	"""Read Property: Python callback that will called when the [FBCallback](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_callback.html "This class is used for the internal callback framework and is not meant to be used by clients.") is executed."""
@@ -3540,7 +3540,7 @@ class FBCallback():
 	Wrapper:Any
 	"""Read Property: Pyfbsdk Wrapper that is the owner of the callback."""
 	def __init__(self,arg2,arg3:FBEventName,arg4,/):...
-class FBCharacterPoseOptions():
+class FBCharacterPoseOptions:
 	"""Stores options for operations on poses.
 
 	This class exposes the object used to store the options for operations on object poses. Before using a [FBCharacterPoseOptions](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_character_pose_options.html "Stores options for operations on poses."), you need to specify the various members of the object. Here are the default values of a [FBCharacterPoseOptions](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_character_pose_options.html "Stores options for operations on poses.") object: mCharacterPoseKeyingMode = kFBCharacterPoseKeyingModeFullBody mModelToMatch = NULL mMirrorPlaneType = kFBMirrorPlaneTypeAuto mMirrorPlaneEquation = 1.0, 0.0, 0.0, 0.0 mMirrorPlaneTiltAngle = 90.0 mMirrorPlanePanAngle = 0.0 Flag = kFBCharacterPoseNoFlag You need to change at least the Flag value by using [SetFlag()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_character_pose_options.html#af1e61ff84dbda2a16ac7f0eb5c05f0d4 "Set a flag value.") to set how the pose will be pasted; see the [FBCharacterPoseFlag](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_character_pose_flag.html "Character Pose Options flags.") enum for the various options."""
@@ -3556,7 +3556,7 @@ class FBCharacterPoseOptions():
 	"""Mirror plane type."""
 	mModelToMatch:FBModel
 	"""Model to match."""
-	def ClearFlag(self):
+	def ClearFlag(self)->None:
 		"""Clear all flags."""
 		...
 	def GetFlag(self,Flag:FBCharacterPoseFlag,/)->bool:
@@ -3568,7 +3568,7 @@ class FBCharacterPoseOptions():
 		### Returns:
 		Value of the flag."""
 		...
-	def SetFlag(self,Flag:FBCharacterPoseFlag,Value:bool,/):
+	def SetFlag(self,Flag:FBCharacterPoseFlag,Value:bool,/)->None:
 		"""Set a flag value.
 
 		### Parameters:
@@ -3576,7 +3576,7 @@ class FBCharacterPoseOptions():
 			- Value: Value to set."""
 		...
 	def __init__(self):...
-class FBColor():
+class FBColor:
 	"""[FBColor](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_color.html "FBColor class.") class.
 
 	Color vector.
@@ -3675,7 +3675,7 @@ class FBColor():
 	@overload
 	def __truediv__(self,arg2,/)->FBColor:...
 	def __iter__(self)->Iterator[float]:...
-class FBColorAndAlpha():
+class FBColorAndAlpha:
 	"""[FBColorAndAlpha](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_color_and_alpha.html "FBColorAndAlpha class.") class.
 
 	Color and alpha vector.
@@ -3772,7 +3772,7 @@ class FBColorAndAlpha():
 	@overload
 	def __truediv__(self,arg2,/)->FBColorAndAlpha:...
 	def __iter__(self)->Iterator[float]:...
-class FBComponentList():
+class FBComponentList:
 	"""[FBComponentList](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component_list.html "FBComponentList class.") class.
 
 	This class implements a special sort of list that can only contain instances of [FBComponent](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html "MotionBuilder SDK base class.") objects. To users it behaves as a tuple, since it is not possible to add new objects in the list. Only methods or function that uses [FBComponentList](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component_list.html "FBComponentList class.") as argument can insert new objects. Users can query the content of the list with the bracket operator.
@@ -3783,8 +3783,8 @@ class FBComponentList():
 	len(l)
 	print(l[0])
 	```"""
-	def Add(self,arg2:FBComponent,/):...
-	def Clear(self):...
+	def Add(self,arg2:FBComponent,/)->None:...
+	def Clear(self)->None:...
 	def GetCount(self)->int:...
 	def __getitem__(self,Index:int,/)->FBComponent:
 		"""Returns the ith component Corresponds to python: print l[1].
@@ -3801,17 +3801,17 @@ class FBComponentList():
 
 		Corresponds to python: len(object)"""
 		...
-	def append(self,arg2:FBComponent,/):...
+	def append(self,arg2:FBComponent,/)->None:...
 	def count(self)->int:...
-	def removeAll(self):...
+	def removeAll(self)->None:...
 	def __iter__(self)->Iterator[FBComponent]:...
-class FBConfigFile():
+class FBConfigFile:
 	"""Interface to the application config files.
 
 	This class allows client code to generate, modify and query configuration files. Config files will be automatically created when needed. They will be located in the /bin/config folder or an explicitly specified folder depending on the constructor used.
 
 	[See samples: FBConfigFile.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_f_b_config_file_8py-example.html) [ActionScriptMgr.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_complex_tools_0c_action_script_mgr_8py-example.html) [ActionScriptMgr.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_complex_tools_0c_action_script_mgr_8py-example.html) [ShotTrackSetupTool.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_complex_tools_0c_shot_track_setup_tool_8py-example.html)"""
-	def ClearFile(self):
+	def ClearFile(self)->None:
 		"""Remove all content from the config file."""
 		...
 	def Get(self,SectionName:str,ItemName:str,DefaultValue:str|None=None,/)->str:
@@ -3868,7 +3868,7 @@ class FBConfigFile():
 			- VirtualMode: Enable this to limit disk access, file will only be read at construction and written at destruction.
 			- ClearFile: Remove all existing content from the config file."""
 		...
-class FBConstraintInfo():
+class FBConstraintInfo:
 	"""Constraint information class.
 
 	This data structure is passed to the real-time evaluation callback for a constraint (AnimationNodeNotify())."""
@@ -3884,7 +3884,7 @@ class FBConstraintInfo():
 		### Returns:
 		true if 'zero' was requeststed."""
 		...
-class FBConstructionOperation():
+class FBConstructionOperation:
 	"""[FBConstructionOperation](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_construction_operation.html "FBConstructionOperation is used to represent an operation in the construction history.") is used to represent an operation in the construction history.
 
 	The operation can be any valid script. Currently, only python scripts are supported.An instance of this class defaults to the correct value in order to add a new construction history. If the workgroup plugin is loaded, the operation will be replicated on all machine within a session."""
@@ -3894,48 +3894,48 @@ class FBConstructionOperation():
 	def GetLanguageVersion(self)->int:...
 	def GetOrigin(self)->str:...
 	def GetScript(self)->str:...
-	def SetCommandId(self,commandId:int,/):
+	def SetCommandId(self,commandId:int,/)->None:
 		"""SetCommandId Set the operation's Id so that operation transactions can be resolved properly (eg: command 1 should go before command 2).
 
 		Set this to -1 for new operations.
 		### Parameters:
 			- commandId: Command Id. Defaults to -1."""
 		...
-	def SetExecuteAsLocalOperation(self,bIsLocal:bool,/):
+	def SetExecuteAsLocalOperation(self,bIsLocal:bool,/)->None:
 		"""SetExecuteAsLocalOperation Whether to execute this operation as local or remote.
 
 		If this is set to false (remote) and an operation is sent to the construction history, it will also execute locally on this motionbuilder.
 		### Parameters:
 			- bIsLocal: Defaults to true (local)."""
 		...
-	def SetLanguage(self,language:str,/):
+	def SetLanguage(self,language:str,/)->None:
 		"""SetLanguage Set the script language for this operation.
 
 		Currently only "python" is supported.
 		### Parameters:
 			- language: Langugage string. Default to construction history's code generator's language (Currently "python")."""
 		...
-	def SetLanguageVersion(self,version:int,/):
+	def SetLanguageVersion(self,version:int,/)->None:
 		"""SetLanguageVersion Set the script language interpreter's version that this operation should be interpreted with.
 
 		### Parameters:
 			- version: Version number. Defaults to construction history's code generator's version (Currently 1)."""
 		...
-	def SetOrigin(self,origin:str,/):
+	def SetOrigin(self,origin:str,/)->None:
 		"""SetOrigin Set operation's original creator.
 
 		For instance "localhost" or . Should mostly be "localhost" for new operations.
 		### Parameters:
 			- origin: Operation's Origin. Defaults to "localhost"."""
 		...
-	def SetScript(self,script:str,/):
+	def SetScript(self,script:str,/)->None:
 		"""SetScript Set the script content for this operation.
 
 		### Parameters:
 			- script: Script content as a string. Defaults to empty."""
 		...
 	def __init__(self,arg2:str|None=None,/):...
-class FBDeviceNotifyInfo():
+class FBDeviceNotifyInfo:
 	"""Device Input and Output Notification information structure.
 
 	This structure is passed to the real-time device IO callback DeviceIONotify. It furnishes the device callback with the system time, local time, and sync counts for the current device cycle."""
@@ -3957,13 +3957,13 @@ class FBDeviceNotifyInfo():
 		### Returns:
 		Current system time."""
 		...
-class FBDirMap():
-	def Add(self,SourceDir:str,TargetDir:str,/):
+class FBDirMap:
+	def Add(self,SourceDir:str,TargetDir:str,/)->None:
 		"""Adds an entry in the map.
 
 		Environment variables can be specified for the target path using the syntax. Environment variables are expanded before the paths get added to the map. An error in the formatting of the paths (environment variable tokens) will abort the expansion and both given paths will remained unchanged."""
 		...
-	def Clear(self):
+	def Clear(self)->None:
 		"""Clears the map."""
 		...
 	def GetCount(self)->int:
@@ -3983,7 +3983,7 @@ class FBDirMap():
 			- Path: The path to process"""
 		...
 	def __init__(self):...
-class FBEvaluateInfo():
+class FBEvaluateInfo:
 	"""AnimationNodeNotify evaluation information.
 
 	This structure is passed to the AnimationNodeNotify calls (in Constraints, Devices, and Boxes), giving the connectors information with regards to the start or stop times of the evaluation. In general, only the start time is of interest for the current evaluation cycle. The advantage of the structure is to have a common time for the evaluation of all the elements in the scene."""
@@ -4017,7 +4017,7 @@ class FBEvaluateInfo():
 		### Returns:
 		true if local time is stopped."""
 		...
-class FBEvent():
+class FBEvent:
 	"""Base Event class."""
 	Type:int
 	"""Read Only Property: Type of event."""
@@ -4041,11 +4041,14 @@ class FBEventConnectionDataNotify(FBEvent):
 			- Event: Base event (internal) to obtain information from."""
 		...
 class FBEventConnectionKeyingNotify(FBEvent):
-	Action:property
-	Plug:property
-	Property:property
-	StartTime:property
-	StopTime:property
+	Action:FBConnectionAction
+	Plug:FBPlug
+	@property
+	def Property(self)->FBPropertyAnimatable:...
+	@Property.setter
+	def Property(self, Value: FBPropertyAnimatable|Any):...
+	StartTime:FBTime
+	StopTime:FBTime
 	def __init__(self):
 		"""### Parameters:
 			- Event: Base event (internal) to obtain information from."""
@@ -4098,19 +4101,19 @@ class FBEventDragAndDrop(FBEvent):
 	"""Property: Y position of mouse."""
 	State:FBDragAndDropState
 	"""Property: Drag and drop sub-event."""
-	def Accept(self):
+	def Accept(self)->None:
 		"""Accept a drag and drop sequence.
 
 		This will cause the region in question to accept a drag and drop action when this event occurs."""
 		...
-	def Add(self,Component:FBComponent,Id:int=0,/):
+	def Add(self,Component:FBComponent,Id:int=0,/)->None:
 		"""Add an item to the drag and drop list.
 
 		### Parameters:
 			- Component: Item to add to the list.
 			- Id: User-defined reference for the item (default = 0 )."""
 		...
-	def Clear(self):
+	def Clear(self)->None:
 		"""Clear drag and drop list."""
 		...
 	def Get(self,Index:int,/)->FBComponent:
@@ -4129,7 +4132,7 @@ class FBEventDragAndDrop(FBEvent):
 		Number of items in DragAndDrop list."""
 		...
 class FBEventEvalGlobalCallback(FBEvent):
-	Timing:property
+	Timing:FBGlobalEvalCallbackTiming
 class FBEventExpose(FBEvent):
 	"""Event sent when a control needs to be displayed."""
 	...
@@ -4241,9 +4244,9 @@ class FBEventVideoFrameRendering(FBEvent):
 		eBeginRendering:FBEventVideoFrameRendering.EState
 		eEndRendering:FBEventVideoFrameRendering.EState
 		eRendering:FBEventVideoFrameRendering.EState
-	FrameCount:property
-	FrameNumber:property
-	State:property
+	FrameCount:int
+	FrameNumber:int
+	State:EState
 	eBeginRendering:FBEventVideoFrameRendering.EState
 	eEndRendering:FBEventVideoFrameRendering.EState
 	eRendering:FBEventVideoFrameRendering.EState
@@ -4277,7 +4280,7 @@ class FBFCurveEvent(FBEvent):
 		"""### Parameters:
 			- Event: Base event (internal) to obtain information from."""
 		...
-class FBFCurveKey():
+class FBFCurveKey:
 	"""KeyFrame for an FCurve.
 
 	[See sample: StartKeysAtCurrentTime.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_start_keys_at_current_time_8py-example.html)"""
@@ -4324,7 +4327,7 @@ class FBFCurveKey():
 	Value:float
 	"""Read Write Property: Value of Key"""
 	def __init__(self):...
-class FBFilePopup():
+class FBFilePopup:
 	"""File Popup (for open/save).
 
 	[See samples: AudioTrackSetupTool.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_complex_tools_0c_audio_track_setup_tool_8py-example.html) [FBFilePopup.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_f_b_file_popup_8py-example.html)"""
@@ -4347,7 +4350,7 @@ class FBFilePopup():
 		true if OK is clicked by user."""
 		...
 	def __init__(self):...
-class FBFilterManager():
+class FBFilterManager:
 	"""Filter manager.
 
 	This class provides list of all available filter types and a factory method in order to create an instance of the desired filter type.This manager will list both built-in and plug-in filters.See the class [FBFilter](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_filter.html "Filters are used to modify motion capture data.") for more details.Filter type names are not localised, and are the same as presented in the GUI.The following sample code shows how to use C++ or Python to create an instance of the orfilter_template filter and set one of its property. For the sample code to work, the plugin must have been compiled and copied in the plugins folder prior to the application startup.Sample C++ code:
@@ -4408,7 +4411,7 @@ class FBFilterManager():
 		A pointer to a filter instance, or a NULL if the type name was invalid."""
 		...
 	def __init__(self):...
-class FBFolderPopup():
+class FBFolderPopup:
 	"""Folder Popup (for selecting a directory).
 
 	[See samples: RenderLayers.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_rendering_0c_render_layers_8py-example.html) [BatchExportCharacterAnimationTool.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_batch_export_character_animation_tool_8py-example.html) [RenameFirstTakeOnMultipleFiles.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_rename_first_take_on_multiple_files_8py-example.html) [FBFolderPopup.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_f_b_folder_popup_8py-example.html)"""
@@ -4423,7 +4426,7 @@ class FBFolderPopup():
 		true if OK is clicked by user."""
 		...
 	def __init__(self):...
-class FBMatrix():
+class FBMatrix:
 	"""[FBMatrix](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_matrix.html "FBMatrix class.") class.
 
 	Four x Four (double) Matrix.
@@ -4444,16 +4447,16 @@ class FBMatrix():
 	[See sample: Matrix.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_matrix_8py-example.html)"""
 	def CopyFrom(self,arg2:FBMatrix,/)->FBMatrix:...
 	def GetBufferAddress(self)->int:...
-	def Identity(self):
+	def Identity(self)->None:
 		"""Load identity matrix."""
 		...
-	def Inverse(self):
+	def Inverse(self)->None:
 		"""Get Inversed matrix.
 
 		### Returns:
 		the matrix Inversed."""
 		...
-	def InverseProduct(self,Matrix:FBMatrix,/):
+	def InverseProduct(self,Matrix:FBMatrix,/)->None:
 		"""InverseProduct Matrix.
 
 		### Parameters:
@@ -4464,13 +4467,13 @@ class FBMatrix():
 		...
 	def IsEqual(self,arg2:FBMatrix,/)->bool:...
 	def NotEqual(self,arg2:FBMatrix,/)->bool:...
-	def Set(self,Value:list,/):
+	def Set(self,Value:list,/)->None:
 		"""Set matrix from an array.
 
 		### Parameters:
 			- Value: Array to intialize matrix from."""
 		...
-	def Transpose(self):
+	def Transpose(self)->None:
 		"""Get Transposed matrix.
 
 		### Returns:
@@ -4533,7 +4536,7 @@ class FBMatrix():
 		...
 	def __sub__(self,arg2:FBMatrix,/)->FBMatrix:...
 	def __iter__(self)->Iterator[float]:...
-class FBModelList():
+class FBModelList:
 	"""[FBModelList](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_model_list.html "FBModelList class.") class.
 
 	This class implements a special sort of list that can only contain instances of [FBModel](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_model.html "Model class.") objects. Users can query the content of the list with the bracket operator.
@@ -4544,13 +4547,13 @@ class FBModelList():
 	len(l)
 	print(l[0])
 	```"""
-	def Add(self,Model:FBModel,/):
+	def Add(self,Model:FBModel,/)->None:
 		"""Append a new modle at the end of the list.
 
 		### Parameters:
 			- Model: model to add to the list."""
 		...
-	def Clear(self):
+	def Clear(self)->None:
 		"""Empty the list from all models."""
 		...
 	def GetCount(self)->int:
@@ -4580,7 +4583,7 @@ class FBModelList():
 
 		Corresponds to python: len(object)"""
 		...
-	def append(self,Model:FBModel,/):
+	def append(self,Model:FBModel,/)->None:
 		"""Append a new modle at the end of the list.
 
 		### Parameters:
@@ -4589,11 +4592,11 @@ class FBModelList():
 	def count(self)->int:
 		"""Get number of models in list."""
 		...
-	def removeAll(self):
+	def removeAll(self)->None:
 		"""Empty the list from all models."""
 		...
 	def __iter__(self)->Iterator[FBModel]:...
-class FBMultiLangManager():
+class FBMultiLangManager:
 	"""Language manager.
 
 	The class [FBMultiLangManager](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_multi_lang_manager.html "Language manager.") indicates the supported languages and allows to query and change the current language.The support for localization is done using conversion tables from internal names to language specific names, so that they can be used in the GUI and other human readable contexts.At this time, changing the current language will not affect the GUI. Only calls to functions '[FBGetMultiLangText()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/namespacepyfbsdk.html#a9de6515574f954b9380ba76dfdf60ce0 "Name lookup in the context of an object.")' will be affected.The following sample code lists the names of the supported languages:Python sample code:
@@ -4642,7 +4645,7 @@ class FBMultiLangManager():
 		Setting the current language will affect the lookup done with the functions FBGetMultiLangText, but will not have any effect on the GUI."""
 		...
 	def __init__(self):...
-class FBNormal():
+class FBNormal:
 	@overload
 	def CopyFrom(self,arg2:FBNormal,/)->FBNormal:...
 	@overload
@@ -4703,13 +4706,13 @@ class FBNormal():
 	@overload
 	def __truediv__(self,arg2,/)->FBNormal:...
 	def __iter__(self)->Iterator[float]:...
-class FBObjectPoseMirrorOptions():
+class FBObjectPoseMirrorOptions:
 	"""[FBObjectPoseMirrorOptions](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_object_pose_mirror_options.html "FBObjectPoseMirrorOptions class.") class.
 
 	This class exposes the object used to store the options for the mirror of an object pose."""
 	mMirrorPlaneEquation:FBVector4d
 	"""Equation of the mirror plane."""
-	def ClearFlag(self):
+	def ClearFlag(self)->None:
 		"""Clear all flags."""
 		...
 	def GetFlag(self,Flag:FBObjectPoseMirrorOptionsFlag,/)->bool:
@@ -4721,7 +4724,7 @@ class FBObjectPoseMirrorOptions():
 		### Returns:
 		Value of the flag."""
 		...
-	def SetFlag(self,Flag:FBObjectPoseMirrorOptionsFlag,Value:bool,/):
+	def SetFlag(self,Flag:FBObjectPoseMirrorOptionsFlag,Value:bool,/)->None:
 		"""Set a flag value.
 
 		### Parameters:
@@ -4729,7 +4732,7 @@ class FBObjectPoseMirrorOptions():
 			- Value: Value to set."""
 		...
 	def __init__(self):...
-class FBObjectPoseOptions():
+class FBObjectPoseOptions:
 	"""[FBObjectPoseOptions](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_object_pose_options.html "FBObjectPoseOptions class.") class.
 
 	This class exposes the object used to store the options for operations on object poses."""
@@ -4741,7 +4744,7 @@ class FBObjectPoseOptions():
 	"""Global scaling matrix of reference object."""
 	mReferenceGT:FBVector4d
 	"""Global translation vector of reference object."""
-	def ClearFlag(self):
+	def ClearFlag(self)->None:
 		"""Clear all flags."""
 		...
 	def GetFlag(self,Flag:FBObjectPoseOptionsFlag,/)->bool:
@@ -4753,7 +4756,7 @@ class FBObjectPoseOptions():
 		### Returns:
 		Value of the flag."""
 		...
-	def SetFlag(self,Flag:FBObjectPoseOptionsFlag,Value:bool,/):
+	def SetFlag(self,Flag:FBObjectPoseOptionsFlag,Value:bool,/)->None:
 		"""Set a flag value.
 
 		### Parameters:
@@ -4761,7 +4764,7 @@ class FBObjectPoseOptions():
 			- Value: Value to set."""
 		...
 	def __init__(self):...
-class FBPickInfosList():
+class FBPickInfosList:
 	"""[FBPickInfosList](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_pick_infos_list.html "FBPickInfosList class.") class.
 
 	This class implements a special sort of list that can only contains a pick info which is a tuple<FBModel, FBVector3d>. A pick info give the position ([FBVector3d](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_vector3d.html "Vector3d class.")) and the model ([FBModel](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_model.html "Model class.")) that was pick on screen.
@@ -4795,7 +4798,7 @@ class FBPickInfosList():
 		...
 	def count(self)->int:...
 	def __iter__(self)->Iterator[tuple[FBModel,FBVector3d]]:...
-class FBPlotOptions():
+class FBPlotOptions:
 	"""Option parameters for plotting.
 
 	[See samples: PlotNonSelectedCharStoryTracks.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_plot_non_selected_char_story_tracks_8py-example.html) [PlotSelectedCharStoryTracks.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_plot_selected_char_story_tracks_8py-example.html)"""
@@ -4824,13 +4827,13 @@ class FBPlotOptions():
 	UseConstantKeyReducer:bool
 	"""Read Write Property: Should we use a constant key reducer with the filter?"""
 	def __init__(self):...
-class FBPlugList():
+class FBPlugList:
 	def GetCount(self)->int:...
 	def __getitem__(self,arg2,/)->Any:...
 	def __init__(self):...
 	def __len__(self)->int:...
 	def __iter__(self)->Iterator[Any]:...
-class FBProfileTaskCycle():
+class FBProfileTaskCycle:
 	"""[FBProfileTaskCycle](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_profile_task_cycle.html "FBProfileTaskCycle.").
 
 	Real-time profiling information for a specific task. Profiling information can be collected for:Evaluation: models, constraints, characters, story tracksDevices: DeviceIONotify, DeviceEvaluationNotifyRendering: renderer, render passes (like: Translucent, TranslucentZSort, Selected, OtherPrimitive, SelectiveLighting, etc)SDKInternal synchronization (idle callback, buffer swap, waiting on evaluation to finish before starting new rendering)When profiling a scene within a MotionBuilder session you can discover what tasks are being performed when and for how long. You can use this information to troubleshoot lengthy or repetitive actions, and use MotionBuilder more efficiently.A task is defined as a definite piece of work within MotionBuilder such as the evaluation of a character. If the same task is run numerous times it is called a task cycle. From within a scene, the hierary and dependents of the scene make up the task cycles. A task cycle spends its time computing a specific task within a task parent cycle.A task parent cycle is a hierarchy of individual task cycles, where the parent and child relationship is known to MotionBuilder and displayed in the profiling center.For example, these are all task cycles which are all parented to each other; Eval is parent of TransformNode_Active, which is a parent of Constraint, which is a parent of Character, which is in turn a parent of TransformNode_Active.This is because the evaluation is called for one model which triggers evaluation of the character which then calls the evaluation of the rest of IK/FK models.When an evaluation starts, it calls the evaluation of the character, the time will be computed for time spent on the sample. Then possibly another character is evaluated, so again the time will be computed for the time spent on this sample. This time will be added to the previous sample since that evaluation has not finished yet. The evaluation here is parented, since they both have started but not finished, all children samples are summed. When the evaluation stops, you change the sample for the children.Note: The evaluation dependency/order will be different for each scene.As you can see profiling of task cycles is done by collecting samples. Samples are added to one inside parent sample. The number of samples collected is controlled by the profiler buffer size property.Here are the steps to add profiling into a constraint, a device, or any other class that uses real-time evaluation: 1) Declare FBProfiler_CreateTaskCycle( MyConstraint, 0.5, 0.5, 0.5 ) in MyConstraint.cxx, before the constructor and AnimationNodeNotify function. 2) Set up FBProfiling_SetupTaskCycle( MyConstraint ) in the constuctor MyConstraint::MyConstraint(). 3) At the beginning of MyConstraint::AnimationNodeNotify create the variable: FBProfilerHelper lProfiling( FBProfiling_TaskCycleIndex( MyConstraint ), pEvaluateInfo ); The sample for task will start at the creation of FBProfilerHelper object and stop at the destruction of this object, when returning from AnimationNodeNotify will be done."""
@@ -4874,7 +4877,7 @@ class FBProfileTaskCycle():
 	def IsStarted(self)->bool:
 		"""Test to see if sampling has started."""
 		...
-class FBProfileTimeEvent():
+class FBProfileTimeEvent:
 	"""[FBProfileTimeEvent](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_profile_time_event.html "FBProfileTimeEvent.").
 
 	Time event information is collected during sampling (activated with a property in [FBProfiler](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_profiler.html "FBProfiler.") ActiveSampling). Events that can be collected are: render, evaluation, model evaluation, model deformation, synchronization of evaluation and rendering, playback commands, etc.Sampling will stop when the buffers maximum size is reached (maximum is 10MB).Currently users are not able to register any new events from ORSDK/python"""
@@ -4900,7 +4903,7 @@ class FBProfileTimeEvent():
 
 		Some actions that takes more time to execute or when other events can occur inbetween are collected with start time event at begin and end time event at finish."""
 		...
-class FBPropertyListAnimationNode():
+class FBPropertyListAnimationNode:
 	"""List of animation nodes. List: AudioClip"""
 	def FindByLabel(self,NodeLabel:str,/)->FBAnimationNode:
 		"""Returns the animation node from its label.
@@ -4914,70 +4917,70 @@ class FBPropertyListAnimationNode():
 	def __getitem__(self,Index:int,/)->FBAnimationNode:...
 	def __len__(self)->int:...
 	def __iter__(self)->Iterator[FBAnimationNode]:...
-class FBPropertyListDeviceInstrument():
+class FBPropertyListDeviceInstrument:
 	"""List of instruments. PropertyList: Device optical marker"""
 	def __getitem__(self,Index:int,/)->FBDeviceInstrument:...
 	def __len__(self)->int:...
 	def __iter__(self)->Iterator[FBDeviceInstrument]:...
-class FBPropertyListDeviceOpticalMarker():
+class FBPropertyListDeviceOpticalMarker:
 	def __getitem__(self,Index:int,/)->FBDeviceOpticalMarker:...
 	def __len__(self)->int:...
 	def __iter__(self)->Iterator[FBDeviceOpticalMarker]:...
-class FBPropertyListFCurveKey():
+class FBPropertyListFCurveKey:
 	"""List of FCurveKey. List: FileReference"""
 	def __getitem__(self,Index:int,/)->FBFCurveKey:...
 	def __len__(self)->int:...
 	def __iter__(self)->Iterator[FBFCurveKey]:...
-class FBPropertyListManipulator():
+class FBPropertyListManipulator:
 	"""PropertyList: Device optical marker"""
 	def __getitem__(self,Index:int,/)->FBManipulator:...
 	def __len__(self)->int:...
 	def __iter__(self)->Iterator[FBManipulator]:...
-class FBPropertyListMarkerSegment():
+class FBPropertyListMarkerSegment:
 	"""PropertyList: MarkerSet.
 
 	These classes are under development and may change dramatically between versions."""
 	def __getitem__(self,arg2,/)->FBOpticalSegment:...
 	def __len__(self)->int:...
 	def __iter__(self)->Iterator[FBOpticalSegment]:...
-class FBPropertyListModelMarkerOptical():
+class FBPropertyListModelMarkerOptical:
 	"""PropertyList: ModelOptical."""
 	def __getitem__(self,Index:int,/)->FBModelMarkerOptical:...
 	def __len__(self)->int:...
 	def __iter__(self)->Iterator[FBModelMarkerOptical]:...
-class FBPropertyListModelTemplate():
+class FBPropertyListModelTemplate:
 	"""PropertyList: ModelTemplateBinding."""
 	def __getitem__(self,Index:int,/)->FBModelTemplate:...
 	def __len__(self)->int:...
 	def __iter__(self)->Iterator[FBModelTemplate]:...
-class FBPropertyListModelTemplateBinding():
+class FBPropertyListModelTemplateBinding:
 	"""List: MotionClip
 
 	PropertyList: MotionClip"""
 	def __getitem__(self,arg2,/)->Any:...
 	def __len__(self)->int:...
 	def __iter__(self)->Iterator[Any]:...
-class FBPropertyListOpticalGap():
+class FBPropertyListOpticalGap:
 	"""PropertyList: Device optical marker"""
 	def __getitem__(self,Index:int,/)->FBOpticalGap:...
 	def __len__(self)->int:...
 	def __iter__(self)->Iterator[FBOpticalGap]:...
-class FBPropertyListOpticalSegment():
+class FBPropertyListOpticalSegment:
 	"""PropertyList: Physical properties"""
 	def __getitem__(self,Index:int,/)->FBOpticalSegment:...
 	def __len__(self)->int:...
 	def __iter__(self)->Iterator[FBOpticalSegment]:...
-class FBPropertyListRigidBody():
+class FBPropertyListRigidBody:
 	"""PropertyList: Device optical marker"""
 	def __getitem__(self,Index:int,/)->FBRigidBody:...
 	def __len__(self)->int:...
 	def __iter__(self)->Iterator[FBRigidBody]:...
-class FBPropertyListRigidBodyMarkers():
+class FBPropertyListRigidBodyMarkers:
 	"""List: Set"""
 	def __getitem__(self,arg2,/)->Any:...
 	def __len__(self)->int:...
 	def __iter__(self)->Iterator[Any]:...
-class FBPropertyManager():
+class FBPropertyManager:
 	"""Property Manager.
 
 	The property manager exists in all [FBComponent](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html "MotionBuilder SDK base class.") objects, and contains an array of all the registered properties. These properties may be SDK properties, internal properties or both."""
@@ -4991,7 +4994,7 @@ class FBPropertyManager():
 		### Returns:
 		Handle to property found."""
 		...
-	def FindPropertiesByName(self,PropertyNamePattern:str,PropList:list,MultilangLookup:bool=True,/):
+	def FindPropertiesByName(self,PropertyNamePattern:str,PropList:list,MultilangLookup:bool=True,/)->None:
 		"""This function will query the property list for properties fulfilling a particular name pattern.
 
 		### Parameters:
@@ -5002,9 +5005,9 @@ class FBPropertyManager():
 		### Note:
 		The script FindPropertiesWithWildcard.py shows how to use this function."""
 		...
-	def __getitem__(self,arg2,/)->Any:...
+	def __getitem__(self,Index:int,/)->FBProperty:...
 	def __len__(self)->int:...
-	def __iter__(self)->Iterator[Any]:...
+	def __iter__(self)->Iterator[FBProperty]:...
 class FBPropertyStateEvent(FBEvent):
 	"""This class is used when the state of a property tracked by the [FBFCurveEventManager](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_f_curve_event_manager.html "FCurve Event Manager Interface to the FBFCurveEventManager.") is changed."""
 	EventType:FBPropertyStateEventType
@@ -5015,7 +5018,7 @@ class FBPropertyStateEvent(FBEvent):
 		"""### Parameters:
 			- Event: Base event (internal) to obtain information from."""
 		...
-class FBPropertyViewDefinition():
+class FBPropertyViewDefinition:
 	"""[FBProperty](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property.html "Generic application property.") View.
 
 	View definition for one property."""
@@ -5028,13 +5031,13 @@ class FBPropertyViewDefinition():
 	def IsSaved(self)->bool:
 		"""Is property view saved on view manager store."""
 		...
-	def SetOpen(self,pTrue:bool,ApplyUpHierarchy:bool,/):
+	def SetOpen(self,pTrue:bool,ApplyUpHierarchy:bool,/)->None:
 		"""Set view open/closed at run time."""
 		...
-	def SetSaved(self,pTrue:bool,ApplyUpHierarchy:bool,/):
+	def SetSaved(self,pTrue:bool,ApplyUpHierarchy:bool,/)->None:
 		"""Set view to be saved on view manager store."""
 		...
-class FBPropertyViewList():
+class FBPropertyViewList:
 	"""[FBProperty](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property.html "Generic application property.") View List.
 
 	Hold list of description for view set."""
@@ -5063,7 +5066,7 @@ class FBPropertyViewList():
 		### Returns:
 		true when pPropertyViewDefinition got removed and free (should not be called on non editable view list)."""
 		...
-class FBPythonWrapper():
+class FBPythonWrapper:
 	"""Base class of [FBPlug](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_plug.html "Connections Basic Open Reality SDK Element.") in Python.
 
 	This class act as a bridge between the ORSDK C++ world and the Python world. Since each Python objects wrap a ORSDK object we need a way to notify Python if the ORSDK object is destroyed.
@@ -5087,13 +5090,13 @@ class FBPlug(FBPythonWrapper):
 	def ConnectDstAt(self,arg2,arg3:FBPlug,arg4:FBConnectionType|None=None,/)->bool:...
 	def ConnectSrc(self,arg2:FBPlug,arg3:FBConnectionType|None=None,/)->bool:...
 	def ConnectSrcAt(self,arg2,arg3:FBPlug,arg4:FBConnectionType|None=None,/)->bool:...
-	def DisconnectAllDst(self):...
-	def DisconnectAllSrc(self):...
+	def DisconnectAllDst(self)->None:...
+	def DisconnectAllSrc(self)->None:...
 	def DisconnectDst(self,arg2:FBPlug,/)->bool:...
 	def DisconnectDstAt(self,arg2,/)->bool:...
 	def DisconnectSrc(self,arg2:FBPlug,/)->bool:...
 	def DisconnectSrcAt(self,arg2,/)->bool:...
-	def EndChange(self):...
+	def EndChange(self)->None:...
 	def GetContentModified(self,arg2:FBPlugModificationFlag,/)->bool:...
 	def GetDst(self,arg2,/)->Any:...
 	def GetDstCount(self)->int:...
@@ -5114,15 +5117,15 @@ class FBPlug(FBPythonWrapper):
 	@overload
 	def MoveSrcAt(self,arg2:FBPlug,arg3:FBPlug,/)->bool:...
 	@staticmethod
-	def PrintClassDefinitions():...
+	def PrintClassDefinitions()->None:...
 	def ReplaceDstAt(self,arg2,arg3:FBPlug,/)->bool:...
 	def ReplaceSrcAt(self,arg2,arg3:FBPlug,/)->bool:...
 	def RevertModification(self,arg2:FBPlugModificationFlag|None=None,/)->bool:...
-	def SetContentModified(self,arg2:FBPlugModificationFlag,arg3,/):...
-	def SetSelfModified(self,arg2:FBPlugModificationFlag,arg3,/):...
-	def SetStatusFlag(self,arg2:FBPlugStatusFlag,arg3,/):...
+	def SetContentModified(self,arg2:FBPlugModificationFlag,arg3,/)->None:...
+	def SetSelfModified(self,arg2:FBPlugModificationFlag,arg3,/)->None:...
+	def SetStatusFlag(self,arg2:FBPlugStatusFlag,arg3,/)->None:...
 	def SwapSrc(self,arg2,arg3,/)->bool:...
-class FBRenderOptions():
+class FBRenderOptions:
 	def GetIDBufferPickingAlphaThreshold(self)->float:
 		"""Get IDBuffer Picking Alpha threshold.
 
@@ -5324,7 +5327,7 @@ class FBProperty(FBPlug):
 	def IsReferenceProperty(self)->bool:...
 	def IsTextureConnectableProperty(self)->bool:...
 	def IsUserProperty(self)->bool:...
-	def ModifyPropertyFlag(self,Flag:FBPropertyFlag,Value:bool,/):
+	def ModifyPropertyFlag(self,Flag:FBPropertyFlag,Value:bool,/)->None:
 		"""ModifyPropertyFlag.
 
 		### Parameters:
@@ -5334,7 +5337,7 @@ class FBProperty(FBPlug):
 		### Warning:
 		Flags are not saved into or read from a FBX file."""
 		...
-	def NotifyEnumStringListChanged(self):
+	def NotifyEnumStringListChanged(self)->None:
 		"""Notify system that the enum list was modified."""
 		...
 	def OriValueAsString(self)->str:
@@ -5343,34 +5346,34 @@ class FBProperty(FBPlug):
 		### Returns:
 		returns the original value of the property in string with format same as AsString(kDataAsStringPersistence)"""
 		...
-	def SetLocked(self,Locked:bool,/):
+	def SetLocked(self,Locked:bool,/)->None:
 		"""SetLocked.
 
 		### Parameters:
 			- Locked: True if the property is to be locked, false if it is to be unlocked."""
 		...
-	def SetMax(self,Max:float,ForceMaxClamp:bool=False,/):
+	def SetMax(self,Max:float,ForceMaxClamp:bool=False,/)->None:
 		"""SetMax.
 
 		### Parameters:
 			- Max: Maximum value of the property.
 			- ForceMaxClamp: Force clamping to maximum value of the property."""
 		...
-	def SetMemberLocked(self,Index:int,Locked:bool,/):
+	def SetMemberLocked(self,Index:int,Locked:bool,/)->None:
 		"""SetMemberLocked.
 
 		### Parameters:
 			- Index: Index of the sub-member of the property to lock or unlock.
 			- Locked: True if the sub-member is to be locked, false if it is to be unlocked."""
 		...
-	def SetMin(self,Min:float,ForceMinClamp:bool=False,/):
+	def SetMin(self,Min:float,ForceMinClamp:bool=False,/)->None:
 		"""SetMin.
 
 		### Parameters:
 			- Min: Minimum value of the property.
 			- ForceMinClamp: Force clamping to minimum value of the property."""
 		...
-	def SetName(self,Name:str,/):
+	def SetName(self,Name:str,/)->None:
 		"""Set the property's name.
 
 		### Parameters:
@@ -5405,13 +5408,13 @@ class FBComponent(FBPlug):
 	"""Read Only Property: Manages all of the properties for the component."""
 	Selected:bool
 	"""Read Write Property: Selected property."""
-	def DisableObjectFlags(self,Flags:FBObjectFlag,/):
+	def DisableObjectFlags(self,Flags:FBObjectFlag,/)->None:
 		"""Disable a specific Object Flags.
 
 		### Parameters:
 			- Flags: Flags to disable."""
 		...
-	def EnableObjectFlags(self,Flags:FBObjectFlag,/):
+	def EnableObjectFlags(self,Flags:FBObjectFlag,/)->None:
 		"""Enable a specific Object Flags.
 
 		### Parameters:
@@ -5423,12 +5426,12 @@ class FBComponent(FBPlug):
 		### Returns:
 		Outcome of creation (true/false)."""
 		...
-	def FBDelete(self):
+	def FBDelete(self)->None:
 		"""Open Reality deletion function.
 
 		[See sample: DeleteHierarchy.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_delete_hierarchy_8py-example.html)"""
 		...
-	def FBDestroy(self):
+	def FBDestroy(self)->None:
 		"""Open Reality destruction function."""
 		...
 	def GetObjectFlags(self)->FBObjectFlag:
@@ -5449,7 +5452,7 @@ class FBComponent(FBPlug):
 		### Returns:
 		the owner FileReference object"""
 		...
-	def HardSelect(self):
+	def HardSelect(self)->None:
 		"""HardSelect.
 
 		Selects the object, and emits a hard select event for UI update notification."""
@@ -5514,20 +5517,20 @@ class FBComponent(FBPlug):
 			- PropList: property list to hold the modified properties.
 			- ModificationFlags: type of modification to query."""
 		...
-	def PropertyRemove(self,Property:FBProperty,/):
+	def PropertyRemove(self,Property:FBProperty,/)->None:
 		"""Remove a Property from the component's Property manager.
 
 		If the property was dynamically allocated, it is deleted.
 		### Parameters:
 			- Property: The property to remove from the property manager."""
 		...
-	def SetObjectFlags(self,Flags:FBObjectFlag,/):
+	def SetObjectFlags(self,Flags:FBObjectFlag,/)->None:
 		"""SetObjectFlags.
 
 		### Parameters:
 			- Flags: Set flag values. Note: this function overwrites all flags with those passed in parameter."""
 		...
-	def SetObjectStatus(self,Status:FBObjectStatus,Value:bool,/):
+	def SetObjectStatus(self,Status:FBObjectStatus,Value:bool,/)->None:
 		"""Enable/Disable a specific Object Status.
 
 		### Parameters:
@@ -5942,13 +5945,13 @@ class FBReferenceTime(FBComponent):
 		### Parameters:
 			- IDArray: Array that will be filled with the requested IDs."""
 		...
-	def Remove(self,ID:int,/):
+	def Remove(self,ID:int,/)->None:
 		"""Remove a reference time from the list.
 
 		### Parameters:
 			- ID: ID of reference time to remove."""
 		...
-	def SetTime(self,ID:int,ReferenceTime:FBTime,System:FBTime,/):
+	def SetTime(self,ID:int,ReferenceTime:FBTime,System:FBTime,/)->None:
 		"""Set a reference time.
 
 		### Parameters:
@@ -5998,7 +6001,7 @@ class FBPropertyViewManager(FBComponent):
 		### Returns:
 		Found property view set object or NULL."""
 		...
-	def HidePropertyView(self,ClassName:str,PropertyName:str,Hide:bool,/):
+	def HidePropertyView(self,ClassName:str,PropertyName:str,Hide:bool,/)->None:
 		"""Hide property view in global ('All') view set.
 
 		### Parameters:
@@ -6009,7 +6012,7 @@ class FBPropertyViewManager(FBComponent):
 		### Note:
 		This call should be used on library registration, doesn't cause tool refresh."""
 		...
-	def RefreshPropertyViews(self):
+	def RefreshPropertyViews(self)->None:
 		"""Force refresh of browsing property tool."""
 		...
 	def RemovePropertyList(self,Object:FBComponent,ViewType:FBPropertyViewType,Name:str,/)->bool:
@@ -6090,7 +6093,7 @@ class FBPropertyStringList(FBProperty):
 		### Returns:
 		number of elements in list."""
 		...
-	def append(self,Value:str,/):
+	def append(self,Value:str,/)->None:
 		"""Append new str at end of list.
 
 		### Parameters:
@@ -6121,7 +6124,7 @@ class FBPropertyStringList(FBProperty):
 		### Returns:
 		Returns the reference of the object."""
 		...
-	def insert(self,Index:int,Value:str,/):
+	def insert(self,Index:int,Value:str,/)->None:
 		"""Insert a new element in list.
 
 		### Parameters:
@@ -6145,16 +6148,16 @@ class FBPropertyStringList(FBProperty):
 		### Returns:
 		Returns the element that was removed."""
 		...
-	def remove(self,Object:str,/):
+	def remove(self,Object:str,/)->None:
 		"""Remove an element in list.
 
 		### Parameters:
 			- Index: Index where to remove element."""
 		...
-	def removeAll(self):
+	def removeAll(self)->None:
 		"""Remove all elements of list"""
 		...
-	def setReferenceAt(self,arg2,arg3,/):
+	def setReferenceAt(self,arg2,arg3,/)->None:
 		"""Sets the reference value of an object.
 
 		### Parameters:
@@ -6173,15 +6176,15 @@ class FBPropertyListTreeNode(FBProperty):
 	def __delitem__(self,arg2:int,/):...
 	def __getitem__(self,Index:int,/)->FBTreeNode:...
 	def __len__(self)->int:...
-	def append(self,Object:FBTreeNode,/):...
+	def append(self,Object:FBTreeNode,/)->None:...
 	def count(self,Object:FBTreeNode,/)->int:...
-	def insert(self,Index:int,Object:FBTreeNode,/):...
+	def insert(self,Index:int,Object:FBTreeNode,/)->None:...
 	@overload
 	def pop(self)->FBTreeNode:...
 	@overload
 	def pop(self,Index:int,/)->FBTreeNode:...
-	def remove(self,Object:FBTreeNode,/):...
-	def removeAll(self):...
+	def remove(self,Object:FBTreeNode,/)->None:...
+	def removeAll(self)->None:...
 	def __iter__(self)->Iterator[FBTreeNode]:...
 class FBPropertyListComponent(FBProperty):
 	"""PropertyList: Constraint
@@ -6223,7 +6226,7 @@ class FBPropertyListComponent(FBProperty):
 		### Returns:
 		number of elements in list."""
 		...
-	def append(self,Comp:FBComponent,/):
+	def append(self,Comp:FBComponent,/)->None:
 		"""Append new [FBComponent](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html "MotionBuilder SDK base class.") at end of list.
 
 		### Parameters:
@@ -6236,7 +6239,7 @@ class FBPropertyListComponent(FBProperty):
 		### Returns:
 		number of elements in list."""
 		...
-	def insert(self,Index:int,Comp:FBComponent,/):
+	def insert(self,Index:int,Comp:FBComponent,/)->None:
 		"""Insert a new element in list.
 
 		### Parameters:
@@ -6260,13 +6263,13 @@ class FBPropertyListComponent(FBProperty):
 		### Returns:
 		Returns the element that was removed."""
 		...
-	def remove(self,Object:FBComponent,/):
+	def remove(self,Object:FBComponent,/)->None:
 		"""Remove an element in list.
 
 		### Parameters:
 			- Index: Index where to remove element."""
 		...
-	def removeAll(self):
+	def removeAll(self)->None:
 		"""Remove all elements of list"""
 		...
 	def __iter__(self)->Iterator[FBComponent]:...
@@ -6297,265 +6300,265 @@ class FBPropertyList(FBProperty):
 
 		Corresponds to python: len(object)"""
 		...
-	def append(self,Object:Any,/):...
+	def append(self,Object:Any,/)->None:...
 	def count(self,Object:Any,/)->int:...
-	def insert(self,Index:int,Object:Any,/):...
+	def insert(self,Index:int,Object:Any,/)->None:...
 	@overload
 	def pop(self)->Any:...
 	@overload
 	def pop(self,Index:int,/)->Any:...
-	def remove(self,Object:Any,/):...
-	def removeAll(self):...
+	def remove(self,Object:Any,/)->None:...
+	def removeAll(self)->None:...
 	def __iter__(self)->Iterator[Any]:...
 class FBPropertyListVideoOut(FBPropertyListComponent):
 	Data:list[FBVideoOut]
 	def __contains__(self,Object:FBVideoOut,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBVideoOut:...
-	def append(self,Object:FBVideoOut,/):...
+	def append(self,Object:FBVideoOut,/)->None:...
 	def count(self,Object:FBVideoOut,/)->int:...
-	def insert(self,Index:int,Object:FBVideoOut,/):...
+	def insert(self,Index:int,Object:FBVideoOut,/)->None:...
 	@overload
 	def pop(self)->FBVideoOut:...
 	@overload
 	def pop(self,Index:int,/)->FBVideoOut:...
-	def remove(self,Object:FBVideoOut,/):...
+	def remove(self,Object:FBVideoOut,/)->None:...
 	def __iter__(self)->Iterator[FBVideoOut]:...
 class FBPropertyListVideoIn(FBPropertyListComponent):
 	"""PropertyList: VideoOut"""
 	Data:list[FBVideoIn]
 	def __contains__(self,Object:FBVideoIn,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBVideoIn:...
-	def append(self,Object:FBVideoIn,/):...
+	def append(self,Object:FBVideoIn,/)->None:...
 	def count(self,Object:FBVideoIn,/)->int:...
-	def insert(self,Index:int,Object:FBVideoIn,/):...
+	def insert(self,Index:int,Object:FBVideoIn,/)->None:...
 	@overload
 	def pop(self)->FBVideoIn:...
 	@overload
 	def pop(self,Index:int,/)->FBVideoIn:...
-	def remove(self,Object:FBVideoIn,/):...
+	def remove(self,Object:FBVideoIn,/)->None:...
 	def __iter__(self)->Iterator[FBVideoIn]:...
 class FBPropertyListVideoClip(FBPropertyListComponent):
 	"""PropertyList: VideoIn"""
 	Data:list[FBVideoClip]
 	def __contains__(self,Object:FBVideoClip,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBVideoClip:...
-	def append(self,Object:FBVideoClip,/):...
+	def append(self,Object:FBVideoClip,/)->None:...
 	def count(self,Object:FBVideoClip,/)->int:...
-	def insert(self,Index:int,Object:FBVideoClip,/):...
+	def insert(self,Index:int,Object:FBVideoClip,/)->None:...
 	@overload
 	def pop(self)->FBVideoClip:...
 	@overload
 	def pop(self,Index:int,/)->FBVideoClip:...
-	def remove(self,Object:FBVideoClip,/):...
+	def remove(self,Object:FBVideoClip,/)->None:...
 	def __iter__(self)->Iterator[FBVideoClip]:...
 class FBPropertyListUserObject(FBPropertyListComponent):
 	"""PropertyList: VideoClip"""
 	Data:list[FBUserObject]
 	def __contains__(self,Object:FBUserObject,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBUserObject:...
-	def append(self,Object:FBUserObject,/):...
+	def append(self,Object:FBUserObject,/)->None:...
 	def count(self,Object:FBUserObject,/)->int:...
-	def insert(self,Index:int,Object:FBUserObject,/):...
+	def insert(self,Index:int,Object:FBUserObject,/)->None:...
 	@overload
 	def pop(self)->FBUserObject:...
 	@overload
 	def pop(self,Index:int,/)->FBUserObject:...
-	def remove(self,Object:FBUserObject,/):...
+	def remove(self,Object:FBUserObject,/)->None:...
 	def __iter__(self)->Iterator[FBUserObject]:...
 class FBPropertyListTexture(FBPropertyListComponent):
 	Data:list[FBTexture]
 	def __contains__(self,Object:FBTexture,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBTexture:...
-	def append(self,Object:FBTexture,/):...
+	def append(self,Object:FBTexture,/)->None:...
 	def count(self,Object:FBTexture,/)->int:...
-	def insert(self,Index:int,Object:FBTexture,/):...
+	def insert(self,Index:int,Object:FBTexture,/)->None:...
 	@overload
 	def pop(self)->FBTexture:...
 	@overload
 	def pop(self,Index:int,/)->FBTexture:...
-	def remove(self,Object:FBTexture,/):...
+	def remove(self,Object:FBTexture,/)->None:...
 	def __iter__(self)->Iterator[FBTexture]:...
 class FBPropertyListTake(FBPropertyListComponent):
 	"""PropertyList: Texture"""
 	Data:list[FBTake]
 	def __contains__(self,Object:FBTake,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBTake:...
-	def append(self,Object:FBTake,/):...
+	def append(self,Object:FBTake,/)->None:...
 	def count(self,Object:FBTake,/)->int:...
-	def insert(self,Index:int,Object:FBTake,/):...
+	def insert(self,Index:int,Object:FBTake,/)->None:...
 	@overload
 	def pop(self)->FBTake:...
 	@overload
 	def pop(self,Index:int,/)->FBTake:...
-	def remove(self,Object:FBTake,/):...
+	def remove(self,Object:FBTake,/)->None:...
 	def __iter__(self)->Iterator[FBTake]:...
 class FBPropertyListStoryTrack(FBPropertyListComponent):
 	"""List: Take"""
 	Data:list[FBStoryTrack]
 	def __contains__(self,Object:FBStoryTrack,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBStoryTrack:...
-	def append(self,Object:FBStoryTrack,/):...
+	def append(self,Object:FBStoryTrack,/)->None:...
 	def count(self,Object:FBStoryTrack,/)->int:...
-	def insert(self,Index:int,Object:FBStoryTrack,/):...
+	def insert(self,Index:int,Object:FBStoryTrack,/)->None:...
 	@overload
 	def pop(self)->FBStoryTrack:...
 	@overload
 	def pop(self,Index:int,/)->FBStoryTrack:...
-	def remove(self,Object:FBStoryTrack,/):...
+	def remove(self,Object:FBStoryTrack,/)->None:...
 	def __iter__(self)->Iterator[FBStoryTrack]:...
 class FBPropertyListStorySubTrack(FBPropertyListComponent):
 	"""List: StoryTrack"""
 	Data:list[FBComponent]
 	def __contains__(self,Object:FBComponent,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBComponent:...
-	def append(self,Object:FBComponent,/):...
+	def append(self,Object:FBComponent,/)->None:...
 	def count(self,Object:FBComponent,/)->int:...
-	def insert(self,Index:int,Object:FBComponent,/):...
+	def insert(self,Index:int,Object:FBComponent,/)->None:...
 	@overload
 	def pop(self)->FBComponent:...
 	@overload
 	def pop(self,Index:int,/)->FBComponent:...
-	def remove(self,Object:FBComponent,/):...
+	def remove(self,Object:FBComponent,/)->None:...
 	def __iter__(self)->Iterator[FBComponent]:...
 class FBPropertyListStoryFolder(FBPropertyListComponent):
 	"""List: StorySubTrack"""
 	Data:list[FBStoryFolder]
 	def __contains__(self,Object:FBStoryFolder,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBStoryFolder:...
-	def append(self,Object:FBStoryFolder,/):...
+	def append(self,Object:FBStoryFolder,/)->None:...
 	def count(self,Object:FBStoryFolder,/)->int:...
-	def insert(self,Index:int,Object:FBStoryFolder,/):...
+	def insert(self,Index:int,Object:FBStoryFolder,/)->None:...
 	@overload
 	def pop(self)->FBStoryFolder:...
 	@overload
 	def pop(self,Index:int,/)->FBStoryFolder:...
-	def remove(self,Object:FBStoryFolder,/):...
+	def remove(self,Object:FBStoryFolder,/)->None:...
 	def __iter__(self)->Iterator[FBStoryFolder]:...
 class FBPropertyListStoryDetails(FBPropertyListComponent):
 	"""List: StoryFolder"""
 	Data:list[FBComponent]
 	def __contains__(self,Object:FBComponent,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBComponent:...
-	def append(self,Object:FBComponent,/):...
+	def append(self,Object:FBComponent,/)->None:...
 	def count(self,Object:FBComponent,/)->int:...
-	def insert(self,Index:int,Object:FBComponent,/):...
+	def insert(self,Index:int,Object:FBComponent,/)->None:...
 	@overload
 	def pop(self)->FBComponent:...
 	@overload
 	def pop(self,Index:int,/)->FBComponent:...
-	def remove(self,Object:FBComponent,/):...
+	def remove(self,Object:FBComponent,/)->None:...
 	def __iter__(self)->Iterator[FBComponent]:...
 class FBPropertyListStoryClip(FBPropertyListComponent):
 	"""List: Story track Details"""
 	Data:list[FBStoryClip]
 	def __contains__(self,Object:FBStoryClip,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBStoryClip:...
-	def append(self,Object:FBStoryClip,/):...
+	def append(self,Object:FBStoryClip,/)->None:...
 	def count(self,Object:FBStoryClip,/)->int:...
-	def insert(self,Index:int,Object:FBStoryClip,/):...
+	def insert(self,Index:int,Object:FBStoryClip,/)->None:...
 	@overload
 	def pop(self)->FBStoryClip:...
 	@overload
 	def pop(self,Index:int,/)->FBStoryClip:...
-	def remove(self,Object:FBStoryClip,/):...
+	def remove(self,Object:FBStoryClip,/)->None:...
 	def __iter__(self)->Iterator[FBStoryClip]:...
 class FBPropertyListShader(FBPropertyListComponent):
 	"""List: StoryClip"""
 	Data:list[FBShader]
 	def __contains__(self,Object:FBShader,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBShader:...
-	def append(self,Object:FBShader,/):...
+	def append(self,Object:FBShader,/)->None:...
 	def count(self,Object:FBShader,/)->int:...
-	def insert(self,Index:int,Object:FBShader,/):...
+	def insert(self,Index:int,Object:FBShader,/)->None:...
 	@overload
 	def pop(self)->FBShader:...
 	@overload
 	def pop(self,Index:int,/)->FBShader:...
-	def remove(self,Object:FBShader,/):...
+	def remove(self,Object:FBShader,/)->None:...
 	def __iter__(self)->Iterator[FBShader]:...
 class FBPropertyListSet(FBPropertyListComponent):
 	"""PropertyList: Shader"""
 	Data:list[FBSet]
 	def __contains__(self,Object:FBSet,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBSet:...
-	def append(self,Object:FBSet,/):...
+	def append(self,Object:FBSet,/)->None:...
 	def count(self,Object:FBSet,/)->int:...
-	def insert(self,Index:int,Object:FBSet,/):...
+	def insert(self,Index:int,Object:FBSet,/)->None:...
 	@overload
 	def pop(self)->FBSet:...
 	@overload
 	def pop(self,Index:int,/)->FBSet:...
-	def remove(self,Object:FBSet,/):...
+	def remove(self,Object:FBSet,/)->None:...
 	def __iter__(self)->Iterator[FBSet]:...
 class FBPropertyListRendererCallback(FBPropertyListComponent):
 	"""PropertyList: Device optical marker"""
 	Data:list[FBRendererCallback]
 	def __contains__(self,Object:FBRendererCallback,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBRendererCallback:...
-	def append(self,Object:FBRendererCallback,/):...
+	def append(self,Object:FBRendererCallback,/)->None:...
 	def count(self,Object:FBRendererCallback,/)->int:...
-	def insert(self,Index:int,Object:FBRendererCallback,/):...
+	def insert(self,Index:int,Object:FBRendererCallback,/)->None:...
 	@overload
 	def pop(self)->FBRendererCallback:...
 	@overload
 	def pop(self,Index:int,/)->FBRendererCallback:...
-	def remove(self,Object:FBRendererCallback,/):...
+	def remove(self,Object:FBRendererCallback,/)->None:...
 	def __iter__(self)->Iterator[FBRendererCallback]:...
 class FBPropertyListPose(FBPropertyListComponent):
 	"""PropertyList: Texture"""
 	Data:list[FBPose]
 	def __contains__(self,Object:FBPose,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBPose:...
-	def append(self,Object:FBPose,/):...
+	def append(self,Object:FBPose,/)->None:...
 	def count(self,Object:FBPose,/)->int:...
-	def insert(self,Index:int,Object:FBPose,/):...
+	def insert(self,Index:int,Object:FBPose,/)->None:...
 	@overload
 	def pop(self)->FBPose:...
 	@overload
 	def pop(self,Index:int,/)->FBPose:...
-	def remove(self,Object:FBPose,/):...
+	def remove(self,Object:FBPose,/)->None:...
 	def __iter__(self)->Iterator[FBPose]:...
 class FBPropertyListPivot(FBPropertyListComponent):
 	"""List: Model"""
 	Data:list[FBComponent]
 	def __contains__(self,Object:FBComponent,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBComponent:...
-	def append(self,Object:FBComponent,/):...
+	def append(self,Object:FBComponent,/)->None:...
 	def count(self,Object:FBComponent,/)->int:...
-	def insert(self,Index:int,Object:FBComponent,/):...
+	def insert(self,Index:int,Object:FBComponent,/)->None:...
 	@overload
 	def pop(self)->FBComponent:...
 	@overload
 	def pop(self,Index:int,/)->FBComponent:...
-	def remove(self,Object:FBComponent,/):...
+	def remove(self,Object:FBComponent,/)->None:...
 	def __iter__(self)->Iterator[FBComponent]:...
 class FBPropertyListPhysicalProperties(FBPropertyListComponent):
 	"""List: Story Clip pivot models"""
 	Data:list[FBPhysicalProperties]
 	def __contains__(self,Object:FBPhysicalProperties,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBPhysicalProperties:...
-	def append(self,Object:FBPhysicalProperties,/):...
+	def append(self,Object:FBPhysicalProperties,/)->None:...
 	def count(self,Object:FBPhysicalProperties,/)->int:...
-	def insert(self,Index:int,Object:FBPhysicalProperties,/):...
+	def insert(self,Index:int,Object:FBPhysicalProperties,/)->None:...
 	@overload
 	def pop(self)->FBPhysicalProperties:...
 	@overload
 	def pop(self,Index:int,/)->FBPhysicalProperties:...
-	def remove(self,Object:FBPhysicalProperties,/):...
+	def remove(self,Object:FBPhysicalProperties,/)->None:...
 	def __iter__(self)->Iterator[FBPhysicalProperties]:...
 class FBPropertyListObjectPose(FBPropertyListComponent):
 	"""PropertyList: Device optical marker"""
 	Data:list[FBObjectPose]
 	def __contains__(self,Object:FBObjectPose,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBObjectPose:...
-	def append(self,Object:FBObjectPose,/):...
+	def append(self,Object:FBObjectPose,/)->None:...
 	def count(self,Object:FBObjectPose,/)->int:...
-	def insert(self,Index:int,Object:FBObjectPose,/):...
+	def insert(self,Index:int,Object:FBObjectPose,/)->None:...
 	@overload
 	def pop(self)->FBObjectPose:...
 	@overload
 	def pop(self,Index:int,/)->FBObjectPose:...
-	def remove(self,Object:FBObjectPose,/):...
+	def remove(self,Object:FBObjectPose,/)->None:...
 	def __iter__(self)->Iterator[FBObjectPose]:...
 class FBPropertyListObject(FBPropertyListComponent):
 	"""List-like structure fo system elements.
@@ -6570,7 +6573,7 @@ class FBPropertyListObject(FBPropertyListComponent):
 		### Returns:
 		true is the connection support only one connection."""
 		...
-	def SetSingleConnect(self,SingleConnect:bool,/):
+	def SetSingleConnect(self,SingleConnect:bool,/)->None:
 		"""Set if the connection is single or multiple.
 
 		### Parameters:
@@ -6578,14 +6581,14 @@ class FBPropertyListObject(FBPropertyListComponent):
 		...
 	def __contains__(self,Object:FBComponent,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBComponent:...
-	def append(self,Object:FBComponent,/):...
+	def append(self,Object:FBComponent,/)->None:...
 	def count(self,Object:FBComponent,/)->int:...
-	def insert(self,Index:int,Object:FBComponent,/):...
+	def insert(self,Index:int,Object:FBComponent,/)->None:...
 	@overload
 	def pop(self)->FBComponent:...
 	@overload
 	def pop(self,Index:int,/)->FBComponent:...
-	def remove(self,Object:FBComponent,/):...
+	def remove(self,Object:FBComponent,/)->None:...
 	def __iter__(self)->Iterator[FBComponent]:...
 class FBPropertyListNote(FBPropertyListComponent):
 	"""List of scene objects.
@@ -6594,278 +6597,278 @@ class FBPropertyListNote(FBPropertyListComponent):
 	Data:list[FBNote]
 	def __contains__(self,Object:FBNote,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBNote:...
-	def append(self,Object:FBNote,/):...
+	def append(self,Object:FBNote,/)->None:...
 	def count(self,Object:FBNote,/)->int:...
-	def insert(self,Index:int,Object:FBNote,/):...
+	def insert(self,Index:int,Object:FBNote,/)->None:...
 	@overload
 	def pop(self)->FBNote:...
 	@overload
 	def pop(self,Index:int,/)->FBNote:...
-	def remove(self,Object:FBNote,/):...
+	def remove(self,Object:FBNote,/)->None:...
 	def __iter__(self)->Iterator[FBNote]:...
 class FBPropertyListNamespace(FBPropertyListComponent):
 	"""List: Note"""
 	Data:list[FBNamespace]
 	def __contains__(self,Object:FBNamespace,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBNamespace:...
-	def append(self,Object:FBNamespace,/):...
+	def append(self,Object:FBNamespace,/)->None:...
 	def count(self,Object:FBNamespace,/)->int:...
-	def insert(self,Index:int,Object:FBNamespace,/):...
+	def insert(self,Index:int,Object:FBNamespace,/)->None:...
 	@overload
 	def pop(self)->FBNamespace:...
 	@overload
 	def pop(self,Index:int,/)->FBNamespace:...
-	def remove(self,Object:FBNamespace,/):...
+	def remove(self,Object:FBNamespace,/)->None:...
 	def __iter__(self)->Iterator[FBNamespace]:...
 class FBPropertyListMotionClip(FBPropertyListComponent):
 	"""List: Namespace"""
 	Data:list[FBMotionClip]
 	def __contains__(self,Object:FBMotionClip,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBMotionClip:...
-	def append(self,Object:FBMotionClip,/):...
+	def append(self,Object:FBMotionClip,/)->None:...
 	def count(self,Object:FBMotionClip,/)->int:...
-	def insert(self,Index:int,Object:FBMotionClip,/):...
+	def insert(self,Index:int,Object:FBMotionClip,/)->None:...
 	@overload
 	def pop(self)->FBMotionClip:...
 	@overload
 	def pop(self,Index:int,/)->FBMotionClip:...
-	def remove(self,Object:FBMotionClip,/):...
+	def remove(self,Object:FBMotionClip,/)->None:...
 	def __iter__(self)->Iterator[FBMotionClip]:...
 class FBPropertyListModelSkeleton(FBPropertyListComponent):
 	"""PropertyList: ModelTemplate."""
 	Data:list[FBModelSkeleton]
 	def __contains__(self,Object:FBModelSkeleton,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBModelSkeleton:...
-	def append(self,Object:FBModelSkeleton,/):...
+	def append(self,Object:FBModelSkeleton,/)->None:...
 	def count(self,Object:FBModelSkeleton,/)->int:...
-	def insert(self,Index:int,Object:FBModelSkeleton,/):...
+	def insert(self,Index:int,Object:FBModelSkeleton,/)->None:...
 	@overload
 	def pop(self)->FBModelSkeleton:...
 	@overload
 	def pop(self,Index:int,/)->FBModelSkeleton:...
-	def remove(self,Object:FBModelSkeleton,/):...
+	def remove(self,Object:FBModelSkeleton,/)->None:...
 	def __iter__(self)->Iterator[FBModelSkeleton]:...
 class FBPropertyListModelOptical(FBPropertyListComponent):
 	"""PropertyList: ModelSkeleton."""
 	Data:list[FBModelOptical]
 	def __contains__(self,Object:FBModelOptical,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBModelOptical:...
-	def append(self,Object:FBModelOptical,/):...
+	def append(self,Object:FBModelOptical,/)->None:...
 	def count(self,Object:FBModelOptical,/)->int:...
-	def insert(self,Index:int,Object:FBModelOptical,/):...
+	def insert(self,Index:int,Object:FBModelOptical,/)->None:...
 	@overload
 	def pop(self)->FBModelOptical:...
 	@overload
 	def pop(self,Index:int,/)->FBModelOptical:...
-	def remove(self,Object:FBModelOptical,/):...
+	def remove(self,Object:FBModelOptical,/)->None:...
 	def __iter__(self)->Iterator[FBModelOptical]:...
 class FBPropertyListModel(FBPropertyListComponent):
 	"""PropertyList: Device optical marker"""
 	Data:list[FBModel]
 	def __contains__(self,Object:FBModel,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBModel:...
-	def append(self,Object:FBModel,/):...
+	def append(self,Object:FBModel,/)->None:...
 	def count(self,Object:FBModel,/)->int:...
-	def insert(self,Index:int,Object:FBModel,/):...
+	def insert(self,Index:int,Object:FBModel,/)->None:...
 	@overload
 	def pop(self)->FBModel:...
 	@overload
 	def pop(self,Index:int,/)->FBModel:...
-	def remove(self,Object:FBModel,/):...
+	def remove(self,Object:FBModel,/)->None:...
 	def __iter__(self)->Iterator[FBModel]:...
 class FBPropertyListMaterial(FBPropertyListComponent):
 	"""List: Model"""
 	Data:list[FBMaterial]
 	def __contains__(self,Object:FBMaterial,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBMaterial:...
-	def append(self,Object:FBMaterial,/):...
+	def append(self,Object:FBMaterial,/)->None:...
 	def count(self,Object:FBMaterial,/)->int:...
-	def insert(self,Index:int,Object:FBMaterial,/):...
+	def insert(self,Index:int,Object:FBMaterial,/)->None:...
 	@overload
 	def pop(self)->FBMaterial:...
 	@overload
 	def pop(self,Index:int,/)->FBMaterial:...
-	def remove(self,Object:FBMaterial,/):...
+	def remove(self,Object:FBMaterial,/)->None:...
 	def __iter__(self)->Iterator[FBMaterial]:...
 class FBPropertyListMarkerSet(FBPropertyListComponent):
 	"""PropertyList: Material"""
 	Data:list[FBMarkerSet]
 	def __contains__(self,Object:FBMarkerSet,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBMarkerSet:...
-	def append(self,Object:FBMarkerSet,/):...
+	def append(self,Object:FBMarkerSet,/)->None:...
 	def count(self,Object:FBMarkerSet,/)->int:...
-	def insert(self,Index:int,Object:FBMarkerSet,/):...
+	def insert(self,Index:int,Object:FBMarkerSet,/)->None:...
 	@overload
 	def pop(self)->FBMarkerSet:...
 	@overload
 	def pop(self,Index:int,/)->FBMarkerSet:...
-	def remove(self,Object:FBMarkerSet,/):...
+	def remove(self,Object:FBMarkerSet,/)->None:...
 	def __iter__(self)->Iterator[FBMarkerSet]:...
 class FBPropertyListLight(FBPropertyListComponent):
 	"""PropertyList: Manipulator."""
 	Data:list[FBLight]
 	def __contains__(self,Object:FBLight,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBLight:...
-	def append(self,Object:FBLight,/):...
+	def append(self,Object:FBLight,/)->None:...
 	def count(self,Object:FBLight,/)->int:...
-	def insert(self,Index:int,Object:FBLight,/):...
+	def insert(self,Index:int,Object:FBLight,/)->None:...
 	@overload
 	def pop(self)->FBLight:...
 	@overload
 	def pop(self,Index:int,/)->FBLight:...
-	def remove(self,Object:FBLight,/):...
+	def remove(self,Object:FBLight,/)->None:...
 	def __iter__(self)->Iterator[FBLight]:...
 class FBPropertyListKeyingGroup(FBPropertyListComponent):
 	"""PropertyList: Light"""
 	Data:list[FBKeyingGroup]
 	def __contains__(self,Object:FBKeyingGroup,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBKeyingGroup:...
-	def append(self,Object:FBKeyingGroup,/):...
+	def append(self,Object:FBKeyingGroup,/)->None:...
 	def count(self,Object:FBKeyingGroup,/)->int:...
-	def insert(self,Index:int,Object:FBKeyingGroup,/):...
+	def insert(self,Index:int,Object:FBKeyingGroup,/)->None:...
 	@overload
 	def pop(self)->FBKeyingGroup:...
 	@overload
 	def pop(self,Index:int,/)->FBKeyingGroup:...
-	def remove(self,Object:FBKeyingGroup,/):...
+	def remove(self,Object:FBKeyingGroup,/)->None:...
 	def __iter__(self)->Iterator[FBKeyingGroup]:...
 class FBPropertyListHandle(FBPropertyListComponent):
 	"""PropertyList: KeyingGroup."""
 	Data:list[FBHandle]
 	def __contains__(self,Object:FBHandle,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBHandle:...
-	def append(self,Object:FBHandle,/):...
+	def append(self,Object:FBHandle,/)->None:...
 	def count(self,Object:FBHandle,/)->int:...
-	def insert(self,Index:int,Object:FBHandle,/):...
+	def insert(self,Index:int,Object:FBHandle,/)->None:...
 	@overload
 	def pop(self)->FBHandle:...
 	@overload
 	def pop(self,Index:int,/)->FBHandle:...
-	def remove(self,Object:FBHandle,/):...
+	def remove(self,Object:FBHandle,/)->None:...
 	def __iter__(self)->Iterator[FBHandle]:...
 class FBPropertyListHUDElement(FBPropertyListComponent):
 	"""PropertyList: Handle."""
 	Data:list[FBHUDElement]
 	def __contains__(self,Object:FBHUDElement,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBHUDElement:...
-	def append(self,Object:FBHUDElement,/):...
+	def append(self,Object:FBHUDElement,/)->None:...
 	def count(self,Object:FBHUDElement,/)->int:...
-	def insert(self,Index:int,Object:FBHUDElement,/):...
+	def insert(self,Index:int,Object:FBHUDElement,/)->None:...
 	@overload
 	def pop(self)->FBHUDElement:...
 	@overload
 	def pop(self,Index:int,/)->FBHUDElement:...
-	def remove(self,Object:FBHUDElement,/):...
+	def remove(self,Object:FBHUDElement,/)->None:...
 	def __iter__(self)->Iterator[FBHUDElement]:...
 class FBPropertyListHUD(FBPropertyListComponent):
 	"""PropertyList: Handle."""
 	Data:list[FBHUD]
 	def __contains__(self,Object:FBHUD,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBHUD:...
-	def append(self,Object:FBHUD,/):...
+	def append(self,Object:FBHUD,/)->None:...
 	def count(self,Object:FBHUD,/)->int:...
-	def insert(self,Index:int,Object:FBHUD,/):...
+	def insert(self,Index:int,Object:FBHUD,/)->None:...
 	@overload
 	def pop(self)->FBHUD:...
 	@overload
 	def pop(self,Index:int,/)->FBHUD:...
-	def remove(self,Object:FBHUD,/):...
+	def remove(self,Object:FBHUD,/)->None:...
 	def __iter__(self)->Iterator[FBHUD]:...
 class FBPropertyListGroup(FBPropertyListComponent):
 	"""PropertyList: Handle."""
 	Data:list[FBGroup]
 	def __contains__(self,Object:FBGroup,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBGroup:...
-	def append(self,Object:FBGroup,/):...
+	def append(self,Object:FBGroup,/)->None:...
 	def count(self,Object:FBGroup,/)->int:...
-	def insert(self,Index:int,Object:FBGroup,/):...
+	def insert(self,Index:int,Object:FBGroup,/)->None:...
 	@overload
 	def pop(self)->FBGroup:...
 	@overload
 	def pop(self,Index:int,/)->FBGroup:...
-	def remove(self,Object:FBGroup,/):...
+	def remove(self,Object:FBGroup,/)->None:...
 	def __iter__(self)->Iterator[FBGroup]:...
 class FBPropertyListFolder(FBPropertyListComponent):
 	"""List: Group"""
 	Data:list[FBFolder]
 	def __contains__(self,Object:FBFolder,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBFolder:...
-	def append(self,Object:FBFolder,/):...
+	def append(self,Object:FBFolder,/)->None:...
 	def count(self,Object:FBFolder,/)->int:...
-	def insert(self,Index:int,Object:FBFolder,/):...
+	def insert(self,Index:int,Object:FBFolder,/)->None:...
 	@overload
 	def pop(self)->FBFolder:...
 	@overload
 	def pop(self,Index:int,/)->FBFolder:...
-	def remove(self,Object:FBFolder,/):...
+	def remove(self,Object:FBFolder,/)->None:...
 	def __iter__(self)->Iterator[FBFolder]:...
 class FBPropertyListFileReference(FBPropertyListComponent):
 	"""PropertyList: Folder"""
 	Data:list[FBFileReference]
 	def __contains__(self,Object:FBFileReference,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBFileReference:...
-	def append(self,Object:FBFileReference,/):...
+	def append(self,Object:FBFileReference,/)->None:...
 	def count(self,Object:FBFileReference,/)->int:...
-	def insert(self,Index:int,Object:FBFileReference,/):...
+	def insert(self,Index:int,Object:FBFileReference,/)->None:...
 	@overload
 	def pop(self)->FBFileReference:...
 	@overload
 	def pop(self,Index:int,/)->FBFileReference:...
-	def remove(self,Object:FBFileReference,/):...
+	def remove(self,Object:FBFileReference,/)->None:...
 	def __iter__(self)->Iterator[FBFileReference]:...
 class FBPropertyListDevice(FBPropertyListComponent):
 	Data:list[FBDevice]
 	def __contains__(self,Object:FBDevice,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBDevice:...
-	def append(self,Object:FBDevice,/):...
+	def append(self,Object:FBDevice,/)->None:...
 	def count(self,Object:FBDevice,/)->int:...
-	def insert(self,Index:int,Object:FBDevice,/):...
+	def insert(self,Index:int,Object:FBDevice,/)->None:...
 	@overload
 	def pop(self)->FBDevice:...
 	@overload
 	def pop(self,Index:int,/)->FBDevice:...
-	def remove(self,Object:FBDevice,/):...
+	def remove(self,Object:FBDevice,/)->None:...
 	def __iter__(self)->Iterator[FBDevice]:...
 class FBPropertyListDeformer(FBPropertyListComponent):
 	"""PropertyList: Device"""
 	Data:list[FBDeformer]
 	def __contains__(self,Object:FBDeformer,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBDeformer:...
-	def append(self,Object:FBDeformer,/):...
+	def append(self,Object:FBDeformer,/)->None:...
 	def count(self,Object:FBDeformer,/)->int:...
-	def insert(self,Index:int,Object:FBDeformer,/):...
+	def insert(self,Index:int,Object:FBDeformer,/)->None:...
 	@overload
 	def pop(self)->FBDeformer:...
 	@overload
 	def pop(self,Index:int,/)->FBDeformer:...
-	def remove(self,Object:FBDeformer,/):...
+	def remove(self,Object:FBDeformer,/)->None:...
 	def __iter__(self)->Iterator[FBDeformer]:...
 class FBPropertyListDeck(FBPropertyListComponent):
 	Data:list[FBDeck]
 	def __contains__(self,Object:FBDeck,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBDeck:...
-	def append(self,Object:FBDeck,/):...
+	def append(self,Object:FBDeck,/)->None:...
 	def count(self,Object:FBDeck,/)->int:...
-	def insert(self,Index:int,Object:FBDeck,/):...
+	def insert(self,Index:int,Object:FBDeck,/)->None:...
 	@overload
 	def pop(self)->FBDeck:...
 	@overload
 	def pop(self,Index:int,/)->FBDeck:...
-	def remove(self,Object:FBDeck,/):...
+	def remove(self,Object:FBDeck,/)->None:...
 	def __iter__(self)->Iterator[FBDeck]:...
 class FBPropertyListControlSet(FBPropertyListComponent):
 	"""PropertyList: Deck"""
 	Data:list[FBControlSet]
 	def __contains__(self,Object:FBControlSet,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBControlSet:...
-	def append(self,Object:FBControlSet,/):...
+	def append(self,Object:FBControlSet,/)->None:...
 	def count(self,Object:FBControlSet,/)->int:...
-	def insert(self,Index:int,Object:FBControlSet,/):...
+	def insert(self,Index:int,Object:FBControlSet,/)->None:...
 	@overload
 	def pop(self)->FBControlSet:...
 	@overload
 	def pop(self,Index:int,/)->FBControlSet:...
-	def remove(self,Object:FBControlSet,/):...
+	def remove(self,Object:FBControlSet,/)->None:...
 	def __iter__(self)->Iterator[FBControlSet]:...
 class FBPropertyListConstraintSolver(FBPropertyListComponent):
 	"""PropertyList: MarkerSet.
@@ -6874,14 +6877,14 @@ class FBPropertyListConstraintSolver(FBPropertyListComponent):
 	Data:list[FBConstraintSolver]
 	def __contains__(self,Object:FBConstraintSolver,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBConstraintSolver:...
-	def append(self,Object:FBConstraintSolver,/):...
+	def append(self,Object:FBConstraintSolver,/)->None:...
 	def count(self,Object:FBConstraintSolver,/)->int:...
-	def insert(self,Index:int,Object:FBConstraintSolver,/):...
+	def insert(self,Index:int,Object:FBConstraintSolver,/)->None:...
 	@overload
 	def pop(self)->FBConstraintSolver:...
 	@overload
 	def pop(self,Index:int,/)->FBConstraintSolver:...
-	def remove(self,Object:FBConstraintSolver,/):...
+	def remove(self,Object:FBConstraintSolver,/)->None:...
 	def __iter__(self)->Iterator[FBConstraintSolver]:...
 class FBPropertyListActor(FBPropertyListComponent):
 	"""PropertyList: Actor face.
@@ -6890,83 +6893,83 @@ class FBPropertyListActor(FBPropertyListComponent):
 	Data:list[FBActor]
 	def __contains__(self,Object:FBActor,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBActor:...
-	def append(self,Object:FBActor,/):...
+	def append(self,Object:FBActor,/)->None:...
 	def count(self,Object:FBActor,/)->int:...
-	def insert(self,Index:int,Object:FBActor,/):...
+	def insert(self,Index:int,Object:FBActor,/)->None:...
 	@overload
 	def pop(self)->FBActor:...
 	@overload
 	def pop(self,Index:int,/)->FBActor:...
-	def remove(self,Object:FBActor,/):...
+	def remove(self,Object:FBActor,/)->None:...
 	def __iter__(self)->Iterator[FBActor]:...
 class FBPropertyListActorFace(FBPropertyListComponent):
 	Data:list[FBActorFace]
 	def __contains__(self,Object:FBActorFace,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBActorFace:...
-	def append(self,Object:FBActorFace,/):...
+	def append(self,Object:FBActorFace,/)->None:...
 	def count(self,Object:FBActorFace,/)->int:...
-	def insert(self,Index:int,Object:FBActorFace,/):...
+	def insert(self,Index:int,Object:FBActorFace,/)->None:...
 	@overload
 	def pop(self)->FBActorFace:...
 	@overload
 	def pop(self,Index:int,/)->FBActorFace:...
-	def remove(self,Object:FBActorFace,/):...
+	def remove(self,Object:FBActorFace,/)->None:...
 	def __iter__(self)->Iterator[FBActorFace]:...
 class FBPropertyListAudioClip(FBPropertyListComponent):
 	"""List: AudioIn"""
 	Data:list[FBAudioClip]
 	def __contains__(self,Object:FBAudioClip,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBAudioClip:...
-	def append(self,Object:FBAudioClip,/):...
+	def append(self,Object:FBAudioClip,/)->None:...
 	def count(self,Object:FBAudioClip,/)->int:...
-	def insert(self,Index:int,Object:FBAudioClip,/):...
+	def insert(self,Index:int,Object:FBAudioClip,/)->None:...
 	@overload
 	def pop(self)->FBAudioClip:...
 	@overload
 	def pop(self,Index:int,/)->FBAudioClip:...
-	def remove(self,Object:FBAudioClip,/):...
+	def remove(self,Object:FBAudioClip,/)->None:...
 	def __iter__(self)->Iterator[FBAudioClip]:...
 class FBPropertyListAudioIn(FBPropertyListComponent):
 	"""List: AudioOut"""
 	Data:list[FBAudioIn]
 	def __contains__(self,Object:FBAudioIn,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBAudioIn:...
-	def append(self,Object:FBAudioIn,/):...
+	def append(self,Object:FBAudioIn,/)->None:...
 	def count(self,Object:FBAudioIn,/)->int:...
-	def insert(self,Index:int,Object:FBAudioIn,/):...
+	def insert(self,Index:int,Object:FBAudioIn,/)->None:...
 	@overload
 	def pop(self)->FBAudioIn:...
 	@overload
 	def pop(self,Index:int,/)->FBAudioIn:...
-	def remove(self,Object:FBAudioIn,/):...
+	def remove(self,Object:FBAudioIn,/)->None:...
 	def __iter__(self)->Iterator[FBAudioIn]:...
 class FBPropertyListAudioOut(FBPropertyListComponent):
 	"""List: Box informations for constraint relation."""
 	Data:list[FBAudioOut]
 	def __contains__(self,Object:FBAudioOut,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBAudioOut:...
-	def append(self,Object:FBAudioOut,/):...
+	def append(self,Object:FBAudioOut,/)->None:...
 	def count(self,Object:FBAudioOut,/)->int:...
-	def insert(self,Index:int,Object:FBAudioOut,/):...
+	def insert(self,Index:int,Object:FBAudioOut,/)->None:...
 	@overload
 	def pop(self)->FBAudioOut:...
 	@overload
 	def pop(self,Index:int,/)->FBAudioOut:...
-	def remove(self,Object:FBAudioOut,/):...
+	def remove(self,Object:FBAudioOut,/)->None:...
 	def __iter__(self)->Iterator[FBAudioOut]:...
 class FBPropertyListBox(FBPropertyListComponent):
 	"""PropertyList: Camera"""
 	Data:list[FBBox]
 	def __contains__(self,Object:FBBox,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBBox:...
-	def append(self,Object:FBBox,/):...
+	def append(self,Object:FBBox,/)->None:...
 	def count(self,Object:FBBox,/)->int:...
-	def insert(self,Index:int,Object:FBBox,/):...
+	def insert(self,Index:int,Object:FBBox,/)->None:...
 	@overload
 	def pop(self)->FBBox:...
 	@overload
 	def pop(self,Index:int,/)->FBBox:...
-	def remove(self,Object:FBBox,/):...
+	def remove(self,Object:FBBox,/)->None:...
 	def __iter__(self)->Iterator[FBBox]:...
 class FBPropertyListCamera(FBPropertyListComponent):
 	"""PropertyList: Character.
@@ -6975,27 +6978,27 @@ class FBPropertyListCamera(FBPropertyListComponent):
 	Data:list[FBCamera]
 	def __contains__(self,Object:FBCamera,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBCamera:...
-	def append(self,Object:FBCamera,/):...
+	def append(self,Object:FBCamera,/)->None:...
 	def count(self,Object:FBCamera,/)->int:...
-	def insert(self,Index:int,Object:FBCamera,/):...
+	def insert(self,Index:int,Object:FBCamera,/)->None:...
 	@overload
 	def pop(self)->FBCamera:...
 	@overload
 	def pop(self,Index:int,/)->FBCamera:...
-	def remove(self,Object:FBCamera,/):...
+	def remove(self,Object:FBCamera,/)->None:...
 	def __iter__(self)->Iterator[FBCamera]:...
 class FBPropertyListCharacter(FBPropertyListComponent):
 	Data:list[FBCharacter]
 	def __contains__(self,Object:FBCharacter,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBCharacter:...
-	def append(self,Object:FBCharacter,/):...
+	def append(self,Object:FBCharacter,/)->None:...
 	def count(self,Object:FBCharacter,/)->int:...
-	def insert(self,Index:int,Object:FBCharacter,/):...
+	def insert(self,Index:int,Object:FBCharacter,/)->None:...
 	@overload
 	def pop(self)->FBCharacter:...
 	@overload
 	def pop(self,Index:int,/)->FBCharacter:...
-	def remove(self,Object:FBCharacter,/):...
+	def remove(self,Object:FBCharacter,/)->None:...
 	def __iter__(self)->Iterator[FBCharacter]:...
 class FBPropertyListCharacterExtension(FBPropertyListComponent):
 	"""Character extension property list. PropertyList: Character face.
@@ -7004,14 +7007,14 @@ class FBPropertyListCharacterExtension(FBPropertyListComponent):
 	Data:list[FBCharacterExtension]
 	def __contains__(self,Object:FBCharacterExtension,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBCharacterExtension:...
-	def append(self,Object:FBCharacterExtension,/):...
+	def append(self,Object:FBCharacterExtension,/)->None:...
 	def count(self,Object:FBCharacterExtension,/)->int:...
-	def insert(self,Index:int,Object:FBCharacterExtension,/):...
+	def insert(self,Index:int,Object:FBCharacterExtension,/)->None:...
 	@overload
 	def pop(self)->FBCharacterExtension:...
 	@overload
 	def pop(self,Index:int,/)->FBCharacterExtension:...
-	def remove(self,Object:FBCharacterExtension,/):...
+	def remove(self,Object:FBCharacterExtension,/)->None:...
 	def __iter__(self)->Iterator[FBCharacterExtension]:...
 class FBPropertyListCharacterFace(FBPropertyListComponent):
 	"""PropertyList: CharacterMarkerSet.
@@ -7020,56 +7023,56 @@ class FBPropertyListCharacterFace(FBPropertyListComponent):
 	Data:list[FBCharacterFace]
 	def __contains__(self,Object:FBCharacterFace,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBCharacterFace:...
-	def append(self,Object:FBCharacterFace,/):...
+	def append(self,Object:FBCharacterFace,/)->None:...
 	def count(self,Object:FBCharacterFace,/)->int:...
-	def insert(self,Index:int,Object:FBCharacterFace,/):...
+	def insert(self,Index:int,Object:FBCharacterFace,/)->None:...
 	@overload
 	def pop(self)->FBCharacterFace:...
 	@overload
 	def pop(self,Index:int,/)->FBCharacterFace:...
-	def remove(self,Object:FBCharacterFace,/):...
+	def remove(self,Object:FBCharacterFace,/)->None:...
 	def __iter__(self)->Iterator[FBCharacterFace]:...
 class FBPropertyListCharacterMarkerSet(FBPropertyListComponent):
 	"""PropertyList: CharacterPose."""
 	Data:list[FBCharacterMarkerSet]
 	def __contains__(self,Object:FBCharacterMarkerSet,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBCharacterMarkerSet:...
-	def append(self,Object:FBCharacterMarkerSet,/):...
+	def append(self,Object:FBCharacterMarkerSet,/)->None:...
 	def count(self,Object:FBCharacterMarkerSet,/)->int:...
-	def insert(self,Index:int,Object:FBCharacterMarkerSet,/):...
+	def insert(self,Index:int,Object:FBCharacterMarkerSet,/)->None:...
 	@overload
 	def pop(self)->FBCharacterMarkerSet:...
 	@overload
 	def pop(self,Index:int,/)->FBCharacterMarkerSet:...
-	def remove(self,Object:FBCharacterMarkerSet,/):...
+	def remove(self,Object:FBCharacterMarkerSet,/)->None:...
 	def __iter__(self)->Iterator[FBCharacterMarkerSet]:...
 class FBPropertyListCharacterPose(FBPropertyListComponent):
 	"""PropertyList: Concrete class for PropertyList of component"""
 	Data:list[FBCharacterPose]
 	def __contains__(self,Object:FBCharacterPose,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBCharacterPose:...
-	def append(self,Object:FBCharacterPose,/):...
+	def append(self,Object:FBCharacterPose,/)->None:...
 	def count(self,Object:FBCharacterPose,/)->int:...
-	def insert(self,Index:int,Object:FBCharacterPose,/):...
+	def insert(self,Index:int,Object:FBCharacterPose,/)->None:...
 	@overload
 	def pop(self)->FBCharacterPose:...
 	@overload
 	def pop(self,Index:int,/)->FBCharacterPose:...
-	def remove(self,Object:FBCharacterPose,/):...
+	def remove(self,Object:FBCharacterPose,/)->None:...
 	def __iter__(self)->Iterator[FBCharacterPose]:...
 class FBPropertyListConstraint(FBPropertyListComponent):
 	"""PropertyList: Constraint solver"""
 	Data:list[FBConstraint]
 	def __contains__(self,Object:FBConstraint,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBConstraint:...
-	def append(self,Object:FBConstraint,/):...
+	def append(self,Object:FBConstraint,/)->None:...
 	def count(self,Object:FBConstraint,/)->int:...
-	def insert(self,Index:int,Object:FBConstraint,/):...
+	def insert(self,Index:int,Object:FBConstraint,/)->None:...
 	@overload
 	def pop(self)->FBConstraint:...
 	@overload
 	def pop(self,Index:int,/)->FBConstraint:...
-	def remove(self,Object:FBConstraint,/):...
+	def remove(self,Object:FBConstraint,/)->None:...
 	def __iter__(self)->Iterator[FBConstraint]:...
 class FBPropertyInt(FBProperty):
 	Data:int
@@ -7245,16 +7248,16 @@ class FBPropertyAnimatable(FBProperty):
 		### Returns:
 		true if property is muted"""
 		...
-	def Key(self):
+	def Key(self)->None:
 		"""Key the property."""
 		...
-	def KeyAt(self,Time:FBTime,/):
+	def KeyAt(self,Time:FBTime,/)->None:
 		"""Key the property at time (t).
 
 		### Parameters:
 			- Time: Time at which to insert the key."""
 		...
-	def KeyRemoveAt(self,Time:FBTime,/):
+	def KeyRemoveAt(self,Time:FBTime,/)->None:
 		"""Remove the key at time (t).
 
 		### Parameters:
@@ -7270,7 +7273,7 @@ class FBPropertyAnimatable(FBProperty):
 		### Returns:
 		true if the color was reverted to its default value, false otherwise"""
 		...
-	def SetAnimated(self,State:bool,CheckLocked:bool=False,/):
+	def SetAnimated(self,State:bool,CheckLocked:bool=False,/)->None:
 		"""Set the animation state of the property.
 
 		### Parameters:
@@ -7287,7 +7290,7 @@ class FBPropertyAnimatable(FBProperty):
 		### Returns:
 		true if the color was changed, false otherwise"""
 		...
-	def SetFocus(self,State:bool,/):
+	def SetFocus(self,State:bool,/)->None:
 		"""Set the property's focus (keyable) state.
 
 		### Parameters:
@@ -7303,14 +7306,14 @@ class FBPropertyAnimatable(FBProperty):
 		### Returns:
 		true if the operation was successful, false otherwise"""
 		...
-	def SetMemberMuted(self,Index:int,Muted:bool,/):
+	def SetMemberMuted(self,Index:int,Muted:bool,/)->None:
 		"""SetMemberMuted.
 
 		### Parameters:
 			- Index: Index of the sub-member of the property to mute or unmute.
 			- Muted: True if the sub-member is to be muted, false if it is to be unmuted."""
 		...
-	def SetMuted(self,Muted:bool,/):
+	def SetMuted(self,Muted:bool,/)->None:
 		"""SetMuted.
 
 		### Parameters:
@@ -7444,7 +7447,7 @@ class FBRenderer(FBComponent):
 	"""Read write Property: Selection override layer transparency."""
 	ShowStats:bool
 	"""Read Write Property: Show the stats about FPS, Evaluation rate ... like when using Shift-F in main viewer."""
-	def ArrangeAllInSchematic(self,Mode:FBArrangeMode,/):
+	def ArrangeAllInSchematic(self,Mode:FBArrangeMode,/)->None:
 		"""Request to arrange all objects in schematic view .
 
 		### Parameters:
@@ -7459,7 +7462,7 @@ class FBRenderer(FBComponent):
 		### Returns:
 		True if the operation is successful, false otherwise."""
 		...
-	def ArrangeSelectedObjectsInSchematic(self):
+	def ArrangeSelectedObjectsInSchematic(self)->None:
 		"""Request to arrange selected objects in schematic view ."""
 		...
 	def CreateSchematicBookmark(self,BookmarkName:str,/)->bool:
@@ -7515,7 +7518,7 @@ class FBRenderer(FBComponent):
 		### Returns:
 		displayable geometry model."""
 		...
-	def GetDisplayableGeometryInCameraFrustum(self,ModelList:FBModelList,Camera:FBCamera,/):
+	def GetDisplayableGeometryInCameraFrustum(self,ModelList:FBModelList,Camera:FBCamera,/)->None:
 		"""Get a list of displayable geometry inside given camera's frustum.
 
 		This function will return conservative result. It's possible for some geometry outside of the frustum will be considered to be visible, but it will not skip any real visible geometry. This function should only be called in the main rendering thread.
@@ -7629,7 +7632,7 @@ class FBRenderer(FBComponent):
 		### Returns:
 		true if Model is inside camera frustum."""
 		...
-	def KeyboardInput(self,KeyIndex:FBDeviceKeyboardKey,KeyState:bool,IsTrigger:bool=False,/):
+	def KeyboardInput(self,KeyIndex:FBDeviceKeyboardKey,KeyState:bool,IsTrigger:bool=False,/)->None:
 		"""Keyboard input.
 
 		### Parameters:
@@ -7668,8 +7671,8 @@ class FBRenderer(FBComponent):
 		### Returns:
 		true if successful."""
 		...
-	def OGLModelDisplay(self,RenderOptions:FBRenderOptions,Model:FBModel,/):...
-	def OGLSetupSceneLights(self,RenderOptions:FBRenderOptions,/):
+	def OGLModelDisplay(self,RenderOptions:FBRenderOptions,Model:FBModel,/)->None:...
+	def OGLSetupSceneLights(self,RenderOptions:FBRenderOptions,/)->None:
 		"""Setup the scene lights in OpenGL.
 
 		### Parameters:
@@ -7771,7 +7774,7 @@ class FBRenderer(FBComponent):
 		### Returns:
 		True if the operation is successful, false otherwise. False is returned if the bookmark name is empty or if no bookmark exists with the given name."""
 		...
-	def SetCameraInPane(self,Camera:FBCamera,PaneIndex:int,/):
+	def SetCameraInPane(self,Camera:FBCamera,PaneIndex:int,/)->None:
 		"""Set the camera to display in the given pane index.
 
 		If the Schematic View is displayed in the pane associated with the given pane index, the camera will be displayed when the Schematic View will be deactivated from this pane.Note: If current pane uses Camera Switcher, it will be set to use Camera, rather than old behavior that still uses Camera Switcher and sets Camera to be Camera Switcher's current camera, which introduce a Zombie Camera Switcher problem. By using Camera, the problem is gone.Note: To operate current camera in Camera Switcher, it is recommended to use [FBCameraSwitcher()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/class_f_b_camera_switcher.html "Camera switcher.").
@@ -7779,7 +7782,7 @@ class FBRenderer(FBComponent):
 			- Camera: The camera to set.
 			- PaneIndex: The pane index."""
 		...
-	def SetCameraSwitcherInPane(self,PaneIndex:int,Active:bool,/):
+	def SetCameraSwitcherInPane(self,PaneIndex:int,Active:bool,/)->None:
 		"""Set/Remove the Camera Switcher in the given pane index.
 
 		To specify which camera the Camera Switcher should be displaying, use the SetCameraInPane method. If the Schematic View is displayed in the pane associated with the given pane index, the camera switcher will be displayed (if activated) when the Schematic View will be deactivated from this pane.
@@ -7787,13 +7790,13 @@ class FBRenderer(FBComponent):
 			- PaneIndex: The pane index.
 			- Active: True to activate the Camera Switcher in the given pane, False to remove it."""
 		...
-	def SetPaneCount(self,PaneCount:int,/):
+	def SetPaneCount(self,PaneCount:int,/)->None:
 		"""Set the number of panes to display in the viewer's layout.
 
 		### Parameters:
 			- PaneCount: The number of panes to display."""
 		...
-	def SetSchematicViewInPane(self,PaneIndex:int,Active:bool,/):
+	def SetSchematicViewInPane(self,PaneIndex:int,Active:bool,/)->None:
 		"""Set/Remove the Schematic View in the given pane index.
 
 		When activating the Schematic View in the pane, if the Schematic View is already activated in another pane, the Schematic View will be removed from latter before being activated into the new pane.
@@ -7816,7 +7819,7 @@ class FBRenderer(FBComponent):
 		### Parameters:
 			- Options: See [FBViewingOptions](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_viewing_options.html "Viewing options for rendering.") for more detail."""
 		...
-	def SetViewport(self,X:int,Y:int,W:int,H:int,/):
+	def SetViewport(self,X:int,Y:int,W:int,H:int,/)->None:
 		"""Must be called before inputing if the same renderer is used on multiple views/cameras in the same application.
 
 		### Parameters:
@@ -7851,10 +7854,10 @@ class FBProgress(FBComponent):
 	"""Read Write Property: Percent completed for the operation. Must be used called in between [ProgressBegin()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_progress.html#a74b65ec9004d7726cb2eb88eac9f0929 "Start progress, must be called before set Text & Percent property.")/ProgressDone()"""
 	Text:str
 	"""Read Write Property: Text to display on progress bar. Must be used in between [ProgressBegin()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_progress.html#a74b65ec9004d7726cb2eb88eac9f0929 "Start progress, must be called before set Text & Percent property.")/ProgressDone()"""
-	def ProgressBegin(self):
+	def ProgressBegin(self)->None:
 		"""Start progress, must be called before set Text & Percent property."""
 		...
-	def ProgressDone(self):
+	def ProgressDone(self)->None:
 		"""End progress, must be called to reset progress bar UI to normal status after finishing the task."""
 		...
 	def UserRequestCancell(self)->bool:
@@ -7985,7 +7988,7 @@ class FBPose(FBComponent):
 			- Matrix: The transformation of the object we want to save.
 			- IsLocalMatrix: Is the matrix a local matrix?"""
 		...
-	def CreatePoseThumbnail(self):
+	def CreatePoseThumbnail(self)->None:
 		"""Create an image thumbnail for the current pose."""
 		...
 	def Find(self,NodeName:str,/)->int:
@@ -8044,27 +8047,27 @@ class FBPose(FBComponent):
 		### Remarks:
 		If this object is configured to hold BindPose data, this method will always return false."""
 		...
-	def RemoveNode(self,Index:int,/):
+	def RemoveNode(self,Index:int,/)->None:
 		"""Remove the pose node at specified index.
 
 		### Parameters:
 			- Index: Index of the node to be removed."""
 		...
-	def SetIsNodeLocalMatrix(self,Index:int,IsNodeLocalMatrix:bool,/):
+	def SetIsNodeLocalMatrix(self,Index:int,IsNodeLocalMatrix:bool,/)->None:
 		"""Set the type of the Matrix for a given node.
 
 		### Parameters:
 			- Index: Index of the node.
 			- IsNodeLocalMatrix: True if the matrix of the node is a local matrix."""
 		...
-	def SetNodeMatrix(self,Index:int,Matrix:FBMatrix,/):
+	def SetNodeMatrix(self,Index:int,Matrix:FBMatrix,/)->None:
 		"""Set the pose node matrix.
 
 		### Parameters:
 			- Index: Index of the node.
 			- Matrix: Matrix to set for this pose node."""
 		...
-	def SetNodeObject(self,Index:int,Object:FBModel,/):
+	def SetNodeObject(self,Index:int,Object:FBModel,/)->None:
 		"""Set the pose node object.
 
 		### Parameters:
@@ -8103,7 +8106,7 @@ class FBPointCacheManager(FBComponent):
 	"""Read Write Property: Valid only when ApplyCacheOnNewModel is on. Create New Models under NewModelRoot. otherwise, a NULL model will be created."""
 	SaveEveryFrame:int
 	"""Read Write Property: Recording Frequency."""
-	def SetTransformReference(self):
+	def SetTransformReference(self)->None:
 		"""Action Property: Set the model's current transformation as the reference."""
 		...
 	def __init__(self):...
@@ -8113,19 +8116,19 @@ class FBCharacterPose(FBPose):
 	This class exposes the object used to store the pose of objects.
 
 	[See sample: MirrorPoseOverTime.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_mirror_pose_over_time_8py-example.html)"""
-	def ApplyPoseCandidate(self):
+	def ApplyPoseCandidate(self)->None:
 		"""After setting the candidate on the skeleton node, calling this function will allow subsequent call to get the TRS value of a skeleton node to return the candidate value."""
 		...
-	def ClearCharacterExtensionsPose(self):
+	def ClearCharacterExtensionsPose(self)->None:
 		"""Clear only the pose of the character extensions (omit the character)."""
 		...
-	def ClearCharacterPose(self):
+	def ClearCharacterPose(self)->None:
 		"""Clear only the pose of the character (omit the extensions)."""
 		...
-	def ClearPose(self):
+	def ClearPose(self)->None:
 		"""Clear all the data of the pose."""
 		...
-	def CopyFrom(self,FromPose:FBCharacterPose,/):
+	def CopyFrom(self,FromPose:FBCharacterPose,/)->None:
 		"""Copy everything from a given object.
 
 		### Parameters:
@@ -8134,43 +8137,43 @@ class FBCharacterPose(FBPose):
 		### Remarks:
 		Will copy everything, including the object name, properties, data etc. Objects will be identical."""
 		...
-	def CopyPose(self,Character:FBCharacter,/):
+	def CopyPose(self,Character:FBCharacter,/)->None:
 		"""Copy the pose of a character and its extensions.
 
 		### Parameters:
 			- Character: Character to copy the pose from."""
 		...
-	def CopyPoseCharacter(self,Character:FBCharacter,/):
+	def CopyPoseCharacter(self,Character:FBCharacter,/)->None:
 		"""Copy the pose of only the character (omit the extensions).
 
 		### Parameters:
 			- Character: Character to copy the pose from."""
 		...
-	def CopyPoseCharacterExtension(self,CharacterExtension:FBCharacterExtension,/):
+	def CopyPoseCharacterExtension(self,CharacterExtension:FBCharacterExtension,/)->None:
 		"""Copy the pose of a single character extension.
 
 		### Parameters:
 			- CharacterExtension: Character extension to copy the pose from."""
 		...
-	def CopyPoseCharacterExtensions(self,Character:FBCharacter,/):
+	def CopyPoseCharacterExtensions(self,Character:FBCharacter,/)->None:
 		"""Copy the pose of only the character extensions (omit the character).
 
 		### Parameters:
 			- Character: Character to copy the pose of the extensions from."""
 		...
-	def CopyPoseCharacterExtensionsFrom(self,FromPose:FBCharacterPose,/):
+	def CopyPoseCharacterExtensionsFrom(self,FromPose:FBCharacterPose,/)->None:
 		"""Copy the pose data of only the character extensions from a given pose.
 
 		### Parameters:
 			- FromPose: Pose from which to copy the data."""
 		...
-	def CopyPoseCharacterFrom(self,FromPose:FBCharacterPose,/):
+	def CopyPoseCharacterFrom(self,FromPose:FBCharacterPose,/)->None:
 		"""Copy the pose data of only the character from a given pose.
 
 		### Parameters:
 			- FromPose: Pose from which to copy the data."""
 		...
-	def CopyPoseDataFrom(self,FromPose:FBCharacterPose,/):
+	def CopyPoseDataFrom(self,FromPose:FBCharacterPose,/)->None:
 		"""Copy all the pose data from a given pose.
 
 		### Parameters:
@@ -8212,14 +8215,14 @@ class FBCharacterPose(FBPose):
 		### Returns:
 		Number of character extension stored in the pose."""
 		...
-	def GetExtraBoneParentRotationOffset(self,R:FBVector3d,Index:int,/):
+	def GetExtraBoneParentRotationOffset(self,R:FBVector3d,Index:int,/)->None:
 		"""Get the extra bone transformation offset.
 
 		### Parameters:
 			- R: A vector that will contains the parent rotation offset value on return.
 			- Index: Index of the extra bone to get."""
 		...
-	def GetExtraBoneTransform(self,T:FBVector3d,R:FBVector3d,S:FBVector3d,Index:int,/):
+	def GetExtraBoneTransform(self,T:FBVector3d,R:FBVector3d,S:FBVector3d,Index:int,/)->None:
 		"""Get the extra bone transformation.
 
 		### Parameters:
@@ -8228,7 +8231,7 @@ class FBCharacterPose(FBPose):
 			- S: A vector that will contains the scale value on return.
 			- Index: Index of the extra bone to get."""
 		...
-	def GetExtraBoneTransformOffset(self,T:FBVector3d,R:FBVector3d,S:FBVector3d,Index:int,/):
+	def GetExtraBoneTransformOffset(self,T:FBVector3d,R:FBVector3d,S:FBVector3d,Index:int,/)->None:
 		"""Get the extra bone transformation offset.
 
 		### Parameters:
@@ -8238,7 +8241,7 @@ class FBCharacterPose(FBPose):
 			- Index: Index of the extra bone to get."""
 		...
 	def GetExtraBones(self)->list:...
-	def GetMirrorPlaneEquation(self,MirrorPlaneEquation:FBVector4d,Character:FBCharacter,CharacterPoseOptions:FBCharacterPoseOptions,/):
+	def GetMirrorPlaneEquation(self,MirrorPlaneEquation:FBVector4d,Character:FBCharacter,CharacterPoseOptions:FBCharacterPoseOptions,/)->None:
 		"""Get the mirror plane equation that would be used to mirror according to the CharacterPoseOptions.
 
 		### Parameters:
@@ -8272,7 +8275,7 @@ class FBCharacterPose(FBPose):
 		### Returns:
 		true if the pose of the character stored in the pose."""
 		...
-	def PastePose(self,Character:FBCharacter,CharacterPoseOptions:FBCharacterPoseOptions,/):
+	def PastePose(self,Character:FBCharacter,CharacterPoseOptions:FBCharacterPoseOptions,/)->None:
 		"""Paste the pose of a character and its extensions.
 
 		### Parameters:
@@ -8283,7 +8286,7 @@ class FBCharacterPose(FBPose):
 		Supports the match and mirror options.
 		When pasting in body part, the selected parts and extensions of the character will be pasted."""
 		...
-	def PastePoseCharacter(self,Character:FBCharacter,CharacterPoseOptions:FBCharacterPoseOptions,/):
+	def PastePoseCharacter(self,Character:FBCharacter,CharacterPoseOptions:FBCharacterPoseOptions,/)->None:
 		"""Paste the pose of only the character (omit the extensions).
 
 		### Parameters:
@@ -8293,7 +8296,7 @@ class FBCharacterPose(FBPose):
 		### Remarks:
 		Does not support the match and mirror options."""
 		...
-	def PastePoseCharacterExtension(self,CharacterExtension:FBCharacterExtension,CharacterPoseOptions:FBCharacterPoseOptions,/):
+	def PastePoseCharacterExtension(self,CharacterExtension:FBCharacterExtension,CharacterPoseOptions:FBCharacterPoseOptions,/)->None:
 		"""Paste the pose of a single character extension.
 
 		### Parameters:
@@ -8303,7 +8306,7 @@ class FBCharacterPose(FBPose):
 		### Remarks:
 		Does not support the match and mirror options."""
 		...
-	def PastePoseCharacterExtensions(self,Character:FBCharacter,CharacterPoseOptions:FBCharacterPoseOptions,/):
+	def PastePoseCharacterExtensions(self,Character:FBCharacter,CharacterPoseOptions:FBCharacterPoseOptions,/)->None:
 		"""Paste the pose of only the character extensions (omit the character).
 
 		### Parameters:
@@ -8313,13 +8316,13 @@ class FBCharacterPose(FBPose):
 		### Remarks:
 		Does not support the match and mirror options."""
 		...
-	def RemoveCharacterExtensionPose(self,CharacterExtensionName:str,/):
+	def RemoveCharacterExtensionPose(self,CharacterExtensionName:str,/)->None:
 		"""Remove the pose of a character extension.
 
 		### Parameters:
 			- CharacterExtensionName: Name of the character extension pose to remove (It is the label name of the character extension)."""
 		...
-	def RemoveCharacterExtensionPoseAt(self,Index:int,/):
+	def RemoveCharacterExtensionPoseAt(self,Index:int,/)->None:
 		"""Remove the pose of a character extension.
 
 		### Parameters:
@@ -8336,7 +8339,7 @@ class FBObjectPose(FBPose):
 	"""[FBObjectPose](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_object_pose.html "FBObjectPose class.") class.
 
 	This class exposes the object used to store the pose of objects."""
-	def AddStanceOffset(self,ObjectName:str,StancePose:FBObjectPose,PoseTransformType:FBPoseTransformType=FBPoseTransformType.kFBPoseTransformInvalid,/):
+	def AddStanceOffset(self,ObjectName:str,StancePose:FBObjectPose,PoseTransformType:FBPoseTransformType=FBPoseTransformType.kFBPoseTransformInvalid,/)->None:
 		"""Add the StanceOffset to an object in the pose.
 
 		### Parameters:
@@ -8348,7 +8351,7 @@ class FBObjectPose(FBPose):
 		Working with poses with their StanceOffset removed is usefull for retargetting.
 		If pPoseTransformType is set to kFBPoseTransformInvalid, offsets will be added in all TransformTypes."""
 		...
-	def AddStanceOffsetAllObjects(self,StancePose:FBObjectPose,PoseTransformType:FBPoseTransformType=FBPoseTransformType.kFBPoseTransformInvalid,/):
+	def AddStanceOffsetAllObjects(self,StancePose:FBObjectPose,PoseTransformType:FBPoseTransformType=FBPoseTransformType.kFBPoseTransformInvalid,/)->None:
 		"""Add the StanceOffset to all the objects in the pose.
 
 		### Parameters:
@@ -8359,10 +8362,10 @@ class FBObjectPose(FBPose):
 		Working with poses with their StanceOffset removed is usefull for retargetting.
 		If pPoseTransformType is set to kFBPoseTransformInvalid, offsets will be added in all TransformTypes."""
 		...
-	def ClearPose(self):
+	def ClearPose(self)->None:
 		"""Clear all the data of the pose."""
 		...
-	def CopyFrom(self,FromPose:FBObjectPose,/):
+	def CopyFrom(self,FromPose:FBObjectPose,/)->None:
 		"""Copy everything from a given object.
 
 		### Parameters:
@@ -8371,7 +8374,7 @@ class FBObjectPose(FBPose):
 		### Remarks:
 		Will copy everything, including the object name, properties, data etc. Objects will be identical."""
 		...
-	def CopyObjectPose(self,ObjectName:str,Object:FBComponent,/):
+	def CopyObjectPose(self,ObjectName:str,Object:FBComponent,/)->None:
 		"""Copy the pose of all the properties of an object.
 
 		### Parameters:
@@ -8381,7 +8384,7 @@ class FBObjectPose(FBPose):
 		### Remarks:
 		You can specify a pObjectName different from the name of pObject."""
 		...
-	def CopyPoseAllObjectsTransformFrom(self,FromPose:FBObjectPose,PoseTransformType:FBPoseTransformType=FBPoseTransformType.kFBPoseTransformInvalid,/):
+	def CopyPoseAllObjectsTransformFrom(self,FromPose:FBObjectPose,PoseTransformType:FBPoseTransformType=FBPoseTransformType.kFBPoseTransformInvalid,/)->None:
 		"""Copy all the transforms from a given pose.
 
 		### Parameters:
@@ -8391,7 +8394,7 @@ class FBObjectPose(FBPose):
 		### Remarks:
 		If pPoseTransformType is set to kFBPoseTransformInvalid, copy all TransformTypes."""
 		...
-	def CopyPoseDataFrom(self,FromPose:FBObjectPose,/):
+	def CopyPoseDataFrom(self,FromPose:FBObjectPose,/)->None:
 		"""Copy all the pose data from a given pose.
 
 		### Parameters:
@@ -8400,7 +8403,7 @@ class FBObjectPose(FBPose):
 		### Remarks:
 		Will copy all the data of the pose including the transforms."""
 		...
-	def CopyPoseTransformFrom(self,FromPose:FBObjectPose,ObjectName:str,PoseTransformType:FBPoseTransformType=FBPoseTransformType.kFBPoseTransformInvalid,/):
+	def CopyPoseTransformFrom(self,FromPose:FBObjectPose,ObjectName:str,PoseTransformType:FBPoseTransformType=FBPoseTransformType.kFBPoseTransformInvalid,/)->None:
 		"""Copy the transforms of an object from a given pose.
 
 		### Parameters:
@@ -8411,7 +8414,7 @@ class FBObjectPose(FBPose):
 		### Remarks:
 		If pPoseTransformType is set to kFBPoseTransformInvalid, copy all TransformTypes."""
 		...
-	def CopyPropertyPose(self,ObjectName:str,Property:FBProperty,/):
+	def CopyPropertyPose(self,ObjectName:str,Property:FBProperty,/)->None:
 		"""Copy the pose of a property of an object.
 
 		### Parameters:
@@ -8421,7 +8424,7 @@ class FBObjectPose(FBPose):
 		### Remarks:
 		You can specify a pObjectName different from the name of pObject."""
 		...
-	def CopyTransform(self,ObjectName:str,Object:FBComponent,ObjectPoseOptions:FBObjectPoseOptions,/):
+	def CopyTransform(self,ObjectName:str,Object:FBComponent,ObjectPoseOptions:FBObjectPoseOptions,/)->None:
 		"""Copy the transform of an object.
 
 		### Parameters:
@@ -8432,7 +8435,7 @@ class FBObjectPose(FBPose):
 		### Remarks:
 		This function will always copy all the TransformAttributes (T,R,S) in all TransformType (Local, Global, LocalRef)."""
 		...
-	def GetPropertyValue(self,Value:list,Size:int,ObjectName:str,PropertyName:str,/):
+	def GetPropertyValue(self,Value:list,Size:int,ObjectName:str,PropertyName:str,/)->None:
 		"""Get the value of a property stored in the pose.
 
 		### Parameters:
@@ -8488,20 +8491,20 @@ class FBObjectPose(FBPose):
 		### Remarks:
 		If pPoseTransformType is set to kFBPoseTransformInvalid, will check in all TransformTypes."""
 		...
-	def MirrorPose(self,ObjectName:str,ObjectPoseMirrorOptions:FBObjectPoseMirrorOptions,/):
+	def MirrorPose(self,ObjectName:str,ObjectPoseMirrorOptions:FBObjectPoseMirrorOptions,/)->None:
 		"""Mirror the transform of an object in the pose.
 
 		### Parameters:
 			- ObjectName: Name of the object to mirror.
 			- ObjectPoseMirrorOptions: MirrorOptions used to specify the mirror plane."""
 		...
-	def MirrorPoseAllObjects(self,ObjectPoseMirrorOptions:FBObjectPoseMirrorOptions,/):
+	def MirrorPoseAllObjects(self,ObjectPoseMirrorOptions:FBObjectPoseMirrorOptions,/)->None:
 		"""Mirror the transform of all objects in the pose.
 
 		### Parameters:
 			- ObjectPoseMirrorOptions: MirrorOptions used to specify the mirror plane."""
 		...
-	def MultTransform(self,ObjectName:str,GX:FBMatrix,TransformAttribute:FBModelTransformationType,PoseTransformType:FBPoseTransformType,/):
+	def MultTransform(self,ObjectName:str,GX:FBMatrix,TransformAttribute:FBModelTransformationType,PoseTransformType:FBPoseTransformType,/)->None:
 		"""Multiply the transform of an objects in the pose.
 
 		### Parameters:
@@ -8510,7 +8513,7 @@ class FBObjectPose(FBPose):
 			- TransformAttribute: Transform attribute to affect. Supported: T,R,S and Transformation.
 			- PoseTransformType: Transform type in which to mult the transform (Local, Global or LocalRef)."""
 		...
-	def MultTransformAllObjects(self,GX:FBMatrix,TransformAttribute:FBModelTransformationType,PoseTransformType:FBPoseTransformType,/):
+	def MultTransformAllObjects(self,GX:FBMatrix,TransformAttribute:FBModelTransformationType,PoseTransformType:FBPoseTransformType,/)->None:
 		"""Multiply the transform of all objects in the pose.
 
 		### Parameters:
@@ -8518,7 +8521,7 @@ class FBObjectPose(FBPose):
 			- TransformAttribute: Transform attribute to affect. Supported: T,R,S and Transformation.
 			- PoseTransformType: Transform type in which to mult the transform (Local, Global or LocalRef)."""
 		...
-	def PasteObjectPose(self,ObjectName:str,Object:FBComponent,/):
+	def PasteObjectPose(self,ObjectName:str,Object:FBComponent,/)->None:
 		"""Paste the pose of all the properties of an object.
 
 		### Parameters:
@@ -8529,7 +8532,7 @@ class FBObjectPose(FBPose):
 		You can specify a pObjectName different from the name of pObject.
 		Properties that were not stored in the pose will not be affected."""
 		...
-	def PastePropertyPose(self,ObjectName:str,Property:FBProperty,/):
+	def PastePropertyPose(self,ObjectName:str,Property:FBProperty,/)->None:
 		"""Paste the pose of a property of an object.
 
 		### Parameters:
@@ -8540,7 +8543,7 @@ class FBObjectPose(FBPose):
 		You can specify a pObjectName different from the name of pObject.
 		The property will not be affected if it was not stored in the pose."""
 		...
-	def PasteTransform(self,ObjectName:str,Object:FBComponent,ObjectPoseOptions:FBObjectPoseOptions,/):
+	def PasteTransform(self,ObjectName:str,Object:FBComponent,ObjectPoseOptions:FBObjectPoseOptions,/)->None:
 		"""Paste the transform of an object.
 
 		### Parameters:
@@ -8552,7 +8555,7 @@ class FBObjectPose(FBPose):
 		### Remarks:
 		Use the pObjectPoseOptions to specify which TransformType to use when pasting."""
 		...
-	def RemoveStanceOffset(self,ObjectName:str,StancePose:FBObjectPose,PoseTransformType:FBPoseTransformType=FBPoseTransformType.kFBPoseTransformInvalid,/):
+	def RemoveStanceOffset(self,ObjectName:str,StancePose:FBObjectPose,PoseTransformType:FBPoseTransformType=FBPoseTransformType.kFBPoseTransformInvalid,/)->None:
 		"""Remove the StanceOffset from an object in the pose.
 
 		### Parameters:
@@ -8564,7 +8567,7 @@ class FBObjectPose(FBPose):
 		Working with poses with their StanceOffset removed is usefull for retargetting.
 		If pPoseTransformType is set to kFBPoseTransformInvalid, offsets will be removed in all TransformTypes."""
 		...
-	def RemoveStanceOffsetAllObjects(self,StancePose:FBObjectPose,PoseTransformType:FBPoseTransformType=FBPoseTransformType.kFBPoseTransformInvalid,/):
+	def RemoveStanceOffsetAllObjects(self,StancePose:FBObjectPose,PoseTransformType:FBPoseTransformType=FBPoseTransformType.kFBPoseTransformInvalid,/)->None:
 		"""Remove the StanceOffset from all the objects in the pose.
 
 		### Parameters:
@@ -8575,7 +8578,7 @@ class FBObjectPose(FBPose):
 		Working with poses with their StanceOffset removed is usefull for retargetting.
 		If pPoseTransformType is set to kFBPoseTransformInvalid, offsets will be removed in all TransformTypes."""
 		...
-	def SetPropertyValue(self,ObjectName:str,PropertyName:str,Value:float,Size:int,/):
+	def SetPropertyValue(self,ObjectName:str,PropertyName:str,Value:float,Size:int,/)->None:
 		"""Set the value of a property in the pose.
 
 		### Parameters:
@@ -8584,7 +8587,7 @@ class FBObjectPose(FBPose):
 			- Value: Value to set.
 			- Size: Number of elements in pValue."""
 		...
-	def SetTransform(self,T:FBVector4d,RM:FBMatrix,SM:FBMatrix,ObjectName:str,PoseTransformType:FBPoseTransformType,/):
+	def SetTransform(self,T:FBVector4d,RM:FBMatrix,SM:FBMatrix,ObjectName:str,PoseTransformType:FBPoseTransformType,/)->None:
 		"""Set the transform of an object in the pose.
 
 		### Parameters:
@@ -8626,7 +8629,7 @@ class FBCluster(FBComponent):
 		### Returns:
 		0, (Not implemented)."""
 		...
-	def LinkClearUnused(self,Threshold:float=-1.0,/):
+	def LinkClearUnused(self,Threshold:float=-1.0,/)->None:
 		"""Remove all unused links.
 
 		### Parameters:
@@ -8674,40 +8677,40 @@ class FBCluster(FBComponent):
 		### Returns:
 		Index value of the current vertex associated to link at index number pIndex"""
 		...
-	def LinkRemove(self,LinkNumber:int,/):
+	def LinkRemove(self,LinkNumber:int,/)->None:
 		"""Remove a link.
 
 		### Parameters:
 			- LinkNumber: Number value of link to rename."""
 		...
-	def LinkSetCurrentVertex(self,LinkIndex:int,PointIndex:int,/):
+	def LinkSetCurrentVertex(self,LinkIndex:int,PointIndex:int,/)->None:
 		"""Link at current vertex.
 
 		### Parameters:
 			- LinkIndex: Index of link to add vertex to.
 			- PointIndex: Index of vertex to add."""
 		...
-	def LinkSetModel(self,Model:FBModel,/):
+	def LinkSetModel(self,Model:FBModel,/)->None:
 		"""Set model to a link.
 
 		### Parameters:
 			- Model: Model to set."""
 		...
-	def LinkSetName(self,Name:str,LinkNumber:int,/):
+	def LinkSetName(self,Name:str,LinkNumber:int,/)->None:
 		"""Set the name of a link.
 
 		### Parameters:
 			- Name: Name of the link.
 			- LinkNumber: Number value of link to name."""
 		...
-	def VertexAdd(self,VertexIndex:int,Weight:float,/):
+	def VertexAdd(self,VertexIndex:int,Weight:float,/)->None:
 		"""Add a vertex to a cluster.
 
 		### Parameters:
 			- VertexIndex: Index of vertex to add.
 			- Weight: Weight to give to vertex."""
 		...
-	def VertexClear(self):
+	def VertexClear(self)->None:
 		"""Clear all linked vertices."""
 		...
 	def VertexGetCount(self)->int:
@@ -8725,7 +8728,7 @@ class FBCluster(FBComponent):
 		### Returns:
 		Number value of vertex at link number pIndex"""
 		...
-	def VertexGetTransform(self,Position:FBVector3d,Rotation:FBVector3d,Scaling:FBVector3d,/):
+	def VertexGetTransform(self,Position:FBVector3d,Rotation:FBVector3d,Scaling:FBVector3d,/)->None:
 		"""Get transform of a cluster set.
 
 		### Parameters:
@@ -8742,13 +8745,13 @@ class FBCluster(FBComponent):
 		### Returns:
 		Weight of vertex found at link number pIndex."""
 		...
-	def VertexRemove(self,VertexIndex:int,/):
+	def VertexRemove(self,VertexIndex:int,/)->None:
 		"""Remove a vertex from a cluster.
 
 		### Parameters:
 			- VertexIndex: Index of vertex to remove."""
 		...
-	def VertexSetTransform(self,Position:FBVector3d,Rotation:FBVector3d,Scaling:FBVector3d,/):
+	def VertexSetTransform(self,Position:FBVector3d,Rotation:FBVector3d,Scaling:FBVector3d,/)->None:
 		"""Set transform of a cluster set.
 
 		### Parameters:
@@ -8756,7 +8759,7 @@ class FBCluster(FBComponent):
 			- Rotation: Rotation transform.
 			- Scaling: Scaling transform."""
 		...
-	def VertexSetWeight(self,Weight:float,Index:int,/):
+	def VertexSetWeight(self,Weight:float,Index:int,/)->None:
 		"""Set vertex weight.
 
 		### Parameters:
@@ -9043,7 +9046,7 @@ class FBConstraint(FBBox):
 		### Returns:
 		true if successful."""
 		...
-	def FreezeSRT(self,Model:FBModel,S:bool,R:bool,T:bool,/):
+	def FreezeSRT(self,Model:FBModel,S:bool,R:bool,T:bool,/)->None:
 		"""Freeze current model state.
 
 		### Parameters:
@@ -9052,7 +9055,7 @@ class FBConstraint(FBBox):
 			- R: Rotation freeze?
 			- T: Translation freeze?"""
 		...
-	def FreezeSuggested(self):
+	def FreezeSuggested(self)->None:
 		"""Suggest 'freeze'."""
 		...
 	def ReferenceAdd(self,GroupIndex:int,Model:FBModel,/)->bool:
@@ -9130,16 +9133,16 @@ class FBConstraint(FBBox):
 		### Returns:
 		true if successful."""
 		...
-	def RemoveAllAnimationNodes(self):
+	def RemoveAllAnimationNodes(self)->None:
 		"""Remove animation nodes."""
 		...
-	def RestoreModelState(self,Model:FBModel,/):
+	def RestoreModelState(self,Model:FBModel,/)->None:
 		"""Restore the saved model state onto pModel.
 
 		### Parameters:
 			- Model: Model to affect with previous state."""
 		...
-	def SaveModelState(self,Model:FBModel,S:bool,R:bool,T:bool,/):
+	def SaveModelState(self,Model:FBModel,S:bool,R:bool,T:bool,/)->None:
 		"""Save current state of pModel.
 
 		### Parameters:
@@ -9148,13 +9151,13 @@ class FBConstraint(FBBox):
 			- R: Rotation information?
 			- T: Translation information?"""
 		...
-	def SetupAllAnimationNodes(self):
+	def SetupAllAnimationNodes(self)->None:
 		"""Setup animation nodes."""
 		...
-	def Snap(self):
+	def Snap(self)->None:
 		"""Function Property: Snap constraint."""
 		...
-	def SnapSuggested(self):
+	def SnapSuggested(self)->None:
 		"""Suggest 'snap'."""
 		...
 	def __copy__(self)->Any:...
@@ -9186,7 +9189,7 @@ class FBCharacterSolver(FBConstraint):
 	def GetRegisteredSolverNames()->list:...
 	def GetTarget(self)->Any:...
 	def GetTransformationOffset(self,arg2:FBModel,/)->list:...
-	def SetParentRotationOffset(self,R:FBModel,Index:FBVector3d,/):
+	def SetParentRotationOffset(self,R:FBModel,Index:FBVector3d,/)->None:
 		"""Set the Parent Rotation Offset of the Given Extra Bone Index.
 
 		The rotation Offset if extracted at Characterisation (in Stance Pose). You don't need this value if the parent of the bone is characterized too.
@@ -9194,7 +9197,7 @@ class FBCharacterSolver(FBConstraint):
 			- R: Offset Rotation between the Bone and is parent at Stance Pose.
 			- Index: Index of extra Bone to get."""
 		...
-	def SetTransformationOffset(self,arg2:FBModel,arg3:FBVector3d,arg4:FBVector3d,arg5:FBVector3d,/):...
+	def SetTransformationOffset(self,arg2:FBModel,arg3:FBVector3d,arg4:FBVector3d,arg5:FBVector3d,/)->None:...
 	def __init__(self,Name:str,arg3:FBCharacter,arg4:str,/):
 		"""### Parameters:
 			- Name: Name of constraint."""
@@ -9414,7 +9417,7 @@ class FBCharacterFace(FBConstraint):
 		### Returns:
 		True if the operation completed successfully."""
 		...
-	def GotoRest(self):
+	def GotoRest(self)->None:
 		"""Set the character face back to its rest shape."""
 		...
 	def PlotAnimation(self)->bool:
@@ -9816,13 +9819,13 @@ class FBCharacter(FBConstraint):
 	"""Read Write Property: is character in sync mode."""
 	WriteReference:bool
 	"""Read Write Property: are we writing back on reference."""
-	def AddCharacterExtension(self,Ext:FBCharacterExtension,/):
+	def AddCharacterExtension(self,Ext:FBCharacterExtension,/)->None:
 		"""AddCharacterExtension.
 
 		### Parameters:
 			- Ext: extension to be added to the character."""
 		...
-	def ConnectControlRig(self,ControlSet:FBControlSet,UpdateLimit:bool,ResetHierarchy:bool,/):
+	def ConnectControlRig(self,ControlSet:FBControlSet,UpdateLimit:bool,ResetHierarchy:bool,/)->None:
 		"""Connect a Control-Rig to the character.
 
 		### Parameters:
@@ -9830,7 +9833,7 @@ class FBCharacter(FBConstraint):
 			- UpdateLimit: Whether to update the models' limit for a character. E.g. the Pre rotation and post rotation.
 			- ResetHierarchy: Whether to reset hierarchy for a character."""
 		...
-	def CopyAnimation(self):
+	def CopyAnimation(self)->None:
 		"""Copy the animation from the input character to us."""
 		...
 	def CreateAuxiliary(self,EffectorId:FBEffectorId,Pivot:bool,AuxReachT:float=100,AuxReachR:float=100,/)->bool:
@@ -9863,10 +9866,10 @@ class FBCharacter(FBConstraint):
 		### Returns:
 		current state of the flag after the operation (true if it did succeed)."""
 		...
-	def CycleAnalysisCurrentCharacter(self):
+	def CycleAnalysisCurrentCharacter(self)->None:
 		"""Run Cycle Analysis on current character."""
 		...
-	def DisconnectControlRig(self):
+	def DisconnectControlRig(self)->None:
 		"""Disconnect the Control-Rig from the character."""
 		...
 	def GetActiveBodyPart(self)->list:
@@ -9972,25 +9975,25 @@ class FBCharacter(FBConstraint):
 		### Returns:
 		The model linked to the specified body part."""
 		...
-	def GetParentROffset(self,BodyNodeId:FBBodyNodeId,RVector:FBVector3d,/):...
-	def GetROffset(self,BodyNodeId:FBBodyNodeId,RVector:FBVector3d,/):...
-	def GetSOffset(self,BodyNodeId:FBBodyNodeId,SVector:FBVector3d,/):...
+	def GetParentROffset(self,BodyNodeId:FBBodyNodeId,RVector:FBVector3d,/)->None:...
+	def GetROffset(self,BodyNodeId:FBBodyNodeId,RVector:FBVector3d,/)->None:...
+	def GetSOffset(self,BodyNodeId:FBBodyNodeId,SVector:FBVector3d,/)->None:...
 	def GetSkeletonVisibility(self)->FBVisibilityState:
 		"""Get the skeleton visibility state.
 
 		### Returns:
 		The skeleton visibility state."""
 		...
-	def GetSkinModelList(self,SkinModelList:FBModelList,/):
+	def GetSkinModelList(self,SkinModelList:FBModelList,/)->None:
 		"""Get the skin model associated with character bones.
 
 		Could be deformable model connected to bone via cluster, or non deformable model parented directly under the bones.
 		### Parameters:
 			- SkinModelList: List to be filled up. (will not be cleared)"""
 		...
-	def GetTOffset(self,BodyNodeId:FBBodyNodeId,TVector:FBVector4d,/):...
-	def GetTransformOffset(self,BodyNodeId:FBBodyNodeId,OffsetMatrix:FBMatrix,/):...
-	def GoToStancePose(self,PushUndo:bool=False,IncludeCharacterExtensions:bool=True,/):
+	def GetTOffset(self,BodyNodeId:FBBodyNodeId,TVector:FBVector4d,/)->None:...
+	def GetTransformOffset(self,BodyNodeId:FBBodyNodeId,OffsetMatrix:FBMatrix,/)->None:...
+	def GoToStancePose(self,PushUndo:bool=False,IncludeCharacterExtensions:bool=True,/)->None:
 		"""Set the character in stance pose.
 
 		### Parameters:
@@ -10041,25 +10044,25 @@ class FBCharacter(FBConstraint):
 		### Returns:
 		True if the character is ready."""
 		...
-	def RemoveCharacterExtension(self,Ext:FBCharacterExtension,/):
+	def RemoveCharacterExtension(self,Ext:FBCharacterExtension,/)->None:
 		"""Get the model associated with each body part of the character.
 
 		### Parameters:
 			- Ext: extension to be removed to the character."""
 		...
-	def ResetProperties(self,Type:FBCharacterResetProperties,/):
+	def ResetProperties(self,Type:FBCharacterResetProperties,/)->None:
 		"""Reset the properties of the character.
 
 		### Parameters:
 			- Type: Speficy which properties will be reset."""
 		...
-	def Retarget(self,OnBaseLayer:bool,/):
+	def Retarget(self,OnBaseLayer:bool,/)->None:
 		"""Retarget the animation from the input character to us.
 
 		### Parameters:
 			- OnBaseLayer: if true, keys corrections will be made on base layer; else they will be made on another layer."""
 		...
-	def SelectModels(self,Select:bool,ApplyToCharacter:bool,ApplyToRig:bool,ApplyToExtensions:bool,/):
+	def SelectModels(self,Select:bool,ApplyToCharacter:bool,ApplyToRig:bool,ApplyToExtensions:bool,/)->None:
 		"""Select the objects that make a character.
 
 		### Parameters:
@@ -10068,7 +10071,7 @@ class FBCharacter(FBConstraint):
 			- ApplyToRig: should The rig (and its children) be selected ?
 			- ApplyToExtensions: Should the character extensions (and their children) be selected ?"""
 		...
-	def SetCharacterizeOff(self):
+	def SetCharacterizeOff(self)->None:
 		"""Set Characterize flag off."""
 		...
 	def SetCharacterizeOn(self,SetAsBiped:bool,/)->bool:
@@ -10081,13 +10084,13 @@ class FBCharacter(FBConstraint):
 		current state of the flag after the operation (true if it did succeed).
 		[See sample: 3dsMaxBipedTemplate.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c3ds_max_biped_template_8py-example.html)"""
 		...
-	def SetExternalSolver(self,Solver:FBCharacterSolver,/):
+	def SetExternalSolver(self,Solver:FBCharacterSolver,/)->None:
 		"""Set character solver.
 
 		### Parameters:
 			- Solver: Character solver that will be used by the character."""
 		...
-	def SetExternalSolverWithIndex(self,arg2,/):...
+	def SetExternalSolverWithIndex(self,arg2,/)->None:...
 	def SetFKVisibility(self,State:bool,/)->bool:
 		"""Set the FK visibility state.
 
@@ -11086,7 +11089,7 @@ class FBActor(FBConstraint):
 		### Returns:
 		Default Skeleton State"""
 		...
-	def GetDefinitionRotationVector(self,SkeletonId:FBSkeletonNodeId,RotationVector:FBVector3d,/):
+	def GetDefinitionRotationVector(self,SkeletonId:FBSkeletonNodeId,RotationVector:FBVector3d,/)->None:
 		"""Get Actor Rotation Definition.
 
 		Only effective when IKManip property is set to false.
@@ -11094,14 +11097,14 @@ class FBActor(FBConstraint):
 			- SkeletonId: Skeleton Node Id
 			- RotationVector: Actor Rotation Definition for the given ID"""
 		...
-	def GetDefinitionScaleVector(self,SkeletonId:FBSkeletonNodeId,ScaleVector:FBVector3d,/):
+	def GetDefinitionScaleVector(self,SkeletonId:FBSkeletonNodeId,ScaleVector:FBVector3d,/)->None:
 		"""Get Actor Scaling Definition.
 
 		### Parameters:
 			- SkeletonId: Skeleton Node Id
 			- ScaleVector: Actor Scaling Definition for the given ID"""
 		...
-	def GetDefinitionTranslationVector(self,SkeletonId:FBSkeletonNodeId,TranslationVector:FBVector3d,/):
+	def GetDefinitionTranslationVector(self,SkeletonId:FBSkeletonNodeId,TranslationVector:FBVector3d,/)->None:
 		"""Get Actor Translation Definition.
 
 		Only effective when IKManip property is set to false.
@@ -11109,14 +11112,14 @@ class FBActor(FBConstraint):
 			- SkeletonId: Skeleton Node Id
 			- TranslationVector: Actor Translation Definition for the given ID"""
 		...
-	def SetActorTranslation(self,TranslationVector:FBVector3d,/):
+	def SetActorTranslation(self,TranslationVector:FBVector3d,/)->None:
 		"""Translate Actor, similar to moving the hips of the Actor in the UI.
 
 		Only effective when IKManip property is set to false.
 		### Parameters:
 			- TranslationVector: Will move the entire Actor to pTranslationVector coordinate"""
 		...
-	def SetDefinitionRotationVector(self,SkeletonId:FBSkeletonNodeId,RotationVector:FBVector3d,SymmetricUpdate:bool=True,/):
+	def SetDefinitionRotationVector(self,SkeletonId:FBSkeletonNodeId,RotationVector:FBVector3d,SymmetricUpdate:bool=True,/)->None:
 		"""Set Actor Rotation Definition.
 
 		Only effective when IKManip property is set to false.
@@ -11125,7 +11128,7 @@ class FBActor(FBConstraint):
 			- RotationVector: Actor Rotation value for the given ID
 			- SymmetricUpdate: Update right and left part at the same time"""
 		...
-	def SetDefinitionScaleVector(self,SkeletonId:FBSkeletonNodeId,ScaleVector:FBVector3d,SymmetricUpdate:bool=True,/):
+	def SetDefinitionScaleVector(self,SkeletonId:FBSkeletonNodeId,ScaleVector:FBVector3d,SymmetricUpdate:bool=True,/)->None:
 		"""Set Actor Scaling Definition.
 
 		### Parameters:
@@ -11133,7 +11136,7 @@ class FBActor(FBConstraint):
 			- ScaleVector: Actor Scaling value for the given ID
 			- SymmetricUpdate: Update right and left part at the same time"""
 		...
-	def SetDefinitionTranslationVector(self,SkeletonId:FBSkeletonNodeId,TranslationVector:FBVector3d,SymmetricUpdate:bool=True,/):
+	def SetDefinitionTranslationVector(self,SkeletonId:FBSkeletonNodeId,TranslationVector:FBVector3d,SymmetricUpdate:bool=True,/)->None:
 		"""Set Actor Translation Definition.
 
 		Only effective when IKManip property is set to false.
@@ -11142,7 +11145,7 @@ class FBActor(FBConstraint):
 			- TranslationVector: Actor Translation value for the given ID
 			- SymmetricUpdate: Update right and left part at the same time"""
 		...
-	def UpdateValues(self,EvalInfo:FBEvaluateInfo,/):
+	def UpdateValues(self,EvalInfo:FBEvaluateInfo,/)->None:
 		"""Update Internal Values to be corresponding to the Given Evaluate Information.
 
 		### Parameters:
@@ -11283,13 +11286,13 @@ class FBDevice(FBBox):
 	"""Read Write Property: Set this to how many times a device is to be evaluated in one second. There is no theoretical maximum value but practically you should consider scene complexity, system resources, network speed, etc. If set to 0: the device is evaluated on the sync signal. When the sync occurs; the device is scheduled to be evaluated. If you do not set, the sampling period is based on the internal variable from the [Sync] section of the .Application.txt file (NTSC, PAL, CINEMA)."""
 	Status:str
 	"""Read Write Property: Device information: status."""
-	def AckOneBadSampleReceived(self):
+	def AckOneBadSampleReceived(self)->None:
 		"""Acknowlege that one bad sample was received (for statistical purposes)."""
 		...
-	def AckOneSampleReceived(self):
+	def AckOneSampleReceived(self)->None:
 		"""Acknowlege that one sample was received (for statistical purposes)."""
 		...
-	def AckOneSampleSent(self):
+	def AckOneSampleSent(self)->None:
 		"""Acknowlege that one sample was sent (for statistical purposes)."""
 		...
 	def DeviceOperation(self,Operation:kDeviceOperations,/)->bool:
@@ -11302,7 +11305,7 @@ class FBDevice(FBBox):
 		### Returns:
 		Current state : <b true if online."""
 		...
-	def DeviceSendCommand(self,Operation:kDeviceOperations,/):
+	def DeviceSendCommand(self,Operation:kDeviceOperations,/)->None:
 		"""Send a command to the device.
 
 		This function will send the Init, Start, etc. commands to the device.
@@ -11315,19 +11318,19 @@ class FBDevice(FBBox):
 		### Returns:
 		The model root that has been created or NULL is an error occured."""
 		...
-	def ModelBindingRootsList(self,List:FBModelList,/):
+	def ModelBindingRootsList(self,List:FBModelList,/)->None:
 		"""Get the list of all the possible root models for binding.
 
 		### Parameters:
 			- List: List to add found models to."""
 		...
-	def RecordingDoneAnimation(self,AnimationNode:FBAnimationNode,/):
+	def RecordingDoneAnimation(self,AnimationNode:FBAnimationNode,/)->None:
 		"""When recording, finish animation.
 
 		### Parameters:
 			- AnimationNode: Animation node to write information to."""
 		...
-	def RecordingInitAnimation(self,AnimationNode:FBAnimationNode,/):
+	def RecordingInitAnimation(self,AnimationNode:FBAnimationNode,/)->None:
 		"""When recording, initialize animation.
 
 		### Parameters:
@@ -11392,13 +11395,13 @@ class FBDeviceOptical(FBDevice):
 	"""Property: Does the device support occulsion?"""
 	UseMarkerTimeStamp:bool
 	"""Property: Use the individual marker timestamps?"""
-	def DeviceOpticalBeginSetup(self):
+	def DeviceOpticalBeginSetup(self)->None:
 		"""Begin device setup."""
 		...
-	def DeviceOpticalEndSetup(self):
+	def DeviceOpticalEndSetup(self)->None:
 		"""End device setup."""
 		...
-	def DeviceOpticalRecordFrame(self,Time:FBTime,DeviceNotifyInfo:FBDeviceNotifyInfo,/):
+	def DeviceOpticalRecordFrame(self,Time:FBTime,DeviceNotifyInfo:FBDeviceNotifyInfo,/)->None:
 		"""Record a frame of information from device.
 
 		Virtual function that derived class may overide
@@ -11440,7 +11443,7 @@ class FBGroup(FBBox):
 		### Returns:
 		True if the object is in the Group"""
 		...
-	def Select(self,Select:bool,/):
+	def Select(self,Select:bool,/)->None:
 		"""Select.
 
 		### Parameters:
@@ -11546,7 +11549,7 @@ class FBHandle(FBBox):
 	"""List: Objects manipulated by the handle. Only their scaling is affected."""
 	ManipulateTranslation:FBPropertyListObject
 	"""List: Objects manipulated by the handle. Only their translation is affected."""
-	def Select(self):
+	def Select(self)->None:
 		"""Meta selection.
 
 		With this method, the handle itself is selected as well as all the models that are manipulated by the handle."""
@@ -11788,10 +11791,10 @@ class FBMaterial(FBBox):
 		### Parameters:
 			- Type: MaterialTextureType to get connected texture from (default is Diffuse is not specified)."""
 		...
-	def OGLInit(self):
+	def OGLInit(self)->None:
 		"""Setup OpenGL fixed pipeline material settings."""
 		...
-	def SetTexture(self,Texture:FBTexture,Type:FBMaterialTextureType=FBMaterialTextureType.kFBMaterialTextureDiffuse,/):
+	def SetTexture(self,Texture:FBTexture,Type:FBMaterialTextureType=FBMaterialTextureType.kFBMaterialTextureDiffuse,/)->None:
 		"""Set associated texture.
 
 		### Parameters:
@@ -11955,10 +11958,10 @@ class FBModel(FBBox):
 		### Returns:
 		Newly created model."""
 		...
-	def CollapseInSchematic(self):
+	def CollapseInSchematic(self)->None:
 		"""Collapse the model in the schematic view."""
 		...
-	def DofToLRM(self,LM:FBMatrix,Dof:FBVector3d,/):
+	def DofToLRM(self,LM:FBMatrix,Dof:FBVector3d,/)->None:
 		"""Convert object space vector to local matrix.
 
 		### Parameters:
@@ -11968,10 +11971,10 @@ class FBModel(FBBox):
 		### Note:
 		Use this function when you want to convert euler to local rotation with proper pre/post transformation and rotation order applied from this model."""
 		...
-	def ExpandInSchematic(self):
+	def ExpandInSchematic(self)->None:
 		"""Expand the model in the schematic view."""
 		...
-	def ForceAlwaysEvaluate(self):
+	def ForceAlwaysEvaluate(self)->None:
 		"""Force Always Evaluate.
 
 		In some case, MoBu kernel perform optimization by skipping certain evaluation tasks. This function stop skipping for this model."""
@@ -11991,7 +11994,7 @@ class FBModel(FBBox):
 		### Returns:
 		Additional Unique Color Count."""
 		...
-	def GetBoundingBox(self,Min:FBVector3d,Max:FBVector3d,/):
+	def GetBoundingBox(self,Min:FBVector3d,Max:FBVector3d,/)->None:
 		"""Get the bounding box of the model.
 
 		Note. for deformable model, this function will provide the approximated (larger than the smallest) bounding box for performance consideration.
@@ -12009,7 +12012,7 @@ class FBModel(FBBox):
 			- HiercharyTraverserType: The hierarchy traverser type
 			- EvaluateInfo: EvaluateInfo, Take Display if none specified."""
 		...
-	def GetLocalTransformationMatrixWithGlobalRotationDoF(self,Matrix:FBMatrix,Inverse:bool=False,EvaluateInfo:FBEvaluateInfo|None=None,/):
+	def GetLocalTransformationMatrixWithGlobalRotationDoF(self,Matrix:FBMatrix,Inverse:bool=False,EvaluateInfo:FBEvaluateInfo|None=None,/)->None:
 		"""Get the local transformation (or local inverse transformation) matrix with the global Rotation DoF values from the model.
 
 		The GetMatrix method was previously wrongly returning the local transformation (and local inverse transformation) matrices with global Rotation DoF values. The GetMatrix method implementation has been updated to not include the global Rotation DoF values. This method returns the same matrix values returned by the legacy GetMatrix implementation when retrieving the local transformation (and local inverse transformation) matrices.
@@ -12018,7 +12021,7 @@ class FBModel(FBBox):
 			- Inverse: False for the transformation matrix, true for the inverse transformation matrix.
 			- EvaluateInfo: EvaluateInfo, Take Display if none specified."""
 		...
-	def GetMatrix(self,Matrix:FBMatrix,What:FBModelTransformationType=FBModelTransformationType.kModelTransformation,GlobalInfo:bool=True,EvaluateInfo:FBEvaluateInfo|None=None,/):
+	def GetMatrix(self,Matrix:FBMatrix,What:FBModelTransformationType=FBModelTransformationType.kModelTransformation,GlobalInfo:bool=True,EvaluateInfo:FBEvaluateInfo|None=None,/)->None:
 		"""Get a matrix from the model.
 
 		### Parameters:
@@ -12039,7 +12042,7 @@ class FBModel(FBBox):
 		### Returns:
 		Number of selected points."""
 		...
-	def GetVector(self,Vector:FBVector3d,What:FBModelTransformationType=FBModelTransformationType.kModelTranslation,GlobalInfo:bool=True,EvaluateInfo:FBEvaluateInfo|None=None,/):
+	def GetVector(self,Vector:FBVector3d,What:FBModelTransformationType=FBModelTransformationType.kModelTranslation,GlobalInfo:bool=True,EvaluateInfo:FBEvaluateInfo|None=None,/)->None:
 		"""Get a vector from the model.
 
 		### Parameters:
@@ -12065,7 +12068,7 @@ class FBModel(FBBox):
 	def IsForceAlwaysEvaluate(self)->bool:
 		"""Return Force Always Evaluate status."""
 		...
-	def LRMToDof(self,Dof:FBVector3d,LM:FBMatrix,/):
+	def LRMToDof(self,Dof:FBVector3d,LM:FBMatrix,/)->None:
 		"""Convert local matrix to object space vector.
 
 		### Parameters:
@@ -12075,7 +12078,7 @@ class FBModel(FBBox):
 		### Note:
 		Use this function when you want to convert local rotation to euler with proper pre/post transformation and rotation order applied from this model."""
 		...
-	def MatrixToRotation(self,Rotation:FBVector3d,Matrix:FBMatrix,/):
+	def MatrixToRotation(self,Rotation:FBVector3d,Matrix:FBMatrix,/)->None:
 		"""Convert Rotation Matrix to Euler Vector based on model's rotation order.
 
 		### Parameters:
@@ -12107,7 +12110,7 @@ class FBModel(FBBox):
 		### Returns:
 		true if it hit the meshes, hit would contains the precise position & normal."""
 		...
-	def RotationToMatrix(self,Matrix:FBMatrix,Rotation:FBVector3d,/):
+	def RotationToMatrix(self,Matrix:FBMatrix,Rotation:FBVector3d,/)->None:
 		"""Convert Euler Vector to Rotation Matrix based on model's rotation order.
 
 		### Parameters:
@@ -12123,7 +12126,7 @@ class FBModel(FBBox):
 		### Returns:
 		True if Unique ColorId resource is available."""
 		...
-	def SetMatrix(self,Matrix:FBMatrix,What:FBModelTransformationType=FBModelTransformationType.kModelTransformation,arg4=None,arg5:FBEvaluateInfo|None=None,/):
+	def SetMatrix(self,Matrix:FBMatrix,What:FBModelTransformationType=FBModelTransformationType.kModelTransformation,arg4=None,arg5:FBEvaluateInfo|None=None,/)->None:
 		"""Set a matrix for the model.
 
 		### Parameters:
@@ -12133,7 +12136,7 @@ class FBModel(FBBox):
 			- PushUndo: **true** if this operation is undoable, don't push undo in non UI thread.
 			- EvaluateInfo: EvaluateInfo, Take Display if none specified"""
 		...
-	def SetMatrixWithPrecision(self,Matrix:FBMatrix,What:FBModelTransformationType=FBModelTransformationType.kModelTransformation,arg4=None,arg5:FBEvaluateInfo|None=None,arg6=None,/):
+	def SetMatrixWithPrecision(self,Matrix:FBMatrix,What:FBModelTransformationType=FBModelTransformationType.kModelTransformation,arg4=None,arg5:FBEvaluateInfo|None=None,arg6=None,/)->None:
 		"""Set a matrix for the model.
 
 		### Parameters:
@@ -12145,7 +12148,7 @@ class FBModel(FBBox):
 			- Precision: Indicate the precision level, used when calculating the threshold value for gimble lock. 16 * pow(10.0, -10)) is the new default value since Mobu 2016, 16 * pow(10.0, -6)) is old default value before then."""
 		...
 	@overload
-	def SetSchematicPosition(self,X:int,Y:int,/):
+	def SetSchematicPosition(self,X:int,Y:int,/)->None:
 		"""Set the position in the schematic view for the model.
 
 		### Parameters:
@@ -12153,13 +12156,13 @@ class FBModel(FBBox):
 			- Y: Y position to set."""
 		...
 	@overload
-	def SetSchematicPosition(self,Vector2d:FBVector2d,/):
+	def SetSchematicPosition(self,Vector2d:FBVector2d,/)->None:
 		"""Set the position in the schematic view for the model.
 
 		### Parameters:
 			- Vector2d: Position to set."""
 		...
-	def SetVector(self,Vector:FBVector3d,What:FBModelTransformationType=FBModelTransformationType.kModelTranslation,arg4=None,arg5:FBEvaluateInfo|None=None,/):
+	def SetVector(self,Vector:FBVector3d,What:FBModelTransformationType=FBModelTransformationType.kModelTranslation,arg4=None,arg5:FBEvaluateInfo|None=None,/)->None:
 		"""Set a vector for the model.
 
 		### Parameters:
@@ -12169,7 +12172,7 @@ class FBModel(FBBox):
 			- PushUndo: **true** if this operation is undoable, don't push undo in non UI thread.
 			- EvaluateInfo: EvaluateInfo, Take Display if none specified"""
 		...
-	def SetupPropertiesForShapes(self):
+	def SetupPropertiesForShapes(self)->None:
 		"""Setup Shape Properties.
 
 		Normally this function is called automatically at the next global synchronization point after the geometry has been updated. However you must call it explicitly to access the shape properties immediately after shapes adding/removing before next global synchronization point.
@@ -12309,7 +12312,7 @@ class FBCameraSwitcher(FBModel):
 		### Returns:
 		True if the plot operation has been processed successfully, false otherwise."""
 		...
-	def UseEvaluateSwitch(self):...
+	def UseEvaluateSwitch(self)->None:...
 	def __init__(self):...
 class FBCamera(FBModel):
 	"""Creates custom cameras and manages system cameras.
@@ -12615,7 +12618,7 @@ class FBCamera(FBModel):
 	"""Read Only Property: Window height."""
 	WindowWidth:float
 	"""Read Only Property: Window width."""
-	def GetCameraMatrix(self,Matrix:FBMatrix,Type:FBCameraMatrixType,EvalInfo:FBEvaluateInfo|None=None,/):
+	def GetCameraMatrix(self,Matrix:FBMatrix,Type:FBCameraMatrixType,EvalInfo:FBEvaluateInfo|None=None,/)->None:
 		"""Obtains the camera's matrix.
 
 		### Parameters:
@@ -12794,14 +12797,14 @@ class FBModelMarkerOptical(FBModelMarker):
 		### Returns:
 		true if successful."""
 		...
-	def InsertSegmentedData(self,TData:FBAnimationNode,OData:FBAnimationNode,/):
+	def InsertSegmentedData(self,TData:FBAnimationNode,OData:FBAnimationNode,/)->None:
 		"""Insert segmented data.
 
 		### Parameters:
 			- TData: Translation data.
 			- OData: Occlusion data."""
 		...
-	def SetModelOptical(self,Optical:FBModelOptical,/):
+	def SetModelOptical(self,Optical:FBModelOptical,/)->None:
 		"""Set the current optical model.
 
 		### Parameters:
@@ -12829,7 +12832,7 @@ class FBModelOptical(FBModel):
 	"""Read Write Property:Sampling stop time."""
 	Segments:FBPropertyListOpticalSegment
 	"""List: Segments."""
-	def ClearSegments(self,UnUsedOnly:bool=True,/):
+	def ClearSegments(self,UnUsedOnly:bool=True,/)->None:
 		"""Clear the segments (by default only the unused).
 
 		### Parameters:
@@ -12958,7 +12961,7 @@ class FBModelPath3D(FBModel):
 		### Returns:
 		Returns 0 since the new key becomes the first key. If path is invalid, returns 0."""
 		...
-	def PathKeyClear(self):
+	def PathKeyClear(self)->None:
 		"""Clear the path keys."""
 		...
 	def PathKeyEndAdd(self,TLocal:FBVector4d,/)->int:
@@ -13063,16 +13066,16 @@ class FBModelPath3D(FBModel):
 		### Returns:
 		Returns the newly inserted key ID."""
 		...
-	def PathKeyRemove(self,KeyIndex:int,/):
+	def PathKeyRemove(self,KeyIndex:int,/)->None:
 		"""Remove key at a particular index.
 
 		### Parameters:
 			- KeyIndex: Key ID at which key is to be removed."""
 		...
-	def PathKeyRemoveSelected(self):
+	def PathKeyRemoveSelected(self)->None:
 		"""Remove the selected keys from the path."""
 		...
-	def PathKeySet(self,KeyIndex:int,TLocal:FBVector4d,Update:bool=True,/):
+	def PathKeySet(self,KeyIndex:int,TLocal:FBVector4d,Update:bool=True,/)->None:
 		"""Set the local coordinate vector values for path at a particular key index.
 
 		### Parameters:
@@ -13091,7 +13094,7 @@ class FBModelPath3D(FBModel):
 		### Returns:
 		True if successful, otherwise false."""
 		...
-	def PathKeySetLeftRightTangent(self,KeyIndex:int,KeyTLocal:FBVector4d,LeftTangentTLocal:FBVector4d,RightTangentTLocal:FBVector4d,Update:bool=True,/):
+	def PathKeySetLeftRightTangent(self,KeyIndex:int,KeyTLocal:FBVector4d,LeftTangentTLocal:FBVector4d,RightTangentTLocal:FBVector4d,Update:bool=True,/)->None:
 		"""Set path's vectors for key, left tangent and right tangent at a particular key index.
 
 		### Parameters:
@@ -13101,7 +13104,7 @@ class FBModelPath3D(FBModel):
 			- RightTangentTLocal: Vector to use to set values to Key Right Tangent
 			- Update: **true** if geometry update is required, **false** if not required (default=true)"""
 		...
-	def PathKeySetLeftTangent(self,KeyIndex:int,TLocal:FBVector4d,Update:bool=True,/):
+	def PathKeySetLeftTangent(self,KeyIndex:int,TLocal:FBVector4d,Update:bool=True,/)->None:
 		"""Set path's key left tangent vector for designated index.
 
 		### Parameters:
@@ -13109,7 +13112,7 @@ class FBModelPath3D(FBModel):
 			- TLocal: Vector to use to set values to Key
 			- Update: **true** if geometry update is required, **false** if not required (default=true)"""
 		...
-	def PathKeySetRightTangent(self,KeyIndex:int,TLocal:FBVector4d,Update:bool=True,/):
+	def PathKeySetRightTangent(self,KeyIndex:int,TLocal:FBVector4d,Update:bool=True,/)->None:
 		"""Set 3D path's key right tangent vector for designated index.
 
 		### Parameters:
@@ -13117,7 +13120,7 @@ class FBModelPath3D(FBModel):
 			- TLocal: Vector to use to set values to Key
 			- Update: **true** if geometry update is required, **false** if not required (default=true)"""
 		...
-	def PathKeySetXDerivative(self,KeyIndex:int,Derivative:float,Update:bool,/):
+	def PathKeySetXDerivative(self,KeyIndex:int,Derivative:float,Update:bool,/)->None:
 		"""Set derivative in X coordinate for a path tangent.
 
 		This works only if key interpolation type is CUBIC and tangent mode is User, Break or Auto.
@@ -13126,7 +13129,7 @@ class FBModelPath3D(FBModel):
 			- Derivative: Value of the derivative to apply to tangent
 			- Update: **true** if geometry update is required, **false** if not required (default=true)"""
 		...
-	def PathKeySetXYZDerivative(self,KeyIndex:int,Derivative:FBVector4d,Update:bool,/):
+	def PathKeySetXYZDerivative(self,KeyIndex:int,Derivative:FBVector4d,Update:bool,/)->None:
 		"""Set derivative in XYZ coordinates for a path tangent.
 
 		This works only if key interpolation type is CUBIC and tangent mode is User, Break or Auto.
@@ -13135,7 +13138,7 @@ class FBModelPath3D(FBModel):
 			- Derivative: Value of the derivative to apply to tangent
 			- Update: **true** if geometry update is required, **false** if not required (default=true)"""
 		...
-	def PathKeySetYDerivative(self,KeyIndex:int,Derivative:float,Update:bool,/):
+	def PathKeySetYDerivative(self,KeyIndex:int,Derivative:float,Update:bool,/)->None:
 		"""Set derivative in Y coordinate for a path tangent.
 
 		This works only if key interpolation type is CUBIC and tangent mode is User, Break or Auto.
@@ -13144,7 +13147,7 @@ class FBModelPath3D(FBModel):
 			- Derivative: Value of the derivative to apply to tangent
 			- Update: **true** if geometry update is required, **false** if not required (default=true)"""
 		...
-	def PathKeySetZDerivative(self,KeyIndex:int,Derivative:float,Update:bool,/):
+	def PathKeySetZDerivative(self,KeyIndex:int,Derivative:float,Update:bool,/)->None:
 		"""Set derivative in Z coordinate for a path tangent.
 
 		This works only if key interpolation type is CUBIC and tangent mode is User, Break or Auto.
@@ -13208,13 +13211,13 @@ class FBModelPath3D(FBModel):
 		### Returns:
 		Vector value at the required point in the path"""
 		...
-	def ShowCurveControls(self,Show:bool,/):
+	def ShowCurveControls(self,Show:bool,/)->None:
 		"""Enable or disable displaying Curve Controls for the 3D model path.
 
 		### Parameters:
 			- Show: **true** if curve controls are to be displayed **false** if not required"""
 		...
-	def ShowCurvePoints(self,Show:bool,/):
+	def ShowCurvePoints(self,Show:bool,/)->None:
 		"""Enable or disable displaying Curve Points for the 3D model path.
 
 		### Parameters:
@@ -13265,7 +13268,7 @@ class FBModelPath3D(FBModel):
 		### Returns:
 		Derivative value at the required point in the path"""
 		...
-	def UpdateGeometry(self):
+	def UpdateGeometry(self)->None:
 		"""Update path geometry explicitly."""
 		...
 	def __init__(self,Name:str,/):
@@ -13323,7 +13326,7 @@ class FBModelSkeleton(FBModel):
 	"""Read Write Property: Resolution of skeleton node. (Note: Only effective when the look is set to: Sphere, Capsule or Stick)"""
 	Size:float
 	"""Read Write Property: Size (not related to scaling)."""
-	def GetSkinModelList(self,SkinModelList:FBModelList,/):
+	def GetSkinModelList(self,SkinModelList:FBModelList,/)->None:
 		"""Return the list of skin model associated with this Skeleton(Bone), which could be the deformable skins connected via cluster, or non deformable skins which are parented directly under this bone.
 
 		### Parameters:
@@ -13583,7 +13586,7 @@ class FBAudioClip(FBComponent):
 		### Returns:
 		Return true if the buffer for the audio clip was successfully allocated so that you can hear the sound."""
 		...
-	def Stop(self,Destination:FBAudioOut|None=None,/):
+	def Stop(self,Destination:FBAudioOut|None=None,/)->None:
 		"""Stop any playing triggered audio clip on a specified destination.
 
 		### Parameters:
@@ -13694,7 +13697,7 @@ class FBAssetMng(FBComponent):
 		### Returns:
 		A string with the resulting server path, will be empty if the mapping fail."""
 		...
-	def ShowSettings(self):
+	def ShowSettings(self)->None:
 		"""Display a dialog that let the user changes settings."""
 		...
 	def WithinManagedPath(self,LocalPath:str,/)->bool:
@@ -13766,10 +13769,10 @@ class FBAssetItem(FBComponent):
 		### Returns:
 		The server path as an FBString."""
 		...
-	def ShowHistory(self):
+	def ShowHistory(self)->None:
 		"""Display a dialog with this item history."""
 		...
-	def ShowProperties(self):
+	def ShowProperties(self)->None:
 		"""Display a dialog showing the properties of this item."""
 		...
 	def UndoCheckOut(self,ReplaceLocalFile:bool=True,Silent:bool=False,/)->bool:
@@ -13860,7 +13863,7 @@ class FBApplication(FBComponent):
 		### Returns:
 		The status of the operation."""
 		...
-	def FileExit(self,Save:bool=False,ExitCode:int=0,/):
+	def FileExit(self,Save:bool=False,ExitCode:int=0,/)->None:
 		"""Quit application.
 
 		Command File->Exit in the menus.
@@ -14053,7 +14056,7 @@ class FBApplication(FBComponent):
 		true if successful.
 		[See sample: SaveSelected.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_save_selected_8py-example.html)"""
 		...
-	def FlushEventQueue(self):
+	def FlushEventQueue(self)->None:
 		"""Flush event queue.
 
 		Processes all pending events for the calling thread until there are no more events to process. You can call this function occasionally when your code is busy performing a long operation (e.g. copying a file)."""
@@ -14144,7 +14147,7 @@ class FBApplication(FBComponent):
 		### Returns:
 		The application that MotionBuilder is connected to."""
 		...
-	def OneClickSelectPreviouslySentObject(self):
+	def OneClickSelectPreviouslySentObject(self)->None:
 		"""Select, in MotionBuilder, the object that were sent."""
 		...
 	def OneClickSendAsNewScene(self,Application:FBOneClickApplication,/)->bool:
@@ -14173,43 +14176,43 @@ class FBApplication(FBComponent):
 		### Warning:
 		After save, the current scene selection will be reset."""
 		...
-	def SetSceneAuthor(self,Author:str,/):
+	def SetSceneAuthor(self,Author:str,/)->None:
 		"""Set the scene author.
 
 		### Parameters:
 			- Author: The author to set in the scene properties."""
 		...
-	def SetSceneComment(self,Comment:str,/):
+	def SetSceneComment(self,Comment:str,/)->None:
 		"""Set the scene comment.
 
 		### Parameters:
 			- Comment: The comment to set in the scene properties."""
 		...
-	def SetSceneKeywords(self,Keywords:str,/):
+	def SetSceneKeywords(self,Keywords:str,/)->None:
 		"""Set the scene keywords.
 
 		### Parameters:
 			- Keywords: The keywords to set in the scene properties."""
 		...
-	def SetSceneRevisionNumber(self,RevNumber:str,/):
+	def SetSceneRevisionNumber(self,RevNumber:str,/)->None:
 		"""Set the scene revision number.
 
 		### Parameters:
 			- RevNumber: The revision number to set in the scene properties."""
 		...
-	def SetSceneSubject(self,Subject:str,/):
+	def SetSceneSubject(self,Subject:str,/)->None:
 		"""Set the scene subject.
 
 		### Parameters:
 			- Subject: The subject to set in the scene properties."""
 		...
-	def SetSceneTitle(self,Title:str,/):
+	def SetSceneTitle(self,Title:str,/)->None:
 		"""Set the scene title.
 
 		### Parameters:
 			- Title: The title to set in the scene properties."""
 		...
-	def UpdateAllWidgets(self):
+	def UpdateAllWidgets(self)->None:
 		"""Request to refresh display of all UI widgets."""
 		...
 	def __init__(self):...
@@ -14308,7 +14311,7 @@ class FBAnimationLayer(FBComponent):
 		...
 	@Weight.setter
 	def Weight(self, Value: FBPropertyAnimatableDouble|float):...
-	def AddChildLayer(self,AnimationLayer:FBAnimationLayer,/):
+	def AddChildLayer(self,AnimationLayer:FBAnimationLayer,/)->None:
 		"""Add a child to the layer.
 
 		Layer ID of the new child layer might change after parenting depending where the child layer was originally located.
@@ -14358,7 +14361,7 @@ class FBAnimationLayer(FBComponent):
 		### Returns:
 		True if the layer is selected, false otherwise."""
 		...
-	def SelectLayer(self,Value:bool,ExclusiveSelect:bool,/):
+	def SelectLayer(self,Value:bool,ExclusiveSelect:bool,/)->None:
 		"""Select the layer.
 
 		This is the equivalent of selecting the layer in the UI in the Animation Layer Editor tool
@@ -14366,7 +14369,7 @@ class FBAnimationLayer(FBComponent):
 			- Value: True if the layer will be selected, false otherwise.
 			- ExclusiveSelect: If pValue is true, passing true will deselect all the other layers, creating an exclusive selection, it will also set the layer as the current layer."""
 		...
-	def SetParentLayer(self,ParentLayer:FBAnimationLayer,/):
+	def SetParentLayer(self,ParentLayer:FBAnimationLayer,/)->None:
 		"""Set the parent layer.
 
 		### Parameters:
@@ -14456,13 +14459,13 @@ class FBConstructionHistory(FBComponent):
 	"""Access to global construction history functionality."""
 	OnChange:callbackframework.FBEventSource
 	"""Event: History changed."""
-	def GetDeltaOperations(self,Operations:list,sinceCommandId:int,/):
+	def GetDeltaOperations(self,Operations:list,sinceCommandId:int,/)->None:
 		"""GetDeltaOperations Get the list of delta operations in the construction history.
 
 		### Parameters:
 			- Operations: Array of operations, will be filled by the function."""
 		...
-	def GetScriptOutput(self,script:list,errors:list,/):
+	def GetScriptOutput(self,script:list,errors:list,/)->None:
 		"""GetScriptOutput Returns the output from the scripting engine.
 
 		### Parameters:
@@ -14475,13 +14478,13 @@ class FBConstructionHistory(FBComponent):
 		### Returns:
 		returns a [FBConstructionHistoryState](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_construction_history_state.html "Construction history manager state.") indicating the state"""
 		...
-	def NetDelete(self,component:FBComponent,key:int,/):
+	def NetDelete(self,component:FBComponent,key:int,/)->None:
 		"""NetDelete Network delete with support for Network Undo.
 
 		### Parameters:
 			- key: A key that uniquely identifies the operation"""
 		...
-	def NetUndo(self,key:int,/):
+	def NetUndo(self,key:int,/)->None:
 		"""NetUndo Perform network undo operation.
 
 		### Parameters:
@@ -14635,24 +14638,24 @@ class FBDeck(FBComponent):
 	"""Read Write Property: Mode w/r to TC (None, Sync, Main );"""
 	UniqueName:str
 	"""internal Unique name."""
-	def CueAt(self,Time:FBTime,/):
+	def CueAt(self,Time:FBTime,/)->None:
 		"""Cue deck at a given time.
 
 		### Parameters:
 			- Time: Time to cue deck at."""
 		...
-	def DeckAutoCommandsNotify(self):
+	def DeckAutoCommandsNotify(self)->None:
 		"""Deck auto commands notification."""
 		...
-	def DeckStatusUpdateNotify(self):
+	def DeckStatusUpdateNotify(self)->None:
 		"""Interface to IObject.
 
 		Deck status update notification."""
 		...
-	def Eject(self):
+	def Eject(self)->None:
 		"""Eject tape."""
 		...
-	def Forward(self):
+	def Forward(self)->None:
 		"""Fast forward."""
 		...
 	def GetTime(self)->FBTime:
@@ -14661,31 +14664,31 @@ class FBDeck(FBComponent):
 		### Returns:
 		Time of deck."""
 		...
-	def Play(self,Speed:float=1.0,/):
+	def Play(self,Speed:float=1.0,/)->None:
 		"""Play forwards.
 
 		### Parameters:
 			- Speed: Playback speed (default is 1.0)."""
 		...
-	def ReversePlay(self,Speed:float=1.0,/):
+	def ReversePlay(self,Speed:float=1.0,/)->None:
 		"""Play backwards.
 
 		### Parameters:
 			- Speed: Playback speed(default is 1.0)."""
 		...
-	def Rewind(self):
+	def Rewind(self)->None:
 		"""Rewind."""
 		...
-	def StepBack(self):
+	def StepBack(self)->None:
 		"""Step backwards."""
 		...
-	def StepForward(self):
+	def StepForward(self)->None:
 		"""Step forwards."""
 		...
-	def Stop(self):
+	def Stop(self)->None:
 		"""Stop."""
 		...
-	def ThreadSync(self):...
+	def ThreadSync(self)->None:...
 class FBDeformer(FBComponent):
 	"""Base Model deformer class."""
 	DeformerType:FBDeformerType
@@ -14702,7 +14705,7 @@ class FBDeviceInstrument(FBComponent):
 	"""Read Write Property: Handle to owner device."""
 	ModelTemplate:FBModelTemplate
 	"""Read Write Property: Model template to build instruments' structure."""
-	def InstrumentRecordFrame(self,RecordTime:FBTime,NotifyInfo:FBDeviceNotifyInfo,/):
+	def InstrumentRecordFrame(self,RecordTime:FBTime,NotifyInfo:FBDeviceNotifyInfo,/)->None:
 		"""Record the data to the function curves for the instrument.
 
 		### Parameters:
@@ -14760,7 +14763,7 @@ class FBDeviceOpticalMarker(FBComponent):
 	Occlusion:float
 	"""Property: Occulsion data for marker."""
 	Translation:property
-	def SetData(self,X:float,Y:float,Z:float=0.0,Occlusion:float=0.0,/):
+	def SetData(self,X:float,Y:float,Z:float=0.0,Occlusion:float=0.0,/)->None:
 		"""Set data for optical marker.
 
 		### Parameters:
@@ -14796,7 +14799,7 @@ class FBEvaluateManager(FBComponent):
 	"""DEPRICATED Read/Write Property: choose between serial and parallel DAG schedule algorithm. kFBParallelScheduleSimple and kFBParallelScheduleAdvanced will set ParallelEvalution to true. kFBParallelScheduleSerial will set ParallelEvalution to false"""
 	UseGPUDeformation:bool
 	"""Read/Write Property: true if GPU deformation is used."""
-	def InvalidateDAG(self):
+	def InvalidateDAG(self)->None:
 		"""Invalidate the DAG and trigger parallel scheduling at the next frame."""
 		...
 	def IsInteractiveMode(self)->bool:
@@ -15102,7 +15105,7 @@ class FBFbxOptions(FBComponent):
 			- String: The string containing all settings, target of serializing
 			- context: The context to be used when serializing"""
 		...
-	def SetAll(self,ElementAction:FBElementAction,Animation:bool,/):
+	def SetAll(self,ElementAction:FBElementAction,Animation:bool,/)->None:
 		"""Set All Options.
 
 		Initialize all loading/saving properties to ElementAction and animation specified.
@@ -15110,14 +15113,14 @@ class FBFbxOptions(FBComponent):
 			- ElementAction: Default value for all FBPropertyElementAction properties.
 			- Animation: Default value for all Animation properties."""
 		...
-	def SetFromString(self,String:str,/):
+	def SetFromString(self,String:str,/)->None:
 		"""Set all options from string Set all parameters from a formatted string (previously serialized with SaveToString)
 
 		### Parameters:
 			- String: The string containing all settings. See SaveToFile
 			- context: The context to be used when de-serializing"""
 		...
-	def SetMultiLoadNamespaceList(self,MultiLoadNamespaceList:FBStringList,/):
+	def SetMultiLoadNamespaceList(self,MultiLoadNamespaceList:FBStringList,/)->None:
 		"""Sets the list of namespaces that will be used when merging multiple scenes (see [FBApplication::FileMerge](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_application.html#abbf8c31278a9d05ff41c5a3826058537 "Merge one or multiple files with the current scene.")).
 
 		The number of namespaces contained in this list must match the number of files merged, otherwise the merge operation will abort. The first namespace in the list will be applied on the first merged scene, the second namespace in the list will be applied on the second merged scene, and so one and so forth. This list is affecting only the merge operation. When merging multiple scenes, if this list of namespaces is set, the [FBFbxOptions::NamespaceList](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_fbx_options.html#a0a39e5fc1811f92fa35ed80c332bb75f "Read Write Property: A list of namespaces separated by '~'. On Load, duplicate the loaded objects int...") property value is ignored.
@@ -15142,28 +15145,28 @@ class FBFbxOptions(FBComponent):
 		### Parameters:
 			- MultiLoadNamespaceList: The multi load namespace list to set."""
 		...
-	def SetObjectsToSave(self,ObjectsToSave:list[FBComponent],/):
+	def SetObjectsToSave(self,ObjectsToSave:list[FBComponent],/)->None:
 		"""Sets the list of objects that will be saved.
 
 		This needs to be set before calling [FBApplication::FileSave](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_application.html#af8c039b1b182fa56ef15e22d4557157d "Save the file under another name."). The list is affecting only one save operation. Once the save is completed, the list is cleared.
 		### Parameters:
 			- ObjectsToSave: The objects to save."""
 		...
-	def SetTakeDescription(self,TakeIndex:int,Description:str,/):
+	def SetTakeDescription(self,TakeIndex:int,Description:str,/)->None:
 		"""Take Description.
 
 		### Parameters:
 			- TakeIndex: index of take to set.
 			- Description: take description to set"""
 		...
-	def SetTakeDestinationName(self,TakeIndex:int,DestinationName:str,/):
+	def SetTakeDestinationName(self,TakeIndex:int,DestinationName:str,/)->None:
 		"""Take Destination Name upon save or load.
 
 		### Parameters:
 			- TakeIndex: index of take to set.
 			- DestinationName: take description to set"""
 		...
-	def SetTakeKeyRange(self,TakeIndex:int,KeyTimeSpan:FBTimeSpan,/):
+	def SetTakeKeyRange(self,TakeIndex:int,KeyTimeSpan:FBTimeSpan,/)->None:
 		"""Set take key range.
 
 		### Parameters:
@@ -15173,14 +15176,14 @@ class FBFbxOptions(FBComponent):
 		### Remarks:
 		Valid only on load/merge, not when saving a file."""
 		...
-	def SetTakeName(self,TakeIndex:int,Name:str,/):
+	def SetTakeName(self,TakeIndex:int,Name:str,/)->None:
 		"""Take Original Name.
 
 		### Parameters:
 			- TakeIndex: index of take to set.
 			- Name: take name to set"""
 		...
-	def SetTakeSelect(self,TakeIndex:int,Select:bool,/):
+	def SetTakeSelect(self,TakeIndex:int,Select:bool,/)->None:
 		"""Return if true if the take will be saved or Loaded.
 
 		### Parameters:
@@ -15206,26 +15209,26 @@ class FBFileMonitoringManager(FBComponent):
 	"""Event: Main scene file change event."""
 	OnFileChangePythonEditorScript:callbackframework.FBEventSource
 	"""Event: Python Editor Script file change event."""
-	def AddFileToMonitor(self,FilePath:str,FileMonitoringType:FBFileMonitoringType,/):
+	def AddFileToMonitor(self,FilePath:str,FileMonitoringType:FBFileMonitoringType,/)->None:
 		"""Add file to monitor.
 
 		### Parameters:
 			- FilePath: The file path to monitor.
 			- FileMonitoringType: The monitor type of this file."""
 		...
-	def CleanFileMonitoring(self,IncludePythonEditorScripts:bool=True,/):
+	def CleanFileMonitoring(self,IncludePythonEditorScripts:bool=True,/)->None:
 		"""Clean files and directories currently been monitored.
 
 		### Parameters:
 			- IncludePythonEditorScripts: True to also clean the monitoring of Python Editor script files loaded, false otherwise."""
 		...
-	def PauseFileMonitoring(self,Pause:bool=True,/):
+	def PauseFileMonitoring(self,Pause:bool=True,/)->None:
 		"""Pause file from monitoring, except for Python Editor script files loaded.
 
 		### Parameters:
 			- Pause: True to pause the file monitoring, false to resume."""
 		...
-	def RemoveFileFromMonitor(self,FilePath:str,/):
+	def RemoveFileFromMonitor(self,FilePath:str,/)->None:
 		"""Remove file from monitoring.
 
 		### Parameters:
@@ -15306,7 +15309,7 @@ class FBFilter(FBComponent):
 		### Returns:
 		true if successful."""
 		...
-	def Reset(self):
+	def Reset(self)->None:
 		"""Reset properties.
 
 		### Warning:
@@ -15368,7 +15371,7 @@ class FBGenericMenu(FBComponent):
 	[See sample: FBMenu.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_f_b_menu_8py-example.html)"""
 	OnMenuActivate:callbackframework.FBEventSource
 	"""Event Property: Register on this property to be notified when a menu item is clicked by the user."""
-	def DeleteItem(self,ToDelete:FBGenericMenuItem,/):
+	def DeleteItem(self,ToDelete:FBGenericMenuItem,/)->None:
 		"""Remove a menu item from the menu and delete it.
 
 		### Parameters:
@@ -15720,7 +15723,7 @@ class FBGeometry(FBComponent):
 		### Returns:
 		the index of the new shape, -1 if the shape adding fail."""
 		...
-	def ShapeClearAll(self):
+	def ShapeClearAll(self)->None:
 		"""Clears all the shapes."""
 		...
 	def ShapeGetCount(self)->int:
@@ -15730,7 +15733,7 @@ class FBGeometry(FBComponent):
 	def ShapeGetName(self,ShapeIdx:int,/)->str:
 		"""Return the shape Name."""
 		...
-	def ShapeInit(self,ShapeIdx:int,DiffSize:int,WithNormal:bool,/):
+	def ShapeInit(self,ShapeIdx:int,DiffSize:int,WithNormal:bool,/)->None:
 		"""Init the shape.
 
 		### Parameters:
@@ -15862,7 +15865,7 @@ class FBGeometry(FBComponent):
 		### Returns:
 		true if the vertex is visible, false if not"""
 		...
-	def VertexInit(self,Size:int,Resize:bool,InitUV:bool=True,InitVertexColor:bool=False,/):
+	def VertexInit(self,Size:int,Resize:bool,InitUV:bool=True,InitVertexColor:bool=False,/)->None:
 		"""Resize or Reserve vertex, normal and UV array for performance.
 
 		### Parameters:
@@ -15988,13 +15991,13 @@ class FBMesh(FBGeometry):
 	"""Mesh class.
 
 	[See samples: GeometryInstancing.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_geometry_0c_geometry_instancing_8py-example.html) [VertexArrayManipulation.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_geometry_0c_vertex_array_manipulation_8py-example.html) [VertexColor.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_geometry_0c_vertex_color_8py-example.html)"""
-	def ComputeVertexNormals(self,CW:bool=False,/):
+	def ComputeVertexNormals(self,CW:bool=False,/)->None:
 		"""Compute Mesh Vertex Normal.
 
 		### Parameters:
 			- CW: **True** for clock wise normal, otherwise for counter-clock wise"""
 		...
-	def InverseNormal(self):
+	def InverseNormal(self)->None:
 		"""Inverse Normal."""
 		...
 	def IsTriangleMesh(self)->bool:
@@ -16132,7 +16135,7 @@ class FBImage(FBComponent):
 	"""Read Only Property: Image type, refering to either frame or field."""
 	Width:int
 	"""Read Write Property: Width of the image in pixels."""
-	def Cleanup(self):
+	def Cleanup(self)->None:
 		"""Cleanup image data, making it black."""
 		...
 	def ConvertFormat(self,NewFormat:FBImageFormat,/)->bool:
@@ -16177,7 +16180,7 @@ class FBImage(FBComponent):
 		### Returns:
 		Return true if the TIF file image data is compressed."""
 		...
-	def VerticalFlip(self):
+	def VerticalFlip(self)->None:
 		"""Flip the image vertically."""
 		...
 	def WriteToDisk(self,FileName:str,Comments:str,Quality:int,CompressionType:int,/)->bool:
@@ -16218,7 +16221,7 @@ class FBKeyControl(FBComponent):
 	"""Read Write Property: Enable/Disable Auto Key feature (key when moving 3D objects)."""
 	NewKeyInterpolationType:FBNewKeyInterpolationType
 	"""Read Write Property: Current key interpolation type that will be used for new keys."""
-	def MoveKeys(self,TimeSpan:FBTimeSpan,Pivot:FBModel,T:FBVector3d,R:FBVector3d,S:FBVector3d,Time:FBTime,ModelList:FBModelList|None=None,/):
+	def MoveKeys(self,TimeSpan:FBTimeSpan,Pivot:FBModel,T:FBVector3d,R:FBVector3d,S:FBVector3d,Time:FBTime,ModelList:FBModelList|None=None,/)->None:
 		"""Move animation keys in space, with respect to a pivot object.
 
 		Equivalent to using the "Move Keys" button in the Key Controls panel. Only keys that are part of the current animation layer will get affected.
@@ -16236,23 +16239,23 @@ class FBKeyingGroup(FBComponent):
 	"""KeyingGroup class.
 
 	This class is an interface to manipulate which properties will be keyed when active. A derived class could control when the keying group should activate and what content it should have. For example, a derived class could activate based one that is selected in the scene.To create a custom keying group, use the appropriate [FBKeyingGroupType](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_keying_group_type.html "Keying group types.") flag. Then, if it is a local keying group, call [AddObjectDependency()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_keying_group.html#ae5e7be8f49baf7327ad90d5252144c88 "AddObjectDependency An object dependency is the content of a keying group and will activate keying gr...") to add an object to the keying group. You can then add properties belonging to the new object with [AddProperty()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_keying_group.html#affac1578227f9f95c8112bbb37785300 "Add property to be keyed when current keying group is active.").If you are creating an object type keying group, call [SetObjectType()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_keying_group.html#a33974cdb85e3a5dd1e08b76a54122afe "Set the object type filter for and object type keying group.") to specify what kind of object will be keyed by this keying group. Then, add a property from an object, the name of the property will be used by the keying group the find corresponding properties in selected object.If you create a global keying group, simply properties from an object with [AddProperty()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_keying_group.html#affac1578227f9f95c8112bbb37785300 "Add property to be keyed when current keying group is active."). The name of the property will be used by the keying group to find corresponding properties in the selected object."""
-	def AddObjectDependency(self,Obj:FBComponent,/):
+	def AddObjectDependency(self,Obj:FBComponent,/)->None:
 		"""AddObjectDependency An object dependency is the content of a keying group and will activate keying group when selected (activation only works if the keying group is a character extension).
 
 		### Parameters:
 			- Obj: a Dependency of the keying group."""
 		...
-	def AddProperty(self,Prop:FBProperty,/):
+	def AddProperty(self,Prop:FBProperty,/)->None:
 		"""Add property to be keyed when current keying group is active.
 
 		### Parameters:
 			- Prop: Property to be added."""
 		...
-	def ClearAllItems(self):
+	def ClearAllItems(self)->None:
 		"""ClearAllItems clear object dependency, properties and child keying group."""
 		...
 	@staticmethod
-	def DeselectAllAnimatableProperties():
+	def DeselectAllAnimatableProperties()->None:
 		"""FBDeselectAllAnimatableProperties, deselect all animatable properties in the scene."""
 		...
 	def FindPropertyIndex(self,Prop:FBProperty,/)->int:
@@ -16358,37 +16361,37 @@ class FBKeyingGroup(FBComponent):
 		### Returns:
 		return true as soon as a Property Owner or another Object Dependency is selected."""
 		...
-	def RemoveAllObjectDependency(self):
+	def RemoveAllObjectDependency(self)->None:
 		"""IsObjectDependencySelected empty the content list."""
 		...
-	def RemoveAllProperties(self):
+	def RemoveAllProperties(self)->None:
 		"""IsObjectDependencySelected empty the property list."""
 		...
-	def RemoveAllSubKeyingGroup(self):
+	def RemoveAllSubKeyingGroup(self)->None:
 		"""RemoveAllSubKeyingGroup empty the child keying group."""
 		...
-	def RemoveObjectDependency(self,Obj:FBComponent,/):
+	def RemoveObjectDependency(self,Obj:FBComponent,/)->None:
 		"""RemoveObjectDependency An object dependency is the content of a keying group and will activate keying group when selected (activation only works if the keying group is a character extension).
 
 		### Parameters:
 			- Obj: a Dependency of the keying group."""
 		...
-	def RemoveProperty(self,Prop:FBProperty,/):
+	def RemoveProperty(self,Prop:FBProperty,/)->None:
 		"""RemoveProperty from the keyinggroup list.
 
 		### Parameters:
 			- Prop: Property to be removed."""
 		...
-	def SetActive(self,Active:bool,/):
+	def SetActive(self,Active:bool,/)->None:
 		"""SetActive, activate the keying group, replacing the other keying group."""
 		...
-	def SetActiveAppend(self,Active:bool,/):
+	def SetActiveAppend(self,Active:bool,/)->None:
 		"""SetActiveAppend, activate and append the keying group to the other keying groups."""
 		...
-	def SetEnabled(self,Enable:bool,/):
+	def SetEnabled(self,Enable:bool,/)->None:
 		"""SetEnabled, makes the keying group available in keying group list of the key control UI."""
 		...
-	def SetObjectType(self,Object:FBComponent,/):
+	def SetObjectType(self,Object:FBComponent,/)->None:
 		"""Set the object type filter for and object type keying group.
 
 		### Parameters:
@@ -16400,7 +16403,7 @@ class FBKeyingGroup(FBComponent):
 			- Type: Keying group type."""
 		...
 class FBLogger(FBComponent):
-	def DisableClear(self):...
+	def DisableClear(self)->None:...
 	def DumpObject(self,arg2:FBPlug,arg3,/)->Any:...
 	@overload
 	def Enable(self,arg2,arg3,/)->bool:...
@@ -16432,7 +16435,7 @@ class FBCharacterExtension(FBKeyingGroup):
 	"""Read Write Property: Character extension stance pose mode."""
 	SyncActivationAndVisibilityMode:FBSyncActivationAndVisibilityMode
 	"""Read Write Property: The "Sync Activation & Visibility" mode."""
-	def AddObjectProperties(self,Obj:FBComponent,/):
+	def AddObjectProperties(self,Obj:FBComponent,/)->None:
 		"""Add TR Properties from Object.
 
 		### Parameters:
@@ -16509,7 +16512,7 @@ class FBCharacterExtension(FBKeyingGroup):
 		### Returns:
 		stance pose."""
 		...
-	def GoToStancePose(self):
+	def GoToStancePose(self)->None:
 		"""Reset object position to the stance."""
 		...
 	def IsElementSelected(self)->bool:
@@ -16527,13 +16530,13 @@ class FBCharacterExtension(FBKeyingGroup):
 		### Returns:
 		true if the property is in character extension."""
 		...
-	def RemoveObjectAndProperties(self,Obj:FBComponent,/):
+	def RemoveObjectAndProperties(self,Obj:FBComponent,/)->None:
 		"""Remove TR Properties from Object.
 
 		### Parameters:
 			- Obj: Object to remove TR properties."""
 		...
-	def RemoveRetargetSourceProperty(self,PropIndex:int,/):
+	def RemoveRetargetSourceProperty(self,PropIndex:int,/)->None:
 		"""Remove the source property for retargeting.
 
 		Only applicable if RetargetMode is Manually Assign.
@@ -16543,7 +16546,7 @@ class FBCharacterExtension(FBKeyingGroup):
 		### Remarks:
 		Only applicable if RetargetMode is Manually Assign."""
 		...
-	def SetRetargetSourceProperty(self,PropIndex:int,SourceProp:FBProperty,/):
+	def SetRetargetSourceProperty(self,PropIndex:int,SourceProp:FBProperty,/)->None:
 		"""Set the source property for retargeting.
 
 		Only applicable if RetargetMode is Manually Assign.
@@ -16554,7 +16557,7 @@ class FBCharacterExtension(FBKeyingGroup):
 		### Remarks:
 		Only applicable if RetargetMode is Manually Assign."""
 		...
-	def SetSourceExtension(self,SourceExtension:FBCharacterExtension,/):
+	def SetSourceExtension(self,SourceExtension:FBCharacterExtension,/)->None:
 		"""Set the character extension to drive this extension during retargeting.
 
 		Only applicable if RetargetMode is Assign.
@@ -16564,7 +16567,7 @@ class FBCharacterExtension(FBKeyingGroup):
 		### Remarks:
 		Only applicable if RetargetMode is Assign."""
 		...
-	def SetSourceExtensionIndex(self,SrcExtIndex:int,/):
+	def SetSourceExtensionIndex(self,SrcExtIndex:int,/)->None:
 		"""Set the enum that indicate which extension is used as a source during retargeting, 0 is none, 1-n represent the (ith - 1)character extension in the source character.
 
 		Only applicable if RetargetMode is Manually Assign.
@@ -16574,7 +16577,7 @@ class FBCharacterExtension(FBKeyingGroup):
 		### Remarks:
 		Only applicable if RetargetMode is Manually Assign."""
 		...
-	def UpdateStancePose(self):
+	def UpdateStancePose(self)->None:
 		"""Update the stance pose to the current position of the character extension element."""
 		...
 	def __init__(self,Name:str,/):
@@ -16610,13 +16613,13 @@ class FBMarkerSet(FBComponent):
 		### Returns:
 		Index of the new marker."""
 		...
-	def BeginTransaction(self):
+	def BeginTransaction(self)->None:
 		"""Specify that you are about to call a group of functions.
 
 		### Remarks:
 		This is used to speed up operations, the UI won't be refreshed until [EndTransaction()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_marker_set.html#aa9174b2a947fb2febe9bcbf8aec05637 "Specify that you are done calling a group of functions.") is called."""
 		...
-	def EndTransaction(self):
+	def EndTransaction(self)->None:
 		"""Specify that you are done calling a group of functions.
 
 		### Remarks:
@@ -16667,7 +16670,7 @@ class FBMarkerSet(FBComponent):
 		### Returns:
 		True if marker is oriented, false otherwise."""
 		...
-	def GetMarkerROffset(self,NodeId:FBSkeletonNodeId,MarkerIndex:int,ROffset:FBVector3d,/):
+	def GetMarkerROffset(self,NodeId:FBSkeletonNodeId,MarkerIndex:int,ROffset:FBVector3d,/)->None:
 		"""Get/Set a marker rotation.
 
 		### Parameters:
@@ -16681,7 +16684,7 @@ class FBMarkerSet(FBComponent):
 		### Returns:
 		1 if all markers are visible, 2 if some are visible, 0 if none are visible."""
 		...
-	def GetMarkerTOffset(self,NodeId:FBSkeletonNodeId,MarkerIndex:int,TOffset:FBVector3d,/):
+	def GetMarkerTOffset(self,NodeId:FBSkeletonNodeId,MarkerIndex:int,TOffset:FBVector3d,/)->None:
 		"""Get/Set a marker translation.
 
 		### Parameters:
@@ -16714,7 +16717,7 @@ class FBMarkerSet(FBComponent):
 		### Returns:
 		Total number of used marker."""
 		...
-	def SetMarkerModel(self,NodeId:FBSkeletonNodeId,MarkerIndex:int,Model:FBModel,/):
+	def SetMarkerModel(self,NodeId:FBSkeletonNodeId,MarkerIndex:int,Model:FBModel,/)->None:
 		"""Associate a model to a marker.
 
 		### Parameters:
@@ -16722,7 +16725,7 @@ class FBMarkerSet(FBComponent):
 			- MarkerIndex: Index of marker.
 			- Model: Model to be associated to the marker."""
 		...
-	def SetMarkerName(self,NodeId:FBSkeletonNodeId,MarkerIndex:int,MarkerName:str,/):
+	def SetMarkerName(self,NodeId:FBSkeletonNodeId,MarkerIndex:int,MarkerName:str,/)->None:
 		"""Set the name of marker at index pMarkerIndex.
 
 		### Parameters:
@@ -16730,7 +16733,7 @@ class FBMarkerSet(FBComponent):
 			- MarkerIndex: Index of marker to access.
 			- MarkerName: New name to give to the marker."""
 		...
-	def SetMarkerOriented(self,NodeId:FBSkeletonNodeId,MarkerIndex:int,IsOriented:bool,/):
+	def SetMarkerOriented(self,NodeId:FBSkeletonNodeId,MarkerIndex:int,IsOriented:bool,/)->None:
 		"""Set marker to be oriented or not.
 
 		### Parameters:
@@ -16738,15 +16741,15 @@ class FBMarkerSet(FBComponent):
 			- MarkerIndex: Index of marker to access.
 			- IsOriented: Oriented or not."""
 		...
-	def SetMarkerROffset(self,NodeId:FBSkeletonNodeId,MarkerIndex:int,ROffset:FBVector3d,/):...
-	def SetMarkerSetVisibility(self,Visibility:bool,/):
+	def SetMarkerROffset(self,NodeId:FBSkeletonNodeId,MarkerIndex:int,ROffset:FBVector3d,/)->None:...
+	def SetMarkerSetVisibility(self,Visibility:bool,/)->None:
 		"""Set the marker set visibility.
 
 		### Parameters:
 			- Visibility: True will make to markers visible, false will hide them."""
 		...
-	def SetMarkerTOffset(self,NodeId:FBSkeletonNodeId,MarkerIndex:int,TOffset:FBVector3d,/):...
-	def SetMarkerUsed(self,NodeId:FBSkeletonNodeId,MarkerIndex:int,Used:bool,/):
+	def SetMarkerTOffset(self,NodeId:FBSkeletonNodeId,MarkerIndex:int,TOffset:FBVector3d,/)->None:...
+	def SetMarkerUsed(self,NodeId:FBSkeletonNodeId,MarkerIndex:int,Used:bool,/)->None:
 		"""Set marker to be used or not.
 
 		### Parameters:
@@ -16763,7 +16766,7 @@ class FBMarkerSet(FBComponent):
 		### Returns:
 		True if at least one marker was matched."""
 		...
-	def SetReferenceModel(self,ReferenceModel:FBModel,/):
+	def SetReferenceModel(self,ReferenceModel:FBModel,/)->None:
 		"""Associate a model to a marker.
 
 		### Parameters:
@@ -16877,7 +16880,7 @@ class FBMenuManager(FBComponent):
 		### Returns:
 		Is the item enable or not."""
 		...
-	def SetItemEnable(self,MenuPath:str,ItemId:int,Enable:bool,/):
+	def SetItemEnable(self,MenuPath:str,ItemId:int,Enable:bool,/)->None:
 		"""Enable or disable a specific menu item.
 
 		The menu path specifies the menu where we find the item to be enabled/disabled. The Id specifies which item in the menu.
@@ -16913,19 +16916,19 @@ class FBModelOpticalAdvanced(FBComponent):
 	"""Property: Show the rigid quality?"""
 	UsedTake:FBTake
 	"""Property: Take used by optical model."""
-	def AcceptAllSegments(self):
+	def AcceptAllSegments(self)->None:
 		"""Accept all segments."""
 		...
-	def AcceptSegment(self):
+	def AcceptSegment(self)->None:
 		"""Accept current segment."""
 		...
-	def AutomaticBuild(self):
+	def AutomaticBuild(self)->None:
 		"""Automatic build."""
 		...
-	def CropSegmentsAnimation(self):
+	def CropSegmentsAnimation(self)->None:
 		"""Crop segment animation."""
 		...
-	def SkipSegment(self):
+	def SkipSegment(self)->None:
 		"""Skip segment."""
 		...
 	def __init__(self,Optical:FBModelOptical,/):
@@ -16951,13 +16954,13 @@ class FBModelTemplate(FBComponent):
 	Prefix:str
 	"""Read Write Property: Prefix of model template."""
 class FBModelVertexData(FBComponent):
-	def DisableOGLUVSet(self):
+	def DisableOGLUVSet(self)->None:
 		"""Disable OpenGL UV set array."""
 		...
-	def DisableOGLVertexData(self):
+	def DisableOGLVertexData(self)->None:
 		"""Disable OpenGL Vertex Array (Pos & Normal)."""
 		...
-	def DrawSubPatch(self,SubPatchIndex:int,WireFrame:bool=False,/):
+	def DrawSubPatch(self,SubPatchIndex:int,WireFrame:bool=False,/)->None:
 		"""Draw the specified sub patch.
 
 		Must be called between Enable/DisableOGLVertexData function calls.
@@ -16965,7 +16968,7 @@ class FBModelVertexData(FBComponent):
 			- SubPatchIndex: Index of the sub patch to be drawn.
 			- WireFrame: Draw wire frame if true."""
 		...
-	def DrawSubRegion(self,SubRegionIndex:int,WireFrame:bool=False,/):
+	def DrawSubRegion(self,SubRegionIndex:int,WireFrame:bool=False,/)->None:
 		"""Draw the specified sub region.
 
 		Must be called between Enable/DisableOGLVertexData function calls.
@@ -16973,14 +16976,14 @@ class FBModelVertexData(FBComponent):
 			- SubRegionIndex: Index of the sub region to be drawn.
 			- WireFrame: Draw wire frame if true."""
 		...
-	def EnableOGLUVSet(self,TextureMapping:FBTextureMapping=FBTextureMapping.kFBTextureMappingUV,UVSet:str|None=None,/):
+	def EnableOGLUVSet(self,TextureMapping:FBTextureMapping=FBTextureMapping.kFBTextureMappingUV,UVSet:str|None=None,/)->None:
 		"""Enable (Setup) OpenGL UV set array.
 
 		### Parameters:
 			- TextureMapping: Texture Mapping Mode.
 			- UVSet: UV Set name if pTextureMapping is kFBTextureMappingUV, otherwise ignored."""
 		...
-	def EnableOGLVertexData(self,AfterDeform:bool=True,/):
+	def EnableOGLVertexData(self,AfterDeform:bool=True,/)->None:
 		"""Enable (Setup) OpenGL Vertex Array (Pos & Normal).
 
 		### Parameters:
@@ -17241,22 +17244,22 @@ class FBModelVertexData(FBComponent):
 		### Returns:
 		True if the model should be drawn, false otherwise."""
 		...
-	def PopZDepthClipOverride(self):
+	def PopZDepthClipOverride(self)->None:
 		"""Re-enables Z-Depth clip plane if it had been disabled via [PushZDepthClipOverride()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_model_vertex_data.html#a478fa49bf444e972b3dfaa483207a89b "Disables Z-Depth clip plane if this model is selected using Z-Depth HideFront selection tool.").
 
 		Call this function after drawing each model in custom render callback, so that Z-Depth clip plane is re-enabled if it was earlier disabled via [PushZDepthClipOverride()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_model_vertex_data.html#a478fa49bf444e972b3dfaa483207a89b "Disables Z-Depth clip plane if this model is selected using Z-Depth HideFront selection tool.")."""
 		...
-	def PushZDepthClipOverride(self):
+	def PushZDepthClipOverride(self)->None:
 		"""Disables Z-Depth clip plane if this model is selected using Z-Depth HideFront selection tool.
 
 		Call this function before drawing each model in custom render callback, so that the selected model is unaffected by the Z-Depth clip plane, and hence is visible when Z-Depth HideFront selection tool is active. Be sure to call [PopZDepthClipOverride()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_model_vertex_data.html#a5fefcc913f7ea12d5d3107a2b3356e62 "Re-enables Z-Depth clip plane if it had been disabled via PushZDepthClipOverride().") after drawing each model."""
 		...
-	def VertexArrayMappingRelease(self):
+	def VertexArrayMappingRelease(self)->None:
 		"""Release deformed vertex array mapping on CPU.
 
 		Call this function if plug-in don't need CPU access of the deformed vertex array to be mapped on CPU memory anymore, hence allow the application flexibility to choose higher performance approach."""
 		...
-	def VertexArrayMappingRequest(self):
+	def VertexArrayMappingRequest(self)->None:
 		"""Request deformed vertex array mapping on CPU.
 
 		Model's deformation computation could be executed on GPU, and thus the deformed vertex data will reside in GPU memory only by default. Calling this function [VertexArrayMappingRequest()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_model_vertex_data.html#ad98d06b4eb79ec2b2218f03be0b13469 "Request deformed vertex array mapping on CPU.") will ensure the deformed vertex array to be always mapped to CPU memory.
@@ -17777,14 +17780,14 @@ class FBMotionFileImportOptions(FBComponent):
 		### Returns:
 		Stop time of the take"""
 		...
-	def SetTakeName(self,TakeIndex:int,Name:str,/):
+	def SetTakeName(self,TakeIndex:int,Name:str,/)->None:
 		"""Set the take name.
 
 		### Parameters:
 			- TakeIndex: Index of take to set.
 			- Name: Take name to set"""
 		...
-	def SetTakeSamples(self,TakeIndex:int,SamplesCount:int,/):
+	def SetTakeSamples(self,TakeIndex:int,SamplesCount:int,/)->None:
 		"""Set the number of samples for a particular take.
 
 		### Parameters:
@@ -17794,7 +17797,7 @@ class FBMotionFileImportOptions(FBComponent):
 		### Remarks:
 		Must be set to a value bigger than 0 and smaller than the number of samples in the file. The stop time of the motion will be changed based on the new samples count."""
 		...
-	def SetTakeSamplingRate(self,TakeIndex:int,TimeMode:FBTimeMode,CustomSamplingRate:float=30.0,/):
+	def SetTakeSamplingRate(self,TakeIndex:int,TimeMode:FBTimeMode,CustomSamplingRate:float=30.0,/)->None:
 		"""Set the sampling rate for a particular take.
 
 		### Parameters:
@@ -17805,14 +17808,14 @@ class FBMotionFileImportOptions(FBComponent):
 		### Remarks:
 		Changing the sampling rate will change the stop time of the motion."""
 		...
-	def SetTakeSelect(self,TakeIndex:int,Select:bool,/):
+	def SetTakeSelect(self,TakeIndex:int,Select:bool,/)->None:
 		"""Indicate if the take will be loaded.
 
 		### Parameters:
 			- TakeIndex: Index of take to set.
 			- Select: Set to true if the take should be loaded."""
 		...
-	def SetTakeStart(self,TakeIndex:int,StartTime:FBTime,/):
+	def SetTakeStart(self,TakeIndex:int,StartTime:FBTime,/)->None:
 		"""Set the Take Start time.
 
 		### Parameters:
@@ -17822,7 +17825,7 @@ class FBMotionFileImportOptions(FBComponent):
 		### Remarks:
 		Changing the start time of the take will also change the stop time, since the duration is constant. Please change the samples count to change the length of the motion."""
 		...
-	def SetTakeStop(self,TakeIndex:int,StopTime:FBTime,/):
+	def SetTakeStop(self,TakeIndex:int,StopTime:FBTime,/)->None:
 		"""Set the Take Stop time.
 
 		### Parameters:
@@ -17857,7 +17860,7 @@ class FBNamespace(FBComponent):
 
 		return content objects count inside this namespace (not recursive)"""
 		...
-	def GetContentList(self,ContentList:FBComponentList,ModificationFlags:FBPlugModificationFlag=FBPlugModificationFlag.kFBPlugAllContent,Recursive:bool=True,TypeInfo:int=FBPlug.TypeInfo,ExactTypeMatch:bool=False,/):
+	def GetContentList(self,ContentList:FBComponentList,ModificationFlags:FBPlugModificationFlag=FBPlugModificationFlag.kFBPlugAllContent,Recursive:bool=True,TypeInfo:int=FBPlug.TypeInfo,ExactTypeMatch:bool=False,/)->None:
 		"""Get List of the namespace content.
 
 		### Parameters:
@@ -17881,7 +17884,7 @@ class FBOpticalGap(FBComponent):
 	"""Property: Gap mode."""
 	TimeSpan:FBTimeSpan
 	"""Property: Current timespan."""
-	def InsertControlKey(self,Time:FBTime,/):
+	def InsertControlKey(self,Time:FBTime,/)->None:
 		"""Insert a control key for the gap.
 
 		### Parameters:
@@ -17907,13 +17910,13 @@ class FBFileReference(FBNamespace):
 	"""Read Write Property:  File Reference Load/Unload."""
 	ReferenceFilePath:str
 	"""Read Write Property:  File Reference file path."""
-	def ApplyRefEditPyScriptFromFile(self,RefEditPyScriptFilePath:str,/):
+	def ApplyRefEditPyScriptFromFile(self,RefEditPyScriptFilePath:str,/)->None:
 		"""Apply specified reference edits from python script file.
 
 		### Parameters:
 			- RefEditPyScriptFilePath: Reference edits Python script file path."""
 		...
-	def ApplyRefEditPyScriptFromString(self,RefEditPyScript:str,/):
+	def ApplyRefEditPyScriptFromString(self,RefEditPyScript:str,/)->None:
 		"""Apply specified reference edits from Python script string.
 
 		### Parameters:
@@ -17963,13 +17966,13 @@ class FBFileReference(FBNamespace):
 		### Returns:
 		RefEdit as string"""
 		...
-	def GetRefFileList(self,RefFileList:FBStringList,/):
+	def GetRefFileList(self,RefFileList:FBStringList,/)->None:
 		"""Return a list of ref file path which has cached Ref Edit.
 
 		### Parameters:
 			- RefFileList: the output parameter to collect the Ref File Path."""
 		...
-	def RevertRefEdit(self,Plug:FBPlug|None=None,ModificationFlag:FBPlugModificationFlag=FBPlugModificationFlag.kFBAllModifiedMask,/):
+	def RevertRefEdit(self,Plug:FBPlug|None=None,ModificationFlag:FBPlugModificationFlag=FBPlugModificationFlag.kFBAllModifiedMask,/)->None:
 		"""Revert the modification on the referenced object/property to original state.
 
 		### Parameters:
@@ -18007,7 +18010,7 @@ class FBOpticalSegment(FBComponent):
 	"""Property: Current segment timespan."""
 	Used:bool
 	"""Property: Is segment used?"""
-	def Cut(self,Time:FBTime,/):
+	def Cut(self,Time:FBTime,/)->None:
 		"""Cut the segment for the marker at a given time.
 
 		### Parameters:
@@ -18019,7 +18022,7 @@ class FBOpticalSegment(FBComponent):
 		### Returns:
 		true if segment is valid."""
 		...
-	def Reset(self):
+	def Reset(self)->None:
 		"""Reset the marker segment."""
 		...
 	def __init__(self,Optical:FBModelOptical,/):
@@ -18080,7 +18083,7 @@ class FBPlayerControl(FBComponent):
 		### Returns:
 		The index of the time mark added if the operation is successful, -1 otherwise."""
 		...
-	def DeleteAllGlobalTimeMarks(self):
+	def DeleteAllGlobalTimeMarks(self)->None:
 		"""Delete all global time marks."""
 		...
 	def DeleteGlobalTimeMark(self,Index:int,/)->bool:
@@ -18093,10 +18096,10 @@ class FBPlayerControl(FBComponent):
 		### Returns:
 		True if the operation is successful, false otherwise."""
 		...
-	def EvaluationPause(self):
+	def EvaluationPause(self)->None:
 		"""Pause device evaluation thread."""
 		...
-	def EvaluationResume(self):
+	def EvaluationResume(self)->None:
 		"""Resume device evaluation thread."""
 		...
 	def GetEditCurrentTime(self)->FBTime:
@@ -18241,10 +18244,10 @@ class FBPlayerControl(FBComponent):
 		### Returns:
 		true if successful."""
 		...
-	def GotoNextKey(self):
+	def GotoNextKey(self)->None:
 		"""Go to the next key."""
 		...
-	def GotoPreviousKey(self):
+	def GotoPreviousKey(self)->None:
 		"""Go to the previous key."""
 		...
 	def GotoStart(self,p0:FBTimeReferential|None=None,/)->bool:
@@ -18259,12 +18262,12 @@ class FBPlayerControl(FBComponent):
 	def IsLocked(self)->bool:
 		"""Return the current locking state of the transport."""
 		...
-	def Key(self):
+	def Key(self)->None:
 		"""Key default data.
 
 		Key all selected data."""
 		...
-	def LockTransport(self,Lock:bool,/):
+	def LockTransport(self,Lock:bool,/)->None:
 		"""Lock the transport control.
 
 		### Parameters:
@@ -18298,25 +18301,25 @@ class FBPlayerControl(FBComponent):
 		### Returns:
 		true if successful."""
 		...
-	def SetEditStart(self,Time:FBTime,/):
+	def SetEditStart(self,Time:FBTime,/)->None:
 		"""Set Edit Start.
 
 		### Parameters:
 			- Time: The new start value for the edit time range."""
 		...
-	def SetEditStop(self,Time:FBTime,/):
+	def SetEditStop(self,Time:FBTime,/)->None:
 		"""Set Edit Stop.
 
 		### Parameters:
 			- Time: The new stop value for the edit time range."""
 		...
-	def SetEditZoomStart(self,Time:FBTime,/):
+	def SetEditZoomStart(self,Time:FBTime,/)->None:
 		"""Set Edit Zoom Start.
 
 		### Parameters:
 			- Time: The new start value for the edit zoom window."""
 		...
-	def SetEditZoomStop(self,Time:FBTime,/):
+	def SetEditZoomStop(self,Time:FBTime,/)->None:
 		"""Set Edit Zoom Stop.
 
 		### Parameters:
@@ -18363,25 +18366,25 @@ class FBPlayerControl(FBComponent):
 		### Returns:
 		The new index of the modified time mark."""
 		...
-	def SetPlaySpeed(self,Speed:float,/):
+	def SetPlaySpeed(self,Speed:float,/)->None:
 		"""Set Play Speed.
 
 		### Parameters:
 			- Speed: set customized speed. It will automatically convert to one of pre-defined play speed mode if it is equal to the pre-defined speed."""
 		...
-	def SetPlaySpeedMode(self,PlaySpeedMode:FBTransportPlaySpeed,/):
+	def SetPlaySpeedMode(self,PlaySpeedMode:FBTransportPlaySpeed,/)->None:
 		"""Set Play Speed Mode.
 
 		### Parameters:
 			- PlaySpeedMode: a pre-defined play speed mode. Don't make sense to input kFBSpeed_Custom. To set the custom speed, use [SetPlaySpeed()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_player_control.html#a71716b808406bdac9835b31501b895d4 "Set Play Speed.") function directly."""
 		...
-	def SetTimeReferential(self,TimeReferential:FBTimeReferential,/):
+	def SetTimeReferential(self,TimeReferential:FBTimeReferential,/)->None:
 		"""Set Time Referential.
 
 		### Parameters:
 			- TimeReferential: The new time referential. Only kFBTimeReferentialAction and kFBTimeReferentialEdit are supported"""
 		...
-	def SetTransportFps(self,TimeMode:FBTimeMode,Custom:float=0.0,/):
+	def SetTransportFps(self,TimeMode:FBTimeMode,Custom:float=0.0,/)->None:
 		"""Set the system frame rate use for display.
 
 		### Parameters:
@@ -18462,7 +18465,7 @@ class FBRigidBody(FBComponent):
 	"""Property: Quality of rigid body."""
 	SmoothWidth:int
 	"""Property: Smoothing width."""
-	def ComputeAnimation(self):
+	def ComputeAnimation(self)->None:
 		"""Compute the rigid body animation."""
 		...
 	def IsValid(self)->bool:
@@ -18471,14 +18474,14 @@ class FBRigidBody(FBComponent):
 		### Returns:
 		true if segment is valid."""
 		...
-	def Snap(self):
+	def Snap(self)->None:
 		"""Snap the rigid body."""
 		...
 	def __init__(self,Optical:FBModelOptical,/):
 		"""### Parameters:
 			- Optical: Optical model(default=NULL)."""
 		...
-class FBSVector():
+class FBSVector:
 	"""Three dimensional scaling vector.
 
 	[See sample: Vectors.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_math_0c_vectors_8py-example.html)"""
@@ -18809,7 +18812,7 @@ class FBScene(FBComponent):
 		### Returns:
 		the list of children namespaces."""
 		...
-	def NamespaceGetContentList(self,ContentList:FBComponentList,Namespace:str,ModificationFlags:FBPlugModificationFlag=FBPlugModificationFlag.kFBPlugAllContent,Recursive:bool=True,TypeInfo:int=FBPlug.TypeInfo,ExactTypeMatch:bool=False,/):
+	def NamespaceGetContentList(self,ContentList:FBComponentList,Namespace:str,ModificationFlags:FBPlugModificationFlag=FBPlugModificationFlag.kFBPlugAllContent,Recursive:bool=True,TypeInfo:int=FBPlug.TypeInfo,ExactTypeMatch:bool=False,/)->None:
 		"""Get List of the namespace content.
 
 		### Parameters:
@@ -18868,7 +18871,7 @@ class FBScene(FBComponent):
 		### Note:
 		call with default parameters is considered as renaming of the whole namespace structure, otherwise will be considered as partially renaming individual objects. Renaming permission will be validated accordingly."""
 		...
-	def NamespaceSelectContent(self,Namespace:str,Select:bool,ModificationFlags:FBPlugModificationFlag=FBPlugModificationFlag.kFBPlugAllContent,Recursive:bool=True,TypeInfo:int=FBPlug.TypeInfo,ExactTypeMatch:bool=False,/):
+	def NamespaceSelectContent(self,Namespace:str,Select:bool,ModificationFlags:FBPlugModificationFlag=FBPlugModificationFlag.kFBPlugAllContent,Recursive:bool=True,TypeInfo:int=FBPlug.TypeInfo,ExactTypeMatch:bool=False,/)->None:
 		"""Select (or de-select) the namespace content.
 
 		### Parameters:
@@ -18904,7 +18907,7 @@ class FBSet(FBBox):
 		### Returns:
 		0 if the component is not in the [FBSet](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_set.html "Objects Set class."), 1 if it is in this [FBSet](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_set.html "Objects Set class."), 2 if it is in another [FBSet](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_set.html "Objects Set class.")"""
 		...
-	def Select(self,Select:bool,/):
+	def Select(self,Select:bool,/)->None:
 		"""Select.
 
 		### Parameters:
@@ -18929,7 +18932,7 @@ class FBShader(FBBox):
 		### Returns:
 		True if the operation is successful, false otherwise."""
 		...
-	def CloneShaderParameter(self,NewShader:FBShader,/):
+	def CloneShaderParameter(self,NewShader:FBShader,/)->None:
 		"""Clone shader.
 
 		### Parameters:
@@ -19019,7 +19022,7 @@ class FBShaderLighted(FBShader):
 		"""### Parameters:
 			- Name: Name of shader."""
 		...
-class FBShaderManager():
+class FBShaderManager:
 	"""Shader manager.
 
 	This class provides access to the list of available shaders, both system shaders and user shaders. The list comes in two versions:ShaderTypeNames : which gives the internal names of the shaders,ShaderTypeNamesLocalized : uses the GUI names of the shaders.Both of these lists will have the same number of elements. The strings at position i in the lists refer to the same shader type. In cases where there is no localized version of the shader name, the internal name will be used in ShaderTypeNamesLocalized, thus ensuring consistency between the two lists.It also provides a generic shader creation method that uses the shader type name, internal or localized, to create the new shader instance.The destruction of shaders is achieved by calling the FBDelete method of a shader instance.The list of all the instantiated shaders can be obtained from instances of classes [FBSystem](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_system.html "Provides access to the underlying system, and the MotionBuilder scene.") or [FBScene](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_scene.html "Access to the MotionBuilder scene."). Both classes have a Shaders property which lists the existing shader instances.Strings are used instead of enum, define or typedef values to refer to shader types as this proves to be more flexible.The system has a default shader of type 'Lighted'. Do not attempt to destroy it.The use of localized names in shader creation is non portable as it is dependent of the current language used by the application. The name may also change from one version to another. Using the internal name is the only way to ensure portable shader creation.Sample C++ code:
@@ -19098,7 +19101,7 @@ class FBShaderManager():
 		A pointer to the newly created shader object, or a NULL pointer if the type name was not recognised."""
 		...
 	def __init__(self):...
-class FBShaderModelInfo():
+class FBShaderModelInfo:
 	Model:FBModel
 	"""Read Write Property: Shader mModel"""
 	Model_Version:int
@@ -19157,8 +19160,8 @@ class FBShaderShadowLive(FBShader):
 		"""### Parameters:
 			- Name: Name of shader."""
 		...
-class FBSkeletonState():
-	def GetNodeMatrix(self,SkeletonId:FBSkeletonNodeId,SkeletonGlobalMatrix:FBMatrix,/):
+class FBSkeletonState:
+	def GetNodeMatrix(self,SkeletonId:FBSkeletonNodeId,SkeletonGlobalMatrix:FBMatrix,/)->None:
 		"""Returned global matrix associated to the given Index.
 
 		### Parameters:
@@ -19198,7 +19201,7 @@ class FBSpreadRow(FBSpreadPart):
 		### Returns:
 		Operation was successful (true or false)."""
 		...
-	def Remove(self):
+	def Remove(self)->None:
 		"""Remove (destroy) row."""
 		...
 class FBSpreadColumn(FBSpreadPart):
@@ -19454,13 +19457,13 @@ class FBStoryClip(FBComponent):
 		Returns true if successful."""
 		...
 	@overload
-	def Match(self):
+	def Match(self)->None:
 		"""Match.
 
 		Match the animation clip with the specified pivot property."""
 		...
 	@overload
-	def Match(self,ObjectName:str,TimeType:FBStoryClipMatchingTimeType,TranslationType:FBStoryClipMatchingTranslationType,RotationType:FBStoryClipMatchingRotationType,/):
+	def Match(self,ObjectName:str,TimeType:FBStoryClipMatchingTimeType,TranslationType:FBStoryClipMatchingTranslationType,RotationType:FBStoryClipMatchingRotationType,/)->None:
 		"""Match.
 
 		Match the animation clip to its previous/next animation clip, one to each other.
@@ -19522,7 +19525,7 @@ class FBStoryClip(FBComponent):
 		### Returns:
 		Returns true if successful."""
 		...
-	def SetTime(self,SourceIn:FBTime,SourceOut:FBTime,DestinationIn:FBTime,DestinationOut:FBTime,UseAlternateSrcInProp:bool,/):
+	def SetTime(self,SourceIn:FBTime,SourceOut:FBTime,DestinationIn:FBTime,DestinationOut:FBTime,UseAlternateSrcInProp:bool,/)->None:
 		"""SetTime Sets any in/out values for the source/destination times.
 
 		In and out values are optional and the current values for the story clip will be used if not supplied. The story "Speed" property will be adjusted in order for the supplied values to be respected by the story clip.
@@ -19583,20 +19586,20 @@ class FBStoryFolder(FBComponent):
 	"""Read Write Property: If true, this story folder will be the only one to play."""
 	Tracks:FBPropertyListStoryTrack
 	"""List: Tracks of this folder."""
-	def AlignSelectedClips(self,Type:FBStoryClipAlignmentType,ReferenceClip:FBComponent,/):
+	def AlignSelectedClips(self,Type:FBStoryClipAlignmentType,ReferenceClip:FBComponent,/)->None:
 		"""Used to align selected clips .
 
 		### Parameters:
 			- Type: Type of alignment that will be done.
 			- ReferenceClip: Needed when kFBStoryClipAlignmentEndPreviousAllAligned, kFBStoryClipAlignmentBeginningNextAllAligned or kFBStoryClipAlignmentCurrentTimelineWithOffset are used."""
 		...
-	def AlignSelectedClipsGroup(self,Type:FBStoryGroupClipAlignmentType,/):
+	def AlignSelectedClipsGroup(self,Type:FBStoryGroupClipAlignmentType,/)->None:
 		"""Used to align clips inside a group.
 
 		### Parameters:
 			- Type: Type of alignment that will be done."""
 		...
-	def ConvertClipsToReadOnly(self,Selected:bool,FilePath:str,/):
+	def ConvertClipsToReadOnly(self,Selected:bool,FilePath:str,/)->None:
 		"""Convert all clips to read-only clips.
 
 		Identical clips are replaced by the same read-only clip.
@@ -19607,19 +19610,19 @@ class FBStoryFolder(FBComponent):
 		### Remarks:
 		Currently only animation clips are supported in the Root Folder"""
 		...
-	def ExpandSelectedClips(self,PreserveOverlap:bool,/):
+	def ExpandSelectedClips(self,PreserveOverlap:bool,/)->None:
 		"""Used to expand selected clips .
 
 		### Parameters:
 			- PreserveOverlap: If true, portion of clips that overlap other clips won't be modified."""
 		...
-	def ExpandSelectedClipsGroup(self,PreserveOverlap:bool,/):
+	def ExpandSelectedClipsGroup(self,PreserveOverlap:bool,/)->None:
 		"""ExpandSelectedClipsGroup Used to expand group clip dependent clips.
 
 		### Parameters:
 			- PreserveOverlap: If true, portion of clips that overlap other clips won't be modified."""
 		...
-	def Load(self,Load:bool,/):
+	def Load(self,Load:bool,/)->None:
 		"""Allow to load/unload all story clips under this folder.
 
 		### Remarks:
@@ -19666,7 +19669,7 @@ class FBStoryGroupClip(FBComponent):
 		### Returns:
 		Returns the new clip's time position."""
 		...
-	def Razor(self,Time:FBTime,/):
+	def Razor(self,Time:FBTime,/)->None:
 		"""Razor.
 
 		Cut (razor) the clip at the specified time.
@@ -19677,7 +19680,7 @@ class FBStoryGroupClip(FBComponent):
 		"""### Parameters:
 			- AffectedClipObject: Clips that will be controlled by the group clip."""
 		...
-class FBStringList():
+class FBStringList:
 	"""String list.
 
 	[See sample: Memo.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_memo_8py-example.html)"""
@@ -19700,7 +19703,7 @@ class FBStringList():
 		### Returns:
 		String list."""
 		...
-	def Clear(self):
+	def Clear(self)->None:
 		"""Clear the list (remove all the items)."""
 		...
 	@overload
@@ -19752,7 +19755,7 @@ class FBStringList():
 		### Returns:
 		Index where string S was found."""
 		...
-	def InsertAt(self,Index:int,S:str,Ref:int=0,/):
+	def InsertAt(self,Index:int,S:str,Ref:int=0,/)->None:
 		"""Insert an entry at pIndex.
 
 		### Parameters:
@@ -19769,7 +19772,7 @@ class FBStringList():
 		### Returns:
 		Index where item was found."""
 		...
-	def RemoveAt(self,Index:int,/):
+	def RemoveAt(self,Index:int,/)->None:
 		"""Remove an entry at pIndex.
 
 		### Parameters:
@@ -19782,7 +19785,7 @@ class FBStringList():
 			- Index: Index where string is to be set.
 			- String: String to set value at **pIndex** with."""
 		...
-	def SetReferenceAt(self,Index:int,Ref:int,/):
+	def SetReferenceAt(self,Index:int,Ref:int,/)->None:
 		"""Set the reference stored with the string at pIndex.
 
 		### Parameters:
@@ -19796,7 +19799,7 @@ class FBStringList():
 			- String: String to set for list.
 			- Separator: the string list separator."""
 		...
-	def Sort(self):
+	def Sort(self)->None:
 		"""Sort the string list (ascending)"""
 		...
 	def __getitem__(self,arg2,/)->str:...
@@ -19827,15 +19830,15 @@ class FBSurface(FBGeometry):
 	"""Read Write Property: Size in V directions."""
 	VStep:int
 	"""Read Write Property: Step in V directions."""
-	def ControlPointsBegin(self):...
-	def ControlPointsEnd(self):...
-	def GetControlPoint(self,Index:int,X:float,Y:float,Z:float,W:float,/):...
+	def ControlPointsBegin(self)->None:...
+	def ControlPointsEnd(self)->None:...
+	def GetControlPoint(self,Index:int,X:float,Y:float,Z:float,W:float,/)->None:...
 	def GetSurfaceCapped(self,UorV:int,Direction:int,/)->bool:...
-	def SetControlPoint(self,Index:int,X:float,Y:float,Z:float,W:float,/):...
-	def SurfaceBegin(self):...
-	def SurfaceEditBegin(self):...
-	def SurfaceEditEnd(self):...
-	def SurfaceEnd(self):...
+	def SetControlPoint(self,Index:int,X:float,Y:float,Z:float,W:float,/)->None:...
+	def SurfaceBegin(self)->None:...
+	def SurfaceEditBegin(self)->None:...
+	def SurfaceEditEnd(self)->None:...
+	def SurfaceEnd(self)->None:...
 class FBSystem(FBComponent):
 	"""Provides access to the underlying system, and the MotionBuilder scene.
 
@@ -20036,7 +20039,7 @@ class FBNurbs(FBSurface):
 		### Returns:
 		Number of knot vectors on NURBS surface"""
 		...
-	def SetControlKnotValue(self,UorV:int,Index:int,KnotValue:float,/):
+	def SetControlKnotValue(self,UorV:int,Index:int,KnotValue:float,/)->None:
 		"""Set knot vector value of control point.
 
 		### Parameters:
@@ -20044,7 +20047,7 @@ class FBNurbs(FBSurface):
 			- Index: Index of control point to set knot value for.
 			- KnotValue: Knot value for control point at pIndex."""
 		...
-	def SetControlMultiplicity(self,UorV:int,Index:int,Multiplicity:int,/):
+	def SetControlMultiplicity(self,UorV:int,Index:int,Multiplicity:int,/)->None:
 		"""Set multiplicity (number of "instances") of control point.
 
 		### Parameters:
@@ -20052,7 +20055,7 @@ class FBNurbs(FBSurface):
 			- Index: Index of control point to set multiplicity for.
 			- Multiplicity: Multiplicity value for control point at pIndex."""
 		...
-	def SetControlWeight(self,Index:int,Weight:float,/):
+	def SetControlWeight(self,Index:int,Weight:float,/)->None:
 		"""Set weight of control point.
 
 		### Parameters:
@@ -20112,7 +20115,7 @@ class FBTexture(FBBox):
 		### Returns:
 		Newly created texture."""
 		...
-	def OGLInit(self):...
+	def OGLInit(self)->None:...
 	def __copy__(self)->Any:...
 	def __init__(self,Name:str,/):
 		"""### Parameters:
@@ -20132,14 +20135,14 @@ class FBLayeredTexture(FBTexture):
 	def BackgroundColor(self, Value: FBPropertyAnimatableColorAndAlpha|FBColorAndAlpha):...
 	Layers:FBPropertyListTexture
 	"""Read/Write Property: Textures Layers."""
-	def SetLayerConfigDirty(self):
+	def SetLayerConfigDirty(self)->None:
 		"""Set layer config dirty to trigger new composition."""
 		...
 	def __init__(self,Name:str,/):
 		"""### Parameters:
 			- Name: Name of texture media. Can be a NULL pointer. If set, this will create a [FBVideo](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_video.html "Video media class.") object used as the Video property."""
 		...
-class FBTime():
+class FBTime:
 	"""Time data structure.
 
 	[See samples: FBTime.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_f_b_time_8py-example.html) [CameraSwitcher.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_camera_0c_camera_switcher_8py-example.html) [ExportAnimationLibrary.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_export_animation_library_8py-example.html) [StartKeysAtCurrentTime.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_start_keys_at_current_time_8py-example.html)"""
@@ -20200,32 +20203,32 @@ class FBTime():
 		### Returns:
 		String value of time."""
 		...
-	def Set(self,Time:int,/):
+	def Set(self,Time:int,/)->None:
 		"""Set time value from a long.
 
 		### Parameters:
 			- Time: Time value to set."""
 		...
-	def SetFrame(self,Frames:int,TimeMode:FBTimeMode=FBTimeMode.kFBTimeModeDefault,/):
+	def SetFrame(self,Frames:int,TimeMode:FBTimeMode=FBTimeMode.kFBTimeModeDefault,/)->None:
 		"""Set time in frame format.
 
 		### Parameters:
 			- Frames: The number of frames.
 			- TimeMode: The time mode identifier which will dictate the extraction algorithm."""
 		...
-	def SetMilliSeconds(self,MilliSeconds:int,/):
+	def SetMilliSeconds(self,MilliSeconds:int,/)->None:
 		"""Set milliseconds time.
 
 		### Parameters:
 			- MilliSeconds: MilliSeconds value."""
 		...
-	def SetSecondDouble(self,Time:float,/):
+	def SetSecondDouble(self,Time:float,/)->None:
 		"""Set seconds from double.
 
 		### Parameters:
 			- Time: Time to set seconds from."""
 		...
-	def SetTime(self,Hour:int,Minute:int=0,Second:int=0,Frame:int=0,Field:int=0,TimeMode:FBTimeMode=FBTimeMode.kFBTimeModeDefault,/):
+	def SetTime(self,Hour:int,Minute:int=0,Second:int=0,Frame:int=0,Field:int=0,TimeMode:FBTimeMode=FBTimeMode.kFBTimeModeDefault,/)->None:
 		"""Set time (from separate values)
 
 		### Parameters:
@@ -20236,7 +20239,7 @@ class FBTime():
 			- Field: Field value(default=0).
 			- TimeMode: Time mode to get time as(default=kFBTimeModeDefault)."""
 		...
-	def SetTimeString(self,Time:str,/):
+	def SetTimeString(self,Time:str,/)->None:
 		"""Set time from string.
 
 		### Parameters:
@@ -20268,7 +20271,7 @@ class FBTime():
 	def __sub__(self,arg2:FBTime,/)->FBTime:...
 	@overload
 	def __sub__(self,arg2,/)->FBTime:...
-class FBTimeCode():
+class FBTimeCode:
 	"""TimeCode data structure.
 
 	[See sample: TimeCodeKeying.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_time_code_keying_8py-example.html)"""
@@ -20323,13 +20326,13 @@ class FBTimeCode():
 		### Returns:
 		String value of time."""
 		...
-	def SetTime(self,Time:FBTime,/):
+	def SetTime(self,Time:FBTime,/)->None:
 		"""Set TimeCode according to the given time.
 
 		### Parameters:
 			- Time: Time value to set."""
 		...
-	def SetTimeCode(self,Hour:int,Minute:int=0,Second:int=0,Frame:float=0,/):
+	def SetTimeCode(self,Hour:int,Minute:int=0,Second:int=0,Frame:float=0,/)->None:
 		"""Set timecode.
 
 		### Parameters:
@@ -20338,7 +20341,7 @@ class FBTimeCode():
 			- Second: Second value.
 			- Frame: Frame value."""
 		...
-	def SetTimeCodeString(self,Time:str,Format:FBTime.ETimeFormats=FBTime.eDefaultFormat,/):
+	def SetTimeCodeString(self,Time:str,Format:FBTime.ETimeFormats=FBTime.eDefaultFormat,/)->None:
 		"""Set time from string.
 
 		### Parameters:
@@ -20404,14 +20407,14 @@ class FBTake(FBComponent):
 		### Returns:
 		The index of the time mark added if the operation is successful, -1 otherwise."""
 		...
-	def ClearAllProperties(self,OnSelectedObjectsOnly:bool,OnLockedProperties:bool=False,/):
+	def ClearAllProperties(self,OnSelectedObjectsOnly:bool,OnLockedProperties:bool=False,/)->None:
 		"""Clear the animation on all the properties.
 
 		### Parameters:
 			- OnSelectedObjectsOnly: Specify if clear will be performed on all objects or only on the one that are currently selected.
 			- OnLockedProperties: Specify if clear will be performed on locked properties as well."""
 		...
-	def ClearAllPropertiesOnCurrentLayer(self):
+	def ClearAllPropertiesOnCurrentLayer(self)->None:
 		"""Clear all the animation on the current layer."""
 		...
 	def CopyTake(self,NewTakeName:str,/)->FBTake:
@@ -20424,10 +20427,10 @@ class FBTake(FBComponent):
 		### Returns:
 		Handle to the newly created take."""
 		...
-	def CreateNewLayer(self):
+	def CreateNewLayer(self)->None:
 		"""Create a new layer."""
 		...
-	def DeleteAllTimeMarks(self):
+	def DeleteAllTimeMarks(self)->None:
 		"""Delete all time marks from the take."""
 		...
 	def DeleteAnimation(self,StartTime:FBTime=FBTime.MinusInfinity,StopTime:FBTime=FBTime.Infinity,Inclusive:bool=True,LayerID:int=-1,OnLockedProperties:bool=False,/)->bool:
@@ -20482,7 +20485,7 @@ class FBTake(FBComponent):
 		### Returns:
 		True if the operation is successful, false otherwise."""
 		...
-	def DuplicateSelectedLayers(self):
+	def DuplicateSelectedLayers(self)->None:
 		"""Duplicate the selected layers.
 
 		This is equivalent of doing a copy-paste."""
@@ -20578,7 +20581,7 @@ class FBTake(FBComponent):
 		### Returns:
 		The time associated with the time mark."""
 		...
-	def MergeLayers(self,MergeOptions:FBAnimationLayerMergeOptions,DeleteMergedLayers:bool,MergeMode:FBMergeLayerMode,MergeLockedProperties:bool=False,/):
+	def MergeLayers(self,MergeOptions:FBAnimationLayerMergeOptions,DeleteMergedLayers:bool,MergeMode:FBMergeLayerMode,MergeLockedProperties:bool=False,/)->None:
 		"""Merge the selected layers.
 
 		This is equivalent of pressing the merge button in the Animation Layer editor.
@@ -20650,7 +20653,7 @@ class FBTake(FBComponent):
 		### Returns:
 		True if the offset operation is successful (at least one FCurve has been modified), false otherwise (e.g. no keys found within the time range, invalid layer ID, etc.)."""
 		...
-	def PlotAllTakesOnObjects(self,PlotPeriod:FBTime,ObjectsToPlot:list[FBBox],/):
+	def PlotAllTakesOnObjects(self,PlotPeriod:FBTime,ObjectsToPlot:list[FBBox],/)->None:
 		"""Plot the animation on given objects for all takes.
 
 		This method will plot the animation of all takes to the specified objects. Although the method supports boxes, the most common use case it to specify FBModels that have been cast to boxes.
@@ -20658,7 +20661,7 @@ class FBTake(FBComponent):
 			- PlotPeriod: Period for the plot.
 			- ObjectsToPlot: Objects to plot."""
 		...
-	def PlotAllTakesOnProperties(self,PlotPeriod:FBTime,PropertiesToPlot:list,/):
+	def PlotAllTakesOnProperties(self,PlotPeriod:FBTime,PropertiesToPlot:list,/)->None:
 		"""Plot the animation on given properties for all takes.
 
 		Will plot the animation for all takes on the given properties in the scene.
@@ -20666,14 +20669,14 @@ class FBTake(FBComponent):
 			- PlotPeriod: Period for the plot.
 			- PropertiesToPlot: Properties to plot."""
 		...
-	def PlotAllTakesOnSelected(self,PlotPeriod:FBTime,/):
+	def PlotAllTakesOnSelected(self,PlotPeriod:FBTime,/)->None:
 		"""Plot the animation on selected models for all takes.
 
 		Will plot the animation for all takes on the selected models in the scene.
 		### Parameters:
 			- PlotPeriod: Period for the plot."""
 		...
-	def PlotAllTakesOnSelectedProperties(self,PlotPeriod:FBTime,/):
+	def PlotAllTakesOnSelectedProperties(self,PlotPeriod:FBTime,/)->None:
 		"""Plot the animation on selected properties for all takes.
 
 		Will plot the animation for all takes on the selected properties in the scene.
@@ -20681,7 +20684,7 @@ class FBTake(FBComponent):
 			- PlotPeriod: Period for the plot."""
 		...
 	@overload
-	def PlotTakeOnObjects(self,PlotPeriod:FBTime,ObjectsToPlot:list[FBBox],/):
+	def PlotTakeOnObjects(self,PlotPeriod:FBTime,ObjectsToPlot:list[FBBox],/)->None:
 		"""Plot the animation on given objects.
 
 		This method will plot the animation of the take to the specified objects. Although the method supports boxes, the most common use case it to specify FBModels that have been cast to boxes.
@@ -20690,7 +20693,7 @@ class FBTake(FBComponent):
 			- ObjectsToPlot: Objects to plot."""
 		...
 	@overload
-	def PlotTakeOnObjects(self,PlotOptions:FBPlotOptions,ObjectsToPlot:list[FBBox],/):
+	def PlotTakeOnObjects(self,PlotOptions:FBPlotOptions,ObjectsToPlot:list[FBBox],/)->None:
 		"""Plot the animation on given objects.
 
 		This method will plot the animation of the take to the specified objects. Although the method supports boxes, the most common use case it to specify FBModels that have been cast to boxes.
@@ -20699,7 +20702,7 @@ class FBTake(FBComponent):
 			- ObjectsToPlot: Objects to plot."""
 		...
 	@overload
-	def PlotTakeOnProperties(self,PlotPeriod:FBTime,PropertiesToPlot:list,/):
+	def PlotTakeOnProperties(self,PlotPeriod:FBTime,PropertiesToPlot:list,/)->None:
 		"""Plot the animation on given properties.
 
 		Will plot the animation of the take in question on the given properties in the scene.
@@ -20708,7 +20711,7 @@ class FBTake(FBComponent):
 			- PropertiesToPlot: Properties to plot."""
 		...
 	@overload
-	def PlotTakeOnProperties(self,PlotOptions:FBPlotOptions,PropertiesToPlot:list,/):
+	def PlotTakeOnProperties(self,PlotOptions:FBPlotOptions,PropertiesToPlot:list,/)->None:
 		"""Plot the animation on given properties.
 
 		Will plot the animation of the take in question on the given properties in the scene.
@@ -20717,7 +20720,7 @@ class FBTake(FBComponent):
 			- PropertiesToPlot: Properties to plot."""
 		...
 	@overload
-	def PlotTakeOnSelected(self,PlotPeriod:FBTime,/):
+	def PlotTakeOnSelected(self,PlotPeriod:FBTime,/)->None:
 		"""Plot the animation on selected models.
 
 		Will plot the animation of the take in question on the selected models in the scene.
@@ -20725,7 +20728,7 @@ class FBTake(FBComponent):
 			- PlotPeriod: Period for the plot."""
 		...
 	@overload
-	def PlotTakeOnSelected(self,PlotOptions:FBPlotOptions,/):
+	def PlotTakeOnSelected(self,PlotOptions:FBPlotOptions,/)->None:
 		"""Plot the animation on selected models.
 
 		Will plot the animation of the take in question on the selected models in the scene.
@@ -20733,7 +20736,7 @@ class FBTake(FBComponent):
 			- PlotOptions: Option parameters for plotting"""
 		...
 	@overload
-	def PlotTakeOnSelectedProperties(self,PlotPeriod:FBTime,/):
+	def PlotTakeOnSelectedProperties(self,PlotPeriod:FBTime,/)->None:
 		"""Plot the animation on selected properties.
 
 		Will plot the animation of the take in question on the selected properties in the scene.
@@ -20741,27 +20744,27 @@ class FBTake(FBComponent):
 			- PlotPeriod: Period for the plot."""
 		...
 	@overload
-	def PlotTakeOnSelectedProperties(self,PlotOptions:FBPlotOptions,/):
+	def PlotTakeOnSelectedProperties(self,PlotOptions:FBPlotOptions,/)->None:
 		"""Plot the animation on selected properties.
 
 		Will plot the animation of the take in question on the selected properties in the scene.
 		### Parameters:
 			- PlotOptions: Option parameters for plotting"""
 		...
-	def RemoveLayer(self,LayerIndex:int,/):
+	def RemoveLayer(self,LayerIndex:int,/)->None:
 		"""Remove a layer.
 
 		### Parameters:
 			- LayerIndex: Layer with at the specified index will be removed."""
 		...
-	def SetCurrentLayer(self,LayerIndex:int,/):
+	def SetCurrentLayer(self,LayerIndex:int,/)->None:
 		"""Set the current layer for the take.
 
 		Note that this will not deselect the other layers.
 		### Parameters:
 			- LayerIndex: The layer index to be set as the current one."""
 		...
-	def SetLayerRealSelection(self,Value:bool,/):
+	def SetLayerRealSelection(self,Value:bool,/)->None:
 		"""Set real selection for layer.
 
 		This method is used to specify if using the SelectLayer method of the [FBAnimationLayer](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_animation_layer.html "Used to access animation layer properties and modify them.") object will also select the [FBComponent](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html "MotionBuilder SDK base class.") object. In previous version of MotionBuilder, an animation layer was always selected, causing the layer to be displayed in the property editor. Also, when parsing the selected objects in the SDK, a layer would always be there. Setting this value to false will prevent this.
@@ -20873,15 +20876,15 @@ class FBStoryTrack(FBConstraint):
 	"""Read Only Property: This [FBVideo](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_video.html "Video media class.") can be used as a texture."""
 	Type:FBStoryTrackType
 	"""Read Only Property: Type of the track"""
-	def AddClip(self,Clip:FBComponent,Time:FBTime,/):
+	def AddClip(self,Clip:FBComponent,Time:FBTime,/)->None:
 		"""AddClip Add the clip to the track."""
 		...
-	def ChangeDetailsBegin(self):
+	def ChangeDetailsBegin(self)->None:
 		"""ChangeDetailsBegin.
 
 		You must call this function before adding/removing any object to the Details list or it won't work."""
 		...
-	def ChangeDetailsEnd(self):
+	def ChangeDetailsEnd(self)->None:
 		"""ChangeDetailsEnd.
 
 		You must call this function after adding/removing any object to the Details list or it won't work."""
@@ -20924,7 +20927,7 @@ class FBStoryTrack(FBConstraint):
 		### Returns:
 		Created sub story track if the operation succeeded otherwise NULL."""
 		...
-	def EnableBodyPart(self,Part:FBStoryTrackBodyPart,Enable:bool,/):
+	def EnableBodyPart(self,Part:FBStoryTrackBodyPart,Enable:bool,/)->None:
 		"""EnableBodyPart.
 
 		### Parameters:
@@ -20936,7 +20939,7 @@ class FBStoryTrack(FBConstraint):
 
 		Is a specific body part is enabled."""
 		...
-	def Load(self,Load:bool,/):
+	def Load(self,Load:bool,/)->None:
 		"""Allow to load/unload all story clips under this track.
 
 		### Remarks:
@@ -20978,16 +20981,16 @@ class FBFCurve(FBComponent):
 		### Parameters:
 			- CurveType: Interpolator curve type to create."""
 		...
-	def EditBegin(self,KeyCount:int=-1,/):
+	def EditBegin(self,KeyCount:int=-1,/)->None:
 		"""Setup function to begin adding keys.
 
 		### Parameters:
 			- KeyCount: Key to begin adding at(default is -1)."""
 		...
-	def EditClear(self):
+	def EditClear(self)->None:
 		"""Empty FCurve of all keys."""
 		...
-	def EditEnd(self,KeyCount:int=-1,/):
+	def EditEnd(self,KeyCount:int=-1,/)->None:
 		"""End key adding sequence.
 
 		### Parameters:
@@ -21233,7 +21236,7 @@ class FBFCurve(FBComponent):
 		### Returns:
 		Value of the key."""
 		...
-	def KeyInsert(self,Time:FBTime,Interpolation:FBInterpolation=FBInterpolation.kFBInterpolationCubic,TangentMode:FBTangentMode=FBTangentMode.kFBTangentModeAuto,/):
+	def KeyInsert(self,Time:FBTime,Interpolation:FBInterpolation=FBInterpolation.kFBInterpolationCubic,TangentMode:FBTangentMode=FBTangentMode.kFBTangentModeAuto,/)->None:
 		"""Insert a key without affecting the curve shape.
 
 		### Parameters:
@@ -21268,7 +21271,7 @@ class FBFCurve(FBComponent):
 		### Returns:
 		True if the offset operation is successful, false otherwise (e.g. the FCurve is locked, no keys found within the time range, etc.)."""
 		...
-	def KeyReplaceBy(self,Source:FBFCurve,Start:FBTime=FBTime.MinusInfinity,Stop:FBTime=FBTime.Infinity,UseExactGivenSpan:bool=False,KeyStartEndOnNoKey:bool=True,/):
+	def KeyReplaceBy(self,Source:FBFCurve,Start:FBTime=FBTime.MinusInfinity,Stop:FBTime=FBTime.Infinity,UseExactGivenSpan:bool=False,KeyStartEndOnNoKey:bool=True,/)->None:
 		"""Replace keys within a range in current function curve with keys found in a source function curve.
 
 		### Parameters:
@@ -21278,28 +21281,28 @@ class FBFCurve(FBComponent):
 			- UseExactGivenSpan: When false, the time of the first and last key in the range will be used.
 			- KeyStartEndOnNoKey: When true, inserts a key at the beginning and at the end of the range if there is no key to insert."""
 		...
-	def KeySetInterpolation(self,Index:int,Value:FBInterpolation,/):
+	def KeySetInterpolation(self,Index:int,Value:FBInterpolation,/)->None:
 		"""Set the key interpolation type at the specified index.
 
 		### Parameters:
 			- Index: Index of the key to set.
 			- Value: Type of interpolation."""
 		...
-	def KeySetLeftBezierTangent(self,Index:int,Value:float,/):
+	def KeySetLeftBezierTangent(self,Index:int,Value:float,/)->None:
 		"""Set the key left bezier tangent value at the specified index.
 
 		### Parameters:
 			- Index: Index of the key to set.
 			- Value: Left bezier tangent."""
 		...
-	def KeySetLeftDerivative(self,Index:int,Value:float,/):
+	def KeySetLeftDerivative(self,Index:int,Value:float,/)->None:
 		"""Set the key left derivative value at the specified index.
 
 		### Parameters:
 			- Index: Index of the key to set.
 			- Value: Left derivative value, in units/seconds."""
 		...
-	def KeySetLeftTangentWeight(self,Index:int,Value:float,/):
+	def KeySetLeftTangentWeight(self,Index:int,Value:float,/)->None:
 		"""Set the key left tangent weight at the specified index.
 
 		### Parameters:
@@ -21316,21 +21319,21 @@ class FBFCurve(FBComponent):
 		### Returns:
 		True if the operation was successful, false otherwise."""
 		...
-	def KeySetRightBezierTangent(self,Index:int,Value:float,/):
+	def KeySetRightBezierTangent(self,Index:int,Value:float,/)->None:
 		"""Set the key right bezier tangent value at the specified index.
 
 		### Parameters:
 			- Index: Index of the key to set.
 			- Value: Right bezier tangent."""
 		...
-	def KeySetRightDerivative(self,Index:int,Value:float,/):
+	def KeySetRightDerivative(self,Index:int,Value:float,/)->None:
 		"""Set the key right derivative value at the specified index.
 
 		### Parameters:
 			- Index: Index of the key to set.
 			- Value: Right derivative value, in units/seconds."""
 		...
-	def KeySetRightTangentWeight(self,Index:int,Value:float,/):
+	def KeySetRightTangentWeight(self,Index:int,Value:float,/)->None:
 		"""Set the key right tangent weight at the specified index.
 
 		### Parameters:
@@ -21347,63 +21350,63 @@ class FBFCurve(FBComponent):
 		### Returns:
 		True if the operation was successful, false otherwise."""
 		...
-	def KeySetTCBBias(self,Index:int,Value:float,/):
+	def KeySetTCBBias(self,Index:int,Value:float,/)->None:
 		"""Set the key bias value at the specified index (TCB key).
 
 		### Parameters:
 			- Index: Index of the key to set.
 			- Value: Bias value."""
 		...
-	def KeySetTCBContinuity(self,Index:int,Value:float,/):
+	def KeySetTCBContinuity(self,Index:int,Value:float,/)->None:
 		"""Set the key continuity value at the specified index (TCB key).
 
 		### Parameters:
 			- Index: Index of the key to set.
 			- Value: Continuity value."""
 		...
-	def KeySetTCBTension(self,Index:int,Value:float,/):
+	def KeySetTCBTension(self,Index:int,Value:float,/)->None:
 		"""Set the key tension value at the specified index (TCB key).
 
 		### Parameters:
 			- Index: Index of the key to set.
 			- Value: Tension value."""
 		...
-	def KeySetTangentBreak(self,Index:int,Value:bool,/):
+	def KeySetTangentBreak(self,Index:int,Value:bool,/)->None:
 		"""Set the key tangent's break status at the specified index.
 
 		### Parameters:
 			- Index: Index of the key to set.
 			- Value: Tangent's break status."""
 		...
-	def KeySetTangentClampMode(self,Index:int,Value:FBTangentClampMode,/):
+	def KeySetTangentClampMode(self,Index:int,Value:FBTangentClampMode,/)->None:
 		"""Set the key tangent's clamp method at the specified index.
 
 		### Parameters:
 			- Index: Index of the key to set.
 			- Value: Tangent's clamp method."""
 		...
-	def KeySetTangentConstantMode(self,Index:int,Value:FBTangentConstantMode,/):
+	def KeySetTangentConstantMode(self,Index:int,Value:FBTangentConstantMode,/)->None:
 		"""Set the key tangent's constant mode at the specified index.
 
 		### Parameters:
 			- Index: Index of the key to set.
 			- Value: Tangent's constant mode."""
 		...
-	def KeySetTangentCustomIndex(self,Index:int,Value:FBTangentCustomIndex,/):
+	def KeySetTangentCustomIndex(self,Index:int,Value:FBTangentCustomIndex,/)->None:
 		"""Set the key tangent's custom index at the specified index.
 
 		### Parameters:
 			- Index: Index of the key to set.
 			- Value: Tangent's custom index."""
 		...
-	def KeySetTangentMode(self,Index:int,Value:FBTangentMode,/):
+	def KeySetTangentMode(self,Index:int,Value:FBTangentMode,/)->None:
 		"""Set the key tangent mode at the specified index.
 
 		### Parameters:
 			- Index: Index of the key to set.
 			- Value: Tangent calculation method."""
 		...
-	def KeySetTangentWeightMode(self,Index:int,Value:FBTangentWeightMode,/):
+	def KeySetTangentWeightMode(self,Index:int,Value:FBTangentWeightMode,/)->None:
 		"""Change the tangent weight for a key.
 
 		Setting the value for LeftTangentWeight/RightTangentWeight will also activate the weight for that part. Please see the note provided with [FBTangentWeightMode](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_tangent_weight_mode.html "Active tangent weight, no/one/both side are active on a key.") for the left weight of a key.
@@ -21411,14 +21414,14 @@ class FBFCurve(FBComponent):
 			- Index: Index of the key to set.
 			- Value: Set the pValue according to the desired mode, kFBTangentWeightModeNone to disable it."""
 		...
-	def KeySetTime(self,Index:int,Value:FBTime,/):
+	def KeySetTime(self,Index:int,Value:FBTime,/)->None:
 		"""Set the key time value at the specified index.
 
 		### Parameters:
 			- Index: Index of the key to set.
 			- Value: Time of key."""
 		...
-	def KeySetValue(self,Index:int,Value:float,/):
+	def KeySetValue(self,Index:int,Value:float,/)->None:
 		"""Set the key value at the specified index.
 
 		### Parameters:
@@ -21455,16 +21458,16 @@ class FBFCurve(FBComponent):
 		### Python:
 		Each parameter of KeysSetValues is a Python list. ex : KeysSetValues( [index1, index2], [value1, value2] )"""
 		...
-	def SetPostExtrapolationCount(self,Count:int,/):
+	def SetPostExtrapolationCount(self,Count:int,/)->None:
 		"""Set count for post extrapolation."""
 		...
-	def SetPostExtrapolationMode(self,ExtrapolationMode:FBExtrapolationMode,/):
+	def SetPostExtrapolationMode(self,ExtrapolationMode:FBExtrapolationMode,/)->None:
 		"""Set modes for post extrapolation."""
 		...
-	def SetPreExtrapolationCount(self,Count:int,/):
+	def SetPreExtrapolationCount(self,Count:int,/)->None:
 		"""Set count for pre extrapolation."""
 		...
-	def SetPreExtrapolationMode(self,ExtrapolationMode:FBExtrapolationMode,/):
+	def SetPreExtrapolationMode(self,ExtrapolationMode:FBExtrapolationMode,/)->None:
 		"""Set modes for pre extrapolation."""
 		...
 	def __init__(self):...
@@ -21530,7 +21533,7 @@ class FBAnimationNode(FBComponent):
 		true if there is a key at the current time."""
 		...
 	@overload
-	def KeyAdd(self,Time:FBTime,Data:float,Interpolation:FBInterpolation=FBInterpolation.kFBInterpolationCubic,TangentMode:FBTangentMode=FBTangentMode.kFBTangentModeAuto,/):
+	def KeyAdd(self,Time:FBTime,Data:float,Interpolation:FBInterpolation=FBInterpolation.kFBInterpolationCubic,TangentMode:FBTangentMode=FBTangentMode.kFBTangentModeAuto,/)->None:
 		"""Add a key to the animation node.
 
 		### Parameters:
@@ -21540,7 +21543,7 @@ class FBAnimationNode(FBComponent):
 			- TangentMode: Tangent calculation method of the inserted key, default value is Auto (Smooth)."""
 		...
 	@overload
-	def KeyAdd(self,Data:float,Interpolation:FBInterpolation=FBInterpolation.kFBInterpolationCubic,TangentMode:FBTangentMode=FBTangentMode.kFBTangentModeAuto,/):
+	def KeyAdd(self,Data:float,Interpolation:FBInterpolation=FBInterpolation.kFBInterpolationCubic,TangentMode:FBTangentMode=FBTangentMode.kFBTangentModeAuto,/)->None:
 		"""Add a key to the animation node at current time.
 
 		### Parameters:
@@ -21549,19 +21552,19 @@ class FBAnimationNode(FBComponent):
 			- TangentMode: Tangent calculation method of the inserted key, default value is Auto (Smooth)."""
 		...
 	@overload
-	def KeyAdd(self,arg2:FBTime,arg3:list,arg4:FBInterpolation|None=None,arg5:FBTangentMode|None=None,/):...
+	def KeyAdd(self,arg2:FBTime,arg3:list,arg4:FBInterpolation|None=None,arg5:FBTangentMode|None=None,/)->None:...
 	@overload
-	def KeyAdd(self,arg2:list,arg3:FBInterpolation|None=None,arg4:FBTangentMode|None=None,/):...
-	def KeyCandidate(self,Time:FBTime=FBTime.Infinity,/):
+	def KeyAdd(self,arg2:list,arg3:FBInterpolation|None=None,arg4:FBTangentMode|None=None,/)->None:...
+	def KeyCandidate(self,Time:FBTime=FBTime.Infinity,/)->None:
 		"""Keys the current candidate values if no time is specified, at current time.
 
 		### Parameters:
 			- Time: Time at which to insert the key."""
 		...
-	def KeyRemove(self):
+	def KeyRemove(self)->None:
 		"""Remove key at current time."""
 		...
-	def KeyRemoveAt(self,Time:FBTime,/):
+	def KeyRemoveAt(self,Time:FBTime,/)->None:
 		"""Remove key at the specified time.
 
 		### Parameters:
@@ -21572,7 +21575,7 @@ class FBAnimationNode(FBComponent):
 	@overload
 	def ReadData(self,arg2:FBTime,arg3=None,/)->list:...
 	def ReadLastEvalData(self)->list:...
-	def SetBufferType(self,Global:bool,/):
+	def SetBufferType(self,Global:bool,/)->None:
 		"""Set buffer type for ANIMATIONNODE_TYPE_LOCAL_TRANSLATION, ANIMATIONNODE_TYPE_LOCAL_ROTATION and ANIMATIONNODE_TYPE_LOCAL_SCALE.
 
 		### Parameters:
@@ -21601,7 +21604,7 @@ class FBAnimationNode(FBComponent):
 		"""### Parameters:
 			- Name: Name of animation node (default is NULL)."""
 		...
-class FBTimeSpan():
+class FBTimeSpan:
 	"""TimeSpan class."""
 	def GetDirection(self)->int:
 		"""Get the direction of the timespan.
@@ -21629,7 +21632,7 @@ class FBTimeSpan():
 		Start/Stop time."""
 		...
 	def GetStop(self)->FBTime:...
-	def Set(self,Start:FBTime,Stop:FBTime,/):
+	def Set(self,Start:FBTime,Stop:FBTime,/)->None:
 		"""Set the TimeSpan.
 
 		### Parameters:
@@ -21656,7 +21659,7 @@ class FBTimeWarpManager(FBComponent):
 		### Returns:
 		True if apply successfully."""
 		...
-	def DestroyTimeWarpFromTake(self,Take:FBTake,TimeWarp:FBAnimationNode,/):
+	def DestroyTimeWarpFromTake(self,Take:FBTake,TimeWarp:FBAnimationNode,/)->None:
 		"""Destroy the TimeWarp in a Take, and removed from the DataSet.
 
 		This one should be called after calling the RemoveTimeWarpFromScene method (the one with one parameter).
@@ -21722,7 +21725,7 @@ class FBTimeWarpManager(FBComponent):
 		### Returns:
 		the Nick Number of one TimeWarp At specific index."""
 		...
-	def RemoveTimeWarp(self,Take:FBTake,EvalProp:FBProperty,/):
+	def RemoveTimeWarp(self,Take:FBTake,EvalProp:FBProperty,/)->None:
 		"""Undo apply a timeWarp in a Take to an evaluation property, just disconnect the evaluation property from storing property.
 
 		### Parameters:
@@ -21730,7 +21733,7 @@ class FBTimeWarpManager(FBComponent):
 			- EvalProp: The evaluation property connected a TimeWarp in the storing property of one take."""
 		...
 	@overload
-	def RemoveTimeWarpFromScene(self,TimeWarp:FBAnimationNode,/):
+	def RemoveTimeWarpFromScene(self,TimeWarp:FBAnimationNode,/)->None:
 		"""Remove a TimeWarp from Scene.
 
 		Any locked properties affected by this TimeWarp will be modified as well.
@@ -21738,7 +21741,7 @@ class FBTimeWarpManager(FBComponent):
 			- TimeWarp: The TimeWarp to be Removed."""
 		...
 	@overload
-	def RemoveTimeWarpFromScene(self,Take:FBTake,TimeWarp:FBAnimationNode,/):
+	def RemoveTimeWarpFromScene(self,Take:FBTake,TimeWarp:FBAnimationNode,/)->None:
 		"""Remove the given TimeWarp from scene and delete it from the given Take.
 
 		Any locked properties affected by this TimeWarp will be modified as well.
@@ -21757,7 +21760,7 @@ class FBTimeWarpManager(FBComponent):
 		### Returns:
 		True if set successfully."""
 		...
-	def TimeWarpAddToTake(self,Take:FBTake,TimeWarp:FBAnimationNode,NickNumber:int=0,/):
+	def TimeWarpAddToTake(self,Take:FBTake,TimeWarp:FBAnimationNode,NickNumber:int=0,/)->None:
 		"""Add one TimeWarp to a Take.
 
 		### Parameters:
@@ -21765,13 +21768,13 @@ class FBTimeWarpManager(FBComponent):
 			- TimeWarp: The TimeWarp to be added.
 			- NickNumber: The Nick Number for the TimeWarp."""
 		...
-	def TimeWarpClearTake(self,Take:FBTake,/):
+	def TimeWarpClearTake(self,Take:FBTake,/)->None:
 		"""Clear all TimeWarp in a Take, and removed from the DataSet.
 
 		### Parameters:
 			- Take: The Take to be cleared."""
 		...
-	def TimeWarpCopyTake(self,DstTake:FBTake,SrcTake:FBTake,/):
+	def TimeWarpCopyTake(self,DstTake:FBTake,SrcTake:FBTake,/)->None:
 		"""Copy all the TimeWarp in one Take, add to another Take.
 
 		### Parameters:
@@ -21787,13 +21790,13 @@ class FBTimeWarpManager(FBComponent):
 		### Returns:
 		the TimeWarp created."""
 		...
-	def TimeWarpInitTake(self,Take:FBTake,/):
+	def TimeWarpInitTake(self,Take:FBTake,/)->None:
 		"""Allocate container for the TimeWarp in one Take.
 
 		### Parameters:
 			- Take: The Take allocated for."""
 		...
-	def TimeWarpMergeCurveNode(self,Take:FBTake,EvalProp:FBProperty,Node:FBAnimationNode,TimeWarpNode:FBAnimationNode,/):
+	def TimeWarpMergeCurveNode(self,Take:FBTake,EvalProp:FBProperty,Node:FBAnimationNode,TimeWarpNode:FBAnimationNode,/)->None:
 		"""Merge the TimeWarp to a function curve, and Remove the connection between the storing property and the evaluation property for the TimeWarp.
 
 		### Parameters:
@@ -21802,7 +21805,7 @@ class FBTimeWarpManager(FBComponent):
 			- Node: The function curve to merge on.
 			- TimeWarpNode: The TimeWarp to be merged."""
 		...
-	def TimeWarpRename(self,Take:FBTake,TimeWarp:FBAnimationNode,NewName:str,/):
+	def TimeWarpRename(self,Take:FBTake,TimeWarp:FBAnimationNode,NewName:str,/)->None:
 		"""Rename a TimeWarp.
 
 		### Parameters:
@@ -21810,7 +21813,7 @@ class FBTimeWarpManager(FBComponent):
 			- TimeWarp: The TimeWarp to be renamed.
 			- NewName: The new name for the TimeWarp."""
 		...
-	def TimeWarpTakeChange(self):
+	def TimeWarpTakeChange(self)->None:
 		"""Call registered callbacks when changes related to TimeWarp happen."""
 		...
 	def __init__(self):
@@ -22093,7 +22096,7 @@ class FBTreeNode(FBComponent):
 	"""Read Write Property: Is [FBTreeNode](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_tree_node.html "A node in the tree view.") checked."""
 	Reference:int
 	"""Read Write Property: Data to be associated to this node."""
-class FBUV():
+class FBUV:
 	@overload
 	def CopyFrom(self,arg2:FBUV,/)->FBUV:...
 	@overload
@@ -22175,7 +22178,7 @@ class FBUndoManager(FBComponent):
 		### Returns:
 		A boolean value indicating success (true) or failure (false)."""
 		...
-	def Redo(self):
+	def Redo(self)->None:
 		"""Redo last undone action."""
 		...
 	def TransactionAddModelTRS(self,Model:FBModel,/)->bool:
@@ -22231,7 +22234,7 @@ class FBUndoManager(FBComponent):
 		### Returns:
 		true if transaction is already open."""
 		...
-	def Undo(self,NoRedo:bool=False,/):
+	def Undo(self,NoRedo:bool=False,/)->None:
 		"""Undo last action.
 
 		### Parameters:
@@ -22243,7 +22246,7 @@ class FBUserObject(FBBox):
 		"""### Parameters:
 			- Name: User object name."""
 		...
-class FBVector2d():
+class FBVector2d:
 	"""Vector2d class.
 
 	This class creates a list like object, which can be modified using the list protocol method. But unlike lists, its length is fixed: it always contain 2 floating point values. Thus it does not support the any list methods that would affect its length. The values within can be changed, usually via the bracket operator.
@@ -22338,7 +22341,7 @@ class FBVector2d():
 	@overload
 	def __truediv__(self,arg2,/)->FBVector2d:...
 	def __iter__(self)->Iterator[float]:...
-class FBVector3d():
+class FBVector3d:
 	"""Vector3d class.
 
 	This class creates a list like object, which can be modified using the list protocol method. But unlike lists, its length is fixed: it always contain 3 floating point values. Thus it does not support the any list methods that would affect its length. The values within can be changed, usually via the bracket operator.
@@ -22439,7 +22442,7 @@ class FBVector3d():
 	@overload
 	def __truediv__(self,arg2,/)->FBVector3d:...
 	def __iter__(self)->Iterator[float]:...
-class FBVector4d():
+class FBVector4d:
 	"""Vector4d class.
 
 	This class creates a list like object, which can be modified using the list protocol method. But unlike lists, its length is fixed: it always contain 4 floating point values. Thus it does not support the any list methods that would affect its length. The values within can be changed, usually via the bracket operator.
@@ -22540,7 +22543,7 @@ class FBVector4d():
 	@overload
 	def __truediv__(self,arg2,/)->FBVector4d:...
 	def __iter__(self)->Iterator[float]:...
-class FBVertex():
+class FBVertex:
 	"""Vertex class.
 
 	Similar in use to [FBVector4d](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_vector4d.html "Vector4d class.")
@@ -22704,7 +22707,7 @@ class FBVideoClip(FBVideo):
 	"""Read Write Property: True if the video clip is using the custom embedded start timecode value, false if it is using the real embedded timecode, if available."""
 	Width:int
 	"""Read Only Property: Width of image."""
-	def DrawImage(self,X:int=0,Y:int=0,W:int=-1,H:int=-1,Frame:int=-1,/):
+	def DrawImage(self,X:int=0,Y:int=0,W:int=-1,H:int=-1,Frame:int=-1,/)->None:
 		"""Draw a frame of the image to the current view.
 
 		### Parameters:
@@ -22763,7 +22766,7 @@ class FBVideoClipImageDDS(FBVideoClipImage):
 		"""### Parameters:
 			- Name: Name of DDS image file."""
 		...
-class FBVideoCodecManager():
+class FBVideoCodecManager:
 	"""Video Codec manager class.
 
 	Use to set or get codec used and codec params
@@ -22799,7 +22802,7 @@ class FBVideoCodecManager():
 		After register an external video format, and save a scene with this kind of video. when start MotionBuilder next time and before load the scene back,
 		It is necessary to call RegisterExternalVideoFormat to register this kind of video format again, otherwise this kind of video will not be loaded."""
 		...
-	def SetDefaultCodec(self,FileFormatInfo:str,CodecId:str,/):
+	def SetDefaultCodec(self,FileFormatInfo:str,CodecId:str,/)->None:
 		"""SetDefaultCodec.
 
 		Set the default codec id for a given file format. This is the codec that will be used if codec mode is FBVideoCodecUseDefault
@@ -22808,7 +22811,7 @@ class FBVideoCodecManager():
 			- CodecId: the codec id to set as default"""
 		...
 	def __init__(self):...
-class FBVideoGrabOptions():
+class FBVideoGrabOptions:
 	"""Video Grabbing Options.
 
 	Contain options to control how the grabbing process will occur."""
@@ -22870,7 +22873,7 @@ class FBVideoGrabber(FBComponent):
 		### Returns:
 		True if we can begin the grab session."""
 		...
-	def EndGrab(self):
+	def EndGrab(self)->None:
 		"""EndGrab.
 
 		Close video grabbing session."""
@@ -22894,7 +22897,7 @@ class FBVideoGrabber(FBComponent):
 		### Returns:
 		Struct that contain all grabbing statistics."""
 		...
-	def Grab(self):
+	def Grab(self)->None:
 		"""Grab.
 
 		Grab all specified video frames."""
@@ -22905,12 +22908,12 @@ class FBVideoGrabber(FBComponent):
 		### Returns:
 		An FBimage containing data of the rendered snapshot."""
 		...
-	def ResetOptions(self):
+	def ResetOptions(self)->None:
 		"""SetDefaultOptions.
 
 		This function reset all grabbing options to the default value."""
 		...
-	def SetOptions(self,Options:FBVideoGrabOptions,/):
+	def SetOptions(self,Options:FBVideoGrabOptions,/)->None:
 		"""SetOptions.
 
 		### Parameters:
@@ -22974,7 +22977,7 @@ class FBVideoIn(FBVideo):
 		### Returns:
 		Type of the video input device."""
 		...
-	def LiveSetCompressor(self,CompressorIndex:int,/):
+	def LiveSetCompressor(self,CompressorIndex:int,/)->None:
 		"""Set the current compressor to be used when recording.
 
 		### Parameters:
@@ -22983,7 +22986,7 @@ class FBVideoIn(FBVideo):
 		### Returns:
 		True if successful."""
 		...
-	def LiveSetResolutionFR(self,Index:int,/):
+	def LiveSetResolutionFR(self,Index:int,/)->None:
 		"""Set the current resolution and frame rate for the device.
 
 		### Parameters:
@@ -22998,7 +23001,7 @@ class FBVideoMemory(FBVideo):
 	[See sample: VideoMemory.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_samples_0c_video_0c_video_memory_8py-example.html)"""
 	TextureOGLId:int
 	"""Read Write Property: OpenGL texture buffer object id (GL_TEXTURE_2D type)."""
-	def SetObjectImageSize(self,W:int,H:int,/):
+	def SetObjectImageSize(self,W:int,H:int,/)->None:
 		"""Set image size to allow MoBu preview texture with proper dimension / aspect.
 
 		### Parameters:
@@ -23016,7 +23019,7 @@ class FBVideoOut(FBVideo):
 	Online:bool
 	"""Read Write Property: If true, the device is online and will output display."""
 	def __init__(self):...
-class FBViewingOptions():
+class FBViewingOptions:
 	"""Viewing options for rendering.
 
 	The [FBRenderer](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_renderer.html "Open Reality renderer interface.") allows to get and set those options."""
@@ -23163,16 +23166,16 @@ class FBVisualComponent(FBComponent):
 		### Returns:
 		true if component is a view."""
 		...
-	def Refresh(self,Now:bool=False,/):
+	def Refresh(self,Now:bool=False,/)->None:
 		"""Refresh component.
 
 		### Parameters:
 			- Now: Refresh immediately if **true** (default = **false**)."""
 		...
-	def ViewExpose(self):
+	def ViewExpose(self)->None:
 		"""Exposed view callback function."""
 		...
-	def ViewInput(self,MouseX:int,MouseY:int,Action:FBInputType,ButtonKey:int,Modifier:int,/):
+	def ViewInput(self,MouseX:int,MouseY:int,Action:FBInputType,ButtonKey:int,Modifier:int,/)->None:
 		"""Input callback function.
 
 		### Parameters:
@@ -23251,7 +23254,7 @@ class FBView(FBVisualComponent):
 	"""Read Only Property: Indicates if the view is double buffered."""
 	GraphicOGL:bool
 	"""Read Only Property: Indicates if the view is OpenGL."""
-	def DrawString(self,Text:str,X:float,Y:float,Enable:int=-1,/):
+	def DrawString(self,Text:str,X:float,Y:float,Enable:int=-1,/)->None:
 		"""Draw a string in the view.
 
 		### Parameters:
@@ -23343,7 +23346,7 @@ class FBTree(FBVisualComponent):
 	"""Read Only Property: Width of the tree."""
 	VisibleItemCount:int
 	"""Read Only Property: Count of visible items."""
-	def Clear(self):
+	def Clear(self)->None:
 		"""Clear the tree (remove all nodes)."""
 		...
 	def GetRoot(self)->FBTreeNode:
@@ -23373,7 +23376,7 @@ class FBThermometer(FBVisualComponent):
 	"""Read Write Property: Minimum value."""
 	Value:float
 	"""Read Write Property: Current value."""
-	def Clear(self):
+	def Clear(self)->None:
 		"""Reset bounds and value."""
 		...
 	def __init__(self):...
@@ -23410,10 +23413,10 @@ class FBSpread(FBVisualComponent):
 	"""Event: Row clicked."""
 	Row:int
 	"""Read Write Property: Current row."""
-	def Clear(self):
+	def Clear(self)->None:
 		"""Clear spreadsheet This function will empty spreadsheet of all its rows, columns and cells."""
 		...
-	def ColumnAdd(self,String:str,Ref:int=0,/):
+	def ColumnAdd(self,String:str,Ref:int=0,/)->None:
 		"""Add a column.
 
 		By default, the newly created column will use the [FBCellStyle.kFBCellStyleString](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_cell_style.html#a982147b71c48edcf3a5688ede8028bc7 "String.") style. Modify the Style property to modify the column's style.
@@ -23486,23 +23489,23 @@ class FBSpread(FBVisualComponent):
 		### Returns:
 		A copy of the cell."""
 		...
-	def Home(self):
+	def Home(self)->None:
 		"""Position the vertical scrollbar of the spreadsheet to the top."""
 		...
-	def RowAdd(self,String:str,Ref:int=0,/):
+	def RowAdd(self,String:str,Ref:int=0,/)->None:
 		"""Add a row.
 
 		### Parameters:
 			- String: Text to display with row.
 			- Ref: User-defined reference for row(default=0)."""
 		...
-	def RowSort(self,Ascending:bool=True,/):
+	def RowSort(self,Ascending:bool=True,/)->None:
 		"""Sort rows.
 
 		### Parameters:
 			- Ascending: If **true**, sort ascending."""
 		...
-	def SetCellValue(self,Row:int,Column:int,Value,/):
+	def SetCellValue(self,Row:int,Column:int,Value,/)->None:
 		"""Set a cell's value.
 
 		To be effective, the type of pValue must be valid type for the cell's style (see [FBSpreadPart.Style](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_spread_part.html#ace9cc1d223691293563af70ce414fb91 "Read Write Property: Style of cell")). By default, a newly created cell will use its column's style. The default column's style is [FBCellStyle.kFBCellStyleString](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_cell_style.html#a982147b71c48edcf3a5688ede8028bc7 "String."). Modify the Style property to modify the cell's style.
@@ -23511,7 +23514,7 @@ class FBSpread(FBVisualComponent):
 			- Column: Column of cell.
 			- Value: Value of the cell (can be str (single or tuple), int, float or [FBTime](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_time.html "Time data structure."))"""
 		...
-	def SetCellView(self,Ref:int,Column:int,View:FBVisualComponent,/):
+	def SetCellView(self,Ref:int,Column:int,View:FBVisualComponent,/)->None:
 		"""Set a cell's internal toolkit view.
 
 		### Parameters:
@@ -23545,16 +23548,16 @@ class FBScrollBox(FBVisualComponent):
 	[See sample: Scrollbox.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_scrollbox_8py-example.html)"""
 	Content:FBLayout
 	"""Read Property: an empty layout in which you can add scrollable content."""
-	def SetContentSize(self,arg2,arg3,/):...
+	def SetContentSize(self,arg2,arg3,/)->None:...
 	def __init__(self):...
 class FBPropertyConnectionEditor(FBVisualComponent):
 	"""Property Connection Editor."""
-	Property:property
+	Property:FBProperty
 	"""Read Write Property: Property to edit connections. Set to NULL to disable."""
-	def PopupList(self):
+	def PopupList(self)->None:
 		"""Launch a list of connected objects."""
 		...
-	def PopupTree(self):
+	def PopupTree(self)->None:
 		"""Launch a tree of object connections."""
 		...
 	def __init__(self):...
@@ -23586,7 +23589,7 @@ class FBPlotPopup(FBVisualComponent):
 		### Returns:
 		true if OK is clicked by user."""
 		...
-	def SetPlotOptions(self,PlotOptions:FBPlotOptions,/):
+	def SetPlotOptions(self,PlotOptions:FBPlotOptions,/)->None:
 		"""Set plot options.
 
 		### Parameters:
@@ -23666,7 +23669,7 @@ class FBLayout(FBVisualComponent):
 		### Returns:
 		Operation was successful (true or false)."""
 		...
-	def ClearControl(self,Name:str,/):
+	def ClearControl(self,Name:str,/)->None:
 		"""Remove a control from a region in a visual component.
 
 		### Parameters:
@@ -23743,10 +23746,10 @@ class FBLayout(FBVisualComponent):
 		### Returns:
 		Operation was successful (true or false)."""
 		...
-	def Restructure(self,NoMove:bool,/):
+	def Restructure(self,NoMove:bool,/)->None:
 		"""Force a recomputation of all region placements in the layout."""
 		...
-	def SetAutoRestructure(self,AutoRestructure:bool,/):
+	def SetAutoRestructure(self,AutoRestructure:bool,/)->None:
 		"""Suspend all automatic layout recomputation.
 
 		### Parameters:
@@ -23861,7 +23864,7 @@ class FBTool(FBLayout):
 		### Returns:
 		Get all the docking flags in one call. Flags can be concatenated."""
 		...
-	def SetPossibleDockPosition(self,Flags:FBToolPossibleDockPosition,/):
+	def SetPossibleDockPosition(self,Flags:FBToolPossibleDockPosition,/)->None:
 		"""Set the possible docking position for the tool.
 
 		Be sure to call this function once the tool is visible, a good place to call it is when the OnShow event of the layout is called.
@@ -23883,13 +23886,13 @@ class FBPopup(FBLayout):
 	[See sample: Popup.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_popup_8py-example.html)"""
 	Modal:bool
 	"""Read Write Property: Modal?"""
-	def Close(self,Ok:bool,/):
+	def Close(self,Ok:bool,/)->None:
 		"""Close popup.
 
 		### Parameters:
 			- Ok: Equivalent of **OK** button clicked if **true** (default = **false**)."""
 		...
-	def Show(self,Parent:FBVisualComponent|None=None,/):
+	def Show(self,Parent:FBVisualComponent|None=None,/)->None:
 		"""Show popup.
 
 		### Parameters:
@@ -23914,22 +23917,22 @@ class FBFCurveEditor(FBVisualComponent):
 	"""FCurve editor.
 
 	[See sample: FCurveEditor.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_f_curve_editor_8py-example.html)"""
-	def AddAnimationNode(self,Node:FBAnimationNode,/):
+	def AddAnimationNode(self,Node:FBAnimationNode,/)->None:
 		"""Add an animation node to the editor.
 
 		### Parameters:
 			- Node: Animation node to show in the editor."""
 		...
-	def AddProperty(self,Property:FBPropertyAnimatable,/):
+	def AddProperty(self,Property:FBPropertyAnimatable,/)->None:
 		"""Add an animatable property to the editor.
 
 		### Parameters:
 			- Property: Property to show in the editor."""
 		...
-	def Clear(self):
+	def Clear(self)->None:
 		"""Clear the editor."""
 		...
-	def RemoveAnimationNode(self,Node:FBAnimationNode,/):
+	def RemoveAnimationNode(self,Node:FBAnimationNode,/)->None:
 		"""Remove an animation node from the editor.
 
 		### Parameters:
@@ -23959,7 +23962,7 @@ class FBEditPropertyModern(FBVisualComponent):
 	"""Read Write Property: Indicate the large increment applied when click-draging on the property value (usually left-click-dragging)"""
 	Precision:float
 	"""Read Write Property: Used to specify the width and precision of the value shown. A value of 7.2 indicates to show at minimum 7 numbers, with 2 decimals."""
-	Property:property
+	Property:FBProperty
 	"""Read Write Property: Property to edit. Set to NULL to disable."""
 	SliderMax:float
 	"""Read Write Property: Should the property be editable using a slider, set the maximum value atainable with the slider."""
@@ -23967,7 +23970,7 @@ class FBEditPropertyModern(FBVisualComponent):
 	"""Read Write Property: Should the property be editable using a slider, set the minimum value atainable with the slider."""
 	SmallInc:float
 	"""Read Write Property: Indicate the small increment applied when click-draging on the property value (usually right-click-dragging)"""
-	def SetBackgroundColorIndex(self,Index,/):
+	def SetBackgroundColorIndex(self,Index,/)->None:
 		"""Set the background color index.
 
 		Use the system-defined color palette to set the backgound color. By default the color used is kFBColorIndexStdListBg1"""
@@ -24000,7 +24003,7 @@ class FBEditProperty(FBVisualComponent):
 	"""Read Write Property: Indicate the large increment applied when click-draging on the property value (usually left-click-dragging)"""
 	Precision:float
 	"""Read Write Property: Used to specify the width and precision of the value shown. A value of 7.2 indicates to show at minimum 7 numbers, with 2 decimals."""
-	Property:property
+	Property:FBProperty
 	"""Read Write Property: Property to edit. Set to NULL to disable."""
 	SliderMax:float
 	"""Read Write Property: Should the property be editable using a slider, set the maximum value atainable with the slider."""
@@ -24070,7 +24073,7 @@ class FBButton(FBVisualComponent):
 		### Returns:
 		The color vector."""
 		...
-	def SetImageFileNames(self,UpImage:str,DownImage:str|None=None,ThirdImage:str|None=None,FromResources:bool=False,/):
+	def SetImageFileNames(self,UpImage:str,DownImage:str|None=None,ThirdImage:str|None=None,FromResources:bool=False,/)->None:
 		"""Sets the image used to generate a kFBBitmap2States.
 
 		### Parameters:
@@ -24078,7 +24081,7 @@ class FBButton(FBVisualComponent):
 			- DownImage: The image used when button is pushed
 			- FromResources: Add resource path to image path."""
 		...
-	def SetStateColor(self,State:FBButtonState,Color:FBColor,/):
+	def SetStateColor(self,State:FBButtonState,Color:FBColor,/)->None:
 		"""Returns whether or not the item pIndex is currently selected.
 
 		### Parameters:
@@ -24090,13 +24093,13 @@ class FBMemo(FBEdit):
 	"""Multi-line text input.
 
 	[See samples: Memo.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_memo_8py-example.html) [TutorialBox.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_tutorial_box_8py-example.html) [TutorialGrid.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_tutorial_grid_8py-example.html)"""
-	def GetStrings(self,Lines:FBStringList,/):
+	def GetStrings(self,Lines:FBStringList,/)->None:
 		"""Get the content of the memo.
 
 		### Parameters:
 			- Lines: Content of the memo will be copied to it."""
 		...
-	def SetStrings(self,Lines:FBStringList,/):
+	def SetStrings(self,Lines:FBStringList,/)->None:
 		"""Set the content of the memo.
 
 		### Parameters:
@@ -24107,7 +24110,7 @@ class FBBrowsingProperty(FBVisualComponent):
 	"""Property browsing.
 
 	[See sample: BrowsingProperty.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_browsing_property_8py-example.html)"""
-	def AddObject(self,Object:FBPlug,/):
+	def AddObject(self,Object:FBPlug,/)->None:
 		"""Add an object whose properties will be displayed.
 
 		### Parameters:
@@ -24128,7 +24131,7 @@ class FBBrowsingProperty(FBVisualComponent):
 		### Returns:
 		Object currently displayed in the property browser."""
 		...
-	def RemoveObject(self,Object:FBPlug,/):
+	def RemoveObject(self,Object:FBPlug,/)->None:
 		"""Remove an object from the property browser.
 
 		### Parameters:
@@ -24141,7 +24144,7 @@ class FBArrowButton(FBVisualComponent):
 	When pushed a layout to display content (another control or a layout) is opened. A small arrow to the left of the button title, shows whether the content is shown (points down) or not (points to the title).
 
 	[See samples: ArrowButton.py,](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_arrow_button_8py-example.html) [FBCamera.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_f_b_camera_8py-example.html)"""
-	def SetContent(self,Title:str,Content:FBVisualComponent,ContentWidth:int,ContentHeight:int,/):
+	def SetContent(self,Title:str,Content:FBVisualComponent,ContentWidth:int,ContentHeight:int,/)->None:
 		"""Sets the content to be hidden/shown by button.
 
 		The [FBArrowButton](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_arrow_button.html "Creates a button which opens a layout to display content.") must already have been added to a layout before calling this method.
@@ -24156,7 +24159,7 @@ class FBWebView(FBVisualComponent):
 	"""Web viewer.
 
 	[See sample: WebView.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_web_view_8py-example.html)"""
-	def Load(self,URL:str,/):
+	def Load(self,URL:str,/)->None:
 		"""Load the specified Url.
 
 		### Parameters:
@@ -24175,7 +24178,7 @@ def CloseToolByName(arg1:str,/)->bool:...
 def FBActionManager_TypeInfo()->int:...
 def FBActorFace_TypeInfo()->int:...
 def FBActor_TypeInfo()->int:...
-def FBAdd(Result:FBVector4d,V1:FBVector4d,V2:FBVector4d,/):
+def FBAdd(Result:FBVector4d,V1:FBVector4d,V2:FBVector4d,/)->None:
 	"""Add two vectors together (pResult = pV1 + pV2)
 
 	### Parameters:
@@ -24350,7 +24353,7 @@ def FBAudioFmt_TestFormat(SrcFormat:int,Channels:int,Bits:int,Rate:int,/)->bool:
 	...
 def FBAudioIn_TypeInfo()->int:...
 def FBAudioOut_TypeInfo()->int:...
-def FBBeginChangeAllModels():
+def FBBeginChangeAllModels()->None:
 	"""Call begin change to all models (need to be closed).
 
 	Useful for selection of many models that can trigger many related callbacks)"""
@@ -24472,7 +24475,7 @@ def FBEditProperty_TypeInfo()->int:...
 def FBEditTimeCode_TypeInfo()->int:...
 def FBEditVector_TypeInfo()->int:...
 def FBEdit_TypeInfo()->int:...
-def FBEndChangeAllModels():
+def FBEndChangeAllModels()->None:
 	"""Call end change to all models (should be first open)."""
 	...
 def FBEvaluateManager_TypeInfo()->int:...
@@ -24516,7 +24519,7 @@ def FBFindObjectByFullName(ObjectFullName:str,/)->FBComponent:
 	### Returns:
 	A handle onto the object with Full name matching pObjectFullName, returns NULL if no object was found by the search."""
 	...
-def FBFindObjectsByName(NamePattern:str,List:FBComponentList,IncludeNamespace:bool=True,ModelsOnly:bool=False,/):
+def FBFindObjectsByName(NamePattern:str,List:FBComponentList,IncludeNamespace:bool=True,ModelsOnly:bool=False,/)->None:
 	"""FBFindObjectsByName.
 
 	This function will query the system for objects fulfilling a particular name pattern
@@ -24596,7 +24599,7 @@ def FBGetConstantKeyReducerThresholdValue(ThresholdType:FBConstantKeyReducerThre
 	### Returns:
 	The threshold value."""
 	...
-def FBGetContinuousRotation(ROut:FBVector3d,R0:FBVector3d,R1:FBVector3d,/):
+def FBGetContinuousRotation(ROut:FBVector3d,R0:FBVector3d,R1:FBVector3d,/)->None:
 	"""Get a continuous rotation in Euler space.
 
 	This routine will help to avoid gimble locks due to interpolation.
@@ -24624,7 +24627,7 @@ def FBGetEffectorBodyPart(EffectorId:FBEffectorId,/)->FBBodyPartId:
 def FBGetEvaluationTaskCycle()->FBProfileTaskCycle:
 	"""Get evaluation task cycle."""
 	...
-def FBGetGlobalMatrix(Matrix:FBMatrix,MatrixParent:FBMatrix,LocalMatrix:FBMatrix,/):
+def FBGetGlobalMatrix(Matrix:FBMatrix,MatrixParent:FBMatrix,LocalMatrix:FBMatrix,/)->None:
 	"""Get global matrix from parent and child matrices.
 
 	From an input referential, this function will calculate the global matrix corresponding to the input local matrix (which is with respect to the parent matrix).
@@ -24639,7 +24642,7 @@ def FBGetLastSelectedModel()->FBModel:
 	### Returns:
 	The last selected model or nullptr (C++) or None (Python) if no model is selected."""
 	...
-def FBGetLocalMatrix(Matrix:FBMatrix,MatrixParent:FBMatrix,MatrixChild:FBMatrix,/):
+def FBGetLocalMatrix(Matrix:FBMatrix,MatrixParent:FBMatrix,MatrixChild:FBMatrix,/)->None:
 	"""Get local matrix from parent and child matrices.
 
 	Will calculate the local matrix from two global matrices. The resulting matrix will be a local matrix containing the local transformations to go from the parent referentialto the child referential.
@@ -24767,7 +24770,7 @@ def FBGetMultiLangText(Context:str,Key:str,FlagReturnKey:bool=False,/)->str:
 def FBGetRenderingTaskCycle()->FBProfileTaskCycle:
 	"""Get rendering task cycle."""
 	...
-def FBGetSelectedModels(List:FBModelList,Parent:FBModel|None=None,Selected:bool=True,SortBySelectOrder:bool=False,/):
+def FBGetSelectedModels(List:FBModelList,Parent:FBModel|None=None,Selected:bool=True,SortBySelectOrder:bool=False,/)->None:
 	"""Find all models that are selected (if pSelected is true) Searches recursively from a root model for models that are selected, and adds them to a list of models.
 
 	### Parameters:
@@ -24793,7 +24796,7 @@ def FBHandle_TypeInfo()->int:...
 def FBImageContainer_TypeInfo()->int:...
 def FBImage_TypeInfo()->int:...
 @overload
-def FBInterpolateRotation(ROut:FBVector3d,R0:FBVector3d,R1:FBVector3d,U:float,/):
+def FBInterpolateRotation(ROut:FBVector3d,R0:FBVector3d,R1:FBVector3d,U:float,/)->None:
 	"""Interpolate a rotation in Euler space.
 
 	### Parameters:
@@ -24803,7 +24806,7 @@ def FBInterpolateRotation(ROut:FBVector3d,R0:FBVector3d,R1:FBVector3d,U:float,/)
 		- U: Interpolation ratio."""
 	...
 @overload
-def FBInterpolateRotation(QOut:FBVector4d,Q0:FBVector4d,Q1:FBVector4d,U:float,/):
+def FBInterpolateRotation(QOut:FBVector4d,Q0:FBVector4d,Q1:FBVector4d,U:float,/)->None:
 	"""Interpolate a rotation in Quaternion.
 
 	### Parameters:
@@ -24862,14 +24865,14 @@ def FBLogger_TypeInfo()->int:...
 def FBManipulator_TypeInfo()->int:...
 def FBMarkerSet_TypeInfo()->int:...
 def FBMaterial_TypeInfo()->int:...
-def FBMatrixInverse(Matrix:FBMatrix,Src:FBMatrix,/):
+def FBMatrixInverse(Matrix:FBMatrix,Src:FBMatrix,/)->None:
 	"""Invert a matrix.
 
 	### Parameters:
 		- Matrix: Calculated inverse matrix.
 		- Src: Source matrix to invert."""
 	...
-def FBMatrixMult(Matrix:FBMatrix,A:FBMatrix,B:FBMatrix,/):
+def FBMatrixMult(Matrix:FBMatrix,A:FBMatrix,B:FBMatrix,/)->None:
 	"""Multiply two matrices.
 
 	### Parameters:
@@ -24877,13 +24880,13 @@ def FBMatrixMult(Matrix:FBMatrix,A:FBMatrix,B:FBMatrix,/):
 		- A: 1st matrix.
 		- B: 2nd matrix."""
 	...
-def FBMatrixOrthogonalize(Matrix:FBMatrix,/):
+def FBMatrixOrthogonalize(Matrix:FBMatrix,/)->None:
 	"""Make sure that rotation vectors are orthogonal and normalized (fast way for removing scaling from matrix)
 
 	### Parameters:
 		- Matrix: Rotation Matrix to Orthogonalize."""
 	...
-def FBMatrixToQuaternion(Quaternion:FBVector4d,Matrix:FBMatrix,/):
+def FBMatrixToQuaternion(Quaternion:FBVector4d,Matrix:FBMatrix,/)->None:
 	"""Get a quaternion from a matrix (potential ).
 
 	### Parameters:
@@ -24893,7 +24896,7 @@ def FBMatrixToQuaternion(Quaternion:FBVector4d,Matrix:FBMatrix,/):
 	### Warning:
 	Matrix can contain scaling and/or translation, we orthogonalize matrix before."""
 	...
-def FBMatrixToRotation(Vector:FBVector3d,Matrix:FBMatrix,RotationOrder:FBRotationOrder=FBRotationOrder.kFBXYZ,/):
+def FBMatrixToRotation(Vector:FBVector3d,Matrix:FBMatrix,RotationOrder:FBRotationOrder=FBRotationOrder.kFBXYZ,/)->None:
 	"""Obtain rotation vector from a matrix.
 
 	### Parameters:
@@ -24901,7 +24904,7 @@ def FBMatrixToRotation(Vector:FBVector3d,Matrix:FBMatrix,RotationOrder:FBRotatio
 		- Matrix: Input matrix.
 		- RotationOrder: Rotation order."""
 	...
-def FBMatrixToRotationWithPrecision(Vector:FBVector3d,Matrix:FBMatrix,RotationOrder:FBRotationOrder,Precision:float,/):
+def FBMatrixToRotationWithPrecision(Vector:FBVector3d,Matrix:FBMatrix,RotationOrder:FBRotationOrder,Precision:float,/)->None:
 	"""Obtain rotation vector from a matrix.
 
 	### Parameters:
@@ -24913,14 +24916,14 @@ def FBMatrixToRotationWithPrecision(Vector:FBVector3d,Matrix:FBMatrix,RotationOr
 	### Warning:
 	Rotation is in EulerXYZ or EulerZYX only"""
 	...
-def FBMatrixToScaling(Vector:FBSVector,Matrix:FBMatrix,/):
+def FBMatrixToScaling(Vector:FBSVector,Matrix:FBMatrix,/)->None:
 	"""Obtain scaling vector from a matrix.
 
 	### Parameters:
 		- Vector: Extracted scaling vector.
 		- Matrix: Input matrix."""
 	...
-def FBMatrixToTQS(TVector:FBVector4d,Quaternion:FBVector4d,SVector:FBSVector,Matrix:FBMatrix,/):
+def FBMatrixToTQS(TVector:FBVector4d,Quaternion:FBVector4d,SVector:FBSVector,Matrix:FBMatrix,/)->None:
 	"""Obtain translation vector, rotation quaternion, and scaling vector from a matrix.
 
 	### Parameters:
@@ -24929,7 +24932,7 @@ def FBMatrixToTQS(TVector:FBVector4d,Quaternion:FBVector4d,SVector:FBSVector,Mat
 		- SVector: Extracted scaling vector.
 		- Matrix: Input matrix."""
 	...
-def FBMatrixToTRS(TVector:FBVector4d,RVector:FBVector3d,SVector:FBSVector,Matrix:FBMatrix,/):
+def FBMatrixToTRS(TVector:FBVector4d,RVector:FBVector3d,SVector:FBSVector,Matrix:FBMatrix,/)->None:
 	"""Obtain translation, rotation, and scaling vectors from a matrix.
 
 	### Parameters:
@@ -24941,14 +24944,14 @@ def FBMatrixToTRS(TVector:FBVector4d,RVector:FBVector3d,SVector:FBSVector,Matrix
 	### Warning:
 	Rotation is in EulerXYZ"""
 	...
-def FBMatrixToTranslation(Vector:FBVector4d,Matrix:FBMatrix,/):
+def FBMatrixToTranslation(Vector:FBVector4d,Matrix:FBMatrix,/)->None:
 	"""Obtain translation vector from a matrix.
 
 	### Parameters:
 		- Vector: Extracted translation vector.
 		- Matrix: Input matrix."""
 	...
-def FBMatrixTranspose(Matrix:FBMatrix,Src:FBMatrix,/):
+def FBMatrixTranspose(Matrix:FBMatrix,Src:FBMatrix,/)->None:
 	"""Transpose a matrix.
 
 	### Parameters:
@@ -24957,24 +24960,24 @@ def FBMatrixTranspose(Matrix:FBMatrix,Src:FBMatrix,/):
 	...
 def FBMemo_TypeInfo()->int:...
 def FBMenuManager_TypeInfo()->int:...
-def FBMergeTransactionBegin():
+def FBMergeTransactionBegin()->None:
 	"""Call to begin the transaction for merging multiple files.
 
 	Useful to consecutively merge multiple files into scene.
 	### Note:
 	The transaction need to be closed by calling [FBMergeTransactionEnd()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/namespacepyfbsdk.html#aaa23f01696af70541dff826bd4ec8a67 "Call to end the merge transaction."). There is no need to call [FBPreventUIUpdateBegin()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/namespacepyfbsdk.html#ac643c9042962342b0e5edfc03f35fdea "Call to prevent UI updates when creating/deleting/renaming objects.") with this function, since it already contains the same optimization."""
 	...
-def FBMergeTransactionEnd():
+def FBMergeTransactionEnd()->None:
 	"""Call to end the merge transaction."""
 	...
-def FBMergeTransactionFileRefEditBegin():
+def FBMergeTransactionFileRefEditBegin()->None:
 	"""Call to begin the transaction for merging multiple files and applying File Reference edit at the same time.
 
 	Useful to consecutively merge multiple files into scene with FileRef edit operation in between.
 	### Note:
 	The transaction need to be closed by calling [FBMergeTransactionFileRefEditEnd()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/namespacepyfbsdk.html#a2b9d101370a2834a5f4163581abe2204 "Call to end merge transaction with File Reference edit.")."""
 	...
-def FBMergeTransactionFileRefEditEnd():
+def FBMergeTransactionFileRefEditEnd()->None:
 	"""Call to end merge transaction with File Reference edit."""
 	...
 def FBMergeTransactionFileRefEditIsOn()->bool:
@@ -25050,12 +25053,12 @@ def FBModelPlane_TypeInfo()->int:...
 def FBModelRoot_TypeInfo()->int:...
 def FBModelSkeleton_TypeInfo()->int:...
 def FBModelTemplate_TypeInfo()->int:...
-def FBModelTransactionBegin():
+def FBModelTransactionBegin()->None:
 	"""FBModelTransactionBegin.
 
 	This set of functions speeds up the process of batch operations on models."""
 	...
-def FBModelTransactionEnd():
+def FBModelTransactionEnd()->None:
 	"""FBModelTransactionEnd.
 
 	This set of functions speeds up the process of batch operations on models."""
@@ -25070,7 +25073,7 @@ def FBMotionFileExportOptions_TypeInfo()->int:...
 def FBMotionFileImportOptions_TypeInfo()->int:...
 
 @overload
-def FBMult(Result:FBVector4d,V1:FBVector4d,V2:float,/):
+def FBMult(Result:FBVector4d,V1:FBVector4d,V2:float,/)->None:
 	"""Multiply pV2 from pV1 (pResult = pV1 * pV2)
 
 	### Parameters:
@@ -25079,7 +25082,7 @@ def FBMult(Result:FBVector4d,V1:FBVector4d,V2:float,/):
 		- V2: 2nd vector."""
 	...
 @overload
-def FBMult(Result:FBVector4d,V1:FBVector4d,V2:FBVector4d,/):
+def FBMult(Result:FBVector4d,V1:FBVector4d,V2:FBVector4d,/)->None:
 	"""Calculate the cross product of two vectors.
 
 	### Parameters:
@@ -25088,7 +25091,7 @@ def FBMult(Result:FBVector4d,V1:FBVector4d,V2:FBVector4d,/):
 		- V2: 2nd vector."""
 	...
 @overload
-def FBMult(Result:FBMatrix,M:FBMatrix,V:FBSVector,/):
+def FBMult(Result:FBMatrix,M:FBMatrix,V:FBSVector,/)->None:
 	"""Calculate the cross product of a Matrix and Scale Vector.
 
 	### Parameters:
@@ -25097,7 +25100,7 @@ def FBMult(Result:FBMatrix,M:FBMatrix,V:FBSVector,/):
 		- V: vector."""
 	...
 @overload
-def FBMult(arg1:FBMatrix,arg2:FBMatrix,arg3:FBSVector,/):...
+def FBMult(arg1:FBMatrix,arg2:FBMatrix,arg3:FBSVector,/)->None:...
 def FBNamespace_TypeInfo()->int:...
 def FBNote_TypeInfo()->int:...
 def FBNurbs_TypeInfo()->int:...
@@ -25109,7 +25112,7 @@ def FBObjectGetGlobalUniqueId()->int:
 def FBObjectGetLivingCount()->int:
 	"""Get current total living object count."""
 	...
-def FBObjectLifeLogEnable(Enable:bool,/):
+def FBObjectLifeLogEnable(Enable:bool,/)->None:
 	"""Enable object creation / deletion logging.
 
 	Default logging if off This logging may hurt performance slightly. use it only for debug purpose.
@@ -25117,7 +25120,7 @@ def FBObjectLifeLogEnable(Enable:bool,/):
 		- Enable: true to enable logging."""
 	...
 def FBObjectPose_TypeInfo()->int:...
-def FBObjectPrintLivings(StartUniqueId:int,/):
+def FBObjectPrintLivings(StartUniqueId:int,/)->None:
 	"""Print those living objects created when logging is enabled.
 
 	### Parameters:
@@ -25154,14 +25157,14 @@ def FBPopNormalTool(ToolName:str,SetFocus:bool=True,/)->bool:
 	...
 def FBPopup_TypeInfo()->int:...
 def FBPose_TypeInfo()->int:...
-def FBPreventUIUpdateBegin():
+def FBPreventUIUpdateBegin()->None:
 	"""Call to prevent UI updates when creating/deleting/renaming objects.
 
 	Useful to speed up script operations. Previously, [FBMergeTransactionBegin()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/namespacepyfbsdk.html#aad4907c6749ae8eb9e115ce14358bc58 "Call to begin the transaction for merging multiple files.")/ [FBMergeTransactionEnd()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/namespacepyfbsdk.html#aaa23f01696af70541dff826bd4ec8a67 "Call to end the merge transaction.") could be used to do this kind of optimization, even if no merge operations were done. However, using [FBMergeTransactionBegin()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/namespacepyfbsdk.html#aad4907c6749ae8eb9e115ce14358bc58 "Call to begin the transaction for merging multiple files.")/ [FBMergeTransactionEnd()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/namespacepyfbsdk.html#aaa23f01696af70541dff826bd4ec8a67 "Call to end the merge transaction.") with non-merge operation could lead to issues, like objects with invalid namespaces. [FBPreventUIUpdateBegin()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/namespacepyfbsdk.html#ac643c9042962342b0e5edfc03f35fdea "Call to prevent UI updates when creating/deleting/renaming objects.")/FBPreventUIUpdateEnd() fix this issue, while giving the same speed increase.
 	### Note:
 	The transaction need to be closed by calling [FBPreventUIUpdateEnd()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/namespacepyfbsdk.html#a9c050ffa65ccbb821c8b8d2692f7247f "Call to end blocking the UI updates."). There is no need to call this function when using [FBMergeTransactionBegin()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/namespacepyfbsdk.html#aad4907c6749ae8eb9e115ce14358bc58 "Call to begin the transaction for merging multiple files."), since [FBMergeTransactionBegin()](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/namespacepyfbsdk.html#aad4907c6749ae8eb9e115ce14358bc58 "Call to begin the transaction for merging multiple files.") already has the same optimization."""
 	...
-def FBPreventUIUpdateEnd():
+def FBPreventUIUpdateEnd()->None:
 	"""Call to end blocking the UI updates."""
 	...
 def FBPreventUIUpdateIsOn()->bool:
@@ -25172,7 +25175,7 @@ def FBProgress_TypeInfo()->int:...
 def FBPropertyConnectionEditor_TypeInfo()->int:...
 def FBPropertyViewManager_TypeInfo()->int:...
 def FBProperty_TypeInfo()->int:...
-def FBQAdd(Result:FBVector4d,Q1:FBVector4d,Q2:FBVector4d,/):
+def FBQAdd(Result:FBVector4d,Q1:FBVector4d,Q2:FBVector4d,/)->None:
 	"""Add two quaternions together (pResult = pQ1 + pQ2)
 
 	### Parameters:
@@ -25200,7 +25203,7 @@ def FBQLength(Q:FBVector4d,/)->float:
 	Length of quaternion pQ."""
 	...
 @overload
-def FBQMult(Result:FBVector4d,Q1:FBVector4d,Q2:float,/):
+def FBQMult(Result:FBVector4d,Q1:FBVector4d,Q2:float,/)->None:
 	"""Multiply pQ2 from pQ1 (pResult = pQ1 * pQ2)
 
 	### Parameters:
@@ -25209,7 +25212,7 @@ def FBQMult(Result:FBVector4d,Q1:FBVector4d,Q2:float,/):
 		- Q2: 2nd quaternion."""
 	...
 @overload
-def FBQMult(Result:FBVector4d,Q1:FBVector4d,Q2:FBVector4d,/):
+def FBQMult(Result:FBVector4d,Q1:FBVector4d,Q2:FBVector4d,/)->None:
 	"""Calculate the cross product of two quaternions.
 
 	### Parameters:
@@ -25217,7 +25220,7 @@ def FBQMult(Result:FBVector4d,Q1:FBVector4d,Q2:FBVector4d,/):
 		- Q1: 1st quaternion.
 		- Q2: 2nd quaternion."""
 	...
-def FBQSub(Result:FBVector4d,Q1:FBVector4d,Q2:FBVector4d,/):
+def FBQSub(Result:FBVector4d,Q1:FBVector4d,Q2:FBVector4d,/)->None:
 	"""Subtract pQ2 from pQ1 (pResult = pQ1 - pQ2)
 
 	### Parameters:
@@ -25225,14 +25228,14 @@ def FBQSub(Result:FBVector4d,Q1:FBVector4d,Q2:FBVector4d,/):
 		- Q1: 1st quaternion.
 		- Q2: 2nd quaternion."""
 	...
-def FBQuaternionToMatrix(Matrix:FBMatrix,Quaternion:FBVector4d,/):
+def FBQuaternionToMatrix(Matrix:FBMatrix,Quaternion:FBVector4d,/)->None:
 	"""Get a rotation matrix from a quaternion vector.
 
 	### Parameters:
 		- Matrix: Calculated rotation matrix.
 		- Quaternion: Input quaternion."""
 	...
-def FBQuaternionToRotation(Vector:FBVector3d,Quaternion:FBVector4d,RotationOrder:FBRotationOrder=FBRotationOrder.kFBXYZ,/):
+def FBQuaternionToRotation(Vector:FBVector3d,Quaternion:FBVector4d,RotationOrder:FBRotationOrder=FBRotationOrder.kFBXYZ,/)->None:
 	"""Get a rotation vector from a quaternion vector.
 
 	### Parameters:
@@ -25243,7 +25246,7 @@ def FBQuaternionToRotation(Vector:FBVector3d,Quaternion:FBVector4d,RotationOrder
 	### Warning:
 	Rotation is in EulerXYZ or kFBZYX only"""
 	...
-def FBQuaternionToRotationWithPrecision(Vector:FBVector3d,Quaternion:FBVector4d,RotationOrder:FBRotationOrder,Precision:float,/):
+def FBQuaternionToRotationWithPrecision(Vector:FBVector3d,Quaternion:FBVector4d,RotationOrder:FBRotationOrder,Precision:float,/)->None:
 	"""Get a rotation vector from a quaternion vector.
 
 	### Parameters:
@@ -25259,7 +25262,7 @@ def FBReferenceTime_TypeInfo()->int:...
 def FBRendererCallback_TypeInfo()->int:...
 def FBRenderer_TypeInfo()->int:...
 def FBRigidBody_TypeInfo()->int:...
-def FBRotationToMatrix(Matrix:FBMatrix,Vector:FBVector3d,RotationOrder:FBRotationOrder=FBRotationOrder.kFBXYZ,/):
+def FBRotationToMatrix(Matrix:FBMatrix,Vector:FBVector3d,RotationOrder:FBRotationOrder=FBRotationOrder.kFBXYZ,/)->None:
 	"""Convert a rotation vector to a matrix.
 
 	### Parameters:
@@ -25267,7 +25270,7 @@ def FBRotationToMatrix(Matrix:FBMatrix,Vector:FBVector3d,RotationOrder:FBRotatio
 		- Vector: Rotation vector, ordered the same way as the rotation order specified by pRotationOrder.
 		- RotationOrder: Rotation order."""
 	...
-def FBRotationToQuaternion(Quaternion:FBVector4d,Vector:FBVector3d,RotationOrder:FBRotationOrder=FBRotationOrder.kFBXYZ,/):
+def FBRotationToQuaternion(Quaternion:FBVector4d,Vector:FBVector3d,RotationOrder:FBRotationOrder=FBRotationOrder.kFBXYZ,/)->None:
 	"""Get a quaternion from a rotation vector.
 
 	### Parameters:
@@ -25285,7 +25288,7 @@ def FBSaveCharacterPinningPreset(PresetName:str,AllowOverwriting:bool=False,/)->
 	### Returns:
 	True if the operation is successful, false otherwise."""
 	...
-def FBScalingToMatrix(Matrix:FBMatrix,Vector:FBSVector,/):
+def FBScalingToMatrix(Matrix:FBMatrix,Vector:FBSVector,/)->None:
 	"""Convert a scaling vector to a matrix.
 
 	### Parameters:
@@ -25293,7 +25296,7 @@ def FBScalingToMatrix(Matrix:FBMatrix,Vector:FBSVector,/):
 		- Vector: Scaling vector."""
 	...
 def FBScene_TypeInfo()->int:...
-def FBSchedulingDependencyOutput(Enable:bool,/):
+def FBSchedulingDependencyOutput(Enable:bool,/)->None:
 	"""Debug function for MT dependency debug.
 
 	When enabled log file will be created and updated each time MultiThreaded scheduling is happening (scene rebuild)
@@ -25310,33 +25313,33 @@ def FBSetActorMarkerSetVisibility(Show:bool,/)->bool:
 	### Returns:
 	True if the operation is successful, false otherwise."""
 	...
-def FBSetCharacterComparisonThresholdValue(Value:float,/):
+def FBSetCharacterComparisonThresholdValue(Value:float,/)->None:
 	"""Set the Character threshold value used when comparing two characters (e.g.
 
 	: when applying a Character Clip using the "Control Rig" Solving Mode).
 	### Parameters:
 		- Value: The new threshold value to set."""
 	...
-def FBSetCharacterFingerTipsVisibility(Show:bool,/):
+def FBSetCharacterFingerTipsVisibility(Show:bool,/)->None:
 	"""Sets visibility of the finger-tips of the current character.
 
 	### Parameters:
 		- Show: Specifies if finger-tips of the current character should be visible."""
 	...
-def FBSetCharacterFloorContactsVisibility(Show:bool,/):
+def FBSetCharacterFloorContactsVisibility(Show:bool,/)->None:
 	"""Sets visibility of the floor contacts of the current character.
 
 	### Parameters:
 		- Show: Specifies if floor contacts of the current character should be visible."""
 	...
-def FBSetConstantKeyReducerThresholdValue(ThresholdType:FBConstantKeyReducerThresholdType,Value:float,/):
+def FBSetConstantKeyReducerThresholdValue(ThresholdType:FBConstantKeyReducerThresholdType,Value:float,/)->None:
 	"""Set a specific threshold value used by the Constant Key Reducer filter.
 
 	### Parameters:
 		- ThresholdType: The threshold type to set its value.
 		- Value: The new threshold value to set."""
 	...
-def FBSetLastSelectedModel(Model:FBModel,/):
+def FBSetLastSelectedModel(Model:FBModel,/)->None:
 	"""Set the given model as the last one selected, so the manipulator in the viewer will then be on that particular model.
 
 	If the model is not selected, it will also be selected.
@@ -25347,7 +25350,7 @@ def FBSet_TypeInfo()->int:...
 def FBShaderLighted_TypeInfo()->int:...
 def FBShaderShadowLive_TypeInfo()->int:...
 def FBShader_TypeInfo()->int:...
-def FBSleep(MilliSeconds:int,/):
+def FBSleep(MilliSeconds:int,/)->None:
 	"""Sleep function Puts system to sleep for specified time.
 
 	### Parameters:
@@ -25366,7 +25369,7 @@ def FBStoryFolder_TypeInfo()->int:...
 def FBStoryGroupClip_TypeInfo()->int:...
 def FBStoryTrack_TypeInfo()->int:...
 def FBStory_TypeInfo()->int:...
-def FBSub(Result:FBVector4d,V1:FBVector4d,V2:FBVector4d,/):
+def FBSub(Result:FBVector4d,V1:FBVector4d,V2:FBVector4d,/)->None:
 	"""Subtract pV2 from pV1 (pResult = pV1 - pV2)
 
 	### Parameters:
@@ -25376,7 +25379,7 @@ def FBSub(Result:FBVector4d,V1:FBVector4d,V2:FBVector4d,/):
 	...
 def FBSurface_TypeInfo()->int:...
 def FBSystem_TypeInfo()->int:...
-def FBTQSToMatrix(Matrix:FBMatrix,TVector:FBVector4d,Quaternion:FBVector4d,SVector:FBSVector,/):
+def FBTQSToMatrix(Matrix:FBMatrix,TVector:FBVector4d,Quaternion:FBVector4d,SVector:FBSVector,/)->None:
 	"""Convert translation vector, rotation quaternion, and scaling vector to a matrix.
 
 	### Parameters:
@@ -25385,7 +25388,7 @@ def FBTQSToMatrix(Matrix:FBMatrix,TVector:FBVector4d,Quaternion:FBVector4d,SVect
 		- Quaternion: Rotation quaternion.
 		- SVector: Scaling vector."""
 	...
-def FBTRSToMatrix(Matrix:FBMatrix,TVector:FBVector4d,RVector:FBVector3d,SVector:FBSVector,/):
+def FBTRSToMatrix(Matrix:FBMatrix,TVector:FBVector4d,RVector:FBVector3d,SVector:FBSVector,/)->None:
 	"""Convert translation, rotation, and scaling vectors to a matrix.
 
 	### Parameters:
@@ -25404,7 +25407,7 @@ def FBThermometer_TypeInfo()->int:...
 def FBTimeWarpManager_TypeInfo()->int:...
 def FBToolLayoutManager_TypeInfo()->int:...
 def FBTool_TypeInfo()->int:...
-def FBTrace(FormatString:str,/):
+def FBTrace(FormatString:str,/)->None:
 	"""This function prints useful debugging strings in the console with kFBNORMAL_TRACE output detailed level.
 
 	### Parameters:
@@ -25422,7 +25425,7 @@ def FBTraceGetLevel()->int:
 	### Note:
 	Python console trace current output level could be queried via pythonidelib.GetTraceLevel()."""
 	...
-def FBTraceSetLevel(NewLevel:int,/):
+def FBTraceSetLevel(NewLevel:int,/)->None:
 	"""Set Global Trace Detailed Level which affects all the output targets.
 
 	### Parameters:
@@ -25431,7 +25434,7 @@ def FBTraceSetLevel(NewLevel:int,/):
 	### Note:
 	Python console trace current output level could be further adjusted via pythonidelib.SetTraceLevel()."""
 	...
-def FBTraceWithLevel(Level:int,FormatString:str,/):
+def FBTraceWithLevel(Level:int,FormatString:str,/)->None:
 	"""This function prints useful debugging strings in the console.
 
 	### Parameters:
@@ -25442,7 +25445,7 @@ def FBTraceWithLevel(Level:int,FormatString:str,/):
 	There is currently a limitation which sets the maximum length of the resulting string to be limited to 2048 bytes.
 	Not thread safe, as an static array is used internally."""
 	...
-def FBTranslationToMatrix(Matrix:FBMatrix,Vector:FBVector4d,/):
+def FBTranslationToMatrix(Matrix:FBMatrix,Vector:FBVector4d,/)->None:
 	"""Convert a translation vector to a matrix.
 
 	### Parameters:
@@ -25454,7 +25457,7 @@ def FBTreeNode_TypeInfo()->int:...
 def FBTree_TypeInfo()->int:...
 def FBUndoManager_TypeInfo()->int:...
 def FBUserObject_TypeInfo()->int:...
-def FBVectorMatrixMult(OutVector:FBVector4d,Matrix:FBMatrix,Vector:FBVector4d,/):
+def FBVectorMatrixMult(OutVector:FBVector4d,Matrix:FBMatrix,Vector:FBVector4d,/)->None:
 	"""Multiply a vector by a matrix.
 
 	### Parameters:
@@ -25462,7 +25465,7 @@ def FBVectorMatrixMult(OutVector:FBVector4d,Matrix:FBMatrix,Vector:FBVector4d,/)
 		- Matrix: Matrix to affect the vector with.
 		- Vector: Source vector."""
 	...
-def FBVertexMatrixMult(OutVertex:FBVertex,Matrix:FBMatrix,Vertex:FBVertex,/):
+def FBVertexMatrixMult(OutVertex:FBVertex,Matrix:FBMatrix,Vertex:FBVertex,/)->None:
 	"""Multiply a vertex by a matrix.
 
 	### Parameters:
@@ -25503,28 +25506,28 @@ def GetToolSizeByName(ToolName:str,/)->tuple:
 	### Parameters:
 	- ToolName: The name of the tool as shown in the Open Reality menu."""
 	...
-def SetToolPosition(Tool:FBTool,PosX:int,PosY:int,/):
+def SetToolPosition(Tool:FBTool,PosX:int,PosY:int,/)->None:
 	"""This function will set the position of a specific tool.
 	### Parameters:
 	- Tool: A pointer to the tool.
 	- PosX: New position in X for the tool.
 	- PosY: New position in Y for the tool."""
 	...
-def SetToolPositionByName(ToolName:str,PosX:int,PosY:int,/):
+def SetToolPositionByName(ToolName:str,PosX:int,PosY:int,/)->None:
 	"""This function will set the position of a specific tool.
 	### Parameters:
 	- ToolName: The name of the tool as shown in the Open Reality menu.
 	- PosX: New position in X for the tool.
 	- PosY: New position in Y for the tool."""
 	...
-def SetToolSize(Tool:FBTool,Width:int,Height:int,/):
+def SetToolSize(Tool:FBTool,Width:int,Height:int,/)->None:
 	"""This function will set the size of a specific tool in the GUI.
 	### Parameters:
 	- Tool: A pointer to the tool.
 	- Width: New width of the tool.
 	- Height: New height of the tool."""
 	...
-def SetToolSizeByName(ToolName:str,Width:int,Height:int,/):
+def SetToolSizeByName(ToolName:str,Width:int,Height:int,/)->None:
 	"""This function will set the size of a specific tool in the GUI.
 	### Parameters:
 	- ToolName: The name of the tool as shown in the Open Reality menu.
