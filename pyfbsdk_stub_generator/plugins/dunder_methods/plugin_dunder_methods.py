@@ -4,18 +4,24 @@ from __future__ import annotations
 from ..plugin_base import PluginBaseClass
 from ...module_types import StubClass, StubFunction, StubParameter, StubProperty
 
+
 # Dunder methods that we want to assume they return self
-DUNDER_METHODS_RETURNING_SELF = {"__add__", "__sub__", "__mul__", "__truediv__", "__floordiv__", "__mod__", "__divmod__", "__pow__", "__neg__",
-                                 "__isub__", "__iadd__", "__imul__", "__itruediv__", "__ifloordiv__", "__imod__", "__ipow__", "__idiv__",
-                                 "__radd__", "__rsub__", "__rmul__", "__rtruediv__", "__rfloordiv__", "__rmod__", "__rdivmod__", "__rpow__", "__rneg__"}
+METHODS_RETURNING_SELF = {"__add__", "__sub__", "__mul__", "__truediv__", "__floordiv__", "__mod__", "__divmod__", "__pow__", "__neg__",
+                          "__isub__", "__iadd__", "__imul__", "__itruediv__", "__ifloordiv__", "__imod__", "__ipow__", "__idiv__",
+                          "__radd__", "__rsub__", "__rmul__", "__rtruediv__", "__rfloordiv__", "__rmod__", "__rdivmod__", "__rpow__", "__rneg__",
+                          "__copy__", "__deepcopy__"}
 
 # Some dunder methods have a different return type than the class they are defined in
 CONVERT_DUNDER_RETURN_TYPE = {
     "FBPropertyAnimatableDouble": "float",
 }
 
-KNOWN_RETURN_TYPES = {
-    "__float__": "float",
+KNOWN_RETURN_TYPES: dict[str, type] = {
+    "__float__": float,
+    "__gt__": bool,
+    "__lt__": bool,
+    "__ge__": bool,
+    "__le__": bool
 }
 
 
@@ -32,7 +38,7 @@ class PluginDunderMethods(PluginBaseClass):
                 if Function.ReturnType != "Any":
                     continue
 
-                if Function.Name in DUNDER_METHODS_RETURNING_SELF:
+                if Function.Name in METHODS_RETURNING_SELF:
                     Function.ReturnType = Class.Name
 
                     if Function.ReturnType in CONVERT_DUNDER_RETURN_TYPE:
@@ -41,7 +47,7 @@ class PluginDunderMethods(PluginBaseClass):
                         print(f"Warning: {Class.Name}.{Function.Name} has a return type of self. This is probably wrong. Might need a new entry in `plugins.dunder_methods.CONVERT_DUNDER_RETURN_TYPE`.")
 
                 elif Function.Name in KNOWN_RETURN_TYPES:
-                    Function.ReturnType = KNOWN_RETURN_TYPES[Function.Name]
+                    Function.ReturnType = KNOWN_RETURN_TYPES[Function.Name].__name__
 
             # If the class has __getitem__ implemented, we should also add the __iter__ method.
             # Technically, this is not correct. But otherwise typecheckers like PyRight & MyPy will complain that the
