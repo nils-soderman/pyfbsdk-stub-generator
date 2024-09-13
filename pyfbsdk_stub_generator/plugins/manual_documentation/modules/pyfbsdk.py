@@ -13,9 +13,11 @@ from ..doc_bases import Parameter, FunctionBase, ClassBase, PropertyBase
 
 class FBPlug(ClassBase):
     class GetDst(FunctionBase):
+        Parameters = (Parameter("Index", int),)
         ReturnType = pyfbsdk.FBPlug
 
     class GetSrc(FunctionBase):
+        Parameters = (Parameter("Index", int),)
         ReturnType = pyfbsdk.FBPlug
 
     class GetOwned(FunctionBase):
@@ -23,7 +25,6 @@ class FBPlug(ClassBase):
         ReturnType = pyfbsdk.FBPlug
 
     class GetOwner(FunctionBase):
-        Parameters = (Parameter("Index", int),)
         ReturnType = pyfbsdk.FBPlug
 
 
