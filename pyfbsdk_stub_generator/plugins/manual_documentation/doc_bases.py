@@ -55,8 +55,8 @@ class ClassBase:
         Functions = []
         for Name, Obj in inspect.getmembers(cls):
             if isinstance(Obj, type) and issubclass(Obj, FunctionBase) and Obj != FunctionBase:
-                Functions.append(Obj)
-        return [Functions]
+                Functions.append([Obj])
+        return Functions
 
     @classmethod
     def GetProperties(cls) -> list[type[PropertyBase]]:

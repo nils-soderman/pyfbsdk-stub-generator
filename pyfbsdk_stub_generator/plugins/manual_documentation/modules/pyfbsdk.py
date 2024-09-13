@@ -6,12 +6,26 @@ import pyfbsdk
 
 from ..doc_bases import Parameter, FunctionBase, ClassBase, PropertyBase
 
-from typing import Iterator
-
 
 # ---------------------------------------------------------------------
 #                          Classes
 # ---------------------------------------------------------------------
+
+class FBPlug(ClassBase):
+    class GetDst(FunctionBase):
+        ReturnType = pyfbsdk.FBPlug
+
+    class GetSrc(FunctionBase):
+        ReturnType = pyfbsdk.FBPlug
+
+    class GetOwned(FunctionBase):
+        Parameters = (Parameter("Index", int),)
+        ReturnType = pyfbsdk.FBPlug
+
+    class GetOwner(FunctionBase):
+        Parameters = (Parameter("Index", int),)
+        ReturnType = pyfbsdk.FBPlug
+
 
 class FBComponent(ClassBase):
     class FullName(PropertyBase):
@@ -112,9 +126,11 @@ class FBPropertyManager(ClassBase):
         Parameters = (Parameter("Index", int),)
         ReturnType = pyfbsdk.FBProperty
 
+
 class FBEventEvalGlobalCallback(ClassBase):
     class Timing(PropertyBase):
         Types = pyfbsdk.FBGlobalEvalCallbackTiming
+
 
 class FBEventConnectionKeyingNotify(ClassBase):
     class Action(PropertyBase):
@@ -148,9 +164,11 @@ class FBPropertyConnectionEditor(ClassBase):
     class Property(PropertyBase):
         Types = pyfbsdk.FBProperty
 
+
 class FBEditPropertyModern(ClassBase):
     class Property(PropertyBase):
         Types = pyfbsdk.FBProperty
+
 
 class FBEditProperty(ClassBase):
     class Property(PropertyBase):
