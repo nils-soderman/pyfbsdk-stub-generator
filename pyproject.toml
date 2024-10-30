@@ -24,8 +24,8 @@ dependencies = [
     "Js2Py~=0.74",
 ]
 
-[tool.setuptools]
-packages = ["pyfbsdk_stub_generator"]
+[tool.setuptools.packages.find]
+where = ["."]
 
 [tool.setuptools.package-data]
 include = ["pyfbsdk_stub_generator/**"]
