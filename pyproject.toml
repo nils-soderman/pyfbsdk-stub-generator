@@ -26,6 +26,4 @@ dependencies = [
 
 [tool.setuptools.packages.find]
 where = ["."]
-
-[tool.setuptools.package-data]
-include = ["pyfbsdk_stub_generator/**"]
+exclude = ["dev", "generated-stub-files"]
