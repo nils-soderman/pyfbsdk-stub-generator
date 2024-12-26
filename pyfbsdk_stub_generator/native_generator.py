@@ -215,7 +215,7 @@ def GenerateClassInstance(Class, AllClassNames: list[str]) -> StubClass:
     # Get all members and generate stub properties of them
     ClassMemebers = GetUniqueClassMembers(Class, 
                                           Ignore = ["__instance_size__"], 
-                                          AllowedOverrides = ["__init__", "__getitem__", "__contains__", "Data", "remove", "pop", "insert", "append", "count", "insert"]
+                                          AllowedOverrides = ["__init__", "__getitem__", "__contains__", "Data", "remove", "pop", "insert", "append", "count", "insert", "OnUnbind"]
                                           )
     ClassMemberNames = [x for x, y in ClassMemebers]
 

@@ -1,14 +1,34 @@
+import shutil
 import os
 
 
-def Generate(Directory: str, FileExtension = "pyi") -> str:
+def CopyAdditionalStubs(OutDirectory: str):
+    """
+    Copy the additional stubs to the output directory.
+    This includes e.g. callbackframework.pyi, pyfbsdk_additions.pyi, etc.
+    
+    These stubs have been manually created and are not automatically generated, and may therefore be outdated.
+    
+    ## Parameters:
+        - OutDirectory: The directory where the additional stubs should be copied    
+    """
+    ManualStubsDirectory = os.path.join(os.path.dirname(__file__), "manual_stubs")
+    for File in os.listdir(ManualStubsDirectory):
+        if File.endswith(".pyi"):
+            SrcFile = os.path.join(ManualStubsDirectory, File)
+            DstFile = os.path.join(OutDirectory, File)
+            shutil.copy(SrcFile, DstFile)
+
+
+def Generate(Directory: str, FileExtension = "pyi", bCopyAdditionalStubs = True):
     """ 
     Generate a stub file for the pyfbsdk module. \\
     This may take a while since the online MoBu sdk documentation will have to be parsed.
 
     ## Parameters:
-        - directory: The absolute path to the directory where the pyfbsdk stub file should be created
-        - fileExtension: The file extension
+        - Directory: The absolute path to the directory where the pyfbsdk stub file should be created
+        - FileExtension: The file extension
+        - bCopyAdditionalStubs: If True, additional manually typed stubs will be copied to the output directory. These include e.g. callbackframework.pyi, pyfbsdk_additions.pyi, etc.
 
     ## Returns:
     The filepath to the generated file 
@@ -23,4 +43,9 @@ def Generate(Directory: str, FileExtension = "pyi") -> str:
 
     Filepath = os.path.join(Directory, f"pyfbsdk.{FileExtension}")
 
-    return GeneratePyfbsdkStubFile(Filepath)
+    Outfilepath = GeneratePyfbsdkStubFile(Filepath)
+
+    if bCopyAdditionalStubs:
+        CopyAdditionalStubs(Directory)
+
+    return Outfilepath
