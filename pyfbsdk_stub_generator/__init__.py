@@ -1,6 +1,12 @@
-import shutil
 import os
 
+# Make sure code is running in a motionbuilder python interpreter with access to the pyfbsdk module
+try:
+    import pyfbsdk
+except ModuleNotFoundError as e:
+    raise ImportError(f"pyfbsdk_stub_generator can only be called upon from within MotionBuilder.") from e
+
+from .stub_generator import GeneratePyfbsdkStubFile
 
 def CopyAdditionalStubs(OutDirectory: str):
     """
@@ -17,7 +23,13 @@ def CopyAdditionalStubs(OutDirectory: str):
         if File.endswith(".pyi"):
             SrcFile = os.path.join(ManualStubsDirectory, File)
             DstFile = os.path.join(OutDirectory, File)
-            shutil.copy(SrcFile, DstFile)
+            
+            with open(SrcFile, "r") as f:
+                content = f.read()
+                content = stub_generator.ReplaceVariables(content)
+                
+                with open(DstFile, "w") as f:
+                    f.write(content)
 
 
 def Generate(Directory: str, FileExtension = "pyi", bCopyAdditionalStubs = True):
@@ -33,13 +45,7 @@ def Generate(Directory: str, FileExtension = "pyi", bCopyAdditionalStubs = True)
     ## Returns:
     The filepath to the generated file 
     """
-    # Make sure code is running in a motionbuilder python interpreter with access to the pyfbsdk module
-    try:
-        import pyfbsdk
-    except ModuleNotFoundError as e:
-        raise ImportError(f"{Generate.__name__} can only be called upon from within MotionBuilder.") from e
-
-    from .stub_generator import GeneratePyfbsdkStubFile
+    
 
     Filepath = os.path.join(Directory, f"pyfbsdk.{FileExtension}")
 

@@ -29,6 +29,15 @@ def GetMotionBuilderVersion() -> int:
 #                       Functions
 # -------------------------------------------------------------
 
+def ReplaceVariables(String: str) -> str:
+    """
+    Insert variables into the string, e.g. {MOTIONBUILDER_VERSION}
+    """
+    String = String.replace("{MOTIONBUILDER_VERSION}", str(GetMotionBuilderVersion()))
+
+    return String
+
+
 def GetBaseContent(Module: ModuleType) -> str:
     ModuleName = Module.__name__
     Filepath = os.path.join(os.path.dirname(__file__), "base_content", f"{ModuleName}.pyi")
@@ -38,7 +47,7 @@ def GetBaseContent(Module: ModuleType) -> str:
         with open(Filepath, 'r', encoding="utf-8") as File:
             Content = File.read().strip() + "\n"
 
-    Content = Content.replace("{MOTIONBUILDER_VERSION}", str(GetMotionBuilderVersion()))
+    Content = ReplaceVariables(Content)
 
     return Content
 
