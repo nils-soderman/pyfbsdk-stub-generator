@@ -38,7 +38,7 @@ def GetPyprojectData(PythonExecutable: str) -> dict:
 
 def GetPyProjectDependencies(PythonExecutable: str) -> list[str]:
     """ 
-    Read the pyproject.toml file and return the dependencies as a dictionary.
+    Read the pyproject.toml file and return the dependencies as a list of strings.
     """
     return GetPyprojectData(PythonExecutable).get('project', {}).get('dependencies', [])
 

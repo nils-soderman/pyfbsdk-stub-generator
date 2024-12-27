@@ -16,6 +16,7 @@ reload(module_types)
 ENUMERATION_NAME = "Enumeration"
 ALLOWED_BUILTIN_OVERRIDES = {"__gt__", "__lt__", "__ge__", "__le__"}
 
+
 class FObjectType:
     Function = 'function'
     Class = 'class'
@@ -24,7 +25,7 @@ class FObjectType:
 
 
 # -------------------------------------------------------------
-#                       Helper Functios
+#                       Helper Functions
 # -------------------------------------------------------------
 
 def GetObjectName(Object) -> str:
@@ -46,7 +47,7 @@ def IsMethodStatic(Class, MethodName: str):
     Check if a method is static
     Args:
         - Class: reference to the class
-        - Method: Name of the method
+        - MethodName: Name of the method
     """
     return isinstance(inspect.getattr_static(Class, MethodName), staticmethod)
 
@@ -56,9 +57,10 @@ def GetModuleContent(Module: ModuleType):
     Get all members in the pyfbsdk module
     returns: a tuple with (Functions, Classes, Enums)
     """
-    Functions = [x[1] for x in inspect.getmembers(Module) if GetObjectType(x[1]) == FObjectType.Function and not IsPrivate(x[1])]
-    Classes = [x[1] for x in inspect.getmembers(Module) if GetObjectType(x[1]) == FObjectType.Class]
-    Enums = [x[1] for x in inspect.getmembers(Module) if GetObjectType(x[1]) == FObjectType.Enum]
+    Members = inspect.getmembers(Module)
+    Functions = [x[1] for x in Members if GetObjectType(x[1]) == FObjectType.Function and not IsPrivate(x[1])]
+    Classes = [x[1] for x in Members if GetObjectType(x[1]) == FObjectType.Class]
+    Enums = [x[1] for x in Members if GetObjectType(x[1]) == FObjectType.Enum]
 
     return (Functions, Classes, Enums)
 
@@ -72,14 +74,14 @@ def GetUniqueClassMembers(Class, Ignore = (), AllowedOverrides = ()):
     Args:
         - Class {object}: reference to the class
         - Ignore {List[str]}: 
-        - AlwaysAllow {List[str]}: Always allowed members named x, even if they exists in the parent class
+        - AllowedOverrides {List[str]}: Always allowed members named x, even if they exists in the parent class
 
     Returns: tuple("Name", Reference)
     """
     Members = inspect.getmembers(Class)
     ParentClass = GetClassParents(Class)[0]
 
-    UniqueMemebers = []
+    UniqueMembers = []
     for Name, Ref in Members:
         if Name in Ignore:
             continue
@@ -87,15 +89,15 @@ def GetUniqueClassMembers(Class, Ignore = (), AllowedOverrides = ()):
         if hasattr(ParentClass, Name):
             if ParentClass.__name__ == "instance":
                 if isinstance(Ref, (types.BuiltinFunctionType, types.BuiltinMethodType)) and Name in ALLOWED_BUILTIN_OVERRIDES:
-                    UniqueMemebers.append((Name, Ref))
+                    UniqueMembers.append((Name, Ref))
                     continue
 
             if Name not in AllowedOverrides:
                 continue
 
-        UniqueMemebers.append((Name, Ref))
+        UniqueMembers.append((Name, Ref))
 
-    return UniqueMemebers
+    return UniqueMembers
 
 
 def GetClassParentNames(Class):
@@ -133,10 +135,10 @@ def GetFunctionInfoFromDocString(Function: typing.Callable) -> list[tuple[list[S
             Params.append(ParameterInstance)
         return Params
 
-    if not Function.__doc__:  # No docstring
+    if not Function.__doc__:  # Return an empty list if the function has no docstring
         return []
 
-    FunctionParamters = []
+    FunctionParameters = []
     # Read the docstring and split it up if there are multiple function overrides
     FunctionsDocs = [x for x in Function.__doc__.split("\n") if x]
     for Doc in FunctionsDocs:
@@ -148,7 +150,7 @@ def GetFunctionInfoFromDocString(Function: typing.Callable) -> list[tuple[list[S
         # ShowToolByName( (str)arg1 [, (object)arg2]) -> object
         Doc = Doc.partition("(")[2]  # Remove function name
         Params, _, ReturnType = Doc.rpartition("->")
-        
+
         ReturnType = ReturnType.strip(" :")
 
         # Split params into required & optional
@@ -162,11 +164,11 @@ def GetFunctionInfoFromDocString(Function: typing.Callable) -> list[tuple[list[S
         if OptionalParams.strip():
             Params += _GenerateParams(OptionalParams, DefaultValue = "None")
 
-        FunctionParamters.append(
+        FunctionParameters.append(
             (Params, ReturnType.strip())
         )
 
-    return FunctionParamters
+    return FunctionParameters
 
 
 # -------------------------------------------------------------
@@ -187,8 +189,8 @@ def GenerateEnumInstance(Class, ParentClass = None):
     EnumClassInstance = StubClass(Class, ClassName)
 
     # Get all members and generate stub properties of them
-    ClassMemebers = GetUniqueClassMembers(Class, Ignore = ["__init__", "__slots__", "names", "values"])
-    for PropertyName, PropertyReference in ClassMemebers:
+    ClassMembers = GetUniqueClassMembers(Class, Ignore = ["__init__", "__slots__", "names", "values"])
+    for PropertyName, PropertyReference in ClassMembers:
         PropertyInstance = StubProperty(PropertyReference, PropertyName)
         if ParentClass:
             PropertyInstance.Type = f"{GetObjectName(ParentClass)}.{ClassName}"
@@ -213,13 +215,22 @@ def GenerateClassInstance(Class, AllClassNames: list[str]) -> StubClass:
     ClassInstance = StubClass(Class, ClassName)
 
     # Get all members and generate stub properties of them
-    ClassMemebers = GetUniqueClassMembers(Class, 
-                                          Ignore = ["__instance_size__"], 
-                                          AllowedOverrides = ["__init__", "__getitem__", "__contains__", "Data", "remove", "pop", "insert", "append", "count", "insert", "OnUnbind"]
-                                          )
-    ClassMemberNames = [x for x, y in ClassMemebers]
+    ClassMembers = GetUniqueClassMembers(Class,
+                                         Ignore = ["__instance_size__"],
+                                         AllowedOverrides = ["__init__",
+                                                             "__getitem__",
+                                                             "__contains__",
+                                                             "Data",
+                                                             "remove",
+                                                             "pop",
+                                                             "insert",
+                                                             "append",
+                                                             "count",
+                                                             "OnUnbind"]
+                                         )
+    ClassMemberNames = [x for x, y in ClassMembers]
 
-    for MemberName, MemberReference in ClassMemebers:
+    for MemberName, MemberReference in ClassMembers:
         Type = GetObjectType(MemberReference)
 
         if Type == FObjectType.Function:

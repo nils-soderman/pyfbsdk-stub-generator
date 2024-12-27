@@ -6,7 +6,7 @@ try:
 except ModuleNotFoundError as e:
     raise ImportError(f"pyfbsdk_stub_generator can only be called upon from within MotionBuilder.") from e
 
-from .stub_generator import GeneratePyfbsdkStubFile
+from . import stub_generator
 
 def CopyAdditionalStubs(OutDirectory: str):
     """
@@ -49,7 +49,7 @@ def Generate(Directory: str, FileExtension = "pyi", bCopyAdditionalStubs = True)
 
     Filepath = os.path.join(Directory, f"pyfbsdk.{FileExtension}")
 
-    Outfilepath = GeneratePyfbsdkStubFile(Filepath)
+    Outfilepath = stub_generator.GeneratePyfbsdkStubFile(Filepath)
 
     if bCopyAdditionalStubs:
         CopyAdditionalStubs(Directory)

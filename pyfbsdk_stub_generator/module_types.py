@@ -38,7 +38,7 @@ class StubBase():
         """
         raise NotImplementedError("GetAsString() has not yet been implemented")
 
-    def GetDocString(self):
+    def GetDocString(self) -> str:
         if self.DocString:
             # Strip each line of unnecessary whitespace
             Lines = self.DocString.split("\n")
@@ -81,7 +81,7 @@ class StubFunction(StubBase):
     def ReturnType(self, Value: str | None):
         self._ReturnType = Value
 
-    def AddParameter(self, Parameter):
+    def AddParameter(self, Parameter: StubParameter):
         self._Params.append(Parameter)
 
     def GetParameters(self, bExcludeSelf=False) -> list[StubParameter]:
@@ -95,10 +95,10 @@ class StubFunction(StubBase):
             return self._Params[1:]
         return self._Params
 
-    def SetParameter(self, Index, Paramter):
+    def SetParameter(self, Index: int, Parameter: StubParameter):
         if Index > len(self._Params) - 1:
-            raise IndexError("given parameter index is larger than the size of the paramter array")
-        self._Params[Index] = Paramter
+            raise IndexError("given parameter index is larger than the size of the parameter array")
+        self._Params[Index] = Parameter
 
     def GetRequirements(self) -> list:
         ReturnValue = []

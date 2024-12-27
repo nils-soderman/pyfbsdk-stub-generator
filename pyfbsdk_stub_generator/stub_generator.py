@@ -17,7 +17,7 @@ DEFAULT_PLUGINS = plugins.GetDefaultPlugins()
 
 
 # -------------------------------------------------------------
-#                       Helper Functios
+#                       Helper Functions
 # -------------------------------------------------------------
 
 def GetMotionBuilderVersion() -> int:
@@ -72,7 +72,7 @@ def SortClasses(Classes: list[StubClass]) -> list[StubClass]:
             if RequiredMaxIndex > i:
                 Classes.insert(RequiredMaxIndex + 1, Classes.pop(i))
                 ClassNames.insert(RequiredMaxIndex + 1, ClassNames.pop(i))
-                i -= 1  # Because we moved current index away, re-itterate over the same index once more.
+                i -= 1  # Because we moved current index away, re-iterate over the same index once more.
 
         i += 1
 
@@ -85,7 +85,11 @@ def SortClasses(Classes: list[StubClass]) -> list[StubClass]:
 
 
 class StubGenerator:
-    def __init__(self, Module: ModuleType, Plugins: typing.Iterable[type[plugins.PluginBaseClass]] | None = DEFAULT_PLUGINS):
+    def __init__(
+        self,
+        Module: ModuleType,
+        Plugins: typing.Iterable[type[plugins.PluginBaseClass]] | None = DEFAULT_PLUGINS
+    ):
         self.Module = Module
         self.Version = GetMotionBuilderVersion()
 
@@ -132,7 +136,7 @@ class StubGenerator:
             StubString += "\n".join([x.GetAsString(bOverload) for x in FunctionGroup])
             StubString += "\n"
 
-        StubString = StubString.replace("    ", "\t") # Make sure tabs are used
+        StubString = StubString.replace("    ", "\t")  # Make sure tabs are used
 
         StubString += "\n"
 
