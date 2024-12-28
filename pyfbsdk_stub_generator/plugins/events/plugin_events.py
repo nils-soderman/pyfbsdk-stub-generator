@@ -1,5 +1,5 @@
 """
-Patch callbackframework.FBEventSource properties have correct parameter types
+This module patches the callbackframework.FBEventSource properties to have the correct parameter types for various events in the pyfbsdk library.
 """
 
 from __future__ import annotations
@@ -11,78 +11,61 @@ from ...module_types import StubClass
 
 
 EVENTS = {
-    fb.FBApplication: {
-        "FBEventOverrideFileOpen": fb.FBEventOverrideFileOpen,
-    },
-    fb.FBEvaluateManager: {
-        "OnSynchronizationEvent": fb.FBEventEvalGlobalCallback,
-        "OnRenderingPipelineEvent": fb.FBEventEvalGlobalCallback 
-    },
-    fb.FBFCurveEventManager: {
-        "OnFCurveEvent": fb.FBFCurveEvent ,
-        "OnPropertyEvent": fb.FBPropertyStateEvent,
-    },
-    fb.FBFileMonitoringManager: {
-        "OnFileChangeAnimationClip": fb.FBEventFileChange,
-        "OnFileChangeFileReference": fb.FBEventFileChange,
-        "OnFileChangeMainScene": fb.FBEventFileChange,
-        "OnFileChangePythonEditorScript": fb.FBEventFileChange,
-    },
-    fb.FBGenericMenu: {
-        "OnMenuActivate": fb.FBEventMenu,
-    },
-    fb.FBPlayerControl: {
-        "OnChange": fb.FBEventPlayerControlChange,
-    },
-    fb.FBScene: {
-        "OnChange": fb.FBEventSceneChange,
-        "OnTakeChange": fb.FBEventTakeChange,
-    },
-    fb.FBStoryClip: {
-        "OnChange": fb.FBEventClipChange,
-    },
-    fb.FBSystem: {
-        "OnConnectionDataNotify": fb.FBEventConnectionDataNotify,
-        "OnConnectionKeyingNotify": fb.FBEventConnectionKeyingNotify,
-        "OnConnectionNotify": fb.FBEventConnectionNotify,
-        "OnConnectionStateNotify": fb.FBEventConnectionStateNotify,
-        "OnVideoFrameRendering": fb.FBEventVideoFrameRendering,
-    },
-    fb.FBVisualContainer: {
-        "OnDblClick": fb.FBEventDblClick,
-        "OnDragAndDrop": fb.FBEventDragAndDrop,
-    },
-    fb.FBButton: {
-        "OnClick": fb.FBEventActivate,
-    },
-    fb.FBTree: {
-        "OnSelect": fb.FBEventTreeSelect,
-        "OnClickCheck": fb.FBEventTreeSelect,
-        "OnCollapsed": fb.FBEventTree,
-        "OnCollapsing": fb.FBEventTree,
-        "OnDblClick": fb.FBEventTreeSelect,
-        "OnDragAndDrop": fb.FBEventDragAndDrop,
-        "OnExpanded": fb.FBEventTree,
-        "OnExpanding": fb.FBEventTree,
-    },
-    fb.FBSpreadCell: {
-        "OnCellChange": fb.FBEventSpread,
-        "OnColumnClick": fb.FBEventSpread,
-        "OnRowClick": fb.FBEventSpread,
-        "OnDragAndDrop": fb.FBEventDragAndDrop,
-    },
-    fb.FBSlider: {
-        "OnTransaction": fb.FBEventTransaction,
-    },
-    fb.FBList: {
-        "OnDragAndDrop": fb.FBEventDragAndDrop,
-    },
-    fb.FBLayout: {
-        "OnResize": fb.FBEventResize,
-        "OnShow": fb.FBEventShow,
-        "OnInput": fb.FBEventInput,
-        "OnPaint": fb.FBEventExpose,
-    }
+    fb.FBApplication.OnOverrideFileOpen: fb.FBEventOverrideFileOpen,
+
+    fb.FBEvaluateManager.OnSynchronizationEvent: fb.FBEventEvalGlobalCallback,
+    fb.FBEvaluateManager.OnRenderingPipelineEvent: fb.FBEventEvalGlobalCallback,
+
+    fb.FBFCurveEventManager.OnFCurveEvent: fb.FBFCurveEvent,
+    fb.FBFCurveEventManager.OnPropertyEvent: fb.FBPropertyStateEvent,
+
+    fb.FBFileMonitoringManager.OnFileChangeAnimationClip: fb.FBEventFileChange,
+    fb.FBFileMonitoringManager.OnFileChangeFileReference: fb.FBEventFileChange,
+    fb.FBFileMonitoringManager.OnFileChangeMainScene: fb.FBEventFileChange,
+    fb.FBFileMonitoringManager.OnFileChangePythonEditorScript: fb.FBEventFileChange,
+
+    fb.FBGenericMenu.OnMenuActivate: fb.FBEventMenu,
+
+    fb.FBPlayerControl.OnChange: fb.FBEventPlayerControlChange,
+
+    fb.FBScene.OnChange: fb.FBEventSceneChange,
+    fb.FBScene.OnTakeChange: fb.FBEventTakeChange,
+
+    fb.FBStoryClip.OnChange: fb.FBEventClipChange,
+
+    fb.FBSystem.OnConnectionDataNotify: fb.FBEventConnectionDataNotify,
+    fb.FBSystem.OnConnectionKeyingNotify: fb.FBEventConnectionKeyingNotify,
+    fb.FBSystem.OnConnectionNotify: fb.FBEventConnectionNotify,
+    fb.FBSystem.OnConnectionStateNotify: fb.FBEventConnectionStateNotify,
+    fb.FBSystem.OnVideoFrameRendering: fb.FBEventVideoFrameRendering,
+
+    fb.FBVisualContainer.OnDblClick: fb.FBEventDblClick,
+    fb.FBVisualContainer.OnDragAndDrop: fb.FBEventDragAndDrop,
+
+    fb.FBButton.OnClick: fb.FBEventActivate,
+
+    fb.FBTree.OnSelect: fb.FBEventTreeSelect,
+    fb.FBTree.OnClickCheck: fb.FBEventTreeSelect,
+    fb.FBTree.OnCollapsed: fb.FBEventTree,
+    fb.FBTree.OnCollapsing: fb.FBEventTree,
+    fb.FBTree.OnDblClick: fb.FBEventTreeSelect,
+    fb.FBTree.OnDragAndDrop: fb.FBEventDragAndDrop,
+    fb.FBTree.OnExpanded: fb.FBEventTree,
+    fb.FBTree.OnExpanding: fb.FBEventTree,
+
+    fb.FBSpread.OnCellChange: fb.FBEventSpread,
+    fb.FBSpread.OnColumnClick: fb.FBEventSpread,
+    fb.FBSpread.OnRowClick: fb.FBEventSpread,
+    fb.FBSpread.OnDragAndDrop: fb.FBEventDragAndDrop,
+
+    fb.FBSlider.OnTransaction: fb.FBEventTransaction,
+
+    fb.FBList.OnDragAndDrop: fb.FBEventDragAndDrop,
+
+    fb.FBLayout.OnResize: fb.FBEventResize,
+    fb.FBLayout.OnShow: fb.FBEventShow,
+    fb.FBLayout.OnInput: fb.FBEventInput,
+    fb.FBLayout.OnPaint: fb.FBEventExpose,
 }
 
 
@@ -94,11 +77,8 @@ class PluginEvents(PluginBaseClass):
         for Property in Class.StubProperties:
             if Property.Type == 'callbackframework.FBEventSource' or Property.Name == "OnUnbind":
                 Event = fb.FBEvent
-                if Class.Ref in EVENTS:
-                    for EventName, EventType in EVENTS[Class.Ref].items():
-                        if Property.Name == EventName:
-                            Event = EventType
-                            break
+                if Property.Ref in EVENTS:
+                    Event = EVENTS[Property.Ref]
 
                 Property.Type = f'callbackframework.FBEventSource[{Class.Name}, {Event.__name__}]'
 

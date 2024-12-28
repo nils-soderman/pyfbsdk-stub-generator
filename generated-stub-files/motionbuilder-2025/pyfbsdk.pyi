@@ -13964,7 +13964,7 @@ class FBApplication(FBComponent):
 	"""Event: A File Save has been requested, nothing has been saved yet."""
 	OnFileSaveCompleted:callbackframework.FBEventSource[FBApplication, FBEvent]
 	"""Event: A File Save has been completed."""
-	OnOverrideFileOpen:callbackframework.FBEventSource[FBApplication, FBEvent]
+	OnOverrideFileOpen:callbackframework.FBEventSource[FBApplication, FBEventOverrideFileOpen]
 	"""Event: Called when a file is about to be opened/merged. The user can override the process with his own file import system."""
 	OnStartupCompleted:callbackframework.FBEventSource[FBApplication, FBEvent]
 	"""Event: The startup of the application has been completed."""
@@ -23730,13 +23730,13 @@ class FBSpread(FBVisualComponent):
 	"""Read Write Property: Current column."""
 	MultiSelect:bool
 	"""Read Write Property: Can there be multiple selections?"""
-	OnCellChange:callbackframework.FBEventSource[FBSpread, FBEvent]
+	OnCellChange:callbackframework.FBEventSource[FBSpread, FBEventSpread]
 	"""Event: Cell value changed."""
-	OnColumnClick:callbackframework.FBEventSource[FBSpread, FBEvent]
+	OnColumnClick:callbackframework.FBEventSource[FBSpread, FBEventSpread]
 	"""Event: Column clicked."""
-	OnDragAndDrop:callbackframework.FBEventSource[FBSpread, FBEvent]
+	OnDragAndDrop:callbackframework.FBEventSource[FBSpread, FBEventDragAndDrop]
 	"""Event: Drag and drop event."""
-	OnRowClick:callbackframework.FBEventSource[FBSpread, FBEvent]
+	OnRowClick:callbackframework.FBEventSource[FBSpread, FBEventSpread]
 	"""Event: Row clicked."""
 	OnUnbind:callbackframework.FBEventSource[FBSpread, FBEvent]
 	Row:int
