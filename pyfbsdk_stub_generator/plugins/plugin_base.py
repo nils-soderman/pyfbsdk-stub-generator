@@ -25,7 +25,7 @@ class PluginBaseClass:
         self.EnumMap = {x.Name: x for x in EnumList}
         self.FunctionMap = {x[0].Name: x for x in FunctionGroupList if x}
 
-        self.bDevMode = os.environ.get("PYFBSDK_DEVMODE") == "True"
+        self.bDevMode = os.environ.get("PYFBSDK_DEVMODE", "").lower() == "true"
         self.Exceptions = []
 
     def ShouldPatch(self) -> bool:
