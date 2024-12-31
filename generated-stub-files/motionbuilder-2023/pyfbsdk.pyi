@@ -6,8 +6,8 @@ https://github.com/nils-soderman/pyfbsdk-stub-generator
 from __future__ import annotations
 from typing import overload, Any, Iterator, Literal
 import callbackframework
-from enum import EnumMeta as _EnumType
-class Enumeration(int, metaclass=_EnumType):
+from enum import EnumMeta as __EnumMeta
+class Enumeration(int, metaclass=__EnumMeta):
 	__slots__:tuple
 	names:dict
 	values:dict
@@ -4219,7 +4219,7 @@ class FBEventTree(FBEvent):
 	"""[FBTree](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_tree.html "Tree list view.") node event."""
 	TreeNode:FBTreeNode
 	"""Read Write Property: Tree node."""
-	Why:callbackframework.FBEventSource
+	Why:property
 	"""Read Write Property: Reason of the event."""
 class FBEventTreeSelect(FBEvent):
 	"""[FBTree](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_tree.html "Tree list view.") selection event. Event: Video Frame offline Rendering Event."""
@@ -4432,6 +4432,7 @@ class FBMatrix:
 	```
 	### Warning:
 	The implementation of this 4x4 matrix uses a simple list of 16 elements, not a list of 4 vectors of 4 elements.*
+
 	Slicing is not supported by this object.
 
 	[See sample: Matrix.py.](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_matrix_8py-example.html)"""
@@ -5062,7 +5063,7 @@ class FBPythonWrapper:
 	This class act as a bridge between the ORSDK C++ world and the Python world. Since each Python objects wrap a ORSDK object we need a way to notify Python if the ORSDK object is destroyed.
 
 	OnUnbind is used in this way: it notifies the user when the wrapped ORSDK objects is destroyed."""
-	OnUnbind:callbackframework.FBEventSource
+	OnUnbind:callbackframework.FBEventSource[FBPythonWrapper, FBEvent]
 	"""Event: Will notifier the user when the corresponding ORSDK objects is unbound from the PythonObject."""
 class FBPlug(FBPythonWrapper):
 	"""Connections Basic Open Reality SDK Element.
@@ -5072,6 +5073,7 @@ class FBPlug(FBPythonWrapper):
 	[See samples: FBConstraintManager.py,](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_f_b_constraint_manager_8py-example.html) [FBFolder.py.](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_f_b_folder_8py-example.html)"""
 	ClassGroupName:str
 	"""ClassGroupName of the object."""
+	OnUnbind:callbackframework.FBEventSource[FBPlug, FBEvent]
 	TypeInfo:int
 	"""TypeInfo."""
 	def BeginChange(self)->bool:...
@@ -5161,7 +5163,6 @@ class FBProperty(FBPlug):
 
 	```python
 	lProp = lObject.PropertyList.Find( 'Visibility' )
-
 	   if lProp: lProp.Data = True
 	```
 	The methods 'PropertyCreate()' and 'PropertyRemove' of the class [FBComponent](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html "MotionBuilder SDK base class.") can be used to modify an object's set of properties."""
@@ -5169,6 +5170,7 @@ class FBProperty(FBPlug):
 	"""Read Write Property: The property data value. Type of this depends on the subclass of [FBProperty](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property.html "Generic application property.") (ex: in a [FBPropertyInt](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_int.html), Data is of type int)."""
 	Name:str
 	"""Read Property: The property's name."""
+	OnUnbind:callbackframework.FBEventSource[FBProperty, FBEvent]
 	def AllowsLocking(self)->bool:
 		"""AllowsLocking.
 
@@ -5391,6 +5393,7 @@ class FBComponent(FBPlug):
 	"""Read Write Property: Name and namespace for object."""
 	Name:str
 	"""Read Write Property: Unique name of object. [See sample: RemoveSuffixFromNameOfSceneElements.py.](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_remove_suffix_from_name_of_scene_elements_8py-example.html)"""
+	OnUnbind:callbackframework.FBEventSource[FBComponent, FBEvent]
 	OwnerNamespace:FBNamespace|None
 	Parents:FBPropertyListComponent
 	"""List: Parents."""
@@ -5889,6 +5892,7 @@ class FBComponent(FBPlug):
 		...
 class FBPropertyVector4d(FBProperty):
 	Data:FBVector4d
+	OnUnbind:callbackframework.FBEventSource[FBPropertyVector4d, FBEvent]
 	def __getitem__(self,arg2,/)->float:...
 	def __len__(self)->int:...
 	def __setitem__(self,arg2,arg3,/):...
@@ -5903,6 +5907,7 @@ class FBReferenceTime(FBComponent):
 	"""Read Write Property: Current reference time ID"""
 	ItemIndex:int
 	"""Read Write Property: Current reference time index."""
+	OnUnbind:callbackframework.FBEventSource[FBReferenceTime, FBEvent]
 	UseRelativeLocalTime:bool
 	"""Read Write Property: True to show the relative local time, false otherwise. This will only be effective when displaying the Local Time, but the state can be changed even if not currently displaying the Local Time."""
 	def Add(self,Name:str,/)->int:
@@ -5960,6 +5965,7 @@ class FBPropertyViewManager(FBComponent):
 	Interface to create new property views. There are two ways of creating properties view:on library load using AddPropertyView, RemovePropertyView, HidePropertyView - example can be found in \\OpenRealitySDK\\Samples\\constraints\\CharacterSolver\\HIK2014Solverwhile application is running using [FBPropertyViewList](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_view_list.html "FBProperty View List.") - example can be found in \\bin\\config\\Scripts\\Samples\\Properties\\PropertyViewManager.py
 
 	[See sample: PropertyViewManager.py.](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_samples_0c_properties_0c_property_view_manager_8py-example.html)"""
+	OnUnbind:callbackframework.FBEventSource[FBPropertyViewManager, FBEvent]
 	def AddPropertyView(self,ClassName:str,PropertyName:str,Hierarchy:str,/)->FBPropertyViewDefinition:
 		"""Add property view to global ('All') view set.
 
@@ -6035,20 +6041,24 @@ class FBPropertyViewManager(FBComponent):
 	def __init__(self):...
 class FBPropertyVector3d(FBProperty):
 	Data:FBVector3d
+	OnUnbind:callbackframework.FBEventSource[FBPropertyVector3d, FBEvent]
 	def __getitem__(self,arg2,/)->float:...
 	def __len__(self)->int:...
 	def __setitem__(self,arg2,arg3,/):...
 	def __iter__(self)->Iterator[float]:...
 class FBPropertyVector2d(FBProperty):
 	Data:FBVector2d
+	OnUnbind:callbackframework.FBEventSource[FBPropertyVector2d, FBEvent]
 	def __getitem__(self,arg2,/)->float:...
 	def __len__(self)->int:...
 	def __setitem__(self,arg2,arg3,/):...
 	def __iter__(self)->Iterator[float]:...
 class FBPropertyTimeCode(FBProperty):
 	Data:FBTimeCode
+	OnUnbind:callbackframework.FBEventSource[FBPropertyTimeCode, FBEvent]
 class FBPropertyTime(FBProperty):
 	Data:FBTime
+	OnUnbind:callbackframework.FBEventSource[FBPropertyTime, FBEvent]
 class FBPropertyStringList(FBProperty):
 	"""```python
 	# Supported list protocol methods:
@@ -6061,6 +6071,7 @@ class FBPropertyStringList(FBProperty):
 	 del propertyStringList[0]
 	```"""
 	Data:list[str]
+	OnUnbind:callbackframework.FBEventSource[FBPropertyStringList, FBEvent]
 	def __contains__(self,Value:str,/)->bool:
 		"""Check if a FCComponent is already in PropertyList Corresponds to python: if object in propertyList:
 
@@ -6161,11 +6172,13 @@ class FBPropertyStringList(FBProperty):
 class FBPropertyString(FBProperty):
 	"""Property: StringList"""
 	Data:str
+	OnUnbind:callbackframework.FBEventSource[FBPropertyString, FBEvent]
 class FBPropertyListTreeNode(FBProperty):
 	"""PropertyList of nodes in the tree view. PropertyList: UserObject.
 
 	These classes are under development and may change dramatically between versions."""
 	Data:list[FBTreeNode]
+	OnUnbind:callbackframework.FBEventSource[FBPropertyListTreeNode, FBEvent]
 	def __contains__(self,Object:FBTreeNode,/)->bool:...
 	def __delitem__(self,arg2:int,/):...
 	def __getitem__(self,Index:int,/)->FBTreeNode:...
@@ -6194,6 +6207,7 @@ class FBPropertyListComponent(FBProperty):
 	 del propertyListComponent[0]
 	```"""
 	Data:list[FBComponent]
+	OnUnbind:callbackframework.FBEventSource[FBPropertyListComponent, FBEvent]
 	def __contains__(self,Component:FBComponent,/)->bool:
 		"""Check if a FCComponent is already in PropertyList Corresponds to python: if object in propertyList:
 
@@ -6278,6 +6292,7 @@ class FBPropertyList(FBProperty):
 	print(propertyList[0])
 	```"""
 	Data:list[Any]
+	OnUnbind:callbackframework.FBEventSource[FBPropertyList, FBEvent]
 	def __contains__(self,Object:Any,/)->bool:...
 	def __delitem__(self,arg2:int,/):...
 	def __getitem__(self,Index:int,/)->Any:
@@ -6306,6 +6321,7 @@ class FBPropertyList(FBProperty):
 	def __iter__(self)->Iterator[Any]:...
 class FBPropertyListVideoOut(FBPropertyListComponent):
 	Data:list[FBVideoOut]
+	OnUnbind:callbackframework.FBEventSource[FBPropertyListVideoOut, FBEvent]
 	def __contains__(self,Object:FBVideoOut,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBVideoOut:...
 	def append(self,Object:FBVideoOut,/)->None:...
@@ -6320,6 +6336,7 @@ class FBPropertyListVideoOut(FBPropertyListComponent):
 class FBPropertyListVideoIn(FBPropertyListComponent):
 	"""PropertyList: VideoOut"""
 	Data:list[FBVideoIn]
+	OnUnbind:callbackframework.FBEventSource[FBPropertyListVideoIn, FBEvent]
 	def __contains__(self,Object:FBVideoIn,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBVideoIn:...
 	def append(self,Object:FBVideoIn,/)->None:...
@@ -6334,6 +6351,7 @@ class FBPropertyListVideoIn(FBPropertyListComponent):
 class FBPropertyListVideoClip(FBPropertyListComponent):
 	"""PropertyList: VideoIn"""
 	Data:list[FBVideoClip]
+	OnUnbind:callbackframework.FBEventSource[FBPropertyListVideoClip, FBEvent]
 	def __contains__(self,Object:FBVideoClip,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBVideoClip:...
 	def append(self,Object:FBVideoClip,/)->None:...
@@ -6348,6 +6366,7 @@ class FBPropertyListVideoClip(FBPropertyListComponent):
 class FBPropertyListUserObject(FBPropertyListComponent):
 	"""PropertyList: VideoClip"""
 	Data:list[FBUserObject]
+	OnUnbind:callbackframework.FBEventSource[FBPropertyListUserObject, FBEvent]
 	def __contains__(self,Object:FBUserObject,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBUserObject:...
 	def append(self,Object:FBUserObject,/)->None:...
@@ -6361,6 +6380,7 @@ class FBPropertyListUserObject(FBPropertyListComponent):
 	def __iter__(self)->Iterator[FBUserObject]:...
 class FBPropertyListTexture(FBPropertyListComponent):
 	Data:list[FBTexture]
+	OnUnbind:callbackframework.FBEventSource[FBPropertyListTexture, FBEvent]
 	def __contains__(self,Object:FBTexture,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBTexture:...
 	def append(self,Object:FBTexture,/)->None:...
@@ -6375,6 +6395,7 @@ class FBPropertyListTexture(FBPropertyListComponent):
 class FBPropertyListTake(FBPropertyListComponent):
 	"""PropertyList: Texture"""
 	Data:list[FBTake]
+	OnUnbind:callbackframework.FBEventSource[FBPropertyListTake, FBEvent]
 	def __contains__(self,Object:FBTake,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBTake:...
 	def append(self,Object:FBTake,/)->None:...
@@ -6389,6 +6410,7 @@ class FBPropertyListTake(FBPropertyListComponent):
 class FBPropertyListStoryTrack(FBPropertyListComponent):
 	"""List: Take"""
 	Data:list[FBStoryTrack]
+	OnUnbind:callbackframework.FBEventSource[FBPropertyListStoryTrack, FBEvent]
 	def __contains__(self,Object:FBStoryTrack,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBStoryTrack:...
 	def append(self,Object:FBStoryTrack,/)->None:...
@@ -6403,6 +6425,7 @@ class FBPropertyListStoryTrack(FBPropertyListComponent):
 class FBPropertyListStorySubTrack(FBPropertyListComponent):
 	"""List: StoryTrack"""
 	Data:list[FBComponent]
+	OnUnbind:callbackframework.FBEventSource[FBPropertyListStorySubTrack, FBEvent]
 	def __contains__(self,Object:FBComponent,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBComponent:...
 	def append(self,Object:FBComponent,/)->None:...
@@ -6417,6 +6440,7 @@ class FBPropertyListStorySubTrack(FBPropertyListComponent):
 class FBPropertyListStoryFolder(FBPropertyListComponent):
 	"""List: StorySubTrack"""
 	Data:list[FBStoryFolder]
+	OnUnbind:callbackframework.FBEventSource[FBPropertyListStoryFolder, FBEvent]
 	def __contains__(self,Object:FBStoryFolder,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBStoryFolder:...
 	def append(self,Object:FBStoryFolder,/)->None:...
@@ -6431,6 +6455,7 @@ class FBPropertyListStoryFolder(FBPropertyListComponent):
 class FBPropertyListStoryDetails(FBPropertyListComponent):
 	"""List: StoryFolder"""
 	Data:list[FBComponent]
+	OnUnbind:callbackframework.FBEventSource[FBPropertyListStoryDetails, FBEvent]
 	def __contains__(self,Object:FBComponent,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBComponent:...
 	def append(self,Object:FBComponent,/)->None:...
@@ -6445,6 +6470,7 @@ class FBPropertyListStoryDetails(FBPropertyListComponent):
 class FBPropertyListStoryClip(FBPropertyListComponent):
 	"""List: Story track Details"""
 	Data:list[FBStoryClip]
+	OnUnbind:callbackframework.FBEventSource[FBPropertyListStoryClip, FBEvent]
 	def __contains__(self,Object:FBStoryClip,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBStoryClip:...
 	def append(self,Object:FBStoryClip,/)->None:...
@@ -6459,6 +6485,7 @@ class FBPropertyListStoryClip(FBPropertyListComponent):
 class FBPropertyListShader(FBPropertyListComponent):
 	"""List: StoryClip"""
 	Data:list[FBShader]
+	OnUnbind:callbackframework.FBEventSource[FBPropertyListShader, FBEvent]
 	def __contains__(self,Object:FBShader,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBShader:...
 	def append(self,Object:FBShader,/)->None:...
@@ -6473,6 +6500,7 @@ class FBPropertyListShader(FBPropertyListComponent):
 class FBPropertyListSet(FBPropertyListComponent):
 	"""PropertyList: Shader"""
 	Data:list[FBSet]
+	OnUnbind:callbackframework.FBEventSource[FBPropertyListSet, FBEvent]
 	def __contains__(self,Object:FBSet,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBSet:...
 	def append(self,Object:FBSet,/)->None:...
@@ -6487,6 +6515,7 @@ class FBPropertyListSet(FBPropertyListComponent):
 class FBPropertyListRendererCallback(FBPropertyListComponent):
 	"""PropertyList: Device optical marker"""
 	Data:list[FBRendererCallback]
+	OnUnbind:callbackframework.FBEventSource[FBPropertyListRendererCallback, FBEvent]
 	def __contains__(self,Object:FBRendererCallback,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBRendererCallback:...
 	def append(self,Object:FBRendererCallback,/)->None:...
@@ -6501,6 +6530,7 @@ class FBPropertyListRendererCallback(FBPropertyListComponent):
 class FBPropertyListPose(FBPropertyListComponent):
 	"""PropertyList: Texture"""
 	Data:list[FBPose]
+	OnUnbind:callbackframework.FBEventSource[FBPropertyListPose, FBEvent]
 	def __contains__(self,Object:FBPose,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBPose:...
 	def append(self,Object:FBPose,/)->None:...
@@ -6515,6 +6545,7 @@ class FBPropertyListPose(FBPropertyListComponent):
 class FBPropertyListPivot(FBPropertyListComponent):
 	"""List: Model"""
 	Data:list[FBComponent]
+	OnUnbind:callbackframework.FBEventSource[FBPropertyListPivot, FBEvent]
 	def __contains__(self,Object:FBComponent,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBComponent:...
 	def append(self,Object:FBComponent,/)->None:...
@@ -6529,6 +6560,7 @@ class FBPropertyListPivot(FBPropertyListComponent):
 class FBPropertyListPhysicalProperties(FBPropertyListComponent):
 	"""List: Story Clip pivot models"""
 	Data:list[FBPhysicalProperties]
+	OnUnbind:callbackframework.FBEventSource[FBPropertyListPhysicalProperties, FBEvent]
 	def __contains__(self,Object:FBPhysicalProperties,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBPhysicalProperties:...
 	def append(self,Object:FBPhysicalProperties,/)->None:...
@@ -6543,6 +6575,7 @@ class FBPropertyListPhysicalProperties(FBPropertyListComponent):
 class FBPropertyListObjectPose(FBPropertyListComponent):
 	"""PropertyList: Device optical marker"""
 	Data:list[FBObjectPose]
+	OnUnbind:callbackframework.FBEventSource[FBPropertyListObjectPose, FBEvent]
 	def __contains__(self,Object:FBObjectPose,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBObjectPose:...
 	def append(self,Object:FBObjectPose,/)->None:...
@@ -6561,6 +6594,7 @@ class FBPropertyListObject(FBPropertyListComponent):
 
 	This container supports most of the list interface, but is limited to contain only [FBComponent](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html "MotionBuilder SDK base class.") objects. New objects can be added, or objects in the list can be removed. The cardinality of the list and the use of the contained object will vary according the container object type. This class supports slice access for query, but not for assignment."""
 	Data:list[FBComponent]
+	OnUnbind:callbackframework.FBEventSource[FBPropertyListObject, FBEvent]
 	def GetSingleConnect(self)->bool:
 		"""Get if the connection support only one connection.
 
@@ -6589,6 +6623,7 @@ class FBPropertyListNote(FBPropertyListComponent):
 
 	This list is a more generic container often used as object properties. The types of actual object that it can contain can be specialized."""
 	Data:list[FBNote]
+	OnUnbind:callbackframework.FBEventSource[FBPropertyListNote, FBEvent]
 	def __contains__(self,Object:FBNote,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBNote:...
 	def append(self,Object:FBNote,/)->None:...
@@ -6603,6 +6638,7 @@ class FBPropertyListNote(FBPropertyListComponent):
 class FBPropertyListNamespace(FBPropertyListComponent):
 	"""List: Note"""
 	Data:list[FBNamespace]
+	OnUnbind:callbackframework.FBEventSource[FBPropertyListNamespace, FBEvent]
 	def __contains__(self,Object:FBNamespace,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBNamespace:...
 	def append(self,Object:FBNamespace,/)->None:...
@@ -6617,6 +6653,7 @@ class FBPropertyListNamespace(FBPropertyListComponent):
 class FBPropertyListMotionClip(FBPropertyListComponent):
 	"""List: Namespace"""
 	Data:list[FBMotionClip]
+	OnUnbind:callbackframework.FBEventSource[FBPropertyListMotionClip, FBEvent]
 	def __contains__(self,Object:FBMotionClip,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBMotionClip:...
 	def append(self,Object:FBMotionClip,/)->None:...
@@ -6631,6 +6668,7 @@ class FBPropertyListMotionClip(FBPropertyListComponent):
 class FBPropertyListModelSkeleton(FBPropertyListComponent):
 	"""PropertyList: ModelTemplate."""
 	Data:list[FBModelSkeleton]
+	OnUnbind:callbackframework.FBEventSource[FBPropertyListModelSkeleton, FBEvent]
 	def __contains__(self,Object:FBModelSkeleton,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBModelSkeleton:...
 	def append(self,Object:FBModelSkeleton,/)->None:...
@@ -6645,6 +6683,7 @@ class FBPropertyListModelSkeleton(FBPropertyListComponent):
 class FBPropertyListModelOptical(FBPropertyListComponent):
 	"""PropertyList: ModelSkeleton."""
 	Data:list[FBModelOptical]
+	OnUnbind:callbackframework.FBEventSource[FBPropertyListModelOptical, FBEvent]
 	def __contains__(self,Object:FBModelOptical,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBModelOptical:...
 	def append(self,Object:FBModelOptical,/)->None:...
@@ -6659,6 +6698,7 @@ class FBPropertyListModelOptical(FBPropertyListComponent):
 class FBPropertyListModel(FBPropertyListComponent):
 	"""PropertyList: Device optical marker"""
 	Data:list[FBModel]
+	OnUnbind:callbackframework.FBEventSource[FBPropertyListModel, FBEvent]
 	def __contains__(self,Object:FBModel,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBModel:...
 	def append(self,Object:FBModel,/)->None:...
@@ -6673,6 +6713,7 @@ class FBPropertyListModel(FBPropertyListComponent):
 class FBPropertyListMaterial(FBPropertyListComponent):
 	"""List: Model"""
 	Data:list[FBMaterial]
+	OnUnbind:callbackframework.FBEventSource[FBPropertyListMaterial, FBEvent]
 	def __contains__(self,Object:FBMaterial,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBMaterial:...
 	def append(self,Object:FBMaterial,/)->None:...
@@ -6687,6 +6728,7 @@ class FBPropertyListMaterial(FBPropertyListComponent):
 class FBPropertyListMarkerSet(FBPropertyListComponent):
 	"""PropertyList: Material"""
 	Data:list[FBMarkerSet]
+	OnUnbind:callbackframework.FBEventSource[FBPropertyListMarkerSet, FBEvent]
 	def __contains__(self,Object:FBMarkerSet,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBMarkerSet:...
 	def append(self,Object:FBMarkerSet,/)->None:...
@@ -6701,6 +6743,7 @@ class FBPropertyListMarkerSet(FBPropertyListComponent):
 class FBPropertyListLight(FBPropertyListComponent):
 	"""PropertyList: Manipulator."""
 	Data:list[FBLight]
+	OnUnbind:callbackframework.FBEventSource[FBPropertyListLight, FBEvent]
 	def __contains__(self,Object:FBLight,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBLight:...
 	def append(self,Object:FBLight,/)->None:...
@@ -6715,6 +6758,7 @@ class FBPropertyListLight(FBPropertyListComponent):
 class FBPropertyListKeyingGroup(FBPropertyListComponent):
 	"""PropertyList: Light"""
 	Data:list[FBKeyingGroup]
+	OnUnbind:callbackframework.FBEventSource[FBPropertyListKeyingGroup, FBEvent]
 	def __contains__(self,Object:FBKeyingGroup,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBKeyingGroup:...
 	def append(self,Object:FBKeyingGroup,/)->None:...
@@ -6729,6 +6773,7 @@ class FBPropertyListKeyingGroup(FBPropertyListComponent):
 class FBPropertyListHandle(FBPropertyListComponent):
 	"""PropertyList: KeyingGroup."""
 	Data:list[FBHandle]
+	OnUnbind:callbackframework.FBEventSource[FBPropertyListHandle, FBEvent]
 	def __contains__(self,Object:FBHandle,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBHandle:...
 	def append(self,Object:FBHandle,/)->None:...
@@ -6743,6 +6788,7 @@ class FBPropertyListHandle(FBPropertyListComponent):
 class FBPropertyListHUDElement(FBPropertyListComponent):
 	"""PropertyList: Handle."""
 	Data:list[FBHUDElement]
+	OnUnbind:callbackframework.FBEventSource[FBPropertyListHUDElement, FBEvent]
 	def __contains__(self,Object:FBHUDElement,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBHUDElement:...
 	def append(self,Object:FBHUDElement,/)->None:...
@@ -6757,6 +6803,7 @@ class FBPropertyListHUDElement(FBPropertyListComponent):
 class FBPropertyListHUD(FBPropertyListComponent):
 	"""PropertyList: Handle."""
 	Data:list[FBHUD]
+	OnUnbind:callbackframework.FBEventSource[FBPropertyListHUD, FBEvent]
 	def __contains__(self,Object:FBHUD,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBHUD:...
 	def append(self,Object:FBHUD,/)->None:...
@@ -6771,6 +6818,7 @@ class FBPropertyListHUD(FBPropertyListComponent):
 class FBPropertyListGroup(FBPropertyListComponent):
 	"""PropertyList: Handle."""
 	Data:list[FBGroup]
+	OnUnbind:callbackframework.FBEventSource[FBPropertyListGroup, FBEvent]
 	def __contains__(self,Object:FBGroup,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBGroup:...
 	def append(self,Object:FBGroup,/)->None:...
@@ -6785,6 +6833,7 @@ class FBPropertyListGroup(FBPropertyListComponent):
 class FBPropertyListFolder(FBPropertyListComponent):
 	"""List: Group"""
 	Data:list[FBFolder]
+	OnUnbind:callbackframework.FBEventSource[FBPropertyListFolder, FBEvent]
 	def __contains__(self,Object:FBFolder,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBFolder:...
 	def append(self,Object:FBFolder,/)->None:...
@@ -6799,6 +6848,7 @@ class FBPropertyListFolder(FBPropertyListComponent):
 class FBPropertyListFileReference(FBPropertyListComponent):
 	"""PropertyList: Folder"""
 	Data:list[FBFileReference]
+	OnUnbind:callbackframework.FBEventSource[FBPropertyListFileReference, FBEvent]
 	def __contains__(self,Object:FBFileReference,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBFileReference:...
 	def append(self,Object:FBFileReference,/)->None:...
@@ -6812,6 +6862,7 @@ class FBPropertyListFileReference(FBPropertyListComponent):
 	def __iter__(self)->Iterator[FBFileReference]:...
 class FBPropertyListDevice(FBPropertyListComponent):
 	Data:list[FBDevice]
+	OnUnbind:callbackframework.FBEventSource[FBPropertyListDevice, FBEvent]
 	def __contains__(self,Object:FBDevice,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBDevice:...
 	def append(self,Object:FBDevice,/)->None:...
@@ -6826,6 +6877,7 @@ class FBPropertyListDevice(FBPropertyListComponent):
 class FBPropertyListDeformer(FBPropertyListComponent):
 	"""PropertyList: Device"""
 	Data:list[FBDeformer]
+	OnUnbind:callbackframework.FBEventSource[FBPropertyListDeformer, FBEvent]
 	def __contains__(self,Object:FBDeformer,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBDeformer:...
 	def append(self,Object:FBDeformer,/)->None:...
@@ -6839,6 +6891,7 @@ class FBPropertyListDeformer(FBPropertyListComponent):
 	def __iter__(self)->Iterator[FBDeformer]:...
 class FBPropertyListDeck(FBPropertyListComponent):
 	Data:list[FBDeck]
+	OnUnbind:callbackframework.FBEventSource[FBPropertyListDeck, FBEvent]
 	def __contains__(self,Object:FBDeck,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBDeck:...
 	def append(self,Object:FBDeck,/)->None:...
@@ -6853,6 +6906,7 @@ class FBPropertyListDeck(FBPropertyListComponent):
 class FBPropertyListControlSet(FBPropertyListComponent):
 	"""PropertyList: Deck"""
 	Data:list[FBControlSet]
+	OnUnbind:callbackframework.FBEventSource[FBPropertyListControlSet, FBEvent]
 	def __contains__(self,Object:FBControlSet,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBControlSet:...
 	def append(self,Object:FBControlSet,/)->None:...
@@ -6869,6 +6923,7 @@ class FBPropertyListConstraintSolver(FBPropertyListComponent):
 
 	These classes are under development and may change dramatically between versions."""
 	Data:list[FBConstraintSolver]
+	OnUnbind:callbackframework.FBEventSource[FBPropertyListConstraintSolver, FBEvent]
 	def __contains__(self,Object:FBConstraintSolver,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBConstraintSolver:...
 	def append(self,Object:FBConstraintSolver,/)->None:...
@@ -6885,6 +6940,7 @@ class FBPropertyListActor(FBPropertyListComponent):
 
 	These classes are under development and may change dramatically between versions."""
 	Data:list[FBActor]
+	OnUnbind:callbackframework.FBEventSource[FBPropertyListActor, FBEvent]
 	def __contains__(self,Object:FBActor,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBActor:...
 	def append(self,Object:FBActor,/)->None:...
@@ -6898,6 +6954,7 @@ class FBPropertyListActor(FBPropertyListComponent):
 	def __iter__(self)->Iterator[FBActor]:...
 class FBPropertyListActorFace(FBPropertyListComponent):
 	Data:list[FBActorFace]
+	OnUnbind:callbackframework.FBEventSource[FBPropertyListActorFace, FBEvent]
 	def __contains__(self,Object:FBActorFace,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBActorFace:...
 	def append(self,Object:FBActorFace,/)->None:...
@@ -6912,6 +6969,7 @@ class FBPropertyListActorFace(FBPropertyListComponent):
 class FBPropertyListAudioClip(FBPropertyListComponent):
 	"""List: AudioIn"""
 	Data:list[FBAudioClip]
+	OnUnbind:callbackframework.FBEventSource[FBPropertyListAudioClip, FBEvent]
 	def __contains__(self,Object:FBAudioClip,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBAudioClip:...
 	def append(self,Object:FBAudioClip,/)->None:...
@@ -6926,6 +6984,7 @@ class FBPropertyListAudioClip(FBPropertyListComponent):
 class FBPropertyListAudioIn(FBPropertyListComponent):
 	"""List: AudioOut"""
 	Data:list[FBAudioIn]
+	OnUnbind:callbackframework.FBEventSource[FBPropertyListAudioIn, FBEvent]
 	def __contains__(self,Object:FBAudioIn,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBAudioIn:...
 	def append(self,Object:FBAudioIn,/)->None:...
@@ -6940,6 +6999,7 @@ class FBPropertyListAudioIn(FBPropertyListComponent):
 class FBPropertyListAudioOut(FBPropertyListComponent):
 	"""List: Box informations for constraint relation."""
 	Data:list[FBAudioOut]
+	OnUnbind:callbackframework.FBEventSource[FBPropertyListAudioOut, FBEvent]
 	def __contains__(self,Object:FBAudioOut,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBAudioOut:...
 	def append(self,Object:FBAudioOut,/)->None:...
@@ -6954,6 +7014,7 @@ class FBPropertyListAudioOut(FBPropertyListComponent):
 class FBPropertyListBox(FBPropertyListComponent):
 	"""PropertyList: Camera"""
 	Data:list[FBBox]
+	OnUnbind:callbackframework.FBEventSource[FBPropertyListBox, FBEvent]
 	def __contains__(self,Object:FBBox,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBBox:...
 	def append(self,Object:FBBox,/)->None:...
@@ -6970,6 +7031,7 @@ class FBPropertyListCamera(FBPropertyListComponent):
 
 	These classes are under development and may change dramatically between versions."""
 	Data:list[FBCamera]
+	OnUnbind:callbackframework.FBEventSource[FBPropertyListCamera, FBEvent]
 	def __contains__(self,Object:FBCamera,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBCamera:...
 	def append(self,Object:FBCamera,/)->None:...
@@ -6983,6 +7045,7 @@ class FBPropertyListCamera(FBPropertyListComponent):
 	def __iter__(self)->Iterator[FBCamera]:...
 class FBPropertyListCharacter(FBPropertyListComponent):
 	Data:list[FBCharacter]
+	OnUnbind:callbackframework.FBEventSource[FBPropertyListCharacter, FBEvent]
 	def __contains__(self,Object:FBCharacter,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBCharacter:...
 	def append(self,Object:FBCharacter,/)->None:...
@@ -6999,6 +7062,7 @@ class FBPropertyListCharacterExtension(FBPropertyListComponent):
 
 	These classes are under development and may change dramatically between versions."""
 	Data:list[FBCharacterExtension]
+	OnUnbind:callbackframework.FBEventSource[FBPropertyListCharacterExtension, FBEvent]
 	def __contains__(self,Object:FBCharacterExtension,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBCharacterExtension:...
 	def append(self,Object:FBCharacterExtension,/)->None:...
@@ -7015,6 +7079,7 @@ class FBPropertyListCharacterFace(FBPropertyListComponent):
 
 	These classes are under development and may change dramatically between versions."""
 	Data:list[FBCharacterFace]
+	OnUnbind:callbackframework.FBEventSource[FBPropertyListCharacterFace, FBEvent]
 	def __contains__(self,Object:FBCharacterFace,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBCharacterFace:...
 	def append(self,Object:FBCharacterFace,/)->None:...
@@ -7029,6 +7094,7 @@ class FBPropertyListCharacterFace(FBPropertyListComponent):
 class FBPropertyListCharacterMarkerSet(FBPropertyListComponent):
 	"""PropertyList: CharacterPose."""
 	Data:list[FBCharacterMarkerSet]
+	OnUnbind:callbackframework.FBEventSource[FBPropertyListCharacterMarkerSet, FBEvent]
 	def __contains__(self,Object:FBCharacterMarkerSet,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBCharacterMarkerSet:...
 	def append(self,Object:FBCharacterMarkerSet,/)->None:...
@@ -7043,6 +7109,7 @@ class FBPropertyListCharacterMarkerSet(FBPropertyListComponent):
 class FBPropertyListCharacterPose(FBPropertyListComponent):
 	"""PropertyList: Concrete class for PropertyList of component"""
 	Data:list[FBCharacterPose]
+	OnUnbind:callbackframework.FBEventSource[FBPropertyListCharacterPose, FBEvent]
 	def __contains__(self,Object:FBCharacterPose,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBCharacterPose:...
 	def append(self,Object:FBCharacterPose,/)->None:...
@@ -7057,6 +7124,7 @@ class FBPropertyListCharacterPose(FBPropertyListComponent):
 class FBPropertyListConstraint(FBPropertyListComponent):
 	"""PropertyList: Constraint solver"""
 	Data:list[FBConstraint]
+	OnUnbind:callbackframework.FBEventSource[FBPropertyListConstraint, FBEvent]
 	def __contains__(self,Object:FBConstraint,/)->bool:...
 	def __getitem__(self,Index:int,/)->FBConstraint:...
 	def append(self,Object:FBConstraint,/)->None:...
@@ -7070,18 +7138,23 @@ class FBPropertyListConstraint(FBPropertyListComponent):
 	def __iter__(self)->Iterator[FBConstraint]:...
 class FBPropertyInt(FBProperty):
 	Data:int
+	OnUnbind:callbackframework.FBEventSource[FBPropertyInt, FBEvent]
 class FBPropertyFloat(FBProperty):
 	Data:float
+	OnUnbind:callbackframework.FBEventSource[FBPropertyFloat, FBEvent]
 class FBPropertyEnum(FBProperty):
 	"""[Enumeration](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_enumeration.html "Enumeration mapping.") property.
 
 	Certain properties have strings associated with the integer values they may possess. [FBModel](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_model.html "Model class.")'s ShadingMode property is one of those example. The actual underlying value of the property is numerical, but it is represented by a string value in the GUI. User can create this type of property via the GUI by creating a list property. The names added to the list can be obtained via the '[EnumList()](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_enum.html#ae9d9b3c845a94e776813f0475e0082d6)' method."""
 	Data:Enumeration
 	"""Return the string associated with the index. Will return None when no value is associated."""
+	OnUnbind:callbackframework.FBEventSource[FBPropertyEnum, FBEvent]
 class FBPropertyDouble(FBProperty):
 	Data:float
+	OnUnbind:callbackframework.FBEventSource[FBPropertyDouble, FBEvent]
 class FBPropertyComponent(FBProperty):
 	Data:FBComponent
+	OnUnbind:callbackframework.FBEventSource[FBPropertyComponent, FBEvent]
 class FBPropertyColorAndAlpha(FBProperty):
 	"""[FBPropertyColorAndAlpha](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_color_and_alpha.html "FBPropertyColorAndAlpha class.") class.
 
@@ -7099,6 +7172,7 @@ class FBPropertyColorAndAlpha(FBProperty):
 	### Warning:
 	Slicing is not supported by this object."""
 	Data:FBColorAndAlpha
+	OnUnbind:callbackframework.FBEventSource[FBPropertyColorAndAlpha, FBEvent]
 	def __getitem__(self,Index:int,/)->float:
 		"""Returns the ith component Corresponds to python: print c[1].
 
@@ -7138,6 +7212,7 @@ class FBPropertyColor(FBProperty):
 	### Warning:
 	Slicing is not supported by this object."""
 	Data:FBColor
+	OnUnbind:callbackframework.FBEventSource[FBPropertyColor, FBEvent]
 	def __getitem__(self,Index:int,/)->float:
 		"""Returns the ith component Corresponds to python: print c[1].
 
@@ -7162,10 +7237,12 @@ class FBPropertyColor(FBProperty):
 	def __iter__(self)->Iterator[float]:...
 class FBPropertyBool(FBProperty):
 	Data:bool
+	OnUnbind:callbackframework.FBEventSource[FBPropertyBool, FBEvent]
 class FBPropertyAnimatable(FBProperty):
 	"""Animatable property base class."""
 	Data:Any
 	"""Read Write Property: The property data value. Type of this depends on the subclass of [FBPropertyAnimatable](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_animatable.html "Animatable property base class.") (ex: in a [FBPropertyAnimatableInt](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_property_animatable_int.html), Data is of type int)."""
+	OnUnbind:callbackframework.FBEventSource[FBPropertyAnimatable, FBEvent]
 	def AllowsMuting(self)->bool:
 		"""AllowsMuting.
 
@@ -7315,39 +7392,50 @@ class FBPropertyAnimatable(FBProperty):
 		...
 class FBPropertyAction(FBProperty):
 	Data:bool
+	OnUnbind:callbackframework.FBEventSource[FBPropertyAction, FBEvent]
 class FBPropertyAnimatableVector4d(FBPropertyAnimatable):
 	Data:FBVector4d
+	OnUnbind:callbackframework.FBEventSource[FBPropertyAnimatableVector4d, FBEvent]
 	def __getitem__(self,arg2,/)->float:...
 	def __len__(self)->int:...
 	def __setitem__(self,arg2,arg3,/):...
 	def __iter__(self)->Iterator[float]:...
 class FBPropertyAnimatableVector3d(FBPropertyAnimatable):
 	Data:FBVector3d
+	OnUnbind:callbackframework.FBEventSource[FBPropertyAnimatableVector3d, FBEvent]
 	def __getitem__(self,arg2,/)->float:...
 	def __len__(self)->int:...
 	def __setitem__(self,arg2,arg3,/):...
 	def __iter__(self)->Iterator[float]:...
 class FBPropertyAnimatableVector2d(FBPropertyAnimatable):
 	Data:FBVector2d
+	OnUnbind:callbackframework.FBEventSource[FBPropertyAnimatableVector2d, FBEvent]
 	def __getitem__(self,arg2,/)->float:...
 	def __len__(self)->int:...
 	def __setitem__(self,arg2,arg3,/):...
 	def __iter__(self)->Iterator[float]:...
 class FBPropertyAnimatableUInt64(FBPropertyAnimatable):
 	Data:int
+	OnUnbind:callbackframework.FBEventSource[FBPropertyAnimatableUInt64, FBEvent]
 class FBPropertyAnimatableTimeCode(FBPropertyAnimatable):
 	Data:FBTimeCode
+	OnUnbind:callbackframework.FBEventSource[FBPropertyAnimatableTimeCode, FBEvent]
 class FBPropertyAnimatableTime(FBPropertyAnimatable):
 	Data:FBTime
+	OnUnbind:callbackframework.FBEventSource[FBPropertyAnimatableTime, FBEvent]
 class FBPropertyAnimatableInt64(FBPropertyAnimatable):
 	Data:int
+	OnUnbind:callbackframework.FBEventSource[FBPropertyAnimatableInt64, FBEvent]
 class FBPropertyAnimatableInt(FBPropertyAnimatable):
 	Data:int
+	OnUnbind:callbackframework.FBEventSource[FBPropertyAnimatableInt, FBEvent]
 class FBPropertyAnimatableEnum(FBPropertyAnimatable):
 	Data:Enumeration
 	"""Return the string associated with the index. Will return None when no value is associated."""
+	OnUnbind:callbackframework.FBEventSource[FBPropertyAnimatableEnum, FBEvent]
 class FBPropertyAnimatableDouble(FBPropertyAnimatable):
 	Data:float
+	OnUnbind:callbackframework.FBEventSource[FBPropertyAnimatableDouble, FBEvent]
 	@overload
 	def __add__(self,arg2:FBPropertyAnimatableDouble,/)->float:...
 	@overload
@@ -7371,20 +7459,24 @@ class FBPropertyAnimatableDouble(FBPropertyAnimatable):
 	def __truediv__(self,arg2,/)->float:...
 class FBPropertyAnimatableColorAndAlpha(FBPropertyAnimatable):
 	Data:FBColorAndAlpha
+	OnUnbind:callbackframework.FBEventSource[FBPropertyAnimatableColorAndAlpha, FBEvent]
 	def __getitem__(self,arg2,/)->float:...
 	def __len__(self)->int:...
 	def __setitem__(self,arg2,arg3,/):...
 	def __iter__(self)->Iterator[float]:...
 class FBPropertyAnimatableColor(FBPropertyAnimatable):
 	Data:FBColor
+	OnUnbind:callbackframework.FBEventSource[FBPropertyAnimatableColor, FBEvent]
 	def __getitem__(self,arg2,/)->float:...
 	def __len__(self)->int:...
 	def __setitem__(self,arg2,arg3,/):...
 	def __iter__(self)->Iterator[float]:...
 class FBPropertyAnimatableBool(FBPropertyAnimatable):
 	Data:bool
+	OnUnbind:callbackframework.FBEventSource[FBPropertyAnimatableBool, FBEvent]
 class FBPropertyAnimatableAction(FBPropertyAnimatable):
 	Data:bool
+	OnUnbind:callbackframework.FBEventSource[FBPropertyAnimatableAction, FBEvent]
 class FBRenderer(FBComponent):
 	"""Open Reality renderer interface.
 
@@ -7422,6 +7514,7 @@ class FBRenderer(FBComponent):
 	"""Read write Property: Use ID (Color) Buffer for picking, instead of OpenGl selection buffer picking."""
 	IDBufferPickingAlpha:float
 	"""Read write Property: Those Semi-transparent (Alpha Blend) geometry(region) contribute less than this threshold, will be considered as invisible during ID picking."""
+	OnUnbind:callbackframework.FBEventSource[FBRenderer, FBEvent]
 	PickingEnabled:bool
 	"""Read Write Property: Is picking in the viewer enabled?"""
 	RegisteredCallbackCount:int
@@ -7846,6 +7939,7 @@ class FBProgress(FBComponent):
 	[See samples: CustomProperty.py,](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_custom_property_8py-example.html) [SetAllToDoneInAllTakes.py.](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_set_all_to_done_in_all_takes_8py-example.html)"""
 	Caption:str
 	"""Read Write Property: Caption to be displayed for progress bar."""
+	OnUnbind:callbackframework.FBEventSource[FBProgress, FBEvent]
 	Percent:int
 	"""Read Write Property: Percent completed for the operation. Must be used called in between [ProgressBegin()](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_progress.html#a74b65ec9004d7726cb2eb88eac9f0929 "Start progress, must be called before set Text & Percent property.")/ProgressDone()"""
 	Text:str
@@ -7876,6 +7970,7 @@ class FBProfiler(FBComponent):
 	"""Read/Write Property: Specify the depth of evaluation profiling for data collection (maximum value is 10)."""
 	FrameReference:bool
 	"""Read/Write Property: Draw task cycles in relation to main thread cycle time - frame cycle (percentage display)."""
+	OnUnbind:callbackframework.FBEventSource[FBProfiler, FBEvent]
 	ProfilingMode:FBProfilingMode
 	"""Read/Write Property: Profiling collection modes, including disabling all profiling."""
 	def GetEndEventSample(self,Index:int,/)->FBProfileTimeEvent:
@@ -7974,6 +8069,7 @@ class FBProfiler(FBComponent):
 	def __init__(self):...
 class FBPose(FBComponent):
 	"""Pose class."""
+	OnUnbind:callbackframework.FBEventSource[FBPose, FBEvent]
 	Type:FBPoseType
 	"""Read Only Property: Type of the pose (bind pose or rest pose)"""
 	def AddNode(self,Object:FBModel,Matrix:FBMatrix|None=None,IsLocalMatrix:bool=False,/)->int:
@@ -8009,6 +8105,7 @@ class FBPose(FBComponent):
 		a reference to the node's Matrix.
 		### Remarks:
 		if the index is invalid a reference to an identiy matrix is returned.
+
 		The reference will become undefined if this object is destroyed."""
 		...
 	def GetNodeName(self,Index:int,/)->str:
@@ -8019,6 +8116,7 @@ class FBPose(FBComponent):
 
 		### Remarks:
 		if the index is invalid a reference to an empty string is returned.
+
 		The reference will become undefined if this object is destroyed."""
 		...
 	def GetNodeObject(self,Index:int,/)->FBModel:
@@ -8100,6 +8198,7 @@ class FBPointCacheManager(FBComponent):
 	"""Read Write Property: Models to be recorded"""
 	NewModelRoot:FBModel
 	"""Read Write Property: Valid only when ApplyCacheOnNewModel is on. Create New Models under NewModelRoot. otherwise, a NULL model will be created."""
+	OnUnbind:callbackframework.FBEventSource[FBPointCacheManager, FBEvent]
 	SaveEveryFrame:int
 	"""Read Write Property: Recording Frequency."""
 	def SetTransformReference(self)->None:
@@ -8112,6 +8211,7 @@ class FBCharacterPose(FBPose):
 	This class exposes the object used to store the pose of objects.
 
 	[See sample: MirrorPoseOverTime.py.](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_mirror_pose_over_time_8py-example.html)"""
+	OnUnbind:callbackframework.FBEventSource[FBCharacterPose, FBEvent]
 	def ApplyPoseCandidate(self)->None:
 		"""After setting the candidate on the skeleton node, calling this function will allow subsequent call to get the TRS value of a skeleton node to return the candidate value."""
 		...
@@ -8280,6 +8380,7 @@ class FBCharacterPose(FBPose):
 
 		### Remarks:
 		Supports the match and mirror options.
+
 		When pasting in body part, the selected parts and extensions of the character will be pasted."""
 		...
 	def PastePoseCharacter(self,Character:FBCharacter,CharacterPoseOptions:FBCharacterPoseOptions,/)->None:
@@ -8335,6 +8436,7 @@ class FBObjectPose(FBPose):
 	"""[FBObjectPose](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_object_pose.html "FBObjectPose class.") class.
 
 	This class exposes the object used to store the pose of objects."""
+	OnUnbind:callbackframework.FBEventSource[FBObjectPose, FBEvent]
 	def AddStanceOffset(self,ObjectName:str,StancePose:FBObjectPose,PoseTransformType:FBPoseTransformType=FBPoseTransformType.kFBPoseTransformInvalid,/)->None:
 		"""Add the StanceOffset to an object in the pose.
 
@@ -8345,6 +8447,7 @@ class FBObjectPose(FBPose):
 
 		### Remarks:
 		Working with poses with their StanceOffset removed is usefull for retargetting.
+
 		If pPoseTransformType is set to kFBPoseTransformInvalid, offsets will be added in all TransformTypes."""
 		...
 	def AddStanceOffsetAllObjects(self,StancePose:FBObjectPose,PoseTransformType:FBPoseTransformType=FBPoseTransformType.kFBPoseTransformInvalid,/)->None:
@@ -8356,6 +8459,7 @@ class FBObjectPose(FBPose):
 
 		### Remarks:
 		Working with poses with their StanceOffset removed is usefull for retargetting.
+
 		If pPoseTransformType is set to kFBPoseTransformInvalid, offsets will be added in all TransformTypes."""
 		...
 	def ClearPose(self)->None:
@@ -8526,6 +8630,7 @@ class FBObjectPose(FBPose):
 
 		### Remarks:
 		You can specify a pObjectName different from the name of pObject.
+
 		Properties that were not stored in the pose will not be affected."""
 		...
 	def PastePropertyPose(self,ObjectName:str,Property:FBProperty,/)->None:
@@ -8537,6 +8642,7 @@ class FBObjectPose(FBPose):
 
 		### Remarks:
 		You can specify a pObjectName different from the name of pObject.
+
 		The property will not be affected if it was not stored in the pose."""
 		...
 	def PasteTransform(self,ObjectName:str,Object:FBComponent,ObjectPoseOptions:FBObjectPoseOptions,/)->None:
@@ -8561,6 +8667,7 @@ class FBObjectPose(FBPose):
 
 		### Remarks:
 		Working with poses with their StanceOffset removed is usefull for retargetting.
+
 		If pPoseTransformType is set to kFBPoseTransformInvalid, offsets will be removed in all TransformTypes."""
 		...
 	def RemoveStanceOffsetAllObjects(self,StancePose:FBObjectPose,PoseTransformType:FBPoseTransformType=FBPoseTransformType.kFBPoseTransformInvalid,/)->None:
@@ -8572,6 +8679,7 @@ class FBObjectPose(FBPose):
 
 		### Remarks:
 		Working with poses with their StanceOffset removed is usefull for retargetting.
+
 		If pPoseTransformType is set to kFBPoseTransformInvalid, offsets will be removed in all TransformTypes."""
 		...
 	def SetPropertyValue(self,ObjectName:str,PropertyName:str,Value:float,Size:int,/)->None:
@@ -8610,6 +8718,7 @@ class FBCluster(FBComponent):
 	"""Read Write Property: Cluster accuracy."""
 	ClusterMode:FBClusterMode
 	"""Read Write Property: Cluster mode."""
+	OnUnbind:callbackframework.FBEventSource[FBCluster, FBEvent]
 	def ClusterBegin(self,Index:int=-1,/)->int:
 		"""Begin cluster definition.
 
@@ -8767,6 +8876,7 @@ class FBCharacterMarkerSet(FBComponent):
 	"""Character marker set class.
 
 	These classes are under development and may change dramatically between versions."""
+	OnUnbind:callbackframework.FBEventSource[FBCharacterMarkerSet, FBEvent]
 	def GetExtractionProperty(self,NodeId:FBBodyNodeId,/)->FBProperty:
 		"""Get the extraction property associated with each body part of the character.
 
@@ -8794,6 +8904,7 @@ class FBCameraSwitcherAudioManager(FBComponent):
 	"""Camera Switcher Audio Manager class.
 
 	This class allows users to interact with the Audio Manager of the Camera Switcher."""
+	OnUnbind:callbackframework.FBEventSource[FBCameraSwitcherAudioManager, FBEvent]
 	def GetAudioClip(self)->FBAudioClip:
 		"""Get the Audio Clip displayed on the Camera Switcher.
 
@@ -8899,6 +9010,7 @@ class FBBox(FBComponent):
 	"""Read Write Property: Is the box animatable."""
 	Live:bool
 	"""Read Write Property: Is live?"""
+	OnUnbind:callbackframework.FBEventSource[FBBox, FBEvent]
 	RecordMode:bool
 	"""Read Write Property: Is recording?"""
 	UniqueName:str
@@ -8978,6 +9090,7 @@ class FBAudioOut(FBComponent):
 	"""Audio Out class.
 
 	Properties of this class are work in progress, but you can still list them and get their names."""
+	OnUnbind:callbackframework.FBEventSource[FBAudioOut, FBEvent]
 	def __init__(self):...
 class FBBoxPlaceHolder(FBBox):
 	"""Wrapper around a specific instance of a [FBBox](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_box.html "A box is a fundamental building block in the application architecture.") object.
@@ -8985,6 +9098,7 @@ class FBBoxPlaceHolder(FBBox):
 	This class is mainly used with a constraint relation to have multiple boxes that are a representation of the same underlying box. The underlying box will usually be a device. Instantiation of [FBBoxPlaceHolder](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_box_place_holder.html "Wrapper around a specific instance of a FBBox object.") should be left to the the system."""
 	Box:FBBox
 	"""Read Only Property: Underlying box object."""
+	OnUnbind:callbackframework.FBEventSource[FBBoxPlaceHolder, FBEvent]
 class FBConstraint(FBBox):
 	"""Base class for constraints."""
 	Active:bool
@@ -8997,6 +9111,7 @@ class FBConstraint(FBBox):
 	"""Read Write Property: Does the constraint have a layout?"""
 	Lock:bool
 	"""Read Write Property: Lock state."""
+	OnUnbind:callbackframework.FBEventSource[FBConstraint, FBEvent]
 	@property
 	def Weight(self)->FBPropertyAnimatableDouble:
 		"""Read Write Property: Weight of constraint."""
@@ -9163,6 +9278,7 @@ class FBModelPlaceHolder(FBBoxPlaceHolder):
 	This class is mainly used with a constraint relation to have multiple boxes that are a representation of the same underlying model. Instantiation of [FBModelPlaceHolder](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_model_place_holder.html "Wrapper around a specific instance of a FBModel object.") should be left to the the system."""
 	Model:FBModel
 	"""Read Only Property: Underlying model object."""
+	OnUnbind:callbackframework.FBEventSource[FBModelPlaceHolder, FBEvent]
 	UseGlobalTransforms:bool
 	"""Read Write Property: Indicate if the translations are expressed in local or global mode."""
 class FBCharacterSolver(FBConstraint):
@@ -9171,6 +9287,7 @@ class FBCharacterSolver(FBConstraint):
 	"""Read Property: List of Extra Bones in character"""
 	ExtraFK:list
 	"""Read Property: List of Extra FK in character"""
+	OnUnbind:callbackframework.FBEventSource[FBCharacterSolver, FBEvent]
 	Source:FBComponent
 	"""Read Write Property: Source character when doing a character retarget."""
 	def GetParentRotationOffset(self,arg2:FBModel,/)->FBVector3d:
@@ -9206,6 +9323,7 @@ class FBCharacterFace(FBConstraint):
 	"""Read Write Property: Is the character input active?"""
 	InputActorFace:FBActorFace
 	"""Read Write Property: The index of the actor used for the input."""
+	OnUnbind:callbackframework.FBEventSource[FBCharacterFace, FBEvent]
 	def ClusterGroupAdd(self,List:FBModelList,Name:str,/)->int:
 		"""Add a cluster group to the character face.
 
@@ -9703,6 +9821,7 @@ class FBCharacter(FBConstraint):
 	"""Read Write Property: Lock character skeleton in place on Z axis."""
 	MirrorMode:bool
 	"""Read Write Property: is in mirror mode."""
+	OnUnbind:callbackframework.FBEventSource[FBCharacter, FBEvent]
 	RightElbowKillPitch:bool
 	"""Read Write Property: is Pitch used for Right elbow."""
 	@property
@@ -10643,6 +10762,7 @@ class FBActor(FBConstraint):
 	def NeckOffsetT(self, Value: FBPropertyAnimatableVector3d|FBVector3d):...
 	NeckPosition:FBVector3d
 	"""Read Write Property: Body part pivot of the actor."""
+	OnUnbind:callbackframework.FBEventSource[FBActor, FBEvent]
 	OutputMarkerSet:FBMarkerSet
 	"""Read Write Property: Associated output marker set."""
 	PivotColor:FBColor
@@ -11159,6 +11279,7 @@ class FBConstraintRelation(FBConstraint):
 	[See sample: TraversingRelationConstraint.py.](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_traversing_relation_constraint_8py-example.html)"""
 	Boxes:FBPropertyListBox
 	"""List: Boxes used in this constraint."""
+	OnUnbind:callbackframework.FBEventSource[FBConstraintRelation, FBEvent]
 	def ConstrainObject(self,ConstrainedObject:FBBox,/)->FBBox:
 		"""Create a receiver box.
 
@@ -11215,6 +11336,7 @@ class FBConstraintRelation(FBConstraint):
 		...
 class FBCycleAnalysisNode(FBBox):
 	"""Cycle Analysis class."""
+	OnUnbind:callbackframework.FBEventSource[FBCycleAnalysisNode, FBEvent]
 	RealTime:bool
 	"""Read Only Property: Real time."""
 	RootHMode:FBRootHMode
@@ -11236,6 +11358,7 @@ class FBCycleAnalysisNode(FBBox):
 		...
 class FBConstraintSolver(FBConstraint):
 	"""Base class for constraint solver."""
+	OnUnbind:callbackframework.FBEventSource[FBConstraintSolver, FBEvent]
 	def __init__(self,Name:str|None=None,/):...
 class FBDevice(FBBox):
 	"""Base Device class.
@@ -11270,6 +11393,7 @@ class FBDevice(FBBox):
 	"""Component: Root of model currently binded model hierarchy."""
 	ModelTemplate:FBModelTemplate
 	"""Component: Root of model template structure."""
+	OnUnbind:callbackframework.FBEventSource[FBDevice, FBEvent]
 	Online:bool
 	"""Read Write Property: Is online?"""
 	RecordingStartTime:FBTime
@@ -11368,6 +11492,7 @@ class FBGlobalLight(FBBox):
 	def FogEnd(self, Value: FBPropertyAnimatableDouble|float):...
 	FogMode:FBFogMode
 	"""Read Write Property: Fog falloff mode."""
+	OnUnbind:callbackframework.FBEventSource[FBGlobalLight, FBEvent]
 	def __init__(self):...
 class FBDeviceOptical(FBDevice):
 	"""Optical device class."""
@@ -11383,6 +11508,7 @@ class FBDeviceOptical(FBDevice):
 	"""List: Markers."""
 	ModelOptical:FBModel
 	"""Property: Optical model for manipulation."""
+	OnUnbind:callbackframework.FBEventSource[FBDeviceOptical, FBEvent]
 	OpticalSamplingRate:float
 	"""Property: Resampling rate for optical device."""
 	SkipFrame:bool
@@ -11417,6 +11543,7 @@ class FBGroup(FBBox):
 	[See samples: FBGetSelectedModels.py,](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_f_b_get_selected_models_8py-example.html) [FBGroup.py.](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_f_b_group_8py-example.html)"""
 	Items:FBPropertyListComponent
 	"""List: Items in the group."""
+	OnUnbind:callbackframework.FBEventSource[FBGroup, FBEvent]
 	Pickable:bool
 	"""Read Write Property: Controls if objects in the group are pickable."""
 	Show:bool
@@ -11467,8 +11594,9 @@ class FBHUD(FBBox):
 	"""List: Elements present in the HUD."""
 	HUDs:FBPropertyListHUD
 	"""List: HUDS attached to this HUD."""
-	OnDisplay:callbackframework.FBEventSource
+	OnDisplay:callbackframework.FBEventSource[FBHUD, FBEvent]
 	"""Event: Callback just before HUD is displayed to update custom values"""
+	OnUnbind:callbackframework.FBEventSource[FBHUD, FBEvent]
 	Visibility:bool
 	"""Read Write Property: Indicate if the information will be displayed or not."""
 	eBloopSlate:FBHUD.EStockElement
@@ -11512,6 +11640,7 @@ class FBHUDElement(FBBox):
 	"""Read Write Property: Specifies if the HUD element will be horizontally docked to the Left, Right, or Center."""
 	Justification:FBHUDElementHAlignment
 	"""Read Write Property: Specifies if the justification of the HUD element is Left, Right, or Center."""
+	OnUnbind:callbackframework.FBEventSource[FBHUDElement, FBEvent]
 	PositionByPercent:bool
 	"""Read Write Property: When set to true, X and Y position values are in percentage, relative to the corresponding camera view dimension. Otherwise, they are absolute pixel values."""
 	ScaleByPercent:bool
@@ -11545,6 +11674,7 @@ class FBHandle(FBBox):
 	"""List: Objects manipulated by the handle. Only their scaling is affected."""
 	ManipulateTranslation:FBPropertyListObject
 	"""List: Objects manipulated by the handle. Only their translation is affected."""
+	OnUnbind:callbackframework.FBEventSource[FBHandle, FBEvent]
 	def Select(self)->None:
 		"""Meta selection.
 
@@ -11565,6 +11695,7 @@ class FBHUDFlashElement(FBHUDElement):
 	[See sample: HUDElements.py.](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_samples_0c_h_u_d_0c_h_u_d_elements_8py-example.html)"""
 	FilePath:str
 	"""Read Write Property: Path to load the swf file from"""
+	OnUnbind:callbackframework.FBEventSource[FBHUDFlashElement, FBEvent]
 	def __init__(self,Name:str,/):
 		"""### Parameters:
 			- Name: Name of new HUD flash element."""
@@ -11577,6 +11708,7 @@ class FBHUDRectElement(FBHUDElement):
 	[See sample: HUDElements.py.](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_samples_0c_h_u_d_0c_h_u_d_elements_8py-example.html)"""
 	Color:FBColorAndAlpha
 	"""Read Write Property: Color of the rectangluar region."""
+	OnUnbind:callbackframework.FBEventSource[FBHUDRectElement, FBEvent]
 	def __init__(self,Name:str,/):
 		"""### Parameters:
 			- Name: Name of new HUD rectangle element."""
@@ -11591,6 +11723,7 @@ class FBHUDBloopSlateElement(FBHUDFlashElement):
 	"""Read Write Property: Bloop slate will appear if set to true."""
 	ForegroundColor:FBColorAndAlpha
 	"""Read Write Property: Bloop slate foreground color."""
+	OnUnbind:callbackframework.FBEventSource[FBHUDBloopSlateElement, FBEvent]
 	ShowAfterDelayOnRecordPlay:FBTime
 	"""Read Write Property: Delay before the bloop slate is displayed after recording has started."""
 	ShowDuration:FBTime
@@ -11615,6 +11748,7 @@ class FBHUDTimelineElement(FBHUDFlashElement):
 	"""Read Write Property: Specifies duration of the Head region."""
 	HeadIdleColor:FBColorAndAlpha
 	"""Read Write Property: Specifies color of the Head region when it is idle."""
+	OnUnbind:callbackframework.FBEventSource[FBHUDTimelineElement, FBEvent]
 	TailActiveColor:FBColorAndAlpha
 	"""Read Write Property: Specifies color of the Tail region when it is active."""
 	TailDuration:FBTime
@@ -11643,6 +11777,7 @@ class FBHUDTextElement(FBHUDElement):
 	"""Read Write Property: Specifies the font."""
 	ForceTimeCodeDisplay:bool
 	"""Read Write Property: Specifies if the display of time-related reference property will be in timecode format."""
+	OnUnbind:callbackframework.FBEventSource[FBHUDTextElement, FBEvent]
 	def GetFontList(self)->FBStringList:
 		"""Returns a list of supported fonts."""
 		...
@@ -11656,6 +11791,7 @@ class FBHUDTextureElement(FBHUDElement):
 	Texture HUD element. Display a texture on a rectangle on the HUD.
 
 	[See sample: HUDElements.py.](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_samples_0c_h_u_d_0c_h_u_d_elements_8py-example.html)"""
+	OnUnbind:callbackframework.FBEventSource[FBHUDTextureElement, FBEvent]
 	Texture:FBPropertyListTexture
 	"""Read Write Property: Texture to display."""
 	def __init__(self,Name:str,/):
@@ -11732,6 +11868,7 @@ class FBMaterial(FBBox):
 		...
 	@NormalMap.setter
 	def NormalMap(self, Value: FBPropertyAnimatableColor|FBColor):...
+	OnUnbind:callbackframework.FBEventSource[FBMaterial, FBEvent]
 	@property
 	def Reflection(self)->FBPropertyAnimatableColor:
 		"""Read Write Property: Reflection color."""
@@ -11861,6 +11998,7 @@ class FBModel(FBBox):
 	"""List: Materials for model."""
 	ModelVertexData:FBModelVertexData
 	"""Read Only Property: ModelVertexData for the model."""
+	OnUnbind:callbackframework.FBEventSource[FBModel, FBEvent]
 	Parent:FBModel|None
 	"""Read Write Property: Parent model."""
 	Pickable:bool
@@ -12183,6 +12321,7 @@ class FBModel(FBBox):
 	def __copy__(self)->FBModel:...
 class FBNote(FBBox):
 	"""Note class."""
+	OnUnbind:callbackframework.FBEventSource[FBNote, FBEvent]
 	StaticComment:str
 	"""Read Write Property: Comment associated to this note."""
 	def Attach(self,Comp:FBComponent|None=None,/)->bool:
@@ -12213,6 +12352,7 @@ class FBModelCube(FBModel):
 	"""Cube model class.
 
 	[See samples: FBGroup.py,](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_f_b_group_8py-example.html) [FBModelCube.py.](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_f_b_model_cube_8py-example.html)"""
+	OnUnbind:callbackframework.FBEventSource[FBModelCube, FBEvent]
 	def __init__(self,Name:str,/):
 		"""### Parameters:
 			- Name: Name of cube."""
@@ -12272,6 +12412,7 @@ class FBLight(FBModel):
 	"""Read Write Property: Angle of left barn door."""
 	LightType:FBLightType
 	"""Read Write Property: Type of light."""
+	OnUnbind:callbackframework.FBEventSource[FBLight, FBEvent]
 	@property
 	def OuterAngle(self)->FBPropertyAnimatableDouble:
 		"""Read Write Property: Outer Cone angle for light."""
@@ -12298,6 +12439,7 @@ class FBCameraSwitcher(FBModel):
 	"""Read Write Property: Camera currently being used by the switcher. Set to NULL to turn on evaluate switch, otherwise manual switch."""
 	CurrentCameraIndex:int
 	"""Read Write Property: Camera index currently being used by the switcher. Set to -1 to turn on evaluate switch."""
+	OnUnbind:callbackframework.FBEventSource[FBCameraSwitcher, FBEvent]
 	def PlotToCamera(self,Camera:FBCamera,/)->bool:
 		"""Plot the Camera Switcher animation onto a destination camera.
 
@@ -12526,6 +12668,7 @@ class FBCamera(FBModel):
 	"""Read Write Property: Near plane distance."""
 	NumberOfSamples:int
 	"""Read Write Property: Number of samples to oversample with."""
+	OnUnbind:callbackframework.FBEventSource[FBCamera, FBEvent]
 	@property
 	def OpticalCenterX(self)->FBPropertyAnimatableDouble:
 		"""Read Write Property: Optical Center X (mm)."""
@@ -12655,6 +12798,7 @@ class FBModelMarker(FBModel):
 	"""Read Write Property: Length for capsule (not related to scaling)."""
 	Look:FBMarkerLook
 	"""Read Write Property: Look of model marker."""
+	OnUnbind:callbackframework.FBEventSource[FBModelMarker, FBEvent]
 	ResLevel:FBMarkerResolutionLevel
 	"""Read Write Property: Resolution level of model marker."""
 	Size:float
@@ -12690,6 +12834,7 @@ class FBCameraStereo(FBCamera):
 	def InteraxialSeparation(self, Value: FBPropertyAnimatableDouble|float):...
 	LeftCamera:FBCamera
 	"""Read Write Property:  This property hold the left camera connected to it."""
+	OnUnbind:callbackframework.FBEventSource[FBCameraStereo, FBEvent]
 	PrecompFileName:str
 	"""Read Write Property:  This property handles the precomp file name."""
 	RelativePrecompFileName:str
@@ -12720,6 +12865,7 @@ class FBCameraStereo(FBCamera):
 		...
 class FBModelNull(FBModel):
 	"""Null object class."""
+	OnUnbind:callbackframework.FBEventSource[FBModelNull, FBEvent]
 	Size:float
 	"""Read Write Property: Size (not related to scaling)."""
 	def __init__(self,Name:str,/):
@@ -12734,6 +12880,7 @@ class FBModelMarkerOptical(FBModelMarker):
 	"""Property: Done?"""
 	Gaps:FBPropertyListOpticalGap
 	"""Property: Gaps."""
+	OnUnbind:callbackframework.FBEventSource[FBModelMarkerOptical, FBEvent]
 	Optical:FBModelOptical
 	"""Property: Optical model."""
 	Segments:FBPropertyListMarkerSegment
@@ -12820,6 +12967,7 @@ class FBModelOptical(FBModel):
 	"""Read Write Property: Size of markers."""
 	Markers:FBPropertyListModelMarkerOptical
 	"""List: Markers."""
+	OnUnbind:callbackframework.FBEventSource[FBModelOptical, FBEvent]
 	RigidBodies:FBPropertyListRigidBody
 	"""List: Rigid bodies."""
 	SamplingPeriod:FBTime
@@ -12886,6 +13034,7 @@ class FBModelPath3D(FBModel):
 	def Color(self, Value: FBPropertyAnimatableColor|FBColor):...
 	KeyPropertyBehavior:FBModelPath3D.EKeyPropertyBehavior
 	"""Read Only Property: Key property behavior."""
+	OnUnbind:callbackframework.FBEventSource[FBModelPath3D, FBEvent]
 	PathEndCapScale:float
 	"""Read Write Property: Path end cap display scale."""
 	PathEndCapStyle:EPathEndCapStyle
@@ -13294,6 +13443,7 @@ class FBModelPath3D(FBModel):
 		...
 class FBModelPlane(FBModel):
 	"""Plane model class."""
+	OnUnbind:callbackframework.FBEventSource[FBModelPlane, FBEvent]
 	def __init__(self,Name:str,/):
 		"""### Parameters:
 			- Name: Name of Plane."""
@@ -13302,6 +13452,7 @@ class FBModelRoot(FBModel):
 	"""Root object class.
 
 	[See sample: SelectModelsWithNameContainingSubstring.py.](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_select_models_with_name_containing_substring_8py-example.html)"""
+	OnUnbind:callbackframework.FBEventSource[FBModelRoot, FBEvent]
 	Size:float
 	"""Read Write Property: Size (not related to scaling)."""
 	def __init__(self,Name:str,/):
@@ -13318,6 +13469,7 @@ class FBModelSkeleton(FBModel):
 	"""Read Write Property: Whether link to parent node must follow skeleton node or not, when skeleton node has a geometry offset."""
 	Look:FBSkeletonLook
 	"""Read Write Property: Look of skeleton node."""
+	OnUnbind:callbackframework.FBEventSource[FBModelSkeleton, FBEvent]
 	PreserveLinkEndPosition:bool
 	"""Read Write Property: Whether skeleton node must preserve its links' end position to children nodes, when skeleton node has a geometry offset. (Note: Only effective when the look is set to: Bone, Box or Stick)"""
 	Resolution:FBSkeletonResolutionLevel
@@ -13338,6 +13490,7 @@ class FBPhysicalProperties(FBBox):
 	"""Base class for physical properties attach to a model.
 
 	[See sample: RigiBody.py.](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_rigi_body_8py-example.html)"""
+	OnUnbind:callbackframework.FBEventSource[FBPhysicalProperties, FBEvent]
 	def __init__(self,Name:str|None=None,/):...
 class FBAudioIn(FBComponent):
 	"""Audio In class.
@@ -13411,6 +13564,7 @@ class FBAudioIn(FBComponent):
 	else:
 		print("No available Audio In object available")
 	```"""
+	OnUnbind:callbackframework.FBEventSource[FBAudioIn, FBEvent]
 	def GetDelay(self)->FBTime:
 		"""Returns the delay currently set.
 
@@ -13549,6 +13703,7 @@ class FBAudioClip(FBComponent):
 	"""Read Write Property: Indicates whether to lock the current playing speed."""
 	LockPitchToSpeed:bool
 	"""Read Write Property: Time stretch enabled factor."""
+	OnUnbind:callbackframework.FBEventSource[FBAudioClip, FBEvent]
 	Path:str
 	"""Read Only Property: Full Path of the media."""
 	Pitch:float
@@ -13606,6 +13761,7 @@ class FBAssetMng(FBComponent):
 	"""Last error string."""
 	MenuFlags:int
 	"""Read Write Property: Flags specifing which menu items are added by the manager."""
+	OnUnbind:callbackframework.FBEventSource[FBAssetMng, FBEvent]
 	def BrowseForFile(self)->FBAssetFile:
 		"""Let the user browse the asset database to select a file.
 
@@ -13714,6 +13870,7 @@ class FBAssetItem(FBComponent):
 	"""Base class for all managed assets."""
 	LastError:str
 	"""Last error string."""
+	OnUnbind:callbackframework.FBEventSource[FBAssetItem, FBEvent]
 	def CheckIn(self,Comment:str="",KeepCheckedOut:bool=False,Silent:bool=False,/)->bool:
 		"""Checks in this item and all its children (if this is a folder item).
 
@@ -13800,24 +13957,25 @@ class FBApplication(FBComponent):
 	"""Read Write Property: Indicate the current character, as used by the character tool. Can be NULL. If not null, CurrentActor must be null, as the character tool works on only one item at a time. [See sample: CurrentCharacterGoToStancePose.py.](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_current_character_go_to_stance_pose_8py-example.html)"""
 	FBXFileName:str
 	"""Read Write Property: Current scene filename."""
-	OnFileExit:callbackframework.FBEventSource
+	OnFileExit:callbackframework.FBEventSource[FBApplication, FBEvent]
 	"""Event: A File Exit as been requested, nothing has been destroyed yet."""
-	OnFileMerge:callbackframework.FBEventSource
+	OnFileMerge:callbackframework.FBEventSource[FBApplication, FBEvent]
 	"""Event: A File Merge has been requested, nothing has been loaded yet."""
-	OnFileNew:callbackframework.FBEventSource
+	OnFileNew:callbackframework.FBEventSource[FBApplication, FBEvent]
 	"""Event: A File New has been requested, nothing has been destroyed yet."""
-	OnFileNewCompleted:callbackframework.FBEventSource
+	OnFileNewCompleted:callbackframework.FBEventSource[FBApplication, FBEvent]
 	"""Event: A File New has been completed."""
-	OnFileOpen:callbackframework.FBEventSource
+	OnFileOpen:callbackframework.FBEventSource[FBApplication, FBEvent]
 	"""Event: A File Open has been requested, nothing has been loaded yet."""
-	OnFileOpenCompleted:callbackframework.FBEventSource
+	OnFileOpenCompleted:callbackframework.FBEventSource[FBApplication, FBEvent]
 	"""Event: A File Open has been completed."""
-	OnFileSave:callbackframework.FBEventSource
+	OnFileSave:callbackframework.FBEventSource[FBApplication, FBEvent]
 	"""Event: A File Save has been requested, nothing has been saved yet."""
-	OnFileSaveCompleted:callbackframework.FBEventSource
+	OnFileSaveCompleted:callbackframework.FBEventSource[FBApplication, FBEvent]
 	"""Event: A File Save has been completed."""
-	OnOverrideFileOpen:callbackframework.FBEventSource
+	OnOverrideFileOpen:callbackframework.FBEventSource[FBApplication, FBEventOverrideFileOpen]
 	"""Event: Called when a file is about to be opened/merged. The user can override the process with his own file import system."""
+	OnUnbind:callbackframework.FBEventSource[FBApplication, FBEvent]
 	def AudioRender(self,AudioRenderOptions:FBAudioRenderOptions|None=None,/)->bool:
 		"""Render audio of current scene to media file, currently WAV file only.
 
@@ -13882,9 +14040,13 @@ class FBApplication(FBComponent):
 		True if the export succeeded.
 		### Remarks:
 		If the file exists, it will be overwritten.
+
 		current take is use.
+
 		The last parameter is only used for motion files.
+
 		For now, you cannot export custom file types.
+
 		Currently, only the default export options are used.
 		### Warning:
 		The signature of this function might change in the future to support export options."""
@@ -13917,11 +14079,17 @@ class FBApplication(FBComponent):
 		True if the import succeeded.
 		### Remarks:
 		No models selected, all the models in the scene will be checked for a potential name match.
+
 		If there are models selected in the scene, only these models will be checked for a potential name match.
+
 		If only one model is selected (ex: hips), this models and its hierarchy will be used.
+
 		The data will be imported in the current take.
+
 		The last two parameter are only used for motion files.
+
 		For now, you cannot import custom file types.
+
 		Currently, only the default import options are used.
 		### Warning:
 		The signature of this function might change in the future to support import options."""
@@ -13951,7 +14119,9 @@ class FBApplication(FBComponent):
 		True if the import succeeded.
 		### Remarks:
 		The import will only work if you open files of the same type.
+
 		For now, you cannot import custom file types.
+
 		Not all options can be applied to a particular motion file type, please use the Motion File Import UI as a reference."""
 		...
 	@overload
@@ -14205,6 +14375,7 @@ class FBApplication(FBComponent):
 	def __init__(self):...
 class FBAssetFile(FBAssetItem):
 	"""Class representing a file stored in a version control database."""
+	OnUnbind:callbackframework.FBEventSource[FBAssetFile, FBEvent]
 	def GetCheckedOutBy(self)->str:
 		"""Returns the name of the user who currently has this file checked out.
 
@@ -14225,6 +14396,7 @@ class FBAssetFile(FBAssetItem):
 		...
 class FBAssetFolder(FBAssetItem):
 	"""Class representing a folder stored in a version control database."""
+	OnUnbind:callbackframework.FBEventSource[FBAssetFolder, FBEvent]
 	def AddFile(self,LocalPath:str,Comment:str,CheckOut:bool,Silent:bool,/)->FBAssetFile:
 		"""Add a specified file into the database.
 
@@ -14290,6 +14462,7 @@ class FBAnimationLayer(FBComponent):
 	"""Read Write Property: If true, the layer is locked. You cannot modify keyframes on a locked layer."""
 	Mute:bool
 	"""Read Write Property: If true, the layer is muted. A muted layer is not included in the result animation. Cannot be applied to the BaseAnimation Layer."""
+	OnUnbind:callbackframework.FBEventSource[FBAnimationLayer, FBEvent]
 	Solo:bool
 	"""Read Write Property: If true, the layer is soloed. When you solo a layer, you mute other layers that are at the same level in the hierarchy, as well as the children of those layers. Cannot be applied to the BaseAnimation Layer."""
 	@property
@@ -14371,6 +14544,7 @@ class FBActorFace(FBComponent):
 	"""Used to plot actor face animation.
 
 	These classes are under development and may change dramatically between versions."""
+	OnUnbind:callbackframework.FBEventSource[FBActorFace, FBEvent]
 	def PlotAnimation(self)->bool:
 		"""Plot the animation of the actor face.
 
@@ -14386,6 +14560,7 @@ class FBActionManager(FBComponent):
 
 	This class is introduced to enable users to access to the actions related functions. between versions."""
 	CurrentInteractionMode:str
+	OnUnbind:callbackframework.FBEventSource[FBActionManager, FBEvent]
 	def RescanCurrentInteractionModeShortcuts(self)->bool:
 		"""Rescan the current interaction mode, in case some shortcuts have changed in the config file.
 
@@ -14403,6 +14578,7 @@ class FBConstraintManager(FBComponent):
 	"""Constraint manager.
 
 	[See sample: FBConstraintManager.py.](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_f_b_constraint_manager_8py-example.html)"""
+	OnUnbind:callbackframework.FBEventSource[FBConstraintManager, FBEvent]
 	@overload
 	def TypeCreateConstraint(self,TypeIndex:int,/)->FBConstraint:
 		"""Create a constraint by index.
@@ -14444,8 +14620,9 @@ class FBConstraintManager(FBComponent):
 	def __init__(self):...
 class FBConstructionHistory(FBComponent):
 	"""Access to global construction history functionality."""
-	OnChange:callbackframework.FBEventSource
+	OnChange:callbackframework.FBEventSource[FBConstructionHistory, FBEvent]
 	"""Event: History changed."""
+	OnUnbind:callbackframework.FBEventSource[FBConstructionHistory, FBEvent]
 	def GetDeltaOperations(self,Operations:list,sinceCommandId:int,/)->None:
 		"""GetDeltaOperations Get the list of delta operations in the construction history.
 
@@ -14490,6 +14667,7 @@ class FBControlSet(FBComponent):
 	These classes are under development and may change dramatically between versions."""
 	ControlSetType:FBControlSetType
 	"""Read Property: the control Set Type (FKIK or IK)."""
+	OnUnbind:callbackframework.FBEventSource[FBControlSet, FBEvent]
 	UseAxis:bool
 	"""Read Write Property: is using axis."""
 	def GetFKIndex(self,Model:FBModel,/)->int:
@@ -14571,6 +14749,7 @@ class FBControlSet(FBComponent):
 		...
 class FBCycleCreator(FBComponent):
 	"""[See sample: CycleCreator.py.](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_samples_0c_cycle_analysis_0c_cycle_creator_8py-example.html)"""
+	OnUnbind:callbackframework.FBEventSource[FBCycleCreator, FBEvent]
 	def CreateCycle(self,StartTime:FBTime,EndTime:FBTime,Char:FBCharacter|None=None,MoveStartToZero:bool=False,AddZeroKey:bool=True,NewTakeName:str="",ReferencedIK:FBModel|None=None,PasteTx:bool=True,PasteTy:bool=False,PasteTz:bool=True,PasteR:bool=True,PasteG:bool=True,/)->bool:
 		"""Create animation cycle for current character if pChar is NULL, else for the character assigned by pChar; during the time scope between pStartTime and pEndTime.
 
@@ -14604,6 +14783,7 @@ class FBDeck(FBComponent):
 	"""Read Write Property: Latency of response for the deck;"""
 	Offset:FBTime
 	"""Read Write Property: Current offset for the TC."""
+	OnUnbind:callbackframework.FBEventSource[FBDeck, FBEvent]
 	Online:bool
 	"""Read Write Property: Is deck online?"""
 	PlayingBackward:bool
@@ -14675,6 +14855,7 @@ class FBDeformer(FBComponent):
 	"""Base Model deformer class."""
 	DeformerType:FBDeformerType
 	"""Read Only Property: Deformer Type."""
+	OnUnbind:callbackframework.FBEventSource[FBDeformer, FBEvent]
 	def __init__(self,Name:str,/):
 		"""### Parameters:
 			- Name: Name of deformer."""
@@ -14687,6 +14868,7 @@ class FBDeviceInstrument(FBComponent):
 	"""Read Write Property: Handle to owner device."""
 	ModelTemplate:FBModelTemplate
 	"""Read Write Property: Model template to build instruments' structure."""
+	OnUnbind:callbackframework.FBEventSource[FBDeviceInstrument, FBEvent]
 	def InstrumentRecordFrame(self,RecordTime:FBTime,NotifyInfo:FBDeviceNotifyInfo,/)->None:
 		"""Record the data to the function curves for the instrument.
 
@@ -14728,6 +14910,7 @@ class FBDeformerPointCache(FBDeformer):
 	"""Read Only Property: Channel Sample Regular."""
 	ChannelStart:FBTime
 	"""Read Only Property: Channel Start."""
+	OnUnbind:callbackframework.FBEventSource[FBDeformerPointCache, FBEvent]
 	PointCacheFile:FBPointCacheFile
 	"""Read Write Property: Point Cache File Object."""
 	def __init__(self,Name:str,/):
@@ -14744,6 +14927,7 @@ class FBDeviceOpticalMarker(FBComponent):
 	"""Property: Model marker access."""
 	Occlusion:float
 	"""Property: Occulsion data for marker."""
+	OnUnbind:callbackframework.FBEventSource[FBDeviceOpticalMarker, FBEvent]
 	Translation:property
 	def SetData(self,X:float,Y:float,Z:float=0.0,Occlusion:float=0.0,/)->None:
 		"""Set data for optical marker.
@@ -14767,10 +14951,11 @@ class FBEvaluateManager(FBComponent):
 	"""Read/Write Property: if true, apply frame skip optimization during playback. off-line rendering don't use frame skip optimization."""
 	NodeCount:int
 	"""Read only Property: Number of nodes to evaluate."""
-	OnRenderingPipelineEvent:callbackframework.FBEventSource
+	OnRenderingPipelineEvent:callbackframework.FBEventSource[FBEvaluateManager, FBEventEvalGlobalCallback]
 	"""For callback events at rendering pipeline."""
-	OnSynchronizationEvent:callbackframework.FBEventSource
+	OnSynchronizationEvent:callbackframework.FBEventSource[FBEvaluateManager, FBEventEvalGlobalCallback]
 	"""For callback events at synchronization point."""
+	OnUnbind:callbackframework.FBEventSource[FBEvaluateManager, FBEvent]
 	ParallelDeformation:bool
 	"""Read/Write Property: true if deformation is evaluated in parallel."""
 	ParallelEvaluation:bool
@@ -14793,6 +14978,7 @@ class FBEvaluateManager(FBComponent):
 	def __init__(self):...
 class FBFCurveEditorUtility(FBComponent):
 	"""[FBFCurveEditor](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_f_curve_editor.html "FCurve editor.") Utility class Utility class allowing different operations on a [FBFCurveEditor](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_f_curve_editor.html "FCurve editor.") or on the main FCurveEditor."""
+	OnUnbind:callbackframework.FBEventSource[FBFCurveEditorUtility, FBEvent]
 	def Frame(self,SelectedKeysOnly:bool,Editor:FBFCurveEditor|None=None,/)->bool:
 		"""Frame keys in the FCurve Editor interface.
 
@@ -14849,10 +15035,11 @@ class FBFCurveEventManager(FBComponent):
 	"""FCurve Event Manager Interface to the [FBFCurveEventManager](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_f_curve_event_manager.html "FCurve Event Manager Interface to the FBFCurveEventManager.").
 
 	This class is used to track the changes on a FCurve of a property."""
-	OnFCurveEvent:callbackframework.FBEventSource
+	OnFCurveEvent:callbackframework.FBEventSource[FBFCurveEventManager, FBFCurveEvent]
 	"""Event: Called when a registered FCurve is modified."""
-	OnPropertyEvent:callbackframework.FBEventSource
+	OnPropertyEvent:callbackframework.FBEventSource[FBFCurveEventManager, FBPropertyStateEvent]
 	"""Event: Called when a registered property state is modified (detached, destroyed...)."""
+	OnUnbind:callbackframework.FBEventSource[FBFCurveEventManager, FBEvent]
 	def RegisterProperty(self,Property:FBPropertyAnimatable,/)->bool:
 		"""Register a property to the FCurve Event Manager.
 
@@ -14964,6 +15151,7 @@ class FBFbxOptions(FBComponent):
 	"""Read Write Property: Handling of the Notes elements."""
 	NotesAnimation:bool
 	"""Read Write Property: Handling of the Notes animation."""
+	OnUnbind:callbackframework.FBEventSource[FBFbxOptions, FBEvent]
 	OpticalData:FBElementAction
 	"""Read Write Property: Handling of the Optical Data elements."""
 	PhysicalProperties:FBElementAction
@@ -15183,14 +15371,15 @@ class FBFbxOptions(FBComponent):
 		...
 class FBFileMonitoringManager(FBComponent):
 	"""File Change Monitoring Interface to the file change monitoring."""
-	OnFileChangeAnimationClip:callbackframework.FBEventSource
+	OnFileChangeAnimationClip:callbackframework.FBEventSource[FBFileMonitoringManager, FBEventFileChange]
 	"""Event: Animation clip file change event."""
-	OnFileChangeFileReference:callbackframework.FBEventSource
+	OnFileChangeFileReference:callbackframework.FBEventSource[FBFileMonitoringManager, FBEventFileChange]
 	"""Event: File Reference file change event."""
-	OnFileChangeMainScene:callbackframework.FBEventSource
+	OnFileChangeMainScene:callbackframework.FBEventSource[FBFileMonitoringManager, FBEventFileChange]
 	"""Event: Main scene file change event."""
-	OnFileChangePythonEditorScript:callbackframework.FBEventSource
+	OnFileChangePythonEditorScript:callbackframework.FBEventSource[FBFileMonitoringManager, FBEventFileChange]
 	"""Event: Python Editor Script file change event."""
+	OnUnbind:callbackframework.FBEventSource[FBFileMonitoringManager, FBEvent]
 	def AddFileToMonitor(self,FilePath:str,FileMonitoringType:FBFileMonitoringType,/)->None:
 		"""Add file to monitor.
 
@@ -15264,6 +15453,7 @@ class FBFilter(FBComponent):
 			lFilter.PropertyList.Find( 'Precision' ).Data = 2.0
 			lFilter.Apply( lModel.Translation.GetAnimationNode(), True )
 	```"""
+	OnUnbind:callbackframework.FBEventSource[FBFilter, FBEvent]
 	Start:FBTime
 	"""Read Write Property: Start time of the filtering region"""
 	Stop:FBTime
@@ -15305,6 +15495,7 @@ class FBFolder(FBComponent):
 	[See sample: FBFolder.py.](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_f_b_folder_8py-example.html)"""
 	Items:FBPropertyListComponent
 	"""List: List of components in the folder."""
+	OnUnbind:callbackframework.FBEventSource[FBFolder, FBEvent]
 	def __init__(self,Name:str,Component:FBComponent,/):
 		"""### Parameters:
 			- Name: Name to assign to new folder.
@@ -15351,8 +15542,9 @@ class FBGenericMenu(FBComponent):
 	You can also delete a Menu item: this will remove the item from the menu as well as freeing its memory.To be notified when a menuitem is clicked, you can register using OnMenuActivate. This will send a [FBEventMenu](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_event_menu.html "Menu event.") containing the name and the Id of the menu item that was clicked.
 
 	[See sample: FBMenu.py.](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_f_b_menu_8py-example.html)"""
-	OnMenuActivate:callbackframework.FBEventSource
+	OnMenuActivate:callbackframework.FBEventSource[FBGenericMenu, FBEventMenu]
 	"""Event Property: Register on this property to be notified when a menu item is clicked by the user."""
+	OnUnbind:callbackframework.FBEventSource[FBGenericMenu, FBEvent]
 	def DeleteItem(self,ToDelete:FBGenericMenuItem,/)->None:
 		"""Remove a menu item from the menu and delete it.
 
@@ -15479,6 +15671,7 @@ class FBGenericMenuItem(FBComponent):
 	"""Read/Write Property: Id of the menu item."""
 	Menu:FBGenericMenu
 	"""Read/Write Property: If the menu item leads to another menu."""
+	OnUnbind:callbackframework.FBEventSource[FBGenericMenuItem, FBEvent]
 class FBGeometry(FBComponent):
 	"""Geometry class.
 
@@ -15495,6 +15688,7 @@ class FBGeometry(FBComponent):
 	"""Read Only Property: Normal mapping mode."""
 	NormalReferenceMode:FBGeometryReferenceMode
 	"""Read Only Property: Normal reference mode."""
+	OnUnbind:callbackframework.FBEventSource[FBGeometry, FBEvent]
 	TangentMappingMode:FBGeometryMappingMode
 	"""Read Only Property: Tangent mapping mode."""
 	TangentReferenceMode:FBGeometryReferenceMode
@@ -15968,11 +16162,13 @@ class FBGeometry(FBComponent):
 class FBHUDManager(FBComponent):
 	DefaultHUD:FBHUD
 	"""Read Write Property: Specifies the HUD to be displayed on cameras that do not have HUD explicitly assigned."""
+	OnUnbind:callbackframework.FBEventSource[FBHUDManager, FBEvent]
 	def __init__(self):...
 class FBMesh(FBGeometry):
 	"""Mesh class.
 
 	[See samples: GeometryInstancing.py,](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_samples_0c_geometry_0c_geometry_instancing_8py-example.html) [VertexArrayManipulation.py,](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_samples_0c_geometry_0c_vertex_array_manipulation_8py-example.html) [VertexColor.py.](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_samples_0c_geometry_0c_vertex_color_8py-example.html)"""
+	OnUnbind:callbackframework.FBEventSource[FBMesh, FBEvent]
 	def ComputeVertexNormals(self,CW:bool=False,/)->None:
 		"""Compute Mesh Vertex Normal.
 
@@ -16113,6 +16309,7 @@ class FBImage(FBComponent):
 	"""Read Only Property: Image interleave type. Only meaningful if image type is field."""
 	InterpolationType:FBImageInterpolationType
 	"""Read Only Property: Image interpolation type."""
+	OnUnbind:callbackframework.FBEventSource[FBImage, FBEvent]
 	Type:FBImageType
 	"""Read Only Property: Image type, refering to either frame or field."""
 	Width:int
@@ -16190,6 +16387,7 @@ class FBKeyControl(FBComponent):
 	"""Read Write Property: Enable/Disable Auto Key feature (key when moving 3D objects)."""
 	NewKeyInterpolationType:FBNewKeyInterpolationType
 	"""Read Write Property: Current key interpolation type that will be used for new keys."""
+	OnUnbind:callbackframework.FBEventSource[FBKeyControl, FBEvent]
 	def MoveKeys(self,TimeSpan:FBTimeSpan,Pivot:FBModel,T:FBVector3d,R:FBVector3d,S:FBVector3d,Time:FBTime,ModelList:FBModelList|None=None,/)->None:
 		"""Move animation keys in space, with respect to a pivot object.
 
@@ -16208,6 +16406,7 @@ class FBKeyingGroup(FBComponent):
 	"""KeyingGroup class.
 
 	This class is an interface to manipulate which properties will be keyed when active. A derived class could control when the keying group should activate and what content it should have. For example, a derived class could activate based one that is selected in the scene.To create a custom keying group, use the appropriate [FBKeyingGroupType](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_keying_group_type.html "Keying group types.") flag. Then, if it is a local keying group, call [AddObjectDependency()](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_keying_group.html#ae5e7be8f49baf7327ad90d5252144c88 "AddObjectDependency An object dependency is the content of a keying group and will activate keying gr...") to add an object to the keying group. You can then add properties belonging to the new object with [AddProperty()](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_keying_group.html#affac1578227f9f95c8112bbb37785300 "Add property to be keyed when current keying group is active.").If you are creating an object type keying group, call [SetObjectType()](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_keying_group.html#a33974cdb85e3a5dd1e08b76a54122afe "Set the object type filter for and object type keying group.") to specify what kind of object will be keyed by this keying group. Then, add a property from an object, the name of the property will be used by the keying group the find corresponding properties in selected object.If you create a global keying group, simply properties from an object with [AddProperty()](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_keying_group.html#affac1578227f9f95c8112bbb37785300 "Add property to be keyed when current keying group is active."). The name of the property will be used by the keying group to find corresponding properties in the selected object."""
+	OnUnbind:callbackframework.FBEventSource[FBKeyingGroup, FBEvent]
 	def AddObjectDependency(self,Obj:FBComponent,/)->None:
 		"""AddObjectDependency An object dependency is the content of a keying group and will activate keying group when selected (activation only works if the keying group is a character extension).
 
@@ -16372,6 +16571,7 @@ class FBKeyingGroup(FBComponent):
 			- Type: Keying group type."""
 		...
 class FBLogger(FBComponent):
+	OnUnbind:callbackframework.FBEventSource[FBLogger, FBEvent]
 	def DisableClear(self)->None:...
 	def DumpObject(self,arg2:FBPlug,arg3,/)->Any:...
 	@overload
@@ -16394,6 +16594,7 @@ class FBCharacterExtension(FBKeyingGroup):
 	"""Read Write Property: The logical name of the extension, use for mirroring."""
 	MirrorLabel:int
 	"""Read Write Property: Enum that indicate which extension is used as mirror, 0 is none, 1 is self, 2-n represent the (ith - 2)character extension in the attached character excluding self."""
+	OnUnbind:callbackframework.FBEventSource[FBCharacterExtension, FBEvent]
 	PlotAllowed:FBPlotAllowed
 	"""Read Write Property: Controls if objects in the set are transformable."""
 	ReferenceModel:FBModel
@@ -16563,6 +16764,7 @@ class FBManipulator(FBComponent):
 	"""Read Write Property: Is manipulator consuming event? If true, this will prevent other manipulators from being called."""
 	DefaultBehavior:bool
 	"""Read Write Property: Using default manipulator behavior?"""
+	OnUnbind:callbackframework.FBEventSource[FBManipulator, FBEvent]
 	ViewerText:str
 	"""Read Write Property: Text displayed in view."""
 	Visible:bool
@@ -16571,6 +16773,7 @@ class FBMarkerSet(FBComponent):
 	"""Marker set class.
 
 	These classes are under development and may change dramatically between versions."""
+	OnUnbind:callbackframework.FBEventSource[FBMarkerSet, FBEvent]
 	def AddMarker(self,NodeId:FBSkeletonNodeId,Model:FBModel|None=None,IsOriented:bool=False,/)->int:
 		"""Add a marker to the marker set.
 
@@ -16760,6 +16963,7 @@ class FBMenuManager(FBComponent):
 	As a convenience operation, you can from the menu manager enable and disable menu item (instead of retrieving their corresponding item).
 
 	[See sample: FBMenu.py.](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_f_b_menu_8py-example.html)"""
+	OnUnbind:callbackframework.FBEventSource[FBMenuManager, FBEvent]
 	def ExecuteMenuItem(self,MenuPath:str,MenuItemID:int,/)->bool:
 		"""Execute a particular menu item.
 
@@ -16875,6 +17079,7 @@ class FBModelOpticalAdvanced(FBComponent):
 	"""Property: Insert segment mode."""
 	MaxMatchDistance:float
 	"""Property: Max matching distance."""
+	OnUnbind:callbackframework.FBEventSource[FBModelOpticalAdvanced, FBEvent]
 	PlayToNextSegment:bool
 	"""Property: Play to next segment ?"""
 	Quality:FBAnimationNode
@@ -16920,9 +17125,11 @@ class FBModelTemplate(FBComponent):
 	"""Read Write Property: Default translation."""
 	Model:FBModel
 	"""Read Write Property: Model being interfaced."""
+	OnUnbind:callbackframework.FBEventSource[FBModelTemplate, FBEvent]
 	Prefix:str
 	"""Read Write Property: Prefix of model template."""
 class FBModelVertexData(FBComponent):
+	OnUnbind:callbackframework.FBEventSource[FBModelVertexData, FBEvent]
 	def DisableOGLUVSet(self)->None:
 		"""Disable OpenGL UV set array."""
 		...
@@ -17239,6 +17446,7 @@ class FBModuleManager(FBComponent):
 	"""Module Manager class.
 
 	This class is introduced to enable users to access information related to the loaded modules."""
+	OnUnbind:callbackframework.FBEventSource[FBModuleManager, FBEvent]
 	def GetLoadedModuleNames(self)->FBStringList:
 		"""Returns the loaded module names found in the *.mod files parsed.
 
@@ -17293,6 +17501,7 @@ class FBMotionBlend(FBComponent):
 	myEdit = motionBlend.AddEdit( "myEdit" )
 	motionBlend.SetSnapOnFrame( True )
 	```"""
+	OnUnbind:callbackframework.FBEventSource[FBMotionBlend, FBEvent]
 	def AddEdit(self,Name:str|None=None,SetAsCurrent:bool=True,/)->FBMotionBlendEdit:
 		"""Add a new Edit in the Motion Blend.
 
@@ -17408,6 +17617,7 @@ class FBMotionBlendEdit(FBComponent):
 	myEdit.SetKeepActive( True )
 	```
 	Motion Blend Edit"""
+	OnUnbind:callbackframework.FBEventSource[FBMotionBlendEdit, FBEvent]
 	def Clear(self)->bool:
 		"""Clear the Edit.
 
@@ -17470,6 +17680,7 @@ class FBMotionClip(FBComponent):
 	Properties of this class are work in progress, but you can still list them and get their names."""
 	Filename:str
 	"""Read Write Property: Filename and path of motion file."""
+	OnUnbind:callbackframework.FBEventSource[FBMotionClip, FBEvent]
 	RelativePath:str
 	"""Read Only Property: Relative path to the motion file."""
 	Start:FBTime
@@ -17508,6 +17719,7 @@ class FBMotionFileOptions(FBComponent):
 	"""Read Write Property: If set to true, dummy bones from the file are not removed. Used for asf/amc files."""
 	ModelSelection:FBModelSelection
 	"""Common settings when merging, unused with the CreateInsteadOfMerge property is set to true."""
+	OnUnbind:callbackframework.FBEventSource[FBMotionFileOptions, FBEvent]
 	SetLimits:bool
 	"""Read Write Property: If set to true, use motion limits. Used for asf/amc files."""
 	SetOccludedToLastValidPosition:bool
@@ -17658,6 +17870,7 @@ class FBNamespace(FBComponent):
 	ContentCount:int
 	ContentLocked:bool
 	"""Read Write Property: Content locking state."""
+	OnUnbind:callbackframework.FBEventSource[FBNamespace, FBEvent]
 	def GetContent(self,Index:int,/)->FBComponent:
 		"""Get the namespace content object count (Not Recursive).
 
@@ -17691,6 +17904,7 @@ class FBOpticalGap(FBComponent):
 	"""Property: Gap curve data."""
 	Interpolation:FBGapMode
 	"""Property: Gap mode."""
+	OnUnbind:callbackframework.FBEventSource[FBOpticalGap, FBEvent]
 	TimeSpan:FBTimeSpan
 	"""Property: Current timespan."""
 	def InsertControlKey(self,Time:FBTime,/)->None:
@@ -17717,6 +17931,7 @@ class FBFileReference(FBNamespace):
 	[See sample: MBFileRefDemo.py.](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_samples_0c_referencing_0c_m_b_file_ref_demo_8py-example.html)"""
 	IsLoaded:bool
 	"""Read Write Property:  File Reference Load/Unload."""
+	OnUnbind:callbackframework.FBEventSource[FBFileReference, FBEvent]
 	ReferenceFilePath:str
 	"""Read Write Property:  File Reference file path."""
 	def ApplyRefEditPyScriptFromFile(self,RefEditPyScriptFilePath:str,/)->None:
@@ -17813,6 +18028,7 @@ class FBOpticalSegment(FBComponent):
 	"""Property: Optical marker."""
 	MarkerTimeSpan:FBTimeSpan
 	"""Property: Marker/Segment timespan."""
+	OnUnbind:callbackframework.FBEventSource[FBOpticalSegment, FBEvent]
 	OriginalTimeSpan:FBTimeSpan
 	"""Property: Original timespan for segment."""
 	TimeSpan:FBTimeSpan
@@ -17867,8 +18083,9 @@ class FBPlayerControl(FBComponent):
 	"""Read Write Property: Loop end time."""
 	NextMarker:FBTime
 	"""Read Only Property: Next marked time."""
-	OnChange:callbackframework.FBEventSource
+	OnChange:callbackframework.FBEventSource[FBPlayerControl, FBEventPlayerControlChange]
 	"""Event Property: Fired when something in the player control has changed. (see [FBEventPlayerControlChange](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_event_player_control_change.html))"""
+	OnUnbind:callbackframework.FBEventSource[FBPlayerControl, FBEvent]
 	PlotSamplingPeriod:FBTime
 	"""Read Write Property: Sampling period for the model plotting."""
 	PreviousMarker:FBTime
@@ -18239,6 +18456,7 @@ class FBPointCacheFile(FBComponent):
 	"""Read Write Property: Loop."""
 	Offset:FBTime
 	"""Read Write Property: Offset."""
+	OnUnbind:callbackframework.FBEventSource[FBPointCacheFile, FBEvent]
 	PlaySpeed:float
 	"""Read Write Property: Play Speed."""
 	StartTime:FBTime
@@ -18259,6 +18477,7 @@ class FBRendererCallback(FBComponent):
 	"""Read write Property: Set true to use default light ground projection rendering; set false to disable it."""
 	DefaultLightVolumeRendering:bool
 	"""Read write Property: Set true to use default light volume rendering; set false to disable it."""
+	OnUnbind:callbackframework.FBEventSource[FBRendererCallback, FBEvent]
 	SupportIDBufferPicking:bool
 	"""Read write Property: Can this Renderer Callback support IDBuffer Picking."""
 	def __init__(self,Name:str,/):...
@@ -18272,6 +18491,7 @@ class FBRigidBody(FBComponent):
 	"""Property: Rigid body mode."""
 	Model:FBModel
 	"""Property: Rigid body model."""
+	OnUnbind:callbackframework.FBEventSource[FBRigidBody, FBEvent]
 	QualityData:FBAnimationNode
 	"""Property: Quality of rigid body."""
 	SmoothWidth:int
@@ -18433,10 +18653,11 @@ class FBScene(FBComponent):
 	"""List: Notes in scene."""
 	ObjectPoses:FBPropertyListObjectPose
 	"""List: ObjectPoses in scene."""
-	OnChange:callbackframework.FBEventSource
+	OnChange:callbackframework.FBEventSource[FBScene, FBEventSceneChange]
 	"""Event: Something in the scene has happened.([FBEventSceneChange](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_event_scene_change.html "Select model event class."))"""
-	OnTakeChange:callbackframework.FBEventSource
+	OnTakeChange:callbackframework.FBEventSource[FBScene, FBEventTakeChange]
 	"""Event: Something related to a take has happened.([FBEventTakeChange](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_event_take_change.html "Take change event class."))"""
+	OnUnbind:callbackframework.FBEventSource[FBScene, FBEvent]
 	PhysicalProperties:FBPropertyListPhysicalProperties
 	"""List: PhysicalProperties present in the scene."""
 	Poses:FBPropertyListPose
@@ -18704,6 +18925,7 @@ class FBSet(FBBox):
 	This class is an interface to manipulate object sets in the scene. Note: an item cannot be in two [FBSet](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_set.html "Objects Set class.") objects at once. Also, an [FBGroup](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_group.html "Objects Grouping class.") cannot contain [FBSet](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_set.html "Objects Set class.") objects, although an [FBSet](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_set.html "Objects Set class.") object can contain an FBGRoup."""
 	Items:FBPropertyListComponent
 	"""List: Items in the set."""
+	OnUnbind:callbackframework.FBEventSource[FBSet, FBEvent]
 	Pickable:bool
 	"""Read Write Property: Controls if objects in the set are pickable."""
 	Transformable:bool
@@ -18735,6 +18957,7 @@ class FBSet(FBBox):
 		...
 class FBShader(FBBox):
 	"""Shader class."""
+	OnUnbind:callbackframework.FBEventSource[FBShader, FBEvent]
 	RenderingPass:FBRenderingPass
 	"""Read Write Property: Rendering pass object are shaded in."""
 	ShaderDescription:str
@@ -18824,6 +19047,7 @@ class FBShaderLighted(FBShader):
 	"""Read Write Property: Changes the contrast of the object when it reflects light."""
 	Luminosity:float
 	"""Read Write Property: Changes the brightness of the object when reflecting light."""
+	OnUnbind:callbackframework.FBEventSource[FBShaderLighted, FBEvent]
 	Specular:float
 	"""Read Write Property: Changes an object's level of shininess when it reflects light by affecting the specular highlight."""
 	Transparency:FBAlphaSource
@@ -18958,6 +19182,7 @@ class FBShaderShadowLive(FBShader):
 	"""Read Write Property: Creates an accurate projection of a shadow for each object."""
 	Models:FBPropertyListObject
 	"""List: List of object which when lighted will cast a shadow."""
+	OnUnbind:callbackframework.FBEventSource[FBShaderShadowLive, FBEvent]
 	ShadowFrameType:FBShadowFrameType
 	"""Read Write Property: Used to select the shadow calculation method."""
 	@property
@@ -18994,6 +19219,7 @@ class FBSpreadPart(FBComponent):
 	"""Read Write Property: Is SpreadPart enabled?"""
 	Justify:FBTextJustify
 	"""Read Write Property: Text justification for SpreadPart"""
+	OnUnbind:callbackframework.FBEventSource[FBSpreadPart, FBEvent]
 	ReadOnly:bool
 	"""Read Write Property: Is SpreadPart read-only?"""
 	Row:int
@@ -19004,6 +19230,7 @@ class FBSpreadRow(FBSpreadPart):
 	"""Spreadsheet row."""
 	Caption:str
 	"""Read Write Property: Caption to display with row."""
+	OnUnbind:callbackframework.FBEventSource[FBSpreadRow, FBEvent]
 	Parent:int
 	"""Read Write Property: Parent of row (reference)."""
 	RowSelected:bool
@@ -19024,11 +19251,12 @@ class FBSpreadColumn(FBSpreadPart):
 	"""Spreadsheet column."""
 	Caption:str
 	"""Read Write Property: Caption of the column."""
+	OnUnbind:callbackframework.FBEventSource[FBSpreadColumn, FBEvent]
 	Width:int
 	"""Read Write Property: Column width."""
 class FBSpreadCell(FBSpreadPart):
 	"""Spreadsheet cell."""
-	...
+	OnUnbind:callbackframework.FBEventSource[FBSpreadCell, FBEvent]
 class FBStory(FBComponent):
 	"""Story Management class.
 
@@ -19045,6 +19273,7 @@ class FBStory(FBComponent):
 	"""Read Write Property: If true, the Story mode will be globally disabled."""
 	NoneBlockingPostprocess:bool
 	"""Read Write Property: If true, record to disk will post process recorded data in low priority thread without affecting application performance. Clip in story will remain unloaded."""
+	OnUnbind:callbackframework.FBEventSource[FBStory, FBEvent]
 	RecordToDisk:bool
 	"""Read Write Property: If true, record to story will record directly to disk."""
 	RootEditFolder:FBStoryFolder
@@ -19122,8 +19351,9 @@ class FBStoryClip(FBComponent):
 	"""Read Write Property: Several mirror planes to mirror animation. See [FBStoryClipMirrorPlane](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_story_clip_mirror_plane.html "Several mirror planes to mirror animation.")"""
 	Offset:FBTime
 	"""Read Write Property: First loop time offset."""
-	OnChange:callbackframework.FBEventSource
+	OnChange:callbackframework.FBEventSource[FBStoryClip, FBEventClipChange]
 	"""Event: Something in the clip has changed. (FBEventClip)"""
+	OnUnbind:callbackframework.FBEventSource[FBStoryClip, FBEvent]
 	Pivots:FBPropertyListPivot
 	"""List: Pivots models (Generally, only one model is necessary)"""
 	PostBlend:FBTimeSpan
@@ -19380,6 +19610,7 @@ class FBStoryFolder(FBComponent):
 	"""Read Write Property: Label to display for this story folder."""
 	Mute:bool
 	"""Read Write Property: If true, this story folder will be muted."""
+	OnUnbind:callbackframework.FBEventSource[FBStoryFolder, FBEvent]
 	Parent:FBStoryFolder
 	"""Read Only Property: Object pointing to the folder's parent."""
 	RecordClipPath:str
@@ -19443,6 +19674,7 @@ class FBStoryGroupClip(FBComponent):
 	Group Clip represents a group of clips that can be manipulated together."""
 	DependentClips:FBPropertyListObject
 	"""Read Write Property: Clips that are included in the group clip."""
+	OnUnbind:callbackframework.FBEventSource[FBStoryGroupClip, FBEvent]
 	Start:FBTime
 	"""Read Write Property: Start time of the clip."""
 	StartStopLocked:bool
@@ -19618,6 +19850,7 @@ class FBStringList:
 	def __iter__(self)->Iterator[str]:...
 class FBSurface(FBGeometry):
 	"""Surface class."""
+	OnUnbind:callbackframework.FBEventSource[FBSurface, FBEvent]
 	SurfaceMode:FBSurfaceMode
 	"""Read Write Property: Surface mode."""
 	UClosed:bool
@@ -19701,17 +19934,18 @@ class FBSystem(FBComponent):
 	Materials:FBPropertyListMaterial
 	"""### Note:
 	Deprecated [FBSystem.Materials](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_system.html#aed43f9b8e3040057809de92c0d0c052e): Use FBSystem.Scene.Materials to access this property."""
-	OnConnectionDataNotify:callbackframework.FBEventSource
+	OnConnectionDataNotify:callbackframework.FBEventSource[FBSystem, FBEventConnectionDataNotify]
 	"""Event: A data event occurred between objects in the system."""
-	OnConnectionKeyingNotify:callbackframework.FBEventSource
+	OnConnectionKeyingNotify:callbackframework.FBEventSource[FBSystem, FBEventConnectionKeyingNotify]
 	"""Event: A keying event occurred when objects are being keyed."""
-	OnConnectionNotify:callbackframework.FBEventSource
+	OnConnectionNotify:callbackframework.FBEventSource[FBSystem, FBEventConnectionNotify]
 	"""Event: A connection event occurred between objects in the system. [See sample: FBSystemEvents.py.](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_f_b_system_events_8py-example.html)"""
-	OnConnectionStateNotify:callbackframework.FBEventSource
+	OnConnectionStateNotify:callbackframework.FBEventSource[FBSystem, FBEventConnectionStateNotify]
 	"""Event: A state change event occurred between objects in the system."""
-	OnUIIdle:callbackframework.FBEventSource
+	OnUIIdle:callbackframework.FBEventSource[FBSystem, FBEvent]
 	"""Event: User-interface idle event. Useful callback for less frequent GUI refresh and etc. lightweight tasks (occur once per several frames)."""
-	OnVideoFrameRendering:callbackframework.FBEventSource
+	OnUnbind:callbackframework.FBEventSource[FBSystem, FBEvent]
+	OnVideoFrameRendering:callbackframework.FBEventSource[FBSystem, FBEventVideoFrameRendering]
 	"""Event: A video frame rendering event occurred when the scene is being off-line rendered into video files."""
 	PathImages:str
 	"""Read Only Property: Path to images."""
@@ -19812,6 +20046,7 @@ class FBSystem(FBComponent):
 	def __init__(self):...
 class FBPatch(FBSurface):
 	"""Patch class."""
+	OnUnbind:callbackframework.FBEventSource[FBPatch, FBEvent]
 	USurfaceType:FBSurfaceType
 	"""Read Write Property: Patch mode for U direction."""
 	VSurfaceType:FBSurfaceType
@@ -19822,6 +20057,7 @@ class FBPatch(FBSurface):
 		...
 class FBNurbs(FBSurface):
 	"""Nurbs class."""
+	OnUnbind:callbackframework.FBEventSource[FBNurbs, FBEvent]
 	UNurbType:FBNurbType
 	"""Read Write Property: Nurbs Type for U direction."""
 	UOrder:int
@@ -19903,6 +20139,7 @@ class FBTexture(FBBox):
 	"""Read Only Property: Height of texture."""
 	Mapping:FBTextureMapping
 	"""Read Write Property: Texture mapping."""
+	OnUnbind:callbackframework.FBEventSource[FBTexture, FBEvent]
 	@property
 	def Rotation(self)->FBPropertyAnimatableVector3d:
 		"""Read Write Property: Rotation coordinates."""
@@ -19958,6 +20195,7 @@ class FBLayeredTexture(FBTexture):
 	def BackgroundColor(self, Value: FBPropertyAnimatableColorAndAlpha|FBColorAndAlpha):...
 	Layers:FBPropertyListTexture
 	"""Read/Write Property: Textures Layers."""
+	OnUnbind:callbackframework.FBEventSource[FBLayeredTexture, FBEvent]
 	def SetLayerConfigDirty(self)->None:
 		"""Set layer config dirty to trigger new composition."""
 		...
@@ -20217,6 +20455,7 @@ class FBTake(FBComponent):
 	"""Read Write Property: Take comments."""
 	LocalTimeSpan:FBTimeSpan
 	"""Read Write Property: Local time span."""
+	OnUnbind:callbackframework.FBEventSource[FBTake, FBEvent]
 	ReferenceTimeSpan:FBTimeSpan
 	"""Read Write Property: Reference time span."""
 	def AddTimeMark(self,Time:FBTime,/)->int:
@@ -20665,6 +20904,7 @@ class FBStoryTrack(FBConstraint):
 	"""Read Write Property: If true, this track wont' play."""
 	OffsetEnable:bool
 	"""Read Write Property: When enabled, allow clip to be offset"""
+	OnUnbind:callbackframework.FBEventSource[FBStoryTrack, FBEvent]
 	ParentFolder:FBStoryFolder
 	"""Read Only Property: Parent folder."""
 	ParentTrack:FBStoryTrack
@@ -20776,6 +21016,7 @@ class FBFCurve(FBComponent):
 	[See samples: ClearKeysOnSelectedModels.py,](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_clear_keys_on_selected_models_8py-example.html) [FCurveEditor.py.](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_f_curve_editor_8py-example.html)"""
 	Keys:FBPropertyListFCurveKey
 	"""List: Keys."""
+	OnUnbind:callbackframework.FBEventSource[FBFCurve, FBEvent]
 	def CreateInterpolatorCurve(self,CurveType:FBInterpolatorCurveType,/)->FBFCurve:
 		"""Create and interpolator curve.
 
@@ -21288,6 +21529,7 @@ class FBAnimationNode(FBComponent):
 	"""Read Write Property: Is animation live?"""
 	Nodes:FBPropertyListAnimationNode
 	"""List: List of animation nodes."""
+	OnUnbind:callbackframework.FBEventSource[FBAnimationNode, FBEvent]
 	RecordMode:bool
 	"""Read Write Property: Is the node in recording mode (device connectors)?"""
 	UserName:str
@@ -21450,6 +21692,7 @@ class FBTimeWarpManager(FBComponent):
 	"""Time Warp Manager Interface to the Time Warp Manager.
 
 	[See sample: TimeWarp.py.](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_samples_0c_f_curve_0c_time_warp_8py-example.html)"""
+	OnUnbind:callbackframework.FBEventSource[FBTimeWarpManager, FBEvent]
 	def ApplyTimeWarp(self,Take:FBTake,EvalProp:FBProperty,TimeWarp:FBAnimationNode,/)->bool:
 		"""Apply the TimeWarp in a Take to an evaluation property, just connect the storing property for the TimeWarp to the evaluation property.
 
@@ -21656,6 +21899,7 @@ class FBToolLayoutManager(FBComponent):
 	# Delete the custom layout
 	lToolLayoutMan.DeleteLayout( "MyLayout" )
 	```"""
+	OnUnbind:callbackframework.FBEventSource[FBToolLayoutManager, FBEvent]
 	def CreateLayout(self,LayoutName:str,/)->str:
 		"""Create a new layout from the current layout state.
 
@@ -21795,6 +22039,7 @@ class FBTransportAudioManager(FBComponent):
 	"""Transport Tool Audio Manager class.
 
 	This class allows users to interact with the Audio Manager of the Transport Tool."""
+	OnUnbind:callbackframework.FBEventSource[FBTransportAudioManager, FBEvent]
 	def GetAudioClip(self)->FBAudioClip:
 		"""Get the Audio Clip displayed on the Transport Tool.
 
@@ -21896,6 +22141,7 @@ class FBTreeNode(FBComponent):
 	"""A node in the tree view."""
 	Checked:bool
 	"""Read Write Property: Is [FBTreeNode](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_tree_node.html "A node in the tree view.") checked."""
+	OnUnbind:callbackframework.FBEventSource[FBTreeNode, FBEvent]
 	Reference:int
 	"""Read Write Property: Data to be associated to this node."""
 class FBUV:
@@ -21960,13 +22206,14 @@ class FBUndoManager(FBComponent):
 	Users have the possibility of undoing and redoing actions performed using the GUI, and interacting with the undo and redo stacks with custom actions.All undo/redo related functions should only be called inside UI event callback. Users should call [TransactionBegin()](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_undo_manager.html#af7427e75659bfb18a593655de6170fa9 "Open transaction stack for adding transactions.")/TransactionEnd() in pairs, Transaction stack must be closed before UI event callback return.This class cannot be used as a base class.
 
 	[See sample: IndividualUndoCalls.py.](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_individual_undo_calls_8py-example.html)"""
-	OnRedo:callbackframework.FBEventSource
+	OnRedo:callbackframework.FBEventSource[FBUndoManager, FBEvent]
 	"""Event: A redo operation will be executed."""
-	OnRedoCompleted:callbackframework.FBEventSource
+	OnRedoCompleted:callbackframework.FBEventSource[FBUndoManager, FBEvent]
 	"""Event: A redo operation has been executed."""
-	OnUndo:callbackframework.FBEventSource
+	OnUnbind:callbackframework.FBEventSource[FBUndoManager, FBEvent]
+	OnUndo:callbackframework.FBEventSource[FBUndoManager, FBEvent]
 	"""Event: An undo operation will be executed."""
-	OnUndoCompleted:callbackframework.FBEventSource
+	OnUndoCompleted:callbackframework.FBEventSource[FBUndoManager, FBEvent]
 	"""Event: An undo operation has been executed."""
 	def ActiveOperation(self)->bool:
 		"""Determine if an undo operation is in action.
@@ -22044,6 +22291,7 @@ class FBUndoManager(FBComponent):
 		...
 	def __init__(self):...
 class FBUserObject(FBBox):
+	OnUnbind:callbackframework.FBEventSource[FBUserObject, FBEvent]
 	def __init__(self,Name:str,/):
 		"""### Parameters:
 			- Name: User object name."""
@@ -22446,6 +22694,7 @@ class FBVideo(FBBox):
 	[See sample: DeleteUnusedMedia.py.](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_delete_unused_media_8py-example.html)"""
 	KeepOnGPU:bool
 	"""Read Write Property: Don't auto flush from GPU if true. session runtime flag, won't be saved."""
+	OnUnbind:callbackframework.FBEventSource[FBVideo, FBEvent]
 	def __init__(self,Name:str,/):
 		"""### Parameters:
 			- Name: Name of video media.
@@ -22483,6 +22732,7 @@ class FBVideoClip(FBVideo):
 	"""Read Only Property: Time of last frame"""
 	Loop:bool
 	"""Read Write Property: Loop video clip?"""
+	OnUnbind:callbackframework.FBEventSource[FBVideoClip, FBEvent]
 	PlaySpeed:float
 	"""Read Write Property: Playback speed."""
 	PowerOfTwoHeight:int
@@ -22550,6 +22800,7 @@ class FBVideoClipImage(FBVideoClip):
 	"""Read Write Property: Clip is an image sequence?"""
 	MaxMipMapResolution:FBVideoResolution
 	"""Read Write Property: Maximum MipMap resolution will be loaded into GPU."""
+	OnUnbind:callbackframework.FBEventSource[FBVideoClipImage, FBEvent]
 	UseSystemFrameRate:bool
 	"""Read Write Property: Clip is using system frame rate?"""
 	def __init__(self,Name:str,/):
@@ -22558,6 +22809,7 @@ class FBVideoClipImage(FBVideoClip):
 		...
 class FBVideoClipImageDDS(FBVideoClipImage):
 	"""Video clip image media class for DDS images."""
+	OnUnbind:callbackframework.FBEventSource[FBVideoClipImageDDS, FBEvent]
 	def __init__(self,Name:str,/):
 		"""### Parameters:
 			- Name: Name of DDS image file."""
@@ -22596,6 +22848,7 @@ class FBVideoCodecManager:
 		true if register successful
 		### Remarks:
 		After register an external video format, and save a scene with this kind of video. when start MotionBuilder next time and before load the scene back,
+
 		It is necessary to call RegisterExternalVideoFormat to register this kind of video format again, otherwise this kind of video will not be loaded."""
 		...
 	def SetDefaultCodec(self,FileFormatInfo:str,CodecId:str,/)->None:
@@ -22655,6 +22908,7 @@ class FBVideoGrabber(FBComponent):
 	Used to grab video frames generated with the [FBRenderer](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_renderer.html "Open Reality renderer interface.").
 
 	[See samples: codecExamples.py,](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_rendering_0ccodec_examples_8py-example.html) [render.py,](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_rendering_0crender_8py-example.html) [RenderLayers.py,](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_rendering_0c_render_layers_8py-example.html) [JpegRender.py.](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_tasks_0c_jpeg_render_8py-example.html)"""
+	OnUnbind:callbackframework.FBEventSource[FBVideoGrabber, FBEvent]
 	def BeginGrab(self)->bool:
 		"""BeginGrab.
 
@@ -22715,6 +22969,7 @@ class FBVideoIn(FBVideo):
 	[See sample: VideoInput.py.](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_samples_0c_video_0c_video_input_8py-example.html)"""
 	FilePath:str
 	"""Read Write Property: Location of the generated movie file after a recording session."""
+	OnUnbind:callbackframework.FBEventSource[FBVideoIn, FBEvent]
 	Online:bool
 	"""Read Write Property: If true, the device is online and will display the current video feed."""
 	RecordAudio:bool
@@ -22788,6 +23043,7 @@ class FBVideoMemory(FBVideo):
 	User could create / update OGL texture (GL_TEXTURE_2D type) externally, and pass in GL texture object id to TextureOGLId property.See "Scripts/Samples/Video/VideoMemory.py" for usage example.
 
 	[See sample: VideoMemory.py.](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_samples_0c_video_0c_video_memory_8py-example.html)"""
+	OnUnbind:callbackframework.FBEventSource[FBVideoMemory, FBEvent]
 	TextureOGLId:int
 	"""Read Write Property: OpenGL texture buffer object id (GL_TEXTURE_2D type)."""
 	def SetObjectImageSize(self,W:int,H:int,/)->None:
@@ -22805,6 +23061,7 @@ class FBVideoOut(FBVideo):
 	"""Video media class.
 
 	[See sample: VideoOutput.py.](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_samples_0c_video_0c_video_output_8py-example.html)"""
+	OnUnbind:callbackframework.FBEventSource[FBVideoOut, FBEvent]
 	Online:bool
 	"""Read Write Property: If true, the device is online and will output display."""
 	def __init__(self):...
@@ -22874,6 +23131,7 @@ class FBVisualComponent(FBComponent):
 	"""Read Write Property: Hint to show."""
 	Left:int
 	"""Read Write Property: Left coordinate."""
+	OnUnbind:callbackframework.FBEventSource[FBVisualComponent, FBEvent]
 	ReadOnly:bool
 	"""Read Write Property: Is visual component read only?"""
 	RegionAttachToHeight:FBVisualComponent
@@ -22990,12 +23248,13 @@ class FBVisualContainer(FBVisualComponent):
 	"""Read Write Property: Are items wrapped when enough space is available?"""
 	Items:FBStringList
 	"""List: Names of items in container."""
-	OnChange:callbackframework.FBEventSource
+	OnChange:callbackframework.FBEventSource[FBVisualContainer, FBEvent]
 	"""Event: Container contents changed."""
-	OnDblClick:callbackframework.FBEventSource
+	OnDblClick:callbackframework.FBEventSource[FBVisualContainer, FBEventDblClick]
 	"""Event: Double click."""
-	OnDragAndDrop:callbackframework.FBEventSource
+	OnDragAndDrop:callbackframework.FBEventSource[FBVisualContainer, FBEventDragAndDrop]
 	"""Event: Drag and Drop event."""
+	OnUnbind:callbackframework.FBEventSource[FBVisualContainer, FBEvent]
 	Orientation:FBOrientation
 	"""Read Write Property: Orientation of container."""
 	def GetSelection(self)->int:
@@ -23043,6 +23302,7 @@ class FBView(FBVisualComponent):
 	"""Read Only Property: Indicates if the view is double buffered."""
 	GraphicOGL:bool
 	"""Read Only Property: Indicates if the view is OpenGL."""
+	OnUnbind:callbackframework.FBEventSource[FBView, FBEvent]
 	def DrawString(self,Text:str,X:float,Y:float,Enable:int=-1,/)->None:
 		"""Draw a string in the view.
 
@@ -23101,26 +23361,27 @@ class FBTree(FBVisualComponent):
 	"""Read Write Property: Tells whether node are selected if drag is start and node is not already selected."""
 	NoSelectOnRightClick:bool
 	"""Read Write Property: Tells whether node are selected if right click on node."""
-	OnChange:callbackframework.FBEventSource
+	OnChange:callbackframework.FBEventSource[FBTree, FBEvent]
 	"""Event: Change of the selection."""
-	OnClick:callbackframework.FBEventSource
+	OnClick:callbackframework.FBEventSource[FBTree, FBEvent]
 	"""Event: Click on a node of the tree. Use OnSelect."""
-	OnClickCheck:callbackframework.FBEventSource
+	OnClickCheck:callbackframework.FBEventSource[FBTree, FBEventTreeSelect]
 	"""Event: Click on a node checkbox of the tree."""
-	OnCollapsed:callbackframework.FBEventSource
+	OnCollapsed:callbackframework.FBEventSource[FBTree, FBEventTree]
 	"""Event: Click on the "-" sign before a non-leaf node."""
-	OnCollapsing:callbackframework.FBEventSource
+	OnCollapsing:callbackframework.FBEventSource[FBTree, FBEventTree]
 	"""Event: Fired before the node collapse. To refuse collapsing, set AllowCollapse to false."""
-	OnDblClick:callbackframework.FBEventSource
+	OnDblClick:callbackframework.FBEventSource[FBTree, FBEventTreeSelect]
 	"""Event: Double-Click on a node of the tree. Use [FBEventTreeSelect](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_event_tree_select.html "FBTree selection event. Event: Video Frame offline Rendering Event.") to cast event."""
-	OnDragAndDrop:callbackframework.FBEventSource
+	OnDragAndDrop:callbackframework.FBEventSource[FBTree, FBEventDragAndDrop]
 	"""Event: Drag and drop of an element."""
-	OnExpanded:callbackframework.FBEventSource
+	OnExpanded:callbackframework.FBEventSource[FBTree, FBEventTree]
 	"""Event: Click on the "+" sign before a non-leaf node"""
-	OnExpanding:callbackframework.FBEventSource
+	OnExpanding:callbackframework.FBEventSource[FBTree, FBEventTree]
 	"""Event: Is fired before the node expand. To refuse expanding set AllowExpansion to false."""
-	OnSelect:callbackframework.FBEventSource
+	OnSelect:callbackframework.FBEventSource[FBTree, FBEventTreeSelect]
 	"""Event: A node was selected. Use [FBEventTreeSelect](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_event_tree_select.html "FBTree selection event. Event: Video Frame offline Rendering Event.") to cast event."""
+	OnUnbind:callbackframework.FBEventSource[FBTree, FBEvent]
 	SelectedCount:int
 	"""Read Only Property: Count of selected items."""
 	SelectedNodes:FBPropertyListTreeNode
@@ -23163,6 +23424,7 @@ class FBThermometer(FBVisualComponent):
 	"""Read Write Property: Maximum value."""
 	Min:float
 	"""Read Write Property: Minimum value."""
+	OnUnbind:callbackframework.FBEventSource[FBThermometer, FBEvent]
 	Value:float
 	"""Read Write Property: Current value."""
 	def Clear(self)->None:
@@ -23179,8 +23441,9 @@ class FBTabPanel(FBVisualComponent):
 	"""List: Names for tab panels."""
 	Layout:FBLayout
 	"""Read Write Property: Layout for current tab panel."""
-	OnChange:callbackframework.FBEventSource
+	OnChange:callbackframework.FBEventSource[FBTabPanel, FBEvent]
 	"""Event: Tab panel change."""
+	OnUnbind:callbackframework.FBEventSource[FBTabPanel, FBEvent]
 	TabStyle:int
 	"""Read Write Property: Style of the tab panel, 0 creates normal tabs, 1 creates buttons to activate tabs."""
 	def __init__(self):...
@@ -23192,14 +23455,15 @@ class FBSpread(FBVisualComponent):
 	"""Read Write Property: Current column."""
 	MultiSelect:bool
 	"""Read Write Property: Can there be multiple selections?"""
-	OnCellChange:callbackframework.FBEventSource
+	OnCellChange:callbackframework.FBEventSource[FBSpread, FBEventSpread]
 	"""Event: Cell value changed."""
-	OnColumnClick:callbackframework.FBEventSource
+	OnColumnClick:callbackframework.FBEventSource[FBSpread, FBEventSpread]
 	"""Event: Column clicked."""
-	OnDragAndDrop:callbackframework.FBEventSource
+	OnDragAndDrop:callbackframework.FBEventSource[FBSpread, FBEventDragAndDrop]
 	"""Event: Drag and drop event."""
-	OnRowClick:callbackframework.FBEventSource
+	OnRowClick:callbackframework.FBEventSource[FBSpread, FBEventSpread]
 	"""Event: Row clicked."""
+	OnUnbind:callbackframework.FBEventSource[FBSpread, FBEvent]
 	Row:int
 	"""Read Write Property: Current row."""
 	def Clear(self)->None:
@@ -23307,10 +23571,11 @@ class FBSlider(FBVisualComponent):
 	"""Read Write Property: Maximum value."""
 	Min:float
 	"""Read Write Property: Minimum value."""
-	OnChange:callbackframework.FBEventSource
+	OnChange:callbackframework.FBEventSource[FBSlider, FBEvent]
 	"""Event: Slider value changed."""
-	OnTransaction:callbackframework.FBEventSource
+	OnTransaction:callbackframework.FBEventSource[FBSlider, FBEventTransaction]
 	"""Event: Transaction begin/end (continuous value changes). This event property doesn't exist in pyfbsdk."""
+	OnUnbind:callbackframework.FBEventSource[FBSlider, FBEvent]
 	Orientation:FBOrientation
 	"""Read Write Property: Slider orientation."""
 	Value:float
@@ -23324,10 +23589,12 @@ class FBScrollBox(FBVisualComponent):
 	[See sample: Scrollbox.py.](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_scrollbox_8py-example.html)"""
 	Content:FBLayout
 	"""Read Property: an empty layout in which you can add scrollable content."""
+	OnUnbind:callbackframework.FBEventSource[FBScrollBox, FBEvent]
 	def SetContentSize(self,arg2,arg3,/)->None:...
 	def __init__(self):...
 class FBPropertyConnectionEditor(FBVisualComponent):
 	"""Property Connection Editor."""
+	OnUnbind:callbackframework.FBEventSource[FBPropertyConnectionEditor, FBEvent]
 	Property:FBProperty
 	"""Read Write Property: Property to edit connections. Set to NULL to disable."""
 	def PopupList(self)->None:
@@ -23353,6 +23620,7 @@ class FBPlotPopup(FBVisualComponent):
 	"""Read Write Property: Enable Plot Translation On Root Only option for popup."""
 	EnableSmartPlotControls:bool
 	"""Read Write Property: Enable Smart Plot option for popup."""
+	OnUnbind:callbackframework.FBEventSource[FBPlotPopup, FBEvent]
 	def GetPlotOptions(self)->FBPlotOptions:
 		"""Get plot options.
 
@@ -23384,10 +23652,11 @@ class FBList(FBVisualComponent):
 	"""List: Names of items in list."""
 	MultiSelect:bool
 	"""Read Write Property: Can multiple items be selected?"""
-	OnChange:callbackframework.FBEventSource
+	OnChange:callbackframework.FBEventSource[FBList, FBEvent]
 	"""Event: List changed."""
-	OnDragAndDrop:callbackframework.FBEventSource
+	OnDragAndDrop:callbackframework.FBEventSource[FBList, FBEventDragAndDrop]
 	"""Event: Drag and drop event."""
+	OnUnbind:callbackframework.FBEventSource[FBList, FBEvent]
 	Style:FBListStyle
 	"""Read Write Property: Style or direction of list."""
 	def IsSelected(self,Index:int,/)->bool:
@@ -23402,6 +23671,7 @@ class FBList(FBVisualComponent):
 	def __init__(self):...
 class FBLayoutRegion(FBVisualComponent):
 	"""Layout region."""
+	OnUnbind:callbackframework.FBEventSource[FBLayoutRegion, FBEvent]
 	def __init__(self):...
 class FBLayout(FBVisualComponent):
 	"""Used to build the user interface.
@@ -23409,16 +23679,17 @@ class FBLayout(FBVisualComponent):
 	Layouts manage areas of the screen called regions. Regions contain UI components such as buttons, viewers, and edit boxes. Regions are added to layouts. When a UI component is bound to a region, the region defines how big it is and how it behaves when the layout is resized.Types of Layouts Device Constraint Manipulator Shader A region is first defined using the [FBLayout::AddRegion()](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_layout.html#ada9608d3cc29bcfcb802803c582c7e82 "Add a region to the layout.") function. Once a region is defined and the corresponding UI component is created, and the component is bound to its region with [FBLayout::SetControl()](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_layout.html#a037812ff1eb73124773acd374351edbe "Set control of a region to a visual component."). You can use the [FBSystem::OnUIIdle()](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_system.html#a51d224fe3663c140eb8971ed9250a7cf "Event: User-interface idle event. Useful callback for less frequent GUI refresh and etc....") in your layout to update real-time UI components such as guages and status indicators. In Python, FBBoxLayout and FBGridLayout take care of most of the region handling. They are used to create basic control layouts for simple tools. If you have a lot of content you can use [FBScrollBox](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_scroll_box.html "Scroll Box.") to manage it. For an example, see the Python sample Scrollbox.py.* Also see the Python sample Layout.py, and the C++ sample ortooluidemo.
 
 	[See samples: ShotTrackSetupTool.py,](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_complex_tools_0c_shot_track_setup_tool_8py-example.html) [Attach.py,](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_attach_8py-example.html) [Border.py,](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_border_8py-example.html) [Layout.py.](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_layout_8py-example.html)"""
-	OnIdle:callbackframework.FBEventSource
+	OnIdle:callbackframework.FBEventSource[FBLayout, FBEvent]
 	"""Event: Idle."""
-	OnInput:callbackframework.FBEventSource
+	OnInput:callbackframework.FBEventSource[FBLayout, FBEventInput]
 	"""Event: Input."""
-	OnPaint:callbackframework.FBEventSource
+	OnPaint:callbackframework.FBEventSource[FBLayout, FBEventExpose]
 	"""Event: Paint layout."""
-	OnResize:callbackframework.FBEventSource
+	OnResize:callbackframework.FBEventSource[FBLayout, FBEventResize]
 	"""Event: Resize layout."""
-	OnShow:callbackframework.FBEventSource
+	OnShow:callbackframework.FBEventSource[FBLayout, FBEventShow]
 	"""Event: Show layout."""
+	OnUnbind:callbackframework.FBEventSource[FBLayout, FBEvent]
 	def AddRegion(self,Name:str,Title:str,arg4:FBAddRegionParam,arg5:FBAddRegionParam,arg6:FBAddRegionParam,arg7:FBAddRegionParam,/)->bool:
 		"""Add a region to the layout.
 
@@ -23605,6 +23876,7 @@ class FBLabel(FBVisualComponent):
 	[See sample: Label.py.](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_label_8py-example.html)"""
 	Justify:FBTextJustify
 	"""Read Write Property: Text justification for label."""
+	OnUnbind:callbackframework.FBEventSource[FBLabel, FBEvent]
 	Style:FBTextStyle
 	"""Read Write Property: Text style appearance."""
 	WordWrap:bool
@@ -23624,6 +23896,7 @@ class FBTool(FBLayout):
 	"""Read Property: Minimum Size in X. A value of -1 means no minimum value."""
 	MinSizeY:int
 	"""Read Property: Minimum Size in Y. A value of -1 means no minimum value."""
+	OnUnbind:callbackframework.FBEventSource[FBTool, FBEvent]
 	StartPosX:int
 	"""Read Property: Starting Position in X. This is the initial position when the tool is opened. Default = 450"""
 	StartPosY:int
@@ -23662,6 +23935,7 @@ class FBPopup(FBLayout):
 	[See sample: Popup.py.](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_popup_8py-example.html)"""
 	Modal:bool
 	"""Read Write Property: Modal?"""
+	OnUnbind:callbackframework.FBEventSource[FBPopup, FBEvent]
 	def Close(self,Ok:bool,/)->None:
 		"""Close popup.
 
@@ -23684,8 +23958,9 @@ class FBImageContainer(FBVisualComponent):
 	[See sample: ImageContainer.py.](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_image_container_8py-example.html)"""
 	Filename:str
 	"""Read Write Property: Filename for image."""
-	OnDragAndDrop:callbackframework.FBEventSource
+	OnDragAndDrop:callbackframework.FBEventSource[FBImageContainer, FBEvent]
 	"""Event: Drag and drop."""
+	OnUnbind:callbackframework.FBEventSource[FBImageContainer, FBEvent]
 	UseTransparentBackground:bool
 	"""Read Write Property: True to specify that the image is using a transparent background, false otherwise."""
 	def __init__(self):...
@@ -23693,6 +23968,7 @@ class FBFCurveEditor(FBVisualComponent):
 	"""FCurve editor.
 
 	[See sample: FCurveEditor.py.](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_f_curve_editor_8py-example.html)"""
+	OnUnbind:callbackframework.FBEventSource[FBFCurveEditor, FBEvent]
 	def AddAnimationNode(self,Node:FBAnimationNode,/)->None:
 		"""Add an animation node to the editor.
 
@@ -23717,14 +23993,16 @@ class FBFCurveEditor(FBVisualComponent):
 	def __init__(self):...
 class FBEditVector(FBVisualComponent):
 	"""Vector edit widget."""
-	OnChange:callbackframework.FBEventSource
+	OnChange:callbackframework.FBEventSource[FBEditVector, FBEvent]
 	"""Event: Vector value changed."""
+	OnUnbind:callbackframework.FBEventSource[FBEditVector, FBEvent]
 	Value:FBVector3d
 	"""Read Write Property: Current value of vector."""
 	def __init__(self):...
 class FBEditTimeCode(FBVisualComponent):
-	OnChange:callbackframework.FBEventSource
+	OnChange:callbackframework.FBEventSource[FBEditTimeCode, FBEvent]
 	"""Event: Timecode changed."""
+	OnUnbind:callbackframework.FBEventSource[FBEditTimeCode, FBEvent]
 	Value:FBTime
 	"""Read Write Property: Current timecode value."""
 	def __init__(self):...
@@ -23736,6 +24014,7 @@ class FBEditPropertyModern(FBVisualComponent):
 	[See sample: PropertyDrop.py.](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_property_drop_8py-example.html)"""
 	LargeInc:float
 	"""Read Write Property: Indicate the large increment applied when click-draging on the property value (usually left-click-dragging)"""
+	OnUnbind:callbackframework.FBEventSource[FBEditPropertyModern, FBEvent]
 	Precision:float
 	"""Read Write Property: Used to specify the width and precision of the value shown. A value of 7.2 indicates to show at minimum 7 numbers, with 2 decimals."""
 	Property:FBProperty
@@ -23777,6 +24056,7 @@ class FBEditProperty(FBVisualComponent):
 	[See sample: PropertyDrop.py.](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_property_drop_8py-example.html)"""
 	LargeInc:float
 	"""Read Write Property: Indicate the large increment applied when click-draging on the property value (usually left-click-dragging)"""
+	OnUnbind:callbackframework.FBEventSource[FBEditProperty, FBEvent]
 	Precision:float
 	"""Read Write Property: Used to specify the width and precision of the value shown. A value of 7.2 indicates to show at minimum 7 numbers, with 2 decimals."""
 	Property:FBProperty
@@ -23796,8 +24076,9 @@ class FBEditNumber(FBVisualComponent):
 	"""Read Write Property: Maximum value."""
 	Min:float
 	"""Read Write Property: Minimum value."""
-	OnChange:callbackframework.FBEventSource
+	OnChange:callbackframework.FBEventSource[FBEditNumber, FBEvent]
 	"""Event: Number changed."""
+	OnUnbind:callbackframework.FBEventSource[FBEditNumber, FBEvent]
 	Precision:float
 	"""Read Write Property: Precision of value."""
 	SmallStep:float
@@ -23809,15 +24090,17 @@ class FBEditColor(FBVisualComponent):
 	"""Color edit widget."""
 	ColorMode:int
 	"""Read Write Property: 3 for RGB, 4 for RGBA (Default = 3)"""
-	OnChange:callbackframework.FBEventSource
+	OnChange:callbackframework.FBEventSource[FBEditColor, FBEvent]
 	"""Event: Color changed."""
+	OnUnbind:callbackframework.FBEventSource[FBEditColor, FBEvent]
 	Value:FBColor
 	"""Read Write Property: Current value of color."""
 	def __init__(self):...
 class FBEdit(FBVisualComponent):
 	"""Text edit box."""
-	OnChange:callbackframework.FBEventSource
+	OnChange:callbackframework.FBEventSource[FBEdit, FBEvent]
 	"""Event: Text changed."""
+	OnUnbind:callbackframework.FBEventSource[FBEdit, FBEvent]
 	PasswordMode:bool
 	"""Read Write Property: Set password mode for this edit box."""
 	Text:str
@@ -23833,8 +24116,9 @@ class FBButton(FBVisualComponent):
 	"""Read Write Property: Current state of button."""
 	Look:FBButtonLook
 	"""Read Write Property: Current state of button."""
-	OnClick:callbackframework.FBEventSource
+	OnClick:callbackframework.FBEventSource[FBButton, FBEventActivate]
 	"""Event: Button clicked."""
+	OnUnbind:callbackframework.FBEventSource[FBButton, FBEvent]
 	State:int
 	"""Read Write Property: Current state of button."""
 	Style:FBButtonStyle
@@ -23869,6 +24153,7 @@ class FBMemo(FBEdit):
 	"""Multi-line text input.
 
 	[See samples: Memo.py,](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_memo_8py-example.html) [TutorialBox.py,](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_tutorial_box_8py-example.html) [TutorialGrid.py.](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_tutorial_grid_8py-example.html)"""
+	OnUnbind:callbackframework.FBEventSource[FBMemo, FBEvent]
 	def GetStrings(self,Lines:FBStringList,/)->None:
 		"""Get the content of the memo.
 
@@ -23886,6 +24171,7 @@ class FBBrowsingProperty(FBVisualComponent):
 	"""Property browsing.
 
 	[See sample: BrowsingProperty.py.](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_browsing_property_8py-example.html)"""
+	OnUnbind:callbackframework.FBEventSource[FBBrowsingProperty, FBEvent]
 	def AddObject(self,Object:FBPlug,/)->None:
 		"""Add an object whose properties will be displayed.
 
@@ -23920,6 +24206,7 @@ class FBArrowButton(FBVisualComponent):
 	When pushed a layout to display content (another control or a layout) is opened. A small arrow to the left of the button title, shows whether the content is shown (points down) or not (points to the title).
 
 	[See samples: ArrowButton.py,](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_arrow_button_8py-example.html) [FBCamera.py.](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_f_b_camera_8py-example.html)"""
+	OnUnbind:callbackframework.FBEventSource[FBArrowButton, FBEvent]
 	def SetContent(self,Title:str,Content:FBVisualComponent,ContentWidth:int,ContentHeight:int,/)->None:
 		"""Sets the content to be hidden/shown by button.
 
@@ -23935,6 +24222,7 @@ class FBWebView(FBVisualComponent):
 	"""Web viewer.
 
 	[See sample: WebView.py.](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_web_view_8py-example.html)"""
+	OnUnbind:callbackframework.FBEventSource[FBWebView, FBEvent]
 	def Load(self,URL:str,/)->None:
 		"""Load the specified Url.
 
@@ -23948,6 +24236,7 @@ class FBWidgetHolder(FBVisualComponent):
 	This will be used to allow user to create UI with QT designer and hook their created UI into MB. To allow a [FBWidgetHolder](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_widget_holder.html "Native Widget Holder (can be used to embed native Qt Widget inside MoBu UI elements) A Widget holder ...") to work properly, you need to specify a Creator function. This function will be called when needed to instantiate the native Widget.Or override WidgetCreate(QWidget* pParent) function in the subclass./bin/config/Scripts/UI/ToolNativeWidgetHolder.py for python usage example.
 
 	[See samples: MBFileRefDemo.py,](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_samples_0c_referencing_0c_m_b_file_ref_demo_8py-example.html) [ToolNativeWidgetHolder.py.](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_u_i_0c_tool_native_widget_holder_8py-example.html)"""
+	OnUnbind:callbackframework.FBEventSource[FBWidgetHolder, FBEvent]
 	def __init__(self):...
 def CloseTool(arg1:FBTool,/)->bool:...
 def CloseToolByName(arg1:str,/)->bool:...

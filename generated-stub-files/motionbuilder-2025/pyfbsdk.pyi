@@ -6,8 +6,8 @@ https://github.com/nils-soderman/pyfbsdk-stub-generator
 from __future__ import annotations
 from typing import overload, Any, Iterator, Literal
 import callbackframework
-from enum import EnumMeta as _EnumType
-class Enumeration(int, metaclass=_EnumType):
+from enum import EnumMeta as __EnumMeta
+class Enumeration(int, metaclass=__EnumMeta):
 	__slots__:tuple
 	names:dict
 	values:dict
