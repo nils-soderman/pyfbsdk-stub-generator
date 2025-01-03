@@ -3,7 +3,7 @@
 ## Current
 
 ### Generator:
-- This is no longer a package on PyPi. Pip install the package using the git repository url instead.
+- This is no longer a package on PyPI. Pip install the package using the git repository url instead.
 - Threading is now used when parsing the online documentation
 
 ### Stubs:
@@ -12,7 +12,7 @@
     - callbackframework.pyi
 - `callbackframework.FBEventSource` now have typed arguments
 - Tabs are now used instead of spaces _(for a reduced file size)_
-- Emums now have the metaclass `EnumMeta`
+- Enums now have the metaclass `EnumMeta`
 - Enums now have their correct int values
 - Functions returning `None` are now typed as `-> None`
 - Improved types for `FBPropertyList`'s
