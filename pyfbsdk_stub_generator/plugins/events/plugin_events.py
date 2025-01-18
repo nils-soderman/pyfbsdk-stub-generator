@@ -75,12 +75,12 @@ class PluginEvents(PluginBaseClass):
 
     def PatchClass(self, Class: StubClass):
         for Property in Class.StubProperties:
-            if Property.Type == 'callbackframework.FBEventSource' or Property.Name == "OnUnbind":
+            if Property.Type == 'callbackframework.FBEventSource':
                 Event = fb.FBEvent
                 if Property.Ref in EVENTS:
                     Event = EVENTS[Property.Ref]
 
-                Property.Type = f'callbackframework.FBEventSource[{Class.Name}, {Event.__name__}]'
+                Property.Type = f'callbackframework.FBEventSource[Self, {Event.__name__}]'
 
         # FBEventTree.Why has a event that's not exposed to the Python API
         if Class.Ref is fb.FBEventTree:

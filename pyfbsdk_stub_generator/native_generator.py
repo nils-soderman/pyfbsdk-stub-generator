@@ -225,8 +225,7 @@ def GenerateClassInstance(Class, AllClassNames: list[str]) -> StubClass:
                                                              "pop",
                                                              "insert",
                                                              "append",
-                                                             "count",
-                                                             "OnUnbind"]
+                                                             "count"]
                                          )
     ClassMemberNames = [x for x, y in ClassMembers]
 
