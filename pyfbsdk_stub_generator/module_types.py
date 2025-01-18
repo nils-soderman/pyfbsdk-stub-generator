@@ -18,8 +18,8 @@ def Indent(Text: str) -> str:
     return "\n".join(Lines)
 
 
-class StubBase():
-    def __init__(self, Ref, Name="") -> None:
+class StubBase:
+    def __init__(self, Ref: object, Name="") -> None:
         self.Ref = Ref
         self.Name: str = Name
         self.DocString = ""
@@ -56,7 +56,7 @@ class StubBase():
 
 
 class StubFunction(StubBase):
-    def __init__(self, Ref, Name="", Parameters: list[StubParameter] | None = None, ReturnType: str | None = None):
+    def __init__(self, Ref: typing.Callable, Name="", Parameters: list[StubParameter] | None = None, ReturnType: str | None = None):
         super().__init__(Ref, Name=Name)
         self._Params: list[StubParameter] = Parameters if Parameters else []
         self._ReturnType = ReturnType
@@ -147,7 +147,7 @@ class StubFunction(StubBase):
 
 
 class StubClass(StubBase):
-    def __init__(self, Ref, Name=""):
+    def __init__(self, Ref: type, Name=""):
         super().__init__(Ref, Name=Name)
         self.Parents: list[str] = []
         self.StubProperties: list[StubProperty] = []
@@ -216,7 +216,7 @@ class StubClass(StubBase):
 
 
 class StubProperty(StubBase):
-    def __init__(self, Ref, Name=""):
+    def __init__(self, Ref: object, Name=""):
         super().__init__(Ref, Name=Name)
         self._Type = None
         self.SetterType: str | None = None
@@ -266,7 +266,7 @@ class StubProperty(StubBase):
 
 
 class StubParameter(StubBase):
-    def __init__(self, Ref, Name="", Type: str | None = "", DefaultValue=None):
+    def __init__(self, Ref: object, Name="", Type: str | None = "", DefaultValue=None):
         super().__init__(Ref, Name=Name)
         self.DefaultValue = DefaultValue
         self._Type = Type

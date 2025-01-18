@@ -4027,6 +4027,8 @@ class FBEventActivate(FBEvent):
 	Data:int
 	"""Read Write Property: Generic data of event."""
 class FBEventClipChange(FBEvent):
+	Type:FBStoryClipChangeType
+	"""Read Only Property: Type of event."""
 	def __init__(self):
 		"""### Parameters:
 			- Event: Base event (internal) to obtain information from."""
@@ -4143,6 +4145,8 @@ class FBEventFileChange(FBEvent):
 	This event occurs every time a monitored file changed:"""
 	Path:str
 	"""Read Only Property: The path of changed file."""
+	Type:FBFileMonitoringType
+	"""Read Only Property: Type of file change event."""
 class FBEventInput(FBEvent):
 	"""Input event class."""
 	InputType:FBInputType
@@ -4174,6 +4178,8 @@ class FBEventOverrideFileOpen(FBEvent):
 			- Event: Base event (internal) to obtain information from."""
 		...
 class FBEventPlayerControlChange(FBEvent):
+	Type:FBPlayerControlChangeType
+	"""Read Only Property: Type of event."""
 	def __init__(self):
 		"""### Parameters:
 			- Event: Base event (internal) to obtain information from."""
@@ -4196,6 +4202,8 @@ class FBEventSceneChange(FBEvent):
 	"""Read Only Property: Child component of the event."""
 	Component:FBComponent
 	"""Read Only Property: Modified component"""
+	Type:FBSceneChangeType
+	"""Read Only Property: Type of selection event."""
 	def __init__(self):
 		"""### Parameters:
 			- Event: Base event (internal) to obtain information from."""
@@ -4218,6 +4226,8 @@ class FBEventTakeChange(FBEvent):
 	This event occurs every time a take is:addeddestroyedrenamedselected, etc."""
 	Take:FBTake
 	"""Read Only Property: The take modified."""
+	Type:FBTakeChangeType
+	"""Read Only Property: Type of take change event."""
 	def __init__(self):
 		"""### Parameters:
 			- Event: Base event (internal) to obtain information from."""

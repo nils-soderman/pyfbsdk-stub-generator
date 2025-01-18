@@ -10,11 +10,15 @@ from importlib import reload
 from . import module_types
 from .module_types import StubClass, StubFunction, StubParameter, StubProperty
 
+import pyfbsdk as fb
 
 reload(module_types)
 
 ENUMERATION_NAME = "Enumeration"
 ALLOWED_BUILTIN_OVERRIDES = {"__gt__", "__lt__", "__ge__", "__le__"}
+ALLOWED_CLASS_OVERRIDES = [
+    fb.FBEvent.Type,
+]
 
 
 class FObjectType:
@@ -92,7 +96,7 @@ def GetUniqueClassMembers(Class, Ignore = (), AllowedOverrides = ()):
                     UniqueMembers.append((Name, Ref))
                     continue
 
-            if Name not in AllowedOverrides:
+            if Name not in AllowedOverrides and getattr(ParentClass, Name) not in ALLOWED_CLASS_OVERRIDES:
                 continue
 
         UniqueMembers.append((Name, Ref))

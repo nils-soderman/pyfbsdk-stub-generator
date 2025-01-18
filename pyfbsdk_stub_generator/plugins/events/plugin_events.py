@@ -82,8 +82,15 @@ class PluginEvents(PluginBaseClass):
 
                 Property.Type = f'callbackframework.FBEventSource[Self, {Event.__name__}]'
 
-        # FBEventTree.Why has a event that's not exposed to the Python API
-        if Class.Ref is fb.FBEventTree:
-            WhyProperty = Class.GetPropertyByName('Why')
-            if WhyProperty:
-                WhyProperty.Type = None
+        # If FBEvent.Type doesn't have a defined type, remove it.
+        # It's already defined in the base class as a int.
+        if fb.FBEvent.__name__ in Class.Parents:
+            TypeProperty = Class.GetPropertyByName('Type')
+            if TypeProperty and TypeProperty.Type == property.__name__:
+                Class.StubProperties.remove(TypeProperty)
+
+            # FBEventTree.Why has a event that's not exposed to the Python API
+            if Class.Ref is fb.FBEventTree:
+                WhyProperty = Class.GetPropertyByName('Why')
+                if WhyProperty:
+                    WhyProperty.Type = None

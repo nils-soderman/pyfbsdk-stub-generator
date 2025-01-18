@@ -4026,6 +4026,8 @@ class FBEventActivate(FBEvent):
 	Data:int
 	"""Read Write Property: Generic data of event."""
 class FBEventClipChange(FBEvent):
+	Type:FBStoryClipChangeType
+	"""Read Only Property: Type of event."""
 	def __init__(self):
 		"""### Parameters:
 			- Event: Base event (internal) to obtain information from."""
@@ -4142,6 +4144,8 @@ class FBEventFileChange(FBEvent):
 	This event occurs every time a monitored file changed:"""
 	Path:str
 	"""Read Only Property: The path of changed file."""
+	Type:FBFileMonitoringType
+	"""Read Only Property: Type of file change event."""
 class FBEventInput(FBEvent):
 	"""Input event class."""
 	InputType:FBInputType
@@ -4173,6 +4177,8 @@ class FBEventOverrideFileOpen(FBEvent):
 			- Event: Base event (internal) to obtain information from."""
 		...
 class FBEventPlayerControlChange(FBEvent):
+	Type:FBPlayerControlChangeType
+	"""Read Only Property: Type of event."""
 	def __init__(self):
 		"""### Parameters:
 			- Event: Base event (internal) to obtain information from."""
@@ -4195,6 +4201,8 @@ class FBEventSceneChange(FBEvent):
 	"""Read Only Property: Child component of the event."""
 	Component:FBComponent
 	"""Read Only Property: Modified component"""
+	Type:FBSceneChangeType
+	"""Read Only Property: Type of selection event."""
 	def __init__(self):
 		"""### Parameters:
 			- Event: Base event (internal) to obtain information from."""
@@ -4217,6 +4225,8 @@ class FBEventTakeChange(FBEvent):
 	This event occurs every time a take is:addeddestroyedrenamedselected, etc."""
 	Take:FBTake
 	"""Read Only Property: The take modified."""
+	Type:FBTakeChangeType
+	"""Read Only Property: Type of take change event."""
 	def __init__(self):
 		"""### Parameters:
 			- Event: Base event (internal) to obtain information from."""
@@ -4442,7 +4452,6 @@ class FBMatrix:
 	```
 	### Warning:
 	The implementation of this 4x4 matrix uses a simple list of 16 elements, not a list of 4 vectors of 4 elements.*
-
 	Slicing is not supported by this object.
 
 	[See sample: Matrix.py.](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_matrix_8py-example.html)"""
@@ -5172,6 +5181,7 @@ class FBProperty(FBPlug):
 
 	```python
 	lProp = lObject.PropertyList.Find( 'Visibility' )
+
 	   if lProp: lProp.Data = True
 	```
 	The methods 'PropertyCreate()' and 'PropertyRemove' of the class [FBComponent](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html "MotionBuilder SDK base class.") can be used to modify an object's set of properties."""
@@ -8013,7 +8023,6 @@ class FBPose(FBComponent):
 		a reference to the node's Matrix.
 		### Remarks:
 		if the index is invalid a reference to an identiy matrix is returned.
-
 		The reference will become undefined if this object is destroyed."""
 		...
 	def GetNodeName(self,Index:int,/)->str:
@@ -8024,7 +8033,6 @@ class FBPose(FBComponent):
 
 		### Remarks:
 		if the index is invalid a reference to an empty string is returned.
-
 		The reference will become undefined if this object is destroyed."""
 		...
 	def GetNodeObject(self,Index:int,/)->FBModel:
@@ -8286,7 +8294,6 @@ class FBCharacterPose(FBPose):
 
 		### Remarks:
 		Supports the match and mirror options.
-
 		When pasting in body part, the selected parts and extensions of the character will be pasted."""
 		...
 	def PastePoseCharacter(self,Character:FBCharacter,CharacterPoseOptions:FBCharacterPoseOptions,/)->None:
@@ -8352,7 +8359,6 @@ class FBObjectPose(FBPose):
 
 		### Remarks:
 		Working with poses with their StanceOffset removed is usefull for retargetting.
-
 		If pPoseTransformType is set to kFBPoseTransformInvalid, offsets will be added in all TransformTypes."""
 		...
 	def AddStanceOffsetAllObjects(self,StancePose:FBObjectPose,PoseTransformType:FBPoseTransformType=FBPoseTransformType.kFBPoseTransformInvalid,/)->None:
@@ -8364,7 +8370,6 @@ class FBObjectPose(FBPose):
 
 		### Remarks:
 		Working with poses with their StanceOffset removed is usefull for retargetting.
-
 		If pPoseTransformType is set to kFBPoseTransformInvalid, offsets will be added in all TransformTypes."""
 		...
 	def ClearPose(self)->None:
@@ -8535,7 +8540,6 @@ class FBObjectPose(FBPose):
 
 		### Remarks:
 		You can specify a pObjectName different from the name of pObject.
-
 		Properties that were not stored in the pose will not be affected."""
 		...
 	def PastePropertyPose(self,ObjectName:str,Property:FBProperty,/)->None:
@@ -8547,7 +8551,6 @@ class FBObjectPose(FBPose):
 
 		### Remarks:
 		You can specify a pObjectName different from the name of pObject.
-
 		The property will not be affected if it was not stored in the pose."""
 		...
 	def PasteTransform(self,ObjectName:str,Object:FBComponent,ObjectPoseOptions:FBObjectPoseOptions,/)->None:
@@ -8572,7 +8575,6 @@ class FBObjectPose(FBPose):
 
 		### Remarks:
 		Working with poses with their StanceOffset removed is usefull for retargetting.
-
 		If pPoseTransformType is set to kFBPoseTransformInvalid, offsets will be removed in all TransformTypes."""
 		...
 	def RemoveStanceOffsetAllObjects(self,StancePose:FBObjectPose,PoseTransformType:FBPoseTransformType=FBPoseTransformType.kFBPoseTransformInvalid,/)->None:
@@ -8584,7 +8586,6 @@ class FBObjectPose(FBPose):
 
 		### Remarks:
 		Working with poses with their StanceOffset removed is usefull for retargetting.
-
 		If pPoseTransformType is set to kFBPoseTransformInvalid, offsets will be removed in all TransformTypes."""
 		...
 	def SetPropertyValue(self,ObjectName:str,PropertyName:str,Value:float,Size:int,/)->None:
@@ -13891,11 +13892,8 @@ class FBApplication(FBComponent):
 		True if the export succeeded.
 		### Remarks:
 		If the file exists, it will be overwritten.
-
 		Only current take is exported.
-
 		For now, you cannot export custom file types.
-
 		Currently, only the default export options are used.
 		### Warning:
 		The signature of this function might change in the future to support export options."""
@@ -13926,9 +13924,7 @@ class FBApplication(FBComponent):
 		True if the export succeeded. Returns false if some files were not written (file not overwritten, invalid path, etc.). Returns false if the given options object is not valid. See the [FBMotionFileExportOptions::IsValid](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_motion_file_export_options.html#a9dcb9b43a3d0fa9003d4c1c9d921f6b2 "Is this object valid?") method.
 		### Remarks:
 		Based on the values of the various options, multiple motion files could be created with file paths based on the initial file path provided. See the documentation of [FBMotionFileExportOptions](https://help.autodesk.com/cloudhelp/2024/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_motion_file_export_options.html "Customize motion file exporting.") for more details.
-
 		For now, only the FBX motion file type is supported.
-
 		For now, you cannot export custom file types."""
 		...
 	def FileImport(self,Filename:str,MatchModels:bool=False,CreateUnmatchedModels:bool=True,/)->bool:
@@ -13944,17 +13940,11 @@ class FBApplication(FBComponent):
 		True if the import succeeded.
 		### Remarks:
 		No models selected, all the models in the scene will be checked for a potential name match.
-
 		If there are models selected in the scene, only these models will be checked for a potential name match.
-
 		If only one model is selected (ex: hips), this models and its hierarchy will be used.
-
 		The data will be imported in the current take.
-
 		The last two parameter are only used for motion files.
-
 		For now, you cannot import custom file types.
-
 		Currently, only the default import options are used.
 		### Warning:
 		The signature of this function might change in the future to support import options."""
@@ -13984,9 +13974,7 @@ class FBApplication(FBComponent):
 		True if the import succeeded.
 		### Remarks:
 		The import will only work if you open files of the same type.
-
 		For now, you cannot import custom file types.
-
 		Not all options can be applied to a particular motion file type, please use the Motion File Import UI as a reference."""
 		...
 	@overload
@@ -17631,7 +17619,6 @@ class FBMotionFileExportOptions(FBComponent):
 		True if the provided file path for the motion file(s) to create is valid and if the take info is up to date with the scene, false otherwise.
 		### Remarks:
 		Call the SetFilePath method to provide a valid file path.
-
 		Call the ResetTakeInfo method to reset the take info (i.e.: will be then in sync with the scene)."""
 		...
 	def ResetTakeInfo(self)->bool:
@@ -17664,7 +17651,6 @@ class FBMotionFileExportOptions(FBComponent):
 		True if the operation is successful, false otherwise.
 		### Remarks:
 		Changing the value of the OneTakePerFile and/or AddPrefix properties could reset the value set.
-
 		If the OneTakePerFile property is false, changing the file path for one take will modify the file path of all the other takes at once."""
 		...
 	def SetTakeSelect(self,TakeIndex:int,Select:bool,/)->bool:
@@ -22824,7 +22810,6 @@ class FBVideoCodecManager:
 		true if register successful
 		### Remarks:
 		After register an external video format, and save a scene with this kind of video. when start MotionBuilder next time and before load the scene back,
-
 		It is necessary to call RegisterExternalVideoFormat to register this kind of video format again, otherwise this kind of video will not be loaded."""
 		...
 	def SetDefaultCodec(self,FileFormatInfo:str,CodecId:str,/)->None:
@@ -25440,7 +25425,6 @@ def FBTrace(FormatString:str,/)->None:
 
 	### Warning:
 	There is currently a limitation which sets the maximum length of the resulting string to be limited to 2048 bytes.
-
 	Not thread safe, as an static array is used internally."""
 	...
 def FBTraceGetLevel()->int:
@@ -25469,7 +25453,6 @@ def FBTraceWithLevel(Level:int,FormatString:str,/)->None:
 
 	### Warning:
 	There is currently a limitation which sets the maximum length of the resulting string to be limited to 2048 bytes.
-
 	Not thread safe, as an static array is used internally."""
 	...
 def FBTranslationToMatrix(Matrix:FBMatrix,Vector:FBVector4d,/)->None:
