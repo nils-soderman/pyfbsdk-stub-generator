@@ -175,6 +175,21 @@ class FBEditProperty(ClassBase):
     class Property(PropertyBase):
         Types = pyfbsdk.FBProperty
 
+
+class FBMenuManager(ClassBase):
+    class InsertBefore(FunctionBase):
+        Parameters = (Parameter("MenuPath", (str, "None")), )
+
+    class InsertAfter(FunctionBase):
+        Parameters = (Parameter("MenuPath", (str, "None")), )
+
+    class InsertFirst(FunctionBase):
+        Parameters = (Parameter("MenuPath", (str, "None")), )
+
+    class InsertLast(FunctionBase):
+        Parameters = (Parameter("MenuPath", (str, "None")), )
+
+
 # ---------------------------------------------------------------------
 #                          Functions
 # ---------------------------------------------------------------------
