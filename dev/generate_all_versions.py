@@ -47,7 +47,11 @@ def main():
 
         # Run the generator
         GenerateScript = os.path.join(os.path.dirname(__file__), "generate.py")
-        subprocess.run([MotionBuilderPython, GenerateScript], check=True)
+        Result = subprocess.run([MotionBuilderPython, GenerateScript], check=False, capture_output=True, text=True)
+        if Result.stdout:
+            print(Result.stdout)
+        if Result.stderr:
+            print(Result.stderr)
 
 
 if __name__ == "__main__":

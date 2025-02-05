@@ -16762,7 +16762,7 @@ class FBMenuManager(FBComponent):
 		### Returns:
 		the [FBGenericMenu](https://help.autodesk.com/cloudhelp/2022/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_generic_menu.html "A GenericMenu class.") at this path./"""
 		...
-	def InsertAfter(self,MenuPath:str,BeforeMenuName:str,MenuName:str,/)->FBGenericMenuItem:
+	def InsertAfter(self,MenuPath:str|None,BeforeMenuName:str,MenuName:str,/)->FBGenericMenuItem:
 		"""Insert a new menu at a specific path AFTER another item.
 
 		### Parameters:
@@ -16772,7 +16772,7 @@ class FBMenuManager(FBComponent):
 		### Returns:
 		Returns the menu item corresponding to the newly inserted menu."""
 		...
-	def InsertBefore(self,MenuPath:str,AfterMenuName:str,MenuName:str,/)->FBGenericMenuItem:
+	def InsertBefore(self,MenuPath:str|None,AfterMenuName:str,MenuName:str,/)->FBGenericMenuItem:
 		"""Insert a new menu at a specific path BEFORE another item.
 
 		### Parameters:
@@ -16782,7 +16782,7 @@ class FBMenuManager(FBComponent):
 		### Returns:
 		Returns the menu item corresponding to the newly inserted menu."""
 		...
-	def InsertFirst(self,MenuPath:str,MenuName:str,/)->FBGenericMenuItem:
+	def InsertFirst(self,MenuPath:str|None,MenuName:str,/)->FBGenericMenuItem:
 		"""Insert a new menu at the first position of a specific path.
 
 		### Parameters:
@@ -16792,7 +16792,7 @@ class FBMenuManager(FBComponent):
 		### Returns:
 		Returns the menu item corresponding to the newly inserted menu."""
 		...
-	def InsertLast(self,MenuPath:str,MenuName:str,/)->FBGenericMenuItem:
+	def InsertLast(self,MenuPath:str|None,MenuName:str,/)->FBGenericMenuItem:
 		"""Insert a new menu at the last position of a specific path.
 
 		### Parameters:
