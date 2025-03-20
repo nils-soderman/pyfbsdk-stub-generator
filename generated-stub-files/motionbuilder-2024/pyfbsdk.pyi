@@ -9,8 +9,8 @@ import callbackframework
 from enum import EnumMeta as __EnumMeta
 class Enumeration(int, metaclass=__EnumMeta):
 	__slots__:tuple
-	names:dict
-	values:dict
+	names:dict[str, Self]
+	values:dict[int, Self]
 	@overload
 	def __init__(self,value:str|int=0,/):...
 	@overload

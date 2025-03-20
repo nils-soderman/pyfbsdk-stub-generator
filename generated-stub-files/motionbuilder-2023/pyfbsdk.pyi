@@ -9,8 +9,8 @@ import callbackframework
 from enum import EnumMeta as __EnumMeta
 class Enumeration(int, metaclass=__EnumMeta):
 	__slots__:tuple
-	names:dict
-	values:dict
+	names:dict[str, Self]
+	values:dict[int, Self]
 	@overload
 	def __init__(self,value:str|int=0,/):...
 	@overload
@@ -4442,6 +4442,7 @@ class FBMatrix:
 	```
 	### Warning:
 	The implementation of this 4x4 matrix uses a simple list of 16 elements, not a list of 4 vectors of 4 elements.*
+
 	Slicing is not supported by this object.
 
 	[See sample: Matrix.py.](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/_basic_operations_0c_matrix_8py-example.html)"""
@@ -5171,7 +5172,6 @@ class FBProperty(FBPlug):
 
 	```python
 	lProp = lObject.PropertyList.Find( 'Visibility' )
-
 	   if lProp: lProp.Data = True
 	```
 	The methods 'PropertyCreate()' and 'PropertyRemove' of the class [FBComponent](https://help.autodesk.com/cloudhelp/2023/ENU/MotionBuilder-SDK/py_ref/classpyfbsdk_1_1_f_b_component.html "MotionBuilder SDK base class.") can be used to modify an object's set of properties."""
@@ -8019,6 +8019,7 @@ class FBPose(FBComponent):
 		a reference to the node's Matrix.
 		### Remarks:
 		if the index is invalid a reference to an identiy matrix is returned.
+
 		The reference will become undefined if this object is destroyed."""
 		...
 	def GetNodeName(self,Index:int,/)->str:
@@ -8029,6 +8030,7 @@ class FBPose(FBComponent):
 
 		### Remarks:
 		if the index is invalid a reference to an empty string is returned.
+
 		The reference will become undefined if this object is destroyed."""
 		...
 	def GetNodeObject(self,Index:int,/)->FBModel:
@@ -8290,6 +8292,7 @@ class FBCharacterPose(FBPose):
 
 		### Remarks:
 		Supports the match and mirror options.
+
 		When pasting in body part, the selected parts and extensions of the character will be pasted."""
 		...
 	def PastePoseCharacter(self,Character:FBCharacter,CharacterPoseOptions:FBCharacterPoseOptions,/)->None:
@@ -8355,6 +8358,7 @@ class FBObjectPose(FBPose):
 
 		### Remarks:
 		Working with poses with their StanceOffset removed is usefull for retargetting.
+
 		If pPoseTransformType is set to kFBPoseTransformInvalid, offsets will be added in all TransformTypes."""
 		...
 	def AddStanceOffsetAllObjects(self,StancePose:FBObjectPose,PoseTransformType:FBPoseTransformType=FBPoseTransformType.kFBPoseTransformInvalid,/)->None:
@@ -8366,6 +8370,7 @@ class FBObjectPose(FBPose):
 
 		### Remarks:
 		Working with poses with their StanceOffset removed is usefull for retargetting.
+
 		If pPoseTransformType is set to kFBPoseTransformInvalid, offsets will be added in all TransformTypes."""
 		...
 	def ClearPose(self)->None:
@@ -8536,6 +8541,7 @@ class FBObjectPose(FBPose):
 
 		### Remarks:
 		You can specify a pObjectName different from the name of pObject.
+
 		Properties that were not stored in the pose will not be affected."""
 		...
 	def PastePropertyPose(self,ObjectName:str,Property:FBProperty,/)->None:
@@ -8547,6 +8553,7 @@ class FBObjectPose(FBPose):
 
 		### Remarks:
 		You can specify a pObjectName different from the name of pObject.
+
 		The property will not be affected if it was not stored in the pose."""
 		...
 	def PasteTransform(self,ObjectName:str,Object:FBComponent,ObjectPoseOptions:FBObjectPoseOptions,/)->None:
@@ -8571,6 +8578,7 @@ class FBObjectPose(FBPose):
 
 		### Remarks:
 		Working with poses with their StanceOffset removed is usefull for retargetting.
+
 		If pPoseTransformType is set to kFBPoseTransformInvalid, offsets will be removed in all TransformTypes."""
 		...
 	def RemoveStanceOffsetAllObjects(self,StancePose:FBObjectPose,PoseTransformType:FBPoseTransformType=FBPoseTransformType.kFBPoseTransformInvalid,/)->None:
@@ -8582,6 +8590,7 @@ class FBObjectPose(FBPose):
 
 		### Remarks:
 		Working with poses with their StanceOffset removed is usefull for retargetting.
+
 		If pPoseTransformType is set to kFBPoseTransformInvalid, offsets will be removed in all TransformTypes."""
 		...
 	def SetPropertyValue(self,ObjectName:str,PropertyName:str,Value:float,Size:int,/)->None:
@@ -13892,9 +13901,13 @@ class FBApplication(FBComponent):
 		True if the export succeeded.
 		### Remarks:
 		If the file exists, it will be overwritten.
+
 		current take is use.
+
 		The last parameter is only used for motion files.
+
 		For now, you cannot export custom file types.
+
 		Currently, only the default export options are used.
 		### Warning:
 		The signature of this function might change in the future to support export options."""
@@ -13927,11 +13940,17 @@ class FBApplication(FBComponent):
 		True if the import succeeded.
 		### Remarks:
 		No models selected, all the models in the scene will be checked for a potential name match.
+
 		If there are models selected in the scene, only these models will be checked for a potential name match.
+
 		If only one model is selected (ex: hips), this models and its hierarchy will be used.
+
 		The data will be imported in the current take.
+
 		The last two parameter are only used for motion files.
+
 		For now, you cannot import custom file types.
+
 		Currently, only the default import options are used.
 		### Warning:
 		The signature of this function might change in the future to support import options."""
@@ -13961,7 +13980,9 @@ class FBApplication(FBComponent):
 		True if the import succeeded.
 		### Remarks:
 		The import will only work if you open files of the same type.
+
 		For now, you cannot import custom file types.
+
 		Not all options can be applied to a particular motion file type, please use the Motion File Import UI as a reference."""
 		...
 	@overload
@@ -22606,6 +22627,7 @@ class FBVideoCodecManager:
 		true if register successful
 		### Remarks:
 		After register an external video format, and save a scene with this kind of video. when start MotionBuilder next time and before load the scene back,
+
 		It is necessary to call RegisterExternalVideoFormat to register this kind of video format again, otherwise this kind of video will not be loaded."""
 		...
 	def SetDefaultCodec(self,FileFormatInfo:str,CodecId:str,/)->None:
