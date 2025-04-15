@@ -1,6 +1,6 @@
 # Change Log
 
-## Current
+## [2026.0.0]
 
 ### Generator:
 - This is no longer a package on PyPI. Pip install the package using the git repository url instead.
