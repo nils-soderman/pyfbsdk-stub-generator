@@ -4,9 +4,7 @@
         "**/__pycache__/**": true,
         "*.egg-info": true,
         "**/env": true,
-        "dist": true,
-        "build": true,
-        "LICENSE": true,
+        "**/LICENSE": true,
     },
     "search.exclude": {
         "generated-stub-files": true,
