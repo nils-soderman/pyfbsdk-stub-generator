@@ -1,0 +1,32 @@
+[build-system]
+requires = ["hatchling >= 1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "motionbuilder-stubs"
+version = "2026.0.0"
+authors = [{ name = "Nils Soderman" }]
+description = "Stubs for Autodesk MotionBuilder's pyfbsdk api"
+keywords = ["pyfbsdk", "motionbuilder", "mobu", "autodesk", "stub"]
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT No Attribution License (MIT-0)",
+    "Typing :: Stubs Only",
+]
+license = "MIT-0"
+license-files = ["LICENSE"]
+
+[project.urls]
+Homepage = "https://github.com/nils-soderman/pyfbsdk-stub-generator"
+Issues = "https://github.com/nils-soderman/pyfbsdk-stub-generator/issues"
+
+[tool.hatch.build.targets.wheel]
+include = ["src/*.pyi"]
+sources = { src = "" }
+
+[tool.hatch.build.hooks.custom]
+path = "copy_stubs.py"
