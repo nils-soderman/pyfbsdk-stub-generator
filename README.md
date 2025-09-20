@@ -4,11 +4,16 @@ Project for generating fully typed python stub files for MotionBuilder's pyfbsdk
 
 ## What are stub files?
 
-Stub files (`.pyi`) provide type information for Python modules, enabling better IDE support with autocompletion, type checking, and docstrings.
+Stub files (`.pyi`) provide type information for Python modules, enabling better IDE support with auto-completion, type checking, and docstrings.
 
 ## Pre-generated stubs
+### Manual Download
 
-Pre-generated stubs can either be manually downloaded from the [generated-stub-files](https://github.com/nils-soderman/pyfbsdk-stub-generator/tree/main/generated-stub-files) folder or through pip _(replace 2026 with your MotionBuilder version)_:
+Pre-generated stubs can be manually downloaded from the [generated-stub-files](https://github.com/nils-soderman/pyfbsdk-stub-generator/tree/main/generated-stub-files) folder
+
+### Installation via pip
+
+You can install the stubs through pip _(replace 2026 with your MotionBuilder version)_:
 ```bash
 pip install motionbuilder-stubs==2026.*
 ```
@@ -18,7 +23,7 @@ To check available versions:
 pip index versions motionbuilder-stubs
 ```
 
-## Generating Stubs
+## Generating stubs
 For manually generating stubs, see the README.md in the [pyfbsdk-stub-generator](https://github.com/nils-soderman/pyfbsdk-stub-generator/tree/main/pyfbsdk-stub-generator) folder
 
 
