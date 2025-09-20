@@ -10,12 +10,12 @@ Stub files (`.pyi`) provide type information for Python modules, enabling better
 
 Pre-generated stubs can either be manually downloaded from the [generated-stub-files](https://github.com/nils-soderman/pyfbsdk-stub-generator/tree/main/generated-stub-files) folder or through pip _(replace 2026 with your MotionBuilder version)_:
 ```bash
-pip install motionbuilder_stubs==2026.*
+pip install motionbuilder-stubs==2026.*
 ```
 
 To check available versions:
 ```bash
-pip index versions motionbuilder_stubs
+pip index versions motionbuilder-stubs
 ```
 
 ## Generating Stubs
