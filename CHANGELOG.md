@@ -1,5 +1,10 @@
 # Change Log
 
+## [2026.1.0]
+
+- The stubs are now avaliable as a PyPI package [motionbuilder-stubs](https://pypi.org/project/motionbuilder-stubs/)
+- Reorganized the GitHub repository, the generator is now in a subfolder 'pyfbsdk-stub-generator'
+
 ## [2026.0.0]
 
 ### Generator:
