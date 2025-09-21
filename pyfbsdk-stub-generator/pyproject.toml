@@ -33,4 +33,4 @@ build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
 include = ["src/*"]
-sources = { src = "pyfbsdk-stub-generator" }
+sources = { src = "pyfbsdk_stub_generator" }
