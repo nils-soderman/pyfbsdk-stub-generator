@@ -14,7 +14,7 @@
     ],
     "python.analysis.typeCheckingMode": "basic",
     "python.analysis.extraPaths": [
-        "./generated-stub-files/motionbuilder-2025",
+        "./generated-stub-files/motionbuilder-2026",
         "./env",
     ],
 }
