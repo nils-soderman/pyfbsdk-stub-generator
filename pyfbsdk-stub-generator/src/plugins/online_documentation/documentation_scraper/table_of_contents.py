@@ -12,9 +12,6 @@ from . import documentation_cache as cache
 from . import documentation_urls as urls
 from . import page_parser
 
-reload(cache)
-reload(page_parser)
-
 
 NameSpaceModuleMap = {
     "pyfbsdk": "pyfbsdk",

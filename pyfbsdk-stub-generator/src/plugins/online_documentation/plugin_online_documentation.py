@@ -1,15 +1,14 @@
 from __future__ import annotations
 
 from types import ModuleType
-from importlib import reload
 
 from .documentation_scraper import table_of_contents
 
 from .documentation_scraper.page_parser import MemberItem, GetParameterNiceName
 from ..plugin_base import PluginBaseClass
 from ...module_types import StubClass, StubFunction, StubParameter, StubProperty
+from ...flags import GeneratorFlag
 
-reload(table_of_contents)
 
 EVENT_SOURCE_TYPE = "callbackframework.FBEventSource"
 
@@ -59,14 +58,14 @@ class PluginOnlineDocumentation(PluginBaseClass):
     Threading = True
     Priority = 10  # We preferably want this to run directly after the native generator
 
-    def __init__(self, Version: int, Module: ModuleType, EnumList: list[StubClass], ClassList: list[StubClass], FunctionGroupList: list[list[StubFunction]]):
-        super().__init__(Version, Module, EnumList, ClassList, FunctionGroupList)
+    def __init__(self, Version: int, Module: ModuleType, EnumList: list[StubClass], ClassList: list[StubClass], FunctionGroupList: list[list[StubFunction]], flags: GeneratorFlag):
+        super().__init__(Version, Module, EnumList, ClassList, FunctionGroupList, flags)
 
         # Initialize the documentation
         self.DocNamespace = table_of_contents.GetNameSpaceFromModule(self.ModuleName)
         if self.DocNamespace is None:
             return
-        self.Documentation = table_of_contents.Documentation(self.DocNamespace, Version, self.bDevMode)
+        self.Documentation = table_of_contents.Documentation(self.DocNamespace, Version, self.flags & GeneratorFlag.CACHE != 0)
 
         # Parse the first documentation page to get the list of all pages
         for FunctionGroup in FunctionGroupList:

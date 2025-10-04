@@ -1,38 +1,9 @@
+from .flags import GeneratorFlag
+
 import os
 
-# Make sure code is running in a motionbuilder python interpreter with access to the pyfbsdk module
-try:
-    import pyfbsdk
-except ModuleNotFoundError as e:
-    raise ImportError(f"pyfbsdk_stub_generator can only be called upon from within MotionBuilder.") from e
 
-from . import stub_generator
-
-def CopyAdditionalStubs(OutDirectory: str):
-    """
-    Copy the additional stubs to the output directory.
-    This includes e.g. callbackframework.pyi, pyfbsdk_additions.pyi, etc.
-    
-    These stubs have been manually created and are not automatically generated, and may therefore be outdated.
-    
-    ## Parameters:
-        - OutDirectory: The directory where the additional stubs should be copied    
-    """
-    ManualStubsDirectory = os.path.join(os.path.dirname(__file__), "manual_stubs")
-    for File in os.listdir(ManualStubsDirectory):
-        if File.endswith(".pyi"):
-            SrcFile = os.path.join(ManualStubsDirectory, File)
-            DstFile = os.path.join(OutDirectory, File)
-            
-            with open(SrcFile, "r") as f:
-                content = f.read()
-                content = stub_generator.ReplaceVariables(content)
-                
-                with open(DstFile, "w") as f:
-                    f.write(content)
-
-
-def Generate(Directory: str, FileExtension = "pyi", bCopyAdditionalStubs = True):
+def Generate(Directory: str, FileExtension = "pyi", bCopyAdditionalStubs = True, flags = GeneratorFlag.NONE) -> str:
     """ 
     Generate a stub file for the pyfbsdk module. \\
     This may take a while since the online MoBu sdk documentation will have to be parsed.
@@ -45,13 +16,13 @@ def Generate(Directory: str, FileExtension = "pyi", bCopyAdditionalStubs = True)
     ## Returns:
     The filepath to the generated file 
     """
-    
+    from . import stub_generator, manual_stubs
 
     Filepath = os.path.join(Directory, f"pyfbsdk.{FileExtension}")
 
-    Outfilepath = stub_generator.GeneratePyfbsdkStubFile(Filepath)
+    Outfilepath = stub_generator.GeneratePyfbsdkStubFile(Filepath, flags)
 
     if bCopyAdditionalStubs:
-        CopyAdditionalStubs(Directory)
+        manual_stubs.CopyManualStubs(Directory)
 
     return Outfilepath

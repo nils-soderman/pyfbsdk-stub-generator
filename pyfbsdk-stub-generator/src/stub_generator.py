@@ -11,6 +11,7 @@ import pyfbsdk
 from . import plugins
 from .module_types import StubClass
 from . import native_generator
+from .flags import GeneratorFlag
 
 
 DEFAULT_PLUGINS = plugins.GetDefaultPlugins()
@@ -88,8 +89,10 @@ class StubGenerator:
     def __init__(
         self,
         Module: ModuleType,
+        flags: GeneratorFlag,
         Plugins: typing.Iterable[type[plugins.PluginBaseClass]] | None = DEFAULT_PLUGINS
     ):
+        self.flags = flags
         self.Module = Module
         self.Version = GetMotionBuilderVersion()
 
@@ -118,7 +121,7 @@ class StubGenerator:
 
         # Run all of the plugins
         for PluginType in self.Plugins:
-            Plugin = PluginType(self.Version, self.Module, Enums, Classes, FunctionGroupList)
+            Plugin = PluginType(self.Version, self.Module, Enums, Classes, FunctionGroupList, self.flags)
             Plugin.Run()
 
         # Sort classes after all patches are done and we know their requirements
@@ -143,7 +146,7 @@ class StubGenerator:
         return StubString
 
 
-def GeneratePyfbsdkStubFile(Filepath: str) -> str:
+def GeneratePyfbsdkStubFile(Filepath: str, flags: GeneratorFlag) -> str:
     StartTime = time.time()
 
     # Make sure directory exists
@@ -151,7 +154,7 @@ def GeneratePyfbsdkStubFile(Filepath: str) -> str:
     if not os.path.isdir(Directory):
         os.makedirs(Directory)
 
-    Generator = StubGenerator(pyfbsdk)
+    Generator = StubGenerator(pyfbsdk, flags)
     FileContent = Generator.GenerateString()
 
     with open(Filepath, "w+", encoding="utf-8") as File:

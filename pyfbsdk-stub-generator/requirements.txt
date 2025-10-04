@@ -1,0 +1,4 @@
+beautifulsoup4==4.14.2
+markdownify==1.2.0
+requests>=2.32.5
+Js2Py~=0.74

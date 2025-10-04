@@ -1,6 +1,6 @@
 [project]
 name = "pyfbsdk-stub-generator"
-version = "2026.1.0"
+version = "2026.1.1"
 authors = [{ name = "Nils Soderman" }]
 description = "Generate stub files for pyfbsdk"
 keywords = [
@@ -20,12 +20,13 @@ classifiers = [
     'Programming Language :: Python :: 3',
     "Operating System :: OS Independent",
 ]
-dependencies = [
-    "beautifulsoup4==4.12.3",
-    "markdownify==0.14.1",
-    "requests>=2.32.0",
-    "Js2Py~=0.74",
-]
+dynamic = ["dependencies"]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.metadata.hooks.requirements_txt]
+files = ["requirements.txt"]
 
 [build-system]
 requires = ["hatchling >= 1.27"]

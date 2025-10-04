@@ -5,16 +5,10 @@ import string
 import re
 
 from dataclasses import dataclass
-from importlib   import reload
 
 import markdownify
 from bs4 import BeautifulSoup, Tag, NavigableString
 
-from . import documentation_urls as urls
-from . import documentation_cache as cache
-
-reload(cache)
-reload(urls)
 
 PY2_TO_PY3_PRINT_PATTERN = re.compile(r"(?<!\w)print\s+(.*)\s*(?<!\\)(?:\n|$)")
 
@@ -219,7 +213,7 @@ class DocstringMarkdownConverter(markdownify.MarkdownConverter):
 
         return DocString
 
-    def convert_a(self, el: Tag, text, convert_as_inline):
+    def convert_a(self, el: Tag, text, **options):
         """ Make sure all <a> tags have a full URL. """
         Href = el.get("href")
 
@@ -240,12 +234,12 @@ class DocstringMarkdownConverter(markdownify.MarkdownConverter):
         if Href and not Href.startswith("http"):
             el["href"] = f"{self.UrlBase}{Href}"
 
-        return super().convert_a(el, text, convert_as_inline)
+        return super().convert_a(el, text, **options)
 
-    def convert_p(self, el, text, convert_as_inline):
-        return text.strip() + "\n"
+    def convert_p(self, el, text, **options):
+        return text.strip() + "\n\n"
 
-    def convert_b(self, el, text, convert_as_inline):
+    def convert_b(self, el, text, **options):
         """ Skip adding ** around bold text. Since PyLance doesn't support bold text markdown atm."""
         return text
 
@@ -253,16 +247,16 @@ class DocstringMarkdownConverter(markdownify.MarkdownConverter):
     #      Parameter Lists
     # -------------------------
 
-    def convert_dt(self, el: Tag, text, convert_as_inline):
+    def convert_dt(self, el: Tag, text, **options):
         """ Convert all <dt> tags to a headers. """
         HeaderText = markdownify.markdownify(str(el))
         return f"### {HeaderText}:\n"
 
-    def convert_dd(self, el: Tag, text: str, convert_as_inline):
+    def convert_dd(self, el: Tag, text: str, **options):
         # Only strip new lines
-        return text.strip("\n")
+        return text.strip("\n") + "\n"
 
-    def convert_table(self, el: Tag, text, convert_as_inline):
+    def convert_table(self, el: Tag, text, **options):
         # Check if element has the class name for a parameter list
         ElementClassNames = el.get("class")
         if ElementClassNames and ClassNames.ParameterTalble in ElementClassNames:
@@ -291,15 +285,15 @@ class DocstringMarkdownConverter(markdownify.MarkdownConverter):
     #      Code Blocks
     # -------------------------
 
-    def convert_div(self, el: Tag, text, convert_as_inline):
+    def convert_div(self, el: Tag, text, **options):
         """ Convert all <div> tags to a code block. """
         ElementClassNames = el.get("class")
         if ElementClassNames and ClassNames.CodeBlock in ElementClassNames:
-            return self.convert_pre(el, text, convert_as_inline)
+            return self.convert_pre(el, text, **options)
 
         return text
 
-    def convert_pre(self, el: Tag, text, convert_as_inline):
+    def convert_pre(self, el: Tag, text, **options):
         # Exclude any <div> tags that have class names "ttc"
         for Child in el.find_all('div', class_='ttc'):
             Child.decompose()

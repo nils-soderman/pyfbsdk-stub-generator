@@ -7,13 +7,14 @@ from types import ModuleType
 import typing
 
 from ..module_types import StubClass, StubFunction
-
+from ..flags import GeneratorFlag
 
 class PluginBaseClass:
     Threading = True
     Priority = 100
 
-    def __init__(self, Version: int, Module: ModuleType, EnumList: list[StubClass], ClassList: list[StubClass], FunctionGroupList: list[list[StubFunction]]) -> None:
+    def __init__(self, Version: int, Module: ModuleType, EnumList: list[StubClass], ClassList: list[StubClass], FunctionGroupList: list[list[StubFunction]], flags: GeneratorFlag) -> None:
+        self.flags = flags
         self.Version = Version
         self.ModuleName = Module.__name__
 
@@ -25,7 +26,6 @@ class PluginBaseClass:
         self.EnumMap = {x.Name: x for x in EnumList}
         self.FunctionMap = {x[0].Name: x for x in FunctionGroupList if x}
 
-        self.bDevMode = os.environ.get("PYFBSDK_DEVMODE", "").lower() == "true"
         self.Exceptions = []
 
     def ShouldPatch(self) -> bool:
