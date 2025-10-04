@@ -5,7 +5,6 @@ Script for generating python stub files for Autodesk MotionBuilder's pyfbsdk mod
 ## Usage
 
 ### Generate stub files
-If you want to generate your own stub files for your MotionBuilder version:
 
 1. Install the generator
 2. Call the generator using the mobupy Python interpreter
