@@ -1,18 +1,12 @@
 try:
     import pyfbstandalone
-    import pyfbsdk
 except ImportError:
     raise RuntimeError("This module must run in the mobupy.exe interpreter")
 
 # MotionBuilder 2025+ requires an explicit initialization of the pyfbsdk module
-pyfbstandalone.initialize()
 
 import argparse
 import os
-
-from . import stub_generator, manual_stubs
-from .flags import GeneratorFlag
-
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Generate stubs for MotionBuilder Python API. This module must run in the mobupy interpreter")
@@ -27,6 +21,12 @@ def main() -> None:
     args = parser.parse_args()
 
     output_path = os.path.abspath(args.out_dir)
+
+    # Initialize pyfbsdk before importing any other modules that depend on it
+    pyfbstandalone.initialize()
+
+    from . import stub_generator, manual_stubs
+    from .flags import GeneratorFlag
 
     flags = GeneratorFlag.NONE
     if args.cache:
