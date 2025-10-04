@@ -7,6 +7,7 @@ This package contains stubs for the following MotionBuilder modules:
 - `pyfbsdk`
 - `pyfbsdk_additions`  
 - `callbackframework`
+- `pyfbstandalone`
 
 
 
