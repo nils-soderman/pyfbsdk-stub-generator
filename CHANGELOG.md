@@ -1,5 +1,10 @@
 # Change Log
 
+## [2026.1.1]
+
+- Generated stubs for MotionBuilder 2026.1
+- Added stub: pyfbstandalone.pyi
+
 ## [2026.1.0]
 
 - The stubs are now available as a PyPI package [motionbuilder-stubs](https://pypi.org/project/motionbuilder-stubs/)
