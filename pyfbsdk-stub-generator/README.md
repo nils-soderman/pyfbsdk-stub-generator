@@ -17,8 +17,8 @@ cd "{INSTALL_LOCATION}"
 "C:/Program Files/Autodesk/MotionBuilder {VERSION}/bin/x64/mobupy.exe" -m pyfbsdk_stub_generator "{OUTPUT_DIR}"
 ```
 
-* Replace `{VERSION}` with your MotionBuilder version
 * Replace `{INSTALL_LOCATION}` with your desired installation path
+* Replace `{VERSION}` with your MotionBuilder version
 * Replace `{OUTPUT_DIR}` with where you want the stub files generated
 
 ### CLI Options
