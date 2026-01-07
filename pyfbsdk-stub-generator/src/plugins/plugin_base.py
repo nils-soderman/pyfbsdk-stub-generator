@@ -6,8 +6,9 @@ import os
 from types import ModuleType
 import typing
 
-from ..module_types import StubClass, StubFunction
+from ..module_types import StubClass, StubFunction, StubProperty
 from ..flags import GeneratorFlag
+
 
 class PluginBaseClass:
     Threading = False
@@ -32,6 +33,16 @@ class PluginBaseClass:
         return True
 
     def PatchClass(self, Class: StubClass):
+        for Property in Class.StubProperties:
+            self.PatchProperty(Class, Property)
+
+        for Method in Class.StubFunctions:
+            self.PatchMethod(Class, Method)
+
+    def PatchMethod(self, Class: StubClass, Methods: list[StubFunction]):
+        ...
+
+    def PatchProperty(self, Class: StubClass, Property: StubProperty):
         ...
 
     def PatchFunctionGroup(self, FunctionGroup: list[StubFunction]):

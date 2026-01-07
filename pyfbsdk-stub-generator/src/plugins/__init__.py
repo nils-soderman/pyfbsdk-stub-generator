@@ -10,6 +10,7 @@ def GetDefaultPlugins():
     from .dunder_methods import plugin_dunder_methods
     from .events import plugin_events
     from .enum import plugin_enum
+    from .readonly_properties import plugin_readonly
 
     reload(plugin_online_documentation)
     reload(plugin_manual_docs)
@@ -23,5 +24,6 @@ def GetDefaultPlugins():
         plugin_fbproperty.PluginFbProperty,
         plugin_dunder_methods.PluginDunderMethods,
         plugin_enum.PluginEnum,
-        plugin_events.PluginEvents
+        plugin_events.PluginEvents,
+        plugin_readonly.PluginReadOnly,
     )

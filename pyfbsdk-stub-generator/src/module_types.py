@@ -221,6 +221,7 @@ class StubProperty(StubBase):
         self._Type = None
         self.SetterType: str | None = None
         self.Value: typing.Any = None
+        self.ReadOnly: bool = False
 
     @property
     def Type(self) -> str:
@@ -235,7 +236,10 @@ class StubProperty(StubBase):
         self._Type = Value
 
     def GetAsString(self):
-        if self.SetterType and self.SetterType != self.Type:
+        create_setter = bool(self.SetterType) and self.SetterType != self.Type
+        create_getter = self.ReadOnly or create_setter
+
+        if create_getter:
             # If it has a custom setter type, create seperate getter and setter functions
             Lines = ["@property"]
             Lines.append(f"def {self.Name}(self)->{self.Type}:")
@@ -244,8 +248,10 @@ class StubProperty(StubBase):
                 Lines.append(f"{Indent('...')}")
             else:
                 Lines[-1] += "..."
-            Lines.append(f"@{self.Name}.setter")
-            Lines.append(f"def {self.Name}(self, Value: {self.SetterType}):...")
+
+            if create_setter:
+                Lines.append(f"@{self.Name}.setter")
+                Lines.append(f"def {self.Name}(self, Value: {self.SetterType}):...")
 
             PropertyAsString = "\n".join(Lines)
         else:
