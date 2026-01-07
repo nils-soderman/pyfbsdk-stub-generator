@@ -10,7 +10,7 @@ from ..module_types import StubClass, StubFunction
 from ..flags import GeneratorFlag
 
 class PluginBaseClass:
-    Threading = True
+    Threading = False
     Priority = 100
 
     def __init__(self, Version: int, Module: ModuleType, EnumList: list[StubClass], ClassList: list[StubClass], FunctionGroupList: list[list[StubFunction]], flags: GeneratorFlag) -> None:

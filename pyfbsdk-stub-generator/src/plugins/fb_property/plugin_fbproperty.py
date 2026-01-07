@@ -49,7 +49,6 @@ PROPERTY_TYPE_MAP = {
 
 
 class PluginFbProperty(PluginBaseClass):
-    Threading = False
     Priority = 200
 
     def GetDataType(self, Class: StubClass):

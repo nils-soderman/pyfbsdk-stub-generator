@@ -13,7 +13,6 @@ T = TypeVar('T')
 
 
 class PluginManualDocumentation(PluginBaseClass):
-    Threading = False
     Priority = 150
 
     def __init__(self, *args, **kwargs):

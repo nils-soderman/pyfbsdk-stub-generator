@@ -25,7 +25,6 @@ KNOWN_RETURN_TYPES: dict[str, type] = {
 
 
 class PluginDunderMethods(PluginBaseClass):
-    Threading = False
     Priority = 200
 
     def PatchClass(self, Class: StubClass):

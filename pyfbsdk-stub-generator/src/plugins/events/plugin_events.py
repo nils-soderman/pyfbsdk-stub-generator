@@ -70,7 +70,6 @@ EVENTS = {
 
 
 class PluginEvents(PluginBaseClass):
-    Threading = False
     Priority = 100
 
     def PatchClass(self, Class: StubClass):

@@ -9,7 +9,6 @@ from ...module_types import StubClass
 
 
 class PluginEnum(PluginBaseClass):
-    Threading = False
     Priority = 100
 
     def PatchEnum(self, Enum: StubClass):
