@@ -104,12 +104,12 @@ def GetUniqueClassMembers(Class, Ignore = (), AllowedOverrides = ()):
     return UniqueMembers
 
 
-def GetClassParentNames(Class):
-    ParentClassNames = []
+def GetClassParentNames(Class) -> list[str]:
+    ParentClassNames: list[str] = []
     for Parent in GetClassParents(Class):
         ParentClassName = Parent.__name__
         if ParentClassName == "instance":
-            ParentClassName = ""
+            continue
 
         elif ParentClassName == "enum":
             ParentClassName = ENUMERATION_NAME
