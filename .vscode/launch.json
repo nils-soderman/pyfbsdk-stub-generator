@@ -1,0 +1,20 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run Generator (debugpy)",
+            "type": "debugpy",
+            "request": "launch",
+            "python": "C:/Program Files/Autodesk/MotionBuilder 2027/bin/x64/mobupy.exe",
+            "module": "src",
+            "args": [
+                "--cache",
+                "../generated-stub-files/motionbuilder-2027",
+            ],
+            "cwd": "${workspaceFolder}/pyfbsdk-stub-generator",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}/pyfbsdk-stub-generator/env;${workspaceFolder}/pyfbsdk-stub-generator"
+            }
+        }
+    ]
+}
