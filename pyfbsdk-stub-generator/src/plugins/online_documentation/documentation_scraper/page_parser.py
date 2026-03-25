@@ -217,20 +217,6 @@ class DocstringMarkdownConverter(markdownify.MarkdownConverter):
         """ Make sure all <a> tags have a full URL. """
         Href = el.get("href")
 
-        # Example URLs are broken in the 2024 docs. Resolve them manually.
-        SampleUrlPrefix = "ms-its:MotionBuilder_SDK_Samples.chm::"
-        if Href.startswith(SampleUrlPrefix):
-            # From: ms-its:MotionBuilder_SDK_Samples.chm::/Scripts/BasicOperations/FBSystemEvents.html
-            # To: _basic_operations_0c_f_b_system_events_8py-example.html
-            Suffix = "_8py-example.html"
-            ScriptsFolder = "Scripts/"
-            if ScriptsFolder in Href:
-                RelativeUrl = Href.partition(ScriptsFolder)[2]
-                ConvertedString: str = re.sub(r'(?<!^)(?=[A-Z])', '_', RelativeUrl).lower()  # Convert from PascalCase to snake_case
-                ConvertedString = ConvertedString.replace("/", "_0c")  # Replace the slashes with _0c
-                ConvertedString = ConvertedString.partition(".")[0]  # Remove the extension (.html)
-                Href = f"_{ConvertedString}{Suffix}"
-
         if Href and not Href.startswith("http"):
             el["href"] = f"{self.UrlBase}{Href}"
 
