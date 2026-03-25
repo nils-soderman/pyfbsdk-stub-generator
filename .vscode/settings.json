@@ -15,6 +15,6 @@
     "python.analysis.typeCheckingMode": "basic",
     "python.analysis.extraPaths": [
         "./generated-stub-files/motionbuilder-2026",
-        "./env",
+        "./pyfbsdk-stub-generator/env",
     ],
 }
