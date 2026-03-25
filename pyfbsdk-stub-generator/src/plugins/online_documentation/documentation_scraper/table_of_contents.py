@@ -3,17 +3,15 @@ Web Documentation scraper for the pyfbsdk SDK.
 """
 from __future__ import annotations
 
-from importlib import reload
-
+import ast
 import requests
-import js2py
 
 from . import documentation_cache as cache
 from . import documentation_urls as urls
 from . import page_parser
 
 
-NameSpaceModuleMap = {
+NAMESPACE_MODULE_MAP = {
     "pyfbsdk": "pyfbsdk",
     "pyfbsdk_additions": "pyfbsdk__additions"
 }
@@ -68,16 +66,23 @@ class Documentation():
 
 
 def GetPythonTableOfContents(Namespace: str, Version: int, bUseCache: bool = False) -> list[TableOfContentItem]:
-    Url = urls.GetPythonTableOfContentsUrl(Namespace, Version)
+    url = urls.GetPythonTableOfContentsUrl(Namespace, Version)
     if bUseCache:
-        Response = cache.CachedGetRequest(Url)
+        response = cache.CachedGetRequest(url)
     else:
-        Response = requests.get(Url, timeout=10).text
+        response = requests.get(url, timeout=10).text
+    
+    # response should look like this:
+    # var namespacepyfbsdk =\n[\n ["Enumeration", "classpyfbsdk_1_1_enumeration.html", null], ...];
 
-    ParsedResponse = js2py.eval_js(Response)
+    parsable_str = response.partition("=")[2]
+    parsable_str = parsable_str.strip(" ;\n")
+    parsable_str = parsable_str.replace("null", "None")
 
-    return [TableOfContentItem(Data, Version, bUseCache) for Data in ParsedResponse]
+    parsed_response = ast.literal_eval(parsable_str)
+
+    return [TableOfContentItem(data, Version, bUseCache) for data in parsed_response]
 
 
-def GetNameSpaceFromModule(ModuleName: str) -> str | None:
-    return NameSpaceModuleMap.get(ModuleName)
+def GetNameSpaceFromModule(module_name: str) -> str | None:
+    return NAMESPACE_MODULE_MAP.get(module_name)
