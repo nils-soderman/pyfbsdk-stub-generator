@@ -1,15 +1,10 @@
 from __future__ import annotations
 
 import importlib
-import inspect
 
-from typing import TypeVar, Generator
-
-from .doc_bases import FunctionBase, ClassBase, PropertyBase
+from .base import ClassDoc, FunctionDoc, PropertyDoc
 from ..plugin_base import PluginBaseClass
-from ...module_types import StubClass, StubFunction, StubParameter, StubProperty
-
-T = TypeVar('T')
+from ...module_types import StubClass, StubFunction, StubProperty
 
 
 class PluginManualDocumentation(PluginBaseClass):
@@ -20,106 +15,79 @@ class PluginManualDocumentation(PluginBaseClass):
 
         # try to import the module
         try:
-            self.ContentModule = importlib.import_module(f".modules.{self.ModuleName}", package=__package__)
-            importlib.reload(self.ContentModule)
+            self.content_module = importlib.import_module(f".modules.{self.ModuleName}", package=__package__)
         except ModuleNotFoundError:
-            self.ContentModule = None
+            self.content_module = None
 
-        self.ManualFunctionMap = {x.__name__: x for x in self.GetContent(FunctionBase)}
-        self.ManualClassMap = {x.__name__: x for x in self.GetContent(ClassBase)}
-
-    def GetContent(self, Type: type[T]) -> list[type[T]]:
-        Content = []
-        for Name, Obj in inspect.getmembers(self.ContentModule):
-            if inspect.isclass(Obj) and issubclass(Obj, Type) and Obj != Type:
-                Content.append(Obj)
-        return Content
+        self.manual_function_map: dict[str, FunctionDoc] = {}
+        self.manual_class_map: dict[str, ClassDoc] = {}
+        if self.content_module:
+            self.manual_function_map: dict[str, FunctionDoc] = {k.__name__: v for k, v in getattr(self.content_module, 'FUNCTIONS', {}).items()}
+            self.manual_class_map: dict[str, ClassDoc] = {k.__name__: v for k, v in getattr(self.content_module, 'CLASSES', {}).items()}
 
     def ShouldPatch(self) -> bool:
-        return self.ContentModule is not None
-
-    def PatchEnum(self, Enum: StubClass):
-        ...
+        return self.content_module is not None
 
     def PatchClass(self, Class: StubClass):
-        if Class.Name not in self.ManualClassMap:
+        if Class.Name not in self.manual_class_map:
             return
 
-        # Get functions from class
-        ManualClass = self.ManualClassMap[Class.Name]
+        manual_cls = self.manual_class_map[Class.Name]
 
-        for ManualFunctionGroup in ManualClass.GetFunctionGroups():
-            if len(ManualFunctionGroup) == 0:
-                continue
-            FunctionName = ManualFunctionGroup[0].__name__
-            StubFunctionGroup = Class.GetFunctionsByName(FunctionName)
-            if len(ManualFunctionGroup) > 1 or len(StubFunctionGroup) > 1:
-                raise RuntimeError(f"FunctionGroup with more than one function is not yet supported. {ManualFunctionGroup}")
+        for manual_fn in manual_cls.functions:
+            StubFunctionGroup = Class.GetFunctionsByName(manual_fn.name)
+            if len(StubFunctionGroup) > 1:
+                raise RuntimeError(f"FunctionGroup with more than one function is not yet supported. {manual_fn.name}")
 
-            self._PatchFunctionGroup(StubFunctionGroup[0], ManualFunctionGroup[0])
+            if StubFunctionGroup:
+                self._patch_function_group(StubFunctionGroup[0], manual_fn)
 
-        for ManualProperty in ManualClass.GetProperties():
-            StubPropertyInstance = Class.GetPropertyByName(ManualProperty.__name__)
+        for manual_property in manual_cls.properties:
+            StubPropertyInstance = Class.GetPropertyByName(manual_property.name)
             if not StubPropertyInstance:
-                raise Warning(f"Property {ManualProperty.__name__} not found in {Class.Name}")
+                raise Warning(f"Property {manual_property.name} not found in {Class.Name}")
 
-            self._PatchProperty(StubPropertyInstance, ManualProperty)
-
-    def _PatchProperty(self, Property: StubProperty, ManualProperty: type[PropertyBase]):
-        if ManualProperty.__doc__:
-            Property.DocString = PatchDocString(ManualProperty.__doc__)
-
-        TypeString = ManualProperty.GetTypesString()
-        if TypeString:
-            Property.Type = TypeString
-
-    def _PatchFunctionGroup(self, Function: StubFunction, ManualFunction: type[FunctionBase]):
-        if ManualFunction.__doc__:
-            Function.DocString = PatchDocString(ManualFunction.__doc__)
-
-        ReturnType = ManualFunction.GetReturnTypeString()
-        if ReturnType:
-            Function.ReturnType = ReturnType
-
-        for Parameter, ManualDocParameter in zip(Function.GetParameters(True), ManualFunction.Parameters):
-            if not ManualDocParameter:
-                continue
-
-            if ManualDocParameter.Name:
-                Parameter.Name = ManualDocParameter.Name
-
-            Type = ManualDocParameter.GetTypeString()
-            if Type:
-                Parameter.Type = Type
-
-            DefaultValue = ManualDocParameter.GetDefaultValueString()
-            if DefaultValue is not None:
-                Parameter.DefaultValue = DefaultValue
+            self._patch_property(StubPropertyInstance, manual_property)
 
     def PatchFunctionGroup(self, FunctionGroup: list[StubFunction]):
         if not FunctionGroup:
             return
 
         Function = FunctionGroup[0]
-        if Function.Name not in self.ManualFunctionMap:
+        if Function.Name not in self.manual_function_map:
             return
 
         if len(FunctionGroup) > 1:
             raise RuntimeError(f"FunctionGroup with more than one function is not yet supported. {FunctionGroup}")
 
-        ManualFunctionDoc = self.ManualFunctionMap[Function.Name]
-        self._PatchFunctionGroup(Function, ManualFunctionDoc)
+        ManualFunctionDoc = self.manual_function_map[Function.Name]
+        self._patch_function_group(Function, ManualFunctionDoc)
 
+    def _patch_property(self, prop: StubProperty, manual_prop_doc: PropertyDoc):
+        if manual_prop_doc.doc:
+            prop.DocString = manual_prop_doc.doc
 
-def PatchDocString(DocString: str):
-    Lines = []
+        if type_str := manual_prop_doc.get_type_as_string():
+            prop.Type = type_str
 
-    for Line in DocString.splitlines():
+    def _patch_function_group(self, stub_function: StubFunction, manual_function_doc: FunctionDoc):
+        if manual_function_doc.doc:
+            stub_function.DocString = manual_function_doc.doc
 
-        # Remove one indent from each line since the docstring is indented one level
-        if Line.startswith("    "):
-            Line = Line[4:]
+        if return_type := manual_function_doc.get_return_type_as_string():
+            stub_function.ReturnType = return_type
 
-        Lines.append(Line)
+        for stub_parameter, manual_paramter_doc in zip(stub_function.GetParameters(True), manual_function_doc.parameters):
+            if not manual_paramter_doc:
+                continue
 
-    return "\n".join(Lines)
+            if manual_paramter_doc.name:
+                stub_parameter.Name = manual_paramter_doc.name
+
+            if type_str := manual_paramter_doc.get_type_as_string():
+                stub_parameter.Type = type_str
+
+            default_value = manual_paramter_doc.get_default_value_as_string()
+            if default_value is not None:
+                stub_parameter.DefaultValue = default_value
+    

@@ -1,298 +1,270 @@
-# pylint: disable=invalid-name
+""" 
+This files contains manually typed documentation for pyfbsdk.
+Here we we can manually patch types, docstrings, etc. for any entries that are missing or have incorrect information in the offical documentation.
 
+Dict entries should be in alphabetical order
+"""
 from __future__ import annotations
 
-import pyfbsdk
+import pyfbsdk as fb
 
-from ..doc_bases import Parameter, FunctionBase, ClassBase, PropertyBase
+from ..base import ParamDoc, FunctionDoc, PropertyDoc, ClassDoc
 
 
 # ---------------------------------------------------------------------
 #                          Classes
 # ---------------------------------------------------------------------
 
-class FBPlug(ClassBase):
-    class GetDst(FunctionBase):
-        Parameters = (Parameter("Index", int),)
-        ReturnType = pyfbsdk.FBPlug
+CLASSES: dict[type, ClassDoc] = {
+    fb.FBActionManager: ClassDoc(
+        properties=[
+            PropertyDoc("CurrentInteractionMode", str),
+        ],
+    ),
 
-    class GetSrc(FunctionBase):
-        Parameters = (Parameter("Index", int),)
-        ReturnType = pyfbsdk.FBPlug
+    fb.FBCamera: ClassDoc(
+        properties=[
+            PropertyDoc("AnimatableFarPlane", fb.FBPropertyAnimatableDouble),
+            PropertyDoc("AnimatableNearPlane", fb.FBPropertyAnimatableDouble),
+        ],
+    ),
 
-    class GetOwned(FunctionBase):
-        Parameters = (Parameter("Index", int),)
-        ReturnType = pyfbsdk.FBPlug
+    fb.FBComponent: ClassDoc(
+        properties=[
+            PropertyDoc("FullName", str),
+            PropertyDoc("OwnerNamespace", fb.FBNamespace | None),
+        ],
+        functions=[
+            FunctionDoc("PropertyCreate", parameters=[None, None, None, None, None, ParamDoc(parameter_type=fb.FBProperty | None)], return_type="FBProperty|None"),
+        ],
+    ),
 
-    class GetOwner(FunctionBase):
-        ReturnType = pyfbsdk.FBPlug
+    fb.FBEditProperty: ClassDoc(
+        properties=[
+            PropertyDoc("Property", fb.FBProperty),
+        ],
+    ),
 
+    fb.FBEditPropertyModern: ClassDoc(
+        properties=[
+            PropertyDoc("Property", fb.FBProperty),
+        ],
+    ),
 
-class FBComponent(ClassBase):
-    class FullName(PropertyBase):
-        Types = str
+    fb.FBEventConnectionKeyingNotify: ClassDoc(
+        properties=[
+            PropertyDoc("Action", fb.FBConnectionAction),
+            PropertyDoc("Plug", fb.FBPlug),
+            PropertyDoc("Property", fb.FBPropertyAnimatable),
+            PropertyDoc("StartTime", fb.FBTime),
+            PropertyDoc("StopTime", fb.FBTime),
+        ],
+    ),
 
-    class OwnerNamespace(PropertyBase):
-        Types = (pyfbsdk.FBNamespace, "None")
+    fb.FBEventEvalGlobalCallback: ClassDoc(
+        properties=[
+            PropertyDoc("Timing", fb.FBGlobalEvalCallbackTiming),
+        ],
+    ),
 
-    class PropertyCreate(FunctionBase):
-        Parameters = (None, None, None, None, None, Parameter(Type=(pyfbsdk.FBProperty, "None")))
-        ReturnType = "FBProperty|None"
+    fb.FBEventVideoFrameRendering: ClassDoc(
+        properties=[
+            PropertyDoc("FrameCount", int),
+            PropertyDoc("FrameNumber", int),
+            PropertyDoc("State", fb.FBEventVideoFrameRendering.EState),
+        ],
+    ),
 
+    fb.FBFCurveEvent: ClassDoc(
+        properties=[
+            PropertyDoc("ParentAnimationNode", fb.FBAnimationNode),
+            PropertyDoc("ParentComponent", fb.FBComponent),
+            PropertyDoc("ParentProperty", fb.FBPropertyAnimatable),
+        ],
+    ),
 
-class FBModel(ClassBase):
-    class Parent(PropertyBase):
-        Types = (pyfbsdk.FBModel, "None")
+    fb.FBHUDElement: ClassDoc(
+        properties=[
+            PropertyDoc("Visibility", bool),
+        ],
+    ),
 
-    class CullingMode(PropertyBase):
-        Types = pyfbsdk.FBModelCullingMode
+    fb.FBLight: ClassDoc(
+        properties=[
+            PropertyDoc("ConeAngle", float),
+        ],
+    ),
 
+    fb.FBMenuManager: ClassDoc(
+        functions=[
+            FunctionDoc("InsertBefore", parameters=[ParamDoc("MenuPath", str | None)]),
+            FunctionDoc("InsertAfter", parameters=[ParamDoc("MenuPath", str | None)]),
+            FunctionDoc("InsertFirst", parameters=[ParamDoc("MenuPath", str | None)]),
+            FunctionDoc("InsertLast", parameters=[ParamDoc("MenuPath", str | None)]),
+        ],
+    ),
 
-class FBLight(ClassBase):
-    class ConeAngle(PropertyBase):
-        Types = float
+    fb.FBModel: ClassDoc(
+        properties=[
+            PropertyDoc("Parent", fb.FBModel | None),
+            PropertyDoc("CullingMode", fb.FBModelCullingMode),
+        ],
+    ),
 
+    fb.FBModelPath3D: ClassDoc(
+        properties=[
+            PropertyDoc("PathEndCapStyle", fb.FBModelPath3D.EPathEndCapStyle),
+        ],
+    ),
 
-class FBCamera(ClassBase):
-    class AnimatableFarPlane(PropertyBase):
-        Types = pyfbsdk.FBPropertyAnimatableDouble
+    fb.FBNamespace: ClassDoc(
+        properties=[
+            PropertyDoc("ContentCount", int),
+        ],
+        functions=[
+            FunctionDoc("__init__", parameters=[None, ParamDoc(parameter_type=fb.FBNamespace | None)]),
+        ],
+    ),
 
-    class AnimatableNearPlane(PropertyBase):
-        Types = pyfbsdk.FBPropertyAnimatableDouble
+    fb.FBPlug: ClassDoc(
+        functions=[
+            FunctionDoc("GetDst", parameters=[ParamDoc("Index", int)], return_type=fb.FBPlug),
+            FunctionDoc("GetSrc", parameters=[ParamDoc("Index", int)], return_type=fb.FBPlug),
+            FunctionDoc("GetOwned", parameters=[ParamDoc("Index", int)], return_type=fb.FBPlug),
+            FunctionDoc("GetOwner", return_type=fb.FBPlug),
+        ],
+    ),
 
+    fb.FBPropertyConnectionEditor: ClassDoc(
+        properties=[
+            PropertyDoc("Property", fb.FBProperty),
+        ],
+    ),
 
-class FBActionManager(ClassBase):
-    class CurrentInteractionMode(PropertyBase):
-        Types = str
+    fb.FBPropertyManager: ClassDoc(
+        functions=[
+            FunctionDoc("__getitem__", parameters=[ParamDoc("Index", int)], return_type=fb.FBProperty),
+        ],
+    ),
 
+    fb.FBPropertyStateEvent: ClassDoc(
+        properties=[
+            PropertyDoc("ParentComponent", fb.FBComponent),
+            PropertyDoc("Property", fb.FBProperty),  # TODO: This could potentially be limited to FBPropertyAnimatable
+        ],
+    ),
 
-class FBModelPath3D(ClassBase):
-    class PathEndCapStyle(PropertyBase):
-        Types = pyfbsdk.FBModelPath3D.EPathEndCapStyle
+    fb.FBTimeCode: ClassDoc(
+        properties=[
+            PropertyDoc("Frame", float),
+            PropertyDoc("FrameRate", float),
+        ],
+    ),
 
-
-class FBNamespace(ClassBase):
-    class ContentCount(PropertyBase):
-        Types = int
-
-    class __init__(FunctionBase):
-        Parameters = (None, Parameter(Type=(pyfbsdk.FBNamespace, "None")))
-
-
-class FBTimeCode(ClassBase):
-    class Frame(PropertyBase):
-        Types = float
-
-    class FrameRate(PropertyBase):
-        Types = float
-
-
-class FBVideoGrabOptions(ClassBase):
-    class RendererCallbackIndex(PropertyBase):
-        Types = int
-
-    class RendererCallbackPrefIndex(PropertyBase):
-        Types = int
-
-    class StereoDisplayMode(PropertyBase):
-        Types = pyfbsdk.FBStereoDisplayMode
-
-
-class FBHUDElement(ClassBase):
-    class Visibility(PropertyBase):
-        Types = bool
-
-
-class FBPropertyStateEvent(ClassBase):
-    class ParentComponent(PropertyBase):
-        Types = pyfbsdk.FBComponent
-
-    class Property(PropertyBase):
-        Types = pyfbsdk.FBProperty  # TODO: This could potentially be limited to FBPropertyAnimatable
-
-
-class FBFCurveEvent(ClassBase):
-    class ParentAnimationNode(PropertyBase):
-        Types = pyfbsdk.FBAnimationNode
-
-    class ParentComponent(PropertyBase):
-        Types = pyfbsdk.FBComponent
-
-    class ParentProperty(PropertyBase):
-        Types = pyfbsdk.FBPropertyAnimatable
-
-
-class FBPropertyManager(ClassBase):
-    class __getitem__(FunctionBase):
-        Parameters = (Parameter("Index", int),)
-        ReturnType = pyfbsdk.FBProperty
-
-
-class FBEventEvalGlobalCallback(ClassBase):
-    class Timing(PropertyBase):
-        Types = pyfbsdk.FBGlobalEvalCallbackTiming
-
-
-class FBEventConnectionKeyingNotify(ClassBase):
-    class Action(PropertyBase):
-        Types = pyfbsdk.FBConnectionAction
-
-    class Plug(PropertyBase):
-        Types = pyfbsdk.FBPlug
-
-    class Property(PropertyBase):
-        Types = pyfbsdk.FBPropertyAnimatable
-
-    class StartTime(PropertyBase):
-        Types = pyfbsdk.FBTime
-
-    class StopTime(PropertyBase):
-        Types = pyfbsdk.FBTime
-
-
-class FBEventVideoFrameRendering(ClassBase):
-    class FrameCount(PropertyBase):
-        Types = int
-
-    class FrameNumber(PropertyBase):
-        Types = int
-
-    class State(PropertyBase):
-        Types = pyfbsdk.FBEventVideoFrameRendering.EState
-
-
-class FBPropertyConnectionEditor(ClassBase):
-    class Property(PropertyBase):
-        Types = pyfbsdk.FBProperty
-
-
-class FBEditPropertyModern(ClassBase):
-    class Property(PropertyBase):
-        Types = pyfbsdk.FBProperty
-
-
-class FBEditProperty(ClassBase):
-    class Property(PropertyBase):
-        Types = pyfbsdk.FBProperty
-
-
-class FBMenuManager(ClassBase):
-    class InsertBefore(FunctionBase):
-        Parameters = (Parameter("MenuPath", (str, "None")), )
-
-    class InsertAfter(FunctionBase):
-        Parameters = (Parameter("MenuPath", (str, "None")), )
-
-    class InsertFirst(FunctionBase):
-        Parameters = (Parameter("MenuPath", (str, "None")), )
-
-    class InsertLast(FunctionBase):
-        Parameters = (Parameter("MenuPath", (str, "None")), )
+    fb.FBVideoGrabOptions: ClassDoc(
+        properties=[
+            PropertyDoc("RendererCallbackIndex", int),
+            PropertyDoc("RendererCallbackPrefIndex", int),
+            PropertyDoc("StereoDisplayMode", fb.FBStereoDisplayMode),
+        ],
+    ),
+}
 
 
 # ---------------------------------------------------------------------
 #                          Functions
 # ---------------------------------------------------------------------
 
+FUNCTIONS: dict[object, FunctionDoc] = {
+    fb.GetToolPosition: FunctionDoc(
+        doc="""This function will get the position of a specific tool.
+### Parameters:
+- Tool: A pointer to the tool.""",
+        parameters=[ParamDoc("Tool", fb.FBTool)],
+        return_type=tuple,
+    ),
 
-class GetToolPosition(FunctionBase):
-    """This function will get the position of a specific tool.
-    ### Parameters:
-    - Tool: A pointer to the tool."""
-    Parameters = (Parameter("Tool", pyfbsdk.FBTool),)
-    ReturnType = tuple
+    fb.GetToolPositionByName: FunctionDoc(
+        doc="""This function will get the position of a specific tool.
+### Parameters:
+- ToolName: The name of the tool as shown in the Open Reality menu.""",
+        parameters=[ParamDoc("ToolName", str)],
+        return_type=tuple,
+    ),
 
+    fb.GetToolSize: FunctionDoc(
+        doc="""This function will get the size of a specific tool in the GUI.
+### Parameters:
+- Tool: A pointer to the tool.""",
+        parameters=[ParamDoc("Tool", fb.FBTool)],
+        return_type=tuple,
+    ),
 
-class SetToolPosition(FunctionBase):
-    """This function will set the position of a specific tool.
-    ### Parameters:
-    - Tool: A pointer to the tool.
-    - PosX: New position in X for the tool.
-    - PosY: New position in Y for the tool."""
-    Parameters = (Parameter("Tool", pyfbsdk.FBTool),
-                  Parameter("PosX", int),
-                  Parameter("PosY", int))
+    fb.GetToolSizeByName: FunctionDoc(
+        doc="""This function will get the size of a specific tool in the GUI.
+### Parameters:
+- ToolName: The name of the tool as shown in the Open Reality menu.""",
+        parameters=[ParamDoc("ToolName", str)],
+        return_type=tuple,
+    ),
 
+    fb.SetToolPosition: FunctionDoc(
+        doc="""This function will set the position of a specific tool.
+### Parameters:
+- Tool: A pointer to the tool.
+- PosX: New position in X for the tool.
+- PosY: New position in Y for the tool.""",
+        parameters=[ParamDoc("Tool", fb.FBTool), ParamDoc("PosX", int), ParamDoc("PosY", int)],
+    ),
 
-class GetToolPositionByName(FunctionBase):
-    """This function will get the position of a specific tool.
-    ### Parameters:
-    - ToolName: The name of the tool as shown in the Open Reality menu."""
-    Parameters = (Parameter("ToolName", str),)
-    ReturnType = tuple
+    fb.SetToolPositionByName: FunctionDoc(
+        doc="""This function will set the position of a specific tool.
+### Parameters:
+- ToolName: The name of the tool as shown in the Open Reality menu.
+- PosX: New position in X for the tool.
+- PosY: New position in Y for the tool.""",
+        parameters=[ParamDoc("ToolName", str), ParamDoc("PosX", int), ParamDoc("PosY", int)],
+    ),
 
+    fb.SetToolSize: FunctionDoc(
+        doc="""This function will set the size of a specific tool in the GUI.
+### Parameters:
+- Tool: A pointer to the tool.
+- Width: New width of the tool.
+- Height: New height of the tool.""",
+        parameters=[ParamDoc("Tool", fb.FBTool), ParamDoc("Width", int), ParamDoc("Height", int)],
+    ),
 
-class SetToolPositionByName(FunctionBase):
-    """This function will set the position of a specific tool.
-    ### Parameters:
-    - ToolName: The name of the tool as shown in the Open Reality menu.
-    - PosX: New position in X for the tool.
-    - PosY: New position in Y for the tool."""
-    Parameters = (Parameter("ToolName", str),
-                  Parameter("PosX", int),
-                  Parameter("PosY", int))
+    fb.SetToolSizeByName: FunctionDoc(
+        doc="""This function will set the size of a specific tool in the GUI.
+### Parameters:
+- ToolName: The name of the tool as shown in the Open Reality menu.
+- Width: New width of the tool.
+- Height: New height of the tool.""",
+        parameters=[ParamDoc("ToolName", str), ParamDoc("Width", int), ParamDoc("Height", int)],
+    ),
 
+    fb.ShowTool: FunctionDoc(
+        doc="""This function will show a specific tool in the GUI.
+### Parameters:
+- Tool: A pointer to the tool to show.
+- bResizeWnd: Adjust the size of the tool window if needed (if started too close to the end of the screen for example).
 
-class GetToolSize(FunctionBase):
-    """This function will get the size of a specific tool in the GUI.
-    ### Parameters:
-    - Tool: A pointer to the tool."""
-    Parameters = (Parameter("Tool", pyfbsdk.FBTool),)
-    ReturnType = tuple
+### Returns:
+A pointer to the FBTool object, `None` otherwise.""",
+        parameters=[ParamDoc("Tool", fb.FBTool), ParamDoc("ResizeWnd", bool, True)],
+        return_type=fb.FBTool,
+    ),
 
+    fb.ShowToolByName: FunctionDoc(
+        doc="""This function will show a specific tool in the GUI.
+### Parameters:
+- ToolName: The name of the tool as shown in the Open Reality menu.
+- bResizeWnd: Adjust the size of the tool window if needed (if started too close to the end of the screen for example).
 
-class SetToolSize(FunctionBase):
-    """This function will set the size of a specific tool in the GUI.
-    ### Parameters:
-    - Tool: A pointer to the tool.
-    - Width: New width of the tool.
-    - Height: New height of the tool."""
-    Parameters = (Parameter("Tool", pyfbsdk.FBTool),
-                  Parameter("Width", int),
-                  Parameter("Height", int))
-
-
-class GetToolSizeByName(FunctionBase):
-    """This function will get the size of a specific tool in the GUI.
-    ### Parameters:
-    - ToolName: The name of the tool as shown in the Open Reality menu."""
-    Parameters = (Parameter("ToolName", str),)
-    ReturnType = tuple
-
-
-class SetToolSizeByName(FunctionBase):
-    """This function will set the size of a specific tool in the GUI.
-    ### Parameters:
-    - ToolName: The name of the tool as shown in the Open Reality menu.
-    - Width: New width of the tool.
-    - Height: New height of the tool."""
-    Parameters = (Parameter("ToolName", str),
-                  Parameter("Width", int),
-                  Parameter("Height", int))
-
-
-class ShowTool(FunctionBase):
-    """This function will show a specific tool in the GUI.
-    ### Parameters:
-    - Tool: A pointer to the tool to show.
-    - bResizeWnd: Adjust the size of the tool window if needed (if started too close to the end of the screen for example).
-
-    ### Returns:
-    A pointer to the FBTool object, `None` otherwise."""
-    Parameters = (Parameter("Tool", pyfbsdk.FBTool),
-                  Parameter("ResizeWnd", bool, True))
-    ReturnType = pyfbsdk.FBTool
-
-
-class ShowToolByName(FunctionBase):
-    """This function will show a specific tool in the GUI.
-    ### Parameters:
-        - ToolName: The name of the tool as shown in the Open Reality menu.
-        - bResizeWnd: Adjust the size of the tool window if needed (if started too close to the end of the screen for example).
-
-    ### Returns:
-    A pointer to the FBTool object, `None` otherwise."""
-
-    Parameters = (Parameter("ToolName", str),
-                  Parameter("ResizeWnd", bool, True))
-    ReturnType = pyfbsdk.FBTool
+### Returns:
+A pointer to the FBTool object, `None` otherwise.""",
+        parameters=[ParamDoc("ToolName", str), ParamDoc("ResizeWnd", bool, True)],
+        return_type=fb.FBTool,
+    ),
+}
