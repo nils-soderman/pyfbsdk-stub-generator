@@ -1,5 +1,3 @@
-from importlib import reload
-
 from .plugin_base import PluginBaseClass
 
 
@@ -12,14 +10,8 @@ def GetDefaultPlugins():
     from .enum import plugin_enum
     from .readonly_properties import plugin_readonly
 
-    reload(plugin_online_documentation)
-    reload(plugin_manual_docs)
-    reload(plugin_fbproperty)
-    reload(plugin_dunder_methods)
-    reload(plugin_events)
-
     return (
-        plugin_online_documentation.PluginOnlineDocumentation,
+        # plugin_online_documentation.PluginOnlineDocumentation,
         plugin_manual_docs.PluginManualDocumentation,
         plugin_fbproperty.PluginFbProperty,
         plugin_dunder_methods.PluginDunderMethods,
