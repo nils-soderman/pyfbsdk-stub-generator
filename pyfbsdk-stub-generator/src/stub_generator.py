@@ -1,16 +1,14 @@
 from __future__ import annotations
 
-import typing
 import time
-import os
 
 from types import ModuleType
+from pathlib import Path
 
 import pyfbsdk
 
-from . import plugins
+from . import plugins, base_content, native_generator
 from .module_types import StubClass
-from . import native_generator
 from .flags import GeneratorFlag
 
 
@@ -21,7 +19,7 @@ DEFAULT_PLUGINS = plugins.GetDefaultPlugins()
 #                       Helper Functions
 # -------------------------------------------------------------
 
-def GetMotionBuilderVersion() -> int:
+def get_motionbuilder_version() -> int:
     """ Get the current version of MotionBuilder """
     return int(2000 + pyfbsdk.FBSystem().Version / 1000)
 
@@ -30,54 +28,32 @@ def GetMotionBuilderVersion() -> int:
 #                       Functions
 # -------------------------------------------------------------
 
-def ReplaceVariables(String: str) -> str:
-    """
-    Insert variables into the string, e.g. {MOTIONBUILDER_VERSION}
-    """
-    String = String.replace("{MOTIONBUILDER_VERSION}", str(GetMotionBuilderVersion()))
 
-    return String
-
-
-def GetBaseContent(Module: ModuleType) -> str:
-    ModuleName = Module.__name__
-    Filepath = os.path.join(os.path.dirname(__file__), "base_content", f"{ModuleName}.pyi")
-
-    Content = ""
-    if os.path.isfile(Filepath):
-        with open(Filepath, 'r', encoding="utf-8") as File:
-            Content = File.read().strip() + "\n"
-
-    Content = ReplaceVariables(Content)
-
-    return Content
-
-
-def SortClasses(Classes: list[StubClass]) -> list[StubClass]:
+def sort_classes(classes: list[StubClass]) -> list[StubClass]:
     """ 
     Sort classes based on their parent class
     If a class has another class as their parent class, it'll be placed later in the list
     """
-    ClassNames = [x.Name for x in Classes]
+    class_names = [x.Name for x in classes]
 
     i = 0
-    while i < len(Classes):
+    while i < len(classes):
         # Check if class has any required classes that needs to be defined before it (aka. parent classes)
-        Requirements = Classes[i].GetRequirements()
-        if Requirements:
+        requirements = classes[i].GetRequirements()
+        if requirements:
             # Get the required class that has the highest index in the list
-            RequiredIndices = [ClassNames.index(x) for x in Requirements if x in ClassNames]
-            RequiredMaxIndex = max(RequiredIndices) if RequiredIndices else -1
+            required_indices = [class_names.index(x) for x in requirements if x in class_names]
+            required_max_index = max(required_indices) if required_indices else -1
 
             # If current index is lower than the highest required index, move current index to be just below the required one.
-            if RequiredMaxIndex > i:
-                Classes.insert(RequiredMaxIndex + 1, Classes.pop(i))
-                ClassNames.insert(RequiredMaxIndex + 1, ClassNames.pop(i))
+            if required_max_index > i:
+                classes.insert(required_max_index + 1, classes.pop(i))
+                class_names.insert(required_max_index + 1, class_names.pop(i))
                 i -= 1  # Because we moved current index away, re-iterate over the same index once more.
 
         i += 1
 
-    return Classes
+    return classes
 
 
 # ---------------------------------------------------------------------------------
@@ -88,79 +64,69 @@ def SortClasses(Classes: list[StubClass]) -> list[StubClass]:
 class StubGenerator:
     def __init__(
         self,
-        Module: ModuleType,
+        module: ModuleType,
         flags: GeneratorFlag,
-        Plugins: typing.Iterable[type[plugins.PluginBaseClass]] | None = DEFAULT_PLUGINS
+        plugins: list[type[plugins.PluginBaseClass]] | None = DEFAULT_PLUGINS
     ):
         self.flags = flags
-        self.Module = Module
-        self.Version = GetMotionBuilderVersion()
+        self.module = module
+        self.version = get_motionbuilder_version()
 
-        self._AllClassNames = []
-
-        self.Plugins: list[type[plugins.PluginBaseClass]] = list(Plugins) if Plugins else []
-        self.Plugins.sort(key=lambda x: x.Priority)
+        self.plugins = plugins or []
+        self.plugins.sort(key=lambda x: x.Priority)
 
     # ---------------------------------------------------
     #                      Internal
     # ---------------------------------------------------
 
-    def GetAllClassNames(self):
-        """ Get the names of all classes avaliable in the pyfbsdk module """
-        if not self._AllClassNames:
-            Functions, Classes, Enums = native_generator.GetModuleContent(self.Module)
-            self._AllClassNames = [x.__name__ for x in Classes + Enums]
-        return self._AllClassNames
-
-    def GenerateString(self) -> str:
+    def generate_string(self) -> str:
         """
         Returns: The stub file as a string
         """
         # Get the content
-        Enums, Classes, FunctionGroupList = native_generator.GenerateModuleSubs(self.Module)
+        enums, classes, function_groups = native_generator.generate_module_stubs(self.module)
 
         # Run all of the plugins
-        for PluginType in self.Plugins:
-            Plugin = PluginType(self.Version, self.Module, Enums, Classes, FunctionGroupList, self.flags)
-            Plugin.Run()
+        for plugin_cls in self.plugins:
+            plugin = plugin_cls(self.version, self.module, enums, classes, function_groups, self.flags)
+            plugin.Run()
 
         # Sort classes after all patches are done and we know their requirements
-        Classes = SortClasses(Classes)
+        classes = sort_classes(classes)
 
         # Generate a string
-        StubString = GetBaseContent(self.Module)  # Read the custom additions file first
-        StubString += "\n".join([x.GetAsString() for x in Enums])
-        StubString += "\n"
-        StubString += "\n".join([x.GetAsString() for x in Classes])
-        StubString += "\n"
+        stub_content = base_content.get_base_content(self.module)  # Read the custom additions file first
+        stub_content += "\n".join([x.GetAsString() for x in enums])
+        stub_content += "\n"
+        stub_content += "\n".join([x.GetAsString() for x in classes])
+        stub_content += "\n"
 
-        for FunctionGroup in FunctionGroupList:
-            bOverload = len(FunctionGroup) > 1  # If there are multiple functions with the same name, add @overload
-            StubString += "\n".join([x.GetAsString(bOverload) for x in FunctionGroup])
-            StubString += "\n"
+        for function_group in function_groups:
+            overload = len(function_group) > 1  # If there are multiple functions with the same name, add @overload
+            stub_content += "\n".join([x.GetAsString(overload) for x in function_group])
+            stub_content += "\n"
 
-        StubString = StubString.replace("    ", "\t")  # Make sure tabs are used
+        stub_content = stub_content.replace("    ", "\t")  # Make sure tabs are used
 
-        StubString += "\n"
+        stub_content += "\n"
 
-        return StubString
+        return stub_content
 
 
-def GeneratePyfbsdkStubFile(Filepath: str, flags: GeneratorFlag) -> str:
-    StartTime = time.time()
+def generate_stub_file(module: ModuleType, directory_str: str, flags: GeneratorFlag) -> str:
+    start_time = time.time()
 
-    # Make sure directory exists
-    Directory = os.path.dirname(Filepath)
-    if not os.path.isdir(Directory):
-        os.makedirs(Directory)
+    generator = StubGenerator(module, flags)
+    file_content = generator.generate_string()
 
-    Generator = StubGenerator(pyfbsdk, flags)
-    FileContent = Generator.GenerateString()
+    directory = Path(directory_str)
 
-    with open(Filepath, "w+", encoding="utf-8") as File:
-        File.write(FileContent)
+    directory.mkdir(parents=True, exist_ok=True)
+    filepath = directory / f"{module.__name__}.pyi"
+    filepath.write_text(file_content)
 
-    GenerationTime = time.time() - StartTime
-    print(f"Generating pyfbsdk stub file took: {round(GenerationTime, 2)}s.")
+    elapsed_time = time.time() - start_time
 
-    return Filepath
+    print(f"Generating {module.__name__} stub file took: {round(elapsed_time, 2)}s.")
+
+    return str(filepath)

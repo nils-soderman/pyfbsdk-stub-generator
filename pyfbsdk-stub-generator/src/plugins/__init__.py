@@ -10,12 +10,12 @@ def GetDefaultPlugins():
     from .enum import plugin_enum
     from .readonly_properties import plugin_readonly
 
-    return (
-        # plugin_online_documentation.PluginOnlineDocumentation,
+    return [
+        plugin_online_documentation.PluginOnlineDocumentation,
         plugin_manual_docs.PluginManualDocumentation,
         plugin_fbproperty.PluginFbProperty,
         plugin_dunder_methods.PluginDunderMethods,
         plugin_enum.PluginEnum,
         plugin_events.PluginEvents,
         plugin_readonly.PluginReadOnly,
-    )
+    ]

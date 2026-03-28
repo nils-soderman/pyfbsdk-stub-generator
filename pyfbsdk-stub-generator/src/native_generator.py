@@ -3,6 +3,7 @@ from __future__ import annotations
 import inspect
 import typing
 import types
+import enum
 
 from types import ModuleType
 
@@ -18,32 +19,32 @@ ALLOWED_CLASS_OVERRIDES = [
 ]
 
 
-class FObjectType:
-    Function = 'function'
-    Class = 'class'
-    Property = 'property'
-    Enum = 'type'
+class EObjectType(enum.StrEnum):
+    FUNCTION = 'function'
+    CLASS = 'class'
+    PROPERTY = 'property'
+    ENUM = 'type'
 
 
 # -------------------------------------------------------------
 #                       Helper Functions
 # -------------------------------------------------------------
 
-def GetObjectName(Object) -> str:
-    return Object.__name__
+def get_object_name(obj: type) -> str:
+    return obj.__name__
 
 
-def GetObjectType(Object) -> str:
+def get_object_type(obj: type) -> str:
     """ Get object type as a string """
-    return GetObjectName(type(Object))
+    return get_object_name(type(obj))
 
 
-def IsPrivate(Object):
+def is_private(obj: type) -> bool:
     """ Check if the name of an object begins with a underscore """
-    return GetObjectName(Object).startswith("_")
+    return get_object_name(obj).startswith("_")
 
 
-def IsMethodStatic(Class, MethodName: str):
+def is_method_static(Class, MethodName: str) -> bool:
     """ 
     Check if a method is static
     Args:
@@ -53,123 +54,105 @@ def IsMethodStatic(Class, MethodName: str):
     return isinstance(inspect.getattr_static(Class, MethodName), staticmethod)
 
 
-def GetModuleContent(Module: ModuleType):
-    """ 
-    Get all members in the pyfbsdk module
-    returns: a tuple with (Functions, Classes, Enums)
-    """
-    Members = inspect.getmembers(Module)
-    Functions = [x[1] for x in Members if GetObjectType(x[1]) == FObjectType.Function and not IsPrivate(x[1])]
-    Classes = [x[1] for x in Members if GetObjectType(x[1]) == FObjectType.Class]
-    Enums = [x[1] for x in Members if GetObjectType(x[1]) == FObjectType.Enum]
-
-    return (Functions, Classes, Enums)
-
-
-def GetClassParents(Class):
+def get_class_parents(Class: type):
     return Class.__bases__
 
 
-def GetUniqueClassMembers(Class, Ignore = (), AllowedOverrides = ()):
-    """ 
-    Args:
-        - Class {object}: reference to the class
-        - Ignore {List[str]}: 
-        - AllowedOverrides {List[str]}: Always allowed members named x, even if they exists in the parent class
+def get_unique_class_members(cls: type, ignore: tuple[str, ...] = (), allowed_overrides: tuple[str, ...] = ()):
+    members = inspect.getmembers(cls)
+    parent_cls = get_class_parents(cls)[0]
 
-    Returns: tuple("Name", Reference)
-    """
-    Members = inspect.getmembers(Class)
-    ParentClass = GetClassParents(Class)[0]
-
-    UniqueMembers = []
-    for Name, Ref in Members:
-        if Name in Ignore:
+    unique_members = []
+    for name, ref in members:
+        if name in ignore:
             continue
 
-        if hasattr(ParentClass, Name):
-            if ParentClass.__name__ == "instance":
-                if isinstance(Ref, (types.BuiltinFunctionType, types.BuiltinMethodType)) and Name in ALLOWED_BUILTIN_OVERRIDES:
-                    UniqueMembers.append((Name, Ref))
+        if hasattr(parent_cls, name):
+            if parent_cls.__name__ == "instance":
+                if isinstance(ref, (types.BuiltinFunctionType, types.BuiltinMethodType)) and name in ALLOWED_BUILTIN_OVERRIDES:
+                    unique_members.append((name, ref))
                     continue
 
-            if Name not in AllowedOverrides and getattr(ParentClass, Name) not in ALLOWED_CLASS_OVERRIDES:
+            if name not in allowed_overrides and getattr(parent_cls, name) not in ALLOWED_CLASS_OVERRIDES:
                 continue
 
-        UniqueMembers.append((Name, Ref))
+        unique_members.append((name, ref))
 
-    return UniqueMembers
+    return unique_members
 
 
-def GetClassParentNames(Class) -> list[str]:
-    ParentClassNames: list[str] = []
-    for Parent in GetClassParents(Class):
-        ParentClassName = Parent.__name__
-        if ParentClassName == "instance":
+def get_class_parent_names(cls: type) -> list[str]:
+    parent_names: list[str] = []
+
+    for parent_cls in get_class_parents(cls):
+        parent_name = parent_cls.__name__
+        if parent_name == "instance":
             continue
 
-        elif ParentClassName == "enum":
-            ParentClassName = ENUMERATION_NAME
+        elif parent_name == "enum":
+            parent_name = ENUMERATION_NAME
 
-        ParentClassNames.append(ParentClassName)
+        parent_names.append(parent_name)
 
-    return ParentClassNames
+    return parent_names
 
 
-def GetFunctionInfoFromDocString(Function: typing.Callable) -> list[tuple[list[StubParameter], str]]:
+def get_function_info_from_doc_string(function: typing.Callable) -> list[tuple[list[StubParameter], str]]:
     """
     Get Parameters & Return type from the docstring, can return multiple results if overload functions exists.
 
     Returns: a list of tuple([Parameters], ReturnType)
     """
-    def _GenerateParams(ParamsString, DefaultValue = None) -> list[StubParameter]:
+    if not function.__doc__:  # Return an empty list if the function has no docstring
+        return []
+
+    def _generate_parameters(param_str: str, default_value = None) -> list[StubParameter]:
         """ 
         Parse a param string that looks something like this:
         "(FBVector4d)arg1, (FBVector4d)arg2, (FBVector4d)arg3"
         and generate StubParameter instances from it
         """
-        Params = []
-        for Param in ParamsString.split(","):
+        params: list[StubParameter] = []
+        for param in param_str.split(","):
             # Param will now look something like this: '(str)arg1'
-            ParamType, _, ParamName = Param.strip().partition(")")
-            ParameterInstance = StubParameter(Function, ParamName, ParamType[1:], DefaultValue = DefaultValue)
-            Params.append(ParameterInstance)
-        return Params
+            param_type, _, param_name = param.strip().partition(")")
+            parameter_instance = StubParameter(function, param_name, param_type[1:], DefaultValue = default_value)
+            params.append(parameter_instance)
 
-    if not Function.__doc__:  # Return an empty list if the function has no docstring
-        return []
+        return params
 
-    FunctionParameters = []
+    parameters = []
+
     # Read the docstring and split it up if there are multiple function overrides
-    FunctionsDocs = [x for x in Function.__doc__.split("\n") if x]
-    for Doc in FunctionsDocs:
-        # Make sure `Doc` now follows this format: "FunctionName( (str)arg1 [, (object)arg2]) -> object"
-        if not Doc.strip().startswith(Function.__name__) or not all(x in Doc for x in ["->", "(", ")"]):
+    function_docs = [x for x in function.__doc__.split("\n") if x]
+    for docstring in function_docs:
+        # Make sure `docstring` now follows this format: "FunctionName( (str)arg1 [, (object)arg2]) -> object"
+        if not docstring.strip().startswith(function.__name__) or not all(x in docstring for x in ["->", "(", ")"]):
             continue
 
-        # 'Doc' will now look something like this:
+        # 'docstring' will now look something like this:
         # ShowToolByName( (str)arg1 [, (object)arg2]) -> object
-        Doc = Doc.partition("(")[2]  # Remove function name
-        Params, _, ReturnType = Doc.rpartition("->")
+        docstring = docstring.partition("(")[2]  # Remove function name
+        params, _, return_type = docstring.rpartition("->")
 
-        ReturnType = ReturnType.strip(" :")
+        return_type = return_type.strip(" :")
 
         # Split params into required & optional
-        Params = Params.rpartition(")")[0]
-        RequiredParams, _, OptionalParams = Params.partition("[")
-        OptionalParams = OptionalParams.replace("[", "").replace("]", "").lstrip(',')
+        params = params.rpartition(")")[0]
+        required_params, _, optional_params = params.partition("[")
+        optional_params = optional_params.replace("[", "").replace("]", "").lstrip(',')
 
-        Params = []
-        if RequiredParams.strip():
-            Params += _GenerateParams(RequiredParams)
-        if OptionalParams.strip():
-            Params += _GenerateParams(OptionalParams, DefaultValue = "None")
+        params = []
+        if required_params.strip():
+            params += _generate_parameters(required_params)
+        if optional_params.strip():
+            params += _generate_parameters(optional_params, default_value = "None")
 
-        FunctionParameters.append(
-            (Params, ReturnType.strip())
+        parameters.append(
+            (params, return_type.strip())
         )
 
-    return FunctionParameters
+    return parameters
 
 
 # -------------------------------------------------------------
@@ -177,7 +160,7 @@ def GetFunctionInfoFromDocString(Function: typing.Callable) -> list[tuple[list[S
 # -------------------------------------------------------------
 
 
-def GenerateEnumInstance(Class, ParentClass = None):
+def generate_enum_instance(cls: type, parent_cls = None):
     """
     Generate a StubClass instance from a class (enum) reference
 
@@ -186,25 +169,27 @@ def GenerateEnumInstance(Class, ParentClass = None):
         - ParentClass: If this class is a subclass, the parent class should be passed along
     """
     # Create the stub instance
-    ClassName = GetObjectName(Class)
-    EnumClassInstance = StubClass(Class, ClassName)
+    cls_name = get_object_name(cls)
+    stub_enum = StubClass(cls, cls_name)
 
     # Get all members and generate stub properties of them
-    ClassMembers = GetUniqueClassMembers(Class, Ignore = ["__init__", "__slots__", "names", "values"])
-    for PropertyName, PropertyReference in ClassMembers:
-        PropertyInstance = StubProperty(PropertyReference, PropertyName)
-        if ParentClass:
-            PropertyInstance.Type = f"{GetObjectName(ParentClass)}.{ClassName}"
+    cls_members = get_unique_class_members(cls, ignore = ("__init__", "__slots__", "names", "values"))
+
+    for name, ref in cls_members:
+        stub_property = StubProperty(ref, name)
+        if parent_cls:
+            stub_property.Type = f"{get_object_name(parent_cls)}.{cls_name}"
         else:
-            PropertyInstance.Type = ClassName
-        EnumClassInstance.AddProperty(PropertyInstance)
+            stub_property.Type = cls_name
 
-    EnumClassInstance.AddParent(ENUMERATION_NAME)
+        stub_enum.AddProperty(stub_property)
 
-    return EnumClassInstance
+    stub_enum.AddParent(ENUMERATION_NAME)
+
+    return stub_enum
 
 
-def GenerateClassInstance(Class, AllClassNames: list[str]) -> StubClass:
+def generate_class_instance(cls: type) -> StubClass:
     """
     Generate a StubClass instance from a class reference
 
@@ -212,91 +197,111 @@ def GenerateClassInstance(Class, AllClassNames: list[str]) -> StubClass:
         - Class {class}: reference to the class
     """
     # Create the stub instance
-    ClassName = GetObjectName(Class)
-    ClassInstance = StubClass(Class, ClassName)
+    cls_name = get_object_name(cls)
+    stub_class = StubClass(cls, cls_name)
 
     # Get all members and generate stub properties of them
-    ClassMembers = GetUniqueClassMembers(Class,
-                                         Ignore = ["__instance_size__"],
-                                         AllowedOverrides = ["__init__",
-                                                             "__getitem__",
-                                                             "__contains__",
-                                                             "Data",
-                                                             "remove",
-                                                             "pop",
-                                                             "insert",
-                                                             "append",
-                                                             "count"]
-                                         )
-    ClassMemberNames = [x for x, y in ClassMembers]
+    cls_members = get_unique_class_members(cls,
+                                           ignore = ("__instance_size__",),
+                                           allowed_overrides = ("__init__",
+                                                                "__getitem__",
+                                                                "__contains__",
+                                                                "Data",
+                                                                "remove",
+                                                                "pop",
+                                                                "insert",
+                                                                "append",
+                                                                "count")
+                                           )
 
-    for MemberName, MemberReference in ClassMembers:
-        Type = GetObjectType(MemberReference)
+    cls_member_names = [x for x, y in cls_members]
 
-        if Type == FObjectType.Function:
-            Methods = []
-            for StubMethod in GenerateFunctionInstances(MemberReference):
-                StubMethod.bIsStatic = IsMethodStatic(Class, MemberName)
-                Methods.append(StubMethod)
-            ClassInstance.AddFunctions(Methods)
+    for member_name, member_reference in cls_members:
+        type_str = get_object_type(member_reference)
 
-        elif Type == FObjectType.Enum:
-            StubEnum = GenerateEnumInstance(MemberReference, ParentClass = Class)
-            ClassInstance.AddEnum(StubEnum)
+        if type_str == EObjectType.FUNCTION:
+            methods: list[StubFunction] = []
+            for stub_methods in generate_function_instances(member_reference):
+                stub_methods.bIsStatic = is_method_static(cls, member_name)
+                methods.append(stub_methods)
+            
+            stub_class.AddFunctions(methods)
 
-        elif MemberName not in ["__init__"]:
-            Property = StubProperty(MemberReference, MemberName)
-            if Type in ClassMemberNames:
-                Property.Type = f"{ClassName}.{Type}"
+        elif type_str == EObjectType.ENUM:
+            stub_enum = generate_enum_instance(member_reference, parent_cls = cls)
+            stub_class.AddEnum(stub_enum)
+
+        elif member_name not in ["__init__"]:
+            stub_property = StubProperty(member_reference, member_name)
+            if type_str in cls_member_names:
+                stub_property.Type = f"{cls_name}.{type_str}"
             else:
-                Property.Type = Type
+                stub_property.Type = type_str
 
-            ClassInstance.AddProperty(Property)
+            stub_class.AddProperty(stub_property)
 
     # Set the parent classes
-    for ParentClassName in GetClassParentNames(Class):
-        ClassInstance.AddParent(ParentClassName)
+    for parent_name in get_class_parent_names(cls):
+        stub_class.AddParent(parent_name)
 
-    return ClassInstance
+    return stub_class
 
 
-def GenerateFunctionInstances(Function) -> list[StubFunction]:
+def generate_function_instances(function: type) -> list[StubFunction]:
     """
     Generate StubFunction instances from a function reference.
 
     Args:
-        - Function {function}: reference to the function
+        - function: reference to the function
 
     Returns: A list of function instances, can be multiple if it has overload versions
     """
-    FunctionName = GetObjectName(Function)
+    name = get_object_name(function)
 
-    StubFunctions = []
+    stub_functions: list[StubFunction] = []
 
     # Get param & returntype info from the docstring
-    FunctionInfo = GetFunctionInfoFromDocString(Function)
-    for Parameters, ReturnType in FunctionInfo:
-        StubFunctionInstance = StubFunction(Function, FunctionName, Parameters, ReturnType)
+    function_info = get_function_info_from_doc_string(function)
+    for stub_parameter, return_type in function_info:
+        stub_functions.append(StubFunction(function, name, stub_parameter, return_type))
 
-        StubFunctions.append(StubFunctionInstance)
-
-    return StubFunctions
+    return stub_functions
 
 
 # -------------------------------------------------------------
 #                     Main Generator Class
 # -------------------------------------------------------------
 
-def GenerateModuleSubs(Module: ModuleType):
-    Functions, Classes, Enums = GetModuleContent(Module)
+class RawModuleContent(typing.NamedTuple):
+    enums: list[type]
+    classes: list[type]
+    functions: list[type]
 
-    AllClassNames = [x.__name__ for x in Classes + Enums]
 
-    EnumStubs = [GenerateEnumInstance(Enum) for Enum in Enums]
-    ClassStubs = [GenerateClassInstance(Class, AllClassNames) for Class in Classes]
+class ModuleStubs(typing.NamedTuple):
+    enums: list[StubClass]
+    classes: list[StubClass]
+    function_groups: list[list[StubFunction]]
 
-    FunctionStubs: list[list[StubFunction]] = []
-    for Function in Functions:
-        FunctionStubs.append(GenerateFunctionInstances(Function))
 
-    return EnumStubs, ClassStubs, FunctionStubs
+def get_module_content(module: ModuleType) -> RawModuleContent:
+    """
+    Get all members in the given module
+    returns: a ModuleContent named tuple with (functions, classes, enums)
+    """
+    members = inspect.getmembers(module)
+    functions = [x[1] for x in members if get_object_type(x[1]) == EObjectType.FUNCTION and not is_private(x[1])]
+    classes = [x[1] for x in members if get_object_type(x[1]) == EObjectType.CLASS]
+    enums = [x[1] for x in members if get_object_type(x[1]) == EObjectType.ENUM]
+
+    return RawModuleContent(enums=enums, classes=classes, functions=functions)
+
+
+def generate_module_stubs(module: ModuleType) -> ModuleStubs:
+    content = get_module_content(module)
+
+    enum_stubs = [generate_enum_instance(x) for x in content.enums]
+    class_stubs = [generate_class_instance(x) for x in content.classes]
+    function_stubs = [generate_function_instances(x) for x in content.functions]
+
+    return ModuleStubs(enums=enum_stubs, classes=class_stubs, function_groups=function_stubs)
