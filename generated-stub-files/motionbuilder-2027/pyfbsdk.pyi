@@ -3516,7 +3516,7 @@ class FBAddRegionParam:
 		"""Initialize a region params.
 
 		### Parameters:
-		 - Pos: Offset in pixel according depending on the use of [FBAddRegionParam](classpyfbsdk_1_1_f_b_add_region_param.html "This class provide a placeholder to put values necessary to create a Region with FBLayout....") (X, Y, W or H)
+		 - Pos: Offset in pixel according depending on the use of [FBAddRegionParam](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_add_region_param.html) (X, Y, W or H)
 		 - Type: Type of Attachment.
 		 - Relative: Name of Region to attach relative to.
 		 - Mult: Multiplier of relative value."""
@@ -4201,7 +4201,7 @@ class FBEventDragAndDrop(FBEvent):
 		"""Get the [FBComponent](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_component.html) specified by **pIndex** from the Drag and Drop list.
 
 		### Parameters:
-		 - Index: Index in list where to get [FBComponent](classpyfbsdk_1_1_f_b_component.html "MotionBuilder SDK base class.").
+		 - Index: Index in list where to get [FBComponent](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_component.html).
 
 		### Returns:
 		Handle to [FBComponent](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_component.html) in list at **pIndex**."""
@@ -6034,7 +6034,7 @@ class FBComponent(FBPlug):
 
 		### Parameters:
 		 - Name: The name of the property.
-		 - Type: Type of the property. See enum [FBPropertyType](classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+		 - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_property_type.html).
 		 - DataType: DataType of the property.
 		 - Animatable: To specify if the property can be animated.
 		 - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
@@ -6046,7 +6046,7 @@ class FBComponent(FBPlug):
 
 		### Parameters:
 		 - Name: The name of the property.
-		 - Type: Type of the property. See enum [FBPropertyType](classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+		 - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_property_type.html).
 		 - DataType: DataType of the property.
 		 - Animatable: To specify if the property can be animated.
 		 - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
@@ -6058,7 +6058,7 @@ class FBComponent(FBPlug):
 
 		### Parameters:
 		 - Name: The name of the property.
-		 - Type: Type of the property. See enum [FBPropertyType](classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+		 - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_property_type.html).
 		 - DataType: DataType of the property.
 		 - Animatable: To specify if the property can be animated.
 		 - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
@@ -6070,7 +6070,7 @@ class FBComponent(FBPlug):
 
 		### Parameters:
 		 - Name: The name of the property.
-		 - Type: Type of the property. See enum [FBPropertyType](classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+		 - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_property_type.html).
 		 - DataType: DataType of the property.
 		 - Animatable: To specify if the property can be animated.
 		 - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
@@ -6082,7 +6082,7 @@ class FBComponent(FBPlug):
 
 		### Parameters:
 		 - Name: The name of the property.
-		 - Type: Type of the property. See enum [FBPropertyType](classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+		 - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_property_type.html).
 		 - DataType: DataType of the property.
 		 - Animatable: To specify if the property can be animated.
 		 - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
@@ -6094,7 +6094,7 @@ class FBComponent(FBPlug):
 
 		### Parameters:
 		 - Name: The name of the property.
-		 - Type: Type of the property. See enum [FBPropertyType](classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+		 - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_property_type.html).
 		 - DataType: DataType of the property.
 		 - Animatable: To specify if the property can be animated.
 		 - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
@@ -6106,7 +6106,7 @@ class FBComponent(FBPlug):
 
 		### Parameters:
 		 - Name: The name of the property.
-		 - Type: Type of the property. See enum [FBPropertyType](classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+		 - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_property_type.html).
 		 - DataType: DataType of the property.
 		 - Animatable: To specify if the property can be animated.
 		 - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
@@ -6118,7 +6118,7 @@ class FBComponent(FBPlug):
 
 		### Parameters:
 		 - Name: The name of the property.
-		 - Type: Type of the property. See enum [FBPropertyType](classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+		 - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_property_type.html).
 		 - DataType: DataType of the property.
 		 - Animatable: To specify if the property can be animated.
 		 - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
@@ -6130,7 +6130,7 @@ class FBComponent(FBPlug):
 
 		### Parameters:
 		 - Name: The name of the property.
-		 - Type: Type of the property. See enum [FBPropertyType](classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+		 - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_property_type.html).
 		 - DataType: DataType of the property.
 		 - Animatable: To specify if the property can be animated.
 		 - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
@@ -6142,7 +6142,7 @@ class FBComponent(FBPlug):
 
 		### Parameters:
 		 - Name: The name of the property.
-		 - Type: Type of the property. See enum [FBPropertyType](classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+		 - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_property_type.html).
 		 - DataType: DataType of the property.
 		 - Animatable: To specify if the property can be animated.
 		 - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
@@ -6154,7 +6154,7 @@ class FBComponent(FBPlug):
 
 		### Parameters:
 		 - Name: The name of the property.
-		 - Type: Type of the property. See enum [FBPropertyType](classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+		 - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_property_type.html).
 		 - DataType: DataType of the property.
 		 - Animatable: To specify if the property can be animated.
 		 - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
@@ -6166,7 +6166,7 @@ class FBComponent(FBPlug):
 
 		### Parameters:
 		 - Name: The name of the property.
-		 - Type: Type of the property. See enum [FBPropertyType](classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+		 - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_property_type.html).
 		 - DataType: DataType of the property.
 		 - Animatable: To specify if the property can be animated.
 		 - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
@@ -6178,7 +6178,7 @@ class FBComponent(FBPlug):
 
 		### Parameters:
 		 - Name: The name of the property.
-		 - Type: Type of the property. See enum [FBPropertyType](classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+		 - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_property_type.html).
 		 - DataType: DataType of the property.
 		 - Animatable: To specify if the property can be animated.
 		 - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
@@ -6190,7 +6190,7 @@ class FBComponent(FBPlug):
 
 		### Parameters:
 		 - Name: The name of the property.
-		 - Type: Type of the property. See enum [FBPropertyType](classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+		 - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_property_type.html).
 		 - DataType: DataType of the property.
 		 - Animatable: To specify if the property can be animated.
 		 - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
@@ -6202,7 +6202,7 @@ class FBComponent(FBPlug):
 
 		### Parameters:
 		 - Name: The name of the property.
-		 - Type: Type of the property. See enum [FBPropertyType](classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+		 - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_property_type.html).
 		 - DataType: DataType of the property.
 		 - Animatable: To specify if the property can be animated.
 		 - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
@@ -6214,7 +6214,7 @@ class FBComponent(FBPlug):
 
 		### Parameters:
 		 - Name: The name of the property.
-		 - Type: Type of the property. See enum [FBPropertyType](classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+		 - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_property_type.html).
 		 - DataType: DataType of the property.
 		 - Animatable: To specify if the property can be animated.
 		 - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
@@ -6226,7 +6226,7 @@ class FBComponent(FBPlug):
 
 		### Parameters:
 		 - Name: The name of the property.
-		 - Type: Type of the property. See enum [FBPropertyType](classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+		 - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_property_type.html).
 		 - DataType: DataType of the property.
 		 - Animatable: To specify if the property can be animated.
 		 - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
@@ -6238,7 +6238,7 @@ class FBComponent(FBPlug):
 
 		### Parameters:
 		 - Name: The name of the property.
-		 - Type: Type of the property. See enum [FBPropertyType](classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+		 - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_property_type.html).
 		 - DataType: DataType of the property.
 		 - Animatable: To specify if the property can be animated.
 		 - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
@@ -6250,7 +6250,7 @@ class FBComponent(FBPlug):
 
 		### Parameters:
 		 - Name: The name of the property.
-		 - Type: Type of the property. See enum [FBPropertyType](classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+		 - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_property_type.html).
 		 - DataType: DataType of the property.
 		 - Animatable: To specify if the property can be animated.
 		 - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
@@ -6262,7 +6262,7 @@ class FBComponent(FBPlug):
 
 		### Parameters:
 		 - Name: The name of the property.
-		 - Type: Type of the property. See enum [FBPropertyType](classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+		 - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_property_type.html).
 		 - DataType: DataType of the property.
 		 - Animatable: To specify if the property can be animated.
 		 - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
@@ -6274,7 +6274,7 @@ class FBComponent(FBPlug):
 
 		### Parameters:
 		 - Name: The name of the property.
-		 - Type: Type of the property. See enum [FBPropertyType](classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+		 - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_property_type.html).
 		 - DataType: DataType of the property.
 		 - Animatable: To specify if the property can be animated.
 		 - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
@@ -6286,7 +6286,7 @@ class FBComponent(FBPlug):
 
 		### Parameters:
 		 - Name: The name of the property.
-		 - Type: Type of the property. See enum [FBPropertyType](classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+		 - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_property_type.html).
 		 - DataType: DataType of the property.
 		 - Animatable: To specify if the property can be animated.
 		 - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
@@ -6298,7 +6298,7 @@ class FBComponent(FBPlug):
 
 		### Parameters:
 		 - Name: The name of the property.
-		 - Type: Type of the property. See enum [FBPropertyType](classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+		 - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_property_type.html).
 		 - DataType: DataType of the property.
 		 - Animatable: To specify if the property can be animated.
 		 - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
@@ -6310,7 +6310,7 @@ class FBComponent(FBPlug):
 
 		### Parameters:
 		 - Name: The name of the property.
-		 - Type: Type of the property. See enum [FBPropertyType](classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+		 - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_property_type.html).
 		 - DataType: DataType of the property.
 		 - Animatable: To specify if the property can be animated.
 		 - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
@@ -6322,7 +6322,7 @@ class FBComponent(FBPlug):
 
 		### Parameters:
 		 - Name: The name of the property.
-		 - Type: Type of the property. See enum [FBPropertyType](classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+		 - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_property_type.html).
 		 - DataType: DataType of the property.
 		 - Animatable: To specify if the property can be animated.
 		 - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
@@ -6334,7 +6334,7 @@ class FBComponent(FBPlug):
 
 		### Parameters:
 		 - Name: The name of the property.
-		 - Type: Type of the property. See enum [FBPropertyType](classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+		 - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_property_type.html).
 		 - DataType: DataType of the property.
 		 - Animatable: To specify if the property can be animated.
 		 - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
@@ -6346,7 +6346,7 @@ class FBComponent(FBPlug):
 
 		### Parameters:
 		 - Name: The name of the property.
-		 - Type: Type of the property. See enum [FBPropertyType](classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+		 - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_property_type.html).
 		 - DataType: DataType of the property.
 		 - Animatable: To specify if the property can be animated.
 		 - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
@@ -6358,7 +6358,7 @@ class FBComponent(FBPlug):
 
 		### Parameters:
 		 - Name: The name of the property.
-		 - Type: Type of the property. See enum [FBPropertyType](classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+		 - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_property_type.html).
 		 - DataType: DataType of the property.
 		 - Animatable: To specify if the property can be animated.
 		 - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
@@ -6370,7 +6370,7 @@ class FBComponent(FBPlug):
 
 		### Parameters:
 		 - Name: The name of the property.
-		 - Type: Type of the property. See enum [FBPropertyType](classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+		 - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_property_type.html).
 		 - DataType: DataType of the property.
 		 - Animatable: To specify if the property can be animated.
 		 - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
@@ -6382,7 +6382,7 @@ class FBComponent(FBPlug):
 
 		### Parameters:
 		 - Name: The name of the property.
-		 - Type: Type of the property. See enum [FBPropertyType](classpyfbsdk_1_1_f_b_property_type.html "Property types.").
+		 - Type: Type of the property. See enum [FBPropertyType](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_property_type.html).
 		 - DataType: DataType of the property.
 		 - Animatable: To specify if the property can be animated.
 		 - IsUser: To specify if the property is available as a custom property or dynamic and attached to the object.
@@ -8455,7 +8455,7 @@ class FBRenderer(FBComponent):
 		"""Setup the scene lights in OpenGL.
 
 		### Parameters:
-		 - RenderOptions: See [FBRenderOptions](classpyfbsdk_1_1_f_b_render_options.html) for more detail."""
+		 - RenderOptions: See [FBRenderOptions](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_render_options.html) for more detail."""
 		...
 	def Pick(self,arg2,arg3,PickInfosList:FBPickInfosList,/)->bool:
 		"""Object picking selection.
@@ -8540,7 +8540,7 @@ class FBRenderer(FBComponent):
 		"""RenderEnd.
 
 		### Parameters:
-		 - View: If you want the renderer to draw artifacts, such as TimeCode, CameraLabel or SafeArea, you must provide the [FBView](classpyfbsdk_1_1_f_b_view.html "Generic view.") on which the renderer draws on.
+		 - View: If you want the renderer to draw artifacts, such as TimeCode, CameraLabel or SafeArea, you must provide the [FBView](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_view.html) on which the renderer draws on.
 
 		### Remarks:
 		Must be called at the end of rendering."""
@@ -8623,7 +8623,7 @@ class FBRenderer(FBComponent):
 		"""Set the viewing options.
 
 		### Parameters:
-		 - Options: See [FBViewingOptions](classpyfbsdk_1_1_f_b_viewing_options.html "Viewing options for rendering.") for more detail."""
+		 - Options: See [FBViewingOptions](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_viewing_options.html) for more detail."""
 		...
 	def SetViewport(self,X:int,Y:int,W:int,H:int,/)->None:
 		"""Must be called before inputing if the same renderer is used on multiple views/cameras in the same application.
@@ -12426,7 +12426,7 @@ class FBHUDElement(FBBox):
 	Visibility:bool
 	"""**Read Write Property:** Visibility of the HUD element.
 
-	### **[Deprecated](deprecated.html#_deprecated000004)**:
+	### **[Deprecated](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/deprecated.html#_deprecated000004)**:
 	Use the Show property instead."""
 	Width:float
 	"""**Read Write Property:** Specifies the width of HUD element on the screen. It's in pixel when ScaleByPercent is false and percentage when ScaleByPercent is true."""
@@ -13157,7 +13157,7 @@ class FBLight(FBModel):
 	ConeAngle:float
 	"""**Read Write Property:** Cone angle for spot lights (outer angle).
 
-	### **[Deprecated](deprecated.html#_deprecated000002)**:
+	### **[Deprecated](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/deprecated.html#_deprecated000002)**:
 	Use the OuterAngle property instead."""
 	@property
 	def DiffuseColor(self)->FBPropertyAnimatableColor:
@@ -14418,7 +14418,7 @@ class FBAudioIn(FBComponent):
 		The Audio In must be offline when this method is called. (Windows only).
 
 		### Parameters:
-		 - Delay: The delay to use. To mimic the UI, the [FBTime](classpyfbsdk_1_1_f_b_time.html "Time data structure.") should refer to a frame number.
+		 - Delay: The delay to use. To mimic the UI, the [FBTime](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_time.html) should refer to a frame number.
 
 		### Returns:
 		True if operation is successful, false otherwise."""
@@ -14805,7 +14805,7 @@ class FBApplication(FBComponent):
 		### Parameters:
 		 - Filename: File(s) to merge. For multiple files, use a list of files separated by '~'.
 		 - ShowUIMsg: Set false if don't want to popup any UI dialog or messages (default=false).
-		 - Options: Provide finer control on file open options (default=NULL). if not null, Option dialog will only show if both option's ShowOptionsDialog property and pShowUIMsg are true. It is possible to append multiple scenes, each one within its own user specified namespace, by calling the [FBFbxOptions::MultiLoadNamespaceList](classpyfbsdk_1_1_f_b_fbx_options.html#a90484e61e1455e6baf58b2c54840a521 "Read Write Property: A list of namespaces separated by '~' that will be used when merging multiple sc...") property first. When doing so though, the FBFbxOption.NamespaceList property is then ignored.
+		 - Options: Provide finer control on file open options (default=NULL). if not null, Option dialog will only show if both option's ShowOptionsDialog property and pShowUIMsg are true. It is possible to append multiple scenes, each one within its own user specified namespace, by calling the [FBFbxOptions::MultiLoadNamespaceList](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_fbx_options.html#a90484e61e1455e6baf58b2c54840a521) property first. When doing so though, the FBFbxOption.NamespaceList property is then ignored.
 
 		### Returns:
 		true if successful."""
@@ -14874,7 +14874,7 @@ class FBApplication(FBComponent):
 		Command File->Motion File Export... in the menus.
 
 		### Parameters:
-		 - Options: An [FBMotionFileExportOptions](classpyfbsdk_1_1_f_b_motion_file_export_options.html "Customize motion file exporting.") object that contains the file path of the motion file(s) to export, as well as the options to export those motion files.
+		 - Options: An [FBMotionFileExportOptions](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_motion_file_export_options.html) object that contains the file path of the motion file(s) to export, as well as the options to export those motion files.
 
 		### Returns:
 		True if the export succeeded. Returns false if some files were not written (file not overwritten, invalid path, etc.). Returns false if the given options object is not valid. See the [FBMotionFileExportOptions::IsValid](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_motion_file_export_options.html#a9dcb9b43a3d0fa9003d4c1c9d921f6b2) method.
@@ -14931,7 +14931,7 @@ class FBApplication(FBComponent):
 		Command File->Motion File Import... in the menus.
 
 		### Parameters:
-		 - Options: An [FBMotionFileImportOptions](classpyfbsdk_1_1_f_b_motion_file_import_options.html "Customize motion file loading.") object that contains the path to the files, as well as the options to load those motion files.
+		 - Options: An [FBMotionFileImportOptions](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_motion_file_import_options.html) object that contains the path to the files, as well as the options to load those motion files.
 
 		### Returns:
 		True if the import succeeded.
@@ -14950,7 +14950,7 @@ class FBApplication(FBComponent):
 		### Parameters:
 		 - Filename: File(s) to merge. For multiple files, use a list of files separated by '~'.
 		 - ShowUIMsg: Set false if don't want to popup any UI dialog or messages (default=false).
-		 - Options: Provide finer control on file open options (default=NULL). if not null, Option dialog will only show if both option's ShowOptionsDialog property and pShowUIMsg are true. It is possible to merge multiple scenes, each one within its own user specified namespace, by calling the [FBFbxOptions::MultiLoadNamespaceList](classpyfbsdk_1_1_f_b_fbx_options.html#a90484e61e1455e6baf58b2c54840a521 "Read Write Property: A list of namespaces separated by '~' that will be used when merging multiple sc...") property first. When doing so though, the FBFbxOption.NamespaceList property is then ignored.
+		 - Options: Provide finer control on file open options (default=NULL). if not null, Option dialog will only show if both option's ShowOptionsDialog property and pShowUIMsg are true. It is possible to merge multiple scenes, each one within its own user specified namespace, by calling the [FBFbxOptions::MultiLoadNamespaceList](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_fbx_options.html#a90484e61e1455e6baf58b2c54840a521) property first. When doing so though, the FBFbxOption.NamespaceList property is then ignored.
 
 		### Returns:
 		true if successful."""
@@ -14964,7 +14964,7 @@ class FBApplication(FBComponent):
 		### Parameters:
 		 - Pathlist: Files to merge.
 		 - ShowUIMsg: Set false if don't want to popup any UI dialog or messages (default=false).
-		 - Options: Provide finer control on file open options (default=NULL). if not null, Option dialog will only show if both option's ShowOptionsDialog property and pShowUIMsg are true. It is possible to merge multiple scenes, each one within its own user specified namespace, by calling the [FBFbxOptions::MultiLoadNamespaceList](classpyfbsdk_1_1_f_b_fbx_options.html#a90484e61e1455e6baf58b2c54840a521 "Read Write Property: A list of namespaces separated by '~' that will be used when merging multiple sc...") property first. When doing so though, the FBFbxOption.NamespaceList property is then ignored.
+		 - Options: Provide finer control on file open options (default=NULL). if not null, Option dialog will only show if both option's ShowOptionsDialog property and pShowUIMsg are true. It is possible to merge multiple scenes, each one within its own user specified namespace, by calling the [FBFbxOptions::MultiLoadNamespaceList](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_fbx_options.html#a90484e61e1455e6baf58b2c54840a521) property first. When doing so though, the FBFbxOption.NamespaceList property is then ignored.
 
 		### Returns:
 		true if successful."""
@@ -15427,7 +15427,7 @@ class FBConstraintManager(FBComponent):
 		Given the index in the registry, this function create an instance of this constraint. The newly created constraint will be automatically added to the scene.
 
 		### Parameters:
-		 - TypeIndex: Index of constraint type, must in range [0, [TypeGetCount()](#aec594578e960089aa1e313e10404c668 "Get the number of registered constraint types.") ).
+		 - TypeIndex: Index of constraint type, must in range [0, [TypeGetCount()](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_constraint_manager.html#aec594578e960089aa1e313e10404c668) ).
 
 		### Returns:
 		The newly created constraint, or NULL if pIndex is out of range."""
@@ -15829,7 +15829,7 @@ class FBFCurveEditorUtility(FBComponent):
 
 		### Parameters:
 		 - SelectedKeysOnly: If true, only the selected keys will be framed, otherwise all keys will be framed.
-		 - Editor: Pointer to a [FBFCurveEditor](classpyfbsdk_1_1_f_b_f_curve_editor.html "FCurve editor.") for framing the keys in that custom editor, NULL to frame in the default editor.
+		 - Editor: Pointer to a [FBFCurveEditor](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_f_curve_editor.html) for framing the keys in that custom editor, NULL to frame in the default editor.
 
 		### Returns:
 		True if successful, false otherwise.
@@ -15852,7 +15852,7 @@ class FBFCurveEditorUtility(FBComponent):
 		### Parameters:
 		 - Properties: Array that will contain the properties displayed.
 		 - SelectedOnly: If true, only the selected properties will be returned.
-		 - Editor: Pointer to a [FBFCurveEditor](classpyfbsdk_1_1_f_b_f_curve_editor.html "FCurve editor.") for getting the properties in that custom editor, NULL to frame in the default editor.
+		 - Editor: Pointer to a [FBFCurveEditor](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_f_curve_editor.html) for getting the properties in that custom editor, NULL to frame in the default editor.
 
 		### Returns:
 		True if successful, false otherwise."""
@@ -15861,7 +15861,7 @@ class FBFCurveEditorUtility(FBComponent):
 		"""Get the displayed time range of the FCurve Editor.
 
 		### Parameters:
-		 - Editor: Pointer to a [FBFCurveEditor](classpyfbsdk_1_1_f_b_f_curve_editor.html "FCurve editor.") where the time span will be get, NULL to get the time span from the default editor.
+		 - Editor: Pointer to a [FBFCurveEditor](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_f_curve_editor.html) where the time span will be get, NULL to get the time span from the default editor.
 
 		### Returns:
 		FCurve Editor time span, default [FBTimeSpan](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_time_span.html) if not successful."""
@@ -15871,7 +15871,7 @@ class FBFCurveEditorUtility(FBComponent):
 
 		### Parameters:
 		 - TimeSpan: The time span that will be set.
-		 - Editor: Pointer to a [FBFCurveEditor](classpyfbsdk_1_1_f_b_f_curve_editor.html "FCurve editor.") where the time span will be set, NULL to set the time span on the default editor.
+		 - Editor: Pointer to a [FBFCurveEditor](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_f_curve_editor.html) where the time span will be set, NULL to set the time span on the default editor.
 
 		### Returns:
 		True if successful, false otherwise."""
@@ -16201,7 +16201,7 @@ class FBFbxOptions(FBComponent):
 
 		### Parameters:
 		 - TakeIndex: index of take to set.
-		 - KeyTimeSpan: Timespan indicating the time range to keep the keys. Keys that are outside the time range for this take will be removed, by default the time range is [FBTime::MinusInfinity](classpyfbsdk_1_1_f_b_time.html#a7840cbd8a5f56768e40783609ff0f946 "Time constant: Minus Infinity, the lowest negative time value.") -> [FBTime::Infinity](classpyfbsdk_1_1_f_b_time.html#ad4cdfb3a31e984e36d78499115839636 "Time constant: Infinity, the largest time value.")
+		 - KeyTimeSpan: Timespan indicating the time range to keep the keys. Keys that are outside the time range for this take will be removed, by default the time range is [FBTime::MinusInfinity](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_time.html#a7840cbd8a5f56768e40783609ff0f946) -> [FBTime::Infinity](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_time.html#ad4cdfb3a31e984e36d78499115839636)
 
 		### Remarks:
 		Valid only on load/merge, not when saving a file."""
@@ -16854,7 +16854,7 @@ class FBGeometry(FBComponent):
 		### Parameters:
 		 - Vertexcount: number of control points (vertex)
 		 - UniqueMaterial: User could specify per polygon mapping mode for mesh
-		 - FBGeometryArrayIDs: Request to init other attribute arrays, bitwise combined value of [FBGeometryArrayID](classpyfbsdk_1_1_f_b_geometry_array_i_d.html "ID to use when requesting a specific array of data for a model.") enum items, currently support Tangent, Binormal and VertexColor. Only useful for mesh."""
+		 - FBGeometryArrayIDs: Request to init other attribute arrays, bitwise combined value of [FBGeometryArrayID](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_geometry_array_i_d.html) enum items, currently support Tangent, Binormal and VertexColor. Only useful for mesh."""
 		...
 	def VertexClear(self)->bool:
 		"""Clear all Vertex arrays.
@@ -16936,7 +16936,7 @@ class FBGeometry(FBComponent):
 
 		### Parameters:
 		 - Size: Number of vertices to resize or reserve.
-		 - Resize: **True**, for the geometry with known vertex count, we should resize the arrays to fixed size, and call [VertexSet()](#a2e5951370a3f25f2ce5683cb2fc6159a "Set a vertex.") afterwards; **False**, While for dynamic size geometry, we should only reserve the arrays with the estimated optimal size, then call [VertexAdd()](#a41b4845445d2656130fac19d9fb64c51 "Add a vertex.") to dynamically increase the vertex count.
+		 - Resize: **True**, for the geometry with known vertex count, we should resize the arrays to fixed size, and call [VertexSet()](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_geometry.html#a2e5951370a3f25f2ce5683cb2fc6159a) afterwards; **False**, While for dynamic size geometry, we should only reserve the arrays with the estimated optimal size, then call [VertexAdd()](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_geometry.html#a41b4845445d2656130fac19d9fb64c51) to dynamically increase the vertex count.
 		 - InitUV: init Vertex UV array if true
 		 - InitVertexColor: Init Vertex Color Array if true."""
 		...
@@ -18503,7 +18503,7 @@ class FBMotionBlend(FBComponent):
 		"""Remove an Edit from the Motion Blend.
 
 		### Parameters:
-		 - Edit: The [FBMotionBlendEdit](classpyfbsdk_1_1_f_b_motion_blend_edit.html "Motion Blend Edit class.") object to remove.
+		 - Edit: The [FBMotionBlendEdit](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_motion_blend_edit.html) object to remove.
 
 		### Returns:
 		True if the operation is successful, false otherwise."""
@@ -18512,7 +18512,7 @@ class FBMotionBlend(FBComponent):
 		"""Set the current Edit to be used in the Motion Blend.
 
 		### Parameters:
-		 - Edit: The [FBMotionBlendEdit](classpyfbsdk_1_1_f_b_motion_blend_edit.html "Motion Blend Edit class.") object to set as the current Edit.
+		 - Edit: The [FBMotionBlendEdit](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_motion_blend_edit.html) object to set as the current Edit.
 
 		### Returns:
 		True if the operation is successful, false otherwise."""
@@ -18979,7 +18979,7 @@ class FBNamespace(FBComponent):
 	ContentCount:int
 	"""**Read Only Property:** Number of objects contained in this namespace (not recursive).
 
-	### **[Deprecated](deprecated.html#_deprecated000003)**:
+	### **[Deprecated](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/deprecated.html#_deprecated000003)**:
 	Use the GetContentCount method instead."""
 	ContentLocked:bool
 	"""**Read Write Property:** Content locking state."""
@@ -18987,7 +18987,7 @@ class FBNamespace(FBComponent):
 		"""Create a new direct children namespace object
 
 		### Parameters:
-		 - SingleLevelNamespace: [FBNamespace](classpyfbsdk_1_1_f_b_namespace.html "Objects Containing class.") name. This name will be used as namespace itself. this name string shouldn't contain namespace string separator ":".
+		 - SingleLevelNamespace: [FBNamespace](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_namespace.html) name. This name will be used as namespace itself. this name string shouldn't contain namespace string separator ":".
 		 - ParentNSObj: the parent namespace object. if NULl means to create top level namespace.
 
 		References [FBNamespace()](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_namespace.html#a8b06b879989662ab94a4e989fae355b7).
@@ -19015,7 +19015,7 @@ class FBNamespace(FBComponent):
 		 - ModificationFlags: bitwise combination of kFBConnectionSrcObjectModified, kFBConnectionDstObjectModified, kFBConnectionSrcPropertyModified, kFBConnectionDstPropertyModified flags. kFBAllContent means all the content.
 		 - Recursive: **True** only work on the direct children level namespace, otherwise will work on the whole children namespace hierarchy recursively.
 		 - TypeInfo: the typeInfo of the type of interested object, 0 for all the objects.
-		 - ExactTypeMatch: if **True**, the derived typeInfo won't be considered (For example, [FBCamera](classpyfbsdk_1_1_f_b_camera.html "Creates custom cameras and manages system cameras.") won't be considered when passing [FBModel::TypeInfo](classpyfbsdk_1_1_f_b_component.html#a9b39fba51413fa925a0d94d2feb13bf9 "Contains the Type information of the object.")).
+		 - ExactTypeMatch: if **True**, the derived typeInfo won't be considered (For example, [FBCamera](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_camera.html) won't be considered when passing [FBModel::TypeInfo](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_component.html#a9b39fba51413fa925a0d94d2feb13bf9)).
 
 		References [FBPlug::TypeInfo](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_plug.html#a9b39fba51413fa925a0d94d2feb13bf9)."""
 		...
@@ -19621,7 +19621,7 @@ class FBPlayerControl(FBComponent):
 		"""Set Play Speed Mode.
 
 		### Parameters:
-		 - PlaySpeedMode: a pre-defined play speed mode. Don't make sense to input kFBSpeed_Custom. To set the custom speed, use [SetPlaySpeed()](#a71716b808406bdac9835b31501b895d4 "Set Play Speed.") function directly."""
+		 - PlaySpeedMode: a pre-defined play speed mode. Don't make sense to input kFBSpeed_Custom. To set the custom speed, use [SetPlaySpeed()](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_player_control.html#a71716b808406bdac9835b31501b895d4) function directly."""
 		...
 	def SetTimeReferential(self,TimeReferential:FBTimeReferential,/)->None:
 		"""Set Time Referential.
@@ -19633,7 +19633,7 @@ class FBPlayerControl(FBComponent):
 		"""Set the system frame rate use for display.
 
 		### Parameters:
-		 - TimeMode: Indicate the frame rate value to use base on the [FBTimeMode](classpyfbsdk_1_1_f_b_time_mode.html "Different time modes available.") values enum.(kFBTimeModeDefault will be stored in fps)
+		 - TimeMode: Indicate the frame rate value to use base on the [FBTimeMode](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_time_mode.html) values enum.(kFBTimeModeDefault will be stored in fps)
 		 - Custom: Should the time mode be kFBTimeModeCustom, this is used to specify the custom framerate."""
 		...
 	def StepBackward(self,TimeReferential:FBTimeReferential|None=None,/)->bool:
@@ -20004,7 +20004,7 @@ class FBScene(FBComponent):
 		 - ModificationFlags: bitwise combination of kFBConnectionSrcObjectModified, kFBConnectionDstObjectModified, kFBConnectionSrcPropertyModified, kFBConnectionDstPropertyModified flags. kFBPlugAllContent means all the content. Modification flags beside kFBPlugAllContent will only work on FileReference Namespace.
 		 - Recursive: **True** only work on the direct children level namespace, otherwise will work on the children namespace hierarchy recursively.
 		 - TypeInfo: the typeInfo of the type of interested object, default for all the objects.
-		 - ExactTypeMatch: if **True**, the derived typeInfo won't be considered (For example, [FBCamera](classpyfbsdk_1_1_f_b_camera.html "Creates custom cameras and manages system cameras.") won't be considered when passing [FBModel::TypeInfo](classpyfbsdk_1_1_f_b_component.html#a9b39fba51413fa925a0d94d2feb13bf9 "Contains the Type information of the object.")).
+		 - ExactTypeMatch: if **True**, the derived typeInfo won't be considered (For example, [FBCamera](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_camera.html) won't be considered when passing [FBModel::TypeInfo](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_component.html#a9b39fba51413fa925a0d94d2feb13bf9)).
 
 		### Returns:
 		**False** is the given namespace doesn't exist, or is locked (by FileRef or etc.,), **True** otherwise.
@@ -20072,7 +20072,7 @@ class FBScene(FBComponent):
 		 - ModificationFlags: bitwise combination of kFBConnectionSrcObjectModified, kFBConnectionDstObjectModified, kFBConnectionSrcPropertyModified, kFBConnectionDstPropertyModified flags. kFBPlugAllContent means all the content. Modification flags beside kFBPlugAllContent will only work on FileReference Namespace.
 		 - Recursive: **True** only work on the direct children level namespace, otherwise will work on the whole children namespace hierarchy recursively.
 		 - TypeInfo: the typeInfo of the type of interested object, 0 for all the objects.
-		 - ExactTypeMatch: if **True**, the derived typeInfo won't be considered (For example, [FBCamera](classpyfbsdk_1_1_f_b_camera.html "Creates custom cameras and manages system cameras.") won't be considered when passing [FBModel::TypeInfo](classpyfbsdk_1_1_f_b_component.html#a9b39fba51413fa925a0d94d2feb13bf9 "Contains the Type information of the object.")).
+		 - ExactTypeMatch: if **True**, the derived typeInfo won't be considered (For example, [FBCamera](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_camera.html) won't be considered when passing [FBModel::TypeInfo](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_component.html#a9b39fba51413fa925a0d94d2feb13bf9)).
 
 		References [FBPlug::TypeInfo](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_plug.html#a9b39fba51413fa925a0d94d2feb13bf9)."""
 		...
@@ -20118,7 +20118,7 @@ class FBScene(FBComponent):
 		 - NewNamespace: the new namespace
 		 - Recursive: **True** only work on the direct children level namespace, otherwise will work on the children namespace hierarchy recursively.
 		 - TypeInfo: the typeInfo of the type of interested object, default for all the objects.
-		 - ExactTypeMatch: if **True**, the derived typeInfo won't be considered (For example, [FBCamera](classpyfbsdk_1_1_f_b_camera.html "Creates custom cameras and manages system cameras.") won't be considered when passing [FBModel::TypeInfo](classpyfbsdk_1_1_f_b_component.html#a9b39fba51413fa925a0d94d2feb13bf9 "Contains the Type information of the object.")).
+		 - ExactTypeMatch: if **True**, the derived typeInfo won't be considered (For example, [FBCamera](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_camera.html) won't be considered when passing [FBModel::TypeInfo](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_component.html#a9b39fba51413fa925a0d94d2feb13bf9)).
 
 		### Returns:
 		**True** if operation successfully, **False** is this namespace (or pTypeInfo type of objects) doesn't exist, or locked (by FileReferencing or etc.,)
@@ -20137,7 +20137,7 @@ class FBScene(FBComponent):
 		 - ModificationFlags: bitwise combination of kFBConnectionSrcObjectModified, kFBConnectionDstObjectModified, kFBConnectionSrcPropertyModified, kFBConnectionDstPropertyModified flags. kFBPlugAllContent means all the content. Modification flags beside kFBPlugAllContent will only work on FileReference Namespace.
 		 - Recursive: **True** only work on the direct children level namespace, otherwise will work on the children namespace hierarchy recursively.
 		 - TypeInfo: the typeInfo of the type of interested object, default for all the objects.
-		 - ExactTypeMatch: if **True**, the derived typeInfo won't be considered (For example, [FBCamera](classpyfbsdk_1_1_f_b_camera.html "Creates custom cameras and manages system cameras.") won't be considered when passing [FBModel::TypeInfo](classpyfbsdk_1_1_f_b_component.html#a9b39fba51413fa925a0d94d2feb13bf9 "Contains the Type information of the object.")).
+		 - ExactTypeMatch: if **True**, the derived typeInfo won't be considered (For example, [FBCamera](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_camera.html) won't be considered when passing [FBModel::TypeInfo](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_component.html#a9b39fba51413fa925a0d94d2feb13bf9)).
 
 		References [FBPlug::TypeInfo](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_plug.html#a9b39fba51413fa925a0d94d2feb13bf9)."""
 		...
@@ -21432,7 +21432,7 @@ class FBTexture(FBBox):
 	"""**Read Only Property:** Width of texture."""
 	def __init__(self,Name:str,/):
 		"""### Parameters:
-		 - Name: Name of the texture media. If pName is a valid path, [FBTexture](classpyfbsdk_1_1_f_b_texture.html "See samples: HUDElements.py, MaterialAndTexture.py, TextureAnimation.py, VideoInput....") will create a [FBVideo](classpyfbsdk_1_1_f_b_video.html "Video media class.") object which is used in the Video property; else just a ordinary name.
+		 - Name: Name of the texture media. If pName is a valid path, [FBTexture](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_texture.html) will create a [FBVideo](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_video.html) object which is used in the Video property; else just a ordinary name.
 
 		Referenced by [Clone()](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_texture.html#abb82246665e64a9cadc22950c08e3597)."""
 		...
@@ -21464,7 +21464,7 @@ class FBLayeredTexture(FBTexture):
 	"""**Read/Write Property:** Textures Layers."""
 	def __init__(self,Name:str,/):
 		"""### Parameters:
-		 - Name: Name of texture media. Can be a NULL pointer. If set, this will create a [FBVideo](classpyfbsdk_1_1_f_b_video.html "Video media class.") object used as the Video property.
+		 - Name: Name of texture media. Can be a NULL pointer. If set, this will create a [FBVideo](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_video.html) object used as the Video property.
 
 		Referenced by [Clone()](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_layered_texture.html#af4c3f1fbaeb8a7143abdd0e4a0ab8631)."""
 		...
@@ -21545,8 +21545,8 @@ class FBTime:
 		"""Get time as a string.
 
 		### Parameters:
-		 - Mode: Time mode (default=kFBTimeModeDefault) to use (call [FBSystem()](class_f_b_system.html "Provides access to the underlying system, and the MotionBuilder scene.").GetTransportFps() to the the current UI displayed mode).
-		 - Format: Format to use for the returned string(default=[FBTime::eDefaultFormat](#a33ef0b360337895a8de41d5323c0c039a777eb8fd9998c2e42b322197251c1add "Default Time format.")).
+		 - Mode: Time mode (default=kFBTimeModeDefault) to use (call [FBSystem()](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/class_f_b_system.html).GetTransportFps() to the the current UI displayed mode).
+		 - Format: Format to use for the returned string(default=[FBTime::eDefaultFormat](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_time.html#a33ef0b360337895a8de41d5323c0c039a777eb8fd9998c2e42b322197251c1add)).
 
 		### Returns:
 		String value of time.
@@ -21701,7 +21701,7 @@ class FBTimeCode:
 		"""Get time as a string.
 
 		### Parameters:
-		 - Format: Format to use for the returned string(default=[FBTime::eDefaultFormat](classpyfbsdk_1_1_f_b_time.html#a33ef0b360337895a8de41d5323c0c039a777eb8fd9998c2e42b322197251c1add "Default Time format.")).
+		 - Format: Format to use for the returned string(default=[FBTime::eDefaultFormat](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_time.html#a33ef0b360337895a8de41d5323c0c039a777eb8fd9998c2e42b322197251c1add)).
 
 		### Returns:
 		String value of time.
@@ -21728,7 +21728,7 @@ class FBTimeCode:
 
 		### Parameters:
 		 - Time: String to set time from.
-		 - Format: Format to use for the string(default=[FBTime::eDefaultFormat](classpyfbsdk_1_1_f_b_time.html#a33ef0b360337895a8de41d5323c0c039a777eb8fd9998c2e42b322197251c1add "Default Time format.")).
+		 - Format: Format to use for the string(default=[FBTime::eDefaultFormat](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_time.html#a33ef0b360337895a8de41d5323c0c039a777eb8fd9998c2e42b322197251c1add)).
 
 		References [FBTime::eDefaultFormat](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_time.html#a33ef0b360337895a8de41d5323c0c039a777eb8fd9998c2e42b322197251c1add)."""
 		...
@@ -22206,7 +22206,7 @@ class FBTake(FBComponent):
 		This method is used to specify if using the SelectLayer method of the [FBAnimationLayer](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_animation_layer.html) object will also select the [FBComponent](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_component.html) object. In previous version of MotionBuilder, an animation layer was always selected, causing the layer to be displayed in the property editor. Also, when parsing the selected objects in the SDK, a layer would always be there. Setting this value to false will prevent this.
 
 		### Parameters:
-		 - Value: True if future layer selection will also select the [FBComponent](classpyfbsdk_1_1_f_b_component.html "MotionBuilder SDK base class.") object."""
+		 - Value: True if future layer selection will also select the [FBComponent](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_component.html) object."""
 		...
 	def SetTimeMarkAction(self,Index:int,Action:FBTimeMarkAction,/)->bool:
 		"""Sets a new action for an existing time mark.
@@ -24987,7 +24987,7 @@ class FBVideoGrabOptions:
 	StillImageCompression:int
 	"""**Read Write Property:**
 
-	### **[Deprecated](deprecated.html#_deprecated000001)**:
+	### **[Deprecated](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/deprecated.html#_deprecated000001)**:
 	Use StillImageQuality instead."""
 	StillImageCompressionType:int
 	"""**Read Write Property:** Compression type of image for image formats that support it. Depends on the image format. For "tif": 0 = ( no compression ), 1 = ( LZW-compression )."""
@@ -25655,7 +25655,7 @@ class FBSpread(FBVisualComponent):
 		### Parameters:
 		 - Row: Row of cell.
 		 - Column: Column of cell.
-		 - Value: Value of the cell (can be str (single or tuple), int, float or [FBTime](classpyfbsdk_1_1_f_b_time.html "Time data structure."))"""
+		 - Value: Value of the cell (can be str (single or tuple), int, float or [FBTime](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_time.html))"""
 		...
 	def SetCellView(self,Ref:int,Column:int,View:FBVisualComponent,/)->None:
 		"""Set a cell's internal toolkit view.
@@ -25736,7 +25736,7 @@ class FBPlotPopup(FBVisualComponent):
 		"""Set plot options.
 
 		### Parameters:
-		 - PlotOptions: Set the plot options that will be used when displaying the plot popup. First use the [GetPlotOptions()](#a2f79e68857f65fe637c98616b4b24a97 "Get plot options."), change the options and use the [SetPlotOptions()](#aaf85452e3a2fd43906744348fdc4e684 "Set plot options.") to set them before calling the [Popup()](#a0138b8dc2bd5bd5715e3d361aaaee3af "Execute plot popup.") function."""
+		 - PlotOptions: Set the plot options that will be used when displaying the plot popup. First use the [GetPlotOptions()](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_plot_popup.html#a2f79e68857f65fe637c98616b4b24a97), change the options and use the [SetPlotOptions()](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_plot_popup.html#aaf85452e3a2fd43906744348fdc4e684) to set them before calling the [Popup()](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_plot_popup.html#a0138b8dc2bd5bd5715e3d361aaaee3af) function."""
 		...
 class FBList(FBVisualComponent):
 	"""List of items.
@@ -26322,8 +26322,8 @@ class FBArrowButton(FBVisualComponent):
 		The [FBArrowButton](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_arrow_button.html) must already have been added to a layout before calling this method.
 
 		### Parameters:
-		 - Title: Title of the content managed by the [FBArrowButton](classpyfbsdk_1_1_f_b_arrow_button.html "Creates a button which opens a layout to display content.")
-		 - Content: Content that the [FBArrowButton](classpyfbsdk_1_1_f_b_arrow_button.html "Creates a button which opens a layout to display content.") displays or hides
+		 - Title: Title of the content managed by the [FBArrowButton](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_arrow_button.html)
+		 - Content: Content that the [FBArrowButton](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_arrow_button.html) displays or hides
 		 - ContentWidth: Width of the content
 		 - ContentHeight: Height of the content
 
@@ -26567,7 +26567,7 @@ def FBConnect(Src:FBPlug,Dst:FBPlug,ConnectionType:FBConnectionType=FBConnection
 	### Parameters:
 	 - Src: Source plug.
 	 - Dst: Destination plug.
-	 - ConnectionType: Type of connection, taken from [FBConnectionType](classpyfbsdk_1_1_f_b_connection_type.html "Connection types available between plugs.").
+	 - ConnectionType: Type of connection, taken from [FBConnectionType](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_connection_type.html).
 
 	### Returns:
 	A boolean indicating success (True) or failure (False).

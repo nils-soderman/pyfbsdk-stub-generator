@@ -79,8 +79,10 @@ class DocstringMarkdown(markdownify.MarkdownConverter):
 
     def convert_dt(self, el: Tag, text, **options):
         """ Convert all <dt> tags to a headers. """
-        header_text = markdownify.markdownify(str(el))
-        return f"### {header_text}:\n"
+        # header_text = self.convert(str(el))
+        inner_html = ''.join(str(child) for child in el.children)
+        inner_text = self.convert(inner_html).strip()
+        return f"### {inner_text}:\n"
 
     def convert_dd(self, el: Tag, text: str, **options):
         # Only strip new lines
@@ -89,7 +91,7 @@ class DocstringMarkdown(markdownify.MarkdownConverter):
     def convert_table(self, el: Tag, text, **options) -> str:
         # Check if element has the class name for a parameter list
         class_names = el.get("class")
-        if class_names and "params" in class_names:
+        if class_names and EClassName.PARAMETER_TABLE in class_names:
             parameter_lines = []
             for tr_tag in el.find_all("tr"):
                 line = ""
@@ -101,8 +103,7 @@ class DocstringMarkdown(markdownify.MarkdownConverter):
                             parameter_name = get_parameter_nice_name(parameter_name)
                         line = f"    - {parameter_name}: "
                     else:
-                        # TODO: Might not ned to run mardkdownify on the cell text, just use the text instead
-                        line += markdownify.markdownify(str(td_tag)).strip(string.whitespace + "|")
+                        line += self.convert(str(td_tag)).strip(string.whitespace + "|")
 
                 parameter_lines.append(line)
 
