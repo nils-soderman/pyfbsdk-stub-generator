@@ -2,7 +2,7 @@
 SETLOCAL
 
 if "%~1"=="" (
-    set version=2026
+    set version=2027
 ) else (
     set version=%~1
 )
