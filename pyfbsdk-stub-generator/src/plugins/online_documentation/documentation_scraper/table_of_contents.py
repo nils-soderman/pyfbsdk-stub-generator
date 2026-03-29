@@ -7,9 +7,11 @@ import ast
 
 from . import requests_cache
 
+def get_base_url(version: int) -> str:
+    return f"https://help.autodesk.com/cloudhelp/{version}/ENU/MOBU-PYTHON-API-REF/"
 
 def get_full_url(version: int, relative_url: str):
-    return f"https://help.autodesk.com/cloudhelp/{version}/ENU/MOBU-PYTHON-API-REF/{relative_url}"
+    return f"{get_base_url(version)}{relative_url}"
 
 
 def get_table_of_contents_python(module_name: str, version: int, use_cache: bool = False) -> dict[str, str]:
@@ -19,12 +21,15 @@ def get_table_of_contents_python(module_name: str, version: int, use_cache: bool
     Returns a dict mapping the name of the item to its url
     """
     url = get_full_url(version, f"namespace{module_name}.js")
-    response = requests_cache.get_request(url, use_cache=use_cache)
+    code, text = requests_cache.get_request(url, use_cache=use_cache)
+    
+    if "<title>404 Not Found</title>" in text:
+        return {}
 
     # response should look like this:
     # var namespacepyfbsdk =\n[\n ["Enumeration", "classpyfbsdk_1_1_enumeration.html", null], ...];
 
-    parsable_str = response.partition("=")[2]
+    parsable_str = text.partition("=")[2]
     parsable_str = parsable_str.strip(" ;\n")
     parsable_str = parsable_str.replace("null", "None") # TODO: This may replace null in strings, use regex instead 
 

@@ -30,7 +30,7 @@ def get_cached_filepath(url: str) -> Path:
     return get_cache_dir() / url_to_filepath(url)
 
 
-def get_request(url: str, timeout: int = 10, use_cache: bool = False) -> str:
+def get_request(url: str, timeout: int = 10, use_cache: bool = False) -> tuple[int, str]:
     """
     A get http get request that caches the response in a temp file.  
     If the same url has been requested/cached before, it will return the cached response instead of making a new request.
@@ -40,7 +40,7 @@ def get_request(url: str, timeout: int = 10, use_cache: bool = False) -> str:
 
     cached_file = get_cached_filepath(url)
     if use_cache and cached_file.exists():
-        return cached_file.read_text(encoding="utf-8")
+        return 200, cached_file.read_text(encoding="utf-8")
 
     try:
         response = requests.get(url, timeout=timeout)
@@ -52,4 +52,4 @@ def get_request(url: str, timeout: int = 10, use_cache: bool = False) -> str:
         cached_file.parent.mkdir(parents=True, exist_ok=True)
         cached_file.write_text(response.text, encoding="utf-8")
 
-    return response.text
+    return response.status_code, response.text

@@ -11,9 +11,12 @@ class Documentation:
                                                                                 version,
                                                                                 use_cache)
 
+    def __bool__(self):
+        return bool(self.table_of_contents)
+
     def parse_page(self, name: str) -> parser.ParsedPage | None:
         if url := self.table_of_contents.get(name):
-            html = requests_cache.get_request(url, use_cache=self.use_cache)
+            code, html = requests_cache.get_request(url, use_cache=self.use_cache)
             return parser.parse_page(name, html, url)
 
         return None
