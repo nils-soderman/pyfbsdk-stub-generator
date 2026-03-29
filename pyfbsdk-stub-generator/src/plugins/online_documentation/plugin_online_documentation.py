@@ -297,13 +297,13 @@ class PluginOnlineDocumentation(PluginBaseClass):
             or
             (
                 stub_property.Name.startswith("On") and
-                stub_property.Name.endswith("Event") and
-                stub_property.DocString.startswith("Event")
+                stub_property.Name.endswith("Event")
             )
             or
             (not is_valid_fb_class and new_type.startswith("FBEvent"))
         ):
-            new_type = EVENT_SOURCE_TYPE
+            if new_type != "FBEventName":
+                new_type = EVENT_SOURCE_TYPE
 
         return self.ensure_valid_type(new_type)
 
