@@ -3,9 +3,10 @@ Stub file generated for MotionBuilder 2027 using:
 https://github.com/nils-soderman/pyfbsdk-stub-generator
 """
 from __future__ import annotations
-from typing import overload, Any, Iterator, Literal, Self
-import callbackframework
 from enum import EnumMeta as __EnumMeta
+from typing import overload, Any, Iterator, Literal, Self
+from warnings import deprecated
+import callbackframework
 class Enumeration(int, metaclass=__EnumMeta):
 	__slots__:tuple
 	names:dict[str, Self]
@@ -12423,11 +12424,17 @@ class FBHUDElement(FBBox):
 	"""**Read Write Property:** Specifies if the HUD element will be displayed or not."""
 	VerticalDock:FBHUDElementVAlignment
 	"""**Read Write Property:** Specifies if the HUD element will be vertically docked to the Bottom, Top, or Center."""
-	Visibility:bool
-	"""**Read Write Property:** Visibility of the HUD element.
+	@property
+	@deprecated("Use the Show property instead.")
+	def Visibility(self)->bool:
+		"""**Read Write Property:** Visibility of the HUD element.
 
-	### **[Deprecated](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/deprecated.html#_deprecated000004)**:
-	Use the Show property instead."""
+		### **[Deprecated](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/deprecated.html#_deprecated000004)**:
+		Use the Show property instead."""
+		...
+	@Visibility.setter
+	@deprecated("Use the Show property instead.")
+	def Visibility(self, Value: bool):...
 	Width:float
 	"""**Read Write Property:** Specifies the width of HUD element on the screen. It's in pixel when ScaleByPercent is false and percentage when ScaleByPercent is true."""
 	X:float
@@ -13154,11 +13161,17 @@ class FBLight(FBModel):
 	"""**Read Write Property:** Cast light on object?"""
 	CastShadows:bool
 	"""**Read Write Property:** Cast shadows on object?"""
-	ConeAngle:float
-	"""**Read Write Property:** Cone angle for spot lights (outer angle).
+	@property
+	@deprecated("Use the OuterAngle property instead.")
+	def ConeAngle(self)->float:
+		"""**Read Write Property:** Cone angle for spot lights (outer angle).
 
-	### **[Deprecated](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/deprecated.html#_deprecated000002)**:
-	Use the OuterAngle property instead."""
+		### **[Deprecated](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/deprecated.html#_deprecated000002)**:
+		Use the OuterAngle property instead."""
+		...
+	@ConeAngle.setter
+	@deprecated("Use the OuterAngle property instead.")
+	def ConeAngle(self, Value: float):...
 	@property
 	def DiffuseColor(self)->FBPropertyAnimatableColor:
 		"""**Read Write Property:** Color: Diffuse color."""
@@ -18976,11 +18989,17 @@ class FBNamespace(FBComponent):
 	This class is an interface to manipulate object's containing in the scene."""
 	ChildrenNamespaces:FBPropertyListNamespace
 	"""**List:** Direct Children Namespace Objects."""
-	ContentCount:int
-	"""**Read Only Property:** Number of objects contained in this namespace (not recursive).
+	@property
+	@deprecated("Use the GetContentCount method instead.")
+	def ContentCount(self)->int:
+		"""**Read Only Property:** Number of objects contained in this namespace (not recursive).
 
-	### **[Deprecated](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/deprecated.html#_deprecated000003)**:
-	Use the GetContentCount method instead."""
+		### **[Deprecated](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/deprecated.html#_deprecated000003)**:
+		Use the GetContentCount method instead."""
+		...
+	@ContentCount.setter
+	@deprecated("Use the GetContentCount method instead.")
+	def ContentCount(self, Value: int):...
 	ContentLocked:bool
 	"""**Read Write Property:** Content locking state."""
 	def __init__(self,SingleLevelNamespace:str,ParentNSObj:FBNamespace|None,/):
@@ -24984,11 +25003,17 @@ class FBVideoGrabOptions:
 	"""**Read Write Property:** If true, display time code information."""
 	StereoDisplayMode:FBStereoDisplayMode
 	"""**Read Write Property:** Video grab stereo display mode. default (kFBStereoDisplayModeCount) to use current viewpane's setting."""
-	StillImageCompression:int
-	"""**Read Write Property:**
+	@property
+	@deprecated("Use StillImageQuality instead.")
+	def StillImageCompression(self)->int:
+		"""**Read Write Property:**
 
-	### **[Deprecated](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/deprecated.html#_deprecated000001)**:
-	Use StillImageQuality instead."""
+		### **[Deprecated](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/deprecated.html#_deprecated000001)**:
+		Use StillImageQuality instead."""
+		...
+	@StillImageCompression.setter
+	@deprecated("Use StillImageQuality instead.")
+	def StillImageCompression(self, Value: int):...
 	StillImageCompressionType:int
 	"""**Read Write Property:** Compression type of image for image formats that support it. Depends on the image format. For "tif": 0 = ( no compression ), 1 = ( LZW-compression )."""
 	StillImageQuality:int

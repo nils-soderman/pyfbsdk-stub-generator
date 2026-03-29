@@ -23,6 +23,7 @@ class StubBase:
         self.ref = ref
         self.name: str = name
         self.docstring = ""
+        self.deprecation_message: str | None = None
 
     def __copy__(self):
         new_instance = self.__class__(self.ref, name=self.name)
@@ -53,6 +54,10 @@ class StubBase:
         Get a list of variable/class names that needs to be declared before the current object
         """
         raise NotImplementedError("get_requirements() has not yet been implemented")
+
+    def get_deprecation_decorator(self):
+        msg = self.deprecation_message or ""
+        return f'@deprecated("{msg}")\n'
 
 
 class StubFunction(StubBase):
@@ -125,8 +130,10 @@ class StubFunction(StubBase):
         function_as_string = ""
         if is_overload:
             function_as_string += "@overload\n"
-        elif self.is_static:
+        if self.is_static:
             function_as_string += "@staticmethod\n"
+        if self.deprecation_message is not None:
+            function_as_string += self.get_deprecation_decorator()
 
         function_as_string += f'def {self.name}({self.get_parameters_as_string()})'
 
@@ -198,6 +205,9 @@ class StubClass(StubBase):
 
         class_as_str = f"class {self.name}{parent_classes_as_str}:\n"
 
+        if self.deprecation_message is not None:
+            class_as_str = f"{self.get_deprecation_decorator()}{class_as_str}"
+
         if self.get_doc_string():
             class_as_str += f"{indent(self.get_doc_string())}\n"
 
@@ -242,10 +252,19 @@ class StubProperty(StubBase):
         create_setter = bool(self.setter_type) and self.setter_type != self.Type
         create_getter = self.read_only or create_setter
 
+        is_deprecated = self.deprecation_message is not None
+        if is_deprecated:
+            create_getter = True
+            create_setter = not self.read_only
+
         if create_getter:
             # If it has a custom setter type, create seperate getter and setter functions
             lines: list[str] = ["@property"]
+            if is_deprecated:
+                lines.append(self.get_deprecation_decorator().rstrip())
+            
             lines.append(f"def {self.name}(self)->{self.Type}:")
+            
             if self.get_doc_string():
                 lines.append(f"{indent(self.get_doc_string())}")
                 lines.append(f"{indent('...')}")
@@ -253,8 +272,11 @@ class StubProperty(StubBase):
                 lines[-1] += "..."
 
             if create_setter:
+                setter_type = self.setter_type or self.Type
                 lines.append(f"@{self.name}.setter")
-                lines.append(f"def {self.name}(self, Value: {self.setter_type}):...")
+                if is_deprecated:
+                    lines.append(self.get_deprecation_decorator().rstrip())
+                lines.append(f"def {self.name}(self, Value: {setter_type}):...")
 
             property_as_string = "\n".join(lines)
         else:

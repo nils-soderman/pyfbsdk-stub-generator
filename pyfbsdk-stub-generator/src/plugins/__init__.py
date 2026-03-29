@@ -2,6 +2,7 @@ from .plugin_base import PluginBaseClass
 
 
 def get_default_plugins():
+    from .deprecated import plugin_deprecated
     from .dunder_methods import plugin_dunder_methods
     from .enum import plugin_enum
     from .events import plugin_events
@@ -12,6 +13,7 @@ def get_default_plugins():
     from .readonly_properties import plugin_readonly
 
     return [
+        plugin_deprecated.PluginDeprecated,
         plugin_dunder_methods.PluginDunderMethods,
         plugin_enum.PluginEnum,
         plugin_events.PluginEvents,
