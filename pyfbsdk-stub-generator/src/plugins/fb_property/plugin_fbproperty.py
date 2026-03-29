@@ -116,11 +116,18 @@ class PluginFbProperty(PluginBaseClass):
         """ 
         Patch the FBPropertyList classes
         """
-        for stub_function in stub_class.get_functions_by_name("__getitem__"):
-            stub_function.return_type = Type
-            stub_param = stub_function.get_parameters()[1]
-            stub_param.Type = "int|slice"
+        get_item_functions = stub_class.get_functions_by_name("__getitem__")
+        for stub_function_getitem in list(get_item_functions):
+            stub_function_getitem.return_type = Type
+            stub_param = stub_function_getitem.get_parameters()[1]
+            stub_param.Type = "int"
             stub_param.name = NAME_INDEX
+
+            stub_function_getitem_copy = copy.copy(stub_function_getitem)
+            stub_function_getitem_copy.return_type = f"list[{Type}]"
+            stub_param = stub_function_getitem_copy.get_parameters()[1]
+            stub_param.Type = "slice"
+            get_item_functions.append(stub_function_getitem_copy)
 
         # __setitem__ is not allowed for FBPropertyList
         stub_setitem = stub_class.get_functions_by_name("__setitem__")
