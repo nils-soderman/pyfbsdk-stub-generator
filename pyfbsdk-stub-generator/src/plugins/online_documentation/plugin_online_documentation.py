@@ -1,13 +1,13 @@
 from __future__ import annotations
 
 from types import ModuleType
+from typing import TypeGuard
 
-from .documentation_scraper import table_of_contents
-
-from .documentation_scraper.page_parser import MemberItem, GetParameterNiceName
 from ..plugin_base import PluginBaseClass
 from ...module_types import StubClass, StubFunction, StubParameter, StubProperty
 from ...flags import GeneratorFlag
+
+from .documentation_scraper import Documentation, MemberItem, get_parameter_nice_name
 
 
 EVENT_SOURCE_TYPE = "callbackframework.FBEventSource"
@@ -49,8 +49,10 @@ TRANSLATION_TYPE = {
     "FBEventTreeWhy": "property",
 }
 
-TRANSLATION_VALUES = {
+TRANSLATION_DEFAULT_VALUES = {
     "nullptr": "None",
+    "true": "True",
+    "false": "False",
 }
 
 
@@ -58,183 +60,188 @@ class PluginOnlineDocumentation(PluginBaseClass):
     Threading = True
     Priority = 10  # We preferably want this to run directly after the native generator
 
-    def __init__(self, Version: int, Module: ModuleType, EnumList: list[StubClass], ClassList: list[StubClass], FunctionGroupList: list[list[StubFunction]], flags: GeneratorFlag):
-        super().__init__(Version, Module, EnumList, ClassList, FunctionGroupList, flags)
+    def __init__(self,
+                 version: int,
+                 module: ModuleType,
+                 stub_enums: list[StubClass],
+                 stub_classes: list[StubClass],
+                 stub_functions: list[list[StubFunction]],
+                 flags: GeneratorFlag):
+        super().__init__(version, module, stub_enums, stub_classes, stub_functions, flags)
 
         # Initialize the documentation
-        self.DocNamespace = table_of_contents.GetNameSpaceFromModule(self.ModuleName)
-        if self.DocNamespace is None:
+        self.documentation = Documentation(module.__name__, version, self.flags & GeneratorFlag.CACHE != 0)
+        if not self.documentation:
             return
-        self.Documentation = table_of_contents.Documentation(self.DocNamespace, Version, self.flags & GeneratorFlag.CACHE != 0)
 
         # Parse the first documentation page to get the list of all pages
-        for FunctionGroup in FunctionGroupList:
-            Function = FunctionGroup[0]
-            self.FunctionPage = self.Documentation.GetParsedPage(Function.Name)
-            if self.FunctionPage:
+        for function_group in stub_functions:
+            Function = function_group[0]
+            self.function_page = self.documentation.parse_page(Function.Name)
+            if self.function_page:
                 break
 
         # Make a map of all class names and their class object that can be used for patching types etc.
-        self.AllClassesMap = {Class.Name: Class for Class in ClassList + EnumList}
+        self.all_classes_map = {x.Name: x for x in stub_classes + stub_enums}
 
     def ShouldPatch(self) -> bool:
-        return self.DocNamespace is not None
+        return bool(self.documentation)
 
     # ---------------------------------------------------------------------------------------------
     #                                 Patch Entry Methods
     # ---------------------------------------------------------------------------------------------
 
-    def PatchEnum(self, Enum: StubClass):
-        ParsedPage = self.Documentation.GetParsedPage(Enum.Name)
-        if not ParsedPage:
+    def PatchEnum(self, stub_enum: StubClass):
+        parsed_page = self.documentation.parse_page(stub_enum.Name)
+        if not parsed_page:
             return
 
-        Enum.DocString = ParsedPage.DocString
+        stub_enum.DocString = parsed_page.description
 
-        for Property in Enum.StubProperties:
-            Members = ParsedPage.GetFirstMemberByName(Property.Name)
-            if Members:
-                Property.DocString = Members.DocString
+        for stub_property in stub_enum.StubProperties:
+            if member := parsed_page.find_member_by_name(stub_property.Name):
+                stub_property.DocString = member.doc_string
 
-    def PatchClass(self, Class: StubClass):
-        ParsedPage = self.Documentation.GetParsedPage(Class.Name)
-        if not ParsedPage:
+    def PatchClass(self, stub_class: StubClass):
+        parsed_page = self.documentation.parse_page(stub_class.Name)
+        if not parsed_page:
             return
 
-        Class.DocString = ParsedPage.DocString
+        stub_class.DocString = parsed_page.description
 
         # Properties
-        for Property in Class.StubProperties:
-            Member = ParsedPage.GetFirstMemberByName(Property.Name)
-            if Member:
-                Property.DocString = Member.DocString
-                Property.Type = self.EnsureValidPropertyType(Property, Member.Type)
+        for stub_property in stub_class.StubProperties:
+            if member := parsed_page.find_member_by_name(stub_property.Name):
+                stub_property.DocString = member.doc_string
+                stub_property.Type = self.ensure_valid_type_property(stub_property, member.type_str)
 
         # Methods
-        for FunctionGroup in Class.StubFunctions:
-            FirstFunction = FunctionGroup[0]
-            FunctionName = FirstFunction.Name
+        for stub_functions in stub_class.StubFunctions:
+            function_name = stub_functions[0].Name
 
-            # In the documentation, the constructor is called the same as the class
-            if FunctionName == "__init__":
-                FunctionName = Class.Name
+            # In the documentation, the constructor is called the same as the stub_class
+            if function_name == "__init__":
+                function_name = stub_class.Name
 
-            Members = ParsedPage.GetMembersByName(FunctionName)
-            if Members:
-                self._PatchFunctionGroupsWithDocumentation(FunctionGroup, Members, Class)
+            if members := parsed_page.find_members_by_name(function_name):
+                self._patch_function_groups_from_doc(stub_functions, members, stub_class)
 
-    def PatchFunctionGroup(self, FunctionGroup: list[StubFunction]):
-        if not FunctionGroup:
+    def PatchFunctionGroup(self, function_group: list[StubFunction]):
+        if not function_group:
             return  # TODO: This should never happen, look into it
 
-        if self.FunctionPage:
-            Members = self.FunctionPage.GetMembersByName(FunctionGroup[0].Name)
-            if Members:
-                self._PatchFunctionGroupsWithDocumentation(FunctionGroup, Members)
+        if self.function_page:
+            name = function_group[0].Name
+            if members := self.function_page.find_members_by_name(name):
+                self._patch_function_groups_from_doc(function_group, members)
 
     # ---------------------------------------------------------------------------------------------
     #                                    Patch Functions
     # ---------------------------------------------------------------------------------------------
 
-    def _PatchFunctionGroupsWithDocumentation(self, Functions: list[StubFunction], Members: list[MemberItem], ParentClass: StubClass | None = None):
-        # If we only have one function and one member, we don't need to figure out which one is the correct one
-        if len(Functions) == 1 and len(Members) == 1:
-            self.PatchFunctionWithDocumentation(Functions[0], Members[0], ParentClass)
+    def _patch_function_groups_from_doc(self,
+                                        stub_functions: list[StubFunction],
+                                        doc_member: list[MemberItem],
+                                        parent_stub_class: StubClass | None = None):
+        # If we only have one function and one member, we don't need to do any matching, we can just patch them directly
+        if len(stub_functions) == 1 and len(doc_member) == 1:
+            self.patch_function_from_doc(stub_functions[0], doc_member[0], parent_stub_class)
             return
 
         # If we have multiple functions and multiple members, we need to figure out which ones to match
+        # This happens when functions are overloaded
 
         # Make copies of the lists so we can modify them without affecting the original lists
-        FunctionsCopy = Functions.copy()
-        MembersCopy = Members.copy()
+        FunctionsCopy = stub_functions.copy()
+        MembersCopy = doc_member.copy()
 
         # Find all of the functions that has a perfect match with a member, by the parameter types
-        PerfectMatches: list[tuple[StubFunction, MemberItem]] = []
-        MatchedFunctions: list[StubFunction] = []
-        MatchedDocMembers: list[MemberItem] = []
-        for Function in FunctionsCopy:
-            FunctionParameters = Function.GetParameters(bExcludeSelf = True)
+        perfect_matches: list[tuple[StubFunction, MemberItem]] = []
+        matched_functions: list[StubFunction] = []
+        matched_members: list[MemberItem] = []
+        for stub_function in FunctionsCopy:
+            stub_parameters = stub_function.GetParameters(bExcludeSelf = True)
 
-            for Member in MembersCopy:
-                if len(FunctionParameters) != len(Member.Parameters):
+            for member in MembersCopy:
+                if len(stub_parameters) != len(member.parameters):
                     continue
 
-                for FunctionParameter, MemberParameter in zip(FunctionParameters, Member.Parameters):
-                    if FunctionParameter.Type != MemberParameter.Type:
+                for stub_param, doc_param in zip(stub_parameters, member.parameters):
+                    if stub_param.Type != doc_param.type_str:
                         break
                 else:
                     # Make sure neither the function or the member has already been matched with another function or member
-                    if Function in MatchedFunctions or Member in MatchedDocMembers:
+                    if stub_function in matched_functions or member in matched_members:
                         continue
-                    PerfectMatches.append((Function, Member))
 
-                    MatchedFunctions.append(Function)
-                    MatchedDocMembers.append(Member)
+                    perfect_matches.append((stub_function, member))
 
-        for Function, Member in PerfectMatches:
-            self.PatchFunctionWithDocumentation(Function, Member, ParentClass)
+                    matched_functions.append(stub_function)
+                    matched_members.append(member)
+
+        for stub_function, member in perfect_matches:
+            self.patch_function_from_doc(stub_function, member, parent_stub_class)
 
             # Remove them from the lists so we don't try to match them again
-            FunctionsCopy.remove(Function)
-            MembersCopy.remove(Member)
+            FunctionsCopy.remove(stub_function)
+            MembersCopy.remove(member)
 
         # TODO: Match based on most similar parameter types
         Scores: list[tuple[StubFunction, MemberItem, int]] = []
-        for Function in FunctionsCopy:
-            FunctionParameters = Function.GetParameters(bExcludeSelf = True)
-            for Member in MembersCopy:
+        for stub_function in FunctionsCopy:
+            stub_parameters = stub_function.GetParameters(bExcludeSelf = True)
+            for member in MembersCopy:
                 Score = 0
-                if len(FunctionParameters) == len(Member.Parameters):
+                if len(stub_parameters) == len(member.parameters):
                     Score += 1
 
-                for FunctionParameter, MemberParameter in zip(FunctionParameters, Member.Parameters):
-                    MemberParameterType = self.EnsureValidType(MemberParameter.Type)
-                    if not MemberParameterType or not FunctionParameter.Type:
+                for stub_param, doc_param in zip(stub_parameters, member.parameters):
+                    MemberParameterType = self.ensure_valid_type(doc_param.type_str)
+                    if not MemberParameterType or not stub_param.Type:
                         continue
-                    if FunctionParameter.Type == MemberParameterType:
+                    if stub_param.Type == MemberParameterType:
                         Score += 1
-                    elif MemberParameterType.startswith("list") and FunctionParameter.Type == "list":
+                    elif MemberParameterType.startswith("list") and stub_param.Type == "list":
                         Score += 1
-                    elif IsTypeDefined(FunctionParameter.Type):
+                    elif is_type_defined(stub_param.Type):
                         # Member description is not compatible with current function
                         Score = -1
                         break
 
                 if Score > 0:
-                    Scores.append((Function, Member, Score))
+                    Scores.append((stub_function, member, Score))
 
         # Sort the scores from highest to lowest
         Scores.sort(key = lambda Score: Score[2], reverse = True)
         while Scores:
-            Function, Member, Score = Scores.pop(0)
-            if Function in MatchedFunctions or Member in MatchedDocMembers:
+            stub_function, member, Score = Scores.pop(0)
+            if stub_function in matched_functions or member in matched_members:
                 continue
 
-            self.PatchFunctionWithDocumentation(Function, Member, ParentClass)
+            self.patch_function_from_doc(stub_function, member, parent_stub_class)
 
-            MatchedDocMembers.append(Member)
-            MatchedFunctions.append(Function)
+            matched_members.append(member)
+            matched_functions.append(stub_function)
 
             # Remove them from the lists so we don't try to match them again
-            FunctionsCopy.remove(Function)
-            MembersCopy.remove(Member)
+            FunctionsCopy.remove(stub_function)
+            MembersCopy.remove(member)
 
-    def PatchFunctionWithDocumentation(self, Function: StubFunction, DocMember: MemberItem, ParentClass: StubClass | None = None):
-        Function.DocString = DocMember.DocString
-        if Function.Name == "__init__":
-            if Function.DocString.startswith("Constructor."):
-                Function.DocString = Function.DocString.replace("Constructor.", "", 1)
+    def patch_function_from_doc(self, stub_function: StubFunction, doc_function: MemberItem, parent_stub_class: StubClass | None = None):
+        stub_function.DocString = doc_function.doc_string
+        if stub_function.Name == "__init__":
+            if stub_function.DocString.startswith("Constructor."):
+                stub_function.DocString = stub_function.DocString.replace("Constructor.", "", 1)
 
-        if self.ShouldPatchType(Function.ReturnType, DocMember.Type):
-            NewType = self.EnsureValidType(DocMember.Type)
-            if NewType:
-                Function.ReturnType = NewType
+        if self.should_patch_type(stub_function.ReturnType, doc_function.type_str):
+            if new_type := self.ensure_valid_type(doc_function.type_str):
+                stub_function.ReturnType = new_type
 
-        FunctionParameters = Function.GetParameters(bExcludeSelf = True)
-        DocumentationParameters = DocMember.Parameters
+        FunctionParameters = stub_function.GetParameters(bExcludeSelf = True)
+        DocumentationParameters = doc_function.parameters
 
         # The documentation includes an additional empty parameter for functions directly in the module
-        if not Function.bIsMethod and len(DocumentationParameters) - 1 == len(FunctionParameters):
+        if not stub_function.bIsMethod and len(DocumentationParameters) - 1 == len(FunctionParameters):
             DocumentationParameters = DocumentationParameters[:-1]
 
         if not FunctionParameters:
@@ -242,154 +249,167 @@ class PluginOnlineDocumentation(PluginBaseClass):
 
         # Function that has different number of parameters than the documentation requires a more careful patch to avoid patching the wrong parameter
         # It's better to not patch the parameters than patching it incorrectly, which could cause a lot of confusion
-        bSafePatch = len(FunctionParameters) != len(DocumentationParameters)
+        safe_to_patch = len(FunctionParameters) != len(DocumentationParameters)
 
-        for FunctionParameter, DocParameter in zip(FunctionParameters, DocumentationParameters):
-            if bSafePatch:
+        for stub_parameters, doc_parameters in zip(FunctionParameters, DocumentationParameters):
+            if safe_to_patch:
                 # Variable Types must match when doing a safe patch, otherwise we might be patching the wrong parameter
-                if FunctionParameter.Type != DocParameter.Type:
+                if stub_parameters.Type != doc_parameters.type_str:
                     continue
 
             # Name
-            if DocParameter.Name and FunctionParameter.Name.startswith("arg"):
-                FunctionParameter.Name = GetParameterNiceName(DocParameter.Name)
+            if doc_parameters.name and stub_parameters.Name.startswith("arg"):
+                stub_parameters.Name = get_parameter_nice_name(doc_parameters.name)
 
             # Type
-            self.PatchParameterType(FunctionParameter, DocParameter.Type, ParentClass)
+            self.patch_stub_parameter(stub_parameters, doc_parameters.type_str, parent_stub_class)
 
             # Default value
-            self.PatchPropertyDefaultValue(FunctionParameter, DocParameter.DefaultValue)
+            self.patch_default_value(stub_parameters, doc_parameters.default_value)
 
     # ---------------------------------------------------------------------------------------------
     #                                    Validate Types
     # ---------------------------------------------------------------------------------------------
 
-    def PatchParameterType(self, Parameter: StubParameter, Type: str, ParentClass: StubClass | None = None) -> str:
-        # If the enum is a subclass of the current class, patch the type to include the class name
-        # This is not really needed, though MyPy might want it
-        # if ParentClass and IsTypeDefined(Parameter.Type):
-        #     if Parameter.Type.startswith("E") and Type not in self.AllClassesMap:
-        #         # Check if enum is a subclass of the parent class
-        #         for Enum in ParentClass.StubEnums:
-        #             if Parameter.Type == Enum.Name:
-        #                 Parameter.Type = f"{ParentClass.Name}.{Enum.Name}"
-        #                 print(f"Patched parameter type: {Parameter.Type}")
-        #                 return
-        if not self.ShouldPatchType(Parameter.Type, Type):
+    def patch_stub_parameter(self, stub_parameter: StubParameter, new_type: str | None, parent_class: StubClass | None = None):
+        if new_type is None or not self.should_patch_type(stub_parameter.Type, new_type):
             return
 
-        Parameter.Type = self.EnsureValidType(Type)
+        stub_parameter.Type = self.ensure_valid_type(new_type)
 
-    def EnsureValidPropertyType(self, Property: StubProperty, Type: str) -> str:
-
+    def ensure_valid_type_property(self, stub_property: StubProperty, new_type: str) -> str | None:
+        """
+        Make sure the type is valid for the given property
+        """
         # If it's a class, make sure it's a valid class
-        bIsValidFBClass = Type in self.AllClassesMap
-        if not bIsValidFBClass:
-            if Type.startswith("FB"):
-                # In the documentation the "Property" part is missing from the class name
-                PropertyType = f"FBProperty{Type[2:]}"
-                if PropertyType in self.AllClassesMap:
-                    Type = PropertyType
+        is_valid_fb_class = new_type in self.all_classes_map
+        if not is_valid_fb_class:
+            if new_type.startswith("FB"):
+                # In the documentation the "Property" part might be missing from the class name
+                fixed_type = f"FBProperty{new_type[2:]}"
+                if fixed_type in self.all_classes_map:
+                    new_type = fixed_type
 
         # Convert all Events to EventSource
         # The documentation says otherwise, but is wrong.
-        if ((Type.startswith("FBEvent") or Property.Name.endswith("Event")) and Property.Name.startswith("On") and Property.DocString.startswith("Event")) or \
-                (not bIsValidFBClass and Type.startswith("FBEvent")):
-            Type = EVENT_SOURCE_TYPE
+        if (
+            new_type.startswith("FBEvent")
+            or
+            (
+                stub_property.Name.startswith("On") and
+                stub_property.Name.endswith("Event") and
+                stub_property.DocString.startswith("Event")
+            )
+            or
+            (not is_valid_fb_class and new_type.startswith("FBEvent"))
+        ):
+            new_type = EVENT_SOURCE_TYPE
 
-        return self.EnsureValidType(Type)
+        return self.ensure_valid_type(new_type)
 
-    def PatchPropertyDefaultValue(self, Parameter: StubParameter, DefaultValue: str | None):
-        if Parameter.DefaultValue is None or DefaultValue is None:
+    def patch_default_value(self, stub_parameter: StubParameter, default_value: str | None):
+        if stub_parameter.DefaultValue is None or default_value is None:
             return
 
         # Replace namespace C++ syntax with Python
-        if "::" in DefaultValue:
-            DefaultValue = DefaultValue.replace("::", ".")
+        if "::" in default_value:
+            default_value = default_value.replace("::", ".")
 
-        DefaultValue = TRANSLATION_VALUES.get(DefaultValue, DefaultValue)
+        default_value = TRANSLATION_DEFAULT_VALUES.get(default_value, default_value)
 
         # Remove the "f" suffix from float literals, e.g. '1.0f' -> '1.0'
-        if DefaultValue.endswith("f") and DefaultValue[:-1].replace(".", "").isnumeric():
-            DefaultValue = DefaultValue[:-1]
+        if default_value.endswith("f") and default_value[:-1].replace(".", "").isnumeric():
+            default_value = default_value[:-1]
 
-        if DefaultValue.startswith("FBArrayTemplate"):
-            DefaultValue = "[]"
-        elif DefaultValue == "FBString()":
-            DefaultValue = '""'
+        if default_value.startswith("FBArrayTemplate"):
+            default_value = "[]"
+        elif default_value == "FBString()":
+            default_value = '""'
 
-        if DefaultValue.startswith(("FB", "k")) and DefaultValue not in self.AllClassesMap:
-            EnumClass = self.AllClassesMap.get(Parameter.Type)
-            if EnumClass:
-                if any(x.Name for x in EnumClass.StubProperties if x.Name == DefaultValue):
-                    DefaultValue = f"{EnumClass.Name}.{DefaultValue}"
+        if default_value.startswith(("FB", "k")) and default_value not in self.all_classes_map:
+            if stub_parameter.Type:
+                stub_enums = self.all_classes_map.get(stub_parameter.Type)
+                if stub_enums:
+                    if any(x.Name for x in stub_enums.StubProperties if x.Name == default_value):
+                        default_value = f"{stub_enums.Name}.{default_value}"
 
-        Parameter.DefaultValue = DefaultValue
+        stub_parameter.DefaultValue = default_value
 
-    def ShouldPatchType(self, CurrentType: str, NewType: str) -> bool:
-        if not IsTypeDefined(CurrentType):
-            return True
+    def should_patch_type(self, current_type: str | None, new_type: str | None) -> bool:
+        """
+        Check if we want to patch the current type with the new type from the documentation.
 
-        ValidatedType = self.EnsureValidType(NewType)
-        if not ValidatedType:
+        If type has alredy been defined from the native parsing, we should trust that over the documentation.
+        """
+        if not is_type_defined(current_type):
+            return True  # If the current type is not defined, we should use the type from documentation
+
+        validated_type = self.ensure_valid_type(new_type)
+        if not validated_type:
             return False
 
-        if CurrentType == "list" and ValidatedType.startswith("list"):
+        if current_type == "list" and validated_type.startswith("list"):
             return True
-        if CurrentType == "tuple" and ValidatedType.startswith("tuple"):
+        if current_type == "tuple" and validated_type.startswith("tuple"):
             return True
 
-        # TODO: Must check if type is valid as well
-        if CurrentType.startswith(("E", "FB")) and CurrentType not in self.AllClassesMap:
+        if current_type.startswith(("E", "FB")) and current_type not in self.all_classes_map:
             return True
 
         return False
 
-    def EnsureValidType(self, Type: str) -> str | None:
-        if "<" in Type:
-            Type = Type.replace("<", "[").replace(">", "]").replace(" ", "")
-            Type = Type.replace("FBArrayTemplate", "list")
+    def ensure_valid_type(self, _type: str | None) -> str | None:
+        """
+        Make sure type is a valid Python type that can be used in the stubs, and translate it if necessary.
+        """
+        if not _type:
+            return None
+
+        if "<" in _type:
+            _type = _type.replace("<", "[").replace(">", "]").replace(" ", "")
+            _type = _type.replace("FBArrayTemplate", "list")
 
             # Get content between brackets
-            ListTypesStr = Type[Type.find("[") + 1:Type.find("]")]
-            if ListTypesStr:
-                ValidatedTypes = []
-                ListTypes = ListTypesStr.split(",")
-                for ListType in ListTypes:
-                    ListType = self.EnsureValidType(ListType)
-                    if ListType:
-                        ValidatedTypes.append(ListType)
-                
-                if len(ListTypes) != len(ValidatedTypes):
-                    return None
-                
-                Type = Type.replace(ListTypesStr, ",".join(ValidatedTypes))
-                if Type.endswith("[]"):
-                    Type = Type[:-2]
+            list_types_str = _type[_type.find("[") + 1:_type.find("]")]
+            if list_types_str:
+                validated_types: list[str] = []
+                list_types = list_types_str.split(",")
+                for list_type in list_types:
+                    list_type = self.ensure_valid_type(list_type)
+                    if list_type:
+                        validated_types.append(list_type)
 
-        if " " in Type:
-            for Prefix in TYPE_IGNORE_PREFIXES:
-                if Type.startswith(Prefix):
-                    Type = Type.rpartition(" ")[2]
-        
-        Type = TRANSLATION_TYPE.get(Type, Type)
+                if len(list_types) != len(validated_types):
+                    return None
+
+                _type = _type.replace(list_types_str, ",".join(validated_types))
+                if _type.endswith("[]"):
+                    _type = _type[:-2]
+
+        if " " in _type:
+            for prefix in TYPE_IGNORE_PREFIXES:
+                if _type.startswith(prefix):
+                    _type = _type.rpartition(" ")[2]
+
+        _type = TRANSLATION_TYPE.get(_type, _type)
 
         # Replace namespace C++ syntax with Python
-        if "::" in Type:
-            Type = Type.replace("::", ".")
+        if "::" in _type:
+            _type = _type.replace("::", ".")
 
-        if Type.startswith("FB"):
-            ClassName = Type
-            if "." in Type:
-                ClassName = Type.partition(".")[0]
-            if ClassName not in self.AllClassesMap:
+        if _type.startswith("FB"):
+            class_name = _type
+            if "." in _type:
+                class_name = _type.partition(".")[0]
+            if class_name not in self.all_classes_map:
                 # print(f"Type not found: {Type}")
                 return None
 
-        return Type
+        return _type
 
 
-def IsTypeDefined(Type: str | None) -> bool:
-    if not Type:
+def is_type_defined(_type: str | None) -> TypeGuard[str]:
+    if not _type:
         return False
-    return Type != "object" and Type != "Any"
+
+    return _type != "object" and _type != "Any"

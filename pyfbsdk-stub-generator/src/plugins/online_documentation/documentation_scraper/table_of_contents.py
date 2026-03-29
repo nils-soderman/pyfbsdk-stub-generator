@@ -8,12 +8,8 @@ import ast
 from . import requests_cache
 
 
-DOCUMENTATION_URL = "help.autodesk.com/cloudhelp/"
-PYTHON_API_REF = "ENU/MOBU-PYTHON-API-REF/"
-
-
 def get_full_url(version: int, relative_url: str):
-    return f"https://{DOCUMENTATION_URL}{version}/{PYTHON_API_REF}{relative_url}"
+    return f"https://help.autodesk.com/cloudhelp/{version}/ENU/MOBU-PYTHON-API-REF/{relative_url}"
 
 
 def get_table_of_contents_python(module_name: str, version: int, use_cache: bool = False) -> dict[str, str]:
@@ -30,7 +26,7 @@ def get_table_of_contents_python(module_name: str, version: int, use_cache: bool
 
     parsable_str = response.partition("=")[2]
     parsable_str = parsable_str.strip(" ;\n")
-    parsable_str = parsable_str.replace("null", "None")
+    parsable_str = parsable_str.replace("null", "None") # TODO: This may replace null in strings, use regex instead 
 
     parsed_response = ast.literal_eval(parsable_str)
 
