@@ -203,7 +203,9 @@ class StubClass(StubBase):
         for StubObject in self.StubEnums + self.StubProperties:
             ClassAsString += f"{Indent(StubObject.GetAsString())}\n"
 
-        for StubFunctions in self.StubFunctions:
+        # Always place __init__ at the top, then sort the rest of the functions alphabetically
+        SortedFunctions = sorted(self.StubFunctions, key=lambda x: (x[0].Name != '__init__', x[0].Name))
+        for StubFunctions in SortedFunctions:
             bOverload = len(StubFunctions) > 1  # If there are multiple functions with the same name, add @overload
             for StubFunc in StubFunctions:
                 ClassAsString += f"{Indent(StubFunc.GetAsString(bOverload))}\n"
