@@ -52,7 +52,7 @@ def get_safe_text(text: str) -> str:
     return text.replace('\xa0', ' ').strip(string.whitespace + ",").replace("\\", "\\\\")
 
 
-def parse_page(page_name: str, page_html: str, base_url: str) -> ParsedPage:
+def parse_page(page_name: str, page_html: str, page_url: str) -> ParsedPage:
     """
     Parse the HTML content of a page and return a DocumentationParsedPage object.
 
@@ -61,7 +61,7 @@ def parse_page(page_name: str, page_html: str, base_url: str) -> ParsedPage:
         - `PageHtmlContent`: The HTML content of the page.
         - `BaseURL`: The base URL to be used to resolve relative URLs.
     """
-    docstring_markdown = DocstringMarkdown(base_url)
+    docstring_markdown = DocstringMarkdown(page_url)
 
     parser = BeautifulSoup(page_html, "html.parser")
 

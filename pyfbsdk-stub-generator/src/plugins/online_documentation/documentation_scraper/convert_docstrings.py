@@ -23,10 +23,10 @@ def get_safe_text(text: str) -> str:
 
 
 class DocstringMarkdown(markdownify.MarkdownConverter):
-    def __init__(self, url_base: str, param_nice_name = True, **options):
+    def __init__(self, page_url: str, param_nice_name = True, **options):
         super().__init__(**options)
 
-        self.url_base = url_base
+        self.page_url = page_url
         self.param_nice_name = param_nice_name
 
     def description_to_markdown(self, html_description: str):
@@ -56,11 +56,17 @@ class DocstringMarkdown(markdownify.MarkdownConverter):
     def convert_a(self, el: Tag, text, **options):
         """ Make sure all <a> tags have a full URL. """
         href = typing.cast(str | None, el.get("href"))
+        if not href:
+            return text
+        
+        if href.startswith("#"):
+            href = f"{self.page_url}{href}"
 
-        if href and not href.startswith("http"):
-            el["href"] = f"{self.url_base}{href}"
+        elif not href.startswith("http"):
+            base = self.page_url.rpartition("/")[0]
+            href = f"{base}/{href}"
 
-        return f"[{text}]({el['href']})" if href else text
+        return f"[{text}]({href})" 
 
         # return super().convert_a(el, text, **options)  # type: ignore
 
