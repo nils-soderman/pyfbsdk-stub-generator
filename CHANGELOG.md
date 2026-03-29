@@ -1,5 +1,15 @@
 # Change Log
 
+## [2027.0.0]
+
+- Support for MotionBuilder 2027
+- Stub for the `pyfbusd` module is now generated
+- Deprecated symbols are now marked with the `@deprecated` decorator
+- Read-only properties will now only create a getter function
+- Fixed typing for `FBPropertyList` to support slicing
+- Manually typed some `FBPlug` methods
+- `__init__` methods are now sorted to be the first function
+
 ## [2026.1.1]
 
 - Generated stubs for MotionBuilder 2026.1
