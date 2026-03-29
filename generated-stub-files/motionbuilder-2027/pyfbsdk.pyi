@@ -4091,82 +4091,118 @@ class FBEvaluateInfo:
 		...
 class FBEvent:
 	"""Base Event class."""
-	Type:int
-	"""**Read Only Property:** Type of event."""
+	@property
+	def Type(self)->int:
+		"""**Read Only Property:** Type of event."""
+		...
 class FBEventActivate(FBEvent):
 	"""Activation event."""
 	Data:int
 	"""**Read Write Property:** Generic data of event."""
 class FBEventClipChange(FBEvent):
-	Type:FBStoryClipChangeType
-	"""**Read Only Property:** Type of event."""
+	@property
+	def Type(self)->FBStoryClipChangeType:
+		"""**Read Only Property:** Type of event."""
+		...
 	def __init__(self):
 		"""### Parameters:
 		 - Event: Base event (internal) to obtain information from."""
 		...
 class FBEventConnectionDataNotify(FBEvent):
 	"""Connection notify event class."""
-	Action:FBConnectionAction
-	"""**Read Only Property:** Connection's action performed."""
-	Plug:FBPlug
-	"""**Read Only Property:** The plug involved in the action."""
+	@property
+	def Action(self)->FBConnectionAction:
+		"""**Read Only Property:** Connection's action performed."""
+		...
+	@property
+	def Plug(self)->FBPlug:
+		"""**Read Only Property:** The plug involved in the action."""
+		...
 	def __init__(self):
 		"""### Parameters:
 		 - Event: Base event (internal) to obtain information from."""
 		...
 class FBEventConnectionKeyingNotify(FBEvent):
-	Action:FBConnectionAction
-	"""**Read Only Property:** Connection's action performed."""
-	Plug:FBPlug
-	"""**Read Only Property:** The plug involved in the action."""
+	@property
+	def Action(self)->FBConnectionAction:
+		"""**Read Only Property:** Connection's action performed."""
+		...
+	@property
+	def Plug(self)->FBPlug:
+		"""**Read Only Property:** The plug involved in the action."""
+		...
 	@property
 	def Property(self)->FBPropertyAnimatable:
 		"""**Read Only Property:** The property involved in the action."""
 		...
 	@Property.setter
 	def Property(self, Value: FBPropertyAnimatable|Any):...
-	StartTime:FBTime
-	"""**Read Only Property:** For kFBKeyingDeleteKey, it represents the start time of the range of keys being deleted. For kFBKeyingKey, it represents the time at which the key was added."""
-	StopTime:FBTime
-	"""**Read Only Property:** Only available for kFBKeyingDeleteKey, it represents the stop time of the range of keys being deleted."""
+	@property
+	def StartTime(self)->FBTime:
+		"""**Read Only Property:** For kFBKeyingDeleteKey, it represents the start time of the range of keys being deleted. For kFBKeyingKey, it represents the time at which the key was added."""
+		...
+	@property
+	def StopTime(self)->FBTime:
+		"""**Read Only Property:** Only available for kFBKeyingDeleteKey, it represents the stop time of the range of keys being deleted."""
+		...
 	def __init__(self):
 		"""### Parameters:
 		 - Event: Base event (internal) to obtain information from."""
 		...
 class FBEventConnectionNotify(FBEvent):
 	"""Connection notify event class."""
-	Action:FBConnectionAction
-	"""**Read Only Property:** Connection's action performed."""
-	ConnectionType:FBConnectionType
-	"""**Read Only Property:** Connection's type."""
-	DstPlug:FBPlug
-	"""**Read Only Property:** The destination plug involved in the action."""
-	NewPlug:FBPlug
-	"""**Read Only Property:** New plug created by the action. (Mostly used by merge/replace)"""
-	SrcIndex:int
-	"""**Read Only Property:** Index of the source in the destination component."""
-	SrcPlug:FBPlug
-	"""**Read Only Property:** The source plug involved in the action."""
+	@property
+	def Action(self)->FBConnectionAction:
+		"""**Read Only Property:** Connection's action performed."""
+		...
+	@property
+	def ConnectionType(self)->FBConnectionType:
+		"""**Read Only Property:** Connection's type."""
+		...
+	@property
+	def DstPlug(self)->FBPlug:
+		"""**Read Only Property:** The destination plug involved in the action."""
+		...
+	@property
+	def NewPlug(self)->FBPlug:
+		"""**Read Only Property:** New plug created by the action. (Mostly used by merge/replace)"""
+		...
+	@property
+	def SrcIndex(self)->int:
+		"""**Read Only Property:** Index of the source in the destination component."""
+		...
+	@property
+	def SrcPlug(self)->FBPlug:
+		"""**Read Only Property:** The source plug involved in the action."""
+		...
 	def __init__(self):
 		"""### Parameters:
 		 - Event: Base event (internal) to obtain information from."""
 		...
 class FBEventConnectionStateNotify(FBEvent):
 	"""Connection notify event class."""
-	Action:FBConnectionAction
-	"""**Read Only Property:** Connection's action performed."""
-	Plug:FBPlug
-	"""**Read Only Property:** The plug involved in the action."""
+	@property
+	def Action(self)->FBConnectionAction:
+		"""**Read Only Property:** Connection's action performed."""
+		...
+	@property
+	def Plug(self)->FBPlug:
+		"""**Read Only Property:** The plug involved in the action."""
+		...
 	def __init__(self):
 		"""### Parameters:
 		 - Event: Base event (internal) to obtain information from."""
 		...
 class FBEventDblClick(FBEvent):
 	"""Input event class."""
-	Reference:int
-	"""**Read Only Property:** Reference associated with element double-clicked."""
-	Selection:int
-	"""**Read Only Property:** Id of selection."""
+	@property
+	def Reference(self)->int:
+		"""**Read Only Property:** Reference associated with element double-clicked."""
+		...
+	@property
+	def Selection(self)->int:
+		"""**Read Only Property:** Id of selection."""
+		...
 	def __init__(self):
 		"""### Parameters:
 		 - Event: Base event (internal) to obtain information from."""
@@ -4215,8 +4251,10 @@ class FBEventDragAndDrop(FBEvent):
 		...
 class FBEventEvalGlobalCallback(FBEvent):
 	"""**Event:** Global Evaluation pipeline critical timing callback event."""
-	Timing:FBGlobalEvalCallbackTiming
-	"""**Read Only Property:** The timing of the global evaluation callback."""
+	@property
+	def Timing(self)->FBGlobalEvalCallbackTiming:
+		"""**Read Only Property:** The timing of the global evaluation callback."""
+		...
 class FBEventExpose(FBEvent):
 	"""Event sent when a control needs to be displayed."""
 	...
@@ -4224,24 +4262,40 @@ class FBEventFileChange(FBEvent):
 	"""File change event class.
 
 	This event occurs every time a monitored file changed:"""
-	Path:str
-	"""**Read Only Property:** The path of changed file."""
-	Type:FBFileMonitoringType
-	"""**Read Only Property:** Type of file change event."""
+	@property
+	def Path(self)->str:
+		"""**Read Only Property:** The path of changed file."""
+		...
+	@property
+	def Type(self)->FBFileMonitoringType:
+		"""**Read Only Property:** Type of file change event."""
+		...
 class FBEventInput(FBEvent):
 	"""Input event class."""
-	InputType:FBInputType
-	"""**Read Only Property:** Input type."""
-	Key:int
-	"""**Read Only Property:** Input key."""
-	KeyState:int
-	"""**Read Only Property:** State of key."""
-	MouseButton:int
-	"""**Read Only Property:** Mouse Button."""
-	X:int
-	"""**Read Only Property:** Mouse X Position."""
-	Y:int
-	"""**Read Only Property:** Mouse Y Position."""
+	@property
+	def InputType(self)->FBInputType:
+		"""**Read Only Property:** Input type."""
+		...
+	@property
+	def Key(self)->int:
+		"""**Read Only Property:** Input key."""
+		...
+	@property
+	def KeyState(self)->int:
+		"""**Read Only Property:** State of key."""
+		...
+	@property
+	def MouseButton(self)->int:
+		"""**Read Only Property:** Mouse Button."""
+		...
+	@property
+	def X(self)->int:
+		"""**Read Only Property:** Mouse X Position."""
+		...
+	@property
+	def Y(self)->int:
+		"""**Read Only Property:** Mouse Y Position."""
+		...
 class FBEventMenu(FBEvent):
 	"""Menu event."""
 	Id:int
@@ -4250,8 +4304,10 @@ class FBEventMenu(FBEvent):
 	"""**Read Write Property:** Name of menu item."""
 class FBEventOverrideFileOpen(FBEvent):
 	"""Event that is called before a file open/merge."""
-	FilePath:str
-	"""**Read Only Property:** Path to the file that will be opened/merged."""
+	@property
+	def FilePath(self)->str:
+		"""**Read Only Property:** Path to the file that will be opened/merged."""
+		...
 	WillOverride:bool
 	"""**Read Write Property:** Set to true for handling the file load, false by default. If the return value is false, MotionBuilder will proceed with the normal file open/merge process."""
 	def __init__(self):
@@ -4259,16 +4315,20 @@ class FBEventOverrideFileOpen(FBEvent):
 		 - Event: Base event (internal) to obtain information from."""
 		...
 class FBEventPlayerControlChange(FBEvent):
-	Type:FBPlayerControlChangeType
-	"""**Read Only Property:** Type of event."""
+	@property
+	def Type(self)->FBPlayerControlChangeType:
+		"""**Read Only Property:** Type of event."""
+		...
 	def __init__(self):
 		"""### Parameters:
 		 - Event: Base event (internal) to obtain information from."""
 		...
 class FBEventPreShow(FBEvent):
 	"""PreShow event class."""
-	Show:bool
-	"""**Read Only Property:** Is the layout about to be shown (or hidden)?"""
+	@property
+	def Show(self)->bool:
+		"""**Read Only Property:** Is the layout about to be shown (or hidden)?"""
+		...
 class FBEventResize(FBEvent):
 	"""Event sent to a control that resizes."""
 	Height:int
@@ -4283,44 +4343,64 @@ class FBEventSceneChange(FBEvent):
 	"""Select model event class.
 
 	This event occurs every time a model is:(un)selectedaddeddestroyedrenamed, etc.."""
-	ChildComponent:FBComponent
-	"""**Read Only Property:** Child component of the event."""
-	Component:FBComponent
-	"""**Read Only Property:** Modified component"""
-	Type:FBSceneChangeType
-	"""**Read Only Property:** Type of selection event."""
+	@property
+	def ChildComponent(self)->FBComponent:
+		"""**Read Only Property:** Child component of the event."""
+		...
+	@property
+	def Component(self)->FBComponent:
+		"""**Read Only Property:** Modified component"""
+		...
+	@property
+	def Type(self)->FBSceneChangeType:
+		"""**Read Only Property:** Type of selection event."""
+		...
 	def __init__(self):
 		"""### Parameters:
 		 - Event: Base event (internal) to obtain information from."""
 		...
 class FBEventShow(FBEvent):
 	"""Show event class."""
-	Shown:bool
-	"""**Read Only Property:** Was the layout just shown (or hidden)?"""
+	@property
+	def Shown(self)->bool:
+		"""**Read Only Property:** Was the layout just shown (or hidden)?"""
+		...
 class FBEventSpread(FBEvent):
 	"""Spreadsheet event."""
-	Action:int
-	"""**Read Only Property:** Action associated to the spread event."""
-	Column:int
-	"""**Read Only Property:** Column of event."""
-	Row:int
-	"""**Read Only Property:** Row of event."""
+	@property
+	def Action(self)->int:
+		"""**Read Only Property:** Action associated to the spread event."""
+		...
+	@property
+	def Column(self)->int:
+		"""**Read Only Property:** Column of event."""
+		...
+	@property
+	def Row(self)->int:
+		"""**Read Only Property:** Row of event."""
+		...
 class FBEventTakeChange(FBEvent):
 	"""Take change event class.
 
 	This event occurs every time a take is:addeddestroyedrenamedselected, etc."""
-	Take:FBTake
-	"""**Read Only Property:** The take modified."""
-	Type:FBTakeChangeType
-	"""**Read Only Property:** Type of take change event."""
+	@property
+	def Take(self)->FBTake:
+		"""**Read Only Property:** The take modified."""
+		...
+	@property
+	def Type(self)->FBTakeChangeType:
+		"""**Read Only Property:** Type of take change event."""
+		...
 	def __init__(self):
 		"""### Parameters:
 		 - Event: Base event (internal) to obtain information from."""
 		...
 class FBEventTransaction(FBEvent):
 	"""Transaction event."""
-	IsBeginTransaction:bool
-	"""**Read Only Property:** Tells if the transaction is at begin."""
+	@property
+	def IsBeginTransaction(self)->bool:
+		"""**Read Only Property:** Tells if the transaction is at begin."""
+		...
 class FBEventTree(FBEvent):
 	"""[FBTree](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_tree.html) node event."""
 	TreeNode:FBTreeNode
@@ -4340,12 +4420,18 @@ class FBEventVideoFrameRendering(FBEvent):
 		eBeginRendering:FBEventVideoFrameRendering.EState
 		eEndRendering:FBEventVideoFrameRendering.EState
 		eRendering:FBEventVideoFrameRendering.EState
-	FrameCount:int
-	"""**Read Only Property:** Total number of frames to render."""
-	FrameNumber:int
-	"""**Read Only Property:** Current frame number being rendered."""
-	State:EState
-	"""**Read Only Property:** Current video rendering state."""
+	@property
+	def FrameCount(self)->int:
+		"""**Read Only Property:** Total number of frames to render."""
+		...
+	@property
+	def FrameNumber(self)->int:
+		"""**Read Only Property:** Current frame number being rendered."""
+		...
+	@property
+	def State(self)->EState:
+		"""**Read Only Property:** Current video rendering state."""
+		...
 	eBeginRendering:FBEventVideoFrameRendering.EState
 	eEndRendering:FBEventVideoFrameRendering.EState
 	eRendering:FBEventVideoFrameRendering.EState
@@ -4357,22 +4443,38 @@ class FBFCurveEvent(FBEvent):
 	"""This class is used when a modification is made on a FCurve.
 
 	It contains the necessary information to identify the owner of the curve and what modification was made."""
-	Curve:FBFCurve
-	"""**Read Only Property:** Curve that will receive the new key."""
-	CurveIndex:int
-	"""**Read Only Property:** Index of curve."""
-	CurveName:str
-	"""**Read Only Property:** Name of curve."""
-	EventType:FBFCurveEventType
-	"""**Read Only Property:** Type of fcurve event."""
-	KeyIndexStart:int
-	"""**Read Only Property:** Index of the first key which is involved in the event."""
-	KeyIndexStop:int
-	"""**Read Only Property:** Index of the last key which is involved in the event."""
-	ParentAnimationNode:FBAnimationNode
-	"""**Read Only Property:** Parent [FBAnimationNode](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_animation_node.html) of the curve if possible."""
-	ParentComponent:FBComponent
-	"""**Read Only Property:** Parent object ([FBComponent](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_component.html)) holding the [FBAnimationNode](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_animation_node.html) of the curve if possible."""
+	@property
+	def Curve(self)->FBFCurve:
+		"""**Read Only Property:** Curve that will receive the new key."""
+		...
+	@property
+	def CurveIndex(self)->int:
+		"""**Read Only Property:** Index of curve."""
+		...
+	@property
+	def CurveName(self)->str:
+		"""**Read Only Property:** Name of curve."""
+		...
+	@property
+	def EventType(self)->FBFCurveEventType:
+		"""**Read Only Property:** Type of fcurve event."""
+		...
+	@property
+	def KeyIndexStart(self)->int:
+		"""**Read Only Property:** Index of the first key which is involved in the event."""
+		...
+	@property
+	def KeyIndexStop(self)->int:
+		"""**Read Only Property:** Index of the last key which is involved in the event."""
+		...
+	@property
+	def ParentAnimationNode(self)->FBAnimationNode:
+		"""**Read Only Property:** Parent [FBAnimationNode](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_animation_node.html) of the curve if possible."""
+		...
+	@property
+	def ParentComponent(self)->FBComponent:
+		"""**Read Only Property:** Parent object ([FBComponent](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_component.html)) holding the [FBAnimationNode](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_animation_node.html) of the curve if possible."""
+		...
 	@property
 	def ParentProperty(self)->FBPropertyAnimatable:
 		"""**Read Only Property:** Parent [FBProperty](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_property.html) of the curve if possible."""
@@ -4440,8 +4542,10 @@ class FBFilePopup:
 	"""**Read Write Property:** File selected."""
 	Filter:str
 	"""**Read Write Property:** Filter to use for popup window file selection."""
-	FullFilename:str
-	"""**Read Only Property:** Full filename (path and file)."""
+	@property
+	def FullFilename(self)->str:
+		"""**Read Only Property:** Full filename (path and file)."""
+		...
 	Path:str
 	"""**Read Write Property:** Path of file selected."""
 	Style:FBFilePopupStyle
@@ -5518,12 +5622,18 @@ class FBPropertyManager:
 	def __len__(self)->int:...
 class FBPropertyStateEvent(FBEvent):
 	"""This class is used when the state of a property tracked by the [FBFCurveEventManager](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_f_curve_event_manager.html) is changed."""
-	EventType:FBPropertyStateEventType
-	"""**Read Only Property:** Event type, please see the [FBPropertyStateEventType](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_property_state_event_type.html) for the possible types."""
-	ParentComponent:FBComponent
-	"""**Read Only Property:** Parent object holding the property if possible."""
-	Property:FBProperty
-	"""**Read Only Property:** [FBProperty](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_property.html) related to the event."""
+	@property
+	def EventType(self)->FBPropertyStateEventType:
+		"""**Read Only Property:** Event type, please see the [FBPropertyStateEventType](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_property_state_event_type.html) for the possible types."""
+		...
+	@property
+	def ParentComponent(self)->FBComponent:
+		"""**Read Only Property:** Parent object holding the property if possible."""
+		...
+	@property
+	def Property(self)->FBProperty:
+		"""**Read Only Property:** [FBProperty](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_property.html) related to the event."""
+		...
 	def __init__(self):
 		"""### Parameters:
 		 - Event: Base event (internal) to obtain information from."""
@@ -5911,8 +6021,10 @@ class FBComponent(FBPlug):
 	[See sample: ReplaceNamespace.py.](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/_basic_operations_0c_replace_namespace_8py-example.html)"""
 	Components:FBPropertyListComponent
 	"""**List:** List of components."""
-	FullName:str
-	"""**Read Only Property:** The full name of the component."""
+	@property
+	def FullName(self)->str:
+		"""**Read Only Property:** The full name of the component."""
+		...
 	LongName:str
 	"""**Read Write Property:** Name and namespace for object."""
 	Name:str
@@ -5921,8 +6033,10 @@ class FBComponent(FBPlug):
 	"""**Read Write Property:** The namespace object that owns / to own this component."""
 	Parents:FBPropertyListComponent
 	"""**List:** Parents."""
-	PropertyList:FBPropertyManager
-	"""**Read Only Property:** Manages all of the properties for the component."""
+	@property
+	def PropertyList(self)->FBPropertyManager:
+		"""**Read Only Property:** Manages all of the properties for the component."""
+		...
 	Selected:bool
 	"""**Read Write Property:** Selected property."""
 	def DisableObjectFlags(self,Flags:FBObjectFlag,/)->None:
@@ -8162,12 +8276,18 @@ class FBRenderer(FBComponent):
 	"""**Read Write Property:** Current Pane's Renderer Callback Preference Index."""
 	DisplayNormals:bool
 	"""**Read Write Property:** Display model normals in main viewer."""
-	DisplaySetUpdateId:int
-	"""**Read Only Property:** Current DisplaySet Update Id. Add/Delete models, Show/Hide models will affect DisplaySet."""
-	DisplayableGeometryCount:int
-	"""**Read Only Property:** Displayable geometry count."""
-	DisplayableLightCount:int
-	"""**Read Only Property:** Displayable light count."""
+	@property
+	def DisplaySetUpdateId(self)->int:
+		"""**Read Only Property:** Current DisplaySet Update Id. Add/Delete models, Show/Hide models will affect DisplaySet."""
+		...
+	@property
+	def DisplayableGeometryCount(self)->int:
+		"""**Read Only Property:** Displayable geometry count."""
+		...
+	@property
+	def DisplayableLightCount(self)->int:
+		"""**Read Only Property:** Displayable light count."""
+		...
 	FrustumCulling:bool
 	"""**Read Write Property:** Turn on/off the early frustum culling optimization."""
 	HideManipulatorsOnManip:bool
@@ -8182,12 +8302,16 @@ class FBRenderer(FBComponent):
 	"""**Read write Property:** Those Semi-transparent (Alpha Blend) geometry(region) contribute less than this threshold, will be considered as invisible during ID picking."""
 	PickingEnabled:bool
 	"""**Read Write Property:** Is picking in the viewer enabled?"""
-	RegisteredCallbackCount:int
-	"""**Read Only Property:** Registered Renderer Callback Count."""
+	@property
+	def RegisteredCallbackCount(self)->int:
+		"""**Read Only Property:** Registered Renderer Callback Count."""
+		...
 	RendererCallbacks:FBPropertyListRendererCallback
 	"""**List:** Renderer Callbacks attached."""
-	RendererUpdateId:int
-	"""**Read Only Property:** Current Render Update Id. DisplaySet update, material change, texture changes and shader change and other operations will trigger Renderer update."""
+	@property
+	def RendererUpdateId(self)->int:
+		"""**Read Only Property:** Current Render Update Id. DisplaySet update, material change, texture changes and shader change and other operations will trigger Renderer update."""
+		...
 	Scene:FBScene
 	"""**Read Write Property:** Scene that the renderer will use/draw"""
 	SelectionForceSnapPointsDisplay:bool
@@ -8787,8 +8911,10 @@ class FBProfiler(FBComponent):
 		...
 class FBPose(FBComponent):
 	"""Pose class."""
-	Type:FBPoseType
-	"""**Read Only Property:** Type of the pose (bind pose or rest pose)"""
+	@property
+	def Type(self)->FBPoseType:
+		"""**Read Only Property:** Type of the pose (bind pose or rest pose)"""
+		...
 	def __init__(self,Name:str,/):
 		"""### Parameters:
 		 - Name: Name of pose."""
@@ -9832,8 +9958,10 @@ class FBBoxPlaceHolder(FBBox):
 	"""Wrapper around a specific instance of a [FBBox](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_box.html) object.
 
 	This class is mainly used with a constraint relation to have multiple boxes that are a representation of the same underlying box. The underlying box will usually be a device. Instantiation of [FBBoxPlaceHolder](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_box_place_holder.html) should be left to the the system."""
-	Box:FBBox
-	"""**Read Only Property:** Underlying box object."""
+	@property
+	def Box(self)->FBBox:
+		"""**Read Only Property:** Underlying box object."""
+		...
 class FBConstraint(FBBox):
 	"""Base class for constraints."""
 	Active:bool
@@ -10015,8 +10143,10 @@ class FBModelPlaceHolder(FBBoxPlaceHolder):
 	"""Wrapper around a specific instance of a [FBModel](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_model.html) object.
 
 	This class is mainly used with a constraint relation to have multiple boxes that are a representation of the same underlying model. Instantiation of [FBModelPlaceHolder](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_model_place_holder.html) should be left to the the system."""
-	Model:FBModel
-	"""**Read Only Property:** Underlying model object."""
+	@property
+	def Model(self)->FBModel:
+		"""**Read Only Property:** Underlying model object."""
+		...
 	UseGlobalTransforms:bool
 	"""**Read Write Property:** Indicate if the translations are expressed in local or global mode."""
 class FBCharacterSolver(FBConstraint):
@@ -12087,16 +12217,26 @@ class FBConstraintRelation(FBConstraint):
 		...
 class FBCycleAnalysisNode(FBBox):
 	"""Cycle Analysis class."""
-	RealTime:bool
-	"""**Read Only Property:** Real time."""
-	RootHMode:FBRootHMode
-	"""**Read Only Property:** RootH Mode."""
-	RootRMode:FBRootRMode
-	"""**Read Only Property:** RootR Mode."""
-	RootSpeedMode:FBRootSpeedMode
-	"""**Read Only Property:** Root Speed Mode."""
-	RootXZMode:FBRootXZMode
-	"""**Read Only Property:** RootXZ Mode."""
+	@property
+	def RealTime(self)->bool:
+		"""**Read Only Property:** Real time."""
+		...
+	@property
+	def RootHMode(self)->FBRootHMode:
+		"""**Read Only Property:** RootH Mode."""
+		...
+	@property
+	def RootRMode(self)->FBRootRMode:
+		"""**Read Only Property:** RootR Mode."""
+		...
+	@property
+	def RootSpeedMode(self)->FBRootSpeedMode:
+		"""**Read Only Property:** Root Speed Mode."""
+		...
+	@property
+	def RootXZMode(self)->FBRootXZMode:
+		"""**Read Only Property:** RootXZ Mode."""
+		...
 	def __init__(self,Name:str,/):
 		"""### Parameters:
 		 - Name: Name of new cycle analysis node."""
@@ -12156,10 +12296,14 @@ class FBDevice(FBBox):
 	"""**Component:** Root of model template structure."""
 	Online:bool
 	"""**Read Write Property:** Is online?"""
-	RecordingStartTime:FBTime
-	"""**Read Only Property:** The time at which the recording started."""
-	RecordingStopTime:FBTime
-	"""**Read Only Property:** The time at which the recording stopped."""
+	@property
+	def RecordingStartTime(self)->FBTime:
+		"""**Read Only Property:** The time at which the recording started."""
+		...
+	@property
+	def RecordingStopTime(self)->FBTime:
+		"""**Read Only Property:** The time at which the recording stopped."""
+		...
 	SamplingMode:FBDeviceSamplingMode
 	"""**Read Write Property:** Mode to use to record device."""
 	SamplingPeriod:FBTime
@@ -12735,8 +12879,10 @@ class FBModel(FBBox):
 	There is a few ways to get a handle on existing models in a scene: FBFindObjectsByName return a list of objects matching a pattern (can contain *). For usage, see: FindObjectsWithWildcard.py If you know the name of the model, use FBFindModelByLabelName, as demonstrated in FBComponent.py. FBGetSelectedModels can get a handle to an object which is derived from [FBModel](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_model.html). It searches the scene for a model, based on the model's unique name and returns a list of all the selected things in the scene.
 
 	[See sample: ResetLocalTranslationRotation.py.](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/_tasks_0c_reset_local_translation_rotation_8py-example.html)"""
-	AnimationNode:FBAnimationNode
-	"""**Read Only Property:** Animation node of the model."""
+	@property
+	def AnimationNode(self)->FBAnimationNode:
+		"""**Read Only Property:** Animation node of the model."""
+		...
 	BlendShapeDeformable:bool
 	"""**Read Write Property:** Model blend-shape deformable. Not Savable"""
 	CastsShadows:bool
@@ -12757,29 +12903,39 @@ class FBModel(FBBox):
 	"""**Read Write Property:** Geometric translation."""
 	Geometry:FBGeometry
 	"""**Read Write Property:** Geometry for the model."""
-	GeometryUpdateId:int
-	"""**Read Only Property:** model geometry (vertex data) related update id."""
+	@property
+	def GeometryUpdateId(self)->int:
+		"""**Read Only Property:** model geometry (vertex data) related update id."""
+		...
 	Icon3D:bool
 	"""**Read Write Property:** Is model a 3D icon?"""
-	IsConstrained:bool
-	"""**Read Only Property:** Is model constrained?"""
-	IsDeformable:bool
-	"""**Read Only Property:** Is model deformable?"""
-	IsVisible:bool
-	"""**Read Only Property:** Indicates whether the model is currently visible based on visibility evaluation.
+	@property
+	def IsConstrained(self)->bool:
+		"""**Read Only Property:** Is model constrained?"""
+		...
+	@property
+	def IsDeformable(self)->bool:
+		"""**Read Only Property:** Is model deformable?"""
+		...
+	@property
+	def IsVisible(self)->bool:
+		"""**Read Only Property:** Indicates whether the model is currently visible based on visibility evaluation.
 
-	Note. this query will consider self Visibility property, plus parent node/set Visibility. The visibility of a model is affected by 4 parameters:
+		Note. this query will consider self Visibility property, plus parent node/set Visibility. The visibility of a model is affected by 4 parameters:
 
-	1. The model's own visibility
-	2. The model's parent's visibility (if any)
-	3. The visibility of the set to which model belongs (if any)
-	4. VisibilityInheritance of the model"""
+		1. The model's own visibility
+		2. The model's parent's visibility (if any)
+		3. The visibility of the set to which model belongs (if any)
+		4. VisibilityInheritance of the model"""
+		...
 	LookAt:FBModel
 	"""**Read Write Property:** Look at model (interest point)."""
 	Materials:FBPropertyListMaterial
 	"""**List:** Materials for model."""
-	ModelVertexData:FBModelVertexData
-	"""**Read Only Property:** ModelVertexData for the model."""
+	@property
+	def ModelVertexData(self)->FBModelVertexData:
+		"""**Read Only Property:** ModelVertexData for the model."""
+		...
 	Parent:FBModel|None
 	"""**Read Write Property:** Parent model."""
 	Pickable:bool
@@ -12832,8 +12988,10 @@ class FBModel(FBBox):
 		...
 	@Scaling.setter
 	def Scaling(self, Value: FBPropertyAnimatableVector3d|FBVector3d):...
-	Scene:FBScene
-	"""**Read Only Property:** Scene containing the model."""
+	@property
+	def Scene(self)->FBScene:
+		"""**Read Only Property:** Scene containing the model."""
+		...
 	Shaders:FBPropertyListShader
 	"""**List:** Shaders for model."""
 	ShadingMode:FBModelShadingMode
@@ -12854,8 +13012,10 @@ class FBModel(FBBox):
 		...
 	@Translation.setter
 	def Translation(self, Value: FBPropertyAnimatableVector3d|FBVector3d):...
-	UniqueColorId:FBColor
-	"""**Read Only Property:** Unique Color Id for color based viewer picking. Color channel values are in the range [0, 1] with 1.0/255 precision."""
+	@property
+	def UniqueColorId(self)->FBColor:
+		"""**Read Only Property:** Unique Color Id for color based viewer picking. Color channel values are in the range [0, 1] with 1.0/255 precision."""
+		...
 	UpVector:FBModel
 	"""**Read Write Property:** UpVector model."""
 	@property
@@ -13317,14 +13477,22 @@ class FBCamera(FBModel):
 	"""**Read Write Property:** Select mode for the background plane's distance."""
 	BackGroundTexture:FBTexture
 	"""**Read Write Property:** Background Texture"""
-	CameraViewportHeight:int
-	"""**Read Only Property:** Camera Viewport height"""
-	CameraViewportWidth:int
-	"""**Read Only Property:** Camera Viewport width"""
-	CameraViewportX:int
-	"""**Read Only Property:** Camera Viewport start position's X value"""
-	CameraViewportY:int
-	"""**Read Only Property:** Camera Viewport start position's Y value"""
+	@property
+	def CameraViewportHeight(self)->int:
+		"""**Read Only Property:** Camera Viewport height"""
+		...
+	@property
+	def CameraViewportWidth(self)->int:
+		"""**Read Only Property:** Camera Viewport width"""
+		...
+	@property
+	def CameraViewportX(self)->int:
+		"""**Read Only Property:** Camera Viewport start position's X value"""
+		...
+	@property
+	def CameraViewportY(self)->int:
+		"""**Read Only Property:** Camera Viewport start position's Y value"""
+		...
 	Display2DMagnifierFrame:bool
 	"""**Read Write Property:** Enable/Disable the drawing of the 2D Magnifier frame box."""
 	DisplayTurnTableIcon:bool
@@ -13503,8 +13671,10 @@ class FBCamera(FBModel):
 	"""**Read Write Property:** Type of over sampling."""
 	SqueezeRatio:float
 	"""**Read Write Property:** Squeeze ratio."""
-	SystemCamera:bool
-	"""**Read Only Property:** Indicate if this a producer (default or system) camera or a custom (user-created) camera."""
+	@property
+	def SystemCamera(self)->bool:
+		"""**Read Only Property:** Indicate if this a producer (default or system) camera or a custom (user-created) camera."""
+		...
 	@property
 	def TurnTable(self)->FBPropertyAnimatableDouble:
 		"""**Read Write Property:** Camera's rotation around its interest."""
@@ -13553,10 +13723,14 @@ class FBCamera(FBModel):
 	"""**Read Write Property:** Show name?"""
 	ViewShowTimeCode:bool
 	"""**Read Write Property:** Show time code?"""
-	WindowHeight:float
-	"""**Read Only Property:** Window height."""
-	WindowWidth:float
-	"""**Read Only Property:** Window width."""
+	@property
+	def WindowHeight(self)->float:
+		"""**Read Only Property:** Window height."""
+		...
+	@property
+	def WindowWidth(self)->float:
+		"""**Read Only Property:** Window width."""
+		...
 	def __init__(self,Name:str,/):
 		"""### Parameters:
 		 - Name: Name of camera."""
@@ -13824,16 +13998,22 @@ class FBModelPath3D(FBModel):
 		...
 	@Color.setter
 	def Color(self, Value: FBPropertyAnimatableColor|FBColor):...
-	KeyPropertyBehavior:FBModelPath3D.EKeyPropertyBehavior
-	"""**Read Only Property:** Key property behavior."""
+	@property
+	def KeyPropertyBehavior(self)->FBModelPath3D.EKeyPropertyBehavior:
+		"""**Read Only Property:** Key property behavior."""
+		...
 	PathEndCapScale:float
 	"""**Read Write Property:** Path end cap display scale."""
 	PathEndCapStyle:EPathEndCapStyle
 	"""**Read Write Property:** Path end cap display style."""
-	PathLength:float
-	"""**Read Only Property:** Path Length In Centimeter."""
-	PathLengthInString:str
-	"""**Read Only Property:** Path Length Display String According To The Current Unit."""
+	@property
+	def PathLength(self)->float:
+		"""**Read Only Property:** Path Length In Centimeter."""
+		...
+	@property
+	def PathLengthInString(self)->str:
+		"""**Read Only Property:** Path Length Display String According To The Current Unit."""
+		...
 	PathLengthShow:bool
 	"""**Read Write Property:** Path length label display or not."""
 	PathLengthUnit:FBModelPath3D.ELengthUnitType
@@ -14481,10 +14661,14 @@ class FBAudioClip(FBComponent):
 	[See sample: AudioTrackSetupTool.py.](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/_complex_tools_0c_audio_track_setup_tool_8py-example.html)"""
 	AccessMode:FBAccessMode
 	"""**Read Write Property:** Specify the media data access mode between disk or memory."""
-	Bits:int
-	"""**Read Only Property:** the bits of media."""
-	Channels:int
-	"""**Read Only Property:** the number of channels in use."""
+	@property
+	def Bits(self)->int:
+		"""**Read Only Property:** the bits of media."""
+		...
+	@property
+	def Channels(self)->int:
+		"""**Read Only Property:** the number of channels in use."""
+		...
 	ClipSpeed:float
 	"""**Read Write Property:** The speed of the media when being played."""
 	ConstrainDstToTake:bool
@@ -14499,28 +14683,42 @@ class FBAudioClip(FBComponent):
 	"""**Read Write Property:** Total duration of this audio clip."""
 	DstIn:FBTime
 	"""**Read Write Property:** When not used in the Story, this specify when the clips begin to play."""
-	Format:int
-	"""**Read Only Property:** Data format of media, including rate, bits and channels count. You can typecast it to a FBAudioFmt."""
+	@property
+	def Format(self)->int:
+		"""**Read Only Property:** Data format of media, including rate, bits and channels count. You can typecast it to a FBAudioFmt."""
+		...
 	LockClipSpeed:bool
 	"""**Read Write Property:** Indicates whether to lock the current playing speed."""
 	LockPitchToSpeed:bool
 	"""**Read Write Property:** Time stretch enabled factor."""
-	Path:str
-	"""**Read Only Property:** Full Path of the media."""
+	@property
+	def Path(self)->str:
+		"""**Read Only Property:** Full Path of the media."""
+		...
 	Pitch:float
 	"""**Read Write Property:** The audio clip pitch value. To write to this property, you must first set LockPitchToSpeed property to false."""
-	Rate:int
-	"""**Read Only Property:** the rate of media."""
-	RelativePath:str
-	"""**Read Only Property:** Relative path of media."""
+	@property
+	def Rate(self)->int:
+		"""**Read Only Property:** the rate of media."""
+		...
+	@property
+	def RelativePath(self)->str:
+		"""**Read Only Property:** Relative path of media."""
+		...
 	Scrubbing:bool
 	"""**Read Write Property:** Control which clip (one at a time) can shuttle when playing a various speeds."""
-	SrcDuration:FBTime
-	"""**Read Only Property:** The duration time of media."""
-	SrcEnd:FBTime
-	"""**Read Only Property:** The end time of media."""
-	SrcIn:FBTime
-	"""**Read Only Property:** The begin time of media."""
+	@property
+	def SrcDuration(self)->FBTime:
+		"""**Read Only Property:** The duration time of media."""
+		...
+	@property
+	def SrcEnd(self)->FBTime:
+		"""**Read Only Property:** The end time of media."""
+		...
+	@property
+	def SrcIn(self)->FBTime:
+		"""**Read Only Property:** The begin time of media."""
+		...
 	UseChannel:FBUseChnMode
 	"""**Read Write Property:** Enables you to control which track are used with stereo clips."""
 	def __init__(self,FileName:str,/):
@@ -14755,8 +14953,10 @@ class FBApplication(FBComponent):
 	It provides functionality like that in the MotionBuilder file menu, for example, open file, save file.Note that event registration is instanced-based. When an [FBApplication](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_application.html) object is destroyed, all the event callbacks are unregistered. If you want to have a tool to be notified of events, it needs to have a [FBApplication](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_application.html) data member.
 
 	[See samples: FBFbxOptions.py,](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/_basic_operations_0c_f_b_fbx_options_8py-example.html) [FBSystemEvents.py,](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/_basic_operations_0c_f_b_system_events_8py-example.html) [ImportWithNamespace.py,](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/_basic_operations_0c_import_with_namespace_8py-example.html) [BatchExportCharacterAnimationTool.py,](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/_tasks_0c_batch_export_character_animation_tool_8py-example.html) [ExportAnimationLibrary.py,](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/_tasks_0c_export_animation_library_8py-example.html) [SaveOneTakePerFile.py.](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/_tasks_0c_save_one_take_per_file_8py-example.html)"""
-	ApplicationState:FBApplicationState
-	"""**Read Only Property:** State the MotionBuilder application has been started in."""
+	@property
+	def ApplicationState(self)->FBApplicationState:
+		"""**Read Only Property:** State the MotionBuilder application has been started in."""
+		...
 	CurrentActor:FBActor
 	"""**Read Write Property:** Indicate the current actor, as used by the character tool. Can be NULL. If not null, CurrentCharacter must be null, as the character tool works on only one item at a time."""
 	CurrentCharacter:FBCharacter
@@ -15299,8 +15499,10 @@ class FBAnimationLayer(FBComponent):
 	"""**Read Write Property:** The animation layer color."""
 	LayerMode:FBLayerMode
 	"""**Read Write Property:** Layer mode. By default, the layer is in kFBLayerModeAdditive mode. Cannot be applied to the BaseAnimation Layer."""
-	LayerRotationMode:FBLayerRotationMode
-	"""**Read Only Property:** Layer rotation mode. Cannot be applied to the BaseAnimation Layer."""
+	@property
+	def LayerRotationMode(self)->FBLayerRotationMode:
+		"""**Read Only Property:** Layer rotation mode. Cannot be applied to the BaseAnimation Layer."""
+		...
 	Lock:bool
 	"""**Read Write Property:** If true, the layer is locked. You cannot modify keyframes on a locked layer."""
 	Mute:bool
@@ -15635,8 +15837,10 @@ class FBCycleCreator(FBComponent):
 		...
 class FBDeck(FBComponent):
 	"""Interface to a tape deck."""
-	CassetteInside:bool
-	"""**Read Only Property:** Is the cassette inside?"""
+	@property
+	def CassetteInside(self)->bool:
+		"""**Read Only Property:** Is the cassette inside?"""
+		...
 	EE:bool
 	"""**Read Write Property:** Is EE on?"""
 	IconFilename:str
@@ -15647,10 +15851,14 @@ class FBDeck(FBComponent):
 	"""**Read Write Property:** Current offset for the TC."""
 	Online:bool
 	"""**Read Write Property:** Is deck online?"""
-	PlayingBackward:bool
-	"""**Read Only Property:** Playing backwards?"""
-	PlayingForward:bool
-	"""**Read Only Property:** Playing forward?"""
+	@property
+	def PlayingBackward(self)->bool:
+		"""**Read Only Property:** Playing backwards?"""
+		...
+	@property
+	def PlayingForward(self)->bool:
+		"""**Read Only Property:** Playing forward?"""
+		...
 	PostRoll:FBTime
 	"""**Read Write Property:** Post-Roll."""
 	PreRoll:FBTime
@@ -15714,8 +15922,10 @@ class FBDeck(FBComponent):
 	def ThreadSync(self)->None:...
 class FBDeformer(FBComponent):
 	"""Base Model deformer class."""
-	DeformerType:FBDeformerType
-	"""**Read Only Property:** Deformer Type."""
+	@property
+	def DeformerType(self)->FBDeformerType:
+		"""**Read Only Property:** Deformer Type."""
+		...
 	def __init__(self,Name:str,/):
 		"""### Parameters:
 		 - Name: Name of deformer."""
@@ -15754,22 +15964,36 @@ class FBDeformerPointCache(FBDeformer):
 	"""Base Model deformer class."""
 	Active:bool
 	"""**Read Write Property:** Active."""
-	ChannelCount:int
-	"""**Read Only Property:** Channel Count."""
-	ChannelEnd:FBTime
-	"""**Read Only Property:** Channel End."""
-	ChannelFrameRate:float
-	"""**Read Only Property:** Channel FrameRate."""
+	@property
+	def ChannelCount(self)->int:
+		"""**Read Only Property:** Channel Count."""
+		...
+	@property
+	def ChannelEnd(self)->FBTime:
+		"""**Read Only Property:** Channel End."""
+		...
+	@property
+	def ChannelFrameRate(self)->float:
+		"""**Read Only Property:** Channel FrameRate."""
+		...
 	ChannelIndex:int
 	"""**Read Write Property:** Channel Index."""
-	ChannelName:str
-	"""**Read Only Property:** Channel Name."""
-	ChannelPointCount:int
-	"""**Read Only Property:** Channel Point Count."""
-	ChannelSampleRegular:bool
-	"""**Read Only Property:** Channel Sample Regular."""
-	ChannelStart:FBTime
-	"""**Read Only Property:** Channel Start."""
+	@property
+	def ChannelName(self)->str:
+		"""**Read Only Property:** Channel Name."""
+		...
+	@property
+	def ChannelPointCount(self)->int:
+		"""**Read Only Property:** Channel Point Count."""
+		...
+	@property
+	def ChannelSampleRegular(self)->bool:
+		"""**Read Only Property:** Channel Sample Regular."""
+		...
+	@property
+	def ChannelStart(self)->FBTime:
+		"""**Read Only Property:** Channel Start."""
+		...
 	PointCacheFile:FBPointCacheFile
 	"""**Read Write Property:** Point Cache File Object."""
 	def __init__(self,Name:str,/):
@@ -15802,14 +16026,18 @@ class FBDeviceOpticalMarker(FBComponent):
 		 - Occlusion: Occulsion information for marker(default=0.0)."""
 		...
 class FBEvaluateManager(FBComponent):
-	DeviceCount:int
-	"""**Read only Property:** Number of devices to evaluate."""
+	@property
+	def DeviceCount(self)->int:
+		"""**Read only Property:** Number of devices to evaluate."""
+		...
 	DualQuaternionSkinning:bool
 	"""**Read/Write Property:** Using state of the Dual Quaternion for skinning (CPU Skinning or GPU Skinning)."""
 	FrameSkipOptimization:bool
 	"""**Read/Write Property:** if true, apply frame skip optimization during playback. off-line rendering don't use frame skip optimization."""
-	NodeCount:int
-	"""**Read only Property:** Number of nodes to evaluate."""
+	@property
+	def NodeCount(self)->int:
+		"""**Read only Property:** Number of nodes to evaluate."""
+		...
 	OnRenderingPipelineEvent:callbackframework.FBEventSource[Self, FBEventEvalGlobalCallback]
 	"""**For callback events at rendering pipeline.**"""
 	OnSynchronizationEvent:callbackframework.FBEventSource[Self, FBEventEvalGlobalCallback]
@@ -16555,24 +16783,40 @@ class FBGeometry(FBComponent):
 	This class groups all geometry related elements which are shared across the different subclasses ([FBMesh](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_mesh.html), [FBSurface](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_surface.html), [FBNurbs](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_nurbs.html) and [FBPatch](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_patch.html)). Geometry Material always use kFBGeometryReference_INDEX mode. While Normal, UV could have different combination of mapping and reference modes.Geometries created with SDK can support FBGeometryMapping_ALL_SAME or kFBGeometryMapping_BY_POLYGON for material, and kFBGeometryMapping_BY_CONTROL_POINT for Normal, Tangent, Binormal, Color and UV. Only one set of UV could be supported.Geometries passed from FBXSDK pipeline could have various complex mapping/reference mode combination for material, normal and UV. And could potentially contains multiple set of UVs.
 
 	[See samples: ShapeCreation.py,](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/_samples_0c_geometry_0c_shape_creation_8py-example.html) [VertexArrayManipulation.py.](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/_samples_0c_geometry_0c_vertex_array_manipulation_8py-example.html)"""
-	BinormalMappingMode:FBGeometryMappingMode
-	"""**Read Only Property:** Binormal mapping mode."""
-	BinormalReferenceMode:FBGeometryReferenceMode
-	"""**Read Only Property:** Binormal reference mode."""
+	@property
+	def BinormalMappingMode(self)->FBGeometryMappingMode:
+		"""**Read Only Property:** Binormal mapping mode."""
+		...
+	@property
+	def BinormalReferenceMode(self)->FBGeometryReferenceMode:
+		"""**Read Only Property:** Binormal reference mode."""
+		...
 	MaterialMappingMode:FBGeometryMappingMode
 	"""**Read Property:** Material mapping mode."""
-	NormalMappingMode:FBGeometryMappingMode
-	"""**Read Only Property:** Normal mapping mode."""
-	NormalReferenceMode:FBGeometryReferenceMode
-	"""**Read Only Property:** Normal reference mode."""
-	TangentMappingMode:FBGeometryMappingMode
-	"""**Read Only Property:** Tangent mapping mode."""
-	TangentReferenceMode:FBGeometryReferenceMode
-	"""**Read Only Property:** Tangent reference mode."""
-	VertexColorMappingMode:FBGeometryMappingMode
-	"""**Read Only Property:** Vertex Color mapping mode."""
-	VertexColorReferenceMode:FBGeometryReferenceMode
-	"""**Read Only Property:** Vertex Color reference mode."""
+	@property
+	def NormalMappingMode(self)->FBGeometryMappingMode:
+		"""**Read Only Property:** Normal mapping mode."""
+		...
+	@property
+	def NormalReferenceMode(self)->FBGeometryReferenceMode:
+		"""**Read Only Property:** Normal reference mode."""
+		...
+	@property
+	def TangentMappingMode(self)->FBGeometryMappingMode:
+		"""**Read Only Property:** Tangent mapping mode."""
+		...
+	@property
+	def TangentReferenceMode(self)->FBGeometryReferenceMode:
+		"""**Read Only Property:** Tangent reference mode."""
+		...
+	@property
+	def VertexColorMappingMode(self)->FBGeometryMappingMode:
+		"""**Read Only Property:** Vertex Color mapping mode."""
+		...
+	@property
+	def VertexColorReferenceMode(self)->FBGeometryReferenceMode:
+		"""**Read Only Property:** Vertex Color reference mode."""
+		...
 	def GeometryBegin(self)->bool:
 		"""Begin geometry editing.
 
@@ -17209,12 +17453,18 @@ class FBImage(FBComponent):
 	"""**Read Write Property:** Image data format."""
 	Height:int
 	"""**Read Write Property:** Height of the image in pixels."""
-	InterleaveType:FBImageInterleaveType
-	"""**Read Only Property:** Image interleave type. Only meaningful if image type is field."""
-	InterpolationType:FBImageInterpolationType
-	"""**Read Only Property:** Image interpolation type."""
-	Type:FBImageType
-	"""**Read Only Property:** Image type, refering to either frame or field."""
+	@property
+	def InterleaveType(self)->FBImageInterleaveType:
+		"""**Read Only Property:** Image interleave type. Only meaningful if image type is field."""
+		...
+	@property
+	def InterpolationType(self)->FBImageInterpolationType:
+		"""**Read Only Property:** Image interpolation type."""
+		...
+	@property
+	def Type(self)->FBImageType:
+		"""**Read Only Property:** Image type, refering to either frame or field."""
+		...
 	Width:int
 	"""**Read Write Property:** Width of the image in pixels."""
 	def __init__(self,FileName:str,/):
@@ -18632,12 +18882,18 @@ class FBMotionClip(FBComponent):
 	Properties of this class are work in progress, but you can still list them and get their names."""
 	Filename:str
 	"""**Read Write Property:** Filename and path of motion file."""
-	RelativePath:str
-	"""**Read Only Property:** Relative path to the motion file."""
-	Start:FBTime
-	"""**Read Only Property:** Start time of clip."""
-	Stop:FBTime
-	"""**Read Only Property:** Stop time of clip."""
+	@property
+	def RelativePath(self)->str:
+		"""**Read Only Property:** Relative path to the motion file."""
+		...
+	@property
+	def Start(self)->FBTime:
+		"""**Read Only Property:** Start time of clip."""
+		...
+	@property
+	def Stop(self)->FBTime:
+		"""**Read Only Property:** Stop time of clip."""
+		...
 	def __init__(self,FileName:str,/):
 		"""### Parameters:
 		 - FileName: The complete file path of the media file to access."""
@@ -18997,9 +19253,6 @@ class FBNamespace(FBComponent):
 		### **[Deprecated](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/deprecated.html#_deprecated000003)**:
 		Use the GetContentCount method instead."""
 		...
-	@ContentCount.setter
-	@deprecated("Use the GetContentCount method instead.")
-	def ContentCount(self, Value: int):...
 	ContentLocked:bool
 	"""**Read Write Property:** Content locking state."""
 	def __init__(self,SingleLevelNamespace:str,ParentNSObj:FBNamespace|None,/):
@@ -19212,28 +19465,38 @@ class FBPlayerControl(FBComponent):
 	Keys can also be set and used with [Key()](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_player_control.html#a864f3bdec0a6b38a9582783f3dcc16bb), [GotoNextKey()](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_player_control.html#a155d00c74503c66a4c1fc2b26dc85c99), and [GotoPreviousKey()](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_player_control.html#a6922c0f85114b41e53c549eccb07842d). All actions are performed by default on the current take. The is the MotionBuilder default take, unless you have multiple takes in your scene. To switch between takes, use [FBTake](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_take.html). To change the current reference time (e.g.: Local time, System time), use [FBReferenceTime](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_reference_time.html).
 
 	[See samples: ShotTrackSetupTool.py,](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/_complex_tools_0c_shot_track_setup_tool_8py-example.html) [RenderLayers.py,](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/_rendering_0c_render_layers_8py-example.html) [CameraSwitcher.py,](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/_samples_0c_camera_0c_camera_switcher_8py-example.html) [BloopSlate.py,](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/_samples_0c_h_u_d_0c_bloop_slate_8py-example.html) [RecordLight.py,](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/_samples_0c_h_u_d_0c_record_light_8py-example.html) [Timeline.py,](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/_samples_0c_h_u_d_0c_timeline_8py-example.html) [CreateProfilingEventsLog.py,](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/_samples_0c_profiling_0c_create_profiling_events_log_8py-example.html) [MirrorPoseOverTime.py,](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/_tasks_0c_mirror_pose_over_time_8py-example.html) [MultiLayerKeying.py,](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/_tasks_0c_multi_layer_keying_8py-example.html) [StartDevice.py,](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/_tasks_0c_start_device_8py-example.html) [StopDevice.py,](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/_tasks_0c_stop_device_8py-example.html) [TimeCodeKeying.py.](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/_tasks_0c_time_code_keying_8py-example.html)"""
-	IsPlaying:bool
-	"""**Read Only Property:** Is the transport control playing?"""
-	IsPlotting:bool
-	"""**Read Only Property:** Is there a plotting in progress?"""
-	IsRecording:bool
-	"""**Read Only Property:** Is there a recording in progress?"""
+	@property
+	def IsPlaying(self)->bool:
+		"""**Read Only Property:** Is the transport control playing?"""
+		...
+	@property
+	def IsPlotting(self)->bool:
+		"""**Read Only Property:** Is there a plotting in progress?"""
+		...
+	@property
+	def IsRecording(self)->bool:
+		"""**Read Only Property:** Is there a recording in progress?"""
+		...
 	LoopMode:FBTransportLoopMode
 	"""**Read Write Property:** Loop mode."""
 	LoopStart:FBTime
 	"""**Read Write Property:** Loop begin time."""
 	LoopStop:FBTime
 	"""**Read Write Property:** Loop end time."""
-	NextMarker:FBTime
-	"""**Read Only Property:** Next marked time."""
+	@property
+	def NextMarker(self)->FBTime:
+		"""**Read Only Property:** Next marked time."""
+		...
 	OnChange:callbackframework.FBEventSource[Self, FBEventPlayerControlChange]
 	"""**Event Property:** Fired when something in the player control has changed. (see [FBEventPlayerControlChange](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_event_player_control_change.html))"""
 	OnTransportFpsChange:callbackframework.FBEventSource[Self, FBEvent]
 	"""**Event:** Fired when the system frame rate value used for display has changed."""
 	PlotSamplingPeriod:FBTime
 	"""**Read Write Property:** Sampling period for the model plotting."""
-	PreviousMarker:FBTime
-	"""**Read Only Property:** Previous marked time."""
+	@property
+	def PreviousMarker(self)->FBTime:
+		"""**Read Only Property:** Previous marked time."""
+		...
 	RecordingSamplingPeriod:FBTime
 	"""**Read Write Property:** Sampling period for the model recording."""
 	SnapMode:FBTransportSnapMode
@@ -19683,8 +19946,10 @@ class FBPointCacheFile(FBComponent):
 	"""Base Model deformer class."""
 	CacheFileName:str
 	"""**Read Write Property:** Filename of media."""
-	ChannelCount:int
-	"""**Read Only Property:** Channel Count."""
+	@property
+	def ChannelCount(self)->int:
+		"""**Read Only Property:** Channel Count."""
+		...
 	FreeRunning:bool
 	"""**Read Write Property:** Free Running."""
 	Loop:bool
@@ -19863,8 +20128,10 @@ class FBScene(FBComponent):
 	"""**List:** Folders in scene."""
 	Groups:FBPropertyListGroup
 	"""**List:** Groups available in the scene."""
-	HUDs:FBPropertyListHUD
-	"""**Read Only Property:** Heads Up Displays in the scene."""
+	@property
+	def HUDs(self)->FBPropertyListHUD:
+		"""**Read Only Property:** Heads Up Displays in the scene."""
+		...
 	Handles:FBPropertyListHandle
 	"""**List:** Handles present in the scene."""
 	KeyingGroups:FBPropertyListKeyingGroup
@@ -19895,10 +20162,14 @@ class FBScene(FBComponent):
 	"""**List:** PhysicalProperties present in the scene."""
 	Poses:FBPropertyListPose
 	"""**List:** Poses in scene."""
-	Renderer:FBRenderer
-	"""**Read Only Property:** Local renderer."""
-	RootModel:FBModel
-	"""**Read Only Property:** Scene Root model for that scene"""
+	@property
+	def Renderer(self)->FBRenderer:
+		"""**Read Only Property:** Local renderer."""
+		...
+	@property
+	def RootModel(self)->FBModel:
+		"""**Read Only Property:** Scene Root model for that scene"""
+		...
 	Sets:FBPropertyListSet
 	"""**List:** Sets available in the scene."""
 	Shaders:FBPropertyListShader
@@ -20383,12 +20654,18 @@ class FBShaderManager:
 		A pointer to the newly created shader object, or a NULL pointer if the type name was not recognised."""
 		...
 class FBShaderModelInfo:
-	Model:FBModel
-	"""**Read Only Property:** Shader Model"""
-	Model_Version:int
-	"""**Read Only Property:** Last updated model version id"""
-	Shader_Version:int
-	"""**Read Only Property:** Last updated shader version"""
+	@property
+	def Model(self)->FBModel:
+		"""**Read Only Property:** Shader Model"""
+		...
+	@property
+	def Model_Version(self)->int:
+		"""**Read Only Property:** Last updated model version id"""
+		...
+	@property
+	def Shader_Version(self)->int:
+		"""**Read Only Property:** Last updated shader version"""
+		...
 class FBShaderShadowLive(FBShader):
 	"""Shader Shadow Live class.
 
@@ -20454,16 +20731,20 @@ class FBSpreadPart(FBComponent):
 	"""Spreadsheet part.
 
 	Due to protected constructor, this can only be created by a child object."""
-	Column:int
-	"""**Read Only Property:** Column number."""
+	@property
+	def Column(self)->int:
+		"""**Read Only Property:** Column number."""
+		...
 	Enabled:bool
 	"""**Read Write Property:** Is SpreadPart enabled?"""
 	Justify:FBTextJustify
 	"""**Read Write Property:** Text justification for SpreadPart"""
 	ReadOnly:bool
 	"""**Read Write Property:** Is SpreadPart read-only?"""
-	Row:int
-	"""**Read Only Property:** Row number."""
+	@property
+	def Row(self)->int:
+		"""**Read Only Property:** Row number."""
+		...
 	Style:FBCellStyle
 	"""**Read Write Property:** Style of cell"""
 class FBSpreadRow(FBSpreadPart):
@@ -20516,10 +20797,14 @@ class FBStory(FBComponent):
 	"""**Read Write Property:** If true, record to disk will post process recorded data in low priority thread without affecting application performance. Clip in story will remain unloaded."""
 	RecordToDisk:bool
 	"""**Read Write Property:** If true, record to story will record directly to disk."""
-	RootEditFolder:FBStoryFolder
-	"""**Read Only Property:** Story's root edit folder"""
-	RootFolder:FBStoryFolder
-	"""**Read Only Property:** Story's root folder"""
+	@property
+	def RootEditFolder(self)->FBStoryFolder:
+		"""**Read Only Property:** Story's root edit folder"""
+		...
+	@property
+	def RootFolder(self)->FBStoryFolder:
+		"""**Read Only Property:** Story's root folder"""
+		...
 	SummaryClip:bool
 	"""**Read Write Property:** If true, summary clips for story folders will be created to help manipulating folder content."""
 	def __init__(self):...
@@ -20549,8 +20834,10 @@ class FBStoryClip(FBComponent):
 	Clips represents media, at a specific time, for a specific duration, in a track.Clip offset is depending on Traveling node and Traveling node function. First we compute clip transformation matrix, where scaling is always 1, 1, 1. Translation is in position of Traveling node at clip first frame. Rotation is based on vector from first to last frame position of Traveling node. On top of that we apply offset and expose that as Clip Offset T & R. When you change clip offset T or R we extract clip offset based on current clip transformation matrix. Clip transformation matrix can change when Traveling node change or Traveling node function change.
 
 	[See samples: AudioTrackSetupTool.py,](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/_complex_tools_0c_audio_track_setup_tool_8py-example.html) [VideoClip.py,](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/_samples_0c_story_0c_video_clip_8py-example.html) [PrintClipNamesAndStartStopFrames.py.](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/_tasks_0c_print_clip_names_and_start_stop_frames_8py-example.html)"""
-	AudioClip:FBAudioClip
-	"""**Read Only Property:** The audio clip used by this StoryClip."""
+	@property
+	def AudioClip(self)->FBAudioClip:
+		"""**Read Only Property:** The audio clip used by this StoryClip."""
+		...
 	AutoLoop:bool
 	"""**Read Write Property:** If true, clip will automatically loop"""
 	ClipAnimationPath:str
@@ -20565,8 +20852,10 @@ class FBStoryClip(FBComponent):
 	"""**Read Write Property:** Color of the clip."""
 	ConnectedToTake:bool
 	"""**Read Write Property:** When connected to current take, user can do updating from current take, but user can't edit clip animation by adding keys, only works for clips created by Insert Current Take."""
-	CustomTimeWarp:FBAnimationNode
-	"""**Read Only Property:** Animation and Shot clip's custom TimeWarp FCurve."""
+	@property
+	def CustomTimeWarp(self)->FBAnimationNode:
+		"""**Read Only Property:** Animation and Shot clip's custom TimeWarp FCurve."""
+		...
 	FirstLoopMarkIn:FBTime
 	"""**Read Write Property:** For a read-only clip, the start time inside the clip for its first loop. For a writable clip, use the SourceMarkIn property instead."""
 	FrameRate:float
@@ -20901,8 +21190,10 @@ class FBStoryFolder(FBComponent):
 	"""**Read Write Property:** Label to display for this story folder."""
 	Mute:bool
 	"""**Read Write Property:** If true, this story folder will be muted."""
-	Parent:FBStoryFolder
-	"""**Read Only Property:** Object pointing to the folder's parent."""
+	@property
+	def Parent(self)->FBStoryFolder:
+		"""**Read Only Property:** Object pointing to the folder's parent."""
+		...
 	RecordClipPath:str
 	"""**Read Write Property:** Path for story recording. Can be relative or full path."""
 	Solo:bool
@@ -21191,35 +21482,55 @@ class FBSystem(FBComponent):
 		ePluginItemDescription:FBSystem.EPluginItemInfo
 		ePluginItemFileName:FBSystem.EPluginItemInfo
 		ePluginItemIconName:FBSystem.EPluginItemInfo
-	ApplicationPath:str
-	"""**Read Only Property:** Location where the application is installed."""
-	AreMessageBoxesSuspended:bool
-	"""**Read Only Property:** While true, the system is suspending the messages boxes that would normally be displayed."""
-	AssetManager:FBAssetMng
-	"""**Read Only Property:** Current asset manager."""
+	@property
+	def ApplicationPath(self)->str:
+		"""**Read Only Property:** Location where the application is installed."""
+		...
+	@property
+	def AreMessageBoxesSuspended(self)->bool:
+		"""**Read Only Property:** While true, the system is suspending the messages boxes that would normally be displayed."""
+		...
+	@property
+	def AssetManager(self)->FBAssetMng:
+		"""**Read Only Property:** Current asset manager."""
+		...
 	AudioInputs:FBPropertyListAudioIn
 	"""**List:** Available audio inputs."""
 	AudioOutputs:FBPropertyListAudioOut
 	"""**List:** Available audio outputs."""
-	BuildId:str
-	"""**Read Only Property:** Unique build Id string."""
-	BuildVersion:str
-	"""**Read Only Property:** Unique build version string. The format of the build version information is: Major.Minor.Revision.BuildNumber. All sub-parts of the build version string are containing only numeric characters."""
-	ComputerName:str
-	"""**Read Only Property:** Computer name. [See sample: ShowMachineNameAndCameraNamePlusResolution.py.](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/_tasks_0c_show_machine_name_and_camera_name_plus_resolution_8py-example.html)"""
+	@property
+	def BuildId(self)->str:
+		"""**Read Only Property:** Unique build Id string."""
+		...
+	@property
+	def BuildVersion(self)->str:
+		"""**Read Only Property:** Unique build version string. The format of the build version information is: Major.Minor.Revision.BuildNumber. All sub-parts of the build version string are containing only numeric characters."""
+		...
+	@property
+	def ComputerName(self)->str:
+		"""**Read Only Property:** Computer name. [See sample: ShowMachineNameAndCameraNamePlusResolution.py.](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/_tasks_0c_show_machine_name_and_camera_name_plus_resolution_8py-example.html)"""
+		...
 	ConfigPath:str
-	ConstructionHistory:FBConstructionHistory
-	"""**Read Only Property:** Construction History."""
+	@property
+	def ConstructionHistory(self)->FBConstructionHistory:
+		"""**Read Only Property:** Construction History."""
+		...
 	CurrentTake:FBTake
 	"""**Read Write Property:** Current take. [See samples: GoToNextTake.py,](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/_tasks_0c_go_to_next_take_8py-example.html)"""
-	DesktopSize:FBVector2d
-	"""**Read Only Property:** The width and height of the desktop."""
-	FrameRate:float
-	"""**Read Only Property:** The frame rate of the viewer."""
+	@property
+	def DesktopSize(self)->FBVector2d:
+		"""**Read Only Property:** The width and height of the desktop."""
+		...
+	@property
+	def FrameRate(self)->float:
+		"""**Read Only Property:** The frame rate of the viewer."""
+		...
 	FullScreenViewer:bool
 	"""**Read Write Property:** Indicates that the viewer is in full screen mode."""
-	LocalTime:FBTime
-	"""**Read Only Property:** Local time in take."""
+	@property
+	def LocalTime(self)->FBTime:
+		"""**Read Only Property:** Local time in take."""
+		...
 	Manipulators:FBPropertyListManipulator
 	"""**List:** of manipulators."""
 	OnConnectionDataNotify:callbackframework.FBEventSource[Self, FBEventConnectionDataNotify]
@@ -21234,33 +21545,57 @@ class FBSystem(FBComponent):
 	"""**Event:** User-interface idle event. Useful callback for less frequent GUI refresh and etc. lightweight tasks (occur once per several frames)."""
 	OnVideoFrameRendering:callbackframework.FBEventSource[Self, FBEventVideoFrameRendering]
 	"""**Event:** A video frame rendering event occurred when the scene is being off-line rendered into video files."""
-	PathImages:str
-	"""**Read Only Property:** Path to images."""
-	PathMeshs:str
-	"""**Read Only Property:** Path to meshes"""
-	ProcessMemory:float
-	"""**Read Only Property:** The size (MB) of process's working set memory."""
-	ProcessMemoryPeak:float
-	"""**Read Only Property:** The size (MB) of process's peak memory."""
-	PythonVersion:int
-	"""**Read Only Property:** The Python interpreter version being used. The value returned is computed like this: Major * 100 + Minor. For example, Python 3.11.4 will return 311."""
-	PythonVersionString:str
-	"""**Read Only Property:** The Python interpreter version being used. The value returned is the same as the one returned by the Python "import sys; print(sys.version)" call."""
-	Renderer:FBRenderer
-	"""**Read Only Property:** Default renderer."""
-	RootModel:FBModel
-	"""**Read Only Property:** Root model."""
-	Scene:FBScene
-	"""**Read Only Property:** Scene."""
-	SceneRootModel:FBModel
-	"""**Read Only Property:** Scene root model."""
+	@property
+	def PathImages(self)->str:
+		"""**Read Only Property:** Path to images."""
+		...
+	@property
+	def PathMeshs(self)->str:
+		"""**Read Only Property:** Path to meshes"""
+		...
+	@property
+	def ProcessMemory(self)->float:
+		"""**Read Only Property:** The size (MB) of process's working set memory."""
+		...
+	@property
+	def ProcessMemoryPeak(self)->float:
+		"""**Read Only Property:** The size (MB) of process's peak memory."""
+		...
+	@property
+	def PythonVersion(self)->int:
+		"""**Read Only Property:** The Python interpreter version being used. The value returned is computed like this: Major * 100 + Minor. For example, Python 3.11.4 will return 311."""
+		...
+	@property
+	def PythonVersionString(self)->str:
+		"""**Read Only Property:** The Python interpreter version being used. The value returned is the same as the one returned by the Python "import sys; print(sys.version)" call."""
+		...
+	@property
+	def Renderer(self)->FBRenderer:
+		"""**Read Only Property:** Default renderer."""
+		...
+	@property
+	def RootModel(self)->FBModel:
+		"""**Read Only Property:** Root model."""
+		...
+	@property
+	def Scene(self)->FBScene:
+		"""**Read Only Property:** Scene."""
+		...
+	@property
+	def SceneRootModel(self)->FBModel:
+		"""**Read Only Property:** Scene root model."""
+		...
 	SuspendMessageBoxes:bool
 	"""**Read Write Property:** While true, all the message boxes, that would normally be displayed, are suspended."""
-	SystemTime:FBTime
-	"""**Read Only Property:** System time."""
+	@property
+	def SystemTime(self)->FBTime:
+		"""**Read Only Property:** System time."""
+		...
 	UserConfigPath:str
-	Version:float
-	"""**Read Only Property:** Application version."""
+	@property
+	def Version(self)->float:
+		"""**Read Only Property:** Application version."""
+		...
 	VideoInputs:FBPropertyListVideoIn
 	"""**List:** Available video inputs."""
 	VideoOutputs:FBPropertyListVideoOut
@@ -21417,8 +21752,10 @@ class FBTexture(FBBox):
 	def Alpha(self, Value: FBPropertyAnimatableDouble|float):...
 	BlendMode:FBTextureBlendMode
 	"""**Read Write Property:** Texture blend mode."""
-	Height:int
-	"""**Read Only Property:** Height of texture."""
+	@property
+	def Height(self)->int:
+		"""**Read Only Property:** Height of texture."""
+		...
 	Mapping:FBTextureMapping
 	"""**Read Write Property:** Texture mapping."""
 	@property
@@ -21447,8 +21784,10 @@ class FBTexture(FBBox):
 	"""**Read Write Property:** Texture Use Type."""
 	Video:FBVideo
 	"""**Read Write Property:** Media used for texturing."""
-	Width:int
-	"""**Read Only Property:** Width of texture."""
+	@property
+	def Width(self)->int:
+		"""**Read Only Property:** Width of texture."""
+		...
 	def __init__(self,Name:str,/):
 		"""### Parameters:
 		 - Name: Name of the texture media. If pName is a valid path, [FBTexture](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_texture.html) will create a [FBVideo](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_video.html) object which is used in the Video property; else just a ordinary name.
@@ -21672,8 +22011,10 @@ class FBTimeCode:
 	"""-59.94f"""
 	Frame:float
 	"""**Read Write Property:** Frame value."""
-	FrameRate:float
-	"""**Read Only Property:** Frame rate."""
+	@property
+	def FrameRate(self)->float:
+		"""**Read Only Property:** Frame rate."""
+		...
 	MPAL_30:float
 	"""-29.971f Currently not supported : "1" is added just to differentiate from NTSC_FULL(-29.97f)"""
 	NTSC_DROP:float
@@ -22315,10 +22656,14 @@ class FBStoryTrack(FBConstraint):
 	"""**Read Write Property:** If true, this track wont' play."""
 	OffsetEnable:bool
 	"""**Read Write Property:** When enabled, allow clip to be offset"""
-	ParentFolder:FBStoryFolder
-	"""**Read Only Property:** Parent folder."""
-	ParentTrack:FBStoryTrack
-	"""**Read Only Property:** Parent track, if the track is of Character or Animation type."""
+	@property
+	def ParentFolder(self)->FBStoryFolder:
+		"""**Read Only Property:** Parent folder."""
+		...
+	@property
+	def ParentTrack(self)->FBStoryTrack:
+		"""**Read Only Property:** Parent track, if the track is of Character or Animation type."""
+		...
 	PassThrough:bool
 	"""**Read Write Property:** Enable passthrough of animation if there is no clip on track animation is taken from other tracks of take"""
 	RecordClipPath:str
@@ -22335,10 +22680,14 @@ class FBStoryTrack(FBConstraint):
 	"""**Read Write Property:** If true, this track will be the only one to play."""
 	SubTracks:FBPropertyListStorySubTrack
 	"""**List:** Only Character and Animation tracks can have sub-tracks."""
-	TrackVideo:FBVideo
-	"""**Read Only Property:** This [FBVideo](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_video.html) can be used as a texture."""
-	Type:FBStoryTrackType
-	"""**Read Only Property:** Type of the track"""
+	@property
+	def TrackVideo(self)->FBVideo:
+		"""**Read Only Property:** This [FBVideo](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_video.html) can be used as a texture."""
+		...
+	@property
+	def Type(self)->FBStoryTrackType:
+		"""**Read Only Property:** Type of the track"""
+		...
 	@overload
 	def __init__(self,TrackType:FBStoryTrackType,Folder:FBStoryFolder|None=None,/):
 		"""### Parameters:
@@ -22962,28 +23311,38 @@ class FBFCurve(FBComponent):
 		...
 class FBAnimationNode(FBComponent):
 	"""[See samples: CopyAnimation.py,](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/_samples_0c_f_curve_0c_copy_animation_8py-example.html) [ClearKeysOnSelectedModels.py,](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/_tasks_0c_clear_keys_on_selected_models_8py-example.html) [TraversingRelationConstraint.py,](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/_tasks_0c_traversing_relation_constraint_8py-example.html) [FCurveEditor.py. ](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/_u_i_0c_f_curve_editor_8py-example.html)"""
-	ConnectorType:FBAnimationNodeConnectorType
-	"""**Read Only Property:** Animation node connector type."""
+	@property
+	def ConnectorType(self)->FBAnimationNodeConnectorType:
+		"""**Read Only Property:** Animation node connector type."""
+		...
 	DefaultInterpolation:FBInterpolation
 	"""**Read Write Property:** Default type of interpolation."""
 	FCurve:FBFCurve
 	"""**Read Write Property:** FCurve for animation. [See sample: StartKeysAtCurrentTime.py.](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/_tasks_0c_start_keys_at_current_time_8py-example.html)"""
-	KeyCount:int
-	"""**Read Only Property:** Number of keys."""
+	@property
+	def KeyCount(self)->int:
+		"""**Read Only Property:** Number of keys."""
+		...
 	Label:str
 	"""**Read Write Property:** Label (UI Name)."""
 	Live:bool
 	"""**Read Write Property:** Is animation live?"""
 	Nodes:FBPropertyListAnimationNode
 	"""**List:** List of animation nodes."""
-	OwnerObject:FBComponent
-	"""**Read Only Property:** Owner object of the property related to this animation node."""
-	Parent:FBAnimationNode
-	"""**Read Only Property:** Parent animation node."""
+	@property
+	def OwnerObject(self)->FBComponent:
+		"""**Read Only Property:** Owner object of the property related to this animation node."""
+		...
+	@property
+	def Parent(self)->FBAnimationNode:
+		"""**Read Only Property:** Parent animation node."""
+		...
 	RecordMode:bool
 	"""**Read Write Property:** Is the node in recording mode (device connectors)?"""
-	UserName:str
-	"""**Read Only Property:** Name of animation node."""
+	@property
+	def UserName(self)->str:
+		"""**Read Only Property:** Name of animation node."""
+		...
 	def __init__(self,Name:str,/):
 		"""### Parameters:
 		 - Name: Name of animation node (default is NULL).
@@ -24810,40 +25169,58 @@ class FBVideoClip(FBVideo):
 	"""**Read Write Property:** Current frame."""
 	CurrentFrameTime:FBTime
 	"""**Read Write Property:** Current time in clip."""
-	CurrentFrameTimeCode:FBTime
-	"""**Read Only Property:** Embedded timecode from current frame in clip. Use the method GetEmbeddedTimecode to get the timecode of a different frame than the current frame."""
+	@property
+	def CurrentFrameTimeCode(self)->FBTime:
+		"""**Read Only Property:** Embedded timecode from current frame in clip. Use the method GetEmbeddedTimecode to get the timecode of a different frame than the current frame."""
+		...
 	CustomEmbeddedStartTimecode:FBTime
 	"""**Read Write Property:**The custom timecode of the first frame of the video. To be effective, the ShowEmbeddedTimecode and UseCustomEmbeddedStartTimecode properties must be active."""
 	Filename:str
 	"""**Read Write Property:** Filename of media."""
-	Format:FBVideoFormat
-	"""**Read Only Property:** Video format."""
+	@property
+	def Format(self)->FBVideoFormat:
+		"""**Read Only Property:** Video format."""
+		...
 	FrameRate:float
 	"""**Read Write Property:** Frame rate."""
-	FrameTime:FBTime
-	"""**Read Only Property:** Inverse of FPS, time per frame"""
+	@property
+	def FrameTime(self)->FBTime:
+		"""**Read Only Property:** Inverse of FPS, time per frame"""
+		...
 	FreeRunning:bool
 	"""**Read Write Property:** Is free Running on?"""
-	Height:int
-	"""**Read Only Property:** Height of image."""
+	@property
+	def Height(self)->int:
+		"""**Read Only Property:** Height of image."""
+		...
 	InterlaceMode:FBVideoInterlaceMode
 	"""**Read Write Property:** Interlace mode."""
-	LastFrame:int
-	"""**Read Only Property:** Last frame in clip."""
-	LastFrameTime:FBTime
-	"""**Read Only Property:** Time of last frame"""
+	@property
+	def LastFrame(self)->int:
+		"""**Read Only Property:** Last frame in clip."""
+		...
+	@property
+	def LastFrameTime(self)->FBTime:
+		"""**Read Only Property:** Time of last frame"""
+		...
 	Loop:bool
 	"""**Read Write Property:** Loop video clip?"""
 	PlaySpeed:float
 	"""**Read Write Property:** Playback speed."""
-	PowerOfTwoHeight:int
-	"""**Read Only Property:** Closest power of two value superior to height of image."""
-	PowerOfTwoWidth:int
-	"""**Read Only Property:** Closest power of two value superior to width of image."""
+	@property
+	def PowerOfTwoHeight(self)->int:
+		"""**Read Only Property:** Closest power of two value superior to height of image."""
+		...
+	@property
+	def PowerOfTwoWidth(self)->int:
+		"""**Read Only Property:** Closest power of two value superior to width of image."""
+		...
 	ProxyMode:FBVideoProxyMode
 	"""**Read Write Property:** Proxy mode."""
-	RelativePath:str
-	"""**Read Only Property:** Relative path of media."""
+	@property
+	def RelativePath(self)->str:
+		"""**Read Only Property:** Relative path of media."""
+		...
 	ShowEmbeddedTimecode:bool
 	"""**Read Write Property:** True if the video clip is showing its embedded timecode (real, if available, or custom), false if showing a timecode starting at 00:00:00:00 (00)."""
 	StartFrame:int
@@ -24856,8 +25233,10 @@ class FBVideoClip(FBVideo):
 	"""**Read Write Property:** Temporal offset for beginning of video."""
 	UseCustomEmbeddedStartTimecode:bool
 	"""**Read Write Property:** True if the video clip is using the custom embedded start timecode value, false if it is using the real embedded timecode, if available."""
-	Width:int
-	"""**Read Only Property:** Width of image."""
+	@property
+	def Width(self)->int:
+		"""**Read Only Property:** Width of image."""
+		...
 	def __init__(self,Name:str,/):
 		"""### Parameters:
 		 - Name: Name of video media.
@@ -25193,8 +25572,10 @@ class FBViewingOptions:
 	"""**Read Write Property:** Current Shading mode"""
 	DisplayWhat:int
 	"""**Read Write Property:** current display mask."""
-	PaneIndex:int
-	"""**Read Only Property:** Current pane index in the viewer."""
+	@property
+	def PaneIndex(self)->int:
+		"""**Read Only Property:** Current pane index in the viewer."""
+		...
 	PickingMode:int
 	"""**Read Write Property:** Reference to the current picking mode."""
 	ShowCameraLabel:bool
@@ -25414,10 +25795,14 @@ class FBVisualContainer(FBVisualComponent):
 		...
 class FBView(FBVisualComponent):
 	"""Generic view."""
-	DoubleBuffer:bool
-	"""**Read Only Property:** Indicates if the view is double buffered."""
-	GraphicOGL:bool
-	"""**Read Only Property:** Indicates if the view is OpenGL."""
+	@property
+	def DoubleBuffer(self)->bool:
+		"""**Read Only Property:** Indicates if the view is double buffered."""
+		...
+	@property
+	def GraphicOGL(self)->bool:
+		"""**Read Only Property:** Indicates if the view is OpenGL."""
+		...
 	def __init__(self):...
 	def DrawString(self,Text:str,X:float,Y:float,Enable:int=-1,/)->None:
 		"""Draw a string in the view.
@@ -25496,20 +25881,30 @@ class FBTree(FBVisualComponent):
 	"""**Event:** Is fired before the node expand. To refuse expanding set AllowExpansion to false."""
 	OnSelect:callbackframework.FBEventSource[Self, FBEventTreeSelect]
 	"""**Event:** A node was selected. Use [FBEventTreeSelect](https://help.autodesk.com/cloudhelp/2027/ENU/MOBU-PYTHON-API-REF/classpyfbsdk_1_1_f_b_event_tree_select.html) to cast event."""
-	SelectedCount:int
-	"""**Read Only Property:** Count of selected items."""
-	SelectedNodes:FBPropertyListTreeNode
-	"""**Read Only Property:** List of selected nodes."""
+	@property
+	def SelectedCount(self)->int:
+		"""**Read Only Property:** Count of selected items."""
+		...
+	@property
+	def SelectedNodes(self)->FBPropertyListTreeNode:
+		"""**Read Only Property:** List of selected nodes."""
+		...
 	SelectionActive:bool
 	"""**Read Write Property:** Tells whether selection is allowed or not."""
 	ShowLines:bool
 	"""**Read Write Property:** On node selection, will draw entire line selected"""
-	TreeHeight:int
-	"""**Read Only Property:** Height of the tree."""
-	TreeWidth:int
-	"""**Read Only Property:** Width of the tree."""
-	VisibleItemCount:int
-	"""**Read Only Property:** Count of visible items."""
+	@property
+	def TreeHeight(self)->int:
+		"""**Read Only Property:** Height of the tree."""
+		...
+	@property
+	def TreeWidth(self)->int:
+		"""**Read Only Property:** Width of the tree."""
+		...
+	@property
+	def VisibleItemCount(self)->int:
+		"""**Read Only Property:** Count of visible items."""
+		...
 	def __init__(self):...
 	def Clear(self)->None:
 		"""Clear the tree (remove all nodes)."""

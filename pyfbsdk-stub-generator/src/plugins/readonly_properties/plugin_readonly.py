@@ -11,5 +11,7 @@ class PluginReadOnly(PluginBaseClass):
     PRIORITY = 100
 
     def patch_property(self, stub_class, stub_property):
-        if stub_property.docstring.lower().startswith("read only property"):
-            stub_property.read_only = True
+        if stub_property.docstring:
+            first_line = stub_property.docstring.partition("\n")[0]
+            if "read only property" in first_line.lower():
+                stub_property.read_only = True
