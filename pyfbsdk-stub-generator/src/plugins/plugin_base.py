@@ -17,6 +17,7 @@ class PluginBaseClass:
     def __init__(self, Version: int, Module: ModuleType, EnumList: list[StubClass], ClassList: list[StubClass], FunctionGroupList: list[list[StubFunction]], flags: GeneratorFlag) -> None:
         self.flags = flags
         self.Version = Version
+        self.module = Module
         self.ModuleName = Module.__name__
 
         self.EnumList = EnumList
