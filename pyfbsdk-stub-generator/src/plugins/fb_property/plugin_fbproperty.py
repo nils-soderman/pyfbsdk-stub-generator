@@ -121,7 +121,7 @@ class PluginFbProperty(PluginBaseClass):
         for Function in Class.GetFunctionsByName("__getitem__"):
             Function.ReturnType = Type
             Param = Function.GetParameters()[1]
-            Param.Type = "int"
+            Param.Type = "int|slice"
             Param.Name = NAME_INDEX
 
         # __setitem__ is not allowed for FBPropertyList
