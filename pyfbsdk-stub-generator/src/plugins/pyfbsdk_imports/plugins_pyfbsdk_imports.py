@@ -11,16 +11,16 @@ from ...module_types import StubClass
 
 
 class PluginPyfbsdkImports(PluginBaseClass):
-    Priority = 200
+    PRIORITY = 200
 
-    def ShouldPatch(self) -> bool:
+    def should_patch(self) -> bool:
         return self.module is not pyfbsdk
 
-    def PatchClass(self, stub_class: StubClass):
-        for parent_index, parent in enumerate(stub_class.Parents):
+    def patch_class(self, stub_class: StubClass):
+        for parent_index, parent in enumerate(stub_class.parents):
             if parent.startswith("FB") and hasattr(pyfbsdk, parent):
-                stub_class.Parents[parent_index] = f"pyfbsdk.{parent}"
+                stub_class.parents[parent_index] = f"pyfbsdk.{parent}"
 
-            for stub_property in stub_class.StubProperties:
+            for stub_property in stub_class.stub_properties:
                 if stub_property.Type.startswith("FB") and hasattr(pyfbsdk, stub_property.Type):
                     stub_property.Type = f"pyfbsdk.{stub_property.Type}"

@@ -3,12 +3,12 @@ import pyfbsdk
 import os
 
 
-def GetMotionBuilderVersion() -> int:
+def get_motionbuilder_version() -> int:
     """ Get the current version of MotionBuilder """
     return int(2000 + pyfbsdk.FBSystem().Version / 1000)
 
 
-def CopyManualStubs(OutDirectory: str):
+def copy_manual_stubs(out_directory: str):
     """
     Copy the additional stubs to the output directory.
     This includes e.g. callbackframework.pyi, pyfbsdk_additions.pyi, etc.
@@ -16,18 +16,18 @@ def CopyManualStubs(OutDirectory: str):
     These stubs have been manually created and are not automatically generated, and may therefore be outdated.
 
     ## Parameters:
-        - OutDirectory: The directory where the additional stubs should be copied    
+        - out_directory: The directory where the additional stubs should be copied    
     """
-    os.makedirs(OutDirectory, exist_ok=True)
+    os.makedirs(out_directory, exist_ok=True)
 
-    for File in os.listdir(os.path.dirname(__file__)):
-        if File.endswith(".pyi"):
-            SrcFile = os.path.join(os.path.dirname(__file__), File)
-            DstFile = os.path.join(OutDirectory, File)
+    for filename in os.listdir(os.path.dirname(__file__)):
+        if filename.endswith(".pyi"):
+            src_file = os.path.join(os.path.dirname(__file__), filename)
+            dst_file = os.path.join(out_directory, filename)
 
-            with open(SrcFile, "r") as f:
+            with open(src_file, "r") as f:
                 content = f.read()
-                content = content.replace("{MOTIONBUILDER_VERSION}", str(GetMotionBuilderVersion()))
+                content = content.replace("{MOTIONBUILDER_VERSION}", str(get_motionbuilder_version()))
 
-                with open(DstFile, "w") as f:
+                with open(dst_file, "w") as f:
                     f.write(content)

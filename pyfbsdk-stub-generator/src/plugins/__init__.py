@@ -1,7 +1,7 @@
 from .plugin_base import PluginBaseClass
 
 
-def GetDefaultPlugins():
+def get_default_plugins():
     from .dunder_methods import plugin_dunder_methods
     from .enum import plugin_enum
     from .events import plugin_events

@@ -70,26 +70,26 @@ EVENTS = {
 
 
 class PluginEvents(PluginBaseClass):
-    Priority = 100
+    PRIORITY = 100
 
-    def PatchClass(self, Class: StubClass):
-        for Property in Class.StubProperties:
-            if Property.Type == 'callbackframework.FBEventSource':
-                Event = fb.FBEvent
-                if Property.Ref in EVENTS:
-                    Event = EVENTS[Property.Ref]
+    def patch_class(self, stub_class: StubClass):
+        for stub_property in stub_class.stub_properties:
+            if stub_property.Type == 'callbackframework.FBEventSource':
+                event = fb.FBEvent
+                if stub_property.ref in EVENTS:
+                    event = EVENTS[stub_property.ref]
 
-                Property.Type = f'callbackframework.FBEventSource[Self, {Event.__name__}]'
+                stub_property.Type = f'callbackframework.FBEventSource[Self, {event.__name__}]'
 
         # If FBEvent.Type doesn't have a defined type, remove it.
         # It's already defined in the base class as a int.
-        if fb.FBEvent.__name__ in Class.Parents:
-            TypeProperty = Class.GetPropertyByName('Type')
-            if TypeProperty and TypeProperty.Type == property.__name__:
-                Class.StubProperties.remove(TypeProperty)
+        if fb.FBEvent.__name__ in stub_class.parents:
+            type_property = stub_class.get_property_by_name('Type')
+            if type_property and type_property.Type == property.__name__:
+                stub_class.stub_properties.remove(type_property)
 
             # FBEventTree.Why has a event that's not exposed to the Python API
-            if Class.Ref is fb.FBEventTree:
-                WhyProperty = Class.GetPropertyByName('Why')
-                if WhyProperty:
-                    WhyProperty.Type = None
+            if stub_class.ref is fb.FBEventTree:
+                why_property = stub_class.get_property_by_name('Why')
+                if why_property:
+                    why_property.Type = None

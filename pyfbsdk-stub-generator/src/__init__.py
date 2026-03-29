@@ -31,6 +31,6 @@ def generate(directory: str, modules: list[ModuleType] | None = None, copy_addit
         out_files.append(stub_generator.generate_stub_file(module, directory, flags))
 
     if copy_additional_stubs:
-        manual_stubs.CopyManualStubs(directory)
+        manual_stubs.copy_manual_stubs(directory)
 
     return out_files

@@ -12,7 +12,7 @@ from .module_types import StubClass
 from .flags import GeneratorFlag
 
 
-DEFAULT_PLUGINS = plugins.GetDefaultPlugins()
+DEFAULT_PLUGINS = plugins.get_default_plugins()
 
 
 # -------------------------------------------------------------
@@ -34,12 +34,12 @@ def sort_classes(classes: list[StubClass]) -> list[StubClass]:
     Sort classes based on their parent class
     If a class has another class as their parent class, it'll be placed later in the list
     """
-    class_names = [x.Name for x in classes]
+    class_names = [x.name for x in classes]
 
     i = 0
     while i < len(classes):
         # Check if class has any required classes that needs to be defined before it (aka. parent classes)
-        requirements = classes[i].GetRequirements()
+        requirements = classes[i].get_requirements()
         if requirements:
             # Get the required class that has the highest index in the list
             required_indices = [class_names.index(x) for x in requirements if x in class_names]
@@ -73,7 +73,7 @@ class StubGenerator:
         self.version = get_motionbuilder_version()
 
         self.plugins = plugins or []
-        self.plugins.sort(key=lambda x: x.Priority)
+        self.plugins.sort(key=lambda x: x.PRIORITY)
 
     # ---------------------------------------------------
     #                      Internal
@@ -89,21 +89,21 @@ class StubGenerator:
         # Run all of the plugins
         for plugin_cls in self.plugins:
             plugin = plugin_cls(self.version, self.module, enums, classes, function_groups, self.flags)
-            plugin.Run()
+            plugin.run()
 
         # Sort classes after all patches are done and we know their requirements
         classes = sort_classes(classes)
 
         # Generate a string
         stub_content = base_content.get_base_content(self.module)  # Read the custom additions file first
-        stub_content += "\n".join([x.GetAsString() for x in enums])
+        stub_content += "\n".join([x.as_string() for x in enums])
         stub_content += "\n"
-        stub_content += "\n".join([x.GetAsString() for x in classes])
+        stub_content += "\n".join([x.as_string() for x in classes])
         stub_content += "\n"
 
         for function_group in function_groups:
             overload = len(function_group) > 1  # If there are multiple functions with the same name, add @overload
-            stub_content += "\n".join([x.GetAsString(overload) for x in function_group])
+            stub_content += "\n".join([x.as_string(overload) for x in function_group])
             stub_content += "\n"
 
         stub_content = stub_content.replace("    ", "\t")  # Make sure tabs are used
@@ -114,6 +114,8 @@ class StubGenerator:
 
 
 def generate_stub_file(module: ModuleType, directory_str: str, flags: GeneratorFlag) -> str:
+    print(f"Generating stub file for module: {module.__name__}")
+
     start_time = time.time()
 
     generator = StubGenerator(module, flags)

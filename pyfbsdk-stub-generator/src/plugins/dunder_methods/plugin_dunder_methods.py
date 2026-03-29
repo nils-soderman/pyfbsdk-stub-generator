@@ -25,34 +25,34 @@ KNOWN_RETURN_TYPES: dict[str, type] = {
 
 
 class PluginDunderMethods(PluginBaseClass):
-    Priority = 200
+    PRIORITY = 200
 
-    def PatchClass(self, Class: StubClass):
-        for FunctionGroup in Class.StubFunctions:
-            if not FunctionGroup:
+    def patch_class(self, stub_class: StubClass):
+        for stub_functions in stub_class.stub_functions:
+            if not stub_functions:
                 continue
 
-            for Function in FunctionGroup:
-                if Function.ReturnType != "Any":
+            for stub_function in stub_functions:
+                if stub_function.return_type != "Any":
                     continue
 
-                if Function.Name in METHODS_RETURNING_SELF:
-                    Function.ReturnType = Class.Name
+                if stub_function.name in METHODS_RETURNING_SELF:
+                    stub_function.return_type = stub_class.name
 
-                    if Function.ReturnType in CONVERT_DUNDER_RETURN_TYPE:
-                        Function.ReturnType = CONVERT_DUNDER_RETURN_TYPE[Function.ReturnType]
-                    elif Function.Name.startswith("FBProperty"):
-                        print(f"Warning: {Class.Name}.{Function.Name} has a return type of self. This is probably wrong. Might need a new entry in `plugins.dunder_methods.CONVERT_DUNDER_RETURN_TYPE`.")
+                    if stub_function.return_type in CONVERT_DUNDER_RETURN_TYPE:
+                        stub_function.return_type = CONVERT_DUNDER_RETURN_TYPE[stub_function.return_type]
+                    elif stub_function.name.startswith("FBProperty"):
+                        print(f"Warning: {stub_class.name}.{stub_function.name} has a return type of self. This is probably wrong. Might need a new entry in `plugins.dunder_methods.CONVERT_DUNDER_RETURN_TYPE`.")
 
-                elif Function.Name in KNOWN_RETURN_TYPES:
-                    Function.ReturnType = KNOWN_RETURN_TYPES[Function.Name].__name__
+                elif stub_function.name in KNOWN_RETURN_TYPES:
+                    stub_function.return_type = KNOWN_RETURN_TYPES[stub_function.name].__name__
 
             # If the class has __getitem__ implemented, we should also add the __iter__ method.
             # Technically, this is not correct. But otherwise typecheckers like PyRight & MyPy will complain that the
             # class is not iterable & not compatible with the typing.Iterable protocol.
-            if FunctionGroup[0].Name == "__getitem__":
+            if stub_functions[0].name == "__getitem__":
                 # Make sure we don't add __iter__ twice:
-                if not any(FunctionGroup[0].Name == "__iter__" for FunctionGroup in Class.StubFunctions if FunctionGroup):
-                    ReturnType = f"Iterator[{FunctionGroup[0].ReturnType}]"
-                    Function = StubFunction(None, "__iter__", [StubParameter(None, "self")], ReturnType)
-                    Class.AddFunctions([Function])
+                if not any(x[0].name == "__iter__" for x in stub_class.stub_functions if x):
+                    return_type = f"Iterator[{stub_functions[0].return_type}]"
+                    stub_function = StubFunction(None, "__iter__", [StubParameter(None, "self")], return_type)
+                    stub_class.add_functions([stub_function])

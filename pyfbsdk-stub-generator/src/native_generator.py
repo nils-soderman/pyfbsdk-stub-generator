@@ -44,18 +44,18 @@ def is_private(obj: type) -> bool:
     return get_object_name(obj).startswith("_")
 
 
-def is_method_static(Class, MethodName: str) -> bool:
+def is_method_static(cls: type, method_name: str) -> bool:
     """ 
     Check if a method is static
     Args:
-        - Class: reference to the class
-        - MethodName: Name of the method
+        - cls: reference to the class
+        - method_name: Name of the method
     """
-    return isinstance(inspect.getattr_static(Class, MethodName), staticmethod)
+    return isinstance(inspect.getattr_static(cls, method_name), staticmethod)
 
 
-def get_class_parents(Class: type):
-    return Class.__bases__
+def get_class_parents(cls: type):
+    return cls.__bases__
 
 
 def get_unique_class_members(cls: type, ignore: tuple[str, ...] = (), allowed_overrides: tuple[str, ...] = ()):
@@ -116,7 +116,7 @@ def get_function_info_from_doc_string(function: typing.Callable) -> list[tuple[l
         for param in param_str.split(","):
             # Param will now look something like this: '(str)arg1'
             param_type, _, param_name = param.strip().partition(")")
-            parameter_instance = StubParameter(function, param_name, param_type[1:], DefaultValue = default_value)
+            parameter_instance = StubParameter(function, param_name, param_type[1:], default_value = default_value)
             params.append(parameter_instance)
 
         return params
@@ -182,9 +182,9 @@ def generate_enum_instance(cls: type, parent_cls = None):
         else:
             stub_property.Type = cls_name
 
-        stub_enum.AddProperty(stub_property)
+        stub_enum.add_property(stub_property)
 
-    stub_enum.AddParent(ENUMERATION_NAME)
+    stub_enum.add_parent(ENUMERATION_NAME)
 
     return stub_enum
 
@@ -222,14 +222,14 @@ def generate_class_instance(cls: type) -> StubClass:
         if type_str == EObjectType.FUNCTION:
             methods: list[StubFunction] = []
             for stub_methods in generate_function_instances(member_reference):
-                stub_methods.bIsStatic = is_method_static(cls, member_name)
+                stub_methods.is_static = is_method_static(cls, member_name)
                 methods.append(stub_methods)
             
-            stub_class.AddFunctions(methods)
+            stub_class.add_functions(methods)
 
         elif type_str == EObjectType.ENUM:
             stub_enum = generate_enum_instance(member_reference, parent_cls = cls)
-            stub_class.AddEnum(stub_enum)
+            stub_class.add_enum(stub_enum)
 
         elif member_name not in ["__init__"]:
             stub_property = StubProperty(member_reference, member_name)
@@ -238,11 +238,11 @@ def generate_class_instance(cls: type) -> StubClass:
             else:
                 stub_property.Type = type_str
 
-            stub_class.AddProperty(stub_property)
+            stub_class.add_property(stub_property)
 
     # Set the parent classes
     for parent_name in get_class_parent_names(cls):
-        stub_class.AddParent(parent_name)
+        stub_class.add_parent(parent_name)
 
     return stub_class
 

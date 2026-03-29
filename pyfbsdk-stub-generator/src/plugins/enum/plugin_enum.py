@@ -9,9 +9,9 @@ from ...module_types import StubClass
 
 
 class PluginEnum(PluginBaseClass):
-    Priority = 100
+    PRIORITY = 100
 
-    def PatchEnum(self, Enum: StubClass):
-        for Property in Enum.GetStubProperties():
-            Property.Type = None
-            Property.Value = int(Property.Ref)
+    def patch_enum(self, stub_enum: StubClass):
+        for stub_property in stub_enum.get_stub_properties():
+            stub_property.Type = None
+            stub_property.value = int(stub_property.ref)  # type: ignore

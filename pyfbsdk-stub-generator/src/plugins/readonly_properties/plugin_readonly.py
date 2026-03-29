@@ -8,8 +8,8 @@ from ..plugin_base import PluginBaseClass
 
 
 class PluginReadOnly(PluginBaseClass):
-    Priority = 100
+    PRIORITY = 100
 
-    def PatchProperty(self, Class, Property):
-        if Property.DocString.lower().startswith("read only property"):
-            Property.ReadOnly = True
+    def patch_property(self, stub_class, stub_property):
+        if stub_property.docstring.lower().startswith("read only property"):
+            stub_property.read_only = True

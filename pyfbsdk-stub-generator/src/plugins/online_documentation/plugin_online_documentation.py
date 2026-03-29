@@ -57,8 +57,8 @@ TRANSLATION_DEFAULT_VALUES = {
 
 
 class PluginOnlineDocumentation(PluginBaseClass):
-    Threading = True
-    Priority = 10  # We preferably want this to run directly after the native generator
+    THREADING = True
+    PRIORITY = 10  # We preferably want this to run directly after the native generator
 
     def __init__(self,
                  version: int,
@@ -77,61 +77,61 @@ class PluginOnlineDocumentation(PluginBaseClass):
         # Parse the first documentation page to get the list of all pages
         for function_group in stub_functions:
             Function = function_group[0]
-            self.function_page = self.documentation.parse_page(Function.Name)
+            self.function_page = self.documentation.parse_page(Function.name)
             if self.function_page:
                 break
 
         # Make a map of all class names and their class object that can be used for patching types etc.
-        self.all_classes_map = {x.Name: x for x in stub_classes + stub_enums}
+        self.all_classes_map = {x.name: x for x in stub_classes + stub_enums}
 
-    def ShouldPatch(self) -> bool:
+    def should_patch(self) -> bool:
         return bool(self.documentation)
 
     # ---------------------------------------------------------------------------------------------
     #                                 Patch Entry Methods
     # ---------------------------------------------------------------------------------------------
 
-    def PatchEnum(self, stub_enum: StubClass):
-        parsed_page = self.documentation.parse_page(stub_enum.Name)
+    def patch_enum(self, stub_enum: StubClass):
+        parsed_page = self.documentation.parse_page(stub_enum.name)
         if not parsed_page:
             return
 
-        stub_enum.DocString = parsed_page.description
+        stub_enum.docstring = parsed_page.description
 
-        for stub_property in stub_enum.StubProperties:
-            if member := parsed_page.find_member_by_name(stub_property.Name):
-                stub_property.DocString = member.doc_string
+        for stub_property in stub_enum.stub_properties:
+            if member := parsed_page.find_member_by_name(stub_property.name):
+                stub_property.docstring = member.doc_string
 
-    def PatchClass(self, stub_class: StubClass):
-        parsed_page = self.documentation.parse_page(stub_class.Name)
+    def patch_class(self, stub_class: StubClass):
+        parsed_page = self.documentation.parse_page(stub_class.name)
         if not parsed_page:
             return
 
-        stub_class.DocString = parsed_page.description
+        stub_class.docstring = parsed_page.description
 
         # Properties
-        for stub_property in stub_class.StubProperties:
-            if member := parsed_page.find_member_by_name(stub_property.Name):
-                stub_property.DocString = member.doc_string
+        for stub_property in stub_class.stub_properties:
+            if member := parsed_page.find_member_by_name(stub_property.name):
+                stub_property.docstring = member.doc_string
                 stub_property.Type = self.ensure_valid_type_property(stub_property, member.type_str)
 
         # Methods
-        for stub_functions in stub_class.StubFunctions:
-            function_name = stub_functions[0].Name
+        for stub_functions in stub_class.stub_functions:
+            function_name = stub_functions[0].name
 
             # In the documentation, the constructor is called the same as the stub_class
             if function_name == "__init__":
-                function_name = stub_class.Name
+                function_name = stub_class.name
 
             if members := parsed_page.find_members_by_name(function_name):
                 self._patch_function_groups_from_doc(stub_functions, members, stub_class)
 
-    def PatchFunctionGroup(self, function_group: list[StubFunction]):
+    def patch_function_group(self, function_group: list[StubFunction]):
         if not function_group:
             return  # TODO: This should never happen, look into it
 
         if self.function_page:
-            name = function_group[0].Name
+            name = function_group[0].name
             if members := self.function_page.find_members_by_name(name):
                 self._patch_function_groups_from_doc(function_group, members)
 
@@ -160,7 +160,7 @@ class PluginOnlineDocumentation(PluginBaseClass):
         matched_functions: list[StubFunction] = []
         matched_members: list[MemberItem] = []
         for stub_function in FunctionsCopy:
-            stub_parameters = stub_function.GetParameters(bExcludeSelf = True)
+            stub_parameters = stub_function.get_parameters(exclude_self = True)
 
             for member in MembersCopy:
                 if len(stub_parameters) != len(member.parameters):
@@ -189,7 +189,7 @@ class PluginOnlineDocumentation(PluginBaseClass):
         # TODO: Match based on most similar parameter types
         Scores: list[tuple[StubFunction, MemberItem, int]] = []
         for stub_function in FunctionsCopy:
-            stub_parameters = stub_function.GetParameters(bExcludeSelf = True)
+            stub_parameters = stub_function.get_parameters(exclude_self = True)
             for member in MembersCopy:
                 Score = 0
                 if len(stub_parameters) == len(member.parameters):
@@ -228,20 +228,20 @@ class PluginOnlineDocumentation(PluginBaseClass):
             MembersCopy.remove(member)
 
     def patch_function_from_doc(self, stub_function: StubFunction, doc_function: MemberItem, parent_stub_class: StubClass | None = None):
-        stub_function.DocString = doc_function.doc_string
-        if stub_function.Name == "__init__":
-            if stub_function.DocString.startswith("Constructor."):
-                stub_function.DocString = stub_function.DocString.replace("Constructor.", "", 1)
+        stub_function.docstring = doc_function.doc_string
+        if stub_function.name == "__init__":
+            if stub_function.docstring.startswith("Constructor."):
+                stub_function.docstring = stub_function.docstring.replace("Constructor.", "", 1)
 
-        if self.should_patch_type(stub_function.ReturnType, doc_function.type_str):
+        if self.should_patch_type(stub_function.return_type, doc_function.type_str):
             if new_type := self.ensure_valid_type(doc_function.type_str):
-                stub_function.ReturnType = new_type
+                stub_function.return_type = new_type
 
-        FunctionParameters = stub_function.GetParameters(bExcludeSelf = True)
+        FunctionParameters = stub_function.get_parameters(exclude_self = True)
         DocumentationParameters = doc_function.parameters
 
         # The documentation includes an additional empty parameter for functions directly in the module
-        if not stub_function.bIsMethod and len(DocumentationParameters) - 1 == len(FunctionParameters):
+        if not stub_function.is_method and len(DocumentationParameters) - 1 == len(FunctionParameters):
             DocumentationParameters = DocumentationParameters[:-1]
 
         if not FunctionParameters:
@@ -258,8 +258,8 @@ class PluginOnlineDocumentation(PluginBaseClass):
                     continue
 
             # Name
-            if doc_parameters.name and stub_parameters.Name.startswith("arg"):
-                stub_parameters.Name = get_parameter_nice_name(doc_parameters.name)
+            if doc_parameters.name and stub_parameters.name.startswith("arg"):
+                stub_parameters.name = get_parameter_nice_name(doc_parameters.name)
 
             # Type
             self.patch_stub_parameter(stub_parameters, doc_parameters.type_str, parent_stub_class)
@@ -296,8 +296,8 @@ class PluginOnlineDocumentation(PluginBaseClass):
             new_type.startswith("FBEvent")
             or
             (
-                stub_property.Name.startswith("On") and
-                stub_property.Name.endswith("Event")
+                stub_property.name.startswith("On") and
+                stub_property.name.endswith("Event")
             )
             or
             (not is_valid_fb_class and new_type.startswith("FBEvent"))
@@ -308,7 +308,7 @@ class PluginOnlineDocumentation(PluginBaseClass):
         return self.ensure_valid_type(new_type)
 
     def patch_default_value(self, stub_parameter: StubParameter, default_value: str | None):
-        if stub_parameter.DefaultValue is None or default_value is None:
+        if stub_parameter.default_value is None or default_value is None:
             return
 
         # Replace namespace C++ syntax with Python
@@ -330,10 +330,10 @@ class PluginOnlineDocumentation(PluginBaseClass):
             if stub_parameter.Type:
                 stub_enums = self.all_classes_map.get(stub_parameter.Type)
                 if stub_enums:
-                    if any(x.Name for x in stub_enums.StubProperties if x.Name == default_value):
-                        default_value = f"{stub_enums.Name}.{default_value}"
+                    if any(x.name for x in stub_enums.stub_properties if x.name == default_value):
+                        default_value = f"{stub_enums.name}.{default_value}"
 
-        stub_parameter.DefaultValue = default_value
+        stub_parameter.default_value = default_value
 
     def should_patch_type(self, current_type: str | None, new_type: str | None) -> bool:
         """

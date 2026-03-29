@@ -7,318 +7,319 @@ ALWAYS_CREATE_ELLIPSIS = True
 TAB_CHARACTER = "\t"
 
 
-def Indent(Text: str) -> str:
-    Lines = []
-    for Line in Text.split("\n"):
-        if Line.strip():
-            Lines.append(TAB_CHARACTER + Line)
+def indent(text: str) -> str:
+    lines: list[str] = []
+    for line in text.splitlines():
+        if line.strip():
+            lines.append(TAB_CHARACTER + line)
         else:
-            Lines.append("")
+            lines.append("")
 
-    return "\n".join(Lines)
+    return "\n".join(lines)
 
 
 class StubBase:
-    def __init__(self, Ref: object, Name="") -> None:
-        self.Ref = Ref
-        self.Name: str = Name
-        self.DocString = ""
+    def __init__(self, ref: object, name: str = "") -> None:
+        self.ref = ref
+        self.name: str = name
+        self.docstring = ""
 
     def __copy__(self):
-        NewInstance = self.__class__(self.Ref, Name=self.Name)
-        NewInstance.DocString = self.DocString
-        return NewInstance
+        new_instance = self.__class__(self.ref, name=self.name)
+        new_instance.docstring = self.docstring
+        return new_instance
 
     def __repr__(self):
-        return f"<{self.__class__.__name__}: {self.Name}>"
+        return f"<{self.__class__.__name__}: {self.name}>"
 
-    def GetAsString(self) -> str:
+    def as_string(self) -> str:
         """
         Get instance as python code (in string format)
         """
-        raise NotImplementedError("GetAsString() has not yet been implemented")
+        raise NotImplementedError("as_string() has not yet been implemented")
 
-    def GetDocString(self) -> str:
-        if self.DocString:
+    def get_doc_string(self) -> str:
+        if self.docstring:
             # Strip each line of unnecessary whitespace
-            Lines = self.DocString.split("\n")
-            Lines = [x.rstrip() for x in Lines]
-            Docstring = "\n".join(Lines)
+            lines = self.docstring.split("\n")
+            lines = [x.rstrip() for x in lines]
+            docstring = "\n".join(lines)
 
-            return f'\"""{Docstring.strip()}"""'
+            return f'\"""{docstring.strip()}"""'
         return ""
 
-    def GetRequirements(self) -> list:
+    def get_requirements(self) -> list:
         """
         Get a list of variable/class names that needs to be declared before the current object
         """
-        raise NotImplementedError("GetRequirements() has not yet been implemented")
+        raise NotImplementedError("get_requirements() has not yet been implemented")
 
 
 class StubFunction(StubBase):
-    def __init__(self, Ref: typing.Callable, Name="", Parameters: list[StubParameter] | None = None, ReturnType: str | None = None):
-        super().__init__(Ref, Name=Name)
-        self._Params: list[StubParameter] = Parameters if Parameters else []
-        self._ReturnType = ReturnType
-        self.bIsMethod = False
-        self.bIsStatic = False
+    def __init__(self, ref: typing.Callable, name: str = "", parameters: list[StubParameter] | None = None, ReturnType: str | None = None):
+        super().__init__(ref, name=name)
+        self._params: list[StubParameter] = parameters if parameters else []
+        self._return_type = ReturnType
+        self.is_method = False
+        self.is_static = False
 
     def __copy__(self):
-        NewInstance = super().__copy__()
-        NewInstance._Params = [copy.copy(x) for x in self._Params]
-        NewInstance._ReturnType = self._ReturnType
-        NewInstance.bIsMethod = self.bIsMethod
-        NewInstance.bIsStatic = self.bIsStatic
-        return NewInstance
+        new_instance = super().__copy__()
+        new_instance._params = [copy.copy(x) for x in self._params]
+        new_instance._return_type = self._return_type
+        new_instance.is_method = self.is_method
+        new_instance.is_static = self.is_static
+        return new_instance
 
     @property
-    def ReturnType(self):
-        if self._ReturnType == "object":
+    def return_type(self):
+        if self._return_type == "object":
             return "Any"
-        return self._ReturnType
+        return self._return_type
 
-    @ReturnType.setter
-    def ReturnType(self, Value: str | None):
-        self._ReturnType = Value
+    @return_type.setter
+    def return_type(self, Value: str | None):
+        self._return_type = Value
 
-    def AddParameter(self, Parameter: StubParameter):
-        self._Params.append(Parameter)
+    def add_parameter(self, stub_parameter: StubParameter):
+        self._params.append(stub_parameter)
 
-    def GetParameters(self, bExcludeSelf=False) -> list[StubParameter]:
+    def get_parameters(self, exclude_self=False) -> list[StubParameter]:
         """
         Get a list of the parameters
 
         ### Parameters:
-            - bExcludeSelf: If the function is a method, exclude the first parameter (self)
+            - exclude_self: If the function is a method, exclude the first parameter (self)
         """
-        if bExcludeSelf and self.bIsMethod:
-            return self._Params[1:]
-        return self._Params
+        if exclude_self and self.is_method:
+            return self._params[1:]
+        return self._params
 
-    def SetParameter(self, Index: int, Parameter: StubParameter):
-        if Index > len(self._Params) - 1:
+    def set_parameter(self, Index: int, Parameter: StubParameter):
+        if Index > len(self._params) - 1:
             raise IndexError("given parameter index is larger than the size of the parameter array")
-        self._Params[Index] = Parameter
+        self._params[Index] = Parameter
 
-    def GetRequirements(self) -> list:
-        ReturnValue = []
-        for Parameter in self._Params:
-            ReturnValue += Parameter.GetRequirements()
-        return ReturnValue
+    def get_requirements(self) -> list:
+        return_value = []
+        for stub_parameter in self._params:
+            return_value += stub_parameter.get_requirements()
+        return return_value
 
-    def GetParamsAsString(self):
-        ParametersAsStrings = []
-        for i, Param in enumerate(self._Params):
-            if self.bIsMethod and i == 0:
-                Param.Name = "self"
-                Param.Type = None
-            ParametersAsStrings.append(Param.GetAsString())
+    def get_parameters_as_string(self):
+        parameters_as_strings: list[str] = []
+        for i, stub_parameter in enumerate(self._params):
+            if self.is_method and i == 0:
+                stub_parameter.name = "self"
+                stub_parameter.Type = None
+            parameters_as_strings.append(stub_parameter.as_string())
 
         # Insert a / to indicate that the function only accepts positional parameters
         # Only the function takes more than 1 parameter (excluding self)
-        if (not self.bIsMethod and len(self._Params) > 0) or len(self._Params) > 1:
-            ParametersAsStrings.append("/")
+        if (not self.is_method and len(self._params) > 0) or len(self._params) > 1:
+            parameters_as_strings.append("/")
 
-        return ",".join(ParametersAsStrings)
+        return ",".join(parameters_as_strings)
 
-    def GetAsString(self, bIsOverload=False):
-        FunctionAsString = ""
-        if bIsOverload:
-            FunctionAsString += "@overload\n"
-        elif self.bIsStatic:
-            FunctionAsString += "@staticmethod\n"
+    def as_string(self, is_overload=False):
+        function_as_string = ""
+        if is_overload:
+            function_as_string += "@overload\n"
+        elif self.is_static:
+            function_as_string += "@staticmethod\n"
 
-        FunctionAsString += f'def {self.Name}({self.GetParamsAsString()})'
+        function_as_string += f'def {self.name}({self.get_parameters_as_string()})'
 
-        if not (self.Name.startswith("__") and self.ReturnType == "None"):
-            FunctionAsString += f'->{self.ReturnType}'
+        if not (self.name.startswith("__") and self.return_type == "None"):
+            function_as_string += f'->{self.return_type}'
 
-        FunctionAsString += ":"
+        function_as_string += ":"
 
-        DocString = self.GetDocString()
-        if DocString:
-            FunctionAsString += f"\n{Indent(DocString)}"
+        docstring = self.get_doc_string()
+        if docstring:
+            function_as_string += f"\n{indent(docstring)}"
             if ALWAYS_CREATE_ELLIPSIS:
-                FunctionAsString += f"\n{Indent('...')}"
+                function_as_string += f"\n{indent('...')}"
         else:
-            FunctionAsString += "..."
+            function_as_string += "..."
 
-        return FunctionAsString
+        return function_as_string
 
 
 class StubClass(StubBase):
-    def __init__(self, Ref: type, Name=""):
-        super().__init__(Ref, Name=Name)
-        self.Parents: list[str] = []
-        self.StubProperties: list[StubProperty] = []
-        self.StubEnums: list[StubClass] = []
-        self.StubFunctions: list[list[StubFunction]] = []
+    def __init__(self, ref: type, name=""):
+        super().__init__(ref, name=name)
+        self.parents: list[str] = []
+        self.stub_properties: list[StubProperty] = []
+        self.stub_enums: list[StubClass] = []
+        self.stub_functions: list[list[StubFunction]] = []
 
-    def GetFunctionsByName(self, Name: str) -> list[StubFunction]:
-        for FunctionGroup in self.StubFunctions:
-            if FunctionGroup[0].Name == Name:
-                return FunctionGroup
+    def get_functions_by_name(self, name: str) -> list[StubFunction]:
+        for function_group in self.stub_functions:
+            if function_group[0].name == name:
+                return function_group
         return []
 
-    def GetPropertyByName(self, Name: str):
-        for x in self.StubProperties:
-            if x.Name == Name:
+    def get_property_by_name(self, name: str):
+        for x in self.stub_properties:
+            if x.name == name:
                 return x
 
-    def AddEnum(self, Enum: StubClass):
-        self.StubEnums.append(Enum)
+    def add_enum(self, stub_enum: StubClass):
+        self.stub_enums.append(stub_enum)
 
-    def AddFunctions(self, Functions: list[StubFunction]):
-        for Function in Functions:
-            Function.bIsMethod = True  # Make function a method
-        self.StubFunctions.append(Functions)
+    def add_functions(self, stub_functions: list[StubFunction]):
+        for function in stub_functions:
+            function.is_method = True  # Make function a method
+        self.stub_functions.append(stub_functions)
 
-    def AddProperty(self, Property: StubProperty):
-        self.StubProperties.append(Property)
+    def add_property(self, Property: StubProperty):
+        self.stub_properties.append(Property)
 
-    def AddParent(self, Parent: str):
-        self.Parents.append(Parent)
+    def add_parent(self, Parent: str):
+        self.parents.append(Parent)
 
-    def GetStubProperties(self) -> list[StubProperty]:
-        return self.StubProperties
+    def get_stub_properties(self) -> list[StubProperty]:
+        return self.stub_properties
 
-    def GetRequirements(self) -> list:
+    def get_requirements(self) -> list:
         # The class parent's needs to be declared before the class
-        FunctionRequirements = []
-        FlatFunctionList = [x for FunctionGroup in self.StubFunctions for x in FunctionGroup]
-        for Function in FlatFunctionList:
-            FunctionRequirements += Function.GetRequirements()
-        return self.Parents + FunctionRequirements
+        requirements: list[str] = []
+        flat_stub_function_list = [x for FunctionGroup in self.stub_functions for x in FunctionGroup]
+        for stub_function in flat_stub_function_list:
+            requirements += stub_function.get_requirements()
 
-    def GetAsString(self):
-        ParentClassesAsString = ','.join(self.Parents)
-        if ParentClassesAsString:
-            ParentClassesAsString = f"({ParentClassesAsString})"
+        return self.parents + requirements
 
-        ClassAsString = f"class {self.Name}{ParentClassesAsString}:\n"
+    def as_string(self):
+        parent_classes_as_str = ','.join(self.parents)
+        if parent_classes_as_str:
+            parent_classes_as_str = f"({parent_classes_as_str})"
 
-        if self.GetDocString():
-            ClassAsString += f"{Indent(self.GetDocString())}\n"
+        class_as_str = f"class {self.name}{parent_classes_as_str}:\n"
 
-        for StubObject in self.StubEnums + self.StubProperties:
-            ClassAsString += f"{Indent(StubObject.GetAsString())}\n"
+        if self.get_doc_string():
+            class_as_str += f"{indent(self.get_doc_string())}\n"
+
+        for stub_object in self.stub_enums + self.stub_properties:
+            class_as_str += f"{indent(stub_object.as_string())}\n"
 
         # Always place __init__ at the top, then sort the rest of the functions alphabetically
-        SortedFunctions = sorted(self.StubFunctions, key=lambda x: (x[0].Name != '__init__', x[0].Name))
-        for StubFunctions in SortedFunctions:
-            bOverload = len(StubFunctions) > 1  # If there are multiple functions with the same name, add @overload
-            for StubFunc in StubFunctions:
-                ClassAsString += f"{Indent(StubFunc.GetAsString(bOverload))}\n"
+        sorted_functions = sorted(self.stub_functions, key=lambda x: (x[0].name != '__init__', x[0].name))
+        for stub_functions in sorted_functions:
+            overload = len(stub_functions) > 1  # If there are multiple functions with the same name, add @overload
+            for stub_func in stub_functions:
+                class_as_str += f"{indent(stub_func.as_string(overload))}\n"
 
         # If class doesn't have any members, add a '...'
-        if not any((self.StubProperties, self.StubEnums, self.StubFunctions)):
-            ClassAsString += Indent("...")
+        if not any((self.stub_properties, self.stub_enums, self.stub_functions)):
+            class_as_str += indent("...")
 
-        return ClassAsString.strip()
+        return class_as_str.strip()
 
 
 class StubProperty(StubBase):
-    def __init__(self, Ref: object, Name=""):
-        super().__init__(Ref, Name=Name)
-        self._Type = None
-        self.SetterType: str | None = None
-        self.Value: typing.Any = None
-        self.ReadOnly: bool = False
+    def __init__(self, ref: object, name=""):
+        super().__init__(ref, name=name)
+        self._type = None
+        self.setter_type: str | None = None
+        self.value: typing.Any = None
+        self.read_only: bool = False
 
     @property
     def Type(self) -> str:
-        if self._Type == "object":
+        if self._type == "object":
             return "Any"
-        if self._Type:
-            return self._Type
+        if self._type:
+            return self._type
         return "property"
 
     @Type.setter
     def Type(self, Value):
-        self._Type = Value
+        self._type = Value
 
-    def GetAsString(self):
-        create_setter = bool(self.SetterType) and self.SetterType != self.Type
-        create_getter = self.ReadOnly or create_setter
+    def as_string(self):
+        create_setter = bool(self.setter_type) and self.setter_type != self.Type
+        create_getter = self.read_only or create_setter
 
         if create_getter:
             # If it has a custom setter type, create seperate getter and setter functions
-            Lines = ["@property"]
-            Lines.append(f"def {self.Name}(self)->{self.Type}:")
-            if self.GetDocString():
-                Lines.append(f"{Indent(self.GetDocString())}")
-                Lines.append(f"{Indent('...')}")
+            lines: list[str] = ["@property"]
+            lines.append(f"def {self.name}(self)->{self.Type}:")
+            if self.get_doc_string():
+                lines.append(f"{indent(self.get_doc_string())}")
+                lines.append(f"{indent('...')}")
             else:
-                Lines[-1] += "..."
+                lines[-1] += "..."
 
             if create_setter:
-                Lines.append(f"@{self.Name}.setter")
-                Lines.append(f"def {self.Name}(self, Value: {self.SetterType}):...")
+                lines.append(f"@{self.name}.setter")
+                lines.append(f"def {self.name}(self, Value: {self.setter_type}):...")
 
-            PropertyAsString = "\n".join(Lines)
+            property_as_string = "\n".join(lines)
         else:
-            PropertyAsString = self.Name
+            property_as_string = self.name
 
-            if self._Type or self.Value is None:
-                PropertyAsString += f":{self.Type}"
+            if self._type or self.value is None:
+                property_as_string += f":{self.Type}"
 
-            if self.Value is not None:
-                PropertyAsString += f"={self.Value}"
+            if self.value is not None:
+                property_as_string += f"={self.value}"
 
             # Add docstring
-            if self.GetDocString():
-                PropertyAsString += "\n"
-                PropertyAsString += self.GetDocString()
+            if self.get_doc_string():
+                property_as_string += "\n"
+                property_as_string += self.get_doc_string()
 
-        return PropertyAsString
+        return property_as_string
 
 
 class StubParameter(StubBase):
-    def __init__(self, Ref: object, Name="", Type: str | None = "", DefaultValue=None):
-        super().__init__(Ref, Name=Name)
-        self.DefaultValue = DefaultValue
-        self._Type = Type
+    def __init__(self, ref: object, name="", _type: str | None = "", default_value=None):
+        super().__init__(ref, name=name)
+        self.default_value = default_value
+        self._type = _type
 
     def __copy__(self):
-        NewInstance = super().__copy__()
-        NewInstance.DefaultValue = self.DefaultValue
-        NewInstance._Type = self._Type
-        NewInstance.DocString = self.DocString
-        return NewInstance
+        new_instance = super().__copy__()
+        new_instance.default_value = self.default_value
+        new_instance._type = self._type
+        new_instance.docstring = self.docstring
+        return new_instance
 
     @property
     def Type(self) -> str | None:
-        if self._Type == "object":
+        if self._type == "object":
             return None
-        return self._Type
+        return self._type
 
     @Type.setter
     def Type(self, Value: str | None):
-        self._Type = Value
+        self._type = Value
 
-    def GetRequirements(self):
-        if self.DefaultValue and self.DefaultValue.startswith("FB"):
-            RequirementClass: str = self.DefaultValue
-            for Char in ".(":
-                if Char in RequirementClass:
-                    RequirementClass = RequirementClass.partition(Char)[0]
+    def get_requirements(self):
+        if self.default_value and self.default_value.startswith("FB"):
+            requirement_cls: str = self.default_value
+            for char in ".(":
+                if char in requirement_cls:
+                    requirement_cls = requirement_cls.partition(char)[0]
 
-            return [RequirementClass]
+            return [requirement_cls]
         return []
 
-    def GetAsString(self):
-        ParamString = self.Name  # PatchParameterName(self.Name)
+    def as_string(self):
+        parameter_as_string = self.name  # PatchParameterName(self.Name)
         # Some parameters have a 0 instead of 'None'
-        if self.DefaultValue == "0" and self.Type not in (None, "float", "int"):
-            self.DefaultValue = "None"
+        if self.default_value == "0" and self.Type not in (None, "float", "int"):
+            self.default_value = "None"
 
         if self.Type:
-            TypeStr = self.Type
-            if self.DefaultValue == "None":
-                TypeStr = f"{TypeStr}|None"
-            ParamString += f":{TypeStr}"
+            type_str = self.Type
+            if self.default_value == "None":
+                type_str = f"{type_str}|None"
+            parameter_as_string += f":{type_str}"
 
-        if self.DefaultValue is not None:
-            ParamString += f"={self.DefaultValue}"
+        if self.default_value is not None:
+            parameter_as_string += f"={self.default_value}"
 
-        return ParamString
+        return parameter_as_string
