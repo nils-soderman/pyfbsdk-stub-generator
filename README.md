@@ -1,3 +1,5 @@
+> ⚠️ This repository has moved to https://codeberg.org/nils-soderman/motionbuilder-stubs
+
 # MotionBuilder pyfbsdk stubs
 
 Project for generating fully typed python stub files for MotionBuilder's pyfbsdk modules
@@ -9,7 +11,7 @@ Stub files (`.pyi`) provide type information for Python modules, enabling better
 ## Pre-generated stubs
 ### Manual Download
 
-Pre-generated stubs can be manually downloaded from the [generated-stub-files](https://github.com/nils-soderman/pyfbsdk-stub-generator/tree/main/generated-stub-files) folder
+Pre-generated stubs can be manually downloaded from the [generated-stub-files](https://codeberg.org/nils-soderman/motionbuilder-stubs/src/branch/main/generated-stub-files) folder
 
 ### Installation via pip
 
@@ -24,12 +26,12 @@ pip index versions motionbuilder-stubs
 ```
 
 ## Generating stubs
-For manually generating stubs, see the README.md in the [pyfbsdk-stub-generator](https://github.com/nils-soderman/pyfbsdk-stub-generator/tree/main/pyfbsdk-stub-generator) folder
+For manually generating stubs, see the README.md in the [pyfbsdk-stub-generator](https://codeberg.org/nils-soderman/motionbuilder-stubs/src/branch/main/pyfbsdk-stub-generator) folder
 
 
 ## Issues
 
-If you run into any issues with the generator or while using the generated stubs. Please [open a issue](https://github.com/nils-soderman/pyfbsdk-stub-generator/issues) on the GitHub repository.
+If you run into any issues with the generator or while using the generated stubs. Please [open a issue](https://codeberg.org/nils-soderman/motionbuilder-stubs/issues) on the GitHub repository.
 
 
 Contributions are always welcomed!

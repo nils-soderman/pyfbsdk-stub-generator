@@ -1,6 +1,6 @@
 """
 Stub file generated for MotionBuilder 2024 using:
-https://github.com/nils-soderman/pyfbsdk-stub-generator
+https://codeberg.org/nils-soderman/motionbuilder-stubs
 """
 from __future__ import annotations
 

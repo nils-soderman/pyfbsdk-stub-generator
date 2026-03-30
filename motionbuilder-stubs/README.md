@@ -1,3 +1,5 @@
+> ⚠️ This repository has moved to https://codeberg.org/nils-soderman/motionbuilder-stubs
+
 # MotionBuilder Stubs
 
 Type stub files for Autodesk MotionBuilder's pyfbsdk API, providing code completion and type checking support.
@@ -22,8 +24,8 @@ pip install motionbuilder-stubs==2027.*
 
 ## Issues
 
-If you encounter any issues with these stubs, please [open an issue](https://github.com/nils-soderman/pyfbsdk-stub-generator/issues) on the GitHub repository.
+If you encounter any issues with these stubs, please [open an issue](https://codeberg.org/nils-soderman/motionbuilder-stubs/issues) on the repository.
 
 <br/>
 
-_These stubs are generated using [pyfbsdk-stub-generator](https://github.com/nils-soderman/pyfbsdk-stub-generator)_
+_These stubs are generated using [pyfbsdk-stub-generator](https://codeberg.org/nils-soderman/motionbuilder-stubs)_

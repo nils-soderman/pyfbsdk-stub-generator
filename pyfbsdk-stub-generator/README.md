@@ -1,3 +1,5 @@
+> ⚠️ This repository has moved to https://codeberg.org/nils-soderman/motionbuilder-stubs
+
 # MotionBuilder pyfbsdk stub-file generator
 Script for generating python stub files for Autodesk MotionBuilder's pyfbsdk modules
 
@@ -10,7 +12,7 @@ Script for generating python stub files for Autodesk MotionBuilder's pyfbsdk mod
 2. Call the generator using the mobupy Python interpreter
 
 ```cmd
-pip install git+https://github.com/nils-soderman/pyfbsdk-stub-generator#subdirectory=pyfbsdk-stub-generator --target="{INSTALL_LOCATION}"
+pip install git+https://codeberg.org/nils-soderman/motionbuilder-stubs#subdirectory=pyfbsdk-stub-generator --target="{INSTALL_LOCATION}"
 
 cd "{INSTALL_LOCATION}"
 

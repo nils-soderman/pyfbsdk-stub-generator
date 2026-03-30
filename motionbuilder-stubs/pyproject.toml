@@ -1,11 +1,11 @@
 [project]
 name = "motionbuilder-stubs"
-version = "2026.1.1"
+version = "2027.0.0"
 authors = [{ name = "Nils Soderman" }]
 description = "Stubs for Autodesk MotionBuilder's pyfbsdk api"
 keywords = ["pyfbsdk", "motionbuilder", "mobu", "autodesk", "stub"]
 readme = "README.md"
-requires-python = ">=3.7"
+requires-python = ">=3.13"
 classifiers = [
     "Programming Language :: Python :: 3",
     "Operating System :: OS Independent",
@@ -17,8 +17,8 @@ license = "MIT-0"
 license-files = ["LICENSE"]
 
 [project.urls]
-Homepage = "https://github.com/nils-soderman/pyfbsdk-stub-generator"
-Issues = "https://github.com/nils-soderman/pyfbsdk-stub-generator/issues"
+Homepage = "https://codeberg.org/nils-soderman/motionbuilder-stubs"
+Issues = "https://codeberg.org/nils-soderman/motionbuilder-stubs/issues"
 
 [build-system]
 requires = ["hatchling >= 1.27"]

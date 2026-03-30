@@ -1,6 +1,6 @@
 """
 Stub file generated for MotionBuilder 2026 using:
-https://github.com/nils-soderman/pyfbsdk-stub-generator
+https://codeberg.org/nils-soderman/motionbuilder-stubs
 
 This module provides functionality to initialize MotionBuilder's Python API (pyfbsdk) after launching
 the mobupy Python interpreter.
