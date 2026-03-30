@@ -2,6 +2,7 @@
 
 ## [2027.0.0]
 
+- Moved git repository to Codeberg (https://codeberg.org/nils-soderman/motionbuilder-stubs)
 - Support for MotionBuilder 2027
 - Stub for the `pyfbusd` module is now generated
 - Deprecated symbols are now marked with the `@deprecated` decorator
