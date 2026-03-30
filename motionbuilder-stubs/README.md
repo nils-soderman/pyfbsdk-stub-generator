@@ -5,18 +5,18 @@ Type stub files for Autodesk MotionBuilder's pyfbsdk API, providing code complet
 This package contains stubs for the following MotionBuilder modules:
 
 - `pyfbsdk`
-- `pyfbsdk_additions`  
+- `pyfbusd`
+- `pyfbsdk_additions`
 - `callbackframework`
 - `pyfbstandalone`
 
 
-
 ## Installation
 
-Install the stubs for your MotionBuilder version _(replace 2026 with your version)_:
+Install the stubs for your MotionBuilder version _(replace 2027 with your version)_:
 
 ```bash
-pip install motionbuilder-stubs==2026.*
+pip install motionbuilder-stubs==2027.*
 ```
 
 
